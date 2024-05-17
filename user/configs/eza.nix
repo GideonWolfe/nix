@@ -6,5 +6,9 @@
 		# show status of git files
 		git = true;
 		icons = true;
+		extraOptions = [ 
+			"-a"
+			"-l"
+		]
 	};
 }
