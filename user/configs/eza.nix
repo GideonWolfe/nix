@@ -9,6 +9,6 @@
 		extraOptions = [ 
 			"-a"
 			"-l"
-		]
+		];
 	};
 }
