@@ -113,5 +113,6 @@
 		# chinese, japanese, korean
 		noto-fonts-cjk 
 		font-awesome
+		font-awesome_5
 	];
 }

@@ -21,7 +21,7 @@
       ./system/services/greeter.nix
 
       # System level theming
-      ./system/graphics/stylix.nix
+      #./system/graphics/stylix.nix
 
       # Networking and Bluetooth
       ./system/services/networks/networking.nix
