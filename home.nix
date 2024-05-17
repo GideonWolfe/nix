@@ -56,6 +56,9 @@
     # Better CD
     ./user/configs/zoxide.nix
 
+    # Better LS
+    ./user/configs/eza.nix
+
     # Git
     ./user/configs/git.nix
 
