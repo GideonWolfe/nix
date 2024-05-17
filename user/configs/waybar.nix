@@ -24,6 +24,7 @@
 				];
 				modules-right = [ 
 					"backlight/slider"
+					"cava"
 					"wireplumber"
 					"mpris"
 					#"bluetooth"
@@ -42,13 +43,28 @@
 						default = "▶";
 						mpv = "🎵";
 						firefox = "";
-						spotify = "";
+						#vlc = "";
 					};
 					status-icons = {
 						paused = "⏸";
 						playing = "▶";
 					};
 					# ignored-players = [firefox];
+				};
+
+				"cava" = {
+					method = "pipewire";
+					framerate = 60;
+					sensitivity = 100;
+					bars = 10;
+					bar_delimiter = 0; # 0=none
+					autosens = 1;
+					format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
+					sleep_timer = 10;
+					hide_on_silence = true;
+					monstercat = true;
+					waves = true;
+
 				};
 			};
 		};
