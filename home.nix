@@ -50,6 +50,9 @@
     ./user/configs/hyprland.nix
     ./user/configs/sway.nix
 
+    # Waybar
+    ./user/configs/waybar.nix
+
     # Custom user directories
     ./user/configs/xdg-user-dirs.nix
 

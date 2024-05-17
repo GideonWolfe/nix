@@ -18,10 +18,15 @@
 				# Launch Notification client on start
 				{command = "mako";}
 				# Apply colorscheme
-				{command = "wal -R";}
+				#{command = "wal -R";}
+				# Launch Waybar
+				{command = "waybar";}
 			];
 			
 			menu = "wofi --show run";
+
+			# Set to empty since we use waybar
+			bars = [];
 
 		};
 	};

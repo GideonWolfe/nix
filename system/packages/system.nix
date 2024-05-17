@@ -51,6 +51,7 @@
 		wofi
 		bemenu # like dmenu, required by sth
 		scrot # screenshot
+		flameshot #screenshot GUI
 		speedtest-cli
 		xdg-user-dirs # change default user directoryies
 		xdg-utils
@@ -110,5 +111,6 @@
 		noto-fonts
 		# chinese, japanese, korean
 		noto-fonts-cjk 
+		font-awesome
 	];
 }
