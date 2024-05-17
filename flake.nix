@@ -20,7 +20,14 @@
 		#hyprland.url = "github:hyprwm/Hyprland";
 
 		# Stylix 
-		stylix.url = "github:danth/stylix/release-23.11";
+		#stylix.url = "github:danth/stylix/release-23.11";
+		# maybe here?
+		#stylix.image = "./system/graphics/zT7uCe2.png";
+
+		stylix = {
+			url = "github:danth/stylix/release-23.11";
+			#image = "./system/graphics/zT7uCe2.png";
+		};
 	};
 
 	outputs = {self, nixpkgs, home-manager, stylix, ...} @inputs:
@@ -36,6 +43,7 @@
 				specialArgs = {inherit inputs;};
 				# pass in stylix theming modules for system level theming (bootloaders, etc)
 				modules = [stylix.nixosModules.stylix ./configuration.nix];
+				#modules = [./configuration.nix];
 			};
 		};
 		homeConfigurations = {
