@@ -1,1 +1,2 @@
-./user/configs/ssh/keys/*
+user/configs/ssh/keys/*
+*.pub
