@@ -1,2 +1,6 @@
 user/configs/ssh/keys/*
 *.pub
+
+*.png
+*.jpg
+*.jpeg
