@@ -93,6 +93,29 @@
   #  WLR_RENDERER_ALLOW_SOFTWARE = "1";
   #};
 
+  # list of programs I want to execute WITHOUT passwd (ie from waybar)
+  #%wheel ALL=(ALL:ALL) NOPASSWD: ${pkgs.iotop}/bin/iotop
+  #security.sudo.configFile = ''
+  #security.sudo.extraConfig = ''
+  #gideon ALL=(ALL) NOPASSWD: ${pkgs.iotop}/bin/iotop
+  #'';
+  security.sudo = {
+	enable = true;
+	extraRules = [
+		{
+
+			groups = ["wheel"];
+			commands = [
+				{
+					#command = "${pkgs.iotop}/bin/iotop";
+					command = "/run/current-system/sw/bin/iotop";
+					options = ["NOPASSWD"];
+				}
+			];
+		}
+	];
+  };
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gideon = {

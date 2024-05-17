@@ -39,6 +39,7 @@
 		powertop # power analyzer (intel laptops)
 		lm_sensors # hardware sensors
 		pkgtop # TUI package monitor
+		cpupower-gui # GUI for tweaking CPU
 
 
 		# Utilities

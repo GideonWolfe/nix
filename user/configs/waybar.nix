@@ -42,6 +42,7 @@
 				];
 				modules-right = [ 
 					"backlight/slider"
+					"network"
 					"group/systemStats"
 					"battery"
 					"cava"
@@ -52,7 +53,7 @@
 				];
 
 				"group/systemStats" = {
-					orientation = "vertical";
+					orientation = "horizontal";
 					modules = [
 						"cpu"
 						"memory"
@@ -66,13 +67,21 @@
 				};
 				"disk" = {
 					format = " {percentage_used}%";
+					on-click = "baobab";
+					on-click-middle = "alacritty --command diskonaut /";
+					on-click-right = "alacritty --command sudo iotop";
 				};
 				"memory" = {
-					format = "{percentage}%";
+					format = " {percentage}%";
+					on-click = "alacritty --command NMON=m nmon";
 				};
 				"cpu" = {
-					format = "{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}";
+					format = " {usage}%";
 					format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+					on-click = "sudo cpupower-gui";
+				};
+				"battery" = {
+					on-click = "sudo powertop";
 				};
 				
 				"wireplumber" = {

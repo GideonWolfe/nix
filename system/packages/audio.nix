@@ -3,6 +3,7 @@
 {
 	environment.systemPackages = with pkgs; [
 		pipewire 
+		qpwgraph
 		ffmpeg
 		alsa-utils # amixer and other utilities
 		pavucontrol # PulseAudio control GUI
