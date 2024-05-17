@@ -13,13 +13,16 @@
 			modifier = "Mod4";
 			# Use kitty as default terminal
 			terminal = "kitty"; 
-			 # Startup Commands
+			# Startup Commands
 			startup = [
 				# Launch Notification client on start
 				{command = "mako";}
 				# Apply colorscheme
 				{command = "wal -R";}
 			];
+			
+			menu = "wofi --show run";
+
 		};
 	};
 

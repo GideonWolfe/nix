@@ -18,5 +18,8 @@
 
 		# Bar
 		waybar
+
+		# Display configuration service
+		kanshi
 	];
 }

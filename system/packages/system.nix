@@ -89,6 +89,8 @@
 		# Hardware 
 		piper # GTK frontend to configure mice
 		antimicrox # GUI for mapping buttons on input devices
+		openrgb-with-all-plugins # OpenRGB
+		ckb-next # Corsair keyboards
 
 		# File managers
 		ranger
