@@ -23,6 +23,7 @@
 		unzip
 		zip
 		czkawka # duplicate file finding GUI
+		file
 
 		# Monitors
 		atop # system/process monitor

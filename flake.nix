@@ -34,12 +34,14 @@
 			hermes = lib.nixosSystem {
 				inherit system;
 				specialArgs = {inherit inputs;};
-				modules = [./configuration.nix];
+				# pass in stylix theming modules for system level theming (bootloaders, etc)
+				modules = [stylix.nixosModules.stylix ./configuration.nix];
 			};
 		};
 		homeConfigurations = {
 			gideon = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
+				# pass in stylix theming modules for user apps
 				modules = [stylix.homeManagerModules.stylix ./home.nix];
 				#specialArgs = {inherit inputs;};
 			};
