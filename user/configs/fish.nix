@@ -6,7 +6,7 @@
 		enable = true;
 
 		shellAbbrs = {
-			x = "exa";
+			x = "eza";
 			v = "nvim";
 			p = "python3";
 			ga = "git add";
