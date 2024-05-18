@@ -52,12 +52,27 @@
 					"tray"
 				];
 
+				"network" = {
+					# TODO icons and info with color codes
+					format = " {ifname}";
+					format-wifi = " ";
+					format-ethernet = " ";
+					format-disconnected = " "; #An empty format will hide the module.
+					tooltip-format = "{ifname} via {gwaddr} 󰊗";
+					tooltip-format-wifi = " {essid} \n {ipaddr}/{cidr} \n {signalStrength}% Strength \n {bandwidthUpBits} \n {bandwidthDownBits}";
+					tooltip-format-ethernet = " {ifname} \n {ipaddr}/{cidr} \n {bandwidthUpBits} \n {bandwidthDownBits}";
+					tooltip-format-disconnected = "Disconnected";
+					max-length = 50;
+					on-click = "nm-connection-editor";
+				};
+
 				"group/systemStats" = {
 					orientation = "horizontal";
 					modules = [
 						"cpu"
 						"memory"
 						"disk"
+						"temperature"
 					];
 					drawer = {
 						transition-duration = 500;
@@ -71,6 +86,11 @@
 					on-click-middle = "alacritty --command diskonaut /";
 					on-click-right = "alacritty --command sudo iotop";
 				};
+
+				"temperature" = {
+					format = " {temperatureC}";
+					on-click = "psensor";
+				};
 				"memory" = {
 					format = " {percentage}%";
 					on-click = "alacritty --command NMON=m nmon";
@@ -79,6 +99,7 @@
 					format = " {usage}%";
 					format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
 					on-click = "sudo cpupower-gui";
+					on-click-right = "hardinfo";
 				};
 				"battery" = {
 					on-click = "sudo powertop";
