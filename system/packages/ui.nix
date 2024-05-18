@@ -18,6 +18,7 @@
 
 		# Bar
 		waybar
+		wttrbar #weather status for waybar
 
 		# Display configuration service
 		kanshi

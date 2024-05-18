@@ -55,6 +55,7 @@ with config.lib.stylix.colors.withHashtag;
 					"mpris"
 					#"bluetooth"
 					"tray"
+					"custom/weather"
 				];
 
 				"network" = {
@@ -144,6 +145,14 @@ with config.lib.stylix.colors.withHashtag;
 						"<span color='${base0B}'></span>"
 						"<span color='${base0A}'></span> "
 					];
+				};
+
+				"custom/weather" = {
+					format = "{}°";
+					tooltip = true;
+					interval = 3600;
+					exec = "wttrbar --main-indicator temp_F --fahrenheit --mph --location New_York";
+					return-type = "json";
 				};
 
 				"sway/workspaces" = {
