@@ -103,7 +103,7 @@ with config.lib.stylix.colors.withHashtag;
 					};
 				};
 				"disk" = {
-					format = " {percentage_used}%";
+					format = "<span color='${base0E}'> </span>{percentage_used}%";
 					on-click = "baobab /";
 					on-click-middle = "alacritty --command diskonaut /";
 					on-click-right = "alacritty --command sudo iotop";
@@ -114,12 +114,18 @@ with config.lib.stylix.colors.withHashtag;
 					on-click = "psensor";
 				};
 				"memory" = {
-					format = "{percentage}%";
+					format = "<span color='${base0A}'></span>{percentage}%";
 					on-click = "alacritty --command NMON=m nmon";
 				};
 				"cpu" = {
-					format = "<span color='${base09}'> </span>{usage}%";
-					format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+					format = "{icon} {usage}%";
+					#format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+					format-icons = [
+					"<span color='${base0B}'></span>"
+					"<span color='${base0A}'></span>"
+					"<span color='${base09}'></span>"
+					"<span color='${base08}'></span>"
+					];
 					on-click = "sudo cpupower-gui";
 					on-click-right = "hardinfo";
 				};
