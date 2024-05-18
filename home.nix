@@ -62,6 +62,9 @@
     # Better LS
     ./user/configs/eza.nix
 
+    # Cava
+    ./user/configs/cava.nix
+
     # Git
     ./user/configs/git.nix
 
