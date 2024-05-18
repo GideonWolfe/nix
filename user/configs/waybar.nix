@@ -12,12 +12,12 @@
 		#.modules-left #workspaces button.active {
 		style = ''
 		.modules-left #workspaces button {
-			color: @base05;
+			color: @base0A;
 		}
 		.modules-left #workspaces button.focused,
 		.modules-left #workspaces button.active {
 			border-bottom: 3px solid @base08;
-			color: @base0A;
+			color: @base05;
 		}
 		.modules-center #clock {
 			color: @base06

@@ -25,12 +25,11 @@
 		#stylix.image = "./system/graphics/zT7uCe2.png";
 
 		stylix = {
-			url = "github:danth/stylix";
+			url = "github:danth/stylix/release-23.11";
 			inputs = {
 				nixpkgs.follows = "nixpkgs";
 				home-manager.follows = "home-manager";
 			};
-			#image = "./system/graphics/zT7uCe2.png";
 		};
 	};
 
