@@ -1,4 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
+
+with config.lib.stylix.colors.withHashtag;
 
 {
 	programs.cava = {
@@ -11,14 +13,14 @@
 			};
 
 			# TODO add after colors
-			#color = {
-			#	gradient = 1;
-			#	gradient_count = 4;
-			#	gradient_color_1 = ;
-			#	gradient_color_2 = ;
-			#	gradient_color_3 = ;
-			#	gradient_color_4 = ;
-			#};
+			color = {
+				gradient = 1;
+				gradient_count = 4;
+				gradient_color_1 = "'${base06}'";
+				gradient_color_2 = "'${base09}'";
+				gradient_color_3 = "'${base0A}'";
+				gradient_color_4 = "'${base0E}'";
+			};
 
 			output = {
 				method = "ncurses";
