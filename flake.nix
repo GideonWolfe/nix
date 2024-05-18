@@ -4,18 +4,15 @@
 	inputs = {
 		nixpkgs = {
 			url = "github:NixOS/nixpkgs/nixos-23.11";
-			# TODO this should work
-			#config = {
-			#	allowUnfree = true;
-			#	allowUnfreePredicate = _: true;
-			#};
 		};
+
 		home-manager = {
 			url = "github:nix-community/home-manager/release-23.11";
 			inputs = {
 				nixpkgs.follows = "nixpkgs";
 			};
 		};
+
 		# Overriding hyperland package to get more opts
 		#hyprland.url = "github:hyprwm/Hyprland";
 
@@ -54,7 +51,7 @@
 				inherit pkgs;
 				# pass in stylix theming modules for user apps
 				modules = [stylix.homeManagerModules.stylix ./home.nix];
-				#extraSpecialArgs = {inherit stylix;};
+				#extraSpecialArgs = {inherit config;};
 			};
 		};
 
