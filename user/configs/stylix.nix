@@ -5,13 +5,16 @@
 	#stylix.image = /home/gideon/pictures/wallpapers/YxvmITo.jpg;	
 	stylix.image = ./zT7uCe2.png;	
 
+	# Override scheme (as opposed to getting from image)
+	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
 	stylix.polarity = "dark";
 
 	stylix.fonts = {
-		serif = {
-			package = pkgs.nerdfonts;
-			name = "Hack Nerd Font";
-		};
+		#serif = {
+		#	package = pkgs.nerdfonts;
+		#	name = "Hack Nerd Font";
+		#};
 
 		sansSerif = {
 			package = pkgs.nerdfonts;

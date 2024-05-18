@@ -16,10 +16,6 @@
 		# Overriding hyperland package to get more opts
 		#hyprland.url = "github:hyprwm/Hyprland";
 
-		# Stylix 
-		#stylix.url = "github:danth/stylix/release-23.11";
-		# maybe here?
-		#stylix.image = "./system/graphics/zT7uCe2.png";
 
 		stylix = {
 			url = "github:danth/stylix/release-23.11";
@@ -51,7 +47,6 @@
 				inherit pkgs;
 				# pass in stylix theming modules for user apps
 				modules = [stylix.homeManagerModules.stylix ./home.nix];
-				#extraSpecialArgs = {inherit config;};
 			};
 		};
 

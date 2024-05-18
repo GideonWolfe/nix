@@ -1,4 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
+
+with config.lib.stylix.colors.withHashtag;
 
 {
 	programs.waybar = {
@@ -58,12 +60,29 @@
 				"network" = {
 					# TODO icons and info with color codes
 					format = " {ifname}";
-					format-wifi = " ";
-					format-ethernet = " ";
-					format-disconnected = " "; #An empty format will hide the module.
+					format-wifi = "<span color='${base0E}'> </span>";
+					format-ethernet = "<span color='${base0E}'> </span>";
+					format-disconnected = "<span color='${base08}'> </span>"; #An empty format will hide the module.
 					tooltip-format = "{ifname} via {gwaddr} 󰊗";
-					tooltip-format-wifi = " {essid} \n {ipaddr}/{cidr} \n {signalStrength}% Strength \n {bandwidthUpBits} \n {bandwidthDownBits}";
-					tooltip-format-ethernet = " {ifname} \n {ipaddr}/{cidr} \n {bandwidthUpBits} \n {bandwidthDownBits}";
+					#tooltip-format-wifi = " {essid} \n {ipaddr}/{cidr} \n {signalStrength}% Strength \n {bandwidthUpBits} \n {bandwidthDownBits}";
+					#tooltip-format-ethernet = "{ifname} \n{ipaddr}/{cidr} \n {bandwidthUpBits} \n {bandwidthDownBits}";
+					#TODO this is neater but adds a ton of whitespace
+					# The whitespace disappears when this text is left aligned but its UGLY
+					tooltip-format-ethernet = 
+					"
+					<span color='${base0E}'></span>{ifname}
+					<span color='${base0E}'></span>{ipaddr}/{cidr}
+					<span color='${base0E}'> </span>{bandwidthUpBits}
+					<span color='${base0E}'> </span>{bandwidthDownBits}
+					";
+					tooltip-format-wifi = 
+					"
+					<span color='${base0E}'> </span>{essid}
+					<span color='${base0E}'></span>{ipaddr}/{cidr}
+					<span color='${base0E}'> </span>{signalStrength}
+					<span color='${base0E}'> </span>{bandwidthUpBits}
+					<span color='${base0E}'> </span>{bandwidthDownBits}
+					";
 					tooltip-format-disconnected = "Disconnected";
 					max-length = 50;
 					on-click = "nm-connection-editor";
@@ -85,7 +104,7 @@
 				};
 				"disk" = {
 					format = " {percentage_used}%";
-					on-click = "baobab";
+					on-click = "baobab /";
 					on-click-middle = "alacritty --command diskonaut /";
 					on-click-right = "alacritty --command sudo iotop";
 				};
@@ -95,11 +114,11 @@
 					on-click = "psensor";
 				};
 				"memory" = {
-					format = " {percentage}%";
+					format = "{percentage}%";
 					on-click = "alacritty --command NMON=m nmon";
 				};
 				"cpu" = {
-					format = " {usage}%";
+					format = "<span color='${base09}'> </span>{usage}%";
 					format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
 					on-click = "sudo cpupower-gui";
 					on-click-right = "hardinfo";
@@ -112,12 +131,12 @@
 					format = "{icon} {volume}%";
 					on-click-middle = "qpwgraph";
 					on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-					format-muted = "<span color='#FF0000'> {volume}%</span>";
+					format-muted = "<span color='${base08}'> {volume}%</span>";
 					#format-icons = [ "" "" ""];
 					format-icons = [ 
-						"<span color='#FFFFFF'> </span>"
-						" "
-						" "
+						"<span color='${base0D}'></span>"
+						"<span color='${base0B}'></span>"
+						"<span color='${base0A}'></span> "
 					];
 				};
 
@@ -127,7 +146,7 @@
 					format = "{icon}";
 					# Workspace Icons
 					format-icons = {
-						"1" = ""; # TODO this specific one doesn't show up
+						"1" = "";
 						"2" = "";
 						"3" = "";
 						"4" = "";
@@ -162,9 +181,9 @@
 
 				"cava" = {
 					method = "pipewire";
-					framerate = 60;
-					sensitivity = 100;
-					bars = 10;
+					framerate = 80;
+					sensitivity = 50;
+					bars = 7;
 					bar_delimiter = 0; # 0=none
 					autosens = 1;
 					format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
@@ -196,11 +215,11 @@
 
 						# Calendar Format
 						format = {
-							months = "<span color='#ffead3'><b>{}</b></span>";
-							days =  "<span color='#ecc6d9'><b>{}</b></span>";
-							weeks = "<span color='#99ffdd'><b>W{}</b></span>";
-							weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-							today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+							months = "<span color='${base0D}'><b>{}</b></span>";
+							days =  "<span color='${base05}'><b>{}</b></span>";
+							weeks = "<span color='${base0B}'><b>W{}</b></span>";
+							weekdays = "<span color='${base0C}'><b>{}</b></span>";
+							today = "<span color='${base08}'><b><u>{}</u></b></span>";
 						};
 					};
 

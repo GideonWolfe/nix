@@ -47,6 +47,7 @@
 		# Utilities
 		bc # calculator
 		bat # better cat
+		imv # like mpv for images
 		fd # better find
 		lnav # logfile viewer
 		moreutils # additional unix tools
@@ -81,6 +82,9 @@
 		fish
 		fishPlugins.done
 
+		# Collection of colorschemes
+		base16-schemes
+
 		# Filesystem Utilities
 		ntfs3g # NTFS driver
 		gparted
@@ -99,6 +103,7 @@
 
 		# File managers
 		ranger
+		xfce.thunar
 
 		# Replacements for various X utils
 		wev # wayland xev
