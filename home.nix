@@ -62,6 +62,9 @@
     # Better LS
     ./user/configs/eza.nix
 
+    # Screenshotting tool
+    ./user/configs/flameshot.nix
+
     # Cava
     ./user/configs/cava.nix
 

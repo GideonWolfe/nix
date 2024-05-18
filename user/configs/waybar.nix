@@ -118,7 +118,7 @@ with config.lib.stylix.colors.withHashtag;
 					on-click = "alacritty --command NMON=m nmon";
 				};
 				"cpu" = {
-					format = "{icon} {usage}%";
+					format = "{icon}{usage}%";
 					#format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
 					format-icons = [
 					"<span color='${base0B}'></span>"

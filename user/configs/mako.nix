@@ -1,10 +1,15 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
+
+with config.lib.stylix.colors.withHashtag;
 
 {
 	services.mako = {
 		enable = true;
 
-		#font = "Hack Nerd Font Mono 10";
 		icons = true;
+
+		textColor = base05;
+
+		defaultTimeout = 10;
 	};
 }
