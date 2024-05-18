@@ -109,6 +109,9 @@
 		wev # wayland xev
 		ydotool # (wayland xdotool)
 		wl-clipboard # wayland xclip
+
+		# Icon set
+		papirus-icon-theme
 		
 	];
 

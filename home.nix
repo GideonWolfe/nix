@@ -53,6 +53,9 @@
     # Waybar
     ./user/configs/waybar.nix
 
+    # GTK settings/theming
+    ./user/configs/gtk.nix
+
     # Custom user directories
     ./user/configs/xdg-user-dirs.nix
 
