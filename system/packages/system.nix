@@ -118,11 +118,15 @@
 	fonts.packages = with pkgs; [
 		# collection of patched fonts
 		nerdfonts
+		noto-fonts
 		# symbols and emoji (outlined)
 		symbola
-		noto-fonts
+		noto-fonts-monochrome-emoji
 		# chinese, japanese, korean
 		noto-fonts-cjk 
+		noto-fonts-cjk-sans
+		noto-fonts-cjk-serif
+		# Font Awesome
 		font-awesome
 		font-awesome_5
 	];

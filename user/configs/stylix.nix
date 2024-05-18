@@ -26,6 +26,11 @@
 			name = "Hack Nerd Font Mono";
 		};
 
+		#emoji = {
+		#	name = "Noto Emoji";
+		#	package = pkgs.noto-fonts-monochrome-emoji;
+		#};
+
 		emoji = {
 			name = "Symbola";
 			package = pkgs.symbola;

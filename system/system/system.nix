@@ -11,4 +11,11 @@
 
   # Enable fish shell
   #programs.fish.enable = true;
+
+  # Configure system level fonts
+  fonts.fontconfig = {
+	defaultFonts = {
+		emoji = ["Noto Emoji Light" "Symbola"];
+	};
+  };
 }
