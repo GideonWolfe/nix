@@ -41,6 +41,7 @@
 		pkgtop # TUI package monitor
 		cpupower-gui # GUI for tweaking CPU
 		hardinfo # GUI for devices/hardware
+		psensor # hardware monitoring GUI
 
 
 		# Utilities

@@ -18,5 +18,8 @@
 		# TUI and GUI RSS readers
 		pkgs.newsboat
 		pkgs.akregator
+
+		# TUI Podcast client
+		pkgs.castero
 	];
 }

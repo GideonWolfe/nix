@@ -2,8 +2,10 @@
 
 {
 	home.packages = [
-		#pkgs.unimatrix
+		# screensavers
+		#pkgs.unimatrix #only in unstable
 		pkgs.asciiquarium
+		pkgs.pipes
 		pkgs.sl
 		# generate ascii text
 		pkgs.toilet

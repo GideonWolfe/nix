@@ -19,6 +19,9 @@
 			border-bottom: 3px solid @base08;
 			color: @base0A;
 		}
+		.modules-center #clock {
+			color: @base06
+		}
 		'';
 
 		settings = {
@@ -41,9 +44,9 @@
 					"clock"
 				];
 				modules-right = [ 
+					"group/systemStats"
 					"backlight/slider"
 					"network"
-					"group/systemStats"
 					"battery"
 					"cava"
 					"wireplumber"
@@ -112,9 +115,9 @@
 					format-muted = "<span color='#FF0000'> {volume}%</span>";
 					#format-icons = [ "" "" ""];
 					format-icons = [ 
-						"<span color='#FFFFFF'></span>"
-						""
-						""
+						"<span color='#FFFFFF'> </span>"
+						" "
+						" "
 					];
 				};
 
