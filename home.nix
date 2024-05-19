@@ -75,6 +75,9 @@
     # Better LS
     ./user/configs/eza.nix
 
+    # Better Cat
+    ./user/configs/bat.nix
+
     # Screenshotting tool
     ./user/configs/flameshot.nix
 

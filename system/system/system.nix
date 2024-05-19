@@ -28,7 +28,7 @@
 	# Choose the theme
 	# default is "stylix" but idk how to change it from stylix config
 	# https://github.com/adi1090x/plymouth-themes
-	theme = "hexagon_dots";
+	theme = "motion";
   };
 
 }
