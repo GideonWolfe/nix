@@ -155,13 +155,15 @@
 			};
 
 			# cat abbreviation
-			bat = {
+			c = {
 				body = "bat $argv";
 			};
 
 			# Git commit shortcut
-			c = {
-				body = "command git commit -m '$argv'";
+			commit = {
+				body = ''
+					command git commit -m "$argv"
+					'';
 			};
 
 			# Better Youtube-dl opts
