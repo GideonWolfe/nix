@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
 	# Allow HM to manage fish config
@@ -164,6 +164,31 @@
 				body = ''
 					command git commit -m "$argv"
 					'';
+			};
+
+			# Build NixOS System
+			bldnix = {
+				#body = "sudo nixos-rebuild switch --flake ${config.users.gideon.home}/nix";
+				body = "sudo nixos-rebuild switch --flake /home/gideon/nix/";
+			};
+			# Build Home Manager Config
+			bldhome = {
+				body = "home-manager switch --flake /home/gideon/nix/";
+			};
+
+			
+			bldcommit = {
+				body = ''
+					git -C /home/gideon/nix/ add .
+					read --prompt="set_color green; echo  ; set_color normal; echo 'Commit Message: '" COMMITMSG
+					git -C /home/gideon/nix/ commit -m $COMMITMSG
+				'';
+			};
+
+			bldpush = {
+				body = ''
+					fish -c cd /home/gideon/nix/; git push;
+				'';
 			};
 
 			# Better Youtube-dl opts

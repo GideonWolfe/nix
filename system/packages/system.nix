@@ -19,6 +19,7 @@
 		eza # better ls (formerly exa)
 		zoxide # better cd
 		tmux
+		screen
 
 		# File Operations
 		#unrar

@@ -50,8 +50,12 @@
     ./user/configs/hyprland.nix
     ./user/configs/sway.nix
     ./user/configs/swaylock.nix
+
     # Display configs
     ./user/configs/kanshi.nix
+
+    # Kitty
+    ./user/configs/kitty.nix
 
     # Waybar
     ./user/configs/waybar.nix
