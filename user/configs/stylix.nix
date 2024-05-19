@@ -1,9 +1,9 @@
-{ pkgs, lib, stylix, ... }:
+{ pkgs, lib, stylix, config, ... }:
 
 {
 	# Set wallpaper
-	#stylix.image = /home/gideon/pictures/wallpapers/YxvmITo.jpg;	
-	stylix.image = ./zT7uCe2.png;	
+	stylix.image = "${config.home.homeDirectory}/pictures/wallpapers/zT7uCe2.png";	
+	#stylix.image = ./zT7uCe2.png;	
 
 	# Override scheme (as opposed to getting from image)
 	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";

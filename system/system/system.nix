@@ -19,6 +19,10 @@
 	};
   };
 
+  # Option for enabling CKB next
+  # TODO build a conditional to only run if corsair detected
+  #hardware.ckb-next.enable = true;
+
 
   boot.plymouth = {
 	# Enable plymouth on the system
