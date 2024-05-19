@@ -55,6 +55,9 @@
     # Waybar
     ./user/configs/waybar.nix
 
+    # Wofi
+    ./user/configs/wofi.nix
+
     # GTK settings/theming
     ./user/configs/gtk.nix
 
