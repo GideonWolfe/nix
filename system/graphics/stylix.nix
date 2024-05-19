@@ -45,5 +45,11 @@
 			};
 		};
 
+		targets = {
+			# Disable this so I can set the theme from the system and specify a custom one
+			# stylix doesn't have a theme option
+			plymouth = {enable = false;};
+		};
+
 	};	
 }

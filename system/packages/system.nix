@@ -8,6 +8,9 @@
 		greetd.tuigreet
 		# Lockscreen
 		swaylock
+		# Boot splash
+		plymouth
+		adi1090x-plymouth-themes
 
 		# Terminals
 		alacritty

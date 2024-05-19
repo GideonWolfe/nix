@@ -15,7 +15,20 @@
   # Configure system level fonts
   fonts.fontconfig = {
 	defaultFonts = {
-		emoji = ["Noto Emoji Light" "Symbola"];
+		emoji = ["Symbola"];
 	};
   };
+
+
+  boot.plymouth = {
+	# Enable plymouth on the system
+  	enable = true;
+	# Pass in the package of themes we also downloaded
+	themePackages = [ pkgs.adi1090x-plymouth-themes ];
+	# Choose the theme
+	# default is "stylix" but idk how to change it from stylix config
+	# https://github.com/adi1090x/plymouth-themes
+	theme = "hexagon_dots";
+  };
+
 }

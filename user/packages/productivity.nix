@@ -32,6 +32,7 @@
 
 		# Password manager
 		pkgs.keepassxc
+		pkgs.gnome.seahorse
 
 		# Emoji selector
 		pkgs.wofi-emoji
