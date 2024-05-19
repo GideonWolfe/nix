@@ -54,8 +54,8 @@ with config.lib.stylix.colors.withHashtag;
 					"wireplumber"
 					"mpris"
 					#"bluetooth"
-					"tray"
 					"custom/weather"
+					"tray"
 				];
 
 				"network" = {
@@ -144,6 +144,7 @@ with config.lib.stylix.colors.withHashtag;
 						"<span color='${base0D}'></span>"
 						"<span color='${base0B}'></span>"
 						"<span color='${base0A}'></span> "
+						"<span color='${base08}'></span> "
 					];
 				};
 
