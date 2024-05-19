@@ -7,7 +7,8 @@ with config.lib.stylix.colors.withHashtag;
 		enable = true;
 
 		iconTheme = {
-			name = "Papirus";
+			#name = "Papirus";
+			name = "ePapirus-dark";
 		};
 
 	};

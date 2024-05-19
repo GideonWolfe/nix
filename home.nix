@@ -66,6 +66,9 @@
     # GTK settings/theming
     ./user/configs/gtk.nix
 
+    # Qt settings/theming
+    ./user/configs/qt.nix
+
     # Custom user directories
     ./user/configs/xdg-user-dirs.nix
 

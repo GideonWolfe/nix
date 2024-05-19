@@ -8,6 +8,7 @@
 		bluez
 		blueman
 		inetutils # various networking utils (ftp, traceroute, whois, etc)
+		libsForQt5.kdeconnect-kde
 		openssh
 		gping #graphical ping
 	];

@@ -17,5 +17,16 @@
 		# GUI
 		#pkgs.pencil # Prototyping tool (like figma)
 
+		# Security
+		pkgs.radare2
+		#pkgs.iaito #radare2 gui
+		pkgs.rizin # fork of r2
+		pkgs.cutter # rizin gui
+		#pkgs.rizinPlugins.rz-ghidra # add ghidra support
+		#pkgs.cutterPlugins.rz-ghidra
+		# TODO both conflicts when built
+		#pkgs.ghidra
+		pkgs.ghidra-bin
+
 	];
 }
