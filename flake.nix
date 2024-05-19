@@ -38,8 +38,8 @@
 				inherit system;
 				specialArgs = {inherit inputs;};
 				# pass in stylix theming modules for system level theming (bootloaders, etc)
-				#modules = [stylix.nixosModules.stylix ./configuration.nix];
-				modules = [./configuration.nix];
+				modules = [stylix.nixosModules.stylix ./configuration.nix];
+				#modules = [./configuration.nix];
 			};
 		};
 		homeConfigurations = {

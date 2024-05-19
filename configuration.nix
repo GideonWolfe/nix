@@ -15,13 +15,13 @@
       ./hardware-configuration.nix
 
       # General System Settings
-      #./system/system/system.nix
+      ./system/system/system.nix
 
       # Login manager/greeter
       ./system/services/greeter.nix
 
       # System level theming
-      #./system/graphics/stylix.nix
+      ./system/graphics/stylix.nix
 
       # Networking and Bluetooth
       ./system/services/networks/networking.nix
@@ -63,6 +63,8 @@
       # System
       ./system/packages/system.nix
     ];
+
+  #stylix.image = ./system/graphics/zT7uCe2.png;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;

@@ -2,9 +2,48 @@
 
 {
 	# Enable Stylix for system level theming
-	programs.stylix = {
-		enable = true;
+	stylix = {
 		image = ./zT7uCe2.png;
 		#image = /home/gideon/nix/user/configs/zT7uCe2.png;
+
+		polarity = "dark";
+
+
+		fonts = {
+			#serif = {
+			#	package = pkgs.nerdfonts;
+			#	name = "Hack Nerd Font";
+			#};
+
+			sansSerif = {
+				package = pkgs.nerdfonts;
+				name = "Hack Nerd Font";
+			};
+
+			monospace = {
+				package = pkgs.nerdfonts;
+				name = "Hack Nerd Font Mono";
+			};
+
+			# TODO this font isn't found, and gucharmap doesn't show it providing the emojis? 
+			# But it shows up as installed
+			#emoji = {
+			#	name = "Noto Emoji";
+			#	package = pkgs.noto-fonts-monochrome-emoji;
+			#};
+
+			# This DOES provide the monochrome symbols according to gucharmap
+			# but for whatever reason colored emojis show up
+			emoji = {
+				name = "Symbola";
+				package = pkgs.symbola;
+			};
+
+			sizes = {
+				desktop = 13;
+				applications = 15;
+			};
+		};
+
 	};	
 }
