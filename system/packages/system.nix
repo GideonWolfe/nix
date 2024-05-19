@@ -116,6 +116,8 @@
 		# Icon set
 		#papirus-icon-theme
 		#papirus-folders
+
+		weechat
 		
 	];
 
