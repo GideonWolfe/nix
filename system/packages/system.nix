@@ -113,7 +113,8 @@
 		wl-clipboard # wayland xclip
 
 		# Icon set
-		papirus-icon-theme
+		#papirus-icon-theme
+		#papirus-folders
 		
 	];
 

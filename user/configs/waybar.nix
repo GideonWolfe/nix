@@ -198,7 +198,7 @@ with config.lib.stylix.colors.withHashtag;
 				"cava" = {
 					method = "pipewire";
 					framerate = 80;
-					sensitivity = 50;
+					sensitivity = 1;
 					bars = 7;
 					bar_delimiter = 0; # 0=none
 					autosens = 1;

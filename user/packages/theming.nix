@@ -16,6 +16,9 @@
 		#pkgs.python312Packages.colorthief
 		pkgs.colorz
 
+		pkgs.papirus-icon-theme
+		pkgs.papirus-folders
+
 		#pkgs.pywalfox-native
 	];
 
