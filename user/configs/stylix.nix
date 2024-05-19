@@ -26,11 +26,15 @@
 			name = "Hack Nerd Font Mono";
 		};
 
+		# TODO this font isn't found, and gucharmap doesn't show it providing the emojis? 
+		# But it shows up as installed
 		#emoji = {
 		#	name = "Noto Emoji";
 		#	package = pkgs.noto-fonts-monochrome-emoji;
 		#};
 
+		# This DOES provide the monochrome symbols according to gucharmap
+		# but for whatever reason colored emojis show up
 		emoji = {
 			name = "Symbola";
 			package = pkgs.symbola;
