@@ -180,14 +180,14 @@
 			bldcommit = {
 				body = ''
 					git -C /home/gideon/nix/ add .
-					read --prompt="set_color green; echo  ; set_color normal; echo 'Commit Message: '" COMMITMSG
+					read --prompt="set_color green; echo -n  ; set_color normal; echo 'Commit Message: '" COMMITMSG
 					git -C /home/gideon/nix/ commit -m $COMMITMSG
 				'';
 			};
 
 			bldpush = {
 				body = ''
-					fish -c cd /home/gideon/nix/; git push;
+					git -C /home/gideon/nix/ push
 				'';
 			};
 
