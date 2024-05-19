@@ -81,6 +81,13 @@
   # required for sway according to docs
   security.polkit.enable = true;
 
+  # Required for swaylock to work
+  security.pam.services.swaylock = {
+	text = ''
+		auth include login
+	'';
+  };
+
   #hardware.opengl.enable = true;
 
   # Enable Flakes

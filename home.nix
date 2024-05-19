@@ -49,6 +49,7 @@
     # Enable when ready for it
     ./user/configs/hyprland.nix
     ./user/configs/sway.nix
+    ./user/configs/swaylock.nix
     # Display configs
     ./user/configs/kanshi.nix
 

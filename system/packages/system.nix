@@ -6,6 +6,8 @@
 		greetd.greetd
 		# actual greeter
 		greetd.tuigreet
+		# Lockscreen
+		swaylock
 
 		# Terminals
 		alacritty
