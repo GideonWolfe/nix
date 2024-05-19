@@ -2,8 +2,9 @@
 
 {
 	# Set wallpaper
-	stylix.image = "${config.home.homeDirectory}/pictures/wallpapers/zT7uCe2.png";	
+	#stylix.image = "${config.home.homeDirectory}/nix/system/graphics/wallpapers/zT7uCe2.png";	
 	#stylix.image = ./zT7uCe2.png;	
+	stylix.image = ../../system/graphics/wallpapers/zT7uCe2.png;	
 
 	# Override scheme (as opposed to getting from image)
 	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";

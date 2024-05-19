@@ -4,6 +4,7 @@
 	# Enable Stylix for system level theming
 	stylix = {
 		image = ./wallpapers/zT7uCe2.png;
+		#image = "${config.users.users.gideon.home}/nix/system/graphics/wallpapers/zT7uCe2.png";
 		#image = /home/gideon/nix/user/configs/zT7uCe2.png;
 
 		polarity = "dark";
