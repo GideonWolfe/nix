@@ -49,6 +49,8 @@
     # Enable when ready for it
     ./user/configs/hyprland.nix
     ./user/configs/sway.nix
+    # Display configs
+    ./user/configs/kanshi.nix
 
     # Waybar
     ./user/configs/waybar.nix

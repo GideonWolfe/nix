@@ -22,5 +22,6 @@
 
 		# Display configuration service
 		kanshi
+		wdisplays
 	];
 }
