@@ -13,5 +13,6 @@
 		docker-compose
 		# Java
 		jdk
+		git
 	];
 }

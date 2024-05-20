@@ -92,7 +92,7 @@
 
   #hardware.opengl.enable = true;
 
-  services.weechat.enable = true;
+  services.weechat.enable = false;
 
   # Enable Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
