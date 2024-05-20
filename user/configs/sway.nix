@@ -52,6 +52,14 @@ with config.lib.stylix.colors.withHashtag;
 			# Set to empty since we use waybar
 			bars = [];
 
+			keybindings = 
+			let
+				modifier = config.wayland.windowManager.sway.config.modifier;
+			in lib.mkOptionDefault {
+				"${modifier}+Shift+q" = "kill";
+				"${modifier}+Shift+l" = "exec swaylock";
+			};
+
 		};
 	};
 

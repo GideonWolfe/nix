@@ -39,7 +39,7 @@
     ./user/packages/productivity.nix
 
     # My wallpapers
-    ./user/packages/wallpapers.nix
+    #./user/packages/wallpapers.nix
 
     ###########
     # CONFIGS #
