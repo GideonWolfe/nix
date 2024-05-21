@@ -93,6 +93,9 @@
     # SSH
     ./user/configs/ssh/ssh.nix
 
+    # Bluetooth (enabling applet)
+    ./user/configs/bluetooth.nix
+
     # Shell config
     ./user/configs/fish.nix
 

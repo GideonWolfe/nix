@@ -18,7 +18,6 @@
 		# MUSIC #
 		#########
 		pkgs.frescobaldi # lillypond GUI for writing scores
-		pkgs.minuet # learn music theory
 		pkgs.fmit # instrument tuner
 	];
 }

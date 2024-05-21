@@ -5,5 +5,7 @@
 		pkgs.steam
 		pkgs.protontricks
 		pkgs.lutris
+		#pkgs.mangohud
+		#pkgs.jstest-gtk
 	];
 }

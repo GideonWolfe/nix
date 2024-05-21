@@ -12,7 +12,7 @@
 		pkgs.poppler # PDF rendering library
 		pkgs.okular # Documant/PDF viewer
 		pkgs.xournalpp # paint.net clone
-
+		#pkgs.mdbook # Create books from markdown # lots of extra addons for this, check package list
 		#pkgs.calligra # suite of productivity apps
 		#pkgs.gaphor # python UML modeling tool
 
@@ -29,6 +29,7 @@
 
 		# TUI timer
 		pkgs.peaclock
+		pkgs.kronometer
 
 		# Password manager
 		pkgs.keepassxc
@@ -36,5 +37,21 @@
 
 		# Emoji selector
 		pkgs.wofi-emoji
+
+		#########
+		# UTILS #
+		#########
+		#pkgs.barcode # barcode generator
+		#pkgs.zbar # barcode scanner
+		#pkgs.gpick # color picker
+
+		#########
+		# PHOTO #
+		#########
+		#pkgs.exif # manipulate photo metadata
+		#pkgs.gifsicle # manipulate gif metadata
+
+
+
 	];
 }

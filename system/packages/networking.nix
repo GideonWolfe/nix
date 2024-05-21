@@ -3,6 +3,7 @@
 {
 	environment.systemPackages = with pkgs; [
 		wget
+		nmap
 		networkmanager
 		networkmanagerapplet
 		bluez
@@ -11,5 +12,6 @@
 		libsForQt5.kdeconnect-kde
 		openssh
 		gping #graphical ping
+		ip2location
 	];
 }

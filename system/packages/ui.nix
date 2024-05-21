@@ -23,5 +23,9 @@
 		# Display configuration service
 		kanshi
 		wdisplays
+
+		# Utils
+		slurp # select region in wayland compositor (like slop for X)
+		wayland-utils
 	];
 }

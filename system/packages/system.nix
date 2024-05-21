@@ -29,14 +29,18 @@
 		unzip
 		zip
 		czkawka # duplicate file finding GUI
+		szyszka # bulk file renamer GUI
 		file
 
 		# Monitors
 		atop # system/process monitor
+		btop
 		htop # system/process monitor
 		iotop # IO monitor
+		ioping # IO latency monitor
 		dnstop # DNS traffic monitor
 		bandwhich # bandwidth monitor
+		jnettop
 		ktop # kernel monitor
 		glances # system/process monitor
 		bmon # bandwidth monitor
@@ -44,15 +48,19 @@
 		nmon # system monitor
 		powertop # power analyzer (intel laptops)
 		lm_sensors # hardware sensors
+		hddtemp # display hard disk temps
 		pkgtop # TUI package monitor
 		cpupower-gui # GUI for tweaking CPU
 		hardinfo # GUI for devices/hardware
+		hwinfo # get info about hardware
 		psensor # hardware monitoring GUI
+		zenith # another TUI system monitor
 
 
 		# Utilities
 		bc # calculator
 		bat # better cat
+		csview # cat out CSV files
 		imv # like mpv for images
 		fd # better find
 		lnav # logfile viewer
@@ -106,6 +114,9 @@
 		antimicrox # GUI for mapping buttons on input devices
 		openrgb-with-all-plugins # OpenRGB
 		ckb-next # Corsair keyboards
+		#lact # GUI for AMD GPU control
+		#nvitop # Interactive TUI for Nvidia GPU control # this may need additional plugins to detect other GPUs, check package list
+		pciutils # providing utils for PCI devices such as lspci command
 
 		# File managers
 		ranger

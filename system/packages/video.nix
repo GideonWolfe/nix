@@ -4,11 +4,13 @@
 	environment.systemPackages = with pkgs; [
 		# Video Players
 		mpv
+		mpvScripts.mpris #make mpv use mpris
 		vlc
 		# converter and DVD ripper
 		handbrake 
 		# Downloaders
 		youtube-dl
+		yt-dlp #better youtube-dl
 		# Take photos through webcam
 		gnome.cheese
 		neofetch

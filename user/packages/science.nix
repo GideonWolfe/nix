@@ -60,6 +60,12 @@
 		pkgs.paraview # data visualization engine
 		pkgs.labplot # data visualization engine
 		pkgs.zotero # organize research and sources
-		pkgs.anki # flash card system
+
+		#############
+		# EDUCATION #
+		#############
+		#pkgs.anki # flash card system
+		#pkgs.aldo # Learn morse code
+		#pkgs.minuet # Learn music theory
 	];
 }

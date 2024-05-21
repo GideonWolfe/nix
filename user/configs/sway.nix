@@ -22,6 +22,14 @@ with config.lib.stylix.colors.withHashtag;
 				size = config.stylix.fonts.sizes.desktop + 0.0;
 			};
 
+			# Configure outputs
+			output = {
+				# For VM
+				Virtual-1 = {
+					mode = "1920x1080@60.000Hz";
+				};
+			};
+
 			gaps = {
 				vertical = 4;
 				top = 4;
@@ -57,7 +65,13 @@ with config.lib.stylix.colors.withHashtag;
 				modifier = config.wayland.windowManager.sway.config.modifier;
 			in lib.mkOptionDefault {
 				"${modifier}+Shift+q" = "kill";
-				"${modifier}+Shift+l" = "exec swaylock";
+				"${modifier}+Shift+x" = "exec swaylock";
+				"${modifier}+Shift+f" = "fullscreen toggle";
+				"${modifier}+Shift+s" = "layout stacking";
+				"${modifier}+Shift+w" = "layout tabbed";
+				"${modifier}+Shift+e" = "layout toggle split";
+				"${modifier}+Shift+space" = "floating toggle";
+				"${modifier}+e" = "exec wofi-emoji";
 			};
 
 		};

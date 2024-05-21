@@ -7,9 +7,12 @@
 		pkgs.asciiquarium
 		pkgs.pipes
 		pkgs.sl
+		pkgs.lavat
 		# generate ascii text
 		pkgs.toilet
 		pkgs.figlet
+		pkgs.cowsay
+		pkgs.charasay
 		pkgs.dwt1-shell-color-scripts
 		pkgs.lolcat
 	];
