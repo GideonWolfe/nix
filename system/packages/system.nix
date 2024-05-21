@@ -79,6 +79,8 @@
 		gnome.gnome-font-viewer
 		tldr # better man pages with examples
 		espeak
+		libsForQt5.qt5.qttools # toolset that includes qdbusviewer
+		libsForQt5.qt5.qtwayland # wayland compatibility
 
 
 		# Notification daemon
@@ -91,6 +93,11 @@
 
 		# Print daemon
 		cups
+
+		# Virtualization service
+		# TODO enable on real hardware
+		#libvirt
+		#virt-manager
 
 		# Alternate shells
 		fish

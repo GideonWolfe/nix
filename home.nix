@@ -22,11 +22,18 @@
     # Art
     ./user/packages/art.nix
 
-    # Science
-    ./user/packages/science.nix
-
-    # Engineering
-    ./user/packages/engineering.nix
+    # STEM
+    #./user/packages/science.nix
+    ./user/packages/science/astronomy.nix
+    ./user/packages/science/biology.nix
+    ./user/packages/science/chemistry.nix
+    ./user/packages/science/data.nix
+    #./user/packages/science/education.nix
+    ./user/packages/science/geography.nix
+    ./user/packages/science/math.nix
+    #./user/packages/science/medecine.nix
+    ./user/packages/science/utilities.nix
+    ./user/packages/science/engineering.nix
 
     # Development
     ./user/packages/development/rust.nix

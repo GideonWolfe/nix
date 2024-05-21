@@ -9,6 +9,7 @@
 		pkgs.qt5ct
 		pkgs.qt6ct
 		pkgs.qtcurve
+		pkgs.libsForQt5.qtstyleplugins
 		# GTK utils
 		pkgs.wpgtk
 		pkgs.lxappearance

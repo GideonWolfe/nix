@@ -45,14 +45,6 @@ What is the best way to declare my complex `lua` based `neovim` config?
 
 ### Quick Screen recorder in waybar
 
-something like https://github.com/raffaem/waybar-screenrecorder but
-
-* Isn't hardcoded to `~/Videos/`
-* Has multiple options that you can choose
-    * record all screens
-    * record single display (`slurp -r -o`)
-    * record specific region (`slurp`)
-
 ### Fancy logout/shortcut/power menu
 
 on old system it was build with rofi, but this will change
