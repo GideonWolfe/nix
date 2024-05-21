@@ -14,6 +14,14 @@ SSH keys must exist
 
 # TODO
 
+## Hardware only stuff (can't really config in VM)
+
+* Multi monitor outputs
+* Bluetooth (should be configured already)
+* Virtual machines (should be configured already)
+* Backlight control (already have module but need to test)
+* Hibernation/sleep
+
 ## Seahorse won't import SSH key
 
 ```

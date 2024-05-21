@@ -128,6 +128,9 @@
 	  createScreenshotsDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
 	    mkdir -p ${config.home.homeDirectory}/pictures/screenshots/
 	  '';
+	  createScreenRecordings = lib.hm.dag.entryAfter ["writeBoundary"] ''
+	    mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/
+	  '';
   };
 
   # This value determines the Home Manager release that your configuration is
