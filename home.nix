@@ -10,20 +10,25 @@
     #Theming
     ./user/packages/theming.nix
 
+    # Productivity packages
+    ./user/packages/productivity/productivity.nix
+
     # Web
-    ./user/packages/web.nix
+    ./user/packages/productivity/web.nix
 
     # Audio
-    ./user/packages/audio.nix
+    ./user/packages/productivity/audio.nix
     
     # Video
-    ./user/packages/video.nix
+    ./user/packages/productivity/video.nix
 
     # Art
-    ./user/packages/art.nix
+    ./user/packages/productivity/art.nix
+
+    # Gaming
+    #./user/packages/gaming.nix
 
     # STEM
-    #./user/packages/science.nix
     ./user/packages/science/astronomy.nix
     ./user/packages/science/biology.nix
     ./user/packages/science/chemistry.nix
@@ -41,9 +46,6 @@
 
     # Random fun packages
     ./user/packages/fun.nix
-
-    # Productivity packages
-    ./user/packages/productivity.nix
 
     # My wallpapers
     #./user/packages/wallpapers.nix

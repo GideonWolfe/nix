@@ -43,8 +43,6 @@ What is the best way to declare my complex `lua` based `neovim` config?
 
 ## Build UI Elements
 
-### Quick Screen recorder in waybar
-
 ### Fancy logout/shortcut/power menu
 
 on old system it was build with rofi, but this will change
@@ -52,6 +50,15 @@ on old system it was build with rofi, but this will change
 ### Set up Hyprland
 
 hard to do in a VM since it runs like shite
+
+### Improve waybar media playing module
+
+maybe this third party one https://github.com/raffaem/waybar-mediaplayer
+or just hack on it
+
+### Add waybar desktop notification toggle 
+
+maybe adapt https://github.com/vkraven/swankybar to toggle notifications instead of adaptive sync
 
 ## Further modularize config
 
