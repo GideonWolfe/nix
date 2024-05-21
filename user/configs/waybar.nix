@@ -70,14 +70,19 @@ with config.lib.stylix.colors.withHashtag;
 					#tooltip-format-ethernet = "{ifname} \n{ipaddr}/{cidr} \n {bandwidthUpBits} \n {bandwidthDownBits}";
 					#TODO this is neater but adds a ton of whitespace
 					# The whitespace disappears when this text is left aligned but its UGLY
-					tooltip-format-ethernet = 
-					"
-					<span color='${base0E}'></span>{ifname}
-					<span color='${base0E}'></span>{ipaddr}/{cidr}
-					<span color='${base0E}'> </span>{bandwidthUpBits}
-					<span color='${base0E}'> </span>{bandwidthDownBits}
-					";
-					tooltip-format-wifi = " <span color='${base0E}'> </span>{essid}\n <span color='${base0E}'></span>{ipaddr}/{cidr}\n <span color='${base0E}'> </span>{signalStrength}\n <span color='${base0E}'> </span>{bandwidthUpBits}\n <span color='${base0E}'> </span>{bandwidthDownBits}\n";
+					tooltip-format-ethernet = [
+					"<span color='${base0E}'></span>{ifname}"
+					"<span color='${base0E}'></span>{ipaddr}/{cidr}"
+					"<span color='${base0E}'> </span>{bandwidthUpBits}"
+					"<span color='${base0E}'> </span>{bandwidthDownBits}"
+					];
+					tooltip-format-wifi = [
+					"<span color='${base0E}'> </span>{essid}"
+					"<span color='${base0E}'></span>{ipaddr}/{cidr}"
+					"<span color='${base0E}'> </span>{signalStrength}"
+					"<span color='${base0E}'> </span>{bandwidthUpBits}" 
+					"<span color='${base0E}'> </span>{bandwidthDownBits}"
+					];
 					tooltip-format-disconnected = "Disconnected";
 					max-length = 50;
 					on-click = "nm-connection-editor";

@@ -9,7 +9,7 @@ with config.lib.stylix.colors.withHashtag;
 		# https://cloudninja.pw/docs/wofi.html
 		style = ''
 			#outer-box {
-				border: 2px solid ${base0A};
+				border: 2px solid ${base0E};
 			}
 			#text:selected {
 				background-color: ${base00};

@@ -26,6 +26,7 @@
 		# CALENDAR #
 		############
 		pkgs.calcurse
+		pkgs.khal
 
 		# TUI timer
 		pkgs.peaclock

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{lib, config, pkgs, ... }:
 
 {
 
@@ -114,6 +114,12 @@
   # manage.
   home.username = "gideon";
   home.homeDirectory = "/home/gideon";
+
+  home.activation = {
+	  createScreenshotsDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
+	    mkdir -p ${config.home.homeDirectory}/pictures/screenshots/
+	  '';
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
