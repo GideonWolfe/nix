@@ -97,6 +97,9 @@
 		# Print daemon
 		cups
 
+		# Idle Daemon for Wayland
+		swayidle
+
 		# Virtualization service
 		# TODO enable on real hardware
 		#libvirt

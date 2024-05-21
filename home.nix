@@ -59,6 +59,7 @@
     ./user/configs/hyprland.nix
     ./user/configs/sway.nix
     ./user/configs/swaylock.nix
+    ./user/configs/swayidle.nix
 
     # Display configs
     ./user/configs/kanshi.nix

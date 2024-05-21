@@ -21,7 +21,8 @@ if [ "$1" == "status" ]; then
 		NR==2{printf "Save to: %s\\n", $0}
 		NR==3{printf "Log to: %s\"}\n", $0}' "$pidf"
 	else
-		printf '{"text":" ", "tooltip":"Stopped"}\n'
+		#printf '{"text":" ", "tooltip":"Stopped"}\n'
+		printf '{"text":" ", "tooltip":"Stopped"}\n'
 	fi
 
 

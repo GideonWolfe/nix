@@ -37,6 +37,7 @@ with config.lib.stylix.colors.withHashtag;
 					#"HDMI-A-1"
 				#];
 				modules-left = [ 
+					"group/systemMenu"
 					"sway/workspaces"
 					"sway/mode"
 					#"wlr/taskbar"
@@ -58,6 +59,42 @@ with config.lib.stylix.colors.withHashtag;
 					#"custom/weather"
 					"tray"
 				];
+
+				"idle_inhibitor" = {
+					format = " {icon}";
+					tooltip = true;
+					tooltip-format-activated = "Screen Locking Disabled";
+					tooltip-format-deactivated = "Screen Locking Enabled ";
+						"format-icons" = {
+							# Save these for another toggle
+							#"activated": "",
+							#"deactivated": ""
+							activated = "<span color='${base08}'></span>";
+							deactivated = "<span color='${base0B}'></span>";
+						};
+				};
+
+				"custom/poweroff" = {
+					format = "<span color='${base08}'>  </span>";
+					on-click= "$HOME/nix/user/scripts/system/power/poweroff.sh";
+					#tooltip = true;
+					tooltip-format = "<span color='${base08}'>Power Off </span>";
+				};
+				"custom/reboot" = {
+					format = "<span color='${base09}'>  </span>";
+					on-click= "$HOME/nix/user/scripts/system/power/reboot.sh";
+					tooltip-format = "<span color='${base09}'>Reboot</span>";
+				};
+				"custom/logout" = {
+					format = "<span color='${base0A}'>  </span>";
+					on-click= "swaymsg exit";
+					tooltip-format = "<span color='${base0A}'>Reboot</span>";
+				};
+				"custom/suspend" = {
+					format = "<span color='${base0D}'>  </span>";
+					on-click= "$HOME/nix/user/scripts/system/power/suspend.sh";
+					tooltip-format = "<span color='${base0D}'>Suspend</span>";
+				};
 
 				"network" = {
 					# TODO icons and info with color codes
@@ -99,6 +136,29 @@ with config.lib.stylix.colors.withHashtag;
 					tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
 				};
 
+
+				# Group of commonly used controls for the system
+				"group/systemMenu" = {
+					orientation = "horizontal";
+					modules = [
+						"custom/systemMenuIcon"
+						"custom/poweroff"
+						"custom/reboot"
+						"custom/suspend"
+						"custom/logout"
+						"idle_inhibitor"
+					];
+					drawer = {
+						transition-duration = 500;
+						transition-left-to-right = true;
+						children-class = "systemMenu";
+					};
+				};
+				"custom/systemMenuIcon" = {
+					format = "<span color='${base0E}'><b> </b></span>";
+					tooltip = false;
+				};
+				# Commonly requested stats on system
 				"group/systemStats" = {
 					orientation = "horizontal";
 					modules = [
@@ -109,10 +169,11 @@ with config.lib.stylix.colors.withHashtag;
 					];
 					drawer = {
 						transition-duration = 500;
-						transition-left-to-right = false;
+						transition-left-to-right = true;
 						children-class = "systemStats";
 					};
 				};
+				# Menu to capture screen with image and video
 				"group/screenCapture" = {
 					orientation = "horizontal";
 					modules = [
@@ -133,7 +194,14 @@ with config.lib.stylix.colors.withHashtag;
 				};
 
 				"temperature" = {
-					format = " {temperatureC}";
+					format = "{icon} {temperatureC}";
+					format-icons = [
+					"<span color='${base0D}'></span>"
+					"<span color='${base0B}'></span>"
+					"<span color='${base0A}'></span>"
+					"<span color='${base09}'></span>"
+					"<span color='${base08}'></span>"
+					];
 					on-click = "psensor";
 				};
 				"memory" = {
@@ -153,6 +221,29 @@ with config.lib.stylix.colors.withHashtag;
 					on-click-right = "hardinfo";
 				};
 				"battery" = {
+					format = "{icon} {capacity}%";
+					tooltip = true;
+					format-icons = [
+					# These colors may need to be reversed
+					"<span color='${base08}'></span>"
+					"<span color='${base09}'></span>"
+					"<span color='${base0A}'></span>"
+					"<span color='${base0B}'></span>"
+					"<span color='${base0D}'></span>"
+					];
+					# This should add an arrow to icon when charging
+					format-charging = [
+					"<span color='${base08}'> </span>"
+					"<span color='${base09}'> </span>"
+					"<span color='${base0A}'> </span>"
+					"<span color='${base0B}'> </span>"
+					"<span color='${base0D}'> </span>"
+					];
+					tooltip-format-charging = ''
+					Current Charge: {capacity}%
+					Current Draw: {power} Watts
+					Time Left: {time}
+					'';
 					on-click = "sudo powertop";
 				};
 				
