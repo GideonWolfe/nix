@@ -159,6 +159,11 @@
 				body = "bat $argv";
 			};
 
+			# Override Ranger configs since we can't config with home-manager-23.11
+			ranger = {
+				body = "command ranger --cmd='set preview_images true' --cmd='set preview_images_method kitty' $argv";
+			};
+
 			# Git commit shortcut
 			commit = {
 				body = ''
