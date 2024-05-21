@@ -43,6 +43,16 @@ What is the best way to declare my complex `lua` based `neovim` config?
 
 ## Build UI Elements
 
+### Quick Screen recorder in waybar
+
+something like https://github.com/raffaem/waybar-screenrecorder but
+
+* Isn't hardcoded to `~/Videos/`
+* Has multiple options that you can choose
+    * record all screens
+    * record single display (`slurp -r -o`)
+    * record specific region (`slurp`)
+
 ### Fancy logout/shortcut/power menu
 
 on old system it was build with rofi, but this will change
@@ -58,3 +68,4 @@ Some of the config and package files can be further broken up, ie. turning scien
 ## Misc
 
 * `cava` continues to hear audio even when system vol is muted
+

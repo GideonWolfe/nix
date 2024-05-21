@@ -27,5 +27,6 @@
 		# Utils
 		slurp # select region in wayland compositor (like slop for X)
 		wayland-utils
+		wf-recorder # screen recorder util
 	];
 }

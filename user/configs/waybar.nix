@@ -55,6 +55,7 @@ with config.lib.stylix.colors.withHashtag;
 					"mpris"
 					#"bluetooth"
 					"custom/weather"
+					"custom/screen_recorder"
 					"tray"
 				];
 
@@ -92,7 +93,7 @@ with config.lib.stylix.colors.withHashtag;
 				"bluetooth" = {
 					format = " {status}";
 					format-connected = " {device_alias}";
-					format-connected-battery = " {device_alias} {device_battery_percentage}%",
+					format-connected-battery = " {device_alias} {device_battery_percentage}%";
 					#format-device-preference = [ "device1", "device2" ]; preference list deciding the displayed device
 					tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
 					tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
@@ -164,6 +165,16 @@ with config.lib.stylix.colors.withHashtag;
 					tooltip = true;
 					interval = 3600;
 					exec = "wttrbar --main-indicator temp_F --fahrenheit --mph --location New_York";
+					return-type = "json";
+				};
+
+				"custom/screen_recorder" = {
+					tooltip = true;
+					interval = 1;
+					exec = "$HOME/nix/user/scripts/system/screen-capture/screen-recorder.sh status";
+					on-click-middle = "$HOME/nix/user/scripts/system/screen-capture/screen-recorder.sh toggle display";
+					on-click-left = "$HOME/nix/user/scripts/system/screen-capture/screen-recorder.sh toggle region";
+					on-click-right = "$HOME/nix/user/scripts/system/screen-capture/screen-recorder.sh toggle fullscreen";
 					return-type = "json";
 				};
 
