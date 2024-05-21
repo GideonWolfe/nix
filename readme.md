@@ -14,6 +14,15 @@ SSH keys must exist
 
 # TODO
 
+## Seahorse won't import SSH key
+
+```
+Could not display “<key_name>”
+Reason:	Unrecognized or unsupported data.
+```
+
+is it because the keys aren't in `.ssh`? I don't think that's been an issue before
+
 ## Emoji fonts rendering as colored emoji
 
 I have emoji font specified in `stylix` as `Symbola`, and `fonts.fontconfig.defaultFonts.emoji = ["Symbola"]`

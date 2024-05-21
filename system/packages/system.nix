@@ -12,6 +12,9 @@
 		plymouth
 		adi1090x-plymouth-themes
 
+		# make secrets available to apps
+		gnome.gnome-keyring
+
 		# Terminals
 		alacritty
 		foot # default wayland/sway term

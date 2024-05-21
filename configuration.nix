@@ -20,6 +20,9 @@
       # Login manager/greeter
       ./system/services/greeter.nix
 
+      # GNOME Keyring
+      ./system/services/gnome-keyring.nix
+
       # System level theming
       ./system/graphics/stylix.nix
 
@@ -80,6 +83,9 @@
   time.timeZone = "America/New_York";
 
   programs.fish.enable = true;
+
+  # Give seahorse access to GNOME Keyring
+  programs.seahorse.enable = true;
 
   # required for sway according to docs
   security.polkit.enable = true;
