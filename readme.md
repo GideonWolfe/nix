@@ -55,4 +55,6 @@ hard to do in a VM since it runs like shite
 
 Some of the config and package files can be further broken up, ie. turning science.nix into a directory with .nix files for each discipline.
 
+## Misc
 
+* `cava` continues to hear audio even when system vol is muted

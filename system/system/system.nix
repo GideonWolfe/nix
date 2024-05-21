@@ -15,7 +15,7 @@
   # Configure system level fonts
   fonts.fontconfig = {
 	defaultFonts = {
-		emoji = ["Symbola"];
+		emoji = ["Noto Emoji" "Symbola"];
 	};
   };
 
