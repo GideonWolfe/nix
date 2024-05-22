@@ -11,6 +11,15 @@
 
 	stylix.polarity = "dark";
 
+	stylix.targets = {
+		firefox = {
+			profileNames = ["default"];
+		};
+		zathura = {
+			enable = true;
+		};
+	};
+
 	stylix.fonts = {
 		#serif = {
 		#	package = pkgs.nerdfonts;

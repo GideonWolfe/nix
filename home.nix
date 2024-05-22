@@ -73,6 +73,13 @@
     # Wofi
     ./user/configs/wofi.nix
 
+    # Firefox
+    ./user/configs/firefox/firefox.nix
+    #./user/configs/firefox/userChrome.nix
+
+    # Zathura
+    ./user/configs/zathura.nix
+
     # GTK settings/theming
     ./user/configs/gtk.nix
 
@@ -81,6 +88,9 @@
 
     # Custom user directories
     ./user/configs/xdg-user-dirs.nix
+
+    # Custom user directories
+    ./user/configs/mimetypes.nix
 
     # Better CD
     ./user/configs/zoxide.nix
@@ -191,7 +201,9 @@
   #  /etc/profiles/per-user/gideon/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+     EDITOR = "nvim";
+     TERM = "kitty";
+     BROWSER = "firefox";
   };
 
   # Let Home Manager install and manage itself.

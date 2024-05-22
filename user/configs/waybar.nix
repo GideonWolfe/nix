@@ -61,7 +61,7 @@ with config.lib.stylix.colors.withHashtag;
 				];
 
 				"idle_inhibitor" = {
-					format = " {icon}";
+					format = "{icon}";
 					tooltip = true;
 					tooltip-format-activated = "Screen Locking Disabled";
 					tooltip-format-deactivated = "Screen Locking Enabled ";
@@ -100,7 +100,7 @@ with config.lib.stylix.colors.withHashtag;
 					# TODO icons and info with color codes
 					format = " {ifname}";
 					format-wifi = "<span color='${base0E}'> </span>";
-					format-ethernet = "<span color='${base0E}'> </span>";
+					format-ethernet = "<span color='${base0E}'></span>";
 					format-disconnected = "<span color='${base08}'> </span>"; #An empty format will hide the module.
 					tooltip-format = "{ifname} via {gwaddr} 󰊗";
 					#tooltip-format-wifi = " {essid} \n {ipaddr}/{cidr} \n {signalStrength}% Strength \n {bandwidthUpBits} \n {bandwidthDownBits}";
@@ -269,7 +269,7 @@ with config.lib.stylix.colors.withHashtag;
 					return-type = "json";
 				};
 				"custom/screenshot" = {
-					format = " ";
+					format = "<span color='${base0C}'> </span>";
 					tooltip = true;
 					tooltip-format = "Screenshot";
 					on-click = "flameshot gui";
@@ -278,6 +278,7 @@ with config.lib.stylix.colors.withHashtag;
 				"custom/screen_recorder" = {
 					tooltip = true;
 					interval = 1;
+					format = "<span color='${base0D}'>{}</span>";
 					exec = "$HOME/nix/user/scripts/system/screen-capture/screen-recorder.sh status";
 					on-click-middle = "$HOME/nix/user/scripts/system/screen-capture/screen-recorder.sh toggle display";
 					on-click-left = "$HOME/nix/user/scripts/system/screen-capture/screen-recorder.sh toggle region";

@@ -20,6 +20,8 @@
 		foot # default wayland/sway term
 		kitty
 
+		chromium
+
 		# Navigation
 		tree
 		eza # better ls (formerly exa)

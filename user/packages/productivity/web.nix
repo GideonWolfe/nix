@@ -2,7 +2,7 @@
 
 {
 	home.packages = [
-		pkgs.firefox
+		#pkgs.firefox
 		pkgs.w3m
 	];
 }
