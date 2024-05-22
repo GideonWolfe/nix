@@ -11,6 +11,18 @@ with config.lib.stylix.colors.withHashtag;
 			AppAutoUpdate = false;
 			DisablePocket = true;
 			DisableTelemetry = true;
+			OverrideFirstRunPage = "";
+			OverridePostUpdatePage = "";
+			DisableProfileImport = true; # Purity enforcement: Only allow nix-defined profiles
+			DisableProfileRefresh = true; # Disable the Refresh Firefox button on about:support and support.mozilla.org
+			DisableSetDesktopBackground = true; # Remove the “Set As Desktop Background…” menuitem when right clicking on an image, because Nix is the only thing that can manage the backgroud
+			EnableTrackingProtection = {
+				Value= true;
+				Locked = true;
+				Cryptomining = true;
+				Fingerprinting = true;
+				EmailTracking = true;
+			};
 			FirefoxHome = {
 				"Search" = true;
 				"TopSites" = true;
@@ -28,6 +40,35 @@ with config.lib.stylix.colors.withHashtag;
 				"ImproveSuggest" = true;
 				#"Locked" = true | false
 			};
+
+			ExtensionSettings = {
+				# Ublock Origin
+				"uBlock0@raymondhill.net" = {
+					"installation_mode" = "force_installed";
+					"install_url" = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+					"default_area" = "menupanel";
+				};
+
+				# Vimium
+				"{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+					"installation_mode" = "force_installed";
+					"install_url" = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
+					"default_area" = "menupanel";
+				};
+				# Keepa (amazon price tracker)
+				"amptra@keepa.com" = {
+					"installation_mode" = "force_installed";
+					"install_url" = "https://addons.mozilla.org/firefox/downloads/latest/keepa/latest.xpi";
+					"default_area" = "menupanel";
+				};
+				# Dark Reader
+				"addon@darkreader.org" = {
+					"installation_mode" = "force_installed";
+					"install_url" = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+					"default_area" = "menupanel";
+				};
+			};
+
 		};
 
 		profiles = {
