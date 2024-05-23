@@ -14,6 +14,10 @@ SSH keys must exist
 
 # TODO
 
+## Configure spicetify
+
+https://github.com/the-argus/spicetify-nix lets you specify custom colors in nix
+
 ## Hardware only stuff (can't really config in VM)
 
 * Multi monitor outputs
