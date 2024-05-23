@@ -24,9 +24,15 @@
 				home-manager.follows = "home-manager";
 			};
 		};
+
+		spicetify-nix = {
+			url = "github:the-argus/spicetify-nix";
+		};
+
+
 	};
 
-	outputs = {self, nixpkgs, home-manager, stylix, ...} @inputs:
+	outputs = {self, nixpkgs, home-manager, stylix, spicetify-nix, ...} @inputs:
 		let 
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -45,6 +51,7 @@
 		homeConfigurations = {
 			gideon = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
+				extraSpecialArgs = {inherit spicetify-nix;};
 				# pass in stylix theming modules for user apps
 				modules = [stylix.homeManagerModules.stylix ./home.nix];
 			};

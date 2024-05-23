@@ -14,6 +14,14 @@ SSH keys must exist
 
 # TODO
 
+## Add custom icons of some sort
+
+## Change workspace icon when new window opened
+
+like if I click a link and it opens a tab in FF in another workspace, that workspace icon should get a highlight.
+I think its called urgent or something
+
+
 ## Add theme to audacity
 seems to have a "Custom" option for theme
 

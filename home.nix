@@ -141,6 +141,9 @@ with config.lib.stylix.colors.withHashtag;
     # Nix theming framwork
     ./user/configs/stylix.nix
 
+    # Nix theming framwork
+    ./user/configs/spicetify.nix
+
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
