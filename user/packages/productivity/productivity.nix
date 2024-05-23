@@ -15,6 +15,7 @@
 		#pkgs.mdbook # Create books from markdown # lots of extra addons for this, check package list
 		#pkgs.calligra # suite of productivity apps
 		#pkgs.gaphor # python UML modeling tool
+		pkgs.foliate # GUI Ebook reader
 
 		#########
 		# TASKS #

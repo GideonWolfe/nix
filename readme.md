@@ -14,9 +14,22 @@ SSH keys must exist
 
 # TODO
 
+## Add theme to audacity
+seems to have a "Custom" option for theme
+
 ## Configure spicetify
 
 https://github.com/the-argus/spicetify-nix lets you specify custom colors in nix
+
+## Add secret management
+
+either
+
+https://github.com/ryantm/agenix
+
+or 
+
+https://github.com/Mic92/sops-nix
 
 ## Hardware only stuff (can't really config in VM)
 

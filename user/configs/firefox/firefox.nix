@@ -486,17 +486,17 @@ with config.lib.stylix.colors.withHashtag;
 
 				'';
 				
-				#search = {
-				#	default = "DuckDuckGo";
-				#	order = [
-				#		"DuckDuckGo"
-				#		"Google"
-				#	];
+				search = {
+					default = "DuckDuckGo";
+					order = [
+						"DuckDuckGo"
+						"Google"
+					];
 					# Here is where I can put the config for individual engines
 					#engines = {
 					#	duckDuckGo = {};
 					#};
-				#};
+				};
 
 				# Have to configure NUR, not sure if I want to do that
 				#extensions = [

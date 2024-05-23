@@ -32,6 +32,8 @@
 		# File Operations
 		#unrar
 		unzip
+		libsForQt5.ark # advanced archive manager, haven't figured out KDE theming yet
+		gnome.file-roller # archive utility
 		zip
 		czkawka # duplicate file finding GUI
 		szyszka # bulk file renamer GUI
@@ -137,6 +139,9 @@
 		# File managers
 		ranger
 		xfce.thunar
+		xfce.thunar-volman # allow thunar to manage removable drives
+		xfce.thunar-archive-plugin
+		xfce.thunar-media-tags-plugin # we have easytag for this but it doesn't hurt
 
 		# Replacements for various X utils
 		wev # wayland xev
