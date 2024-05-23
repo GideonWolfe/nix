@@ -17,6 +17,7 @@
 		#pkgs.lemmeknow # identify anything
 		#pkgs.mprocs # run multiple processes and show output in the same TUI
 		#pkgs.2fa # CLI 2FA client
+		pkgs.gource # animate repo history
 
 		# IDEs
 		#pkgs.vscode

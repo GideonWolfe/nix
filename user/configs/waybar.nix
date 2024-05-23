@@ -14,12 +14,12 @@ with config.lib.stylix.colors.withHashtag;
 		#.modules-left #workspaces button.active {
 		style = ''
 		.modules-left #workspaces button {
-			color: @base0A;
+			color: @base05;
 		}
 		.modules-left #workspaces button.focused,
 		.modules-left #workspaces button.active {
 			border-bottom: 3px solid @base08;
-			color: @base05;
+			color: @base0A;
 		}
 		.modules-center #clock {
 			color: @base06

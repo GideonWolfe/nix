@@ -30,6 +30,13 @@ with config.lib.stylix.colors.withHashtag;
 				};
 			};
 
+			#colors = {
+			#	focused = {
+			#		# Set text color for focused windows
+			#		text = "${base0B}";
+			#	};
+			#};
+
 			gaps = {
 				vertical = 4;
 				top = 4;
@@ -42,6 +49,28 @@ with config.lib.stylix.colors.withHashtag;
 				smartBorders = "off"; #off on or no_gaps
 			};
 
+			# Special configs for specific windows
+			window = {
+				commands = [
+
+					# Set the translate window to always be floating and in the scratchpad
+					{
+						command = "floating enable, resize set 800 800, move scratchpad, move position center;";
+						criteria = {
+							app_id = "translate";
+						};
+					}
+
+					# Set the calculator window to always be floating and in the scratchpad
+					{
+						command = "floating enable, resize set 800 800, move scratchpad, move position center;";
+						criteria = {
+							app_id = "calculator";
+						};
+					}
+				];
+			};
+
 			# Startup Commands
 			startup = [
 				# Launch Notification client on start
@@ -50,6 +79,10 @@ with config.lib.stylix.colors.withHashtag;
 				#{command = "wal -R";}
 				# Launch Waybar
 				{command = "waybar";}
+				# Start translate window
+				{command = "${pkgs.kitty}/bin/kitty --class translate --title translate trans -theme random -I";}
+				# Start calculator
+				{command = "${pkgs.kitty}/bin/kitty --class calculator --title calculator qalc";}
 			];
 			
 			menu = "wofi --show run";
@@ -72,6 +105,8 @@ with config.lib.stylix.colors.withHashtag;
 				"${modifier}+Shift+e" = "layout toggle split";
 				"${modifier}+Shift+space" = "floating toggle";
 				"${modifier}+e" = "exec wofi-emoji";
+				"${modifier}+t" = "exec swaymsg [app_id='translate'] scratchpad show"; #HACK not sure why I need to exec swaymsg on this one
+				"${modifier}+c" = "exec swaymsg [app_id='calculator'] scratchpad show"; #HACK not sure why I need to exec swaymsg on this one
 			};
 
 		};

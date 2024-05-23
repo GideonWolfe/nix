@@ -41,6 +41,7 @@
 		atop # system/process monitor
 		btop
 		htop # system/process monitor
+		gotop # system/process monitor
 		iotop # IO monitor
 		ioping # IO latency monitor
 		dnstop # DNS traffic monitor

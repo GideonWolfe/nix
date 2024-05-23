@@ -118,6 +118,10 @@ with config.lib.stylix.colors.withHashtag;
 					"ui.textSelectBackground" = "${base05}";
 					"ui.textSelectForeground" = "${base00}";
 
+					# Highlight text
+					"ui.textHighlightBackground" = "${base05}";
+					"ui.textHighlightForeground" = "${base00}";
+
 					# Use neovim to view source
 					"view_source.editor.external" = true;
 					"view_source.editor.path" = "${pkgs.neovim}/bin/nvim";
@@ -162,7 +166,9 @@ with config.lib.stylix.colors.withHashtag;
 					#stop-button{
 						color: ${base08} !important;
 					}
-
+					#downloads-button{
+						color: ${base0E} !important;
+					}	
 					/* example of setting image as icon https://www.reddit.com/r/FirefoxCSS/comments/cy8w4d/new_tab_button_customization/ */
 					/* New Tab Buttons */
 					/* the weirdness of these buttons https://www.reddit.com/r/FirefoxCSS/comments/12mjsk1/change_color_of_add_new_tab_button/ */
