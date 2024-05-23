@@ -6,6 +6,7 @@
 		pkgs.weechat # IRC TUI
 		pkgs.element-desktop-wayland # Matrix GUI
 		pkgs.signal-desktop
+		pkgs.neomutt # Email TUI
 		#pkgs.discord
 		#pkgs.betterdiscord-installer
 		#pkgs.slack
@@ -20,6 +21,6 @@
 		pkgs.akregator
 
 		# TUI Podcast client
-		pkgs.castero
+		#pkgs.castero #Only in unstable
 	];
 }

@@ -13,7 +13,7 @@
 		pkgs.lazygit # TUI git interface
 		#pkgs.ngrok # expose local port to WAN
 		#pkgs.graphviz # graph visualization software
-		#pkgs.cloc # count lines of code
+		pkgs.cloc # count lines of code
 		#pkgs.lemmeknow # identify anything
 		#pkgs.mprocs # run multiple processes and show output in the same TUI
 		#pkgs.2fa # CLI 2FA client

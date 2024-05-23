@@ -1,5 +1,7 @@
 {lib, config, pkgs, ... }:
 
+with config.lib.stylix.colors.withHashtag;
+
 {
 
   imports = [
@@ -24,6 +26,9 @@
 
     # Art
     ./user/packages/productivity/art.nix
+
+    # Comms
+    ./user/packages/productivity/comms.nix
 
     # Gaming
     #./user/packages/gaming.nix
@@ -113,6 +118,13 @@
     # SSH
     ./user/configs/ssh/ssh.nix
 
+    # Neomutt
+    ./user/configs/neomutt/neomuttrc.nix
+    ./user/configs/neomutt/settings.nix
+    ./user/configs/neomutt/mailcap.nix
+    ./user/configs/neomutt/mappings.nix
+    ./user/configs/neomutt/colors.nix
+
     # Bluetooth (enabling applet)
     ./user/configs/bluetooth.nix
 
@@ -143,6 +155,83 @@
 	    mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/
 	  '';
   };
+
+
+
+  xdg = {
+    configFile = {
+
+      # Creates a config for DarkReader
+      # TODO, need to make this auto update?
+      darkreader = {
+        enable = true;
+	#onChange = manually tell darkreader to refresh somehow?
+	target = "darkreader/config.json";
+	text = ''
+
+	{
+	    "schemeVersion": 2,
+	    "enabled": true,
+	    "fetchNews": true,
+	    "theme": {
+		"mode": 1,
+		"brightness": 100,
+		"contrast": 100,
+		"grayscale": 0,
+		"sepia": 0,
+		"useFont": false,
+		"fontFamily": "Open Sans",
+		"textStroke": 0,
+		"engine": "dynamicTheme",
+		"stylesheet": "",
+		"darkSchemeBackgroundColor": "${base00}",
+		"darkSchemeTextColor": "${base05}",
+		"lightSchemeBackgroundColor": "${base05}",
+		"lightSchemeTextColor": "${base00}",
+		"scrollbarColor": "auto",
+		"selectionColor": "auto",
+		"styleSystemControls": false,
+		"lightColorScheme": "Default",
+		"darkColorScheme": "Default",
+		"immediateModify": false
+	    },
+	    "presets": [],
+	    "customThemes": [],
+	    "enabledByDefault": true,
+	    "enabledFor": [],
+	    "disabledFor": [],
+	    "changeBrowserTheme": false,
+	    "syncSettings": false,
+	    "syncSitesFixes": true,
+	    "automation": {
+		"enabled": false,
+		"mode": "",
+		"behavior": "OnOff"
+	    },
+	    "time": {
+		"activation": "18:00",
+		"deactivation": "9:00"
+	    },
+	    "location": {
+		"latitude": null,
+		"longitude": null
+	    },
+	    "previewNewDesign": true,
+	    "enableForPDF": true,
+	    "enableForProtectedPages": true,
+	    "enableContextMenus": false,
+	    "detectDarkTheme": false,
+	    "displayedNews": [
+		"thanks-2023"
+	    ]
+	}
+
+	'';
+      };
+    };
+  };
+
+
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

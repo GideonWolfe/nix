@@ -421,17 +421,26 @@ with config.lib.stylix.colors.withHashtag;
 
 					/*-----------------------------------------*/
 
-					/* TODO doesn't work */
-					.tab-secondary-label[muted] > .tab-icon-sound-playing-label {
-						fill: ${base08} !important;
-					}
+					/*------------- CONTEXT MENUS  --------*/
 
-					/* TODO doesn't work */
-					.close-button{
+					/* TODO Star doesn't work?*/
+					#context-back {
+						color: ${base09} !important;
+					}
+					#context-forward {
+						color: ${base0B} !important;
+					}
+					#context-reload {
+						color: ${base0D} !important;
+					}
+					#context-stop {
 						color: ${base08} !important;
-						fill: ${base08} !important;
+					}
+					#context-star {
+						color: ${base0A} !important;
 					}
 
+					/*-----------------------------------------*/
 
 					/* TODO this should style reader? idk if the reader pages start with about:reader*/
 					@-moz-document url-prefix("about:reader") {
@@ -456,15 +465,23 @@ with config.lib.stylix.colors.withHashtag;
 					  }
 					}
 
-					/* TODO both these don't do anything, should style app close icon in top right*/
-					/* #titlebar-button.titlebar-close { *\
-					/* 	color: ${base08} !important  *\
-					/* } *\
 
-					.titlebar-close {
-						color: ${base08} !important;
-						fill: ${base08} !important;
+					/* TODO these names may have changed??*/
+					#context-sep-navigation,
+					#context-sep-sendpagetodevice,
+					#context-sep-viewbgimage,
+					#context-sep-viewsource {
+						color: ${base0E} !important;
 					}
+					#inspect-separator {
+						color: ${base08} !important;
+					}
+
+					/*-------------- TODO ----------------------*/
+					/* Change context menu separators *\
+					/* Close window button *\
+					/* Reader view button when reader is active *\
+
 
 
 				'';
