@@ -125,6 +125,10 @@ with config.lib.stylix.colors.withHashtag;
     ./user/configs/neomutt/mappings.nix
     ./user/configs/neomutt/colors.nix
 
+    # Newsboat
+    ./user/configs/newsboat/newsboat.nix
+    ./user/configs/newsboat/urls.nix
+
     # Bluetooth (enabling applet)
     ./user/configs/bluetooth.nix
 
