@@ -16,6 +16,8 @@
 		#pkgs.calligra # suite of productivity apps
 		#pkgs.gaphor # python UML modeling tool
 		pkgs.foliate # GUI Ebook reader
+		#pkgs.texliveFull # full latex environment
+		#pkgs.texstudio # LaTeX Editor
 
 		#########
 		# TASKS #

@@ -107,6 +107,7 @@ with config.lib.stylix.colors.withHashtag;
 				"${modifier}+e" = "exec wofi-emoji";
 				"${modifier}+t" = "exec swaymsg [app_id='translate'] scratchpad show"; #HACK not sure why I need to exec swaymsg on this one
 				"${modifier}+c" = "exec swaymsg [app_id='calculator'] scratchpad show"; #HACK not sure why I need to exec swaymsg on this one
+				"${modifier}+p" = "exec ${config.home.homeDirectory}/nix/user/scripts/system/navigation/sway-window-switcher.sh";
 			};
 
 		};
