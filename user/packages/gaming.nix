@@ -6,6 +6,7 @@
 		pkgs.protontricks
 		pkgs.lutris
 		#pkgs.mangohud
-		#pkgs.jstest-gtk
+		#pkgs.jstest-gtk #joystick tester
+		#pkgs.cutechess # chess engine
 	];
 }

@@ -25,6 +25,7 @@
 		# GUI
 		#pkgs.pencil # Prototyping tool (like figma)
 		#pkgs.akira # Prototyping / design tool
+		#pkgs.gdbgui # GUI for GDB
 
 		# Security
 		pkgs.radare2
@@ -46,6 +47,7 @@
 		pkgs.gpg-tui # TUI for GnuPG
 		#pkgs.john # John the ripper
 		#pkgs.metasploit-framework
+		#pkgs.johnny # GUI for John the Ripper
 
 	];
 }

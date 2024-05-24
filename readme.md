@@ -14,6 +14,12 @@ SSH keys must exist
 
 # TODO
 
+## Add theme to cli-visualizer
+
+command is `vis`, takes a config file with a theme 
+
+https://github.com/dpayne/cli-visualizer?tab=readme-ov-file#configuration
+
 ## Add custom icons of some sort
 
 ## Change workspace icon when new window opened

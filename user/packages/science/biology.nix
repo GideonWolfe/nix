@@ -8,6 +8,8 @@
 		# BIOLOGY #
 		###########
 		pkgs.jmol # Java Molecular viewer
+		pkgs.seaview # DNA alignment and phylogeny gui
+
 
 
 	];
