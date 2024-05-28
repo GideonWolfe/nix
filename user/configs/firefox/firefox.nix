@@ -143,6 +143,15 @@ with config.lib.stylix.colors.withHashtag;
 				# Custom CSS style options 
 				userChrome = ''
 
+
+					/* Change background color for both private and non-private windows */
+					@-moz-document url("chrome://browser/content/browser.xhtml") {
+						/* Non-private window background color */
+						#appcontent, #appcontent tabpanels, browser[type="content-primary"], browser[type="content"] > html, browser[type="content"] > html > body {
+							background-color: ${base00} !important;
+					}
+
+
 					/* Hover tooltip style, only themes some ie. refresh button*/
 					tooltip {
 						color: ${base05} !important;
@@ -466,21 +475,14 @@ with config.lib.stylix.colors.withHashtag;
 					}
 
 
-					/* TODO these names may have changed??*/
-					#context-sep-navigation,
-					#context-sep-sendpagetodevice,
-					#context-sep-viewbgimage,
-					#context-sep-viewsource {
-						color: ${base0E} !important;
-					}
-					#inspect-separator {
-						color: ${base08} !important;
-					}
+
 
 					/*-------------- TODO ----------------------*/
 					/* Change context menu separators *\
 					/* Close window button *\
 					/* Reader view button when reader is active *\
+
+
 
 
 
