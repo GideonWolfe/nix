@@ -140,9 +140,33 @@ with config.lib.stylix.colors.withHashtag;
 				# only issue is since it isn't a nix file, we can't template out colors
 				#userChrome = builtins.readFile ./userChrome.css;
 
+				userContent = ''
+
+
+				/* change background of new tab page */
+				@-moz-document url("about:newtab"),
+				url("about:home")
+				{
+					:root[lwt-newtab-brighttext] {
+						--newtab-background-color: ${base00} !important;
+					}
+				}
+
+				'';
+
 				# Custom CSS style options 
 				userChrome = ''
 
+					/*------------- STATUS PANEL ------------------*/
+
+
+					/* TODO this doesn't work */
+					/* color of url loading bar at bottom left */
+					#statuspanel-label {
+						background-color: ${base00} !important;
+						color: ${base0E} !important;
+						border-color: ${base0D} !important;
+					}
 
 					/* Change background color for both private and non-private windows */
 					@-moz-document url("chrome://browser/content/browser.xhtml") {
@@ -353,14 +377,6 @@ with config.lib.stylix.colors.withHashtag;
 						color: ${base0B};
 					}
 
-					/*------------- STATUS PANEL ------------------*/
-
-
-					/* TODO this doesn't work */
-					/* color of url loading bar at bottom left */
-					#statuspanel {
-						color: ${base0D} !important;
-					}
 
 					/*-----------------------------------------*/
 
@@ -483,22 +499,19 @@ with config.lib.stylix.colors.withHashtag;
 					/* Reader view button when reader is active *\
 
 
-
-
-
 				'';
 				
-				search = {
-					default = "DuckDuckGo";
-					order = [
-						"DuckDuckGo"
-						"Google"
-					];
+				#search = {
+				#	default = "DuckDuckGo";
+				#	order = [
+				#		"DuckDuckGo"
+				#		"Google"
+				#	];
 					# Here is where I can put the config for individual engines
 					#engines = {
 					#	duckDuckGo = {};
 					#};
-				};
+				#};
 
 				# Have to configure NUR, not sure if I want to do that
 				#extensions = [
