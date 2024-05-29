@@ -76,7 +76,7 @@ with config.lib.stylix.colors.withHashtag;
     ./user/configs/waybar.nix
 
     # Wofi
-    ./user/configs/wofi.nix
+    ./user/configs/wofi/wofi.nix
 
     # Firefox
     ./user/configs/firefox/firefox.nix
@@ -144,6 +144,9 @@ with config.lib.stylix.colors.withHashtag;
     # Nix theming framwork
     ./user/configs/spicetify.nix
 
+    # Custom startpage
+    ./user/configs/startpage/style.nix
+    ./user/configs/startpage/service.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)

@@ -35,6 +35,8 @@ seems to have a "Custom" option for theme
 
 https://github.com/the-argus/spicetify-nix lets you specify custom colors in nix
 
+Already installed this, works well with preset themes. Now need to make a stylix theme
+
 ## Add secret management
 
 either
@@ -79,15 +81,6 @@ What is the best way to declare my complex `lua` based `neovim` config?
 Ongoing discussion on Stylix github, how to access these new features?
 
 https://github.com/danth/stylix/pull/367
-
-## Setup Firefox
-
-How much of this can I do?
-
-* set up user profile
-* declare list of plugins to install
-* add options for those plugins
-* add userChrome.css
 
 ## Build UI Elements
 

@@ -39,7 +39,7 @@ unset sig_dashes                     # no dashes before sig
 unset mime_forward                   # forward attachments as part of body
 unset help                           # No help bar at the top of index
 # set status_on_top                    # Status bar on top of index
-set tmpdir = ~/Programs/neomutt/temp # where to keep temp files
+#set tmpdir = ~/Programs/neomutt/temp # where to keep temp files
 
 unset confirmappend      # don't ask, just do!
 set quit                 # don't ask, just do!!
