@@ -15,5 +15,7 @@
 		pkgs.charasay
 		pkgs.dwt1-shell-color-scripts
 		pkgs.lolcat
+		# Misc
+		pkgs.thokr # typing speedtest in TUI
 	];
 }

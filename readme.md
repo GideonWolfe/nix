@@ -118,3 +118,15 @@ Some of the config and package files can be further broken up, ie. turning scien
 
 * `cava` continues to hear audio even when system vol is muted
 
+
+
+# Packages I want
+
+* https://github.com/joouha/euporie - TUI Jupyter notebooks
+* https://github.com/Julien-cpsn/ATAC - TUI API Client (like postman)
+* https://github.com/cyring/CoreFreq - CPU monitoring module
+* https://github.com/tconbeer/harlequin - TUI Database IDE
+* https://github.com/dewberryants/asciiMol - TUI molecular viewer
+* https://github.com/darrenburns/elia - TUI for LLMs
+* https://github.com/nadrad/h-m-m - TUI for making mind maps
+

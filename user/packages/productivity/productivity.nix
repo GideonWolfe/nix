@@ -29,6 +29,7 @@
 		# CALENDAR #
 		############
 		pkgs.calcurse
+		#pkgs.calcure # modern calendar TUI
 		pkgs.khal
 
 		# TUI timer
