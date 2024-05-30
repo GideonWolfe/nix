@@ -9,126 +9,139 @@ with config.lib.stylix.colors.withHashtag;
 
 		# Creating the CSS file to theme the startpage
 		"nix/user/configs/startpage/data/style.css" = {
+
+			# Trigger a reload of the container
+			onChange = "docker restart startpage";
+
 			text = ''
 
-:root {
-    --branch: 1px solid ${base0B};
-}
+			@font-face {
+			    font-family: "Roboto Mono";
+			    src: url("./fonts/font.ttf");
+			}
 
+			:root {
+			    --font: "Roboto Mono";
+			    --branch: 1px solid ${base0B};
+			}
 
-body {
-    background: ${base00};
-}
+			html {
+			    font-size: 14px;
+			}
 
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+			body {
+			    background: ${base00};
+			}
 
-.prompt {
-    /* font-family: var(--font); */
-    color: ${base0C};
-}
+			.container {
+			    position: absolute;
+			    top: 50%;
+			    left: 50%;
+			    transform: translate(-50%, -50%);
+			}
 
-.prompt~.prompt {
-    padding: 1.5rem 0 0.3125rem;
-}
+			.prompt {
+			    font-family: var(--font);
+			    color: ${base0C};
+			}
 
-span {
-    color: ${base0A};
-}
+			.prompt~.prompt {
+			    padding: 1.5rem 0 0.3125rem;
+			}
 
-h1 {
-    display: inline;
-    /* font-family: var(--font); */
-    font-size: 1rem;
-    font-weight: normal;
-    color: ${base08};
-}
+			span {
+			    color: ${base0A};
+			}
 
-.tree > ul {
-    margin: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
+			h1 {
+			    display: inline;
+			    font-family: var(--font);
+			    font-size: 1rem;
+			    font-weight: normal;
+			    color: ${base0D};
+			}
 
-ul {
-    list-style: none;
-    padding-left: 2.5rem;
-    white-space:nowrap;
-}
+			.tree > ul {
+			    margin: 0;
+			    padding-left: 1rem;
+			    padding-right: 1rem;
+			}
 
-li {
-    position: relative;
-}
+			ul {
+			    list-style: none;
+			    padding-left: 2.5rem;
+			    white-space:nowrap;
+			}
 
-li::before, li::after {
-    content: "";
-    position: absolute;
-    left: -0.75rem;
-}
+			li {
+			    position: relative;
+			}
 
-li::before {
-    border-top: var(--branch);
-    top: 0.75rem;
-    width: 0.5rem;
-}
+			li::before, li::after {
+			    content: "";
+			    position: absolute;
+			    left: -0.75rem;
+			}
 
-li::after {
-    border-left: var(--branch);
-    height: 100%;
-    top: 0.25rem;
-}
+			li::before {
+			    border-top: var(--branch);
+			    top: 0.75rem;
+			    width: 0.5rem;
+			}
 
-li:last-child::after {
-    height: 0.5rem;
-}
+			li::after {
+			    border-left: var(--branch);
+			    height: 100%;
+			    top: 0.25rem;
+			}
 
-a {
-    /* font-family: var(--font); */
-    font-size: 1rem;
-    color: ${base0B};
-    text-decoration: none;
-    outline: none;
-}
+			li:last-child::after {
+			    height: 0.5rem;
+			}
 
-a:hover {
-    color: ${base0F};
-    background: ${base00};
-}
+			a {
+			    font-family: var(--font);
+			    font-size: 1rem;
+			    color: ${base0B};
+			    text-decoration: none;
+			    outline: none;
+			}
 
-form h1 {
-    padding-left: 0.125rem;
-}
+			a:hover {
+			    color: ${base09};
+			    background: ${base00};
+			}
 
-input {
-    /* font-family: var(--font); */
-    font-size: 1rem;
-    color: ${base04};
-    background-color: ${base00};
-    border-width: 1px;
-    border-color: ${base0D};
-    border-style: solid;
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
+			form h1 {
+			    padding-left: 0.125rem;
+			}
 
-.column {
-  flex: 50%;
-  padding: 5px;
-}
+			input {
+			    font-family: var(--font);
+			    font-size: 1rem;
+			    color: ${base0E};
+			    background-color: ${base00};
+			    border-width: 1px;
+			    border-color: ${base0D};
+			    border-style: solid;
+			    padding-top: 4px;
+			    padding-bottom: 4px;
+			}
 
-.row {
-  display: flex;
-}
+			.column {
+			  flex: 50%;
+			  padding: 5px;
+			}
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+			.row {
+			  display: flex;
+			}
+
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
 			'';
 		};
 

@@ -166,7 +166,6 @@ with config.lib.stylix.colors.withHashtag;
 					/*------------- STATUS PANEL ------------------*/
 
 
-					/* TODO this doesn't work */
 					/* color of url loading bar at bottom left */
 					#statuspanel-label {
 						background-color: ${base00} !important;

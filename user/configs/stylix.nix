@@ -21,10 +21,10 @@
 	};
 
 	stylix.fonts = {
-		#serif = {
-		#	package = pkgs.nerdfonts;
-		#	name = "Hack Nerd Font";
-		#};
+		serif = {
+			package = pkgs.nerdfonts;
+			name = "Hack Nerd Font";
+		};
 
 		sansSerif = {
 			package = pkgs.nerdfonts;

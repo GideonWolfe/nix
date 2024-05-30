@@ -24,6 +24,9 @@
 		volumes = [
 			"/home/gideon/nix/user/configs/startpage/data/style.css:/usr/share/nginx/html/styles/style.css"
 			"/home/gideon/nix/user/configs/startpage/data/default.conf:/etc/nginx/conf.d/default.conf"
+			"/home/gideon/nix/user/configs/startpage/data/index.html:/usr/share/nginx/html/index.html"
+			# This may not be needed, I think the page respects the default FF font
+			"${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/HackNerdFontMono-Regular.ttf:/usr/share/nginx/html/fonts/font.ttf"
 		];
 
 	};
