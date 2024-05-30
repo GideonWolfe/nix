@@ -108,6 +108,7 @@ with config.lib.stylix.colors.withHashtag;
 				"${modifier}+t" = "exec swaymsg [app_id='translate'] scratchpad show"; #HACK not sure why I need to exec swaymsg on this one
 				"${modifier}+c" = "exec swaymsg [app_id='calculator'] scratchpad show"; #HACK not sure why I need to exec swaymsg on this one
 				"${modifier}+p" = "exec ${config.home.homeDirectory}/nix/user/scripts/system/navigation/sway-window-switcher.sh";
+				"${modifier}+s" = "exec ${config.home.homeDirectory}/nix/user/scripts/system/search/wofi-web-search.sh";
 				"${modifier}+f" = "exec cat ${config.home.homeDirectory}/nix/user/configs/wofi/lists/french.csv | wofi --dmenu | awk '{print $1}'";
 			};
 
