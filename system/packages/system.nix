@@ -73,6 +73,7 @@
 		imv # like mpv for images
 		fd # better find
 		lnav # logfile viewer
+		sysz # fzf for systemctl
 		moreutils # additional unix tools
 		s-tui # TUI stress tester
 		#rofi
@@ -90,6 +91,7 @@
 		espeak
 		libsForQt5.qt5.qttools # toolset that includes qdbusviewer
 		libsForQt5.qt5.qtwayland # wayland compatibility
+		gpg-tui # TUI for GnuPG
 
 
 		# Notification daemon

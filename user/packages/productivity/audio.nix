@@ -20,6 +20,7 @@
 		#pkgs.piper-tts # Advanced text to speech
 		#pkgs.shaq # CLI for Shazam (Song identifier)
 		#pkgs.spotdl # Download spotify playlists/metadata
+		#pkgs.pyradio # TUI internet radio
 
 		# Music Production
 		#pkgs.reaper # DAW
