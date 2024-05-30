@@ -19,5 +19,6 @@
 		#########
 		pkgs.frescobaldi # lillypond GUI for writing scores
 		pkgs.fmit # instrument tuner
+		#pkgs.transcribe # music player optimized for transcribing music
 	];
 }

@@ -16,6 +16,10 @@
 		hyprland
 		sway
 
+		# Right click menu
+		# this should be kando which is more recent
+		#gnomeExtensions.fly-pie
+
 		# Bar
 		waybar
 		wttrbar #weather status for waybar

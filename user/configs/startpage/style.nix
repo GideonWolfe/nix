@@ -11,10 +11,9 @@ with config.lib.stylix.colors.withHashtag;
 		"nix/user/configs/startpage/data/style.css" = {
 
 			# Trigger a reload of the container
-			onChange = "docker restart startpage";
+			onChange = "${pkgs.docker}/bin/docker restart startpage";
 
 			text = ''
-
 			@font-face {
 			    font-family: "Roboto Mono";
 			    src: url("./fonts/font.ttf");
