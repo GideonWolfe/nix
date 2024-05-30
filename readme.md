@@ -14,6 +14,11 @@ SSH keys must exist
 
 # TODO
 
+## Refactoring
+
+* move the git commit script thats floating around
+* move the service definition for the startpage into the user dir, its ugly defined in system and reaching into hardcoded user dir for config files
+
 ## Add theme to cli-visualizer
 
 command is `vis`, takes a config file with a theme 
