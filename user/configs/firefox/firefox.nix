@@ -67,6 +67,12 @@ with config.lib.stylix.colors.withHashtag;
 					"install_url" = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
 					"default_area" = "menupanel";
 				};
+				# New Tab Override
+				"newtaboverride@agenedia.com" = {
+					"installation_mode" = "force_installed";
+					"install_url" = "https://addons.mozilla.org/firefox/downloads/latest/new-tab-override/latest.xpi";
+					"default_area" = "menupanel";
+				};
 			};
 
 		};

@@ -146,7 +146,7 @@ with config.lib.stylix.colors.withHashtag;
 
     # Custom startpage
     ./user/configs/startpage/style.nix
-    ./user/configs/startpage/service.nix
+    #./user/configs/startpage/service.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
