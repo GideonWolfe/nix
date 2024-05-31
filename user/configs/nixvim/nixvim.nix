@@ -119,6 +119,7 @@ with config.lib.stylix.colors.withHashtag;
         # adding plugins that don't have a module yet
         extraPlugins = with pkgs.vimPlugins; [
             lazygit-nvim
+            hop-nvim
         ];
 
         plugins = {
@@ -439,6 +440,10 @@ with config.lib.stylix.colors.withHashtag;
                 enable = true;
             };
 
+            todo-comments = {
+                enable = true;
+            };
+
             nvim-cmp = {
                 enable = true;
                 sources = [
@@ -615,11 +620,195 @@ with config.lib.stylix.colors.withHashtag;
                 };
             }
             {
+                action = "<cmd>Git log<CR>";
+                key = "<leader>gl";
+                mode = ["n"];
+                options = {
+                    desc = "Git Log";
+                };
+            }
+            {
                 action = "<cmd>DiffviewOpen<CR>";
                 key = "<leader>gd";
                 mode = ["n"];
                 options = {
                     desc = "Git Diff";
+                };
+            }
+            {
+                action = "<cmd>Telescope find_files<CR>";
+                key = "<leader>ff";
+                mode = ["n"];
+                options = {
+                    desc = "Find Files";
+                };
+            }
+            {
+                action = "<cmd>Telescope lsp_document_symbols<CR>";
+                key = "<leader>fds";
+                mode = ["n"];
+                options = {
+                    desc = "Find Document Symbols";
+                };
+            }
+            {
+                action = "<cmd>Telescope lsp_definitions<CR>";
+                key = "<leader>fd";
+                mode = ["n"];
+                options = {
+                    desc = "Find Definition";
+                };
+            }
+            {
+                action = "<cmd>Telescope lsp_implementations<CR>";
+                key = "<leader>fi";
+                mode = ["n"];
+                options = {
+                    desc = "Find Implementations";
+                };
+            }
+            {
+                action = "<cmd>Telescope media_files<CR>";
+                key = "<leader>fmf";
+                mode = ["n"];
+                options = {
+                    desc = "Find Media Files";
+                };
+            }
+            {
+                action = "<cmd>Telescope man_pages<CR>";
+                key = "<leader>fmp";
+                mode = ["n"];
+                options = {
+                    desc = "Find Media Pages";
+                };
+            }
+            {
+                action = "<cmd>Telescope quickfix<CR>";
+                key = "<leader>fqf";
+                mode = ["n"];
+                options = {
+                    desc = "Find Quickfix";
+                };
+            }
+            {
+                action = "<cmd>Telescope lsp_references<CR>";
+                key = "<leader>fr";
+                mode = ["n"];
+                options = {
+                    desc = "Find References";
+                };
+            }
+            {
+                action = "<cmd>Telescope spell_suggest<CR>";
+                key = "<leader>fs";
+                mode = ["n"];
+                options = {
+                    desc = "Find Spelling Suggestions";
+                };
+            }
+            {
+                action = "<cmd>Telescope help_tags<CR>";
+                key = "<leader>fvh";
+                mode = ["n"];
+                options = {
+                    desc = "Find Vim Help";
+                };
+            }
+            {
+                action = "<cmd>Telescope commands<CR>";
+                key = "<leader>fvc";
+                mode = ["n"];
+                options = {
+                    desc = "Find Vim Commands";
+                };
+            }
+            {
+                action = "<cmd>Telescope keymaps<CR>";
+                key = "<leader>fvk";
+                mode = ["n"];
+                options = {
+                    desc = "Find Vim Keymaps";
+                };
+            }
+            {
+                action = "<cmd>Telescope live_grep<CR>";
+                key = "<leader>fw";
+                mode = ["n"];
+                options = {
+                    desc = "Find Word";
+                };
+            }
+            {
+                action = "<cmd>Telescope lsp_workspace_symbols<CR>";
+                key = "<leader>fws";
+                mode = ["n"];
+                options = {
+                    desc = "Find Workspace Symbols";
+                };
+            }
+            {
+                action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
+                key = "<leader>lca";
+                mode = ["n"];
+                options = {
+                    desc = "LSP Code Actions";
+                };
+            }
+            {
+                action = "<cmd>Telescope lsp_incoming_calls<CR>";
+                key = "<leader>lic";
+                mode = ["n"];
+                options = {
+                    desc = "LSP Incoming Calls";
+                };
+            }
+            {
+                action = "<cmd>Telescope lsp_outgoing_calls<CR>";
+                key = "<leader>loc";
+                mode = ["n"];
+                options = {
+                    desc = "LSP Outgoing Calls";
+                };
+            }
+            {
+                action = "<cmd>lua vim.lsp.buf.rename()<CR>";
+                key = "<leader>lrn";
+                mode = ["n"];
+                options = {
+                    desc = "LSP Rename";
+                };
+            }
+            {
+                action = "<cmd>lua vim.lsp.buf.hover()<CR>";
+                key = "<leader>lci";
+                mode = ["n"];
+                options = {
+                    desc = "LSP Cursor Info";
+                };
+            }
+            {
+                action = "<cmd>HopWord<CR>";
+                key = "<leader>hw";
+                mode = ["n"];
+                options = {
+                    desc = "Hop Word";
+                };
+            }
+            {
+                action = "<cmd>HopChar1<CR>";
+                key = "<leader>hc";
+                mode = ["n"];
+                options = {
+                    desc = "Hop Character";
+                };
+            }
+            {
+                action = "<cmd>HopLine<CR>";
+                key = "<leader>hl";
+                mode = ["n"];
+                options = {
+                    desc = "Hop Line";
                 };
             }
         ];
