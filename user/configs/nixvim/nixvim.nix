@@ -114,6 +114,13 @@ with config.lib.stylix.colors.withHashtag;
 		};
 
 
+
+
+        # adding plugins that don't have a module yet
+        extraPlugins = with pkgs.vimPlugins; [
+            lazygit-nvim
+        ];
+
         plugins = {
 
             lsp = {
@@ -248,6 +255,33 @@ with config.lib.stylix.colors.withHashtag;
                 enable = true;
             };
 
+            project-nvim = {
+                enable = true;
+            };
+
+            telescope = {
+                enable = true;
+                extensions = {
+                    file_browser = {
+                        enable = true;
+                        addDirs = false;
+                        gitStatus = true;
+                    };
+                    media_files = {
+                        enable = true;
+                    };
+                    project-nvim = {
+                        enable = true;
+                    };
+                };
+            };
+
+            vimtex = {
+                enable = true;
+                texLivePackage = pkgs.texliveFull;
+                viewMethod = "zathura";
+            };
+
             trouble = {
                 enable = true;
                 icons = true;
@@ -262,6 +296,10 @@ with config.lib.stylix.colors.withHashtag;
 
             comment-nvim = {
                 enable = true;
+                mappings = {
+                    basic = true;
+                    extended = false;
+                };
             };
 
             none-ls = {
@@ -381,6 +419,10 @@ with config.lib.stylix.colors.withHashtag;
                 useIcons = true;
             };
 
+            fugitive = {
+                enable = true;
+            };
+
             treesitter = {
                 enable = true;
                 ensureInstalled = "all";
@@ -390,6 +432,10 @@ with config.lib.stylix.colors.withHashtag;
 
 
             rainbow-delimiters = {
+                enable = true;
+            };
+
+            which-key = {
                 enable = true;
             };
 
@@ -525,6 +571,58 @@ with config.lib.stylix.colors.withHashtag;
                 };
             };
         };
+
+        # Define keymaps (will populate which-key)
+        keymaps = [
+            {
+                action = "<cmd>LazyGitCurrentFile<CR>";
+                key = "<leader>gg";
+                mode = ["n"];
+                options = {
+                    desc = "LazyGit";
+                };
+            }
+            {
+                action = "<cmd>silent Git add %<CR>";
+                key = "<leader>ga";
+                mode = ["n"];
+                options = {
+                    desc = "Git Add File";
+                };
+            }
+            {
+                action = "<cmd>Git commit<CR>";
+                key = "<leader>gc";
+                mode = ["n"];
+                options = {
+                    desc = "Git Commit";
+                };
+            }
+            {
+                action = "<cmd>Git push<CR>";
+                key = "<leader>gp";
+                mode = ["n"];
+                options = {
+                    desc = "Git Commit";
+                };
+            }
+            {
+                action = "<cmd>Git blame<CR>";
+                key = "<leader>gb";
+                mode = ["n"];
+                options = {
+                    desc = "Git Blame";
+                };
+            }
+            {
+                action = "<cmd>DiffviewOpen<CR>";
+                key = "<leader>gd";
+                mode = ["n"];
+                options = {
+                    desc = "Git Diff";
+                };
+            }
+        ];
 
 	};
 }
