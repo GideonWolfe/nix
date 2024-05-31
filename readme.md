@@ -1,4 +1,13 @@
-# Setup
+# My Nix Dot files
+
+* Dotfiles managed by [Home Manager](https://nixos.wiki/wiki/Home_Manager)
+* Neovim setup with [NixVim](https://github.com/nix-community/nixvim)
+* Theming with [Stylix](https://github.com/danth/stylix)
+
+
+<details>
+
+<summary style="display:inline;"><h3>Setup Instructions</h3></summary>
 
 ## Home manager
 
@@ -11,8 +20,11 @@ SSH keys must exist
 
 `git remote set-url origin github:gideonwolfe/nix`
 
+</details>
 
-# TODO
+<details>
+
+<summary style="display:inline;"><h3>TODO</h3></summary>
 
 ## Real Time Audio (for music production)
 
@@ -122,9 +134,12 @@ Some of the config and package files can be further broken up, ie. turning scien
 
 * `cava` continues to hear audio even when system vol is muted
 
+</details>
 
 
-# Packages I want
+<details>
+
+<summary style="display:inline;"><h3>Wanted Packages</h3></summary>
 
 * https://github.com/joouha/euporie - TUI Jupyter notebooks
 * https://github.com/Julien-cpsn/ATAC - TUI API Client (like postman)
@@ -134,3 +149,6 @@ Some of the config and package files can be further broken up, ie. turning scien
 * https://github.com/darrenburns/elia - TUI for LLMs
 * https://github.com/nadrad/h-m-m - TUI for making mind maps
 * https://github.com/Chleba/netscanner - TUI for scanning networks
+
+
+</details>
