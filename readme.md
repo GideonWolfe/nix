@@ -14,6 +14,10 @@ SSH keys must exist
 
 # TODO
 
+## Real Time Audio (for music production)
+
+https://github.com/musnix/musnix
+
 ## Refactoring
 
 * move the git commit script thats floating around
@@ -129,4 +133,4 @@ Some of the config and package files can be further broken up, ie. turning scien
 * https://github.com/dewberryants/asciiMol - TUI molecular viewer
 * https://github.com/darrenburns/elia - TUI for LLMs
 * https://github.com/nadrad/h-m-m - TUI for making mind maps
-
+* https://github.com/Chleba/netscanner - TUI for scanning networks

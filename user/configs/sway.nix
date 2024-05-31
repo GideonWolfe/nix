@@ -98,7 +98,8 @@ with config.lib.stylix.colors.withHashtag;
 				modifier = config.wayland.windowManager.sway.config.modifier;
 			in lib.mkOptionDefault {
 				"${modifier}+Shift+q" = "kill";
-				"${modifier}+Shift+x" = "exec swaylock";
+				#"${modifier}+Shift+x" = "exec swaylock";
+				"${modifier}+Shift+x" = "exec ${config.home.homeDirectory}/nix/user/scripts/system/power/lock.sh";
 				"${modifier}+Shift+f" = "fullscreen toggle";
 				"${modifier}+Shift+s" = "layout stacking";
 				"${modifier}+Shift+w" = "layout tabbed";

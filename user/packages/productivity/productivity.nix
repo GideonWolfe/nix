@@ -58,6 +58,11 @@
 		#pkgs.exif # manipulate photo metadata
 		#pkgs.gifsicle # manipulate gif metadata
 
+		###########
+		# FINANCE #
+		###########
+		pkgs.cointop # TUI Crypto price tracker
+		
 
 
 	];

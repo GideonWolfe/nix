@@ -7,10 +7,15 @@
 		# actual greeter
 		greetd.tuigreet
 		# Lockscreen
-		swaylock
+		#swaylock
+		swaylock-effects
 		# Boot splash
 		plymouth
 		adi1090x-plymouth-themes
+
+
+		# Nix tools
+		nix-tree # browse dependencies of nix store
 
 		# make secrets available to apps
 		gnome.gnome-keyring

@@ -85,6 +85,9 @@ with config.lib.stylix.colors.withHashtag;
     # Zathura
     ./user/configs/zathura.nix
 
+    # Zathura
+    ./user/configs/btop.nix
+
     # GTK settings/theming
     ./user/configs/gtk.nix
 
