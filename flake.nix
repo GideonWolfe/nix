@@ -4,10 +4,12 @@
 	inputs = {
 		nixpkgs = {
 			url = "github:NixOS/nixpkgs/nixos-23.11";
+			#url = "github:NixOS/nixpkgs/nixos-24.05";
 		};
 
 		home-manager = {
 			url = "github:nix-community/home-manager/release-23.11";
+			#url = "github:nix-community/home-manager/release-24.05";
 			inputs = {
 				nixpkgs.follows = "nixpkgs";
 			};
@@ -19,6 +21,7 @@
 
 		stylix = {
 			url = "github:danth/stylix/release-23.11";
+			#url = "github:danth/stylix/release-24.05";
 			inputs = {
 				nixpkgs.follows = "nixpkgs";
 				home-manager.follows = "home-manager";
@@ -32,6 +35,7 @@
 		# Configure neovim with Nix!
 		nixvim = {
 			url = "github:nix-community/nixvim/nixos-23.11";
+			#url = "github:nix-community/nixvim/nixos-24.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
@@ -59,7 +63,11 @@
 				inherit pkgs;
 				extraSpecialArgs = {inherit spicetify-nix;};
 				# pass in stylix theming modules for user apps
-				modules = [stylix.homeManagerModules.stylix nixvim.homeManagerModules.nixvim ./home.nix];
+				modules = [ 
+                            stylix.homeManagerModules.stylix
+                            nixvim.homeManagerModules.nixvim
+                            ./home.nix
+                          ];
 			};
 		};
 

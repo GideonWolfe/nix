@@ -256,6 +256,11 @@ with config.lib.stylix.colors.withHashtag;
                 enable = true;
             };
 
+            better-escape = {
+                enable = true;
+                mapping = ["jk" "kj"];
+            };
+
             project-nvim = {
                 enable = true;
             };
