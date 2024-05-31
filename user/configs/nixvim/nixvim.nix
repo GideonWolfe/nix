@@ -431,6 +431,10 @@ with config.lib.stylix.colors.withHashtag;
                 indent = true;
             };
 
+            #TODO: inject CSS 
+            markdown-preview = {
+                enable = true;
+            };
 
             rainbow-delimiters = {
                 enable = true;
@@ -628,6 +632,14 @@ with config.lib.stylix.colors.withHashtag;
                 };
             }
             {
+                action = "<cmd>G<CR>";
+                key = "<leader>gs";
+                mode = ["n"];
+                options = {
+                    desc = "Git Summary";
+                };
+            }
+            {
                 action = "<cmd>DiffviewOpen<CR>";
                 key = "<leader>gd";
                 mode = ["n"];
@@ -665,6 +677,14 @@ with config.lib.stylix.colors.withHashtag;
                 mode = ["n"];
                 options = {
                     desc = "Find Implementations";
+                };
+            }
+            {
+                action = "<cmd>TodoTelescope<CR>";
+                key = "<leader>ft";
+                mode = ["n"];
+                options = {
+                    desc = "Find Todos";
                 };
             }
             {
@@ -809,6 +829,14 @@ with config.lib.stylix.colors.withHashtag;
                 mode = ["n"];
                 options = {
                     desc = "Hop Line";
+                };
+            }
+            {
+                action = "<cmd>MarkdownPreviewToggle<CR>";
+                key = "<leader>mdp";
+                mode = ["n"];
+                options = {
+                    desc = "Markdown Preview";
                 };
             }
         ];
