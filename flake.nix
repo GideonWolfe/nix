@@ -29,10 +29,16 @@
 			url = "github:the-argus/spicetify-nix";
 		};
 
+		# Configure neovim with Nix!
+		nixvim = {
+			url = "github:nix-community/nixvim/nixos-23.11";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
 
 	};
 
-	outputs = {self, nixpkgs, home-manager, stylix, spicetify-nix, ...} @inputs:
+	outputs = {self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim, ...} @inputs:
 		let 
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -53,7 +59,7 @@
 				inherit pkgs;
 				extraSpecialArgs = {inherit spicetify-nix;};
 				# pass in stylix theming modules for user apps
-				modules = [stylix.homeManagerModules.stylix ./home.nix];
+				modules = [stylix.homeManagerModules.stylix nixvim.homeManagerModules.nixvim ./home.nix];
 			};
 		};
 

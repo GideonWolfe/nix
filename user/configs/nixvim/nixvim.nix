@@ -3,11 +3,10 @@
 with config.lib.stylix.colors.withHashtag;
 
 {
-	programs.btop = {
+	programs.nixvim = {
 		enable = true;
-		settings = {
-			color_theme = "TTY";
-			vim_keys = true;
+		opts = {
+			number = true;
 		};
 	};
 }

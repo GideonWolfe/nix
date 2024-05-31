@@ -66,6 +66,9 @@ with config.lib.stylix.colors.withHashtag;
     ./user/configs/swaylock.nix
     ./user/configs/swayidle.nix
 
+    # Neovim
+    ./user/configs/nixvim/nixvim.nix
+
     # Display configs
     ./user/configs/kanshi.nix
 

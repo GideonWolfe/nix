@@ -92,7 +92,10 @@ with config.lib.stylix.colors.withHashtag;
 				# https://kb.mozillazine.org/About:config_entries
 				settings = {
 
-					general.autoScroll = true;
+					"general.autoScroll" = true;
+
+					# Change browser homepage
+					"browser.startup.homepage" = "http://localhost:9876";
 
 					# Enable userChrome.css styling
 					"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
