@@ -56,7 +56,7 @@ with config.lib.stylix.colors.withHashtag;
 					"wireplumber"
 					"mpris"
 					#"bluetooth"
-					#"custom/weather"
+					"custom/weather"
 					"tray"
 				];
 

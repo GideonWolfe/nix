@@ -10,9 +10,42 @@ with config.lib.stylix.colors.withHashtag;
 
         enableMan = true;
 
+
+        #TODO: do this a better way not hardcoded
+        colorscheme = lib.mkForce "catppuccin";
+        colorschemes = {
+            catppuccin = {
+                flavour = "mocha";
+                enable = lib.mkForce true;
+                integrations = {
+                    indent_blankline = {
+                        enabled = true;
+                        colored_indent_levels = true;
+                    };
+
+                    cmp= true;
+                    fidget= true;
+                    markdown= true;
+                    lsp_trouble= true;
+                    native_lsp.enabled = true;
+                    noice= true;
+                    nvimtree= true;
+                    rainbow_delimiters= true;
+
+                };
+            };
+        };
+
         globals = {
             mapleader = " ";
         };
+
+        clipboard.providers = {
+            wl-copy = {
+                enable = true;
+            };
+        };
+        clipboard.register = "unnamedplus";
 
 		# Basic Neovim options
 		opts = {
@@ -256,6 +289,10 @@ with config.lib.stylix.colors.withHashtag;
                 enable = true;
             };
 
+            nvim-tree = {
+                enable = true;
+            };
+
             better-escape = {
                 enable = true;
                 mapping = ["jk" "kj"];
@@ -429,11 +466,37 @@ with config.lib.stylix.colors.withHashtag;
                 enable = true;
             };
 
+            lspsaga = {
+                enable = true;
+                # Breadcrumbs in top
+                symbolInWinbar = {
+                    enable = true;
+                    colorMode = true;
+                };
+                # Shows code action
+                lightbulb = {
+                    enable = false;
+                };
+                # Shows details above function implementation
+                implement = {
+                    enable = true;
+                };
+                # Symbol outline sidebar
+                outline = {
+                    autoClose = true;
+                };
+            };
+
             treesitter = {
                 enable = true;
                 ensureInstalled = "all";
                 folding = false;
                 indent = true;
+            };
+
+            # Shows context of current pos in block at top of buffer
+            treesitter-context = {
+                enable = false;
             };
 
             #TODO: inject CSS 
@@ -547,8 +610,15 @@ with config.lib.stylix.colors.withHashtag;
             cmp-nvim-lsp = {
                 enable = true;
             };
+
             cmp-spell = {
                 enable = true;
+            };
+
+            lualine = {
+                enable = true;
+                iconsEnabled = true;
+                theme = "auto";
             };
             
 
@@ -842,6 +912,14 @@ with config.lib.stylix.colors.withHashtag;
                 mode = ["n"];
                 options = {
                     desc = "Markdown Preview";
+                };
+            }
+            {
+                action = "<cmd>NvimTreeToggle<CR>";
+                key = "<leader>nt";
+                mode = ["n"];
+                options = {
+                    desc = "Nvim Tree";
                 };
             }
         ];
