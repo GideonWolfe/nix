@@ -12,11 +12,11 @@ with config.lib.stylix.colors.withHashtag;
 
 
         #TODO: do this a better way not hardcoded
-        colorscheme = lib.mkForce "catppuccin";
+        #colorscheme = lib.mkForce "catppuccin";
         colorschemes = {
             catppuccin = {
                 flavour = "mocha";
-                enable = lib.mkForce true;
+                enable = false;
                 integrations = {
                     indent_blankline = {
                         enabled = true;
@@ -46,6 +46,28 @@ with config.lib.stylix.colors.withHashtag;
             };
         };
         clipboard.register = "unnamedplus";
+
+        autoCmd = [
+            # resumes last place in file
+            {
+                event = "BufReadPost";
+                callback = {
+                    __raw = ''
+                        function()
+                            vim.cmd([[
+                                if line("'\"") > 0 && line("'\"") <= line("$") |
+                                    exe "normal! g`\"" |
+                                endif
+                            ]])
+                        end
+                    '';
+                };
+
+            }
+        ];
+
+
+
 
 		# Basic Neovim options
 		opts = {
@@ -659,6 +681,116 @@ with config.lib.stylix.colors.withHashtag;
         # Define keymaps (will populate which-key)
         keymaps = [
             {
+                action = "<C-w>k";
+                key = "<C-k>";
+                mode = ["n"];
+                options = {
+                    desc = "Switch window up";
+                };
+            }
+            {
+                action = "<C-w>j";
+                key = "<C-j>";
+                mode = ["n"];
+                options = {
+                    desc = "Switch window down";
+                };
+            }
+            {
+                action = "<C-w>l";
+                key = "<C-l>";
+                mode = ["n"];
+                options = {
+                    desc = "Switch window right";
+                };
+            }
+            {
+                action = "<C-w>l";
+                key = "<C-l>";
+                mode = ["n"];
+                options = {
+                    desc = "Switch window right";
+                };
+            }
+            {
+                action = "<C-w>h";
+                key = "<C-h>";
+                mode = ["n"];
+                options = {
+                    desc = "Switch window left";
+                };
+            }
+            {
+                action = ">>_";
+                key = "<Tab>";
+                mode = ["n"];
+                options = {
+                    desc = "Increase indent";
+                };
+            }
+            {
+                action = "<<_";
+                key = "<S-Tab>";
+                mode = ["n"];
+                options = {
+                    desc = "Decrease indent";
+                };
+            }
+            {
+                action = ":m .+1<CR>==";
+                key = "<A-j>";
+                mode = ["n"];
+                options = {
+                    desc = "Move line down";
+                    silent = true;
+                };
+            }
+            {
+                action = ":m .-2<CR>==";
+                key = "<A-k>";
+                mode = ["n"];
+                options = {
+                    desc = "Move line up";
+                    silent = true;
+                };
+            }
+            {
+                action = "<esc>:m .+1<CR>==";
+                key = "<A-j>";
+                mode = ["i"];
+                options = {
+                    desc = "Move line down";
+                    silent = true;
+                };
+            }
+            {
+                action = "<esc>:m .-2<CR>==";
+                key = "<A-v>";
+                mode = ["i"];
+                options = {
+                    desc = "Move line up";
+                    silent = true;
+                };
+            }
+            {
+                action = ":m '>+1<CR>gv=gv";
+                key = "<A-j>";
+                mode = ["v"];
+                options = {
+                    desc = "Move line down";
+                    silent = true;
+                };
+            }
+            {
+                action = "<esc>:m '<-2<CR>gv=gv";
+                key = "<A-k>";
+                mode = ["i"];
+                options = {
+                    desc = "Move line up";
+                    silent = true;
+                };
+            }
+            {
                 action = "<cmd>LazyGitCurrentFile<CR>";
                 key = "<leader>gg";
                 mode = ["n"];
@@ -920,6 +1052,22 @@ with config.lib.stylix.colors.withHashtag;
                 mode = ["n"];
                 options = {
                     desc = "Nvim Tree";
+                };
+            }
+            {
+                action = "<Plug>(dial-increment)";
+                key = "<C-a>";
+                mode = ["n" "v"];
+                options = {
+                    desc = "Dial increment";
+                };
+            }
+            {
+                action = "<Plug>(dial-decrement)";
+                key = "<C-x>";
+                mode = ["n" "v"];
+                options = {
+                    desc = "Dial increment";
                 };
             }
         ];

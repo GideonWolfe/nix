@@ -18,6 +18,9 @@
 		zathura = {
 			enable = true;
 		};
+		nixvim = {
+			enable = true;
+		};
 	};
 
 	stylix.fonts = {
