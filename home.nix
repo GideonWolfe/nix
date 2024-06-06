@@ -309,6 +309,7 @@ with config.lib.stylix.colors.withHashtag;
      EDITOR = "nvim";
      TERM = "kitty";
      BROWSER = "firefox";
+     PAGER = "ov";
   };
 
   # Let Home Manager install and manage itself.

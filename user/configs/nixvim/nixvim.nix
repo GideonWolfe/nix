@@ -36,6 +36,174 @@ with config.lib.stylix.colors.withHashtag;
             };
         };
 
+        highlight = {
+
+            # Colors for vim mode section
+            lualine_a_insert = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            lualine_a_normal = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_a_command = {
+                bg = "${base00}";
+                fg = "${base0E}";
+            };
+            lualine_a_replace = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            lualine_a_visual = {
+                bg = "${base00}";
+                fg = "${base0C}";
+            };
+
+            # Branch information
+            lualine_b_insert = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            lualine_b_normal = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_command = {
+                bg = "${base00}";
+                fg = "${base0E}";
+            };
+            lualine_b_replace = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            lualine_b_visual = {
+                bg = "${base00}";
+                fg = "${base0C}";
+            };
+
+            # Colors for Diagnostics
+            lualine_b_diagnostics_error_normal = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            lualine_b_diagnostics_warn_normal = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            lualine_b_diagnostics_info_normal = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diagnostics_hint_normal = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diagnostics_error_insert = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            lualine_b_diagnostics_warn_insert = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            lualine_b_diagnostics_info_insert = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diagnostics_hint_insert = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diagnostics_error_visual = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            lualine_b_diagnostics_warn_visual = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            lualine_b_diagnostics_info_visual = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diagnostics_hint_visual = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diagnostics_error_command = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            lualine_b_diagnostics_warn_command = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            lualine_b_diagnostics_info_command = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diagnostics_hint_command = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+
+
+            # Filename
+            lualine_c_insert = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            lualine_c_normal = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_c_command = {
+                bg = "${base00}";
+                fg = "${base0E}";
+            };
+            lualine_c_replace = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            lualine_c_visual = {
+                bg = "${base00}";
+                fg = "${base0C}";
+            };
+
+            # TODO: I don't think are doing anything
+            lualine_x_filetype_DevIconLua_normal= {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_x_filetype_DevIconLua_insert= {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            lualine_x_filetype_DevIconLua_visual= {
+                bg = "${base00}";
+                fg = "${base0C}";
+            };
+            lualine_x_filetype_DevIconLua_replace= {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            lualine_x_filetype_DevIconLua_command= {
+                bg = "${base00}";
+                fg = "${base0E}";
+            };
+
+
+            # TODO: these aren't working
+            # Separators
+            luanline_transitional_lualine_a_command_to_lualine_b_command = {
+                bg = "${base00}";
+                fg = "#FF0000";
+            };
+
+
+        };
+
         globals = {
             mapleader = " ";
         };
