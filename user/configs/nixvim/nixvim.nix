@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, config, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -171,6 +171,68 @@ with config.lib.stylix.colors.withHashtag;
                 fg = "${base0C}";
             };
 
+            # Diffs
+            lualine_b_diff_added_normal = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            lualine_b_diff_added_insert = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            lualine_b_diff_added_visual = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            lualine_b_diff_added_command = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            lualine_b_diff_added_replace = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            lualine_b_diff_modified_normal = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diff_modified_insert = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diff_modified_visual = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diff_modified_command = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diff_modified_replace = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diff_removed_normal = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            lualine_b_diff_removed_insert = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            lualine_b_diff_removed_visual = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            lualine_b_diff_removed_command = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            lualine_b_diff_mremovedreplace = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+
             # TODO: I don't think are doing anything
             lualine_x_filetype_DevIconLua_normal= {
                 bg = "${base00}";
@@ -199,6 +261,36 @@ with config.lib.stylix.colors.withHashtag;
             luanline_transitional_lualine_a_command_to_lualine_b_command = {
                 bg = "${base00}";
                 fg = "#FF0000";
+            };
+
+            # Rainbow delimiters
+            RainbowDelimiterRed = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            RainbowDelimiterYellow = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            RainbowDelimiterBlue = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            RainbowDelimiterOrange = {
+                bg = "${base00}";
+                fg = "${base09}";
+            };
+            RainbowDelimiterGreen = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
+            RainbowDelimiterViolet = {
+                bg = "${base00}";
+                fg = "${base0E}";
+            };
+            RainbowDelimiterCyan = {
+                bg = "${base00}";
+                fg = "${base0C}";
             };
 
 
