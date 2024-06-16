@@ -47,6 +47,7 @@
 		#pkgs.wavemon # monitor wifi devices
 		#pkgs.qFlipper
 		pkgs.gpg-tui # TUI for GnuPG
+		pkgs.sherlock # hunt down social media accounts
 		#pkgs.john # John the ripper
 		#pkgs.metasploit-framework
 		#pkgs.johnny # GUI for John the Ripper

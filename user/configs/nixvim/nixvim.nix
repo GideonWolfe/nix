@@ -38,6 +38,15 @@ with config.lib.stylix.colors.withHashtag;
 
         highlight = {
 
+            #TODO: Use "link" option for the highlight defs that allows me to link HL groups to pre-existing ones to minimize overhead
+
+            # active line number
+            CursorLineNr = {
+                bg = "${base00}";
+                fg = "${base0E}";
+                bold = true;
+            };
+
             # Colors for vim mode section
             lualine_a_insert = {
                 bg = "${base00}";
@@ -59,6 +68,10 @@ with config.lib.stylix.colors.withHashtag;
                 bg = "${base00}";
                 fg = "${base0C}";
             };
+            lualine_a_terminal = {
+                bg = "${base00}";
+                fg = "${base0F}";
+            };
 
             # Branch information
             lualine_b_insert = {
@@ -67,19 +80,23 @@ with config.lib.stylix.colors.withHashtag;
             };
             lualine_b_normal = {
                 bg = "${base00}";
-                fg = "${base0D}";
+                fg = "${base0B}";
             };
             lualine_b_command = {
                 bg = "${base00}";
-                fg = "${base0E}";
+                fg = "${base0B}";
             };
             lualine_b_replace = {
                 bg = "${base00}";
-                fg = "${base0A}";
+                fg = "${base0B}";
             };
             lualine_b_visual = {
                 bg = "${base00}";
-                fg = "${base0C}";
+                fg = "${base0B}";
+            };
+            lualine_b_terminal = {
+                bg = "${base00}";
+                fg = "${base0B}";
             };
 
             # Colors for Diagnostics
@@ -147,6 +164,22 @@ with config.lib.stylix.colors.withHashtag;
                 bg = "${base00}";
                 fg = "${base0D}";
             };
+            lualine_b_diagnostics_error_replace = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            lualine_b_diagnostics_warn_replace = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            lualine_b_diagnostics_info_replace = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
+            lualine_b_diagnostics_hint_replace = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
 
 
             # Filename
@@ -192,6 +225,10 @@ with config.lib.stylix.colors.withHashtag;
                 bg = "${base00}";
                 fg = "${base0B}";
             };
+            lualine_b_diff_added_terminal = {
+                bg = "${base00}";
+                fg = "${base0B}";
+            };
             lualine_b_diff_modified_normal = {
                 bg = "${base00}";
                 fg = "${base0D}";
@@ -212,6 +249,10 @@ with config.lib.stylix.colors.withHashtag;
                 bg = "${base00}";
                 fg = "${base0D}";
             };
+            lualine_b_diff_modified_terminal = {
+                bg = "${base00}";
+                fg = "${base0D}";
+            };
             lualine_b_diff_removed_normal = {
                 bg = "${base00}";
                 fg = "${base08}";
@@ -228,7 +269,7 @@ with config.lib.stylix.colors.withHashtag;
                 bg = "${base00}";
                 fg = "${base08}";
             };
-            lualine_b_diff_mremovedreplace = {
+            lualine_b_diff_removed_replace = {
                 bg = "${base00}";
                 fg = "${base08}";
             };
@@ -258,9 +299,26 @@ with config.lib.stylix.colors.withHashtag;
 
             # TODO: these aren't working
             # Separators
-            luanline_transitional_lualine_a_command_to_lualine_b_command = {
+
+            lualine_transitional_lualine_a_normal_to_lualine_c_normal = {
                 bg = "${base00}";
-                fg = "#FF0000";
+                fg = "${base0B}";
+            };
+            lualine_transitional_lualine_a_normal_to_lualine_b_normal = {
+                bg = "${base00}";
+                fg = "${base0C}";
+            };
+            lualine_transitional_lualine_a_insert_to_lualine_b_insert = {
+                bg = "${base00}";
+                fg = "${base0E}";
+            };
+            lualine_transitional_lualine_b_normal_to_lualine_c_normal = {
+                bg = "${base00}";
+                fg = "${base0F}";
+            };
+            lualine_transitional_lualine_b_insert_to_lualine_c_normal = {
+                bg = "${base00}";
+                fg = "${base0F}";
             };
 
             # Rainbow delimiters
@@ -291,6 +349,45 @@ with config.lib.stylix.colors.withHashtag;
             RainbowDelimiterCyan = {
                 bg = "${base00}";
                 fg = "${base0C}";
+            };
+
+            NvimTreeGitDeleted = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            NvimTreeFileDirty = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            NvimTreeGitDirty = {
+                bg = "${base00}";
+                fg = "${base08}";
+            };
+            NvimTreeFolderNew = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            NvimTreeFileNew = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            NvimTreeFileMerge = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            NvimTreeGitMerge = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            NvimTreeGitNew = {
+                bg = "${base00}";
+                fg = "${base0A}";
+            };
+            NvimTreeSpecialFile = {
+                bg = "${base00}";
+                fg = "${base0E}";
+                bold = true;
+                underline = true;
             };
 
 
