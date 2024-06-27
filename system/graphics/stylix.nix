@@ -3,7 +3,11 @@
 {
 	# Enable Stylix for system level theming
 	stylix = {
+
+        enable = true;
+
 		image = ./wallpapers/zT7uCe2.png;
+		#image = ./wallpapers/857o58w.jpg;
 		#image = "${config.users.users.gideon.home}/nix/system/graphics/wallpapers/zT7uCe2.png";
 		#image = /home/gideon/nix/user/configs/zT7uCe2.png;
 

@@ -15,23 +15,25 @@ with config.lib.stylix.colors.withHashtag;
         #colorscheme = lib.mkForce "catppuccin";
         colorschemes = {
             catppuccin = {
-                flavour = "mocha";
                 enable = false;
-                integrations = {
-                    indent_blankline = {
-                        enabled = true;
-                        colored_indent_levels = true;
+                settings = {
+                    flavour = "mocha";
+                    integrations = {
+                        indent_blankline = {
+                            enabled = true;
+                            colored_indent_levels = true;
+                        };
+
+                        cmp= true;
+                        fidget= true;
+                        markdown= true;
+                        lsp_trouble= true;
+                        native_lsp.enabled = true;
+                        noice= true;
+                        nvimtree= true;
+                        rainbow_delimiters= true;
+
                     };
-
-                    cmp= true;
-                    fidget= true;
-                    markdown= true;
-                    lsp_trouble= true;
-                    native_lsp.enabled = true;
-                    noice= true;
-                    nvimtree= true;
-                    rainbow_delimiters= true;
-
                 };
             };
         };
@@ -543,7 +545,7 @@ with config.lib.stylix.colors.withHashtag;
                 # Configs for all LSP servers
                 servers = {
                     # Nix 
-                    nil_ls = {
+                    nil-ls = {
                         # enable nil LSP for Nix
                         enable = true;
                     };
@@ -678,21 +680,20 @@ with config.lib.stylix.colors.withHashtag;
             };
 
             project-nvim = {
-                enable = true;
+                enableTelescope = true;
             };
 
             telescope = {
                 enable = true;
                 extensions = {
-                    file_browser = {
+                    file-browser = {
                         enable = true;
-                        addDirs = false;
-                        gitStatus = true;
+                        settings  = {
+                            add_dirs = false;
+                            git_status = true;
+                        };
                     };
-                    media_files = {
-                        enable = true;
-                    };
-                    project-nvim = {
+                    media-files = {
                         enable = true;
                     };
                 };
@@ -700,27 +701,34 @@ with config.lib.stylix.colors.withHashtag;
 
             vimtex = {
                 enable = true;
-                texLivePackage = pkgs.texliveFull;
-                viewMethod = "zathura";
+                texlivePackage = pkgs.texliveFull;
+                settings = {
+                    view_method = "zathura";
+                };
             };
 
             trouble = {
                 enable = true;
-                icons = true;
-                indentLines = true;
-                useDiagnosticSigns = true;
+                settings = {
+                    icons = true;
+                    indent_lines = true;
+                    use_diagnostic_signs = true;
+                };
             };
 
             nvim-autopairs = {
                 enable = true;
-                checkTs = true;
+                settings = {
+                    check_ts = true;
+                };
             };
 
-            comment-nvim = {
+            comment = {
                 enable = true;
-                mappings = {
-                    basic = true;
-                    extended = false;
+                settings = {
+                    mappings = {
+                        basic = true;
+                    };
                 };
             };
 
@@ -732,7 +740,7 @@ with config.lib.stylix.colors.withHashtag;
                     };
                     diagnostics = {
                         deadnix.enable = true;
-                        eslint.enable = true;
+                        #eslint.enable = true;
                     };
                 };
             };
@@ -776,63 +784,48 @@ with config.lib.stylix.colors.withHashtag;
             gitsigns = {
                 enable = true;
 
-                signcolumn = true;
-                trouble = true;
-                numhl = false;
-                linehl = false;
-                wordDiff = false;
-                currentLineBlame = true;
-                currentLineBlameOpts = {
-                    virtText = true;
-                    virtTextPos = "right_align";
-                    delay = 1000;
-                    ignoreWhitespace = false;
+                settings = {
+
+                    word_diff = false;
+                    trouble = true;
+                    linehl = false;
+                    signcolumn = true;
+                    numhl = false;
+                    current_line_blame = true;
+                    current_line_blame_opts = {
+                        virt_text = true;
+                        virt_text_pos = "right_align";
+                        delay = 1000;
+                        ignore_whitespace = false;
+                    };
+                    signs = {
+                        add = {
+                            text = "│";
+                        };
+                        change = {
+                            text = "│";
+                        };
+                        changedelete = {
+                            text = "│";
+                        };
+                        delete = {
+                            text = "│";
+                        };
+                        topdelete = {
+                            text = "│";
+                        };
+                        untracked = {
+                            text = "│";
+                        };
+                    };
                 };
 
-                signs = {
-                    add = {
-                        text = "│";
-                    };
-                    change = {
-                        text = "│";
-                    };
-                    changedelete = {
-                        text = "│";
-                    };
-                    delete = {
-                        text = "│";
-                    };
-                    topdelete = {
-                        text = "│";
-                    };
-                    untracked = {
-                        text = "│";
-                    };
-                };
             };
 
+
+            #TODO: Rewrite fidget config with new opts since plugin got rewritten 
             fidget = {
                 enable = true;
-                window = {
-                    relative = "win";
-                    blend = 0;
-                    border = "single";
-                };
-                text = {
-                    spinner = "moon";
-                    done = "";
-                    commenced = "Started";
-                    completed = "Completed";
-                };
-                align = {
-                    bottom = true;
-                    right = true;
-                };
-                timer = {
-                    spinnerRate = 125;
-                    fidgetDecay = 2000;
-                    taskDecay = 1000;
-                };
             };
 
             diffview = {
@@ -895,56 +888,42 @@ with config.lib.stylix.colors.withHashtag;
                 enable = true;
             };
 
-            nvim-cmp = {
+            cmp = {
                 enable = true;
-                sources = [
-                    { name = "nvim_lsp"; }
-                    { name = "nvim_lua"; }
-                    { name = "luasnip"; }
-                    { name = "buffer"; }
-                    { name = "path"; }
-                    { name = "emoji"; }
-                    { name = "crates"; }
-                    { name = "dictionary"; }
-                    { name = "calc"; }
-                    { name = "fish"; }
-                    { name = "digraphs"; }
-                    { name = "spell"; }
-                ];
+                autoEnableSources = false;
 
-                window = {
-                    completion = {
-                        border = "single";
-                        #winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None";
-                    };
-                    documentation = {
-                        border = "single";
-                        #winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None";
-                    };
-                };
-
-                mapping = {
-                    "<CR>" = "cmp.mapping.confirm({ select = true })";
-                    "<Tab>" = {
-                        action = ''
-                          function(fallback)
-                            if cmp.visible() then
-                              cmp.select_next_item()
-                            elseif luasnip.expandable() then
-                              luasnip.expand()
-                            elseif luasnip.expand_or_jumpable() then
-                              luasnip.expand_or_jump()
-                            elseif check_backspace() then
-                              fallback()
-                            else
-                              fallback()
-                            end
-                          end
+                settings = {
+                    mapping = {
+                        __raw = ''
+                            cmp.mapping.preset.insert({
+                                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                                ['<C-Space>'] = cmp.mapping.complete(),
+                                ['<C-e>'] = cmp.mapping.abort(),
+                                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                            })
                         '';
-                        modes = [
-                          "i"
-                          "s"
-                        ];
+                    };
+                    snippet = {
+                        expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+                    };
+                    sources = {
+                        __raw = ''
+                            cmp.config.sources({
+                                { name = 'nvim_lsp' },
+                                { name = 'nvim_lua' },
+                                { name = 'luasnip' },
+                                { name = 'buffer' },
+                                { name = 'path' },
+                                { name = 'emoji' },
+                                { name = 'crates' },
+                                { name = 'dictionary' },
+                                { name = 'calc' },
+                                { name = 'fish' },
+                                { name = 'digraphs' },
+                                { name = 'spell' },
+                            })
+                        '';
                     };
                 };
             };
@@ -997,40 +976,42 @@ with config.lib.stylix.colors.withHashtag;
             lualine = {
                 enable = true;
                 iconsEnabled = true;
-                theme = "auto";
+                #theme = "auto";
             };
             
 
             indent-blankline = {
                 enable = true;
+                settings = {
 
-                indent = {
-                    char = "▏";
-                };
+                    indent = {
+                        char = "▏";
+                    };
 
-                exclude = {
-                    filetypes = [
-                        "help"
-                        "defx"
-                        "vimwiki"
-                        "man"
-                        "gitmessengerpopup"
-                        "gitcommit"
-                        "diagnosticpopup"
-                        "lspinfo"
-                        "packer"
-                        "text"
-                        "markdown"
-                        "yaml"
-                        "dashboard"
-                        "TelescopePrompt"
-                        "NvimTree"
-                        ""
-                    ];
-                    buftypes = [
-                        "terminal"
-                        "nofile"
-                    ];
+                    exclude = {
+                        filetypes = [
+                            "help"
+                            "defx"
+                            "vimwiki"
+                            "man"
+                            "gitmessengerpopup"
+                            "gitcommit"
+                            "diagnosticpopup"
+                            "lspinfo"
+                            "packer"
+                            "text"
+                            "markdown"
+                            "yaml"
+                            "dashboard"
+                            "TelescopePrompt"
+                            "NvimTree"
+                            ""
+                        ];
+                        buftypes = [
+                            "terminal"
+                            "nofile"
+                        ];
+                    };
                 };
             };
         };

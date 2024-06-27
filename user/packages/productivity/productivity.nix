@@ -50,7 +50,7 @@
 		#pkgs.zbar # barcode scanner
 		#pkgs.gpick # color picker
 		pkgs.translate-shell # google translate in the shell
-		pkgs.shell_gpt # CLI for ChatGPT
+		pkgs.shell-gpt # CLI for ChatGPT
 		pkgs.ov # terminal pager
         pkgs.maim # scrot replacement
 

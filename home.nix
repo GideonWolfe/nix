@@ -77,6 +77,7 @@ with config.lib.stylix.colors.withHashtag;
 
     # Waybar
     ./user/configs/waybar.nix
+    #./user/configs/waybar_new.nix
 
     # Wofi
     ./user/configs/wofi/wofi.nix

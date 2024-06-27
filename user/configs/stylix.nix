@@ -9,6 +9,8 @@
 	# Override scheme (as opposed to getting from image)
 	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
+    stylix.enable = true;
+
 	stylix.polarity = "dark";
 
 	stylix.targets = {

@@ -52,7 +52,7 @@ with config.lib.stylix.colors.withHashtag;
 					"backlight/slider"
 					"network"
 					"battery"
-					"cava"
+					#"cava"
 					"wireplumber"
 					"mpris"
 					#"bluetooth"
