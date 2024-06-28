@@ -99,6 +99,7 @@
 		libsForQt5.qt5.qtwayland # wayland compatibility
 		gpg-tui # TUI for GnuPG
 
+        pstree # process tree
 
 		# Notification daemon
 		libnotify
