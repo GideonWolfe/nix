@@ -888,6 +888,11 @@ with config.lib.stylix.colors.withHashtag;
                 enable = true;
             };
 
+            # TODO: advanced config required
+            dap = {
+                enable = true;
+            };
+
             cmp = {
                 enable = true;
                 autoEnableSources = false;
@@ -969,7 +974,15 @@ with config.lib.stylix.colors.withHashtag;
                 enable = true;
             };
 
+            cmp-nvim-lua = {
+                enable = true;
+            };
+
             cmp-spell = {
+                enable = true;
+            };
+
+            cmp-dap = {
                 enable = true;
             };
 
@@ -1013,6 +1026,64 @@ with config.lib.stylix.colors.withHashtag;
                         ];
                     };
                 };
+            };
+
+            dashboard = {
+                enable = true;
+
+
+
+                settings = {
+
+                    theme = "hyper";
+                    
+                    change_to_vcs_root = true;
+
+                    config = {
+
+                        # Most recently used
+                        mru = {
+                            icon_hl = "RainbowDelimiterBlue";
+                        };
+
+                        # TODO: i don't think this works with nix right
+                        packages.enable = true;
+
+                        project = {
+                            enable = true;
+                            icon = "";
+                        };
+
+                        header = [
+                            "⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⢀⣠⣾⣷⣿⣿⣿⣶⣤⣿⣠⣶⡶⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⠀⠀⠀⢀⣤⡶⣿⢺⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⣿⣂⡶⣶⡐⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⠀⢀⣀⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣽⣿⣿⣿⣿⣿⣿⣇⣤⣄⠀⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⣰⣶⣿⣏⢿⡿⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⢿⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣬⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⣰⣿⣯⠉⠉⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣾⣷⣾⣿⣿⣿⣿⣽⣿⡇⠀⠀⠉⠉⣹⣧⡀⠀⠀⠀"
+                            "⠀⠀⢀⣍⣿⡁⢀⡀⠀⠀⣿⠏⠀⠀⠉⠁⠀⠙⣿⣧⡋⡀⠀⠀⠀⠀⢉⣿⡀⠀⢀⠀⢹⣧⣅⠀⠀⠀"
+                            "⢠⡄⠘⠻⢿⣷⣶⣤⣴⣿⣿⡀⣀⢠⣀⠀⣀⣬⣡⣄⡬⣀⢀⡀⠀⠀⢀⣿⢿⣦⣼⣶⣿⡿⠞⠀⣀⠀"
+                            "⢸⡇⠀⣠⣼⣿⡟⠉⠛⣿⣾⣿⣮⣯⣥⡶⢿⣯⢛⡟⣴⡿⢶⣥⣤⣶⣿⣵⣿⠛⠛⠿⢿⣤⡀⠂⣉⠀"
+                            "⠀⠁⣼⢟⡿⠋⠀⠀⠀⣠⣤⠀⠀⠀⠙⠛⢢⣧⠊⠉⣜⡔⠛⠃⠀⠀⠠⣤⡀⠀⠀⠀⠻⣿⠹⡆⠃⠀"
+                            "⠀⠀⠈⡜⣧⠠⠤⢀⡴⣻⠄⢀⠠⡀⢀⣠⣷⠋⠀⠀⠘⢶⣄⡀⡄⠀⠀⢠⡝⣄⠀⡤⢀⡼⠀⠀⠀⠀"
+                            "⠀⠀⢀⣿⣿⣿⣿⣿⣷⣿⣷⣼⣠⣜⣿⣾⠁⠀⠀⠀⠀⠀⣿⣯⣓⣛⣁⣼⣿⣾⣿⣿⣿⣤⣧⠀⠀⠀"
+                            "⠀⢀⠘⡿⣿⣿⢿⣾⣿⣿⣏⠙⠻⣿⣿⣯⣀⢀⣠⢄⡀⢂⣿⣿⡿⠋⠉⢙⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀"
+                            "⠀⠀⠀⠀⠈⢁⠈⠙⠉⠉⠉⢹⡆⡾⢸⣿⣿⠿⣿⣿⣿⣯⣍⠀⣡⢰⡏⠉⠉⠛⠉⠀⠉⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⠀⠘⣄⠀⠀⠀⠀⡾⡰⣿⣿⢿⡿⣦⣿⣽⢿⢻⡟⢳⣽⣎⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⠀⠀⠈⠀⣸⡆⠀⠀⠉⢠⣦⣾⣀⣾⡇⠑⠀⠀⣤⡀⠉⣾⠀⠀⣸⡀⠀⠀⠀⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⠀⠀⠀⠂⢸⣇⠀⠈⠲⠸⠏⣛⣫⣙⣃⣀⣀⣴⠋⣥⡔⠞⠁⠀⣿⠇⢪⠀⠀⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⠀⠀⠀⢃⠘⠿⣴⠄⣤⡀⢃⠉⡝⣈⠛⠻⣉⢋⠀⣁⣰⢤⢰⣶⠟⠀⡏⠀⠀⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⠀⠀⠀⠘⠆⠀⢹⣦⢠⡇⠙⣹⣧⡻⢼⠧⠟⣼⡿⠉⢹⢈⣼⡇⠀⠂⠁⠀⠀⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠳⣷⣷⣁⣺⣿⣿⣿⣤⣌⣻⣆⣾⡯⠿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠛⠿⠿⠛⠛⠻⠿⠿⠟⠃⠀⠀⠀⠀          "
+                        ];
+
+                        footer = [
+                            "you can't kill me in any way that matters"
+                        ];
+                        
+                    };
+                };
+                
             };
         };
 
