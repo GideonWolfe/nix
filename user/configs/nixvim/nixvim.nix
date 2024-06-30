@@ -900,13 +900,60 @@ with config.lib.stylix.colors.withHashtag;
                 settings = {
                     mapping = {
                         __raw = ''
+
                             cmp.mapping.preset.insert({
-                                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                                ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                                ['<C-Space>'] = cmp.mapping.complete(),
-                                ['<C-e>'] = cmp.mapping.abort(),
-                                ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                            })
+                            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                            ['<C-Space>'] = cmp.mapping.complete(),
+                            ['<C-e>'] = cmp.mapping.abort(),
+                            --['<CR>'] = cmp.mapping.confirm({ select = true }),
+
+                            -- Move forward in pmenu
+                            ["<Tab>"] = cmp.mapping(function(fallback)
+                                local luasnip = require('luasnip')
+                                local cmp = require('cmp')
+                                if cmp.visible() then
+                                    cmp.select_next_item()
+                                elseif luasnip.locally_jumpable(1) then
+                                    luasnip.jump(1)
+                                else
+                                    fallback()
+                                end
+                            end, { "i", "s" }),
+
+                            -- Move backwards
+                            ["<S-Tab>"] = cmp.mapping(function(fallback)
+                                local luasnip = require('luasnip')
+                                local cmp = require('cmp')
+                                if cmp.visible() then
+                                    cmp.select_prev_item()
+                                elseif luasnip.locally_jumpable(-1) then
+                                    luasnip.jump(-1)
+                                else
+                                    fallback()
+                                end
+                            end, { "i", "s" }),
+
+
+                            -- Make selection
+                            ['<CR>'] = cmp.mapping(function(fallback)
+                                local luasnip = require('luasnip')
+                                local cmp = require('cmp')
+                                if cmp.visible() then
+                                    if luasnip.expandable() then
+                                        luasnip.expand()
+                                    else
+                                        cmp.confirm({
+                                            select = true,
+                                        })
+                                    end
+                                else
+                                    fallback()
+                                end
+                            end),
+
+
+                        })
                         '';
                     };
                     snippet = {
@@ -990,6 +1037,23 @@ with config.lib.stylix.colors.withHashtag;
                 enable = true;
                 iconsEnabled = true;
                 #theme = "auto";
+                globalstatus = true;
+
+                componentSeparators = {
+                    #left = "╲";
+                    #right = "╱";
+                    left = ""; 
+                    right = "";
+                };
+
+                sectionSeparators = {
+                    left = "";
+                    right = "";
+                    #left = "";
+                    #right = "";
+                };
+        
+
             };
             
 
