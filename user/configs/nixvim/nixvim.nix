@@ -3,6 +3,14 @@
 with config.lib.stylix.colors.withHashtag;
 
 {
+
+    imports = [
+        ./plugins/treesitter.nix
+        ./plugins/telescope.nix
+        ./plugins/nvim-ufo.nix
+        ./plugins/lsp.nix
+        ./plugins/cmp.nix
+    ];
 	programs.nixvim = {
 
 		# Enable NixVim configuration
@@ -129,6 +137,29 @@ with config.lib.stylix.colors.withHashtag;
                 fg = "${base08}";
             };
 
+            HopNextKey = {
+                fg = "${base08}";
+                bold = true;
+            };
+            HopNextKey1 = {
+                fg = "${base0D}";
+                bold = true;
+            };
+            HopNextKey2 = {
+                fg = "${base0A}";
+                bold = true;
+            };
+            HopUnmatched = {
+                fg = "${base01}";
+            };
+            HopCursor = {
+                fg = "${base0C}";
+                bold = true;
+            };
+            HopPreview = {
+                fg = "${base0E}";
+                bold = true;
+            };
 
             # active line number
             CursorLineNr = {
@@ -621,138 +652,9 @@ with config.lib.stylix.colors.withHashtag;
         # adding plugins that don't have a module yet
         extraPlugins = with pkgs.vimPlugins; [
             lazygit-nvim
-            hop-nvim
         ];
 
         plugins = {
-
-            lsp = {
-                # Enable LSPs to be configured
-                enable = true;
-
-                # Configs for all LSP servers
-                servers = {
-                    # Nix 
-                    nil-ls = {
-                        # enable nil LSP for Nix
-                        enable = true;
-                    };
-
-                    # Bash
-                    bashls = {
-                        enable = true;
-                    };
-
-                    # Clojure
-                    clojure-lsp = {
-                        enable = true;
-                    };
-
-                    # Cmake
-                    cmake = {
-                        enable = true;
-                    };
-
-                    # C#
-                    csharp-ls = {
-                        enable = true;
-                    };
-
-                    # CSS
-                    cssls = {
-                        enable = true;
-                    };
-
-                    # JS
-                    eslint = {
-                        enable = true;
-                    };
-
-                    # Godot Script
-                    gdscript = {
-                        enable = true;
-                    };
-
-                    # Go
-                    gopls = {
-                        enable = true;
-                    };
-
-                    # Haskell
-                    hls = {
-                        enable = true;
-                    };
-
-                    # html
-                    html = {
-                        enable = true;
-                    };
-
-                    # JSON
-                    jsonls = {
-                        enable = true;
-                    };
-
-                    # Julia
-                    julials = {
-                        enable = true;
-                    };
-
-                    # Kotlin
-                    kotlin-language-server = {
-                        enable = true;
-                    };
-
-                    # Lua
-                    lua-ls = {
-                        enable = true;
-                    };
-
-                    # PHP
-                    phpactor = {
-                        enable = true;
-                    };
-
-                    # Python
-                    pyright = {
-                        enable = true;
-                    };
-
-                    # Rust
-                    rust-analyzer = {
-                        enable = true;
-                        # automatically install deps if not already
-                        installCargo = true;
-                        installRustc = true;
-                    };
-
-                    # Tailwind CSS
-                    tailwindcss = {
-                        enable = true;
-                    };
-
-                    # LaTeX
-                    texlab = {
-                        enable = true;
-                    };
-
-                    # Typescript
-                    tsserver = {
-                        enable = true;
-                    };
-
-                    # Vue JS
-                    vuels = {
-                        enable = true;
-                    };
-
-                    # YAML
-                    yamlls = {
-                        enable = true;
-                    };
-
-                };
-            };
 
             bufferline = {
 
@@ -781,6 +683,9 @@ with config.lib.stylix.colors.withHashtag;
 
             };
 
+            lspkind = {
+                enable = true;
+            };
 
             luasnip = {
                 enable = true;
@@ -801,22 +706,6 @@ with config.lib.stylix.colors.withHashtag;
 
             project-nvim = {
                 enableTelescope = true;
-            };
-
-            telescope = {
-                enable = true;
-                extensions = {
-                    file-browser = {
-                        enable = true;
-                        settings  = {
-                            add_dirs = false;
-                            git_status = true;
-                        };
-                    };
-                    media-files = {
-                        enable = true;
-                    };
-                };
             };
 
             vimtex = {
@@ -841,6 +730,14 @@ with config.lib.stylix.colors.withHashtag;
                 settings = {
                     check_ts = true;
                 };
+            };
+
+            surround = {
+                enable = true;
+            };
+
+            hop = {
+                enable = true;
             };
 
             comment = {
@@ -979,18 +876,6 @@ with config.lib.stylix.colors.withHashtag;
                 };
             };
 
-            treesitter = {
-                enable = true;
-                ensureInstalled = "all";
-                folding = false;
-                indent = true;
-            };
-
-            # Shows context of current pos in block at top of buffer
-            treesitter-context = {
-                enable = false;
-            };
-
             #TODO: inject CSS 
             markdown-preview = {
                 enable = true;
@@ -1010,146 +895,6 @@ with config.lib.stylix.colors.withHashtag;
 
             # TODO: advanced config required
             dap = {
-                enable = true;
-            };
-
-            cmp = {
-                enable = true;
-                autoEnableSources = false;
-
-                settings = {
-                    mapping = {
-                        __raw = ''
-
-                            cmp.mapping.preset.insert({
-                            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                            ['<C-Space>'] = cmp.mapping.complete(),
-                            ['<C-e>'] = cmp.mapping.abort(),
-                            --['<CR>'] = cmp.mapping.confirm({ select = true }),
-
-                            -- Move forward in pmenu
-                            ["<Tab>"] = cmp.mapping(function(fallback)
-                                local luasnip = require('luasnip')
-                                local cmp = require('cmp')
-                                if cmp.visible() then
-                                    cmp.select_next_item()
-                                elseif luasnip.locally_jumpable(1) then
-                                    luasnip.jump(1)
-                                else
-                                    fallback()
-                                end
-                            end, { "i", "s" }),
-
-                            -- Move backwards
-                            ["<S-Tab>"] = cmp.mapping(function(fallback)
-                                local luasnip = require('luasnip')
-                                local cmp = require('cmp')
-                                if cmp.visible() then
-                                    cmp.select_prev_item()
-                                elseif luasnip.locally_jumpable(-1) then
-                                    luasnip.jump(-1)
-                                else
-                                    fallback()
-                                end
-                            end, { "i", "s" }),
-
-
-                            -- Make selection
-                            ['<CR>'] = cmp.mapping(function(fallback)
-                                local luasnip = require('luasnip')
-                                local cmp = require('cmp')
-                                if cmp.visible() then
-                                    if luasnip.expandable() then
-                                        luasnip.expand()
-                                    else
-                                        cmp.confirm({
-                                            select = true,
-                                        })
-                                    end
-                                else
-                                    fallback()
-                                end
-                            end),
-
-
-                        })
-                        '';
-                    };
-                    snippet = {
-                        expand = "function(args) require('luasnip').lsp_expand(args.body) end";
-                    };
-                    sources = {
-                        __raw = ''
-                            cmp.config.sources({
-                                { name = 'nvim_lsp' },
-                                { name = 'nvim_lua' },
-                                { name = 'luasnip' },
-                                { name = 'buffer' },
-                                { name = 'path' },
-                                { name = 'emoji' },
-                                { name = 'crates' },
-                                { name = 'dictionary' },
-                                { name = 'calc' },
-                                { name = 'fish' },
-                                { name = 'digraphs' },
-                                { name = 'spell' },
-                            })
-                        '';
-                    };
-                };
-            };
-
-            cmp_luasnip = {
-                enable = true;
-            };
-            cmp-path = {
-                enable = true;
-            };
-            cmp-buffer = {
-                enable = true;
-            };
-            cmp-calc = {
-                enable = true;
-            };
-            cmp-cmdline = {
-                enable = true;
-            };
-            cmp-dictionary = {
-                enable = true;
-            };
-            cmp-digraphs = {
-                enable = true;
-            };
-            cmp-emoji = {
-                enable = true;
-            };
-            cmp-fish = {
-                enable = true;
-            };
-            cmp-latex-symbols = {
-                enable = true;
-            };
-            cmp-nvim-lsp-document-symbol = {
-                enable = true;
-            };
-            cmp-nvim-lsp-signature-help = {
-                enable = true;
-            };
-
-            cmp-nvim-lsp = {
-                enable = true;
-            };
-
-            cmp-nvim-lua = {
-                enable = true;
-            };
-
-            cmp-spell = {
-                enable = true;
-            };
-
-            cmp-dap = {
                 enable = true;
             };
 
