@@ -42,6 +42,94 @@ with config.lib.stylix.colors.withHashtag;
 
             #TODO: Use "link" option for the highlight defs that allows me to link HL groups to pre-existing ones to minimize overhead
 
+
+            #Pmenu = {
+            #    ctermfg = "${base05}";
+            #    ctermbg = "${base00}";
+            #};
+            PmenuSel = {
+                fg = "${base0B}";
+                bg = "${base00}";
+            };
+            PmenuKind = {
+                fg = "${base0D}";
+            };
+            PmenuKindSel = {
+                fg = "${base0C}";
+            };
+            PmenuExtra = {
+                fg = "${base05}";
+            };
+            PmenuExtraSel = {
+                fg = "${base0B}";
+            };
+            PmenuSbar = {
+                fg = "${base0B}";
+            };
+            PmenuThumb = {
+                fg = "${base0D}";
+                bg = "${base0C}";
+            };
+
+            FloatBorder = {
+                fg = "${base0D}";
+            };
+            FloatBorderDark = {
+                fg = "${base0A}";
+            };
+
+            Winseparator = {
+                fg = "${base0D}";
+            };
+            
+            Error = {
+                fg = "${base08}";
+                bold = true;
+                italic = true;
+            };
+            Todo = {
+                fg = "${base08}";
+                bold = true;
+            };
+
+            IblScope = {
+                fg = "${base08}";
+            };
+
+            TelescopeSelection = {
+                fg = "${base0B}";
+                bg = "${base00}";
+                bold = true;
+            };
+            TelescopeSelectionCaret = {
+                fg = "${base0E}";
+                bg = "${base00}";
+                bold = true;
+            };
+            TelescopeMultiSelection = {
+                reverse = true;
+            };
+            TelescopeBorder = {
+                fg = "${base0B}";
+                bold = true;
+            };
+            TelescopePromptBorder = {
+                fg = "${base0E}";
+            };
+            TelescopeResultsBorder = {
+                fg = "${base08}";
+            };
+            TelescopePreviewBorder = {
+                fg = "${base0A}";
+            };
+            TelescopeMatching = {
+                fg = "${base0C}";
+            };
+            TelescopePromptPrefix = {
+                fg = "${base08}";
+            };
+
+
             # active line number
             CursorLineNr = {
                 bg = "${base00}";
@@ -666,7 +754,39 @@ with config.lib.stylix.colors.withHashtag;
                 };
             };
 
+            bufferline = {
+
+                enable = true;
+
+                # Icons
+                bufferCloseIcon = "";
+                closeIcon = "";
+                modifiedIcon = "";
+                rightTruncMarker = "";
+                separatorStyle = "thin";
+
+                diagnostics = "nvim_lsp";
+
+                diagnosticsIndicator = ''
+                    function(count, level, diagnostics_dict, context)
+                      local s = " "
+                      for e, n in pairs(diagnostics_dict) do
+                        local sym = e == "error" and " "
+                          or (e == "warning" and " " or "" )
+                        s = s .. n .. sym
+                      end
+                      return s
+                    end
+                '';
+
+            };
+
+
             luasnip = {
+                enable = true;
+            };
+
+            friendly-snippets = {
                 enable = true;
             };
 
@@ -1052,8 +1172,6 @@ with config.lib.stylix.colors.withHashtag;
                     #left = "";
                     #right = "";
                 };
-        
-
             };
             
 
