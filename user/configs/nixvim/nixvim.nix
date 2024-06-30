@@ -15,6 +15,7 @@ with config.lib.stylix.colors.withHashtag;
         ./plugins/lsp.nix
         ./plugins/cmp.nix
         ./plugins/lualine.nix
+        ./plugins/bufferline.nix
     ];
 	programs.nixvim = {
 
@@ -558,33 +559,6 @@ with config.lib.stylix.colors.withHashtag;
         ];
 
         plugins = {
-
-            bufferline = {
-
-                enable = true;
-
-                # Icons
-                bufferCloseIcon = "";
-                closeIcon = "";
-                modifiedIcon = "";
-                rightTruncMarker = "";
-                separatorStyle = "thin";
-
-                diagnostics = "nvim_lsp";
-
-                diagnosticsIndicator = ''
-                    function(count, level, diagnostics_dict, context)
-                      local s = " "
-                      for e, n in pairs(diagnostics_dict) do
-                        local sym = e == "error" and " "
-                          or (e == "warning" and " " or "" )
-                        s = s .. n .. sym
-                      end
-                      return s
-                    end
-                '';
-
-            };
 
             lspkind = {
                 enable = true;
