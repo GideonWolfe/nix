@@ -107,7 +107,7 @@ with config.lib.stylix.colors.withHashtag;
                 bold = true;
             };
             HopUnmatched = {
-                fg = "${base01}";
+                fg = "${base04}";
             };
             HopCursor = {
                 fg = "${base0C}";

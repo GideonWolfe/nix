@@ -1,7 +1,7 @@
 {
   programs.nixvim.plugins.comment = {
     enable = true;
-    settings = {
+    settings = { 
         mappings = {
             basic = true;
         };

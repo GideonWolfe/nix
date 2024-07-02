@@ -1,6 +1,7 @@
 {
   programs.nixvim.keymaps = [
 
+    ## NAVIGATION
     {
         action = "<C-w>k";
         key = "<C-k>";
@@ -41,6 +42,8 @@
             desc = "Switch window left";
         };
     }
+
+    # Editing
     {
         action = ">>_";
         key = "<Tab>";
@@ -111,6 +114,8 @@
             silent = true;
         };
     }
+
+    # Git
     {
         action = "<cmd>LazyGitCurrentFile<CR>";
         key = "<leader>gg";
@@ -191,28 +196,59 @@
             desc = "Find Document Symbols";
         };
     }
+    
+    # Navigates directly to definition in new tab
     {
         action = "<cmd>Telescope lsp_definitions<CR>";
+        # Could also use Lspsaga goto_definition
+        #action = "<cmd>Telescope lsp_definitions<CR>";
         key = "<leader>fd";
         mode = ["n"];
         options = {
             desc = "Find Definition";
         };
     }
+    # Pops up a floating window showing the definition
     {
-        action = "<cmd>Telescope lsp_implementations<CR>";
-        key = "<leader>fi";
+        action = "<cmd>Lspsaga peek_definition<CR>";
+        key = "<leader>cd";
         mode = ["n"];
         options = {
-            desc = "Find Implementations";
+            desc = "Code Definition";
+        };
+    }
+    # Pops up a floating window showing the definition
+    {
+        action = "<cmd>Lspsaga peek_type_definition<CR>";
+        key = "<leader>cD";
+        mode = ["n"];
+        options = {
+            desc = "Code Typedef";
+        };
+    }
+    {
+        action = "<cmd>Telescope lsp_implementations<CR>";
+        #action = "<cmd>Lspsaga finder imp<CR>";
+        key = "<leader>ci";
+        mode = ["n"];
+        options = {
+            desc = "Code Implementations";
         };
     }
     {
         action = "<cmd>TodoTelescope<CR>";
-        key = "<leader>ft";
+        key = "<leader>cT";
         mode = ["n"];
         options = {
-            desc = "Find Todos";
+            desc = "Code Todos Telescope";
+        };
+    }
+    {
+        action = "<cmd>TodoTrouble<CR>";
+        key = "<leader>ct";
+        mode = ["n"];
+        options = {
+            desc = "Code Todos Trouble";
         };
     }
     {
@@ -295,44 +331,68 @@
             desc = "Find Workspace Symbols";
         };
     }
+    # Pops up a floating window showing possible actions
     {
-        action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
-        key = "<leader>lca";
+        #action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
+        action = "<cmd>Lspsaga code_action<CR>";
+        key = "<leader>ca";
         mode = ["n"];
         options = {
-            desc = "LSP Code Actions";
+            desc = "Code Actions";
+        };
+    }
+    # Pops up a floating window showing the diagnostics and possible actions
+    {
+        action = "<cmd>Lspsaga diagnostic_jump_next<CR>";
+        key = "<leader>cd";
+        mode = ["n"];
+        options = {
+            desc = "Code Diagnostics";
+        };
+    }
+    # Pops up a floating window showing the diagnostics and possible actions
+    {
+        action = "<cmd>Lspsaga hover_doc<CR>";
+        key = "K";
+        mode = ["n"];
+        options = {
+            desc = "Code Hover Docs";
+        };
+    }
+    # Pops up a pane on the right showing symbol outline
+    {
+        action = "<cmd>Lspsaga outline<CR>";
+        key = "<leader>cs";
+        mode = ["n"];
+        options = {
+            desc = "Code Symbols Outline";
         };
     }
     {
-        action = "<cmd>Telescope lsp_incoming_calls<CR>";
-        key = "<leader>lic";
+        #action = "<cmd>Telescope lsp_incoming_calls<CR>";
+        action = "<cmd>Lspsaga incoming_calls<CR>";
+        key = "<leader>ci";
         mode = ["n"];
         options = {
-            desc = "LSP Incoming Calls";
+            desc = "Code Incoming Calls";
         };
     }
     {
-        action = "<cmd>Telescope lsp_outgoing_calls<CR>";
-        key = "<leader>loc";
+        #action = "<cmd>Telescope lsp_outgoing_calls<CR>";
+        action = "<cmd>Lspsaga outgoing_calls<CR>";
+        key = "<leader>co";
         mode = ["n"];
         options = {
-            desc = "LSP Outgoing Calls";
+            desc = "Code Outgoing Calls";
         };
     }
     {
-        action = "<cmd>lua vim.lsp.buf.rename()<CR>";
-        key = "<leader>lrn";
+        #action = "<cmd>lua vim.lsp.buf.rename()<CR>";
+        action = "<cmd>Lspsaga lsp_rename ++project<CR>";
+        key = "<leader>cr";
         mode = ["n"];
         options = {
-            desc = "LSP Rename";
-        };
-    }
-    {
-        action = "<cmd>lua vim.lsp.buf.hover()<CR>";
-        key = "<leader>lci";
-        mode = ["n"];
-        options = {
-            desc = "LSP Cursor Info";
+            desc = "Code Rename";
         };
     }
     {

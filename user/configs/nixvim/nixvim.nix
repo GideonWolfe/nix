@@ -36,6 +36,7 @@ with config.lib.stylix.colors.withHashtag;
         ./plugins/editing/surround.nix
         ./plugins/editing/comment.nix
         ./plugins/editing/cmp.nix
+        ./plugins/editing/lsp-format.nix
 
         # Version Control Plugins
         ./plugins/git/gitsigns.nix
