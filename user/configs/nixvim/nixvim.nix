@@ -33,8 +33,10 @@ with config.lib.stylix.colors.withHashtag;
     # Editing plugins
     ./plugins/editing/nvim-autopairs.nix
     ./plugins/editing/better-escape.nix
-    ./plugins/editing/surround.nix
     ./plugins/editing/comment.nix
+    #TODO: surround and sandwich may do the same thing
+    ./plugins/editing/surround.nix
+    #./plugins/editing/sandwich.nix
     ./plugins/editing/cmp.nix
     ./plugins/editing/lsp-format.nix
 
