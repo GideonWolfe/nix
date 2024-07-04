@@ -72,5 +72,15 @@ with config.lib.stylix.colors.withHashtag;
     #HACK: adding plugins that don't have a module yet
     extraPlugins = with pkgs.vimPlugins; [ lazygit-nvim lsp_signature-nvim ];
 
+    #HACK: Running these sign define commands as raw lua because nixvim doesn't have a setting
+    extraConfigLuaPre = ''
+      -- Define Diagnostic Signs
+      local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      end
+    '';
+
   };
 }
