@@ -2,13 +2,10 @@
   description = "first flake";
 
   inputs = {
-    nixpkgs = {
-      #url = "github:NixOS/nixpkgs/nixos-23.11";
-      url = "github:NixOS/nixpkgs/nixos-24.05";
-    };
+
+    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-24.05"; };
 
     home-manager = {
-      #url = "github:nix-community/home-manager/release-23.11";
       url = "github:nix-community/home-manager/release-24.05";
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
@@ -22,7 +19,6 @@
     #hyprland.url = "github:hyprwm/Hyprland";
 
     stylix = {
-      #url = "github:danth/stylix/release-23.11";
       url = "github:danth/stylix/release-24.05";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -34,7 +30,6 @@
 
     # Configure neovim with Nix!
     nixvim = {
-      #url = "github:nix-community/nixvim/nixos-23.11";
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -48,35 +43,33 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
+
+      # Definitions for individual hosts
       nixosConfigurations = {
 
         hermes = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
-          # pass in stylix theming modules for system level theming (bootloaders, etc)
           modules = [
             stylix.nixosModules.stylix
             agenix.nixosModules.default
-            #./configuration.nix
             ./configs/hosts/hermes/configuration.nix
           ];
-          #modules = [./configuration.nix];
         };
       };
+      
+      # Definitions for individual users
       homeConfigurations = {
         gideon = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit spicetify-nix; };
-          # pass in stylix theming modules for user apps
           modules = [
             stylix.homeManagerModules.stylix
             nixvim.homeManagerModules.nixvim
-            #./home.nix
             ./configs/users/gideon/home.nix
           ];
         };
       };
-
     };
 
 }
