@@ -57,7 +57,8 @@
           modules = [
             stylix.nixosModules.stylix
             agenix.nixosModules.default
-            ./configuration.nix
+            #./configuration.nix
+            ./configs/hosts/hermes/configuration.nix
           ];
           #modules = [./configuration.nix];
         };
@@ -70,7 +71,8 @@
           modules = [
             stylix.homeManagerModules.stylix
             nixvim.homeManagerModules.nixvim
-            ./home.nix
+            #./home.nix
+            ./configs/users/gideon/home.nix
           ];
         };
       };
