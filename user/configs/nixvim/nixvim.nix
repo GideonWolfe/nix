@@ -58,6 +58,9 @@ with config.lib.stylix.colors.withHashtag;
     ./plugins/utils/todo-comments.nix
     ./plugins/utils/vimtex.nix
 
+    # Development plugins for specific frameworks/langs
+    ./plugins/dev/godot.nix
+
   ];
   programs.nixvim = {
 

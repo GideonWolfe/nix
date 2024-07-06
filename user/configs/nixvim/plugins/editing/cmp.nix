@@ -9,6 +9,7 @@
   programs.nixvim.plugins.cmp-digraphs = { enable = true; };
   programs.nixvim.plugins.cmp-emoji = { enable = true; };
   programs.nixvim.plugins.cmp-fish = { enable = true; };
+  programs.nixvim.plugins.cmp-git = { enable = true; };
   programs.nixvim.plugins.cmp-latex-symbols = { enable = true; };
   programs.nixvim.plugins.cmp-nvim-lsp-document-symbol = { enable = true; };
   programs.nixvim.plugins.cmp-nvim-lsp-signature-help = { enable = true; };
@@ -93,11 +94,14 @@
         __raw = ''
           cmp.config.sources({
               { name = 'nvim_lsp' },
+              { name = 'nvim_lsp_document_symbols' },
+              { name = 'nvim_lsp_signature_help' },
               { name = 'nvim_lua' },
               { name = 'luasnip' },
               { name = 'buffer' },
               { name = 'path' },
               { name = 'emoji' },
+              { name = 'git' },
               { name = 'crates' },
               { name = 'dictionary' },
               { name = 'calc' },
