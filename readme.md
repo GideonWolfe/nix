@@ -58,15 +58,9 @@ https://github.com/the-argus/spicetify-nix lets you specify custom colors in nix
 
 Already installed this, works well with preset themes. Now need to make a stylix theme
 
-## Add secret management
-
-either
+## Configure Agenix
 
 https://github.com/ryantm/agenix
-
-or 
-
-https://github.com/Mic92/sops-nix
 
 ## Hardware only stuff (can't really config in VM)
 
@@ -92,10 +86,6 @@ I have emoji font specified in `stylix` as `Symbola`, and `fonts.fontconfig.defa
 I have `symbola` and `noto-fonts-monochrome-emoji` installed, which both seem to be showing in `gucharmap`
 
 It's just not changing the system emoji font :(
-
-## Neovim config
-
-What is the best way to declare my complex `lua` based `neovim` config? 
 
 ## Qt Theming
 
@@ -125,10 +115,6 @@ or just hack on it
 ### Add waybar desktop notification toggle 
 
 maybe adapt https://github.com/vkraven/swankybar to toggle notifications instead of adaptive sync
-
-## Further modularize config
-
-Some of the config and package files can be further broken up, ie. turning science.nix into a directory with .nix files for each discipline.
 
 ## Misc
 

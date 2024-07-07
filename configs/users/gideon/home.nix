@@ -1,4 +1,4 @@
-{lib, config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -8,53 +8,52 @@ with config.lib.stylix.colors.withHashtag;
 
     #./secrets.nix
 
-
     ############
     # PACKAGES #
     ############
 
     #Theming
-    ../../../user/packages/theming.nix
+    ./packages/theming.nix
 
     # Productivity packages
-    ../../../user/packages/productivity/productivity.nix
+    ./packages/productivity/productivity.nix
 
     # Web
-    ../../../user/packages/productivity/web.nix
+    ./packages/productivity/web.nix
 
     # Audio
-    ../../../user/packages/productivity/audio.nix
-    
+    ./packages/productivity/audio.nix
+
     # Video
-    ../../../user/packages/productivity/video.nix
+    ./packages/productivity/video.nix
 
     # Art
-    ../../../user/packages/productivity/art.nix
+    ./packages/productivity/art.nix
 
     # Comms
-    ../../../user/packages/productivity/comms.nix
+    ./packages/productivity/comms.nix
 
     # Gaming
     #./user/packages/gaming.nix
 
     # STEM
-    ../../../user/packages/science/astronomy.nix
-    ../../../user/packages/science/biology.nix
-    ../../../user/packages/science/chemistry.nix
-    ../../../user/packages/science/data.nix
+    ./packages/science/astronomy.nix
+    ./packages/science/biology.nix
+    ./packages/science/chemistry.nix
+    ./packages/science/data.nix
     #./user/packages/science/education.nix
-    ../../../user/packages/science/geography.nix
-    ../../../user/packages/science/math.nix
+    ./packages/science/geography.nix
+    ./packages/science/math.nix
     #./user/packages/science/medecine.nix
-    ../../../user/packages/science/utilities.nix
-    ../../../user/packages/science/engineering.nix
+    ./packages/science/utilities.nix
+    ./packages/science/engineering.nix
 
     # Development
-    ../../../user/packages/development/rust.nix
-    ../../../user/packages/development/utils.nix
+    ./packages/development/rust.nix
+    ./packages/development/utils.nix
 
     # Random fun packages
-    ../../../user/packages/fun.nix
+    ./packages/fun.nix
 
     # My wallpapers
     #./user/packages/wallpapers.nix
@@ -65,98 +64,98 @@ with config.lib.stylix.colors.withHashtag;
 
     # Hyprland
     # Enable when ready for it
-    ../../../user/configs/hyprland.nix
-    ../../../user/configs/sway.nix
-    ../../../user/configs/swaylock.nix
-    ../../../user/configs/swayidle.nix
+    ./configs/hyprland.nix
+    ./configs/sway.nix
+    ./configs/swaylock.nix
+    ./configs/swayidle.nix
 
     # Neovim
-    ../../../user/configs/nixvim/nixvim.nix
+    ./configs/nixvim/nixvim.nix
 
     # Display configs
-    ../../../user/configs/kanshi.nix
+    ./configs/kanshi.nix
 
     # Kitty
-    ../../../user/configs/kitty.nix
+    ./configs/kitty.nix
 
     # Waybar
-    ../../../user/configs/waybar.nix
+    ./configs/waybar.nix
     #./user/configs/waybar_new.nix
 
     # Wofi
-    ../../../user/configs/wofi/wofi.nix
+    ./configs/wofi/wofi.nix
 
     # Firefox
-    ../../../user/configs/firefox/firefox.nix
+    ./configs/firefox/firefox.nix
     #./user/configs/firefox/userChrome.nix
 
     # Zathura
-    ../../../user/configs/zathura.nix
+    ./configs/zathura.nix
 
     # Zathura
-    ../../../user/configs/btop.nix
+    ./configs/btop.nix
 
     # GTK settings/theming
-    ../../../user/configs/gtk.nix
+    ./configs/gtk.nix
 
     # Qt settings/theming
-    ../../../user/configs/qt.nix
+    ./configs/qt.nix
 
     # Custom user directories
-    ../../../user/configs/xdg-user-dirs.nix
+    ./configs/xdg-user-dirs.nix
 
     # Custom user directories
-    ../../../user/configs/mimetypes.nix
+    ./configs/mimetypes.nix
 
     # Better CD
-    ../../../user/configs/zoxide.nix
+    ./configs/zoxide.nix
 
     # Better LS
-    ../../../user/configs/eza.nix
+    ./configs/eza.nix
 
     # Better Cat
-    ../../../user/configs/bat.nix
+    ./configs/bat.nix
 
     # Screenshotting tool
-    ../../../user/configs/flameshot.nix
+    ./configs/flameshot.nix
 
     # Cava
-    ../../../user/configs/cava.nix
+    ./configs/cava.nix
 
     # Git
-    ../../../user/configs/git.nix
+    ./configs/git.nix
 
     # SSH
-    ../../../user/configs/ssh/ssh.nix
+    ./configs/ssh/ssh.nix
 
     # Neomutt
-    ../../../user/configs/neomutt/neomuttrc.nix
-    ../../../user/configs/neomutt/settings.nix
-    ../../../user/configs/neomutt/mailcap.nix
-    ../../../user/configs/neomutt/mappings.nix
-    ../../../user/configs/neomutt/colors.nix
+    ./configs/neomutt/neomuttrc.nix
+    ./configs/neomutt/settings.nix
+    ./configs/neomutt/mailcap.nix
+    ./configs/neomutt/mappings.nix
+    ./configs/neomutt/colors.nix
 
     # Newsboat
-    ../../../user/configs/newsboat/newsboat.nix
-    ../../../user/configs/newsboat/urls.nix
+    ./configs/newsboat/newsboat.nix
+    ./configs/newsboat/urls.nix
 
     # Bluetooth (enabling applet)
-    ../../../user/configs/bluetooth.nix
+    ./configs/bluetooth.nix
 
     # Shell config
-    ../../../user/configs/fish.nix
+    ./configs/fish.nix
 
     # Notification client
-    ../../../user/configs/mako.nix
+    ./configs/mako.nix
 
     # Nix theming framwork
-    ../../../user/configs/stylix.nix
+    ./configs/stylix.nix
 
     # Nix theming framwork
-    ../../../user/configs/spicetify.nix
+    ./configs/spicetify.nix
 
     # Custom startpage
-    ../../../user/configs/startpage/style.nix
+    ./configs/startpage/style.nix
     #./user/configs/startpage/service.nix
   ];
 
@@ -169,15 +168,11 @@ with config.lib.stylix.colors.withHashtag;
   home.homeDirectory = "/home/gideon";
 
   home.activation = {
-	  createScreenshotsDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
-	    mkdir -p ${config.home.homeDirectory}/pictures/screenshots/
-	  '';
-	  createScreenRecordings = lib.hm.dag.entryAfter ["writeBoundary"] ''
-	    mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/
-	  '';
+    createScreenshotsDir = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/pictures/screenshots/\n";
+    createScreenRecordings = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/\n";
   };
-
-
 
   xdg = {
     configFile = {
@@ -186,73 +181,71 @@ with config.lib.stylix.colors.withHashtag;
       # TODO, need to make this auto update?
       darkreader = {
         enable = true;
-	#onChange = manually tell darkreader to refresh somehow?
-	target = "darkreader/config.json";
-	text = ''
+        #onChange = manually tell darkreader to refresh somehow?
+        target = "darkreader/config.json";
+        text = ''
 
-	{
-	    "schemeVersion": 2,
-	    "enabled": true,
-	    "fetchNews": true,
-	    "theme": {
-		"mode": 1,
-		"brightness": 100,
-		"contrast": 100,
-		"grayscale": 0,
-		"sepia": 0,
-		"useFont": false,
-		"fontFamily": "Open Sans",
-		"textStroke": 0,
-		"engine": "dynamicTheme",
-		"stylesheet": "",
-		"darkSchemeBackgroundColor": "${base00}",
-		"darkSchemeTextColor": "${base05}",
-		"lightSchemeBackgroundColor": "${base05}",
-		"lightSchemeTextColor": "${base00}",
-		"scrollbarColor": "auto",
-		"selectionColor": "auto",
-		"styleSystemControls": false,
-		"lightColorScheme": "Default",
-		"darkColorScheme": "Default",
-		"immediateModify": false
-	    },
-	    "presets": [],
-	    "customThemes": [],
-	    "enabledByDefault": true,
-	    "enabledFor": [],
-	    "disabledFor": [],
-	    "changeBrowserTheme": false,
-	    "syncSettings": false,
-	    "syncSitesFixes": true,
-	    "automation": {
-		"enabled": false,
-		"mode": "",
-		"behavior": "OnOff"
-	    },
-	    "time": {
-		"activation": "18:00",
-		"deactivation": "9:00"
-	    },
-	    "location": {
-		"latitude": null,
-		"longitude": null
-	    },
-	    "previewNewDesign": true,
-	    "enableForPDF": true,
-	    "enableForProtectedPages": true,
-	    "enableContextMenus": false,
-	    "detectDarkTheme": false,
-	    "displayedNews": [
-		"thanks-2023"
-	    ]
-	}
+          {
+              "schemeVersion": 2,
+              "enabled": true,
+              "fetchNews": true,
+              "theme": {
+          	"mode": 1,
+          	"brightness": 100,
+          	"contrast": 100,
+          	"grayscale": 0,
+          	"sepia": 0,
+          	"useFont": false,
+          	"fontFamily": "Open Sans",
+          	"textStroke": 0,
+          	"engine": "dynamicTheme",
+          	"stylesheet": "",
+          	"darkSchemeBackgroundColor": "${base00}",
+          	"darkSchemeTextColor": "${base05}",
+          	"lightSchemeBackgroundColor": "${base05}",
+          	"lightSchemeTextColor": "${base00}",
+          	"scrollbarColor": "auto",
+          	"selectionColor": "auto",
+          	"styleSystemControls": false,
+          	"lightColorScheme": "Default",
+          	"darkColorScheme": "Default",
+          	"immediateModify": false
+              },
+              "presets": [],
+              "customThemes": [],
+              "enabledByDefault": true,
+              "enabledFor": [],
+              "disabledFor": [],
+              "changeBrowserTheme": false,
+              "syncSettings": false,
+              "syncSitesFixes": true,
+              "automation": {
+          	"enabled": false,
+          	"mode": "",
+          	"behavior": "OnOff"
+              },
+              "time": {
+          	"activation": "18:00",
+          	"deactivation": "9:00"
+              },
+              "location": {
+          	"latitude": null,
+          	"longitude": null
+              },
+              "previewNewDesign": true,
+              "enableForPDF": true,
+              "enableForProtectedPages": true,
+              "enableContextMenus": false,
+              "detectDarkTheme": false,
+              "displayedNews": [
+          	"thanks-2023"
+              ]
+          }
 
-	'';
+        '';
       };
     };
   };
-
-
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -266,22 +259,22 @@ with config.lib.stylix.colors.withHashtag;
   # The home.packages option allows you to install Nix packages into your
   # environment.
   #home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  # # Adds the 'hello' command to your environment. It prints a friendly
+  # # "Hello, world!" when run.
+  # pkgs.hello
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+  # # It is sometimes useful to fine-tune packages, for example, by applying
+  # # overrides. You can do that directly here, just don't forget the
+  # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+  # # fonts?
+  # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+  # # You can also create simple shell scripts directly inside your
+  # # configuration. For example, this adds a command 'my-hello' to your
+  # # environment:
+  # (pkgs.writeShellScriptBin "my-hello" ''
+  #   echo "Hello, ${config.home.username}!"
+  # '')
   #];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -311,10 +304,10 @@ with config.lib.stylix.colors.withHashtag;
   #  /etc/profiles/per-user/gideon/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-     EDITOR = "nvim";
-     TERM = "kitty";
-     BROWSER = "firefox";
-     PAGER = "ov";
+    EDITOR = "nvim";
+    TERM = "kitty";
+    BROWSER = "firefox";
+    PAGER = "ov";
   };
 
   # Let Home Manager install and manage itself.

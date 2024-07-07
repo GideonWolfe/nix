@@ -5,67 +5,66 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ 
-      ###########
-      # CONFIGS #
-      ###########
+  imports = [
+    ###########
+    # CONFIGS #
+    ###########
 
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      # General System Settings
-      ../../../system/system/system.nix
+    # General System Settings
+    ./system/system/system.nix
 
-      # Login manager/greeter
-      ../../../system/services/greeter.nix
+    # Login manager/greeter
+    ./system/services/greeter.nix
 
-      # GNOME Keyring
-      ../../../system/services/gnome-keyring.nix
+    # GNOME Keyring
+    ./system/services/gnome-keyring.nix
 
-      # System level theming
-      ../../../system/graphics/stylix.nix
+    # System level theming
+    ./system/graphics/stylix.nix
 
-      # Networking and Bluetooth
-      ../../../system/services/networks/networking.nix
-      ../../../system/services/networks/bluetooth.nix
-      ../../../system/services/networks/ssh.nix
+    # Networking and Bluetooth
+    ./system/services/networks/networking.nix
+    ./system/services/networks/bluetooth.nix
+    ./system/services/networks/ssh.nix
 
-      # Docker
-      ../../../system/services/docker.nix
+    # Docker
+    ./system/services/docker.nix
 
-      # Printer support
-      ../../../system/services/printing.nix
+    # Printer support
+    ./system/services/printing.nix
 
-      # UI
-      ../../../system/graphics/hyprland.nix
-      ../../../system/graphics/wayland.nix
+    # UI
+    ./system/graphics/hyprland.nix
+    ./system/graphics/wayland.nix
 
-      # Audio
-      ../../../system/services/audio/pipewire.nix
+    # Audio
+    ./system/services/audio/pipewire.nix
 
-      ############
-      # PACKAGES #
-      ############
+    ############
+    # PACKAGES #
+    ############
 
-      # Audio
-      ../../../system/packages/audio.nix
+    # Audio
+    ./system/packages/audio.nix
 
-      # Video
-      ../../../system/packages/video.nix
+    # Video
+    ./system/packages/video.nix
 
-      # Development
-      ../../../system/packages/development.nix
+    # Development
+    ./system/packages/development.nix
 
-      # Networking
-      ../../../system/packages/networking.nix
+    # Networking
+    ./system/packages/networking.nix
 
-      # Graphics
-      ../../../system/packages/ui.nix
+    # Graphics
+    ./system/packages/ui.nix
 
-      # System
-      ../../../system/packages/system.nix
-    ];
+    # System
+    ./system/packages/system.nix
+  ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;
 
@@ -91,18 +90,14 @@
   security.polkit.enable = true;
 
   # Required for swaylock to work
-  security.pam.services.swaylock = {
-	text = ''
-		auth include login
-	'';
-  };
+  security.pam.services.swaylock = { text = "	auth include login\n"; };
 
   #hardware.opengl.enable = true;
 
   services.weechat.enable = false;
 
   # Enable Flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -113,34 +108,24 @@
 
   # list of programs I want to execute WITHOUT passwd (ie from waybar)
   security.sudo = {
-	enable = true;
-	extraRules = [
-		{
+    enable = true;
+    extraRules = [{
 
-			groups = ["wheel"];
-			commands = [
-				{
-					command = "/run/current-system/sw/bin/iotop";
-					options = ["NOPASSWD"];
-				}
-			];
-		}
-	];
+      groups = [ "wheel" ];
+      commands = [{
+        command = "/run/current-system/sw/bin/iotop";
+        options = [ "NOPASSWD" ];
+      }];
+    }];
   };
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gideon = {
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      firefox
-      neovim
-      tree
-    ];
+    packages = with pkgs; [ firefox neovim tree ];
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -151,7 +136,6 @@
   # };
 
   # List services that you want to enable:
-
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -179,4 +163,3 @@
   programs.hyprland.enable = true;
 
 }
-
