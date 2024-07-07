@@ -55,9 +55,6 @@ with config.lib.stylix.colors.withHashtag;
     # Random fun packages
     ./packages/fun.nix
 
-    # My wallpapers
-    #./user/packages/wallpapers.nix
-
     ###########
     # CONFIGS #
     ###########
