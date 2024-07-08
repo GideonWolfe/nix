@@ -145,7 +145,7 @@
         key = "<leader>gp";
         mode = ["n"];
         options = {
-            desc = "Git Commit";
+            desc = "Git Push";
         };
     }
     {

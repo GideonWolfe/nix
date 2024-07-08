@@ -1,26 +1,16 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-
-  # Define our Startpage docker service
-  lib.virtualisation.oci-containers.containers.startpage = {
-
-    # Map port 80 inside the container to 9876 on the host
-    ports = [ "9876:80" ];
-
-    image = "nginx";
-
-    hostname = "startpage";
-
-    autoStart = true;
-
-    volumes = [
-      "./data/style.css:/usr/share/nginx/html/styles/style.css"
-      "./data/default.conf:/etc/nginx/conf.d/default.conf"
-      "./data/index.html:/usr/share/nginx/hgml/index.html"
-      # This may not be needed, I think the page respects the default FF font
-      "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/HackNerdFontMono-Regular.ttf:/usr/share/nginx/html/fonts/font.ttf"
-    ];
-
+  systemd.user.services.startpage = {
+    Unit = { Description = "startpage being served by miniserv"; };
+    Install = { WantedBy = [ "default.target" ]; };
+    Service = {
+      Type = "simple";
+      Restart = "always";
+      RestartSec = 1;
+      WorkingDirectory =
+        "${config.home.homeDirectory}/nix/configs/users/gideon/configs/startpage/data";
+      ExecStart = "${pkgs.miniserve}/bin/miniserve --index index.html -p 9876";
+    };
   };
 }
