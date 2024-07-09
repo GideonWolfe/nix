@@ -4,6 +4,28 @@
 * Neovim setup with [NixVim](https://github.com/nix-community/nixvim)
 * Theming with [Stylix](https://github.com/danth/stylix)
 
+## Repo Structure
+
+* `flake.nix` the sources for all software, eg. `nixpkgs`, `home-manager`, and `stylix`.
+* `wallpapers` my collection of wallpapers. I haven't found a cleaner solution than including them in the repo 🤷
+* `configs` all the possible configurations
+    * `hosts` the configs for individual systems such as laptops, desktops, servers
+        * `hostname`
+            * `configuration.nix` some basic configs option for the system (bootloader, timezone, etc) TODO move configs out of here
+            * `hardware-configuration.nix` config for the system's hardware
+            * `system` contains all system configurations
+                * `graphics` configs for wayland, stylix
+                * `packages` system level packages that should be installed
+                * `services` configs for services that run on the system (greeter, CUPS, etc)
+                * `system` system level configs (timezone, hostname, bootloader, etc)
+    * `users` configs for individual users on these system and their dotfiles
+        * `username`
+            * `home.nix` the basic setup for the user, and where all other HM configs are imported
+            * `configs` config files for various programs
+            * `packages` the packages to be installed for that user
+            * `scripts` helper scripts with various functionality
+            * `secrets` encrypted secrets and their configuration
+
 
 <details>
 
