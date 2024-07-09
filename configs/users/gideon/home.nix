@@ -6,7 +6,7 @@ with config.lib.stylix.colors.withHashtag;
 
   imports = [
 
-    #./secrets.nix
+    ./secrets/secret_defs.nix
 
     ############
     # PACKAGES #
@@ -305,6 +305,8 @@ with config.lib.stylix.colors.withHashtag;
     TERM = "kitty";
     BROWSER = "firefox";
     PAGER = "ov";
+    RULES =
+      "${config.home.homeDirectory}/nix/configs/users/gideon/secrets/secrets.nix";
   };
 
   # Let Home Manager install and manage itself.

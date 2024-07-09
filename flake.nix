@@ -52,12 +52,12 @@
           specialArgs = { inherit inputs; };
           modules = [
             stylix.nixosModules.stylix
-            agenix.nixosModules.default
+            # agenix.nixosModules.default
             ./configs/hosts/hermes/configuration.nix
           ];
         };
       };
-      
+
       # Definitions for individual users
       homeConfigurations = {
         gideon = home-manager.lib.homeManagerConfiguration {
@@ -65,6 +65,8 @@
           extraSpecialArgs = { inherit spicetify-nix; };
           modules = [
             stylix.homeManagerModules.stylix
+            #agenix.homeManagerModules.age
+            agenix.homeManagerModules.default
             nixvim.homeManagerModules.nixvim
             ./configs/users/gideon/home.nix
           ];
