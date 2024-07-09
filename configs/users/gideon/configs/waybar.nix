@@ -88,7 +88,7 @@ with config.lib.stylix.colors.withHashtag;
 				"custom/logout" = {
 					format = "<span color='${base0A}'>  </span>";
 					on-click= "swaymsg exit";
-					tooltip-format = "<span color='${base0A}'>Reboot</span>";
+					tooltip-format = "<span color='${base0A}'>Logout</span>";
 				};
 				"custom/suspend" = {
 					format = "<span color='${base0D}'>  </span>";

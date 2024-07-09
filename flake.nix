@@ -66,7 +66,8 @@
           modules = [
             stylix.homeManagerModules.stylix
             #agenix.homeManagerModules.age
-            agenix.homeManagerModules.default
+            # agenix.homeManagerModules.default
+            agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
             ./configs/users/gideon/home.nix
           ];

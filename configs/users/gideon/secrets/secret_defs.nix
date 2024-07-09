@@ -1,12 +1,12 @@
 { config, options, ... }: {
 
-  config.age = {
-    # identityPaths = [
-    #   "${config.home.homeDirectory}/nix/configs/users/gideon/configs/ssh/keys/agenix-test"
-    # ];    
-    identityPaths = options.age.identityPaths.default ++ [
+  age = {
+    identityPaths = [
       "${config.home.homeDirectory}/nix/configs/users/gideon/configs/ssh/keys/agenix-test"
-    ];
+    ];    
+    # identityPaths = options.age.identityPaths.default ++ [
+    #   "${config.home.homeDirectory}/nix/configs/users/gideon/configs/ssh/keys/agenix-test"
+    # ];
     secrets = {
       #TODO: find a way to move the secret somewhere better and reference the path in a cleaner way
       test1 = {
