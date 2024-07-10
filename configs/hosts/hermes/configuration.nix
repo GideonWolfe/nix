@@ -119,6 +119,8 @@
     }];
   };
 
+  #TODO: Can this be defined ONLY with home manager or does HM need the account to already exist to work?
+  # Either way it isn't the end of the world if the usernames are hardcoded since I know what users i want on the system 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gideon = {
     isNormalUser = true;

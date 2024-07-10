@@ -171,6 +171,19 @@ with config.lib.stylix.colors.withHashtag;
       "  mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/\n";
   };
 
+  # Specify cursor theme
+  home.pointerCursor = lib.mkForce {
+    # name = "phinger-cursors-light";
+    # package = pkgs.phinger-cursors;
+    #HACK: the capitilization may or may not be needed in the future: https://github.com/NixOS/nixpkgs/issues/321781
+    # name = "catppuccin-mocha-dark-cursors";
+    name = "Catppuccin-Mocha-Dark-Cursors"; #this creates a working symlink
+    # name = "Catppuccin-Mocha-Dark"; #this creates a working symlink
+    package = pkgs.catppuccin-cursors.mochaDark;
+    size = 32;
+    gtk.enable = true;
+  };
+
   xdg = {
     configFile = {
 
@@ -307,6 +320,7 @@ with config.lib.stylix.colors.withHashtag;
     PAGER = "ov";
     RULES =
       "${config.home.homeDirectory}/nix/configs/users/gideon/secrets/secrets.nix";
+    XCURSOR_THEME = "Catppuccin-Mocha-Dark-Cursors";
   };
 
   # Let Home Manager install and manage itself.
