@@ -177,6 +177,16 @@
       "  mkdir -p ${config.home.homeDirectory}/pictures/screenshots/\n";
     createScreenRecordings = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/\n";
+    createDraft = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/drafts/\n";
+    createInbox = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/inbox/\n";
+    createSent = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/sent/\n";
+    createTrash = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/trash/\n";
+    createCalendarGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/calendars/gmail/\n";
   };
 
   # This value determines the Home Manager release that your configuration is

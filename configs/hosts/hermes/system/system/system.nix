@@ -9,31 +9,29 @@
 
   # Set your time zone.
   time.timeZone = "America/New_York";
+  #services.automatic-timezoned.enable = true;
 
   # Enable fish shell
   #programs.fish.enable = true;
 
   # Configure system level fonts
   fonts.fontconfig = {
-	defaultFonts = {
-		emoji = ["Noto Emoji" "Symbola"];
-	};
+    defaultFonts = { emoji = [ "Noto Emoji" "Symbola" ]; };
   };
 
   # Option for enabling CKB next
   # TODO build a conditional to only run if corsair detected
   #hardware.ckb-next.enable = true;
 
-
   boot.plymouth = {
-	# Enable plymouth on the system
-  	enable = true;
-	# Pass in the package of themes we also downloaded
-	themePackages = [ pkgs.adi1090x-plymouth-themes ];
-	# Choose the theme
-	# default is "stylix" but idk how to change it from stylix config
-	# https://github.com/adi1090x/plymouth-themes
-	theme = "motion";
+    # Enable plymouth on the system
+    enable = true;
+    # Pass in the package of themes we also downloaded
+    themePackages = [ pkgs.adi1090x-plymouth-themes ];
+    # Choose the theme
+    # default is "stylix" but idk how to change it from stylix config
+    # https://github.com/adi1090x/plymouth-themes
+    theme = "motion";
   };
 
 }
