@@ -1,18 +1,20 @@
 { config, options, ... }: {
 
   age = {
+    # The key used to decrypt secrets on boot
     identityPaths = [
-      "${config.home.homeDirectory}/nix/configs/users/gideon/configs/ssh/keys/agenix-test"
-    ];    
-    # identityPaths = options.age.identityPaths.default ++ [
-    #   "${config.home.homeDirectory}/nix/configs/users/gideon/configs/ssh/keys/agenix-test"
-    # ];
+      "${config.home.homeDirectory}/nix/configs/users/gideon/configs/ssh/keys/agenix-gideon"
+    ];
+    # Where the secrets are found and deployed
     secrets = {
-      #TODO: find a way to move the secret somewhere better and reference the path in a cleaner way
-      test1 = {
-        file = ./secrets/test/test1.age;
-        # path = ${config.home.homeDirectory}/.test1;
-        path = "/home/gideon/.test1";
+      vdirsyncer_google_client_id = {
+        file = ./secrets/calendar/vdirsyncer/vdirsyncer_google_client_id.age;
+        path = "${config.home.homeDirectory}/.secrets/calendar/vdirsyncer/vdirsyncer_google_client_id";
+      };
+      vdirsyncer_google_client_secret = {
+        file =
+          ./secrets/calendar/vdirsyncer/vdirsyncer_google_client_secret.age;
+        path = "${config.home.homeDirectory}/.secrets/calendar/vdirsyncer/vdirsyncer_google_client_secret";
       };
     };
   };

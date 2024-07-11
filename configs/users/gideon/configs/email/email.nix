@@ -3,7 +3,7 @@
     accounts = {
       # Definition for my gmail account
       gmail = {
-        address = "SECRET@SECRET.com";
+        address = "wolfegideon@gmail.com";
         name = "gmail";
         flavor = "gmail.com"; # may set some settings automatically
         primary = true; # set as primary account
@@ -37,7 +37,6 @@
           # TODO: change to true
           enable = false;
           mailboxType = "imap";
-
         };
       };
     };

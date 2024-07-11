@@ -18,7 +18,7 @@
 			#post-commit = $HOME/nix/user/scripts/git/post-commit-hook.sh
 			#post-commit = home/gideon/nix/user/scripts/git/post-commit-hook.sh;
 			#post-commit = ./post-commit-hook.sh;
-			post-commit = "${config.home.homeDirectory}/nix/user/scripts/git/post-commit-hook.sh";
+			post-commit = "${config.home.homeDirectory}/nix/configs/users/gideon/scripts/git/post-commit-hook.sh";
 		};
 	};
 }

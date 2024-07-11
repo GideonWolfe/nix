@@ -48,6 +48,10 @@ SSH keys must exist
 
 <summary style="display:inline;"><h3>TODO</h3></summary>
 
+## Initial commands required for setup
+    `vdirsyncer discover calendar_gmail` to initialize auth to vdirsyncer
+    there's a couple things you have to agree too, like creating the local calendar files, how to automate this?
+
 ## Real Time Audio (for music production)
 
 https://github.com/musnix/musnix

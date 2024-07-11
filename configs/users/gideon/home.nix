@@ -5,6 +5,7 @@
   imports = [
 
     ./secrets/secret_defs.nix
+    # ./secrets/secrets/test/test.nix # test accessing them
 
     ############
     # PACKAGES #
@@ -35,16 +36,16 @@
     #./user/packages/gaming.nix
 
     # STEM
-    ./packages/science/astronomy.nix
-    ./packages/science/biology.nix
-    ./packages/science/chemistry.nix
-    ./packages/science/data.nix
+    #./packages/science/astronomy.nix
+    #./packages/science/biology.nix
+    #./packages/science/chemistry.nix
+    #./packages/science/data.nix
     #./user/packages/science/education.nix
-    ./packages/science/geography.nix
-    ./packages/science/math.nix
+    #./packages/science/geography.nix
+    #./packages/science/math.nix
     #./user/packages/science/medecine.nix
     ./packages/science/utilities.nix
-    ./packages/science/engineering.nix
+    #./packages/science/engineering.nix
 
     # Development
     ./packages/development/rust.nix
@@ -59,6 +60,10 @@
 
     # Session/env variables
     ./configs/session-variables.nix
+
+    # Configs for calendar settings and sync
+    ./configs/calendar/calendar.nix
+    ./configs/calendar/khal.nix
 
     # Hyprland
     # Enable when ready for it
@@ -162,6 +167,11 @@
     # These configs have to be generated manually
     ./configs/darkreader.nix
 
+    # These configs have to be generated manually
+    ./configs/vdirsyncer.nix
+
+    # VS Code
+    #./configs/vscode.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
@@ -197,6 +207,9 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
+
+  # Silence home manager news
+  news.display = "silent";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -1,9 +1,13 @@
 let
+  #  My public key to my master agenix private key
   gideon =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJx8xzFoJ5l6XPpQ2KXjhQ6Ja0Htp4ubIFyTL5EP6Z5A gideon@hermes";
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF30ngUW/93exkg3QRkZvqQIrjgjYnTt8rQQaVVbmBXc gideon@hermes";
   users = [ gideon ];
 
   hermes =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRKh8hcmNRrpjo7o8zS6cy+Xq3hbyUITdAQCo1RpMFq root@hermes";
   systems = [ hermes ];
-in { "test1.age".publicKeys = users ++ systems; }
+in { 
+    "vdirsyncer_google_client_id.age".publicKeys = users ++ systems;
+    "vdirsyncer_google_client_secret.age".publicKeys = users ++ systems;
+    }

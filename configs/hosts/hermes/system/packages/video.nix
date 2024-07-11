@@ -9,7 +9,6 @@
 		# converter and DVD ripper
 		handbrake 
 		# Downloaders
-		youtube-dl
 		yt-dlp #better youtube-dl
 		# Take photos through webcam
 		gnome.cheese
