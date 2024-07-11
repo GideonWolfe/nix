@@ -76,13 +76,13 @@ with config.lib.stylix.colors.withHashtag;
 
 				"custom/poweroff" = {
 					format = "<span color='${base08}'>  </span>";
-					on-click= "$HOME/nix/user/scripts/system/power/poweroff.sh";
+					on-click= "$HOME/nix/configs/users/gideon/scripts/system/power/poweroff.sh";
 					#tooltip = true;
 					tooltip-format = "<span color='${base08}'>Power Off </span>";
 				};
 				"custom/reboot" = {
 					format = "<span color='${base09}'>  </span>";
-					on-click= "$HOME/nix/user/scripts/system/power/reboot.sh";
+					on-click= "$HOME/nix/configs/users/gideon/scripts/system/power/reboot.sh";
 					tooltip-format = "<span color='${base09}'>Reboot</span>";
 				};
 				"custom/logout" = {
@@ -92,7 +92,7 @@ with config.lib.stylix.colors.withHashtag;
 				};
 				"custom/suspend" = {
 					format = "<span color='${base0D}'>  </span>";
-					on-click= "$HOME/nix/user/scripts/system/power/suspend.sh";
+					on-click= "$HOME/nix/configs/users/gideon/scripts/system/power/suspend.sh";
 					tooltip-format = "<span color='${base0D}'>Suspend</span>";
 				};
 

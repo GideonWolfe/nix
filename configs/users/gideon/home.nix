@@ -130,11 +130,11 @@
     ./configs/ssh/ssh.nix
 
     # Neomutt
-    ./configs/neomutt/neomuttrc.nix
-    ./configs/neomutt/settings.nix
-    ./configs/neomutt/mailcap.nix
-    ./configs/neomutt/mappings.nix
-    ./configs/neomutt/colors.nix
+    ./configs/email/neomutt/neomuttrc.nix
+    ./configs/email/neomutt/settings.nix
+    ./configs/email/neomutt/mailcap.nix
+    ./configs/email/neomutt/mappings.nix
+    ./configs/email/neomutt/colors.nix
 
     # Newsboat
     ./configs/newsboat/newsboat.nix
