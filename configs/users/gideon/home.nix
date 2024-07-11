@@ -65,6 +65,10 @@
     ./configs/calendar/calendar.nix
     ./configs/calendar/khal.nix
 
+    # Configs for contacts settings and sync
+    ./configs/contacts/contacts.nix
+    ./configs/contacts/khard.nix
+
     # Hyprland
     # Enable when ready for it
     ./configs/hyprland.nix
@@ -197,6 +201,8 @@
       "  mkdir -p ${config.home.homeDirectory}/mail/gmail/trash/\n";
     createCalendarGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/calendars/gmail/\n";
+    createContactsGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/contacts/gmail/\n";
   };
 
   # This value determines the Home Manager release that your configuration is

@@ -50,6 +50,7 @@ SSH keys must exist
 
 ## Initial commands required for setup
     `vdirsyncer discover calendar_gmail` to initialize auth to vdirsyncer
+    `vdirsyncer discover contacts_gmail` to initialize auth to vdirsyncer
     there's a couple things you have to agree too, like creating the local calendar files, how to automate this?
 
 ## Real Time Audio (for music production)
