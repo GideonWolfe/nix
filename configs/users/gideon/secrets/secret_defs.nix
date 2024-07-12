@@ -9,12 +9,19 @@
     secrets = {
       vdirsyncer_google_client_id = {
         file = ./secrets/calendar/vdirsyncer/vdirsyncer_google_client_id.age;
-        path = "${config.home.homeDirectory}/.secrets/calendar/vdirsyncer/vdirsyncer_google_client_id";
+        path =
+          "${config.home.homeDirectory}/.secrets/calendar/vdirsyncer/vdirsyncer_google_client_id";
       };
       vdirsyncer_google_client_secret = {
         file =
           ./secrets/calendar/vdirsyncer/vdirsyncer_google_client_secret.age;
-        path = "${config.home.homeDirectory}/.secrets/calendar/vdirsyncer/vdirsyncer_google_client_secret";
+        path =
+          "${config.home.homeDirectory}/.secrets/calendar/vdirsyncer/vdirsyncer_google_client_secret";
+      };
+      mbsync_google_wolfegideon_app_password = {
+        file = ./secrets/email/gmail/mbsync_google_wolfegideon_app_password.age;
+        path =
+          "${config.home.homeDirectory}/.secrets/email/gmail/mbsync_google_wolfegideon_app_password";
       };
     };
   };

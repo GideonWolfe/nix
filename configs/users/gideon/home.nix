@@ -139,11 +139,14 @@
     ./configs/ssh/ssh.nix
 
     # Neomutt
-    ./configs/email/neomutt/neomuttrc.nix
-    ./configs/email/neomutt/settings.nix
-    ./configs/email/neomutt/mailcap.nix
-    ./configs/email/neomutt/mappings.nix
-    ./configs/email/neomutt/colors.nix
+    #./configs/email/neomutt/neomuttrc.nix
+    #./configs/email/neomutt/settings.nix
+    #./configs/email/neomutt/mailcap.nix
+    #./configs/email/neomutt/mappings.nix
+    #./configs/email/neomutt/colors.nix
+    ./configs/email/neomutt/neomutt.nix
+    ./configs/email/email.nix
+    ./configs/email/mbsync.nix
 
     # Newsboat
     ./configs/newsboat/newsboat.nix
@@ -195,10 +198,16 @@
       "  mkdir -p ${config.home.homeDirectory}/mail/gmail/drafts/\n";
     createInbox = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/mail/gmail/inbox/\n";
+    createAll = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/all/\n";
+    createStarred = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/starred/\n";
     createSent = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/mail/gmail/sent/\n";
     createTrash = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/mail/gmail/trash/\n";
+    createSpam = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/spam/\n";
     createCalendarGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/calendars/gmail/\n";
     createContactsGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]

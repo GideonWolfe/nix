@@ -13,12 +13,6 @@ with config.lib.stylix.colors.withHashtag;
         source ~/.config/neomutt/settings
         source ~/.config/neomutt/colors
         source ~/.config/neomutt/mappings
-
-        # Accounts
-
-        #source ~/.config/neomutt/accounts/gmail
-        #folder-hook $folder 'source ~/.config/neomutt/accounts/gmail'
-
         			'';
     };
   };

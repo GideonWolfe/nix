@@ -13,7 +13,7 @@ with config.lib.stylix.colors.withHashtag;
         # set editor to neovim
         set editor = "nvim"
 
-        set my_name = "Gideon Wolfe"
+        #set my_name = "Gideon Wolfe"
         # set imap_check_subscribed
 
         # Set preffered view modes
@@ -103,7 +103,7 @@ with config.lib.stylix.colors.withHashtag;
         set header_cache = "~/.cache/mutt"
         set message_cachedir = "~/.cache/mutt"
 
-        set query_command = "khard email --parsable --search-in-source-files '%s'" # tab complete to search khard contacts
+        #set query_command = "khard email --parsable --search-in-source-files '%s'" # tab complete to search khard contacts
 
         # set new_mail_command="notify-send --icon=/home/gideon/.icons/oomox-xresources-reverse-flat/status/scalable/mail-unread-symbolic.svg \
         # 'New Email' '%n new messages, %u unread.' &"

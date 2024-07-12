@@ -7,7 +7,8 @@ let
   hermes =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRKh8hcmNRrpjo7o8zS6cy+Xq3hbyUITdAQCo1RpMFq root@hermes";
   systems = [ hermes ];
-in { 
-    "vdirsyncer_google_client_id.age".publicKeys = users ++ systems;
-    "vdirsyncer_google_client_secret.age".publicKeys = users ++ systems;
-    }
+in {
+  "vdirsyncer_google_client_id.age".publicKeys = users ++ systems;
+  "vdirsyncer_google_client_secret.age".publicKeys = users ++ systems;
+  "mbsync_google_wolfegideon_app_password.age".publicKeys = users ++ systems;
+}

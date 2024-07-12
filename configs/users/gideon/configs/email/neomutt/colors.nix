@@ -119,13 +119,13 @@ with config.lib.stylix.colors.withHashtag;
         color status brightyellow black
         color status blue default '(\[|\])'
         color status magenta default '( )'
-        color status magenta default ''
-        color status magenta default ''
+        color status green default ''
+        color status brightblue default ''
         color status magenta default ''
-        color status magenta default ''
-        color status magenta default ''
+        color status red default ''
+        color status blue default ''
         color status magenta default ''
-        color status magenta default ''
+        color status brightcyan default ''
 
         # Sidebar colors
         # Sidebar-specific color of the selected item

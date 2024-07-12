@@ -7,6 +7,6 @@ with config.lib.stylix.colors.withHashtag;
 		enable = true;
 		icons = true;
 		textColor = base05;
-		defaultTimeout = 10;
+		#defaultTimeout = 10;
 	};
 }
