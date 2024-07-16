@@ -72,11 +72,13 @@ with config.lib.stylix.colors.withHashtag;
       attach_format = ''"%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"'';
 
       # Sidebar options
-      sidebar_format = ''"%D%?F? %?N?%N/?%S"'';
+      #sidebar_format = ''"%D%?F? %?N?%N/?%S"'';
+      sidebar_format = ''"%D"'';
       sidebar_folder_indent = "no";
       sidebar_width = "10";
       sidebar_indent_string = ''" - "'';
       sidebar_divider_char = ''" │ "'';
+      sidebar_component_depth = "0";
 
     };
 
@@ -264,6 +266,15 @@ with config.lib.stylix.colors.withHashtag;
       }
     ];
     extraConfig = ''
+
+      named-mailboxes " Inbox" =inbox
+      named-mailboxes " Sent" =sent
+      named-mailboxes " Drafts" =drafts
+      named-mailboxes " Spam" =spam
+      named-mailboxes " Trash" =trash
+      named-mailboxes " All Mail" =all
+      named-mailboxes " Starred" =starred
+
       # Header colors:
       color header blue default ".*"
       color header brightmagenta default "^(From)"
@@ -276,10 +287,10 @@ with config.lib.stylix.colors.withHashtag;
       mono error bold
       color normal default default
       color indicator brightyellow default # currently selected message. default makes bar clear, disabled arrow to save space.
-      color sidebar_highlight red default
-      color sidebar_divider blue black
-      color sidebar_flagged red black
-      color sidebar_new green black
+      #color sidebar_highlight red default
+      #color sidebar_divider blue black
+      #color sidebar_flagged red black
+      #color sidebar_new green black
       color normal brightyellow default
       color error red default
       color tilde black default
@@ -386,7 +397,7 @@ with config.lib.stylix.colors.withHashtag;
       # Color of the highlighted, but not open, mailbox.
       color sidebar_highlight magenta default
       # Color of the divider separating the Sidebar from NeoMutt panels
-      # color sidebar_divider color8 black
+      color sidebar_divider brightmagenta black
       # Color to give mailboxes containing flagged mail
       # color sidebar_flagged red black
       # Color to give mailboxes containing new mail

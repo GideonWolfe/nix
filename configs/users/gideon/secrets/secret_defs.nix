@@ -23,6 +23,11 @@
         path =
           "${config.home.homeDirectory}/.secrets/email/gmail/mbsync_google_wolfegideon_app_password";
       };
+      weechat_libera_password= {
+        file = ./secrets/irc/weechat/weechat_libera_password.age;
+        path =
+          "${config.home.homeDirectory}/.secrets/irc/weechat/weechat_libera_password";
+      };
     };
   };
 }

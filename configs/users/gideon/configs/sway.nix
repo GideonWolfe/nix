@@ -36,7 +36,9 @@ with config.lib.stylix.colors.withHashtag;
       seat = {
         # Inherit the globally set cursor theme
         seat0 = {
-            xcursor_theme = "${config.home.pointerCursor.name} ${toString config.home.pointerCursor.size}";
+          xcursor_theme = "${config.home.pointerCursor.name} ${
+              toString config.home.pointerCursor.size
+            }";
         };
       };
 
@@ -59,15 +61,21 @@ with config.lib.stylix.colors.withHashtag;
           # Set the translate window to always be floating and in the scratchpad
           {
             command =
-              "floating enable, resize set 800 800, move scratchpad, move position center;";
+              "floating enable, resize set 300 300, move scratchpad, move position center;";
             criteria = { app_id = "translate"; };
           }
 
           # Set the calculator window to always be floating and in the scratchpad
           {
             command =
-              "floating enable, resize set 800 800, move scratchpad, move position center;";
+              "floating enable, resize set 300 300, move scratchpad, move position center;";
             criteria = { app_id = "calculator"; };
+          }
+          # Set the calculator window to always be floating and in the scratchpad
+          {
+            command =
+              "floating enable, resize set 300 300, move scratchpad, move position center;";
+            criteria = { app_id = "calendar"; };
           }
         ];
       };
@@ -93,6 +101,11 @@ with config.lib.stylix.colors.withHashtag;
         {
           command =
             "${pkgs.kitty}/bin/kitty --class calculator --title calculator qalc";
+        }
+        # Start calculator
+        {
+          command =
+            "${pkgs.kitty}/bin/kitty --class calendar --title calendar khal interactive";
         }
       ];
 
@@ -120,6 +133,8 @@ with config.lib.stylix.colors.withHashtag;
           "${modifier}+t" =
             "exec swaymsg [app_id='translate'] scratchpad show"; # HACK not sure why I need to exec swaymsg on this one
           "${modifier}+c" =
+            "exec swaymsg [app_id='calendar'] scratchpad show"; # HACK not sure why I need to exec swaymsg on this one
+          "${modifier}+m" =
             "exec swaymsg [app_id='calculator'] scratchpad show"; # HACK not sure why I need to exec swaymsg on this one
           "${modifier}+p" =
             "exec ${config.home.homeDirectory}/nix/user/scripts/system/navigation/sway-window-switcher.sh";

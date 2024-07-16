@@ -11,6 +11,8 @@
         userName = "wolfegideon";
         passwordCommand =
           "cat ${config.age.secrets.mbsync_google_wolfegideon_app_password.path}";
+
+        #TODO: delete? the imap settings are covered by "flavor" so these probably are too
         smtp = {
           host = "smtp.gmail.com";
           port = 587;
@@ -19,14 +21,7 @@
             useStartTls = true;
           };
         };
-        # imap = {
-        #   host = "imap.gmail.com";
-        #   port = 993;
-        #   tls = {
-        #     enable = true;
-        #     useStartTls = true;
-        #   };
-        # };
+
         folders = {
           # Prepended by the configured maildirBasePath
           drafts = "drafts/";
@@ -47,7 +42,6 @@
               Host = "imap.gmail.com";
               Port = 993;
               SSLType = "IMAPS";
-              # CertificateFile = "/etc/ssl/certs/ca-certificates.crt";
               AuthMechs = "LOGIN";
               Pipelinedepth = 1;
               PassCmd =

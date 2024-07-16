@@ -19,6 +19,7 @@
 
 		pkgs.papirus-icon-theme
 		pkgs.papirus-folders
+		pkgs.material-icons
 
 		#pkgs.pywalfox-native
 	];

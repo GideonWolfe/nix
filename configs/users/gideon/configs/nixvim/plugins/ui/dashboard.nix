@@ -19,7 +19,7 @@
             };
 
             # TODO: i don't think this works with nix right
-            packages.enable = true;
+            packages.enable = false;
 
             project = {
                 enable = true;

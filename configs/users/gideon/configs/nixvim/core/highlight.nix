@@ -467,6 +467,9 @@ with config.lib.stylix.colors.withHashtag;
                 bold = true;
                 underline = true;
             };
-
+            DashboardHeader = {
+                bg = "${base00}";
+                fg = "${base0E}";
+            };
     };
 }

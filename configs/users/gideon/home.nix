@@ -42,7 +42,7 @@
     #./packages/science/data.nix
     #./user/packages/science/education.nix
     #./packages/science/geography.nix
-    #./packages/science/math.nix
+    ./packages/science/math.nix
     #./user/packages/science/medecine.nix
     ./packages/science/utilities.nix
     #./packages/science/engineering.nix
@@ -97,7 +97,9 @@
 
     # Firefox
     ./configs/firefox/firefox.nix
-    #./user/configs/firefox/userChrome.nix
+
+    # Firefox
+    ./configs/chromium.nix
 
     # Zathura
     ./configs/zathura.nix
@@ -139,14 +141,13 @@
     ./configs/ssh/ssh.nix
 
     # Neomutt
-    #./configs/email/neomutt/neomuttrc.nix
-    #./configs/email/neomutt/settings.nix
-    #./configs/email/neomutt/mailcap.nix
-    #./configs/email/neomutt/mappings.nix
-    #./configs/email/neomutt/colors.nix
     ./configs/email/neomutt/neomutt.nix
     ./configs/email/email.nix
     ./configs/email/mbsync.nix
+
+    # Weechat
+    ./configs/weechat/buflist.nix
+    ./configs/weechat/weechat.nix
 
     # Newsboat
     ./configs/newsboat/newsboat.nix

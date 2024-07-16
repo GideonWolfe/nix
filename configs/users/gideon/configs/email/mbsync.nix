@@ -6,6 +6,7 @@
   # Configure the mbsync service
   services.mbsync = {
     enable = true;
-    postExec = "notify-send -u low 'mbsync' 'Sync Successful'";
+    #TODO: Get this to send a useful notification
+    #postExec = "notify-send -u low 'mbsync' 'Sync Successful'";
   };
 }

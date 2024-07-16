@@ -3,6 +3,7 @@
 * Dotfiles managed by [Home Manager](https://nixos.wiki/wiki/Home_Manager)
 * Neovim setup with [NixVim](https://github.com/nix-community/nixvim)
 * Theming with [Stylix](https://github.com/danth/stylix)
+* Secret management with [Agenix](https://github.com/ryantm/agenix)
 
 ## Repo Structure
 
@@ -18,7 +19,7 @@
                 * `packages` system level packages that should be installed
                 * `services` configs for services that run on the system (greeter, CUPS, etc)
                 * `system` system level configs (timezone, hostname, bootloader, etc)
-    * `users` configs for individual users on these system and their dotfiles
+    * `uses` configs for individual users on these system and their dotfiles
         * `username`
             * `home.nix` the basic setup for the user, and where all other HM configs are imported
             * `configs` config files for various programs
@@ -48,10 +49,17 @@ SSH keys must exist
 
 <summary style="display:inline;"><h3>TODO</h3></summary>
 
-## Initial commands required for setup
-    `vdirsyncer discover calendar_gmail` to initialize auth to vdirsyncer
-    `vdirsyncer discover contacts_gmail` to initialize auth to vdirsyncer
-    there's a couple things you have to agree too, like creating the local calendar files, how to automate this?
+## Initial steps required for setup
+    * Calendars and Contacts
+        * `vdirsyncer discover calendar_gmail` to initialize auth to vdirsyncer
+        * `vdirsyncer discover contacts_gmail` to initialize auth to vdirsyncer
+        * there's a couple things you have to agree too, like creating the local calendar files, how to automate this?
+
+    * Set up browser plugins
+        * ~/.config/darkreader.darkreader.json needs to be manually imported via darkreader settings (FF and Chromium)
+        * New Tab Override (FF) and New Tab URL (Chromium) needs to be set to point at http://localhost:9876
+
+
 
 ## Real Time Audio (for music production)
 
@@ -85,9 +93,6 @@ https://github.com/the-argus/spicetify-nix lets you specify custom colors in nix
 
 Already installed this, works well with preset themes. Now need to make a stylix theme
 
-## Configure Agenix
-
-https://github.com/ryantm/agenix
 
 ## Hardware only stuff (can't really config in VM)
 

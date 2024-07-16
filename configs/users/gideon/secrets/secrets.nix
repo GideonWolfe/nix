@@ -11,4 +11,5 @@ in {
   "vdirsyncer_google_client_id.age".publicKeys = users ++ systems;
   "vdirsyncer_google_client_secret.age".publicKeys = users ++ systems;
   "mbsync_google_wolfegideon_app_password.age".publicKeys = users ++ systems;
+  "weechat_libera_password.age".publicKeys = users ++ systems;
 }
