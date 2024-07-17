@@ -178,6 +178,8 @@
     # These configs have to be generated manually
     ./configs/vdirsyncer.nix
 
+    ./configs/fastfetch.nix
+
     # VS Code
     #./configs/vscode.nix
   ];

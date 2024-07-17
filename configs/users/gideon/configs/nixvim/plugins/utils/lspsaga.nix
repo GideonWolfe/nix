@@ -6,6 +6,9 @@
     symbolInWinbar = {
         enable = true;
         colorMode = true;
+        hideKeyword = true;
+        folderLevel = 2;
+        showFile = false;
     };
     # Shows code action
     lightbulb = {
