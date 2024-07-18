@@ -301,7 +301,7 @@ with config.lib.stylix.colors.withHashtag;
         "custom/mako" = {
           tooltip = true;
           interval = 1;
-          format = "<span color='${base0E}'>{} </span>";
+          format = "<span color='${base0D}'>{} </span>";
           exec =
             "$HOME/nix/configs/users/gideon/scripts/system/notifications/mako-toggle-waybar.sh status";
           on-click-left =
