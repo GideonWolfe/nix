@@ -59,6 +59,11 @@ SSH keys must exist
         * ~/.config/darkreader.darkreader.json needs to be manually imported via darkreader settings (FF and Chromium)
         * New Tab Override (FF) and New Tab URL (Chromium) needs to be set to point at http://localhost:9876
 
+    * Discord
+        * Vesktop has to be launched for a first time setup
+        * You have to select "Stylix" theme in "Theme" settings page
+        * Can I force enable this through settings.json? Maybe use JQ
+
 
 
 ## Real Time Audio (for music production)

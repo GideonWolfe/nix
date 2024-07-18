@@ -8,6 +8,7 @@
 		pkgs.signal-desktop
 		pkgs.neomutt # Email TUI
 		#pkgs.discord
+		pkgs.vesktop
 		#pkgs.betterdiscord-installer
 		#pkgs.slack
 		#pkgs.zoom-us

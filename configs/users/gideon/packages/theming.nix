@@ -10,6 +10,7 @@
 		pkgs.qt6ct
 		pkgs.qtcurve
 		pkgs.libsForQt5.qtstyleplugins
+        pkgs.libsForQt5.qtquickcontrols #HACK: could be sorted better, required for flameshot to work
 		# GTK utils
 		pkgs.wpgtk
 		pkgs.lxappearance

@@ -219,10 +219,10 @@ with config.lib.stylix.colors.withHashtag;
           format = "{icon}{usage}%";
           #format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
           format-icons = [
-            "<span color='${base0B}'></span>"
-            "<span color='${base0A}'></span>"
-            "<span color='${base09}'></span>"
-            "<span color='${base08}'></span>"
+            "<span color='${base0B}'> </span>"
+            "<span color='${base0A}'> </span>"
+            "<span color='${base09}'> </span>"
+            "<span color='${base08}'> </span>"
           ];
           on-click = "sudo cpupower-gui";
           on-click-right = "hardinfo";
@@ -286,7 +286,7 @@ with config.lib.stylix.colors.withHashtag;
         "custom/screen_recorder" = {
           tooltip = true;
           interval = 1;
-          format = "<span color='${base0D}'>{}</span>";
+          format = "<span color='${base0D}'>{} </span>";
           exec =
             "$HOME/nix/configs/users/gideon/scripts/system/screen-capture/screen-recorder.sh status";
           on-click-middle =
