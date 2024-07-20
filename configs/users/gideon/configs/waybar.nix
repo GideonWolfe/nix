@@ -309,6 +309,7 @@ with config.lib.stylix.colors.withHashtag;
           on-click-right =
             "$HOME/nix/configs/users/gideon/scripts/system/notifications/mako-toggle-waybar.sh toggle";
           return-type = "json";
+          signal = 8;
         };
 
         "sway/workspaces" = {

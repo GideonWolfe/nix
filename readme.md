@@ -65,15 +65,20 @@ SSH keys must exist
         * Can I force enable this through settings.json? Maybe use JQ
 
 
+## Nixvim
+
+    * `lualine` config not advanced enough for me to inject mode formatting function
+        * I checked in matrix and they want to fix/update this
+
+## Vesktop
+
+    * Find way to automate plugin installation (in settings.json) but there are "stateful" lines in that file, how to programatically chnge? JQ?
+    * Find a way to automate theme selection to stylix (settings.json)
+    * change the color values in top level settings.json for splash screen, it doesn't use hex though
 
 ## Real Time Audio (for music production)
 
-https://github.com/musnix/musnix
-
-## Refactoring
-
-* move the git commit script thats floating around
-* move the service definition for the startpage into the user dir, its ugly defined in system and reaching into hardcoded user dir for config files
+    https://github.com/musnix/musnix
 
 ## Add theme to cli-visualizer
 
@@ -88,14 +93,13 @@ https://github.com/dpayne/cli-visualizer?tab=readme-ov-file#configuration
 like if I click a link and it opens a tab in FF in another workspace, that workspace icon should get a highlight.
 I think its called urgent or something
 
-
 ## Add theme to audacity
+    
 seems to have a "Custom" option for theme
 
 ## Configure spicetify
 
 https://github.com/the-argus/spicetify-nix lets you specify custom colors in nix
-
 Already installed this, works well with preset themes. Now need to make a stylix theme
 
 

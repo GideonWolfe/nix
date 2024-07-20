@@ -61,20 +61,20 @@ with config.lib.stylix.colors.withHashtag;
           # Set the translate window to always be floating and in the scratchpad
           {
             command =
-              "floating enable, resize set 300 300, move scratchpad, move position center;";
+              "floating enable, resize set 200 300, move scratchpad, move position 15 15;";
             criteria = { app_id = "translate"; };
           }
 
           # Set the calculator window to always be floating and in the scratchpad
           {
             command =
-              "floating enable, resize set 300 300, move scratchpad, move position center;";
+              "floating enable, resize set 300 300, move scratchpad, move position 15 15;";
             criteria = { app_id = "calculator"; };
           }
           # Set the calculator window to always be floating and in the scratchpad
           {
             command =
-              "floating enable, resize set 300 300, move scratchpad, move position center;";
+              "floating enable, resize set 300 300, move scratchpad, move position 15 15;";
             criteria = { app_id = "calendar"; };
           }
         ];
@@ -137,12 +137,12 @@ with config.lib.stylix.colors.withHashtag;
           "${modifier}+m" =
             "exec swaymsg [app_id='calculator'] scratchpad show"; # HACK not sure why I need to exec swaymsg on this one
           "${modifier}+p" =
-            "exec ${config.home.homeDirectory}/nix/user/scripts/system/navigation/sway-window-switcher.sh";
+            "exec ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/navigation/sway-window-switcher.sh";
           "${modifier}+s" =
-            "exec ${config.home.homeDirectory}/nix/user/scripts/system/search/wofi-web-search.sh";
+            "exec ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/search/wofi-web-search.sh";
           #TODO awk doesn't actually output anything
           "${modifier}+f" =
-            "exec cat ${config.home.homeDirectory}/nix/user/configs/wofi/lists/french.csv | wofi --dmenu | awk '{print $1}'";
+            "exec cat ${config.home.homeDirectory}/nix/configs/users/gideon/configs/wofi/lists/french.csv | wofi --dmenu | awk '{print $1}'";
         };
 
     };
