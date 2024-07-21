@@ -182,6 +182,9 @@
 
     # VS Code
     #./configs/vscode.nix
+
+    # Projects
+    ./configs/projects/zeroday.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
@@ -193,10 +196,12 @@
   home.homeDirectory = "/home/gideon";
 
   home.activation = {
+    # Screenshots, screen recordings, etc.
     createScreenshotsDir = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/pictures/screenshots/\n";
     createScreenRecordings = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/\n";
+    # Email mailboxes
     createDraft = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/mail/gmail/drafts/\n";
     createInbox = lib.hm.dag.entryAfter [ "writeBoundary" ]
@@ -215,6 +220,16 @@
       "  mkdir -p ${config.home.homeDirectory}/calendars/gmail/\n";
     createContactsGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/contacts/gmail/\n";
+    # Test folder for experimenting
+    createTest = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/test/\n";
+    # Project folder
+    createProjects = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/projects/\n";
+    # Individual Projects
+    #TODO:  migrate each project to their own file so they can be enabled/disabled at will
+    # createForgetter = lib.hm.dag.entryAfter [ "writeBoundary" ]
+    #   "  mkdir -p ${config.home.homeDirectory}/projects/forgetter/\n";
   };
 
   # This value determines the Home Manager release that your configuration is
