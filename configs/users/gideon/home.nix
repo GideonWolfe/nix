@@ -188,6 +188,8 @@
     ./configs/projects/forgetter.nix
     ./configs/projects/science.nix
     ./configs/projects/art.nix
+    ./configs/projects/tech.nix
+    ./configs/projects/music.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
