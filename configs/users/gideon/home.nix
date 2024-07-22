@@ -185,6 +185,7 @@
 
     # Projects
     ./configs/projects/zeroday.nix
+    ./configs/projects/forgetter.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
@@ -226,10 +227,6 @@
     # Project folder
     createProjects = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/projects/\n";
-    # Individual Projects
-    #TODO:  migrate each project to their own file so they can be enabled/disabled at will
-    # createForgetter = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/projects/forgetter/\n";
   };
 
   # This value determines the Home Manager release that your configuration is
