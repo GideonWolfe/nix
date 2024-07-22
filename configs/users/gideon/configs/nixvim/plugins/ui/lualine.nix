@@ -35,6 +35,16 @@ in {
     #theme = "auto";
     globalstatus = true;
 
+    extensions = [
+      "lazy"
+      "nvim-tree"
+      "trouble"
+      "symbols-outline"
+      "nvim-dap-ui"
+      "fugitive"
+      "man"
+    ];
+
     componentSeparators = {
       #left = "╲";
       #right = "╱";
