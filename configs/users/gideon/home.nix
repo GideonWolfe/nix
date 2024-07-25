@@ -188,6 +188,7 @@
     ./configs/projects/forgetter.nix
     ./configs/projects/science.nix
     ./configs/projects/art.nix
+    ./configs/projects/photography.nix
     ./configs/projects/tech.nix
     ./configs/projects/music.nix
   ];

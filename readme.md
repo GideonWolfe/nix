@@ -50,31 +50,37 @@ SSH keys must exist
 <summary style="display:inline;"><h3>TODO</h3></summary>
 
 ## Initial steps required for setup
-    * Calendars and Contacts
-        * `vdirsyncer discover calendar_gmail` to initialize auth to vdirsyncer
-        * `vdirsyncer discover contacts_gmail` to initialize auth to vdirsyncer
-        * there's a couple things you have to agree too, like creating the local calendar files, how to automate this?
+* Calendars and Contacts
+    * `vdirsyncer discover calendar_gmail` to initialize auth to vdirsyncer
+    * `vdirsyncer discover contacts_gmail` to initialize auth to vdirsyncer
+    * there's a couple things you have to agree too, like creating the local calendar files, how to automate this?
 
-    * Set up browser plugins
-        * ~/.config/darkreader.darkreader.json needs to be manually imported via darkreader settings (FF and Chromium)
-        * New Tab Override (FF) and New Tab URL (Chromium) needs to be set to point at http://localhost:9876
+* Set up browser plugins
+    * ~/.config/darkreader/darkreader.json needs to be manually imported via darkreader settings (FF and Chromium)
+    * New Tab Override (FF) and New Tab URL (Chromium) needs to be set to point at http://localhost:9876
 
-    * Discord
-        * Vesktop has to be launched for a first time setup
-        * You have to select "Stylix" theme in "Theme" settings page
-        * Can I force enable this through settings.json? Maybe use JQ
+* Discord
+    * Vesktop has to be launched for a first time setup
+    * You have to select "Stylix" theme in "Theme" settings page
+    * Can I force enable this through settings.json? Maybe use JQ
+    * Login
 
+* KDE Connect
+    * Add your device
+
+* Signal Desktop
+    * Verify/add device
 
 ## Nixvim
 
-    * `lualine` config not advanced enough for me to inject mode formatting function
-        * I checked in matrix and they want to fix/update this
+* `lualine` config not advanced enough for me to inject mode formatting function
+    * I checked in matrix and they want to fix/update this
 
 ## Vesktop
 
-    * Find way to automate plugin installation (in settings.json) but there are "stateful" lines in that file, how to programatically chnge? JQ?
-    * Find a way to automate theme selection to stylix (settings.json)
-    * change the color values in top level settings.json for splash screen, it doesn't use hex though
+* Find way to automate plugin installation (in settings.json) but there are "stateful" lines in that file, how to programatically chnge? JQ?
+* Find a way to automate theme selection to stylix (settings.json)
+* change the color values in top level settings.json for splash screen, it doesn't use hex though
 
 ## Real Time Audio (for music production)
 

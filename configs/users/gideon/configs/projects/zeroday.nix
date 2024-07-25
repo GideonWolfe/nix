@@ -11,7 +11,7 @@ with config.lib.stylix.colors.withHashtag;
     cloneZeroDay = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "GIT_SSH=${lib.getExe pkgs.openssh} ${
         lib.getExe pkgs.git
-      } -C ${config.home.homeDirectory}/projects/tech/zeroday/zeroday/ pull || GIT_SSH=${
+      } -C ${config.home.homeDirectory}/projects/tech/zeroday/zeroday/ fetch -ap || GIT_SSH=${
         lib.getExe pkgs.openssh
       } ${
         lib.getExe pkgs.git

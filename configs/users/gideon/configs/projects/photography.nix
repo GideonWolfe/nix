@@ -4,6 +4,6 @@
   home.activation = {
     # Create initial project directory
     createPhotography = lib.hm.dag.entryAfter [ "writeBoundary" ]
-      "  mkdir -p ${config.home.homeDirectory}/projects/photography/\n";
+      "  mkdir -p ${config.home.homeDirectory}/projects/art/photography/\n";
   };
 }
