@@ -126,7 +126,6 @@
     fishPlugins.done
 
     # Collection of colorschemes
-    #TODO: causin error
     base16-schemes
 
     # Filesystem Utilities

@@ -75,7 +75,7 @@ with config.lib.stylix.colors.withHashtag;
     clipboard.register = "unnamedplus";
 
     #HACK: adding plugins that don't have a module yet
-    extraPlugins = with pkgs.vimPlugins; [ lazygit-nvim lsp_signature-nvim ];
+    extraPlugins = with pkgs.vimPlugins; [ lazygit-nvim lsp_signature-nvim yuck-vim];
 
     #HACK: Running these sign define commands as raw lua because nixvim doesn't have a setting
     extraConfigLuaPre = ''

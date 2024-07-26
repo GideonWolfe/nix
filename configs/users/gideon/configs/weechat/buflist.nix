@@ -9,17 +9,6 @@ with config.lib.stylix.colors.withHashtag;
     #onChange = manually tell darkreader to refresh somehow?
     target = "weechat/buflist.conf";
     text = ''
-      #
-      # weechat -- buflist.conf
-      #
-      # WARNING: It is NOT recommended to edit this file by hand,
-      # especially if WeeChat is running.
-      #
-      # Use /set or similar command to change settings in WeeChat.
-      #
-      # For more info, see: https://weechat.org/doc/quickstart
-      #
-
       [look]
       add_newline = on
       auto_scroll = 50

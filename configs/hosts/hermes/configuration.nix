@@ -36,6 +36,9 @@
     # Printer support
     ./system/services/printing.nix
 
+    # Virtual FS (used to cache album art)
+    ./system/services/gvfs.nix
+
     # UI
     ./system/graphics/hyprland.nix
     ./system/graphics/wayland.nix
@@ -119,8 +122,6 @@
     }];
   };
 
-  #TODO: Can this be defined ONLY with home manager or does HM need the account to already exist to work?
-  # Either way it isn't the end of the world if the usernames are hardcoded since I know what users i want on the system 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gideon = {
     isNormalUser = true;

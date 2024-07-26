@@ -23,6 +23,9 @@
 		# Bar
 		waybar
 		wttrbar #weather status for waybar
+        
+        # Widget library
+        eww
 
 		# Display configuration service
 		kanshi

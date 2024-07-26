@@ -191,6 +191,10 @@
     ./configs/projects/photography.nix
     ./configs/projects/tech.nix
     ./configs/projects/music.nix
+
+
+    #TODO: enable when config done
+    #./configs/eww/eww.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
