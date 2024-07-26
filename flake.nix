@@ -47,6 +47,7 @@
       # Definitions for individual hosts
       nixosConfigurations = {
 
+        # Original testing VM
         hermes = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
@@ -54,6 +55,17 @@
             stylix.nixosModules.stylix
             # agenix.nixosModules.default
             ./configs/hosts/hermes/configuration.nix
+          ];
+        };
+
+        # Homeserver
+        athena = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            #stylix.nixosModules.stylix
+            # agenix.nixosModules.default
+            ./configs/hosts/athena/configuration.nix
           ];
         };
       };

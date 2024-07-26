@@ -98,20 +98,20 @@
       # Build NixOS System
       bldnix = {
         #body = "sudo nixos-rebuild switch --flake ${config.users.gideon.home}/nix";
-        body =
-          "sudo nixos-rebuild switch --flake /home/${config.home.username}/nix/";
+        body = "sudo nixos-rebuild switch --flake /home/gideon/nix/";
       };
       # Build Home Manager Config
       bldhome = {
-        body = "home-manager switch --flake /home/${config.home.username}/nix/";
+        #body = "home-manager switch --flake /home/gideon/nix/";
+        body = "home-manager switch --flake /home/${config.home.userName}/nix/";
       };
 
       bldcommit = {
         body =
-          "	git -C /home/${config.home.username}/nix/ add .\n	read --prompt=\"set_color green; echo -n  ; set_color normal; echo 'Commit Message: '\" COMMITMSG\n	git -C /home/${config.home.username}/nix/ commit -m $COMMITMSG\n";
+          "	git -C /home/gideon/nix/ add .\n	read --prompt=\"set_color green; echo -n  ; set_color normal; echo 'Commit Message: '\" COMMITMSG\n	git -C /home/gideon/nix/ commit -m $COMMITMSG\n";
       };
 
-      bldpush = { body = "	git -C /home/${config.home.username}/nix/ push\n"; };
+      bldpush = { body = "	git -C /home/gideon/nix/ push\n"; };
 
       # Better Youtube-dl opts
       ytdl = {
