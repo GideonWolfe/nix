@@ -11,6 +11,12 @@
     # Media stack
     createServerServicesMedia = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/server/services/media/\n";
+    # NZBGet
+    createServerServicesMediaNZBGet = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/server/services/media/nzbget/\n";
+    # NZBGet
+    createServerServicesMediaNZBGetDataDir = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/server/services/media/nzbget/datadir/\n";
     # All Served data
     createServerData = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/server/data/\n";

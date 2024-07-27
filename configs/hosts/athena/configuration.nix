@@ -70,6 +70,7 @@
 
     # Services
     ./server/services/monica/monica.nix
+    ./server/services/media/nzbget.nix
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;
@@ -123,6 +124,9 @@
 
   system.activationScripts.makeMonicaNetwork = ''
     ${pkgs.docker}/bin/docker network create net_monica
+  '';
+  system.activationScripts.makeMediaNetwork = ''
+    ${pkgs.docker}/bin/docker network create net_media
   '';
 
   # Some programs need SUID wrappers, can be configured further or are
