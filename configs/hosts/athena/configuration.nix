@@ -17,7 +17,7 @@
     ./system/system/system.nix
 
     # Login manager/greeter
-    #./system/services/greeter.nix
+    ./system/services/greeter.nix
 
     # GNOME Keyring
     #./system/services/gnome-keyring.nix

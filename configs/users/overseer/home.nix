@@ -22,8 +22,8 @@
 
     # Hyprland
     # Enable when ready for it
-    #./configs/sway.nix
-    #./configs/swaylock.nix
+    ../gideon/configs/sway.nix
+    ../gideon/configs/swaylock.nix
     #./configs/swayidle.nix
 
     # Cursor settings
@@ -32,7 +32,7 @@
     # Neovim
     #./configs/nixvim/nixvim.nix
     #TODO: does gideon nixvim have username hardcoded?
-    #../gideon/configs/nixvim/nixvim.nix
+    ../gideon/configs/nixvim/nixvim.nix
 
     # Display configs
     #./configs/kanshi.nix
@@ -41,7 +41,7 @@
     #./configs/kitty.nix
 
     # Waybar
-    #./configs/waybar.nix
+    ../gideon/configs/waybar.nix
 
     # Wofi
     #./configs/wofi/wofi.nix
@@ -89,7 +89,7 @@
     ./configs/git.nix
 
     # SSH
-    #./configs/ssh/ssh.nix
+    ./configs/ssh/ssh.nix
 
     # Neomutt
     #./configs/email/neomutt/neomutt.nix
