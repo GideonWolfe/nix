@@ -8,7 +8,7 @@
     # All Services and their data
     createServerServices = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/server/services/\n";
-    # All Services and their data
+    # Media stack
     createServerServicesMedia = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/server/services/media/\n";
     # All Served data
@@ -16,6 +16,6 @@
       "  mkdir -p ${config.home.homeDirectory}/server/data/\n";
     # All Media
     createServerDataMedia = lib.hm.dag.entryAfter [ "writeBoundary" ]
-      "  mkdir -p ${config.home.homeDirectory}/server/media/\n";
+      "  mkdir -p ${config.home.homeDirectory}/server/data/media/\n";
   };
 }
