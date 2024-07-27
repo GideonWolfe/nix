@@ -22,8 +22,8 @@
 
     # Hyprland
     # Enable when ready for it
-    #./configs/sway.nix
-    #./configs/swaylock.nix
+    ../gideon/configs/sway.nix
+    ../gideon/configs/swaylock.nix
     #./configs/swayidle.nix
 
     # Cursor settings
@@ -41,7 +41,7 @@
     #./configs/kitty.nix
 
     # Waybar
-    #./configs/waybar.nix
+    ../gideon/configs/waybar.nix
 
     # Wofi
     #./configs/wofi/wofi.nix

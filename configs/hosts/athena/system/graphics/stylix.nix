@@ -6,7 +6,7 @@
 
     enable = true;
 
-    image = ../../../../../wallpapers/zT7uCe2.png;
+    image = ../../../../../wallpapers/34SvtoO.jpg;
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
 

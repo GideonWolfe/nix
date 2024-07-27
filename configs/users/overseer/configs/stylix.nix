@@ -6,7 +6,7 @@
 	#stylix.image = ./zT7uCe2.png;	
 	#stylix.image = ../../system/graphics/wallpapers/zT7uCe2.png;	
 	#stylix.image = ../../../../system/graphics/wallpapers/zT7uCe2.png;	
-	stylix.image = ../../../../wallpapers/zT7uCe2.png;	
+	stylix.image = ../../../../wallpapers/34SvtoO.jpg;	
 
 	# Override scheme (as opposed to getting from image)
 	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
