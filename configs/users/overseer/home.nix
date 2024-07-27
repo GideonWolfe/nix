@@ -118,6 +118,7 @@
 
 
 
+    ./configs/server/directories.nix
 
   ];
 
