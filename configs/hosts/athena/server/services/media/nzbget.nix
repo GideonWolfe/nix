@@ -11,6 +11,7 @@
     };
     volumes = [
       "/home/overseer/server/services/media/nzbget/datadir:/config"
+      #"/home/overseer/server/services/media/nzbget/datadir:/downloads"
     ];
     extraOptions = [ "--network=net_media" ];
   };

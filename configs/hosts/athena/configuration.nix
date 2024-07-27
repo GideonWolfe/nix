@@ -69,7 +69,7 @@
     ./system/packages/system.nix
 
     # Services
-    ./server/services/monica/monica.nix
+    ./server/services/productivity/monica/monica.nix
     ./server/services/media/nzbget.nix
   ];
 
@@ -122,6 +122,7 @@
     packages = with pkgs; [ firefox neovim tree git ];
   };
 
+  #TODO: make these fail gracefully when network already exists
   system.activationScripts.makeMonicaNetwork = ''
     ${pkgs.docker}/bin/docker network create net_monica
   '';
