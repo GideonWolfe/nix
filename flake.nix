@@ -63,7 +63,7 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            #stylix.nixosModules.stylix
+            stylix.nixosModules.stylix
             # agenix.nixosModules.default
             ./configs/hosts/athena/configuration.nix
           ];
@@ -82,6 +82,15 @@
             agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
             ./configs/users/gideon/home.nix
+          ];
+        };
+        overseer = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            stylix.homeManagerModules.stylix
+            agenix.homeManagerModules.age
+            nixvim.homeManagerModules.nixvim
+            ./configs/users/overseer/home.nix
           ];
         };
       };

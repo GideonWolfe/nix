@@ -14,7 +14,7 @@
     ./hardware-configuration.nix
 
     # General System Settings
-    #./system/system/system.nix
+    ./system/system/system.nix
 
     # Login manager/greeter
     #./system/services/greeter.nix
@@ -103,10 +103,10 @@
     extraRules = [{
 
       groups = [ "wheel" ];
-      # commands = [{
-      #   command = "/run/current-system/sw/bin/iotop";
-      #   options = [ "NOPASSWD" ];
-      # }];
+       commands = [{
+         command = "/run/current-system/sw/bin/iotop";
+         options = [ "NOPASSWD" ];
+       }];
     }];
   };
 
@@ -115,7 +115,7 @@
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [ firefox neovim tree ];
+    packages = with pkgs; [ firefox neovim tree git ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
