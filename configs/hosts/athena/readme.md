@@ -63,4 +63,21 @@ On my motherboard, `/dev/nvme0n1` is the default path of my new M.2 SSD
     * `nixos-install`
 * Reboot
 
+## Initial setup
+
+* Setup `overseer` user
+    * `useradd --create-home overseer`
+    * `passwd overseer`
+* Enable flakes in original `configuration.nix`?
+    * `nixos-rebuild switch`
+
 ## Switch to my config
+
+* Clone `nix` config repo
+    * `cd /home/overseer/`
+    * Get github SSH key on system (`scp`?)
+    * Clone repo
+        * `ssh-agent bash -c 'ssh-add /somewhere/yourkey; git clone git@github.com:gideonwolfe/nix.git'` OR
+        * `GIT_SSH_COMMAND='ssh -i private_key_file -o IdentitiesOnly=yes' git clone git@github.com:gideonwolfe/nix.git'`
+* Install my flake
+    * `nixos-rebuld switch --flake /home/overseer/nix`
