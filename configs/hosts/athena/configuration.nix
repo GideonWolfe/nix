@@ -31,7 +31,7 @@
     ./system/services/networks/ssh.nix
 
     # Docker
-    #./system/services/docker.nix
+    ./system/services/docker.nix
 
     # Printer support
     #./system/services/printing.nix
