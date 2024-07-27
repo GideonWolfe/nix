@@ -17,5 +17,18 @@
     # All Media
     createServerDataMedia = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/server/data/media/\n";
+    # Productivity apps
+    createServerServicesProductivity = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/server/services/productivity/\n";
+    # Monica
+    createServerServicesProductivityMonica =
+      lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/server/services/productivity/monica/\n";
+    createServerServicesProductivityMonicaDB =
+      lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/server/services/productivity/monica/db/\n";
+    createServerServicesProductivityMonicaDataDir =
+      lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/server/services/productivity/monica/datadir/\n";
   };
 }
