@@ -124,6 +124,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gideon = {
+    home = "/home/gideon";
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
