@@ -8,6 +8,8 @@
 
     image = ../../../../../wallpapers/zT7uCe2.png;
 
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
+
     polarity = "dark";
 
     fonts = {

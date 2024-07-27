@@ -32,7 +32,7 @@
     # Neovim
     #./configs/nixvim/nixvim.nix
     #TODO: does gideon nixvim have username hardcoded?
-    #../gideon/configs/nixvim/nixvim.nix
+    ../gideon/configs/nixvim/nixvim.nix
 
     # Display configs
     #./configs/kanshi.nix
@@ -89,7 +89,7 @@
     ./configs/git.nix
 
     # SSH
-    #./configs/ssh/ssh.nix
+    ./configs/ssh/ssh.nix
 
     # Neomutt
     #./configs/email/neomutt/neomutt.nix

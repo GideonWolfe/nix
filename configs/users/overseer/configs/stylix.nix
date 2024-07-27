@@ -9,7 +9,7 @@
 	stylix.image = ../../../../wallpapers/zT7uCe2.png;	
 
 	# Override scheme (as opposed to getting from image)
-	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
 
     stylix.enable = true;
 
