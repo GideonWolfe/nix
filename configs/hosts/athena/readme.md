@@ -57,7 +57,8 @@ On my motherboard, `/dev/nvme0n1` is the default path of my new M.2 SSD
     * `nixos-generate-config --root /mnt`
         * This should generate `/mnt/etc/nixos/configuration.nix`
             * enable `network-manager`
-            * change hostname
+            * change hostname to `athena`
+            * uncomment/change extra user to `overseer`
         * This should generate `/mnt/etc/nixos/hardware-configuration.nix`
 * Install
     * `nixos-install`
@@ -77,9 +78,19 @@ On my motherboard, `/dev/nvme0n1` is the default path of my new M.2 SSD
     * `cd /home/overseer/`
     * Get github SSH key on system (`scp`?)
     * Clone repo
-        * `ssh-agent bash -c 'ssh-add /somewhere/yourkey; git clone git@github.com:gideonwolfe/nix.git'` OR
+        * Ensure SSH key has correct perms with `chmod 600 <private_key_file>`
         * `GIT_SSH_COMMAND='ssh -i private_key_file -o IdentitiesOnly=yes' git clone git@github.com:gideonwolfe/nix.git'`
 * Copy generated `hardware-configuration.nix`
     * `cp /etc/nixos/hardware-configuration.nix /home/overseer/nix/configs/hosts/athena/hardware-configuration.nix`
+* Add `hardware-configuration.nix`
+    * `GIT_SSH_COMMAND='ssh -i private_key_file -o IdentitiesOnly=yes' git add /home/overseer/nix'`
+* Install `home-manager`
+    * `sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager`
+    * `sudo nix-channel --update`
 * Install my flake
     * `nixos-rebuld switch --flake /home/overseer/nix`
+* Build home-manager config
+    * `nix run #.homeConfigurations.gideon.activationPackage`
+* Switch to mainline repo
+    * `git remote set-url origin github:gideonwolfe/nix`
+    * SSH private key should be in `configs/ssh/keys/`
