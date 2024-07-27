@@ -11,7 +11,7 @@
     ###########
 
     # Include the results of the hardware scan.
-    #./hardware-configuration.nix
+    ./hardware-configuration.nix
 
     # General System Settings
     #./system/system/system.nix

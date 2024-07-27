@@ -79,5 +79,7 @@ On my motherboard, `/dev/nvme0n1` is the default path of my new M.2 SSD
     * Clone repo
         * `ssh-agent bash -c 'ssh-add /somewhere/yourkey; git clone git@github.com:gideonwolfe/nix.git'` OR
         * `GIT_SSH_COMMAND='ssh -i private_key_file -o IdentitiesOnly=yes' git clone git@github.com:gideonwolfe/nix.git'`
+* Copy generated `hardware-configuration.nix`
+    * `cp /etc/nixos/hardware-configuration.nix /home/overseer/nix/configs/hosts/athena/hardware-configuration.nix`
 * Install my flake
     * `nixos-rebuld switch --flake /home/overseer/nix`
