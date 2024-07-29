@@ -205,4 +205,12 @@ In this case, the tool added
 
 * rebuild `nix`
 
+## Set up Snapraid
+
+* Create a directory on boot drive for a content file
+    * `mkdir -p /snapraid/content/`
+    * `mkdir -p /drives/data/data1/snapraid/content/`
+* Sync
+    * `sudo snapraid sync`
+
 
