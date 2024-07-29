@@ -94,3 +94,115 @@ On my motherboard, `/dev/nvme0n1` is the default path of my new M.2 SSD
 * Switch to mainline repo
     * `git remote set-url origin github:gideonwolfe/nix`
     * SSH private key should be in `configs/ssh/keys/`
+
+
+## Set up drives
+
+I plugged both drives into the two top hot swap slots, and my `lsblk` looks like
+
+```
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    0  7.3T  0 disk 
+sdb           8:16   0  7.3T  0 disk 
+nvme0n1     259:0    0  1.8T  0 disk 
+├─nvme0n1p1 259:1    0  1.8T  0 part /nix/store
+│                                    /
+├─nvme0n1p2 259:2    0 14.9G  0 part [SWAP]
+└─nvme0n1p3 259:3    0  487M  0 part /boot
+```
+
+`sdb` will be my parity drive, and `sda`, `sdd`, etc will be for data drives that will be merged under one pool with `MergerFS`. I want to do by label because the `sd{a-z}` doesn't remain persistent on reboot
+
+### Format Drives
+
+#### Parity Drive
+
+[Snapraid FAQ](https://www.snapraid.it/faq#fs) suggests that the XFS filesystem is best for parity drives
+
+* Create GPT partition table
+    * `parted /dev/sdb -- mklabel gpt`
+* Create main partition 
+    * `parted /dev/sdb -- mkpart parity xfs 0% 100%`
+
+Now, the top of `lsblk` should include
+
+```
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    0  7.3T  0 disk 
+sdb           8:16   0  7.3T  0 disk 
+└─sdb1        8:17   0  7.3T  0 part 
+```
+
+* Create XFS filesystem
+    * `mkfs.xfs -L parity /dev/sdb1`
+* Create mount point for parity partition
+    * `mkdir -p /drives/parity/parity1`
+* mount parity partition
+    * `mount /dev/sdb1 /drives/parity/parity1`
+
+Which gives us
+
+```
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    0  7.3T  0 disk 
+sdb           8:16   0  7.3T  0 disk 
+└─sdb1        8:17   0  7.3T  0 part /drives/parity/parity1
+```
+
+#### Data Drive 1
+
+Going off of the config from above, we know that the first data drive is called `sda`.
+
+* Create GPT partition table
+    * `parted /dev/sda -- mklabel gpt`
+* Create main partition 
+    * `parted /dev/sda -- mkpart data xfs 0% 95%`
+    * I want to limit the drive so parity file doesnt get over drive limit
+
+Now we have our partition `sda1`, with 6.9TB storage
+
+```
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    0  7.3T  0 disk 
+└─sda1        8:1    0  6.9T  0 part 
+sdb           8:16   0  7.3T  0 disk 
+└─sdb1        8:17   0  7.3T  0 part /drives/parity/parity1
+```
+
+* Create XFS filesystem
+    * `mkfs.xfs -L data1 /dev/sda1`
+* Create mount point for parity partition
+    * `mkdir -p /drives/data/data1`
+* mount parity partition
+    * `mount /dev/sda1 /drives/data/data1`
+
+Now here is our full output of `lsblk`
+
+```
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    0  7.3T  0 disk 
+└─sda1        8:1    0  6.9T  0 part /drives/data/data1
+sdb           8:16   0  7.3T  0 disk 
+└─sdb1        8:17   0  7.3T  0 part /drives/parity/parity1
+nvme0n1     259:0    0  1.8T  0 disk 
+├─nvme0n1p1 259:1    0  1.8T  0 part /nix/store
+│                                    /
+├─nvme0n1p2 259:2    0 14.9G  0 part [SWAP]
+└─nvme0n1p3 259:3    0  487M  0 part /boot
+```
+
+Now we need to make this permanent.
+
+* Generate config
+    * `sudo nixos-generate-config`
+* Copy relevant lines from `/etc/nixos/hardware-configuration.nix` into `~/nix/configs/hosts/athena/hardware-configuration.nix`
+
+In this case, the tool added
+
+```
+
+```
+
+* rebuild `nix`
+
+
