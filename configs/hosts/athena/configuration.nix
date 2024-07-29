@@ -16,6 +16,9 @@
     # General System Settings
     ./system/system/system.nix
 
+    # Enable snapraid for drives
+    ./system/system/snapraid.nix
+
     # Login manager/greeter
     ./system/services/greeter.nix
 
