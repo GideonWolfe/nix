@@ -67,6 +67,10 @@
 
     # System
     ./system/packages/system.nix
+
+    # Services
+    ./server/services/productivity/monica/monica.nix
+    ./server/services/media/nzbget.nix
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;
@@ -103,10 +107,10 @@
     extraRules = [{
 
       groups = [ "wheel" ];
-       commands = [{
-         command = "/run/current-system/sw/bin/iotop";
-         options = [ "NOPASSWD" ];
-       }];
+      commands = [{
+        command = "/run/current-system/sw/bin/iotop";
+        options = [ "NOPASSWD" ];
+      }];
     }];
   };
 
@@ -117,6 +121,14 @@
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ firefox neovim tree git ];
   };
+
+  #TODO: make these fail gracefully when network already exists
+  system.activationScripts.makeMonicaNetwork = ''
+    ${pkgs.docker}/bin/docker network create net_monica
+  '';
+  system.activationScripts.makeMediaNetwork = ''
+    ${pkgs.docker}/bin/docker network create net_media
+  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

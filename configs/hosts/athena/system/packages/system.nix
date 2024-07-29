@@ -2,6 +2,12 @@
 
 {
   environment.systemPackages = with pkgs; [
+
+    # To create partitions
+    parted
+    # To set up XFS on parity drives
+    xfsprogs
+
     # Greeter daemon for login sessions
     greetd.greetd
     # actual greeter
