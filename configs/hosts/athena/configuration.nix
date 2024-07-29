@@ -127,10 +127,10 @@
 
   #TODO: make these fail gracefully when network already exists
   system.activationScripts.makeMonicaNetwork = ''
-    ${pkgs.docker}/bin/docker network create net_monica
+    ${pkgs.docker}/bin/docker network create net_monica || true
   '';
   system.activationScripts.makeMediaNetwork = ''
-    ${pkgs.docker}/bin/docker network create net_media
+    ${pkgs.docker}/bin/docker network create net_media || true
   '';
 
   # Some programs need SUID wrappers, can be configured further or are

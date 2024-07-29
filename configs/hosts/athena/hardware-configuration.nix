@@ -29,12 +29,16 @@
     ];
 
   fileSystems."/drives/parity/parity1" =
-    { device = "/dev/disk/by-uuid/377b8cee-99a0-43af-a24f-3f7704d34579";
+    { 
+      #device = "/dev/disk/by-uuid/377b8cee-99a0-43af-a24f-3f7704d34579";
+      device = "/dev/disk/by-label/parity";
       fsType = "xfs";
     };
 
   fileSystems."/drives/data/data1" =
-    { device = "/dev/disk/by-uuid/888b9b78-d9d7-4c50-8bdf-cff5e8e85827";
+    { 
+      #device = "/dev/disk/by-uuid/888b9b78-d9d7-4c50-8bdf-cff5e8e85827";
+      device = "/dev/disk/by-label/data1";
       fsType = "xfs";
     };
 
