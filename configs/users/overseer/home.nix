@@ -18,7 +18,7 @@
     ###########
 
     # Session/env variables
-    #./configs/session-variables.nix
+    ./configs/session-variables.nix
 
     # Hyprland
     # Enable when ready for it
