@@ -6,7 +6,10 @@
 
     enable = true;
 
-    dataDisks = { d1 = "/drives/data/data1/"; };
+    dataDisks = { 
+        d1 = "/drives/data/data1/"; 
+        d2 = "/drives/data/data2/"; 
+    };
 
     parityFiles = [ "/drives/parity/parity1/snapraid.1-parity" ];
 

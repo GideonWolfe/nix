@@ -19,6 +19,9 @@
     # Enable snapraid for drives
     ./system/system/snapraid.nix
 
+    # Fan control #BUG:
+    #./system/system/fancontrol.nix
+
     # Login manager/greeter
     ./system/services/greeter.nix
 

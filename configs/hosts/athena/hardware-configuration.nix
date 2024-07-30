@@ -42,6 +42,20 @@
       fsType = "xfs";
     };
 
+  fileSystems."/drives/data/data2" =
+    { 
+      #device = "/dev/disk/by-uuid/888b9b78-d9d7-4c50-8bdf-cff5e8e85827";
+      device = "/dev/disk/by-label/data2";
+      fsType = "xfs";
+    };
+
+  fileSystems."/pool/data" =
+    { 
+      #device = "1:2";
+      device = "/drives/data/data*";
+      fsType = "fuse.mergerfs";
+      options = ["cache.files=partial" "dropcacheonclose=true" "category.create=mfs"];
+    };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

@@ -7,6 +7,9 @@
     parted
     # To set up XFS on parity drives
     xfsprogs
+    # Merger FS for data disks
+    mergerfs
+    mergerfs-tools
 
     # Greeter daemon for login sessions
     greetd.greetd
