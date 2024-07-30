@@ -1,17 +1,4 @@
 
-<div hidden>
-
-```
-@startuml firstDiagram
-
-Alice -> Bob: Hello
-Bob -> Alice: Hi!
-		
-@enduml
-```
-</div>
-
-![](firstDiagram.svg)
 
 
 # Installation Steps
@@ -228,5 +215,98 @@ In this case, the tool added
     * `mkdir -p /drives/data/data1/snapraid/content/`
 * Sync
     * `sudo snapraid sync`
+
+
+
+# Diagram
+
+@startuml Server
+
+node athena {
+    package disks {
+
+        storage "parity (8tb)" as parity1Drive {
+
+        }
+        storage "data1 (8tb)" as data1Drive {
+
+        }
+        storage "system (2tb)" as systemDrive {
+
+        }
+
+    }
+
+    frame NixOS {
+        folder "/" as root {
+            folder /dev/disks/by-label/ {
+                [parity]
+                [data1]
+                [data1]
+                [boot]
+                [nixos]
+                [swap]
+            }
+            folder /drives/ {
+                folder "data/" {
+                    storage "data1" as _data1{ 
+
+                        folder "/snapraid/content/" as data1snapraidcontentfolder {
+                            artifact "snapraid.content" as snapcontent2
+                        }
+
+                        folder "/pool/" as data1pool {
+                            folder "media" as media1
+                        }
+
+                    }
+                }
+                folder "parity/" {
+                    storage "parity1" as _parity {
+                        artifact "snapraid.1-parity"
+                    }
+                }
+            }
+            folder "/pool/" as pool {
+                    folder "media" as poolmedia
+            }
+
+            folder /home/overseer/ {
+
+                folder nix {
+
+                }
+            }
+
+            folder "/snapraid/content/" as systemsnapraidcontentfolder {
+                artifact "snapraid.content" as snapcontent1
+            }
+        }
+
+        frame snapraid {
+
+        }
+
+    }
+}
+
+[systemDrive]-->[boot]
+[systemDrive]-->[nixos]
+[systemDrive]-->[swap]
+
+[data1Drive]-->[data1]
+[parity1Drive]-->[parity]
+
+[data1]-->[_data1]
+[parity]-->[_parity]
+[nixos]-->[root]
+
+[snapraid]-->[snapcontent1]
+[snapraid]-->[snapcontent2]
+[snapraid]-->[snapraid.1-parity]
+		
+[media1]-->[poolmedia]
+
+@enduml
 
 
