@@ -221,7 +221,6 @@ In this case, the tool added
 # Diagram
 
 @startuml Server
-!include /include/plantuml.puml
 
 node athena {
     package disks {
@@ -230,6 +229,9 @@ node athena {
 
         }
         storage "data1 (8tb)" as data1Drive {
+
+        }
+        storage "data2 (8tb)" as data2Drive {
 
         }
         storage "system (2tb)" as systemDrive {
@@ -243,7 +245,7 @@ node athena {
             folder /dev/disks/by-label/ {
                 [parity]
                 [data1]
-                [data1]
+                [data2]
                 [boot]
                 [nixos]
                 [swap]
@@ -257,9 +259,14 @@ node athena {
                         }
 
                         folder "/pool/" as data1pool {
-                            folder "media" as media1
+                            folder "data" as pooldata1
                         }
 
+                    }
+                    storage "data2" as _data2{ 
+                        folder "/pool/" as data2pool {
+                            folder "data" as pooldata2
+                        }
                     }
                 }
                 folder "parity/" {
@@ -269,7 +276,15 @@ node athena {
                 }
             }
             folder "/pool/" as pool {
-                    folder "media" as poolmedia
+                folder "data" as pooldata {
+                    folder "media" as poolmedia {
+                        folder "tv" as pooltv
+                        folder "movies" as poolmovies
+                        folder "music" as poolmusic
+                        folder "books" as poolbooks
+                    
+                    }
+                }
             }
 
             folder /home/overseer/ {
@@ -296,9 +311,11 @@ node athena {
 [systemDrive]-->[swap]
 
 [data1Drive]-->[data1]
+[data2Drive]-->[data2]
 [parity1Drive]-->[parity]
 
 [data1]-->[_data1]
+[data2]-->[_data2]
 [parity]-->[_parity]
 [nixos]-->[root]
 
@@ -306,7 +323,8 @@ node athena {
 [snapraid]-->[snapcontent2]
 [snapraid]-->[snapraid.1-parity]
 		
-[media1]-->[poolmedia]
+[pooldata1]-->[pooldata]
+[pooldata2]-->[pooldata]
 
 @enduml
 

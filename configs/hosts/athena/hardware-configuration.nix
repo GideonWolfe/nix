@@ -49,7 +49,7 @@
       fsType = "xfs";
     };
 
-  fileSystems."/pool/data" =
+  fileSystems."/pool" =
     { 
       #device = "1:2";
       device = "/drives/data/data*";
