@@ -52,6 +52,7 @@ with config.lib.stylix.colors.withHashtag;
     ./plugins/utils/lspsaga.nix
     ./plugins/utils/luasnip.nix
     ./plugins/utils/markdown-preview.nix
+    ./plugins/utils/markdown-preview-css.nix
     ./plugins/utils/none-ls.nix
     ./plugins/utils/project-nvim.nix
     ./plugins/utils/treesitter.nix

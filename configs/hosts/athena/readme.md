@@ -221,6 +221,7 @@ In this case, the tool added
 # Diagram
 
 @startuml Server
+!include /include/plantuml.puml
 
 node athena {
     package disks {

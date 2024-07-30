@@ -180,6 +180,9 @@
 
     ./configs/fastfetch.nix
 
+    # custom style for plantuml server
+    ./configs/plantuml.nix
+
     # VS Code
     #./configs/vscode.nix
 
