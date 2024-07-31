@@ -64,7 +64,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             stylix.nixosModules.stylix
-            # agenix.nixosModules.default
+            agenix.nixosModules.default
             ./configs/hosts/athena/configuration.nix
           ];
         };

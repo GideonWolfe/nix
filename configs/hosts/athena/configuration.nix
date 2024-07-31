@@ -77,6 +77,7 @@
     # Services
     ./server/services/productivity/monica/monica.nix
     ./server/services/media/nzbget.nix
+    ./server/services/media/sonarr.nix
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;
