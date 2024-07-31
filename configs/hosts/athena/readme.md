@@ -210,12 +210,36 @@ In this case, the tool added
 
 ## Set up Snapraid
 
+drives, content files, and parity files are configured in `./system/system/snapraid.nix`
+
 * Create a directory on boot drive for a content file
     * `mkdir -p /snapraid/content/`
     * `mkdir -p /drives/data/data1/snapraid/content/`
 * Sync
     * `sudo snapraid sync`
 
+## Set up mergerfs
+
+First setup run `mergerfs /drives/data/data*: /pool/`
+
+I ran `nixos-generate-config`, then I copied the config out of `/etc/nixos/hardware-configuration.nix` into `./hardware-configuration.nix`
+
+```nix
+fileSystems."/pool" =
+{ 
+  device = "/drives/data/data*";
+  fsType = "fuse.mergerfs";
+  options = ["cache.files=partial" "dropcacheonclose=true" "category.create=mfs"];
+};
+
+```
+changed the config to use a glob (so I can easily add more labeled drives) and added options
+
+## Create folders in pooled drives
+
+So the pool can have a symmetrical set of folders on each data drive, I like to create them explicitly so each folder exists on each drive
+
+`mkdir -p /drives/data/data{1..2}/data/media/{tv,music,movies,downloads}`
 
 
 # Diagram
