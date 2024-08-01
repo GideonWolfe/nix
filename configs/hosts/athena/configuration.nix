@@ -78,6 +78,12 @@
     ./server/services/productivity/monica/monica.nix
     ./server/services/media/nzbget.nix
     ./server/services/media/sonarr.nix
+    ./server/services/media/radarr.nix
+    ./server/services/media/lidarr.nix
+    ./server/services/media/prowlarr.nix
+    ./server/services/media/jellyfin.nix
+    ./server/services/media/jellyseer.nix
+    ./server/services/admin/homarr.nix
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;

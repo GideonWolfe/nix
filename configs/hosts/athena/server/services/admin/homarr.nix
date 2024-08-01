@@ -3,16 +3,21 @@
 {
   virtualisation.oci-containers.containers.homarr = {
     image = "ghcr.io/ajnart/homarr:latest";
-    ports = [ "4205:8096" ];
+    ports = [ "4205:7575" ];
     autoStart = true;
     environment = {
       PUID = "1000";
       PGID = "100";
     };
     volumes = [
-      "/pool/data/services/admin/homarr/data/:/config"
+      "/pool/data/services/admin/homarr/data/:/app/data/configs"
+      "/var/run/docker.sock:/var/run/docker.sock"
+
     ];
     extraOptions = [ "--network=net_media" ];
   };
+
+# test acct
+# overseer:Overseer!1!
 
 }
