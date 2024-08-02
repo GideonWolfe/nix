@@ -84,6 +84,8 @@
     ./server/services/media/jellyfin.nix
     ./server/services/media/jellyseer.nix
     ./server/services/admin/homarr.nix
+
+    ./server/services/networking/wireguard.nix
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;
