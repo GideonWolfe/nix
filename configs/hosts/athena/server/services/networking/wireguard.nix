@@ -46,7 +46,7 @@
       # but this makes the private key world-readable; thus, using privateKeyFile is
       # recommended.
       privateKeyFile =
-        "/home/overseer/nix/configs/users/overseer/configs/ssh/keys/athena-wireguard";
+        "/root/wireguard/athena-wireguard";
 
       peers = [
         # List of allowed peers.
