@@ -46,7 +46,8 @@
         # List of allowed peers.
         { # Laptop
           publicKey = "Ls+l1TbBvthQ/jVPTXtKrxuaca+yehG6A+cHHrx290s=";
-          allowedIPs = [ "10.100.0.3/32" ];
+          #allowedIPs = [ "10.100.0.3/32" ];
+          allowedIPs = [ "10.100.0.2/32" ];
         }
       ];
     };
