@@ -28,17 +28,11 @@
       postSetup = ''
         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o enp17s0 -j MASQUERADE
       '';
-      # postSetup = ''
-      #   ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 192.168.0.1/24 -o enp17s0 -j MASQUERADE
-      # '';
 
       # This undoes the above command
       postShutdown = ''
         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o enp17s0 -j MASQUERADE
       '';
-      # postShutdown = ''
-      #   ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 192.168.0.1/24 -o enp17s0 -j MASQUERADE
-      # '';
 
       # Path to the private key file.
       #
@@ -52,7 +46,7 @@
         # List of allowed peers.
         { # Laptop
           publicKey = "Ls+l1TbBvthQ/jVPTXtKrxuaca+yehG6A+cHHrx290s=";
-          allowedIPs = [ "10.100.0.2/32" ];
+          allowedIPs = [ "10.100.0.3/32" ];
         }
       ];
     };
