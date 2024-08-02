@@ -39,8 +39,7 @@
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
       # recommended.
-      privateKeyFile =
-        "/root/wireguard/athena-wireguard";
+      privateKeyFile = "/root/wireguard/athena-wireguard";
 
       peers = [
         # List of allowed peers.
