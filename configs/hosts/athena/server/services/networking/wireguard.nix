@@ -53,7 +53,7 @@
         { # Laptop
           publicKey =
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK/HilHM8SQsBaqs45w2VcXsa6yWmt9Vqzg1bPaVU0u0 gideon@poseidon";
-          allowedIPs = [ "10.100.0.3/32" ];
+          allowedIPs = [ "10.100.0.2/32" ];
         }
       ];
     };
