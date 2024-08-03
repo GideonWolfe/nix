@@ -12,7 +12,8 @@
   networking.nat.enable = true;
   networking.nat.externalInterface = "enp17s0"; # Name of ethernet device
   networking.nat.internalInterfaces = [ "wg0" ];
-  networking.firewall = { allowedUDPPorts = [ 51820 ]; };
+  #networking.firewall = { allowedUDPPorts = [ 51820 ]; };
+  networking.firewall = { allowedUDPPorts = [ 123 ]; };
 
   networking.wireguard.interfaces = {
     # "wg0" is the network interface name. You can name the interface arbitrarily.
@@ -21,7 +22,8 @@
       ips = [ "10.100.0.1/24" ];
 
       # The port that WireGuard listens to. Must be accessible by the client.
-      listenPort = 51820;
+      #listenPort = 51820;
+      listenPort = 123;
 
       # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
       # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
