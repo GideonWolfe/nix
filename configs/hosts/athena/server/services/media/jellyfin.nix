@@ -14,7 +14,12 @@
       "/pool/data/media/tv/:/data/tvshows"
       "/pool/data/media/movies/:/data/movies"
     ];
-    extraOptions = [ "--network=net_media" "--group-add=0" "--device=/dev/dri/renderD128:/dev/dri/renderD128" ];
+    extraOptions = [
+      "--network=net_media"
+      # output of getent group render | cut -d: -f3
+      "--group-add=303"
+      "--device=/dev/dri/renderD128:/dev/dri/renderD128"
+    ];
   };
 
 }
