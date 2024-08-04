@@ -9,8 +9,8 @@
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     wg0 = {
       # Determines the IP address and subnet of the client's end of the tunnel interface.
-      #ips = [ "10.100.0.2/24" ];
-      ips = [ "10.100.0.2/32" ];
+      ips = [ "10.100.0.2/24" ];
+      #ips = [ "10.100.0.2/32" ];
       listenPort =
         #51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
         123; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
@@ -30,8 +30,8 @@
           publicKey = "Rv8R1GmrerXlqqc7nTvzLTimStbSjoBj/SYGzvIdzQs=";
 
           # Forward all the traffic via VPN.
-          allowedIPs = [ "0.0.0.0/0" ];
-          #allowedIPs = [ "10.100.0.1" ];
+          #allowedIPs = [ "0.0.0.0/0" ];
+          allowedIPs = [ "10.100.0.1" ];
           # Or forward only particular subnets
           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
 
