@@ -10,7 +10,8 @@
       PGID = "100";
     };
     volumes = [
-      "/pool/data/services/media/radarr/data/:/config/"
+      #"/pool/data/services/media/radarr/data/:/config/"
+      "/home/overseer/server/services/media/radarr/data/:/config/"
       "/pool/data/media/movies/:/movies/"
       "/pool/data/media/downloads/:/downloads"
     ];

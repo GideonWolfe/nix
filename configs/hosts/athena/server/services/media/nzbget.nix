@@ -12,7 +12,8 @@
       PGID = "100";
     };
     volumes = [
-      "/pool/data/services/media/nzbget/data:/config"
+      #"/pool/data/services/media/nzbget/data:/config"
+      "/home/overseer/server/services/media/nzbget/data/:/config"
       "/pool/data/media/downloads/:/downloads"
     ];
     extraOptions = [ "--network=net_media" ];

@@ -169,7 +169,7 @@
   fonts.packages = with pkgs; [
     # collection of patched fonts
     nerdfonts
-    #noto-fonts
+    noto-fonts
     # symbols and emoji (outlined)
     symbola
     noto-fonts-monochrome-emoji

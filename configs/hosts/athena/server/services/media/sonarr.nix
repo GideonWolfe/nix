@@ -11,7 +11,8 @@
       PGID = "100";
     };
     volumes = [
-      "/pool/data/services/media/sonarr/data/:/config/"
+      #"/pool/data/services/media/sonarr/data/:/config/"
+      "/home/overseer/server/services/media/sonarr/data/:/config/"
       "/pool/data/media/tv/:/tv/"
       "/pool/data/media/downloads/:/downloads"
     ];

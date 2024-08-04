@@ -10,7 +10,8 @@
       PGID = "100";
     };
     volumes = [
-      "/pool/data/services/media/jellyfin/data/:/config"
+      #"/pool/data/services/media/jellyfin/data/:/config"
+      "/home/overseer/server/services/media/jellyfin/data/:/config"
       "/pool/data/media/tv/:/data/tvshows"
       "/pool/data/media/movies/:/data/movies"
     ];

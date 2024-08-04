@@ -10,7 +10,8 @@
       PGID = "100";
     };
     volumes = [
-      "/pool/data/services/media/jellyseer/data/:/app/config"
+      #"/pool/data/services/media/jellyseer/data/:/app/config"
+      "/home/overseer/server/services/media/jellyseerr/data/:/app/config"
     ];
     extraOptions = [ "--network=net_media" ];
   };
