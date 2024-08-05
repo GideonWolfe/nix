@@ -4,7 +4,7 @@
 
   imports = [
 
-    #./secrets/secret_defs.nix
+    ./secrets/secret_defs.nix
 
     ############
     # PACKAGES #

@@ -9,7 +9,7 @@
       #"/pool/data/services/media/prowlarr/data/:/config/"
       "/home/overseer/server/services/media/prowlarr/data/:/config/"
     ];
-    extraOptions = [ "--network=net_media" ];
+    extraOptions = [ "--network=traefik_proxy" ];
   };
 
 }

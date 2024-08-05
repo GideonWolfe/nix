@@ -15,7 +15,7 @@
       "/pool/data/media/tv/:/tv/"
       "/pool/data/media/movies/:/movies/"
     ];
-    extraOptions = [ "--network=net_media" ];
+    extraOptions = [ "--network=traefik_proxy" ];
   };
 
 # user overseer

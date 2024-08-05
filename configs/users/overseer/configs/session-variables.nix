@@ -16,8 +16,8 @@
     TERM = "kitty";
     BROWSER = "firefox";
     PAGER = "ov";
-    # RULES =
-    #   "${config.home.homeDirectory}/nix/configs/users/gideon/secrets/secrets.nix";
+    RULES =
+      "${config.home.homeDirectory}/nix/configs/users/overseer/secrets/secrets.nix";
     XCURSOR_THEME = "Catppuccin-Mocha-Dark-Cursors";
   };
 }

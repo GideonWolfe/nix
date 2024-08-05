@@ -43,6 +43,3 @@ Media Server
 ### Jellyseer
 
 Requests for Jellyfin
-
-TODO: Connect to GMAIL for SMPT support
-

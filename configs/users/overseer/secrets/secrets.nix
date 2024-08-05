@@ -8,5 +8,5 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEHbN0uqCdvtM2g3yB7JzXrylXRvjcNwVbZoOlDLnc/v root@athena";
   systems = [ athena ];
 in {
-  #"vdirsyncer_google_client_id.age".publicKeys = users ++ systems;
+  "traefik_env.age".publicKeys = users ++ systems;
 }

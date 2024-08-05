@@ -35,6 +35,7 @@
     ./system/services/networks/networking.nix
     ./system/services/networks/bluetooth.nix
     ./system/services/networks/ssh.nix
+    ./system/services/networks/firewall.nix
 
     # Docker
     ./system/services/docker.nix
@@ -87,6 +88,9 @@
     ./server/services/admin/homarr.nix
 
     ./server/services/networking/wireguard.nix
+    ./server/services/networking/traefik.nix
+
+    ./server/services/productivity/nextcloud/nextcloud-aio-mastercontainer.nix
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;
@@ -144,6 +148,9 @@
   '';
   system.activationScripts.makeMediaNetwork = ''
     ${pkgs.docker}/bin/docker network create net_media || true
+  '';
+  system.activationScripts.makeTraefikProxyNetwork = ''
+    ${pkgs.docker}/bin/docker network create traefik_proxy || true
   '';
 
   # Some programs need SUID wrappers, can be configured further or are

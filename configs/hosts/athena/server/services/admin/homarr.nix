@@ -10,14 +10,13 @@
       PGID = "100";
     };
     volumes = [
-      "/pool/data/services/admin/homarr/data/:/app/data/configs"
+      #"/pool/data/services/admin/homarr/data/:/app/data/configs"
+      "/home/overseer/server/services/admin/homarr/data/:/app/data/configs"
       "/var/run/docker.sock:/var/run/docker.sock"
 
     ];
-    extraOptions = [ "--network=net_media" ];
+    extraOptions = [ "--network=traefik_proxy" ];
   };
 
-# test acct
-# overseer:Overseer!1!
 
 }

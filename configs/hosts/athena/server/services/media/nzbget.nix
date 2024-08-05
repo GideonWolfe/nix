@@ -16,7 +16,7 @@
       "/home/overseer/server/services/media/nzbget/data/:/config"
       "/pool/data/media/downloads/:/downloads"
     ];
-    extraOptions = [ "--network=net_media" ];
+    extraOptions = [ "--network=traefik_proxy" ];
   };
 
 }
