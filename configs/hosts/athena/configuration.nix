@@ -26,7 +26,10 @@
     ./system/services/greeter.nix
 
     # GNOME Keyring
-    #./system/services/gnome-keyring.nix
+    ./system/services/gnome-keyring.nix
+
+    #smartd hdd health
+    ./system/services/smartd.nix
 
     # System level theming
     ./system/graphics/stylix.nix
@@ -82,15 +85,19 @@
     ./server/services/media/radarr.nix
     ./server/services/media/lidarr.nix
     ./server/services/media/bazarr.nix
+    ./server/services/media/tdarr.nix
+    ./server/services/media/recyclarr.nix
     ./server/services/media/prowlarr.nix
     ./server/services/media/jellyfin.nix
     ./server/services/media/jellyseerr.nix
     ./server/services/admin/homarr.nix
 
     ./server/services/networking/wireguard.nix
-    ./server/services/networking/traefik.nix
+    ./server/services/networking/traefik/traefik.nix
+    #./server/services/networking/traefik/nix_traefik.nix
 
-    ./server/services/productivity/nextcloud/nextcloud-aio-mastercontainer.nix
+    #./server/services/productivity/nextcloud/nextcloud-aio-mastercontainer.nix
+    ./server/services/productivity/nextcloud/nextcloud.nix
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;

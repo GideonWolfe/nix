@@ -24,6 +24,7 @@
 
       # Nix 
       nil-ls = { enable = true; };
+      #nixd = { enable = true; };
 
       # Bash
       bashls = { enable = true; };

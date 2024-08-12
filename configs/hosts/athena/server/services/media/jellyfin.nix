@@ -16,11 +16,20 @@
       "/pool/data/media/movies/:/data/movies"
     ];
     extraOptions = [
-      "--network=net_media"
+      "--network=traefik_proxy"
       # output of getent group render | cut -d: -f3
       "--group-add=303"
       "--device=/dev/dri/renderD128:/dev/dri/renderD128"
     ];
+    labels = {
+      "traefik.enable" = "true";
+      "traefik.docker.network" = "traefik_proxy";
+      "traefik.http.routers.jellyfin.rule" = "Host(`jellyfin.gideonwolfe.xyz`)";
+      "traefik.http.routers.jellyfin.entrypoints" = "websecure";
+      "traefik.http.routers.jellyfin.tls.certresolver" = "myresolver";
+    };
+
+    #environmentFiles = [ /home/overseer/.secrets/services/traefik/.env ];
   };
 
 }

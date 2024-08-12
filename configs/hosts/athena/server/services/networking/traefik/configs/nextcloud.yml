@@ -1,0 +1,23 @@
+http:
+  routers:
+    nextcloud:
+      rule: "Host(`nc.gideonwolfe.xyz`)"
+      service: nextcloud
+      entrypoints: websecure
+      priority: 100
+      tls:
+        certresolver: myresolver
+        domains:
+         - main: "nc.gideonwolfe.xyz"
+           sans:
+            - "gideonwolfe.xyz"
+            - "*.gideonwolfe.xyz"
+
+
+  # Add the service
+  services:
+    nextcloud:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.0.158"
+          - port: 9999

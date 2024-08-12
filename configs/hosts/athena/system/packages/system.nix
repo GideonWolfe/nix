@@ -145,6 +145,8 @@
     ventoy # create bootable USBs
     simple-mtpfs # mount cell phone filesystems
     dosfstools # drivers for DOS filesystems
+    smartmontools # SMART disk monitoring
+    gsmartcontrol # GUI for smart
 
     # Hardware 
     lact # GUI for AMD GPU control
