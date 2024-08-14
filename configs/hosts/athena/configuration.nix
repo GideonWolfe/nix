@@ -93,11 +93,12 @@
     ./server/services/admin/homarr.nix
 
     ./server/services/networking/wireguard.nix
-    ./server/services/networking/traefik/traefik.nix
-    #./server/services/networking/traefik/nix_traefik.nix
+    #./server/services/networking/traefik/traefik.nix
+    ./server/services/networking/traefik/nix_traefik.nix
 
     #./server/services/productivity/nextcloud/nextcloud-aio-mastercontainer.nix
     ./server/services/productivity/nextcloud/nextcloud.nix
+    ./server/services/productivity/triliumnext/triliumnext.nix
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;

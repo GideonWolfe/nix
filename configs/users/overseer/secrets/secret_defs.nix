@@ -10,8 +10,14 @@
     secrets = {
       traefik_env = {
         file = ./secrets/services/traefik/traefik_env.age;
+        path = "${config.home.homeDirectory}/.secrets/services/traefik/.env";
+      };
+      nc_mysql_admin_pass = {
+        file = ./secrets/services/nextcloud/nc_mysql_admin_pass.age;
         path =
-          "${config.home.homeDirectory}/.secrets/services/traefik/.env";
+          "${config.home.homeDirectory}/.secrets/services/nextcloud/nc_mysql_admin_pass";
+        #mode = "640";
+        owner = "nextcloud";
       };
     };
   };

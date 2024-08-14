@@ -9,4 +9,5 @@ let
   systems = [ athena ];
 in {
   "traefik_env.age".publicKeys = users ++ systems;
+  "nc_mysql_admin_pass.age".publicKeys = users ++ systems;
 }
