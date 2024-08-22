@@ -15,13 +15,12 @@
     extraOptions = [
       "--network=traefik_proxy"
     ];
-    # labels = {
-    #   "traefik.enable" = "true";
-    #   "traefik.docker.network" = "traefik_proxy";
-    #   "traefik.http.routers.jellyfin.rule" = "Host(`jellyfin.gideonwolfe.xyz`)";
-    #   "traefik.http.routers.jellyfin.entrypoints" = "http,https";
-    #   "traefik.http.routers.jellyfin.tls.certresolver" = "myresolver";
-    # };
+    labels = {
+      "traefik.enable" = "true";
+      "traefik.docker.network" = "traefik_proxy";
+      "traefik.http.routers.actualbudget.rule" = "Host(`ab.gideonwolfe.xyz`)";
+      "traefik.http.routers.actualbudget.entrypoints" = "http,https";
+      "traefik.http.routers.actualbudget.tls.certresolver" = "myresolver";
+    };
   };
-
 }
