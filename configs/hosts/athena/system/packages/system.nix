@@ -166,6 +166,11 @@
     ydotool # (wayland xdotool)
     wl-clipboard # wayland xclip
 
+    nc4nix
+
+    jq
+
+    lazydocker
   ];
 
   fonts.packages = with pkgs; [
