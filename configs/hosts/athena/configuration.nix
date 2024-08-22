@@ -16,6 +16,9 @@
     # General System Settings
     ./system/system/system.nix
 
+    # Secrets
+    ./secrets/secret_defs.nix
+
     # Enable snapraid for drives
     ./system/system/snapraid.nix
 
@@ -80,6 +83,8 @@
 
     # Services
     ./server/services/productivity/monica/monica.nix
+    ./server/services/productivity/actualbudget/actualbudget.nix
+    ./server/services/productivity/mealie/mealie.nix
     ./server/services/media/nzbget.nix
     ./server/services/media/sonarr.nix
     ./server/services/media/radarr.nix
@@ -91,6 +96,9 @@
     ./server/services/media/jellyfin.nix
     ./server/services/media/jellyseerr.nix
     ./server/services/admin/homarr.nix
+
+
+    ./server/services/productivity/vaultwarden/vaultwarden.nix
 
     ./server/services/networking/wireguard.nix
     #./server/services/networking/traefik/traefik.nix
