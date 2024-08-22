@@ -11,6 +11,14 @@
         file = ./secrets/services/traefik/traefik_env.age;
         path = "/secrets/services/traefik/.env";
       };
+      vaultwarden_env = {
+        file = ./secrets/services/vaultwarden/vaultwarden_env.age;
+        path = "/secrets/services/vaultwarden/.env";
+      };
+      mealie_env = {
+        file = ./secrets/services/mealie/mealie_env.age;
+        path = "/secrets/services/mealie/.env";
+      };
     };
   };
 }

@@ -9,4 +9,6 @@ let
   systems = [ athena ];
 in {
   "traefik_env.age".publicKeys = users ++ systems;
+  "vaultwarden_env.age".publicKeys = users ++ systems;
+  "mealie_env.age".publicKeys = users ++ systems;
 }
