@@ -21,13 +21,13 @@
     ./packages/productivity/web.nix
 
     # Audio
-    ./packages/productivity/audio.nix
+    #./packages/productivity/audio.nix
 
     # Video
-    ./packages/productivity/video.nix
+    #./packages/productivity/video.nix
 
     # Art
-    ./packages/productivity/art.nix
+    #./packages/productivity/art.nix
 
     # Comms
     ./packages/productivity/comms.nix
@@ -198,6 +198,7 @@
 
     #TODO: enable when config done
     #./configs/eww/eww.nix
+    #./configs/ags/ags.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)

@@ -18,6 +18,8 @@
     # Overriding hyperland package to get more opts
     #hyprland.url = "github:hyprwm/Hyprland";
 
+    ags.url = "github:Aylur/ags";
+
     stylix = {
       url = "github:danth/stylix/release-24.05";
       inputs = {
@@ -26,7 +28,12 @@
       };
     };
 
-    spicetify-nix = { url = "github:the-argus/spicetify-nix"; };
+    #spicetify-nix = { url = "github:the-argus/spicetify-nix"; };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Configure neovim with Nix!
     nixvim = {
@@ -37,7 +44,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, agenix, stylix, spicetify-nix, nixvim
-    , ... }@inputs:
+    , ags, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -77,10 +84,10 @@
           extraSpecialArgs = { inherit spicetify-nix; };
           modules = [
             stylix.homeManagerModules.stylix
-            #agenix.homeManagerModules.age
-            # agenix.homeManagerModules.default
             agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
+            ags.homeManagerModules.default
+            spicetify-nix.homeManagerModules.default
             ./configs/users/gideon/home.nix
           ];
         };

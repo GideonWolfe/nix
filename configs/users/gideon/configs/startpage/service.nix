@@ -1,6 +1,7 @@
 { pkgs, lib, config, ... }:
 
 {
+#BUG: changing index.html doesnt update the server, needs a manual restart
   systemd.user.services.startpage = {
     Unit = { Description = "startpage being served by miniserv"; };
     Install = { WantedBy = [ "default.target" ]; };

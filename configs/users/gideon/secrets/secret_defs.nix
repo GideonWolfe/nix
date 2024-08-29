@@ -28,6 +28,11 @@
         path =
           "${config.home.homeDirectory}/.secrets/irc/weechat/weechat_libera_password";
       };
+      newsboat_config= {
+        file = ./secrets/newsboat/newsboat_config.age;
+        path =
+          "${config.home.homeDirectory}/.config/newsboat/config";
+      };
     };
   };
 }
