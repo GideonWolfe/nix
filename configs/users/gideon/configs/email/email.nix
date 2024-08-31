@@ -12,16 +12,6 @@
         passwordCommand =
           "cat ${config.age.secrets.mbsync_google_wolfegideon_app_password.path}";
 
-        #TODO: delete? the imap settings are covered by "flavor" so these probably are too
-        smtp = {
-          host = "smtp.gmail.com";
-          port = 587;
-          tls = {
-            enable = true;
-            useStartTls = true;
-          };
-        };
-
         folders = {
           # Prepended by the configured maildirBasePath
           drafts = "drafts/";
@@ -32,7 +22,18 @@
         # Account settings for neomutt
         neomutt = {
           enable = true;
+          mailboxName = " Gmail";
           extraMailboxes = [ "sent" "spam" "all" "drafts" "starred" "trash" ];
+          extraConfig = ''
+            #named-mailboxes " Gmail" =gmail
+            #named-mailboxes "   Inbox" =inbox
+            named-mailboxes "   Sent" =sent
+            named-mailboxes "   Drafts" =drafts
+            named-mailboxes "   Spam" =spam
+            named-mailboxes "   Trash" =trash
+            named-mailboxes "   All Mail" =all
+            named-mailboxes "   Starred" =starred
+          '';
         };
 
         mbsync = {
@@ -135,6 +136,261 @@
                     ExpireUnread = true;
                     Create = "Near";
                     Remove = "Near";
+                    Expunge = "Both";
+                    SyncState = "*";
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+
+      gideonwolfexyz = {
+        address = "gideon@gideonwolfe.xyz";
+        flavor = "plain";
+        primary = false;
+        realName = "Gideon Wolfe";
+        userName = "gideon@gideonwolfe.xyz";
+        passwordCommand =
+          "cat ${config.age.secrets.mbsync_gideonwolfexyz_password.path}";
+
+        smtp = {
+          host = "mail.privateemail.com";
+          port = 587;
+          tls = {
+            enable = true;
+            useStartTls = true;
+          };
+        };
+
+        imap = {
+          host = "mail.privateemail.com";
+          port = 993;
+          tls = {
+            enable = true;
+            useStartTls = false;
+          };
+        };
+
+        folders = {
+          # Prepended by the configured maildirBasePath
+          drafts = "drafts/";
+          inbox = "inbox/";
+          sent = "sent/";
+          trash = "trash/";
+        };
+        # Account settings for neomutt
+        neomutt = {
+          enable = true;
+          mailboxName = " .xyz";
+          extraMailboxes = [ "sent" "spam" "drafts" "trash" ];
+          extraConfig = ''
+            named-mailboxes "   Sent" =sent
+            named-mailboxes "   Drafts" =drafts
+            named-mailboxes "   Spam" =spam
+            named-mailboxes "   Trash" =trash
+          '';
+        };
+
+        mbsync = {
+          enable = true;
+          extraConfig = {
+            account = {
+              Host = "mail.privateemail.com";
+              Port = 993;
+              PassCmd =
+                "cat ${config.age.secrets.mbsync_gideonwolfexyz_password.path}";
+            };
+            local = {
+              Path = "${config.home.homeDirectory}/mail/gideonwolfexyz/";
+              Inbox = "${config.home.homeDirectory}/mail/gideonwolfexyz/inbox";
+              Subfolders = "Verbatim";
+            };
+            remote = { Account = "gideonwolfexyz"; };
+          };
+          groups = {
+            gideonwolfexyz = {
+              channels = {
+                gideonwolfexyz-inbox = {
+                  patterns = [ "INBOX" ];
+                  extraConfig = {
+                    MaxMessages = 1000;
+                    ExpireUnread = true;
+                    Create = "Near";
+                    Remove = "Near";
+                    Expunge = "Near";
+                    #SyncState = "*";
+                  };
+                };
+                gideonwolfexyz-sent = {
+                  farPattern = "Sent";
+                  nearPattern = "/sent";
+                  extraConfig = {
+                    MaxMessages = 100;
+                    ExpireUnread = true;
+                    Create = "Near";
+                    Expunge = "Both";
+                    SyncState = "*";
+                  };
+                };
+                gideonwolfexyz-drafts = {
+                  farPattern = "Drafts";
+                  nearPattern = "/drafts";
+                  extraConfig = {
+                    MaxMessages = 100;
+                    ExpireUnread = true;
+                    Create = "Near";
+                    Expunge = "Both";
+                    SyncState = "*";
+                  };
+                };
+                gideonwolfexyz-trash = {
+                  farPattern = "Trash";
+                  nearPattern = "/trash";
+                  extraConfig = {
+                    MaxMessages = 100;
+                    ExpireUnread = true;
+                    Create = "Near";
+                    Expunge = "Both";
+                    SyncState = "*";
+                  };
+                };
+                gideonwolfexyz-spam = {
+                  farPattern = "Spam";
+                  nearPattern = "/spam";
+                  extraConfig = {
+                    MaxMessages = 100;
+                    ExpireUnread = true;
+                    Create = "Near";
+                    Expunge = "Both";
+                    SyncState = "*";
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+      gideonwolfecom = {
+        address = "gideon@gideonwolfe.com";
+        flavor = "plain";
+        primary = false;
+        realName = "Gideon Wolfe";
+        userName = "gideon@gideonwolfe.com";
+        passwordCommand =
+          "cat ${config.age.secrets.mbsync_gideonwolfecom_password.path}";
+
+        smtp = {
+          host = "mail.privateemail.com";
+          port = 587;
+          tls = {
+            enable = true;
+            useStartTls = true;
+          };
+        };
+
+        imap = {
+          host = "mail.privateemail.com";
+          port = 993;
+          tls = {
+            enable = true;
+            useStartTls = false;
+          };
+        };
+
+        folders = {
+          # Prepended by the configured maildirBasePath
+          drafts = "drafts/";
+          inbox = "inbox/";
+          sent = "sent/";
+          trash = "trash/";
+        };
+        # Account settings for neomutt
+        neomutt = {
+          enable = true;
+          mailboxName = " .com";
+          mailboxType = "maildir";
+          showDefaultMailbox = true;
+          extraMailboxes = [ "sent" "spam" "drafts" "trash" ];
+          extraConfig = ''
+            named-mailboxes "   Sent" =sent
+            named-mailboxes "   Drafts" =drafts
+            named-mailboxes "   Spam" =spam
+            named-mailboxes "   Trash" =trash
+          '';
+        };
+
+        mbsync = {
+          enable = true;
+          extraConfig = {
+            account = {
+              Host = "mail.privateemail.com";
+              Port = 993;
+              PassCmd =
+                "cat ${config.age.secrets.mbsync_gideonwolfecom_password.path}";
+            };
+            local = {
+              Path = "${config.home.homeDirectory}/mail/gideonwolfecom/";
+              Inbox = "${config.home.homeDirectory}/mail/gideonwolfecom/inbox";
+              Subfolders = "Verbatim";
+            };
+            remote = { Account = "gideonwolfecom"; };
+          };
+          groups = {
+            gideonwolfecom = {
+              channels = {
+                gideonwolfecom-inbox = {
+                  patterns = [ "INBOX" ];
+                  extraConfig = {
+                    MaxMessages = 1000;
+                    ExpireUnread = true;
+                    Create = "Near";
+                    Remove = "Near";
+                    Expunge = "Near";
+                    #SyncState = "*";
+                  };
+                };
+                gideonwolfecom-sent = {
+                  farPattern = "Sent";
+                  nearPattern = "/sent";
+                  extraConfig = {
+                    MaxMessages = 100;
+                    ExpireUnread = true;
+                    Create = "Near";
+                    Expunge = "Both";
+                    SyncState = "*";
+                  };
+                };
+                gideonwolfecom-drafts = {
+                  farPattern = "Drafts";
+                  nearPattern = "/drafts";
+                  extraConfig = {
+                    MaxMessages = 100;
+                    ExpireUnread = true;
+                    Create = "Near";
+                    Expunge = "Both";
+                    SyncState = "*";
+                  };
+                };
+                gideonwolfecom-trash = {
+                  farPattern = "Trash";
+                  nearPattern = "/trash";
+                  extraConfig = {
+                    MaxMessages = 100;
+                    ExpireUnread = true;
+                    Create = "Near";
+                    Expunge = "Both";
+                    SyncState = "*";
+                  };
+                };
+                gideonwolfecom-spam = {
+                  farPattern = "Spam";
+                  nearPattern = "/spam";
+                  extraConfig = {
+                    MaxMessages = 100;
+                    ExpireUnread = true;
+                    Create = "Near";
                     Expunge = "Both";
                     SyncState = "*";
                   };
