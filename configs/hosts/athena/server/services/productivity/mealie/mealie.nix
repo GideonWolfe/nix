@@ -26,7 +26,8 @@
 
     };
     extraOptions = [ "--network=traefik_proxy" ];
-    environmentFiles = [ /secrets/services/mealie/.env ];
+    #environmentFiles = [ /secrets/services/mealie/.env ];
+    environmentFiles = [ config.age.secrets.mealie_env.path ];
   };
 
 }

@@ -9,7 +9,8 @@
 
     group = "docker";
 
-    environmentFiles = [ /secrets/services/traefik/.env ];
+    #environmentFiles = [ /secrets/services/traefik/.env ];
+    environmentFiles = [ config.age.secrets.traefik_env.path ];
 
     # Traefik static configuration
     staticConfigOptions = {

@@ -7,7 +7,7 @@
     autoStart = true;
     environment = {
       PGID = "1000";
-      COLLECTIONS = "crowdsecurity/traefik crowdsecurity/http-cve";
+      COLLECTIONS = "crowdsecurity/traefik crowdsecurity/http-cve crowdsecurity/appsec-generic-rules";
     };
     volumes = [
       "/var/lib/crowdsec/data/:/var/lib/crowdsec/data/"
@@ -16,8 +16,5 @@
       "/home/overseer/nix/configs/hosts/athena/server/services/networking/crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml"
     ];
     extraOptions = [ "--network=traefik_proxy" ];
-    # labels = {
-    # };
-    #environmentFiles = [ /home/overseer/.secrets/services/traefik/.env ];
   };
 }

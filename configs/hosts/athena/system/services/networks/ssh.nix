@@ -1,11 +1,13 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Enable OpenSSH
-  services.openssh.enable = true;
-  # OpenSSH Settings
-  services.openssh.settings = {
-    PermitRootLogin = "no";
-    PasswordAuthentication = true;
+  services.openssh = {
+    enable = true;
+    ports = [2736];
+    openFirewall = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = true;
+    };
   };
 }

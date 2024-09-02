@@ -4,7 +4,8 @@
     services.vaultwarden = {
         enable = true;
         backupDir = "/backups/passwords/";
-        environmentFile = "/secrets/services/vaultwarden/.env";
+        #environmentFile = "/secrets/services/vaultwarden/.env";
+        environmentFile = "${config.age.secrets.vaultwarden_env.path}";
         config = {
             SIGNUPS_ALLOWED = false;
               ROCKET_ADDRESS = "::";
