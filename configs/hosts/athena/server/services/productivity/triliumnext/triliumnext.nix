@@ -12,6 +12,15 @@
     volumes = [
       "/home/overseer/server/services/productivity/triliumnext/datadir:/home/node/trilium-data"
     ];
+    labels = {
+      "traefik.enable" = "true";
+      "traefik.docker.network" = "traefik_proxy";
+      "traefik.http.routers.trilium.rule" =
+        "Host(`trilium.gideonwolfe.xyz`)";
+      #"traefik.http.routers.trilium.entrypoints" = "websecure";
+      "traefik.http.routers.trilium.entrypoints" = "https";
+      "traefik.http.routers.trilium.tls.certresolver" = "myresolver";
+    };
     extraOptions = [ "--network=traefik_proxy" ];
   };
 

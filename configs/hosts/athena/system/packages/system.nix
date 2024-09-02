@@ -171,6 +171,9 @@
     jq
 
     lazydocker
+
+    # monitor data being sent through pipe
+    pv
   ];
 
   fonts.packages = with pkgs; [

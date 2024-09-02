@@ -19,6 +19,15 @@
         file = ./secrets/services/mealie/mealie_env.age;
         path = "/secrets/services/mealie/.env";
       };
+      saltrim_env = {
+        file = ./secrets/services/saltrim/saltrim_env.age;
+        path = "/secrets/services/saltrim/.env";
+      };
+      crowdsec_api_key = {
+        file = ./secrets/services/crowdsec/crowdsec_api_key.age;
+        path = "/var/lib/traefik/crowdsec_api_key";
+        owner = "traefik";
+      };
     };
   };
 }

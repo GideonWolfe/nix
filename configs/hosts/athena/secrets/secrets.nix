@@ -11,4 +11,6 @@ in {
   "traefik_env.age".publicKeys = users ++ systems;
   "vaultwarden_env.age".publicKeys = users ++ systems;
   "mealie_env.age".publicKeys = users ++ systems;
+  "saltrim_env.age".publicKeys = users ++ systems;
+  "crowdsec_api_key.age".publicKeys = users ++ systems;
 }

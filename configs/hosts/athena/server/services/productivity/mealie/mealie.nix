@@ -8,25 +8,25 @@
     environment = {
       PUID = "1000";
       PGID = "100";
-      #BASE_URL = "https://mealie.yourdomain.com";
+      BASE_URL = "https://mealie.gideonwolfe.xyz";
       TZ = "America/New_York";
-      MAX_WORKERS = 1;
-      WEB_CONCURRENCY = 1;
+      MAX_WORKERS = "1";
+      WEB_CONCURRENCY = "1";
 
     };
     volumes = [
       "/home/overseer/server/services/productivity/mealie/datadir:/app/data"
     ];
-    # labels = {
-    #   "traefik.enable" = "true";
-    #   "traefik.docker.network" = "traefik_proxy";
-    #   "traefik.http.routers.trilium.rule" =
-    #     "Host(`trilium.gideonwolfe.xyz`)";
-    #   #"traefik.http.routers.trilium.entrypoints" = "websecure";
-    #   "traefik.http.routers.trilium.entrypoints" = "https";
-    #   "traefik.http.routers.trilium.tls.certresolver" = "myresolver";
-    # };
+    labels = {
+      "traefik.enable" = "true";
+      "traefik.docker.network" = "traefik_proxy";
+      "traefik.http.routers.mealie.rule" = "Host(`mealie.gideonwolfe.xyz`)";
+      "traefik.http.routers.mealie.entrypoints" = "https";
+      "traefik.http.routers.mealie.tls.certresolver" = "myresolver";
+
+    };
     extraOptions = [ "--network=traefik_proxy" ];
+    environmentFiles = [ /secrets/services/mealie/.env ];
   };
 
 }

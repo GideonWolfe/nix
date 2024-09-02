@@ -85,6 +85,8 @@
     ./server/services/productivity/monica/monica.nix
     ./server/services/productivity/actualbudget/actualbudget.nix
     ./server/services/productivity/mealie/mealie.nix
+    ./server/services/productivity/freshrss/freshrss.nix
+    #./server/services/productivity/saltrim/saltrim.nix
     ./server/services/media/nzbget.nix
     ./server/services/media/sonarr.nix
     ./server/services/media/radarr.nix
@@ -95,6 +97,7 @@
     ./server/services/media/prowlarr.nix
     ./server/services/media/jellyfin.nix
     ./server/services/media/jellyseerr.nix
+    ./server/services/media/navidrome.nix
     ./server/services/admin/homarr.nix
 
 
@@ -103,6 +106,7 @@
     ./server/services/networking/wireguard.nix
     #./server/services/networking/traefik/traefik.nix
     ./server/services/networking/traefik/nix_traefik.nix
+    ./server/services/networking/crowdsec/crowdsec.nix
 
     #./server/services/productivity/nextcloud/nextcloud-aio-mastercontainer.nix
     ./server/services/productivity/nextcloud/nextcloud.nix
