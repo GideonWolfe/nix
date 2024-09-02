@@ -1,27 +1,45 @@
-{ pkgs, lib, spicetify-nix, ... }:
-let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
-in
+{ pkgs, config, spicetify-nix, ... }: 
+
+with config.lib.stylix.colors;
+
 {
-  # allow spotify to be installed if you don't have unfree enabled already
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify"
-  ];
 
-  # import the flake's module for your system
-  imports = [ spicetify-nix.homeManagerModule ];
 
-  # configure spicetify :)
   programs.spicetify =
-    {
+    let spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+    in {
       enable = true;
-      theme = spicePkgs.themes.catppuccin;
-      colorScheme = "mocha";
-
       enabledExtensions = with spicePkgs.extensions; [
-        fullAppDisplay
-        shuffle # shuffle+ (special characters are sanitized out of ext names)
+        adblock
         hidePodcasts
+        shuffle # shuffle+ (special characters are sanitized out of extension names)
       ];
+      #theme = spicePkgs.themes.catppuccin;
+      #colorScheme = "mocha";
+      theme = spicePkgs.themes.sleek;
+      colorScheme = "custom";
+      customColorScheme = {
+        "text"               = "${magenta}";
+        "subtext"            = "${base05}";
+        "nav-active-text"    = "${bright-green}";
+        "main"               = "${base00}";
+        "sidebar"            = "${base00}";
+        "player"             = "${base00}";
+        "card"               = "${base00}";
+        "shadow"             = "${base02}";
+        "main-secondary"     = "${base01}";
+        "button"             = "${orange}";
+        "button-secondary"   = "${bright-cyan}";
+        "button-active"      = "${orange}";
+        "button-disabled"    = "${base0D}";
+        "nav-active"         = "${magenta}";
+        "play-button"        = "${green}";
+        "tab-active"         = "${yellow}";
+        "notification"       = "${blue}";
+        "notification-error" = "${red}";
+        "playback-bar"       = "${bright-green}";
+        "misc"               = "${bright-magenta}";
+      };
     };
+
 }

@@ -29,6 +29,7 @@
     ./system/services/networks/networking.nix
     ./system/services/networks/bluetooth.nix
     ./system/services/networks/ssh.nix
+    ./system/services/networks/wireguard.nix
 
     # Docker
     ./system/services/docker.nix

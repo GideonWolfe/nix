@@ -23,10 +23,25 @@
         path =
           "${config.home.homeDirectory}/.secrets/email/gmail/mbsync_google_wolfegideon_app_password";
       };
+      mbsync_gideonwolfexyz_password = {
+        file = ./secrets/email/gideonwolfexyz/mbsync_gideonwolfexyz_password.age;
+        path =
+          "${config.home.homeDirectory}/.secrets/email/gideonwolfexyz/mbsync_gideonwolfexyz_password";
+      };
+      mbsync_gideonwolfecom_password = {
+        file = ./secrets/email/gideonwolfecom/mbsync_gideonwolfecom_password.age;
+        path =
+          "${config.home.homeDirectory}/.secrets/email/gideonwolfecom/mbsync_gideonwolfecom_password";
+      };
       weechat_libera_password= {
         file = ./secrets/irc/weechat/weechat_libera_password.age;
         path =
           "${config.home.homeDirectory}/.secrets/irc/weechat/weechat_libera_password";
+      };
+      newsboat_config= {
+        file = ./secrets/newsboat/newsboat_config.age;
+        path =
+          "${config.home.homeDirectory}/.config/newsboat/config";
       };
     };
   };

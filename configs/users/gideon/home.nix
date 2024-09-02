@@ -21,13 +21,13 @@
     ./packages/productivity/web.nix
 
     # Audio
-    ./packages/productivity/audio.nix
+    #./packages/productivity/audio.nix
 
     # Video
-    ./packages/productivity/video.nix
+    #./packages/productivity/video.nix
 
     # Art
-    ./packages/productivity/art.nix
+    #./packages/productivity/art.nix
 
     # Comms
     ./packages/productivity/comms.nix
@@ -49,6 +49,7 @@
 
     # Development
     ./packages/development/rust.nix
+    ./packages/development/js.nix
     ./packages/development/utils.nix
 
     # Random fun packages
@@ -198,6 +199,7 @@
 
     #TODO: enable when config done
     #./configs/eww/eww.nix
+    ./configs/ags/ags.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
@@ -215,20 +217,20 @@
     createScreenRecordings = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/\n";
     # Email mailboxes
-    createDraft = lib.hm.dag.entryAfter [ "writeBoundary" ]
-      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/drafts/\n";
-    createInbox = lib.hm.dag.entryAfter [ "writeBoundary" ]
-      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/inbox/\n";
-    createAll = lib.hm.dag.entryAfter [ "writeBoundary" ]
-      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/all/\n";
-    createStarred = lib.hm.dag.entryAfter [ "writeBoundary" ]
-      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/starred/\n";
-    createSent = lib.hm.dag.entryAfter [ "writeBoundary" ]
-      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/sent/\n";
-    createTrash = lib.hm.dag.entryAfter [ "writeBoundary" ]
-      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/trash/\n";
-    createSpam = lib.hm.dag.entryAfter [ "writeBoundary" ]
-      "  mkdir -p ${config.home.homeDirectory}/mail/gmail/spam/\n";
+    # createDraft = lib.hm.dag.entryAfter [ "writeBoundary" ]
+    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/drafts/\n";
+    # createInbox = lib.hm.dag.entryAfter [ "writeBoundary" ]
+    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/inbox/\n";
+    # createAll = lib.hm.dag.entryAfter [ "writeBoundary" ]
+    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/all/\n";
+    # createStarred = lib.hm.dag.entryAfter [ "writeBoundary" ]
+    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/starred/\n";
+    # createSent = lib.hm.dag.entryAfter [ "writeBoundary" ]
+    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/sent/\n";
+    # createTrash = lib.hm.dag.entryAfter [ "writeBoundary" ]
+    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/trash/\n";
+    # createSpam = lib.hm.dag.entryAfter [ "writeBoundary" ]
+    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/spam/\n";
     createCalendarGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/calendars/gmail/\n";
     createContactsGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]

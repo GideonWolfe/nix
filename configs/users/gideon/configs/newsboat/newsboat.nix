@@ -5,7 +5,7 @@ with config.lib.stylix.colors.withHashtag;
 {
 	xdg.configFile = {
 		newsboat = {
-			enable = true;
+			enable = false;
 			target = "newsboat/config";
 			text = ''
 # -- feeds ---------------------------------------------------------------------
