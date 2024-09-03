@@ -6,13 +6,11 @@
   # router/gateway = 192.168.0.1
   # athena (homeserver) 
   ### 192.168.0.158 # enp17s0 (ethernet)
-  ### 192.168.0.229 # wlp18s0 (wireless)
 
   # enable NAT
   networking.nat.enable = true;
   networking.nat.externalInterface = "enp17s0"; # Name of ethernet device
   networking.nat.internalInterfaces = [ "wg0" ];
-  #networking.firewall = { allowedUDPPorts = [ 51820 ]; };
   networking.firewall = { allowedUDPPorts = [ 123 ]; };
 
   networking.wireguard.interfaces = {
@@ -47,8 +45,11 @@
         # List of allowed peers.
         { # Laptop
           publicKey = "Ls+l1TbBvthQ/jVPTXtKrxuaca+yehG6A+cHHrx290s=";
-          #allowedIPs = [ "10.100.0.3/32" ];
           allowedIPs = [ "10.100.0.2/32" ];
+        }
+        { # Pixel8
+          publicKey = "cWJhx7Cbmbm5AvX7u8lrcZZxeAMlFVngq8mTqajf53E=";
+          allowedIPs = [ "10.100.0.3/32" ];
         }
       ];
     };
