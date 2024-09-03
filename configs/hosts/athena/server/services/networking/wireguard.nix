@@ -48,7 +48,8 @@
           allowedIPs = [ "10.100.0.2/32" ];
         }
         { # Pixel8
-          publicKey = "cWJhx7Cbmbm5AvX7u8lrcZZxeAMlFVngq8mTqajf53E=";
+          # Keypair generated in Android app
+          publicKey = "qgtU/gzNYCHI9bnn2RqMZHcyOe3AFmGUU69wgrcNfzA=";
           allowedIPs = [ "10.100.0.3/32" ];
         }
       ];
