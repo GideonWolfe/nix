@@ -16,9 +16,7 @@ with config.lib.stylix.colors.withHashtag;
         contrastUiColor = "${base0C}";
         drawColor = "${base0D}";
 
-        #TODO this errors
         # default path to save screenshots
-        #savePath = "${config.users.users.gideon.home}/pictures/screenshots/";
         savePath = "${config.home.homeDirectory}/pictures/screenshots/";
 
         # disable tray icon

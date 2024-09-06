@@ -15,4 +15,5 @@ in {
   "mbsync_gideonwolfecom_password.age".publicKeys = users ++ systems;
   "weechat_libera_password.age".publicKeys = users ++ systems;
   "newsboat_config.age".publicKeys = users ++ systems;
+  "ssh_athena_ip.age".publicKeys = users ++ systems;
 }

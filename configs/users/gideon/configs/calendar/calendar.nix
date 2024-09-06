@@ -37,6 +37,7 @@ with config.lib.stylix.colors.withHashtag;
         khal = {
           enable = true;
           type = "discover";
+          color = "${blue}";
         };
       };
     };

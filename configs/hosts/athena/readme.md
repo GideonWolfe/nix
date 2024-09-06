@@ -93,7 +93,7 @@ On my motherboard, `/dev/nvme0n1` is the default path of my new M.2 SSD
 * Install my flake
     * `nixos-rebuld switch --flake /home/overseer/nix`
 * Build home-manager config
-    * `nix run #.homeConfigurations.gideon.activationPackage`
+    * `nix run #.homeConfigurations.overseer.activationPackage`
 * Switch to mainline repo
     * `git remote set-url origin github:gideonwolfe/nix`
     * SSH private key should be in `configs/ssh/keys/`
@@ -246,6 +246,9 @@ So the pool can have a symmetrical set of folders on each data drive, I like to 
 
 @startuml Server
 
+cloud Internet
+
+
 node athena {
     package disks {
 
@@ -316,6 +319,10 @@ node athena {
                 folder nix {
 
                 }
+
+                folder /server/services/ {
+
+                }
             }
 
             folder "/snapraid/content/" as systemsnapraidcontentfolder {
@@ -326,6 +333,20 @@ node athena {
         frame snapraid {
 
         }
+
+        cloud docker {
+            package Media {
+                Node Jellyfin
+                Node Jellyseerr
+                Node Lidarr
+                Node Radarr
+                Node Sonarr
+                Node NZBGet
+                Node Tdarr
+            }
+            Node Traefik
+        }
+
 
     }
 }
@@ -350,6 +371,17 @@ node athena {
 [pooldata1]-->[pooldata]
 [pooldata2]-->[pooldata]
 
+
+[Internet]-->[Traefik]
+[Traefik]-->[Jellyfin]
+[Traefik]-->[Jellyseerr]
+
+[Jellyfin]-->[pooltv]
+[Jellyfin]-->[poolmovies]
+[Jellyfin]-->[poolmusic]
+[Jellyfin]-->[poolbooks]
+
+[Jellyseerr]-->[Jellyfin]
 @enduml
 
 

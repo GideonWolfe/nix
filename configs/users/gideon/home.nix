@@ -143,6 +143,7 @@
 
     # Neomutt
     ./configs/email/neomutt/neomutt.nix
+    ./configs/email/thunderbird/thunderbird.nix #uses lots of storage
     ./configs/email/email.nix
     ./configs/email/mbsync.nix
 
@@ -200,6 +201,8 @@
     #TODO: enable when config done
     #./configs/eww/eww.nix
     ./configs/ags/ags.nix
+
+    ../../modules/keys/ssh.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)

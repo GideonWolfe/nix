@@ -36,6 +36,10 @@
           '';
         };
 
+        thunderbird = {
+            enable = true;
+        };
+
         mbsync = {
           enable = true;
           extraConfig = {
@@ -192,6 +196,10 @@
             named-mailboxes "   Trash" =trash
           '';
         };
+        
+        thunderbird = {
+            enable = true;
+        };
 
         mbsync = {
           enable = true;
@@ -319,6 +327,10 @@
             named-mailboxes "   Spam" =spam
             named-mailboxes "   Trash" =trash
           '';
+        };
+
+        thunderbird = {
+            enable = true;
         };
 
         mbsync = {

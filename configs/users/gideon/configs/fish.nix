@@ -97,7 +97,6 @@
 
       # Build NixOS System
       bldnix = {
-        #body = "sudo nixos-rebuild switch --flake ${config.users.gideon.home}/nix";
         body =
           "sudo nixos-rebuild switch --flake /home/${config.home.username}/nix/";
       };

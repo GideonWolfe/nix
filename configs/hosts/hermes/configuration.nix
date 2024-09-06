@@ -71,6 +71,7 @@
 
     # System
     ./system/packages/system.nix
+
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;

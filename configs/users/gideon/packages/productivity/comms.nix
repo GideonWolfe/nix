@@ -12,6 +12,7 @@
     #pkgs.betterdiscord-installer
     #pkgs.slack
     #pkgs.zoom-us
+    pkgs.thunderbird
 
     ########
     # NEWS #

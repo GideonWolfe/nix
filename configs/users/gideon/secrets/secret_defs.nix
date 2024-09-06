@@ -43,6 +43,11 @@
         path =
           "${config.home.homeDirectory}/.config/newsboat/config";
       };
+      ssh_athena_ip= {
+        file = ./secrets/ssh/hosts/ssh_athena_ip.age;
+        path =
+          "${config.home.homeDirectory}/.secrets/ssh/hosts/ssh_athena_ip";
+      };
     };
   };
 }

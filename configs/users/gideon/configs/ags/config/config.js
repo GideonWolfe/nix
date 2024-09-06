@@ -19,5 +19,6 @@ function Bar(monitor = 0) {
 App.config({
     windows: [
         Bar(0),
+        Bar(1),
     ]
 })
