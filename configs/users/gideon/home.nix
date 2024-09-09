@@ -4,8 +4,8 @@
 
   imports = [
 
-    ./secrets/secret_defs.nix
-    # ./secrets/secrets/test/test.nix # test accessing them
+    # Imports a list of all user based secrets
+    # only the ones readable by this user will be generated
     ../../secrets/user_secrets.nix
 
     ############
