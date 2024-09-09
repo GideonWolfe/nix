@@ -17,7 +17,8 @@
     ./system/system/system.nix
 
     # Secrets
-    ./secrets/secret_defs.nix
+    #./secrets/secret_defs.nix
+    ../../secrets/system_secrets.nix
 
     # Enable snapraid for drives
     ./system/system/snapraid.nix

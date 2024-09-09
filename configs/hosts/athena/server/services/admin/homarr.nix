@@ -11,7 +11,8 @@
     };
     volumes = [
       #"/pool/data/services/admin/homarr/data/:/app/data/configs"
-      "/home/overseer/server/services/admin/homarr/data/:/app/data/configs"
+      "/home/overseer/server/services/admin/homarr/configs/:/app/data/configs"
+      "/home/overseer/server/services/admin/homarr/data/:/data"
       "/var/run/docker.sock:/var/run/docker.sock"
 
     ];
