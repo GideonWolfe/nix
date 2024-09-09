@@ -6,6 +6,7 @@
 
     ./secrets/secret_defs.nix
     # ./secrets/secrets/test/test.nix # test accessing them
+    ../../secrets/user_secrets.nix
 
     ############
     # PACKAGES #
