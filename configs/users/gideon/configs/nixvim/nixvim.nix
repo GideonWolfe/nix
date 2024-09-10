@@ -26,6 +26,7 @@ with config.lib.stylix.colors.withHashtag;
     ./plugins/ui/nvim-tree.nix
     ./plugins/ui/nvim-ufo.nix
     ./plugins/ui/rainbow-delimiters.nix
+    ./plugins/ui/statuscol.nix
     ./plugins/ui/telescope.nix
     ./plugins/ui/trouble.nix
     ./plugins/ui/which-key.nix
@@ -76,7 +77,11 @@ with config.lib.stylix.colors.withHashtag;
     clipboard.register = "unnamedplus";
 
     #HACK: adding plugins that don't have a module yet
-    extraPlugins = with pkgs.vimPlugins; [ lazygit-nvim lsp_signature-nvim yuck-vim];
+    extraPlugins = with pkgs.vimPlugins; [
+      lazygit-nvim
+      lsp_signature-nvim
+      yuck-vim
+    ];
 
     #HACK: Running these sign define commands as raw lua because nixvim doesn't have a setting
     extraConfigLuaPre = ''
@@ -86,6 +91,9 @@ with config.lib.stylix.colors.withHashtag;
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end
+
+      -- Define breakpoint symbol
+      vim.fn.sign_define('DapBreakpoint', {text="•", texthl="BreakpointLineNr", linehl="", numhl="BreakpointLineNr"})
     '';
 
   };
