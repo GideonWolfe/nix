@@ -18,6 +18,8 @@
       options = { theme = "base16-stylix"; };
     };
 
+    extraConfig = { push = { autoSetupRemote = true; }; };
+
     hooks = {
       #TODO this should point to another dir
       #post-commit = $HOME/nix/user/scripts/git/post-commit-hook.sh

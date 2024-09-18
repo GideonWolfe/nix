@@ -202,6 +202,7 @@
     #TODO: enable when config done
     #./configs/eww/eww.nix
     ./configs/ags/ags.nix
+    ./configs/ags/style.nix
 
     ../../modules/keys/ssh.nix
   ];

@@ -2,14 +2,22 @@
   programs.nixvim.plugins.statuscol = {
     enable = true;
     settings = {
-      clickhandlers = {
-        FoldClose = "require('statuscol.builtin').foldclose_click";
-        FoldOpen = "require('statuscol.builtin').foldopen_click";
-        FoldOther = "require('statuscol.builtin').foldother_click";
-        Lnum = "require('statuscol.builtin').lnum_click";
-      };
+      # clickhandlers = {
+      #   FoldClose = "require('statuscol.builtin').foldclose_click";
+      #   FoldOpen = "require('statuscol.builtin').foldopen_click";
+      #   FoldOther = "require('statuscol.builtin').foldother_click";
+      #   Lnum = "require('statuscol.builtin').lnum_click";
+      # };
       bt_ignore = [ "dashboard" ];
+
+      # align line numbers to the right
       relculright = true;
+
+      # display errors from a closed fold on the first line
+      #BUG: not working on columns?
+     # https://github.com/luukvbaal/statuscol.nvim/blob/1022f922b77b44c36f8057ac29adbfd89ce86958/README.md?plain=1#L118
+      #foldclosed = true;
+
       segments = [
 
         # ScSa = Sign action
@@ -28,13 +36,15 @@
         # Diagnostic signs
         {
           sign = {
-            name = [ "Diagnostic" ];
+            #name = [ "Diagnostic" ];
+            namespace = [ "diagnostic/signs" ];
             maxwidth = 1;
             auto = true;
           };
           click = "v:lua.ScSa";
         }
         # Fold column
+        # maybe set this rule?  https://github.com/luukvbaal/statuscol.nvim/issues/36
         {
           click = "v:lua.ScFa";
           text = [ { __raw = "require('statuscol.builtin').foldfunc"; } " " ];
