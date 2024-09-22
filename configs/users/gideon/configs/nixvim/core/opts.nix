@@ -17,12 +17,10 @@
     ignorecase = true;
     smartcase = true;
 
-
     # wait time for key sequences
     timeoutlen = 500;
     # faster completion
     updatetime = 300;
-
 
     # Enable spellcheck
     spell = true;
@@ -35,12 +33,16 @@
     numberwidth = 2;
 
     signcolumn = "yes";
-    
+
     # Show matching parens
     showmatch = true;
 
-    foldmethod = "marker";
-
+    # 1 means flat, >1 means nested folds
+    foldcolumn = "1";
+    #foldcolumn = "auto:9";
+    foldlevel = 99;
+    foldlevelstart = 99;
+    foldenable = true;
 
     # splits
     splitright = true;
@@ -81,16 +83,18 @@
     history = 100;
 
     fillchars = {
-        fold = "─";
-        diff = "╱";
-        wbr = "─";
-        msgsep = "─";
-        horiz = "─";
-        horizup = "│";
-        horizdown = "│";
-        vertright = "│";
-        vertleft = "│";
-        verthoriz = "│";
+      fold = "─";
+      foldopen = "";
+      foldclose = "";
+      diff = "╱";
+      wbr = "─";
+      msgsep = "─";
+      horiz = "─";
+      horizup = "│";
+      horizdown = "│";
+      vertright = "│";
+      vertleft = "│";
+      verthoriz = "│";
     };
   };
 }

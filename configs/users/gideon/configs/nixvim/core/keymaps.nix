@@ -359,6 +359,21 @@
             desc = "Code Hover Docs";
         };
     }
+    # {
+    #     action = ''
+    #         function()
+    #             local winid = require('ufo').peekFoldedLinesUnderCursor()
+    #             if not winid then
+    #                 vim.cmd("Lspsaga hover_doc")          
+    #             end
+    #         end)
+    #     '';
+    #     key = "K";
+    #     mode = ["n"];
+    #     options = {
+    #         desc = "Code Hover Docs";
+    #     };
+    # }
     # Pops up a pane on the right showing symbol outline
     {
         action = "<cmd>Lspsaga outline<CR>";

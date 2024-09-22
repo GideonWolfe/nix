@@ -10,6 +10,8 @@
     # CONFIGS #
     ###########
 
+    ../../modules/icons.nix
+
     ../../secrets/system_secrets.nix
 
 

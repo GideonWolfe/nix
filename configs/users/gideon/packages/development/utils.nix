@@ -52,5 +52,8 @@
 		#pkgs.metasploit-framework
 		#pkgs.johnny # GUI for John the Ripper
 
+
+        # web dev
+        pkgs.sassc
 	];
 }
