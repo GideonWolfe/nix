@@ -174,9 +174,9 @@ sdb           8:16   0  7.3T  0 disk
 
 * Create XFS filesystem
     * `mkfs.xfs -L data1 /dev/sda1`
-* Create mount point for parity partition
+* Create mount point for partition
     * `mkdir -p /drives/data/data1`
-* mount parity partition
+* mount partition
     * `mount /dev/sda1 /drives/data/data1`
 
 Now here is our full output of `lsblk`
