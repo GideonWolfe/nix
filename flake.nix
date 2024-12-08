@@ -65,6 +65,17 @@
           ];
         };
 
+	# Thinkpad T490
+        poseidon = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            stylix.nixosModules.stylix
+            agenix.nixosModules.default
+            ./configs/hosts/poseidon/configuration.nix
+          ];
+        };
+
         # Homeserver
         athena = lib.nixosSystem {
           inherit system;
@@ -91,6 +102,7 @@
             ./configs/users/gideon/home.nix
           ];
         };
+
         overseer = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [

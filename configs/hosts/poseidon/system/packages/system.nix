@@ -175,7 +175,7 @@
     nerdfonts
     #noto-fonts
     # symbols and emoji (outlined)
-    symbola
+    #symbola
     noto-fonts-monochrome-emoji
     # chinese, japanese, korean
     #noto-fonts-cjk
