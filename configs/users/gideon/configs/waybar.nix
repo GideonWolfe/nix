@@ -38,9 +38,11 @@ with config.lib.stylix.colors.withHashtag;
         #];
         modules-left = [
           "group/systemMenu"
-          "sway/workspaces"
-          "sway/mode"
-          #"wlr/taskbar"
+          # "sway/workspaces"
+          # "sway/mode"
+          "hyprland/workspaces"
+          "hyprland/window"
+          #"hyprland/submap"
         ];
         modules-center = [
           #"sway/window"

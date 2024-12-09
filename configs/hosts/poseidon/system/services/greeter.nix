@@ -20,8 +20,8 @@ in
 			#};
 			#default_session = initial_session;
 			default_session = {
-				#command = "${tuigreet} --time --cmd ${pkgs.hyprland}/bin/Hyprland";
-				command = "${tuigreet} --time --cmd ${pkgs.sway}/bin/sway";
+				command = "${tuigreet} --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+				#command = "${tuigreet} --time --cmd ${pkgs.sway}/bin/sway";
 				user = "greeter";
 
 			};

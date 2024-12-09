@@ -74,6 +74,7 @@
     # Hyprland
     # Enable when ready for it
     ./configs/hyprland.nix
+    #./configs/hyprpaper.nix
     ./configs/sway.nix
     ./configs/swaylock.nix
     ./configs/swayidle.nix
@@ -100,7 +101,7 @@
     # Firefox
     ./configs/firefox/firefox.nix
 
-    # Firefox
+    # Chromium
     ./configs/chromium.nix
 
     # Zathura

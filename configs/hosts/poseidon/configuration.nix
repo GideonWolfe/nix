@@ -59,6 +59,9 @@
     # PACKAGES #
     ############
 
+    # Flatpak
+    ./system/packages/flatpak.nix
+
     # Audio
     ./system/packages/audio.nix
 
