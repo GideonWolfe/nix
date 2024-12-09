@@ -65,7 +65,7 @@
           ];
         };
 
-	# Thinkpad T490
+        # Thinkpad T490
         poseidon = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };

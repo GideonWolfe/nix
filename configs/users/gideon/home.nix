@@ -74,7 +74,7 @@
     # Hyprland
     # Enable when ready for it
     ./configs/hyprland.nix
-    #./configs/hyprpaper.nix
+    ./configs/hyprpaper.nix
     ./configs/sway.nix
     ./configs/swaylock.nix
     ./configs/swayidle.nix
@@ -170,7 +170,7 @@
     ./configs/stylix.nix
 
     # Nix theming framwork
-    ./configs/spicetify.nix
+    #./configs/spicetify.nix
 
     # Custom startpage
     ./configs/startpage/style.nix
