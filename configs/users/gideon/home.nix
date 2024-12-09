@@ -68,8 +68,8 @@
     ./configs/calendar/khal.nix
 
     # Configs for contacts settings and sync
-    ./configs/contacts/contacts.nix
-    ./configs/contacts/khard.nix
+    #./configs/contacts/contacts.nix
+    #./configs/contacts/khard.nix
 
     # Hyprland
     # Enable when ready for it
@@ -144,7 +144,7 @@
 
     # Neomutt
     ./configs/email/neomutt/neomutt.nix
-    ./configs/email/thunderbird/thunderbird.nix #uses lots of storage
+    #./configs/email/thunderbird/thunderbird.nix #uses lots of storage
     ./configs/email/email.nix
     ./configs/email/mbsync.nix
 
@@ -153,8 +153,8 @@
     ./configs/weechat/weechat.nix
 
     # Newsboat
-    ./configs/newsboat/newsboat.nix
-    ./configs/newsboat/urls.nix
+    #./configs/newsboat/newsboat.nix
+    #./configs/newsboat/urls.nix
 
     # Bluetooth (enabling applet)
     ./configs/bluetooth.nix
