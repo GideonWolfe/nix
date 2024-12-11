@@ -75,9 +75,11 @@
     # Enable when ready for it
     ./configs/hyprland.nix
     ./configs/hyprpaper.nix
+    ./configs/hypridle.nix
+    ./configs/hyprlock.nix
     ./configs/sway.nix
     ./configs/swaylock.nix
-    ./configs/swayidle.nix
+    #./configs/swayidle.nix
 
     # Cursor settings
     ./configs/cursor.nix
@@ -164,7 +166,8 @@
     ./configs/fish.nix
 
     # Notification client
-    ./configs/mako.nix
+    # Disabling because hyprpanel handles it
+    #./configs/mako.nix
 
     # Nix theming framwork
     ./configs/stylix.nix
@@ -199,11 +202,10 @@
     ./configs/projects/tech.nix
     ./configs/projects/music.nix
 
-
     #TODO: enable when config done
     #./configs/eww/eww.nix
-    ./configs/ags/ags.nix
-    ./configs/ags/style.nix
+    #./configs/ags/ags.nix
+    #./configs/ags/style.nix
 
     ../../modules/keys/ssh.nix
   ];

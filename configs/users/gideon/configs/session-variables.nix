@@ -18,8 +18,11 @@
     PAGER = "ov";
     #RULES =
     #  "${config.home.homeDirectory}/nix/configs/users/gideon/secrets/secrets.nix";
-    RULES =
-      "${config.home.homeDirectory}/nix/configs/secrets/secrets.nix";
+    RULES = "${config.home.homeDirectory}/nix/configs/secrets/secrets.nix";
     XCURSOR_THEME = "Catppuccin-Mocha-Dark-Cursors";
+
+    # Optional, hint Electron apps to use Wayland:
+    NIXOS_OZONE_WL = "1";
+
   };
 }

@@ -16,9 +16,14 @@
     };
 
     # Overriding hyperland package to get more opts
-    #hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
-    ags.url = "github:Aylur/ags";
+    #ags.url = "github:Aylur/ags";
 
     stylix = {
       url = "github:danth/stylix/release-24.05";
@@ -44,11 +49,15 @@
   };
 
   outputs = { self, nixpkgs, home-manager, agenix, stylix, spicetify-nix, nixvim
-    , ags, ... }@inputs:
+    , hyprland, hyprland-plugins, hyprpanel, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      # pkgs = import nixpkgs {
+      #   inherit system;
+      #   overlays = [ hyprpanel.overlay ];
+      # };
     in {
 
       # Definitions for individual hosts
@@ -92,12 +101,16 @@
       homeConfigurations = {
         gideon = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit spicetify-nix; };
+          extraSpecialArgs = {
+            inherit spicetify-nix;
+            inherit inputs;
+          };
           modules = [
+            #hyprland.homeManagerModules.default
             stylix.homeManagerModules.stylix
             agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
-            ags.homeManagerModules.default
+            #ags.homeManagerModules.default
             spicetify-nix.homeManagerModules.default
             ./configs/users/gideon/home.nix
           ];

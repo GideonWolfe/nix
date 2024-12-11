@@ -24,6 +24,9 @@
     # Login manager/greeter
     ./system/services/greeter.nix
 
+    # hyprland idle daemon
+    ./system/services/hypridle.nix
+
     # GNOME Keyring
     ./system/services/gnome-keyring.nix
 

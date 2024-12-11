@@ -41,8 +41,8 @@ with config.lib.stylix.colors.withHashtag;
           # "sway/workspaces"
           # "sway/mode"
           "hyprland/workspaces"
-          "hyprland/window"
-          #"hyprland/submap"
+          #"hyprland/window"
+          "hyprland/submap"
         ];
         modules-center = [
           #"sway/window"
