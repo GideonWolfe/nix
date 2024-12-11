@@ -38,6 +38,9 @@
     ./system/services/networks/ssh.nix
     ./system/services/networks/wireguard.nix
 
+    # Power management services
+    ./system/services/power.nix
+
     # Docker
     ./system/services/docker.nix
 

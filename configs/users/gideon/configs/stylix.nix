@@ -30,6 +30,8 @@
     nixvim = { enable = true; };
     # TODO: this was broken in 24.11 becaues it tries to apply non existent options
     hyprland = { enable = false; };
+    # It doesn't really use enough colors! I set them manually
+    spicetify = { enable = false; };
   };
 
   stylix.fonts = {

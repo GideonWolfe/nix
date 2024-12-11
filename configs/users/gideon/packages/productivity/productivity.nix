@@ -53,6 +53,7 @@
 		pkgs.shell-gpt # CLI for ChatGPT
 		pkgs.ov # terminal pager
         pkgs.maim # scrot replacement
+        pkgs.kando # pie menu
 
 		#########
 		# PHOTO #

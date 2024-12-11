@@ -22,7 +22,7 @@
     ./packages/productivity/web.nix
 
     # Audio
-    #./packages/productivity/audio.nix
+    ./packages/productivity/audio.nix
 
     # Video
     #./packages/productivity/video.nix
@@ -173,7 +173,7 @@
     ./configs/stylix.nix
 
     # Nix theming framwork
-    #./configs/spicetify.nix
+    ./configs/spicetify.nix
 
     # Custom startpage
     ./configs/startpage/style.nix

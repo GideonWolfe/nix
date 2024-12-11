@@ -54,10 +54,6 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      # pkgs = import nixpkgs {
-      #   inherit system;
-      #   overlays = [ hyprpanel.overlay ];
-      # };
     in {
 
       # Definitions for individual hosts

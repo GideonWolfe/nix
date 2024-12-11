@@ -14,11 +14,11 @@ with config.lib.stylix.colors;
       "$mod" = "SUPER";
       "$menu" = "pkill wofi || wofi --show run";
 
-            #bindm = [
-        #"$mod, Return, exec, kitty"
-        #"$mod Shift, F, fullscreen"
-                #"$mod Shift, Q, killactive"
-            #];
+      #bindm = [
+      #"$mod, Return, exec, kitty"
+      #"$mod Shift, F, fullscreen"
+      #"$mod Shift, Q, killactive"
+      #];
 
       group = {
         #col.border_active = "rgb(${base0D})";
@@ -36,7 +36,10 @@ with config.lib.stylix.colors;
     };
     extraConfig = ''
       #exec = pkill waybar & sleep 0.5 && waybar
-      #exec-once = hyprpanel
+
+      exec-once = hyprpanel
+      exec-once = kando
+
 
       monitor=,preferred,auto,1
 
@@ -44,6 +47,8 @@ with config.lib.stylix.colors;
       xwayland {
           force_zero_scaling = true
       }
+
+      bind = CTRL, Space, global, kando:desktop-menu
 
       bind = $mod, RETURN, exec, kitty
       bind = $mod SHIFT, Q, killactive
@@ -107,6 +112,9 @@ with config.lib.stylix.colors;
       bindel = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bindl = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+      # Skip player on long press and only skip 5s on normal press
+      #bindo = , XF86AudioNext, exec, playerctl next
+      bind = , XF86AudioNext, exec, playerctl position +5
       # Requires playerctl
       bindl = , XF86AudioPlay, exec, playerctl play-pause
       bindl = , XF86AudioPrev, exec, playerctl previous

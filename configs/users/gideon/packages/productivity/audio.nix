@@ -3,7 +3,7 @@
 {
 	home.packages = [
 		#pkgs.audacity
-		pkgs.spotify
+        #pkgs.spotify # disabled because stylix/spicetify install the binary
 		#pkgs.swaglyrics # TUI spotify lyrics
 		#pkgs.asunder # CD ripper GUI
 		#pkgs.brasero # GNOME CD/DVD burner
