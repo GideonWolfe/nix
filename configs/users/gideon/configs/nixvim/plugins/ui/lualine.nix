@@ -31,33 +31,38 @@ in {
   #
   programs.nixvim.plugins.lualine = {
     enable = true;
-    iconsEnabled = true;
+
+    settings = {
+      options = {
+        globalstatus = true;
+        icons_enabled = true;
+
+        component_separators = {
+          #left = "╲";
+          #right = "╱";
+          left = "";
+          right = "";
+        };
+
+        section_separators = {
+          left = "";
+          right = "";
+          #left = "";
+          #right = "";
+        };
+      };
+      extensions = [
+        "lazy"
+        "nvim-tree"
+        "trouble"
+        "symbols-outline"
+        "nvim-dap-ui"
+        "fugitive"
+        "man"
+      ];
+    };
+
     #theme = "auto";
-    globalstatus = true;
-
-    extensions = [
-      "lazy"
-      "nvim-tree"
-      "trouble"
-      "symbols-outline"
-      "nvim-dap-ui"
-      "fugitive"
-      "man"
-    ];
-
-    componentSeparators = {
-      #left = "╲";
-      #right = "╱";
-      left = "";
-      right = "";
-    };
-
-    sectionSeparators = {
-      left = "";
-      right = "";
-      #left = "";
-      #right = "";
-    };
 
     # sections = { lualine_a = [ (helpers.mkRaw "fmtMode") ]; };
     # sections = { lualine_a.__raw = "{ fmtMode },"; };

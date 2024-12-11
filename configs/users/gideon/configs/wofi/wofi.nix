@@ -7,24 +7,24 @@ with config.lib.stylix.colors.withHashtag;
 		enable = true;
 
 		# https://cloudninja.pw/docs/wofi.html
-		style = ''
-			#outer-box {
-				border: 2px solid ${base0E};
-			}
-			#text:selected {
-				background-color: ${base00};
-				color: ${base0B};
-				font-weight: bold;
-			}
-			#entry:selected {
-				background-color: ${base00};
-				border-style: none;
-			}
-			#input {
-				background-color: ${base00};
-				border-style: none;
-				color: ${base0E};
-			}
-		'';
+		# style = ''
+		# 	#outer-box {
+		# 		border: 2px solid ${base0E};
+		# 	}
+		# 	#text:selected {
+		# 		background-color: ${base00};
+		# 		color: ${base0B};
+		# 		font-weight: bold;
+		# 	}
+		# 	#entry:selected {
+		# 		background-color: ${base00};
+		# 		border-style: none;
+		# 	}
+		# 	#input {
+		# 		background-color: ${base00};
+		# 		border-style: none;
+		# 		color: ${base0E};
+		# 	}
+		# '';
 	};
 }

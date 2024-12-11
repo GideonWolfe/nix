@@ -2,7 +2,7 @@
 
 {
 	# Enable sound
-	sound.enable = true;
+	#sound.enable = true;
 	# Enable Pipewire
 	services.pipewire.enable = true;
 	# Use Pipewire as primary server

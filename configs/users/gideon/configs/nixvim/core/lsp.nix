@@ -23,20 +23,23 @@
     servers = {
 
       # Nix 
-      nil-ls = { enable = true; };
+      #nil-ls = { enable = true; };
+      nil_ls = { enable = true; };
       #nixd = { enable = true; };
 
       # Bash
       bashls = { enable = true; };
 
       # Clojure
-      clojure-lsp = { enable = true; };
+      #clojure-lsp = { enable = true; };
+      clojure_lsp = { enable = true; };
 
       # Cmake
       cmake = { enable = true; };
 
       # C#
-      csharp-ls = { enable = true; };
+      #csharp-ls = { enable = true; };
+      csharp_ls = { enable = true; };
 
       # CSS
       cssls = { enable = true; };
@@ -45,13 +48,16 @@
       eslint = { enable = true; };
 
       # Godot Script
-      gdscript = { enable = true; };
+      #gdscript = { enable = true; };
 
       # Go
       gopls = { enable = true; };
 
       # Haskell
-      hls = { enable = true; };
+      hls = {
+        enable = true;
+        installGhc = true;
+      };
 
       # html
       html = { enable = true; };
@@ -60,13 +66,15 @@
       jsonls = { enable = true; };
 
       # Julia
-      julials = { enable = true; };
+      #julials = { enable = true; };
 
       # Kotlin
-      kotlin-language-server = { enable = true; };
+      #kotlin-language-server = { enable = true; };
+      kotlin_language_server = { enable = true; };
 
       # Lua
-      lua-ls = { enable = true; };
+      #lua-ls = { enable = true; };
+      lua_ls = { enable = true; };
 
       # PHP
       phpactor = { enable = true; };
@@ -75,7 +83,8 @@
       pyright = { enable = true; };
 
       # Rust
-      rust-analyzer = {
+      #rust-analyzer = {
+      rust_analyzer = {
         enable = true;
         # automatically install deps if not already
         installCargo = true;
@@ -89,10 +98,11 @@
       texlab = { enable = true; };
 
       # Typescript
-      tsserver = { enable = true; };
+      #tsserver = { enable = true; };
+      ts_ls = { enable = true; };
 
       # Vue JS
-      vuels = { enable = true; };
+      #vuels = { enable = true; };
 
       # YAML
       yamlls = { enable = true; };

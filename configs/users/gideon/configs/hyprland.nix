@@ -14,11 +14,11 @@ with config.lib.stylix.colors;
       "$mod" = "SUPER";
       "$menu" = "pkill wofi || wofi --show run";
 
-      bindm = [
+            #bindm = [
         #"$mod, Return, exec, kitty"
         #"$mod Shift, F, fullscreen"
-        "$mod Shift, Q, killactive"
-      ];
+                #"$mod Shift, Q, killactive"
+            #];
 
       group = {
         #col.border_active = "rgb(${base0D})";

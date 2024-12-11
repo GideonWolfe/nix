@@ -70,7 +70,7 @@
     cpupower-gui # GUI for tweaking CPU
     hardinfo # GUI for devices/hardware
     hwinfo # get info about hardware
-    psensor # hardware monitoring GUI
+    resources # hardware monitoring GUI
     zenith # another TUI system monitor
     libgtop # library for system monitoring (used by hyprpanel)
     light # utility for changing backlight brightness

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with config.lib.stylix.colors; {
   # Enable hypridle
-  programs.hyprlock = {
+  programs.hyprlock = lib.mkForce {
     enable = true;
     settings = {
       general = {
@@ -16,7 +16,8 @@ with config.lib.stylix.colors; {
         after_sleep_cmd = "notify-send 'Awake!'"; # command ran after sleep
       };
 
-      background = [{
+      # HACK: option needs overriding
+      background = lib.mkForce [{
         path = "${config.stylix.image}";
         blur_passes = 3;
         blur_size = 8;
