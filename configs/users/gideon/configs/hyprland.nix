@@ -115,6 +115,17 @@ with config.lib.stylix.colors;
       bindel = ,XF86MonBrightnessDown, exec, sudo /run/current-system/sw/bin/light -U 10
       bindel = ,XF86MonBrightnessUp, exec, sudo /run/current-system/sw/bin/light -A 10
 
+      # to make kando work
+      windowrule = noblur, kando
+      windowrule = opaque, kando
+      windowrule = size 100% 100%, kando
+      windowrule = noborder, kando
+      windowrule = noanim, kando
+      windowrule = float, kando
+      windowrule = pin, kando
+
+
+
       group {
         col.border_active = "rgb(${base0D}) rgb(${base0D})";
         col.border_inactive = "rgb(${base00}) rgb(${base00})";
