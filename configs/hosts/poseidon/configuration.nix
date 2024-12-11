@@ -14,7 +14,6 @@
 
     ../../secrets/system_secrets.nix
 
-
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
@@ -25,7 +24,7 @@
     ./system/services/greeter.nix
 
     # hyprland idle daemon
-    ./system/services/hypridle.nix
+    #./system/services/hypridle.nix
 
     # GNOME Keyring
     ./system/services/gnome-keyring.nix
@@ -128,14 +127,24 @@
   # list of programs I want to execute WITHOUT passwd (ie from waybar)
   security.sudo = {
     enable = true;
-    extraRules = [{
-
-      groups = [ "wheel" ];
-      commands = [{
-        command = "/run/current-system/sw/bin/iotop";
-        options = [ "NOPASSWD" ];
-      }];
-    }];
+    # HACK: I wanted to use extrarules but it just refuses to work...
+    extraConfig = ''
+      %wheel	ALL=(root)	NOPASSWD: /run/current-system/sw/bin/light
+    '';
+    # extraRules = [{
+    #   commands = [
+    #     {
+    #       command = "/run/current-system/sw/bin/iotop";
+    #       options = [ "NOPASSWD" ];
+    #     }
+    #     {
+    #       command = "/run/current-system/sw/bin/light";
+    #       #command = "${pkgs.light}/bin/light";
+    #       options = [ "NOPASSWD" ];
+    #     }
+    #   ];
+    #   groups = [ "wheel" ];
+    # }];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

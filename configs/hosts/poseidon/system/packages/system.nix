@@ -73,6 +73,7 @@
     psensor # hardware monitoring GUI
     zenith # another TUI system monitor
     libgtop # library for system monitoring (used by hyprpanel)
+    light # utility for changing backlight brightness
 
     # Utilities
     bc # calculator

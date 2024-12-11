@@ -16,6 +16,10 @@
     hyprland
     sway
 
+    # Icons
+    libsForQt5.breeze-icons # icon set for system icons
+    papirus-icon-theme
+
     # Right click menu
     # this should be kando which is more recent
     #gnomeExtensions.fly-pie
@@ -39,5 +43,7 @@
     wf-recorder # screen recorder util
     hyprpicker # wayland color picker
     grimblast # hyprland screenshot helper
+
+
   ];
 }

@@ -12,7 +12,7 @@ with config.lib.stylix.colors;
 
     settings = {
       "$mod" = "SUPER";
-      "$menu" = "wofi --show run";
+      "$menu" = "pkill wofi || wofi --show run";
 
       bindm = [
         #"$mod, Return, exec, kitty"
@@ -50,6 +50,7 @@ with config.lib.stylix.colors;
       #bind = $mod SHIFT, F, fullscreen
       bind = $mod SHIFT, F, fullscreen, 2
       bind = $mod, M, exit,
+      bind = $mod SHIFT, P, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/navigation/hyprland-window-switcher.sh,
       bind = $mod SHIFT, G, togglegroup,
       bind = $mod, G, changegroupactive,
       bind = $mod, V, togglefloating,
@@ -101,6 +102,18 @@ with config.lib.stylix.colors;
       bind = $mod SHIFT, 9, movetoworkspace, 9
       bind = $mod SHIFT, 0, movetoworkspace, 10
 
+      # Volume/media binds
+      bindel = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      bindel = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bindl = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+      # Requires playerctl
+      bindl = , XF86AudioPlay, exec, playerctl play-pause
+      bindl = , XF86AudioPrev, exec, playerctl previous
+      bindl = , XF86AudioNext, exec, playerctl next
+      # Brightness
+      bindel = ,XF86MonBrightnessDown, exec, sudo /run/current-system/sw/bin/light -U 10
+      bindel = ,XF86MonBrightnessUp, exec, sudo /run/current-system/sw/bin/light -A 10
 
       group {
         col.border_active = "rgb(${base0D}) rgb(${base0D})";
