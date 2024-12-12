@@ -42,4 +42,6 @@ in {
     [ gideon_hermes gideon_poseidon ];
   "weechat_libera_password.age".publicKeys = [ gideon_hermes gideon_poseidon ];
   # "newsboat_config.age".publicKeys = [ gideon_hermes gideon_poseidon ];
+  "weatherapi_api_key.age".publicKeys =
+    [ gideon_hermes gideon_poseidon ];
 }

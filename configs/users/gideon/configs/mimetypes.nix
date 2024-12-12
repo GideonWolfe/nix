@@ -24,6 +24,9 @@ with config.lib.stylix.colors.withHashtag;
 			"application/x-bzip" = ["org.gnome.FileRoller.desktop"];
 			"application/x-bzip2" = ["org.gnome.FileRoller.desktop"];
 
+            # Directories
+			"inode/directory" = lib.mkForce ["thunar.desktop"];
+
 			# Audio
 			"audio/aac" = ["vlc.desktop"];
 			"audio/mp3" = ["vlc.desktop"];
@@ -68,7 +71,7 @@ with config.lib.stylix.colors.withHashtag;
 
 
 
-			# TODO "unable to find terminal required for this application"
+			# TODO: "unable to find terminal required for this application"
 			# Text
 			#"text/css" = ["nvim.desktop"];
 			#"text/javascript" = ["nvim.desktop"];

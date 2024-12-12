@@ -19,6 +19,7 @@
     # Icons
     libsForQt5.breeze-icons # icon set for system icons
     papirus-icon-theme
+    adwaita-icon-theme
 
     # Right click menu
     # this should be kando which is more recent

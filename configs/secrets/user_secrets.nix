@@ -52,6 +52,11 @@
       #   file = ./secrets/users/gideon/newsboat/newsboat_config.age;
       #   path = "${config.home.homeDirectory}/.config/newsboat/config";
       # };
+      weatherapi_api_key = {
+        file = ./secrets/users/gideon/infra/weatherapi_api_key.age;
+        path =
+          "${config.home.homeDirectory}/.secrets/infra/weatherapi_api_key.json";
+      };
     };
   };
 }
