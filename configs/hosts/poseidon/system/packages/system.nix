@@ -108,7 +108,7 @@
     # Notification daemon
     libnotify
     #dunst
-    mako
+        #mako
 
     # Disk Automount daemon
     udiskie
