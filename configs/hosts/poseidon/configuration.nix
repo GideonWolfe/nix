@@ -37,6 +37,7 @@
     ./system/services/networks/bluetooth.nix
     ./system/services/networks/ssh.nix
     ./system/services/networks/wireguard.nix
+    ./system/services/networks/firewall.nix
 
     # Power management services
     ./system/services/power.nix

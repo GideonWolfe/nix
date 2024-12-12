@@ -6,8 +6,8 @@
 		########
 		# DATA #
 		########
-		#pkgs.paraview # data visualization engine
+		pkgs.paraview # data visualization engine
 		pkgs.labplot # data visualization engine
-		#pkgs.veusz # data visualization engine
+		pkgs.veusz # data visualization engine
 	];
 }

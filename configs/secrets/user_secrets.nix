@@ -9,10 +9,6 @@
     # Where the secrets are found and deployed
     secrets = {
       # Secrets for gideon
-      test_specific_user = {
-        file = ./secrets/test/test_specific_user.age;
-        path = "${config.home.homeDirectory}/.secrets/fuck";
-      };
       vdirsyncer_google_client_id = {
         file =
           ./secrets/users/gideon/calendar/vdirsyncer/vdirsyncer_google_client_id.age;
@@ -43,15 +39,16 @@
         path =
           "${config.home.homeDirectory}/.secrets/email/gideonwolfecom/mbsync_gideonwolfecom_password";
       };
-      weechat_libera_password = {
-        file = ./secrets/users/gideon/irc/weechat/weechat_libera_password.age;
+      # file used by weechat to abstract secrets into
+      weechat_sec_conf = {
+        file = ./secrets/users/gideon/irc/weechat/weechat_sec_conf.age;
         path =
-          "${config.home.homeDirectory}/.secrets/irc/weechat/weechat_libera_password";
+          "${config.home.homeDirectory}/.config/weechat/sec.conf";
       };
-      # newsboat_config = {
-      #   file = ./secrets/users/gideon/newsboat/newsboat_config.age;
-      #   path = "${config.home.homeDirectory}/.config/newsboat/config";
-      # };
+      freshrss_api_key = {
+        file = ./secrets/users/gideon/rss/freshrss_api_key.age;
+        path = "${config.home.homeDirectory}/.secrets/rss/freshrss_api_key";
+      };
       weatherapi_api_key = {
         file = ./secrets/users/gideon/infra/weatherapi_api_key.age;
         path =

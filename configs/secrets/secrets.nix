@@ -18,12 +18,6 @@ let
   systems = [ root_hermes root_athena root_poseidon ];
 
 in {
-  # "test_users_secret.age".publicKeys = users;
-  # "test_systems_secret.age".publicKeys = systems;
-  # "test_users_and_systems_secret.age".publicKeys = users ++ systems;
-  # "test_specific_user.age".publicKeys = [ gideon_hermes ];
-  # "test_specific_system.age".publicKeys = [ root_hermes ];
-  "test_specific_user.age".publicKeys = [ gideon_poseidon ];
   # Server secrets
   "traefik_env.age".publicKeys = [ root_athena ];
   "vaultwarden_env.age".publicKeys = [ root_athena ];
@@ -40,8 +34,8 @@ in {
     [ gideon_hermes gideon_poseidon ];
   "mbsync_gideonwolfecom_password.age".publicKeys =
     [ gideon_hermes gideon_poseidon ];
-  "weechat_libera_password.age".publicKeys = [ gideon_hermes gideon_poseidon ];
-  # "newsboat_config.age".publicKeys = [ gideon_hermes gideon_poseidon ];
+  "weechat_sec_conf.age".publicKeys = [ gideon_hermes gideon_poseidon ];
   "weatherapi_api_key.age".publicKeys =
     [ gideon_hermes gideon_poseidon ];
+  "freshrss_api_key.age".publicKeys = [ gideon_hermes gideon_poseidon ];
 }

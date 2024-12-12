@@ -36,6 +36,10 @@ with config.lib.stylix.colors.withHashtag;
         # https://github.com/nix-community/home-manager/pull/5220
         # https://github.com/nix-community/home-manager/issues/4531
         khard = { enable = true; };
+
+        # TODO: https://github.com/nix-community/home-manager/pull/5484
+        # Should be able to enable for thunderbird soon!
+
       };
     };
   };

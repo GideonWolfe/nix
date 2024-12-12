@@ -33,6 +33,7 @@ with config.lib.stylix.colors.withHashtag;
 				#"Snippets" = true | false,
 				#"Locked" = true | false
 			};
+			ShowHomeButton = true;
 
 			FirefoxSuggest = {
 				"WebSuggestions" = true;
@@ -83,6 +84,12 @@ with config.lib.stylix.colors.withHashtag;
 				"floccus@handmadeideas.org" = {
 					"installation_mode" = "force_installed";
 					"install_url" = "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi";
+					"default_area" = "menupanel";
+				};
+				# Floccus bookmarks
+				"addon@hoarder.app" = {
+					"installation_mode" = "force_installed";
+					"install_url" = "https://addons.mozilla.org/firefox/downloads/latest/hoarder/latest.xpi";
 					"default_area" = "menupanel";
 				};
 			};
@@ -212,6 +219,9 @@ with config.lib.stylix.colors.withHashtag;
 
 					/* List all tabs dropdown button */
 					#alltabs-button { color: ${base0D} !important; }
+
+					/* Browser home button */
+					#home-button { color: ${base0B} !important; }
 
 					/* Shield icon */
 					#tracking-protection-icon-box {

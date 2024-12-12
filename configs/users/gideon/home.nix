@@ -25,10 +25,10 @@
     ./packages/productivity/audio.nix
 
     # Video
-    #./packages/productivity/video.nix
+    ./packages/productivity/video.nix
 
     # Art
-    #./packages/productivity/art.nix
+    ./packages/productivity/art.nix
 
     # Comms
     ./packages/productivity/comms.nix
@@ -37,16 +37,16 @@
     #./user/packages/gaming.nix
 
     # STEM
-    #./packages/science/astronomy.nix
-    #./packages/science/biology.nix
-    #./packages/science/chemistry.nix
-    #./packages/science/data.nix
-    #./user/packages/science/education.nix
-    #./packages/science/geography.nix
+    ./packages/science/astronomy.nix
+    ./packages/science/biology.nix
+    ./packages/science/chemistry.nix
+    ./packages/science/data.nix
+    ./packages/science/education.nix
+    ./packages/science/geography.nix
     ./packages/science/math.nix
     #./user/packages/science/medecine.nix
     ./packages/science/utilities.nix
-    #./packages/science/engineering.nix
+    ./packages/science/engineering.nix
 
     # Development
     ./packages/development/rust.nix
@@ -142,12 +142,15 @@
     # Git
     ./configs/git.nix
 
+    # KDE Connect
+    ./configs/kdeconnect.nix
+
     # SSH
     ./configs/ssh/ssh.nix
 
     # Neomutt
     ./configs/email/neomutt/neomutt.nix
-    #./configs/email/thunderbird/thunderbird.nix #uses lots of storage
+    ./configs/email/thunderbird/thunderbird.nix #uses lots of storage
     ./configs/email/email.nix
     ./configs/email/mbsync.nix
 
@@ -156,7 +159,7 @@
     ./configs/weechat/weechat.nix
 
     # Newsboat
-    #./configs/newsboat/newsboat.nix
+    ./configs/newsboat/newsboat.nix
     #./configs/newsboat/urls.nix
 
     # Bluetooth (enabling applet)
