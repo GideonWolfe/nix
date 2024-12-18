@@ -66,6 +66,7 @@ with config.lib.stylix.colors;
       #bind = $mod, M, exit,
       bind = $mod SHIFT, P, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/navigation/hyprland-window-switcher.sh,
       bind = $mod SHIFT, S, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/search/wofi-web-search.sh,
+      bind = $mod SHIFT, E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji,
       bind = $mod SHIFT, G, togglegroup,
       bind = $mod, G, changegroupactive,
       bind = $mod, V, togglefloating,

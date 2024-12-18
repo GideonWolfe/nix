@@ -8,6 +8,7 @@
     pkgs.hyx # CLI Hex editor
     pkgs.highlight # highlight code output
     pkgs.jq # CLI JSON parser
+    pkgs.fx # TUI JSON viewer 
     pkgs.jqp # TUI playground for JQ
     pkgs.lazydocker # TUI docker interface
     pkgs.dive # Explore every layer in a docker image
@@ -21,6 +22,9 @@
     #pkgs.mprocs # run multiple processes and show output in the same TUI
     #pkgs.2fa # CLI 2FA client
     pkgs.gource # animate repo history
+    pkgs.serie # TUI git log viewer
+    pkgs.bitwise # TUI and CLI bitwise operation calc
+    pkgs.atac # Postman like API tester (TUI)
 
     # IDEs
     #pkgs.vscode
@@ -30,6 +34,7 @@
     #pkgs.akira # Prototyping / design tool
     #pkgs.gdbgui # browser based GUI for GDB
     #pkgs.seer # GDB frontend
+    #pkgs.harlequin # SQL IDE
 
     # Security
     pkgs.radare2

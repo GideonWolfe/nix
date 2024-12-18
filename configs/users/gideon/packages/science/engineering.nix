@@ -22,6 +22,7 @@
     #pkgs.baudline # scientific signal analysis app
     pkgs.sigrok-cli # signal analysis software
     pkgs.pulseview # GUI for sigrok
+        #pkgs.scope-tui # TUI oscilloscope/vectorscope.spectroscope
 
     #########
     # RADIO #

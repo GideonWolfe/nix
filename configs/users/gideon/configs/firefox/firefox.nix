@@ -161,6 +161,17 @@ with config.lib.stylix.colors.withHashtag;
           "ui.textHighlightBackground" = "${base05}";
           "ui.textHighlightForeground" = "${base00}";
 
+          # Set the colors of the reader mode
+          "reader.color_scheme" = "custom";
+          "reader.custom_colors.background" = "${base00}";
+          "reader.custom_colors.foreground" = "${base05}";
+          "reader.custom_colors.selection-highlight" = "${base0E}";
+          "reader.custom_colors.unvisited-links" = "${base0B}";
+          "reader.custom_colors.visited-links" = "${base08}";
+
+          "pdfjs.highlightEditorColors" =
+            "yellow=${base0A},green=${base0B},blue=${base0D},pink=${base0E},red=${base08}";
+
           # Use neovim to view source
           "view_source.editor.external" = true;
           "view_source.editor.path" = "${pkgs.neovim}/bin/nvim";
@@ -177,39 +188,261 @@ with config.lib.stylix.colors.withHashtag;
 
         userContent = ''
 
+            /* styling to apply to all about: pages */
+            @-moz-document url-prefix("about:"),
+            url-prefix("chrome://userchromejs/content/aboutconfig/aboutconfig.xhtml"),url-prefix(view-source)  {
+                :root {
+                    --primary-background: ${base00} !important;
+                    --bg-color: ${base00} !important;
+                    --secondary-background: ${base01} !important;
+                    --primary-font-color: ${base05} !important;
+                    --highlighted-font-color: ${base00} !important;
+                    --primary-border: 1px solid ${base0E} !important;
+                    --bright-border: 1px solid ${base0A} !important;
+                    --border-color: ${base0D} !important;
+                    --bright-border-color: ${base0A} !important;
+                    --primary-icon-color: ${base05} !important;
+                    --faded-bright-border-color: rgba(${base0A-rgb-r}, ${base0A-rgb-g}, ${base0A-rgb-b}, .65) !important;
+                    --in-content-border-focus: var(--bright-border-color) !important;
+                    --primary-accent-color: ${base0D} !important;
+                    --in-content-page-background: ${base00};
+                    --in-content-page-color: ${base05} !important;
+                    --in-content-box-background-alt: ${base01} !important;
+                    --in-content-box-info-background: ${base00} !important;
+                    --in-content-button-background: ${base00} !important;
+                    --in-content-button-background-alt: ${base01} !important;
+                    --in-content-box-border-color: ${base01} !important;
+                    --in-content-box-background: ${base00} !important;
+                    --in-content-box-background-op: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.5) !important;
+                    --in-content-primary-button-background: ${base01} !important;
+                    --in-content-primary-button-background-hover: ${base08} !important;
+                    --in-content-primary-button-background-active: ${base0D} !important;
+                    --in-content-text-color: ${base05} !important;
+                    --in-content-focus-outline-color: ${base09} !important;
+                    --search-box: ${base00} !important;
+                    --checkbox-checked-color: ${base0B} !important;
+                    --in-content-item-selected: ${base0B} !important;
+                    --in-content-primary-button-text-color: var(--highlighted-font-color) !important;
+                    --in-content-category-text-hover: HighlightText  !important;
+                    --in-content-category-background-hover: Highlight  !important;
+                    --in-content-category-text-selected: ${base00}  !important;
+                    --in-content-category-text-selected: ${base05}  !important;
+                    --in-content-category-background-selected: ${base01};
+                }
+                @media (min-width: 830px) {
+                    :root {
+                        --in-content-page-background: ${base00}!important;
+                    }
+                } 
+            }
 
-          /* change background of new tab page */
+            /* specific styling for about:preferences */
+            @-moz-document url-prefix("about:preferences") {
+                h1 {
+                    font-size: 1.5em!important;
+                    font-weight: 900 !important;
+                }
+                .main-content {
+                    background-color: ${base00} !important;
+                    color: ${base05}!important;
+                }
+                .sticky-container {
+                    background-color: ${base00} !important;
+                }
+                #categories>.category[selected], #categories>.category.selected {
+                    color: ${base08} !important;
+                }
+                html, h1, #categories {
+                    color: ${base05} !important;
+                }
+                .navigation, #handersView, #engineShown, #engineName, #engineKeyword, .dialogTitleBar {
+                    background-color: ${base01} !important;
+                    color: ${base05} !important;
+                }
+                #searchInput {
+                    background-color: ${base01} !important;
+                    color: ${base09} !important;
+                }
+                #filter {
+                    background-color: ${base01} !important;
+                    color: ${base09} !important;
+                }
+                #downloadFolder {
+                    background-color: ${base01} !important;
+                    color: ${base09} !important;
+                }
+                #typeColumn {
+                    background-color: ${base01} !important;
+                    color: ${base09} !important;
+                }
+                #actionColumn {
+                    background-color: ${base01} !important;
+                    color: ${base09} !important;
+                }
+                #handlersView {
+                    background-color: ${base01} !important;
+                    color: ${base05} !important;
+                }
+                #applicationsGroup listheader {
+                    background-color: ${base01} !important;
+                }
+                #contentBlockingOptionStandard, #contentBlockingOptionStrict, #contentBlockingOptionCustom {
+                    background-color: ${base01} !important;
+                    color: ${base05} !important;
+                    border: 0px  !important;
+                }
+                description {
+                    color: ${base05} !important;
+                }
+                #engineChildren {
+                    background-color: ${base01} !important;
+                    color: ${base05} !important;
+                }
+                .content-blocking-warning {
+                    background: ${base01} !important;
+                }
+                .checkbox-check, input[type="checkbox"] {
+                    border: 1px dashed var(--in-content-accent-color)  !important;
+                    background-color: transparent  !important;
+                    -moz-appearance: none  !important;
+                    opacity: 0.7 !important;
+                }
+                .checkbox-check[checked] {
+                    opacity: 1 !important;
+                }
+                input[type="checkbox"] {
+                    border: 1px dashed ${base0D}  !important;
+                    background-color: transparent  !important;
+                    -moz-appearance: none  !important;
+                }
+                .radio-check {
+                    background-color: transparent  !important;
+                }
+            }
+
+            /* specific styling for addons manager */
+            @-moz-document url-prefix("about:addons") {
+                #sidebar {
+                    background-color: ${base01};
+                }
+                #full {
+                    color: ${base05} !important;
+                }
+                .card {
+                    background-color: ${base01} !important;
+                    color: ${base05} !important;
+                }
+            }
+
+
+            /* specific styling for debugging page */
+            @-moz-document url-prefix(about:debugging) {
+                :root {
+                    --bg-color: ${base00} !important;
+                    --box-background: ${base01} !important;
+                    --box-border-color: ${base0D} !important;
+                    --text-color: ${base05} !important;
+                    --caption-20-color: ${base05} !important;
+                    --sidebar-selected-color: ${base05} !important;
+                    --card-separator-color: rgba(${base0B-rgb-r}, ${base0B-rgb-g}, ${base0B-rgb-b}, .65) !important;
+                }
+                .sidebar-item__link, .sidebar-item__link:hover {
+                    color: ${base05} !important;
+                    filter: sepia(0.1) !important;
+                }
+                .connect-section__header__icon, .connect-section__header__icon, .sidebar__footer__icon, .icon-label__icon {
+                    filter: invert(1) !important;
+                }
+                .default-button {
+                    color: ${base0A} !important;
+                    background-color: ${base01} !important;
+                }
+                .sidebar__label, .fieldpair__description {
+                    color: ${base05} !important;
+                }
+                .sidebar-item:not(.sidebar-item--selectable) {
+                    color: ${base05} !important;
+                }
+                .sidebar {
+                    background-color: ${base01} !important;
+                }
+                .card {
+                    background: ${base01} !important;
+                }
+                .fieldpair {
+                    border-color: ${base0C} !important;
+                }
+            }
+
+
+            /* TODO: this section doesn't seem to work */
+            @-moz-document url-prefix(view-source)  {
+              *|*:root {
+                background-color: ${base00}  !important;
+                color: ${base05}  !important;
+              }
+             pre[id]:before,
+              span[id]:before {
+                color: ${base05}  !important;
+              }
+
+              .highlight .start-tag {
+                color: ${base0E}  !important;
+              }
+
+              .highlight .end-tag {
+                color: ${base0E}  !important;
+              }
+
+              .highlight .comment {
+                color: ${base0B} !important;
+              }
+
+              .highlight .cdata {
+                color: ${base08}  !important;
+              }
+
+              .highlight .doctype {
+                color: ${base0D}  !important;
+              }
+
+              .highlight .pi {
+                color: ${base0E}  !important;
+              }
+
+              .highlight .entity {
+                color: ${base0F}  !important;
+              }
+
+              .highlight .attribute-name {
+                color: ${base0B}  !important;
+              }
+
+              .highlight .attribute-value {
+                color: ${base0D}  !important;
+              }
+
+              .highlight .markupdeclaration {
+                color: ${base0D}  !important;
+                font-style: italic !important;
+              }
+
+              .highlight .error,
+              .highlight .error > :-moz-any(.start-tag, .end-tag, .comment, .cdata, .doctype,
+              .pi, .entity, .attribute-name, .attribute-value) {
+                color: ${base08}  !important;
+              }
+            }
+
+
+
+          /* TODO maybe redundant change background of new tab page and loading pages to prevent flashbang*/
           @-moz-document url("about:newtab"),
           url("about:home")
           {
           	:root[lwt-newtab-brighttext] {
           		--newtab-background-color: ${base00} !important;
           	}
-          }
-
-          /* TODO this should style reader? idk if the reader pages start with about:reader*/
-          @-moz-document url-prefix("about:reader") {
-            body.dark {
-              color: ${base05} !important;
-              background-color: ${base00} !important;
-            }
-            /* I use light mode so darkreader is less buggy */
-            /* so this "light" mode is really dark*/
-            body.light {
-              color: ${base05} !important;
-              background-color: ${base00}!important;
-            }
-            body.sepia {
-              color: ${base0D} !important;
-              background-color: ${base00} !important;
-            }
-
-            body.serif {
-              font-family: serif !important;
-            }
-            body.sans-serif {
-              font-family: sans-serif !important;
-            }
           }
 
           /* change highlighted text color in web pages (not URL bar)
@@ -225,6 +458,10 @@ with config.lib.stylix.colors.withHashtag;
 
         # Custom CSS style options 
         userChrome = ''
+
+                            /* TODO this stopped working after 5 mins??? */
+                            /* get rid of blinding white loading screen for tabs */
+                            .browserContainer { background-color: ${base00} !important; }
 
           					/*------------- STATUS PANEL ------------------*/
 
@@ -331,7 +568,6 @@ with config.lib.stylix.colors.withHashtag;
 
           					/*-----------------------------------------*/
 
-          					/* */
 
           					/*----------------- TABS ------------------*/
 
@@ -541,7 +777,7 @@ with config.lib.stylix.colors.withHashtag;
 
           					/*-----------------------------------------*/
 
-                              /**/
+                              /*TODO does this do anything?*/
                               :root[hasbrowserhandlers="true"] body.dark.serif {
                                   background-color: ${base00} !important;
                                   color: ${base05} !important;

@@ -54,6 +54,8 @@
 		pkgs.ov # terminal pager
         pkgs.maim # scrot replacement
         pkgs.kando # pie menu
+        pkgs.sc-im # spreadsheet calculator
+        pkgs.qrtool # encode/decode QR images
 
 		#########
 		# PHOTO #
@@ -65,6 +67,8 @@
 		# FINANCE #
 		###########
 		pkgs.cointop # TUI Crypto price tracker
+        pkgs.ticker
+        pkgs.tickrs
 		
 
         # Workspaces and Knowledge Bases

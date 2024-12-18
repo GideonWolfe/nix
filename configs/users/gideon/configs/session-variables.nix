@@ -13,7 +13,7 @@
 {
   home.sessionVariables = {
     EDITOR = "nvim";
-    TERM = "kitty";
+    TERM = "xterm-kitty";
     BROWSER = "firefox";
     PAGER = "ov";
     #RULES =

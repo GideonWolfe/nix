@@ -355,7 +355,7 @@
                 gideonwolfecom-inbox = {
                   patterns = [ "INBOX" ];
                   extraConfig = {
-                    MaxMessages = 1000;
+                    MaxMessages = 5000;
                     ExpireUnread = true;
                     Create = "Near";
                     Remove = "Near";
@@ -367,7 +367,7 @@
                   farPattern = "Sent";
                   nearPattern = "/sent";
                   extraConfig = {
-                    MaxMessages = 100;
+                    MaxMessages = 500;
                     ExpireUnread = true;
                     Create = "Near";
                     Expunge = "Both";
@@ -389,7 +389,7 @@
                   farPattern = "Trash";
                   nearPattern = "/trash";
                   extraConfig = {
-                    MaxMessages = 100;
+                    MaxMessages = 1000;
                     ExpireUnread = true;
                     Create = "Near";
                     Expunge = "Both";

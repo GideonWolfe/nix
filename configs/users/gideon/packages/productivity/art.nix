@@ -22,5 +22,6 @@
     pkgs.fretboard # guitar chord identifier
     pkgs.coltrane # Music calculation GUI/TUI
     #pkgs.transcribe # music player optimized for transcribing music
+    pkgs.glicol-cli # TUI for glicol (coding music)
   ];
 }
