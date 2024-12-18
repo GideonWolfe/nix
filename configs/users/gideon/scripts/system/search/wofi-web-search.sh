@@ -55,7 +55,7 @@ search_options[reddit]="https://www.reddit.com/search/?q="
 search_options[youtube]="https://www.youtube.com/results?search_query="
 # Online Shopping
 search_options[amazon]="https://www.amazon.com/s?k="
-search_options[craigslist]="https://www.craigslist.org/search/sss?query="
+search_options[craigslist]="https://newyork.craigslist.org/search/sss?query="
 search_options[ebay]="https://www.ebay.com/sch/i.html?&_nkw="
 # Linux
 search_options[archaur]="https://aur.archlinux.org/packages/?O=0&K="

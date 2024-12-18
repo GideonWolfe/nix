@@ -12,6 +12,9 @@
     lxqt.xdg-desktop-portal-lxqt
     xdg-desktop-portal-kde
 
+    # xprop replacement
+    wlprop
+
     # Window manager
     hyprland
     sway

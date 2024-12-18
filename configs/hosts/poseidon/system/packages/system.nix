@@ -57,6 +57,7 @@
     dnstop # DNS traffic monitor
     bandwhich # bandwidth monitor
     jnettop
+    trippy
     ktop # kernel monitor
     kernelshark # GUI kernel monitor
     glances # system/process monitor
@@ -108,7 +109,7 @@
     # Notification daemon
     libnotify
     #dunst
-        #mako
+    #mako
 
     # Disk Automount daemon
     udiskie
@@ -123,6 +124,7 @@
     # TODO enable on real hardware
     #libvirt
     #virt-manager
+    qemu
 
     # Alternate shells
     fish
@@ -146,12 +148,12 @@
     #solaar # GUI for Logitech Unifying Reciever config
     antimicrox # GUI for mapping buttons on input devices
     openrgb-with-all-plugins # OpenRGB
-    ckb-next # Corsair keyboards
     #lact # GUI for AMD GPU control
     #nvitop # Interactive TUI for Nvidia GPU control # this may need additional plugins to detect other GPUs, check package list
     pciutils # providing utils for PCI devices such as lspci command
     #vial # QMK fork and GUI for keyboard configuration
-    #yubikey-personalization-gui
+    gsmartcontrol # GUI for smartmontools hard drive health
+    kdiskmark # disk benchmark GUI
 
     # File managers
     ranger

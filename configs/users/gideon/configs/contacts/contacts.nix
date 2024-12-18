@@ -35,7 +35,10 @@ with config.lib.stylix.colors.withHashtag;
         # They should add a setting to specify hardcoded collections in the base dir
         # https://github.com/nix-community/home-manager/pull/5220
         # https://github.com/nix-community/home-manager/issues/4531
-        khard = { enable = true; };
+        khard = {
+          enable = true;
+          defaultCollection = "default";
+        };
 
         # TODO: https://github.com/nix-community/home-manager/pull/5484
         # Should be able to enable for thunderbird soon!

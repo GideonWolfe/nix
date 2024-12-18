@@ -67,7 +67,9 @@
 		pkgs.cointop # TUI Crypto price tracker
 		
 
+        # Workspaces and Knowledge Bases
         pkgs.trilium-desktop
+        pkgs.affine
 
 	];
 }

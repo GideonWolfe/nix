@@ -33,6 +33,15 @@ with config.lib.stylix.colors;
         };
       };
 
+      misc = {
+        focus_on_activate =
+          true; # focus window when activated (ie by notification)
+        # wake monitor if mouse/keys are touched
+        mouse_move_enables_dpms = true;
+        key_press_enables_dpms = true;
+        enable_swallow = true;
+      };
+
     };
     extraConfig = ''
       #exec = pkill waybar & sleep 0.5 && waybar
@@ -54,8 +63,9 @@ with config.lib.stylix.colors;
       bind = $mod SHIFT, Q, killactive
       #bind = $mod SHIFT, F, fullscreen
       bind = $mod SHIFT, F, fullscreen, 2
-      bind = $mod, M, exit,
+      #bind = $mod, M, exit,
       bind = $mod SHIFT, P, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/navigation/hyprland-window-switcher.sh,
+      bind = $mod SHIFT, S, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/search/wofi-web-search.sh,
       bind = $mod SHIFT, G, togglegroup,
       bind = $mod, G, changegroupactive,
       bind = $mod, V, togglefloating,
@@ -123,6 +133,12 @@ with config.lib.stylix.colors;
       bindel = ,XF86MonBrightnessDown, exec, sudo /run/current-system/sw/bin/light -U 10
       bindel = ,XF86MonBrightnessUp, exec, sudo /run/current-system/sw/bin/light -A 10
 
+
+      # Hyprlock when the lid is closed
+      bindl=,switch:on:Lid Switch, exec, hyprctl dispatch exec hyprlock && systemctl suspend
+
+
+
       # to make kando work
       windowrule = noblur, kando
       windowrule = opaque, kando
@@ -133,6 +149,20 @@ with config.lib.stylix.colors;
       windowrule = pin, kando
 
 
+      # To make KDE connect message reply window not be tiny
+      windowrulev2 = minsize 400 400, title:(Messages — KDE Connect Daemon)
+
+      # Calculator scratchpad
+      windowrulev2 = float,class:(kitty-calculator)
+      windowrulev2 = size 500 500,class:(kitty-calculator)
+      windowrulev2 = workspace special:calculator,class:(kitty-calculator)
+      bind = $mod, M, exec, hyprctl clients | grep "kitty-calculator" && hyprctl dispatch togglespecialworkspace calculator || kitty --class "kitty-calculator" qalc &
+
+      # Translate scratchpad
+      windowrulev2 = float,class:(kitty-translator)
+      windowrulev2 = size 800 800,class:(kitty-translator)
+      windowrulev2 = workspace special:translator,class:(kitty-translator)
+      bind = $mod, T, exec, hyprctl clients | grep "kitty-translator" && hyprctl dispatch togglespecialworkspace translator || kitty --class "kitty-translator" trans -theme random -I &
 
       group {
         col.border_active = "rgb(${base0D}) rgb(${base0D})";

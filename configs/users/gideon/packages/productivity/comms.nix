@@ -4,13 +4,17 @@
   home.packages = [
     pkgs.lyrebird # voice changer
     pkgs.weechat # IRC TUI
-    #pkgs.element-desktop-wayland # Matrix GUI
-    #pkgs.signal-desktop
+    pkgs.weechatScripts.weechat-notify-send # allow weechat to send notifications
+    pkgs.weechatScripts.autosort
+    pkgs.weechatScripts.highmon
+    pkgs.element-desktop-wayland # Matrix GUI
+    pkgs.signal-desktop
+    pkgs.gurk-rs # signal TUI
     pkgs.neomutt # Email TUI
     #pkgs.discord
     pkgs.vesktop
     #pkgs.betterdiscord-installer
-    #pkgs.slack
+    pkgs.slack
     #pkgs.zoom-us
     pkgs.thunderbird
 

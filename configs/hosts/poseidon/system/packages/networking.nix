@@ -14,5 +14,6 @@
 		gping #graphical ping
 		ip2location
 		#tightvnc #VNC service
+        linux-wifi-hotspot # create wifi/VPN hotspots
 	];
 }

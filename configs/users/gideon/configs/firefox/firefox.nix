@@ -193,9 +193,11 @@ with config.lib.stylix.colors.withHashtag;
               color: ${base05} !important;
               background-color: ${base00} !important;
             }
+            /* I use light mode so darkreader is less buggy */
+            /* so this "light" mode is really dark*/
             body.light {
-              color: ${base00} !important;
-              background-color: ${base05}!important;
+              color: ${base05} !important;
+              background-color: ${base00}!important;
             }
             body.sepia {
               color: ${base0D} !important;
@@ -210,6 +212,14 @@ with config.lib.stylix.colors.withHashtag;
             }
           }
 
+          /* change highlighted text color in web pages (not URL bar)
+          /* TODO: broken*/
+          @-moz-document regexp("http(s)?:.*") {
+            ::selection {
+              background-color: ${base05};
+              color: ${base00};
+            }
+          }
 
         '';
 
@@ -311,8 +321,11 @@ with config.lib.stylix.colors.withHashtag;
 
           					/* Reader view icon */
           					#reader-mode-button-icon { color: ${base09} !important }
-          					#reader-mode-button[readeractive] > .urlbar-icon {
-          						color: ${base0E} !important 
+          					/* #reader-mode-button[readeractive] > .urlbar-icon { */
+          					/*	color: ${base0E} !important */
+          					/* } */
+          					#reader-mode-button-icon[readeractive] {
+          						color: ${base08} !important 
           					}
 
 

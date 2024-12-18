@@ -68,8 +68,8 @@
     ./configs/calendar/khal.nix
 
     # Configs for contacts settings and sync
-    #./configs/contacts/contacts.nix
-    #./configs/contacts/khard.nix
+    ./configs/contacts/contacts.nix
+    ./configs/contacts/khard.nix
 
     # Hyprland
     # Enable when ready for it
@@ -88,7 +88,7 @@
     ./configs/nixvim/nixvim.nix
 
     # Display configs
-    ./configs/kanshi.nix
+    #./configs/kanshi.nix
 
     # Kitty
     ./configs/kitty.nix
@@ -138,6 +138,8 @@
 
     # Cava
     ./configs/cava.nix
+    ./configs/glava/shaders.nix
+    ./configs/glava/rc.nix
 
     # Git
     ./configs/git.nix
@@ -150,7 +152,7 @@
 
     # Neomutt
     ./configs/email/neomutt/neomutt.nix
-    ./configs/email/thunderbird/thunderbird.nix #uses lots of storage
+    ./configs/email/thunderbird/thunderbird.nix # uses lots of storage
     ./configs/email/email.nix
     ./configs/email/mbsync.nix
 
@@ -206,7 +208,6 @@
     ./configs/projects/music.nix
 
     #TODO: enable when config done
-    #./configs/eww/eww.nix
     #./configs/ags/ags.nix
     #./configs/ags/style.nix
 
@@ -227,21 +228,6 @@
       "  mkdir -p ${config.home.homeDirectory}/pictures/screenshots/\n";
     createScreenRecordings = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/\n";
-    # Email mailboxes
-    # createDraft = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/drafts/\n";
-    # createInbox = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/inbox/\n";
-    # createAll = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/all/\n";
-    # createStarred = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/starred/\n";
-    # createSent = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/sent/\n";
-    # createTrash = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/trash/\n";
-    # createSpam = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/spam/\n";
     createCalendarGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/calendars/gmail/\n";
     createContactsGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]

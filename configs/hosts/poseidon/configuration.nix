@@ -29,6 +29,9 @@
     # GNOME Keyring
     ./system/services/gnome-keyring.nix
 
+    # Virtualization 
+    ./system/services/virtualization.nix
+
     # System level theming
     ./system/graphics/stylix.nix
 
