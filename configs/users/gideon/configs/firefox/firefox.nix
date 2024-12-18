@@ -179,6 +179,15 @@ with config.lib.stylix.colors.withHashtag;
           # Some style settings
           "browser.chrome.favicons" = false;
 
+          # enable debugging of firefox chrome through inspector
+          "devtools.chrome.enabled" = true;
+          "devtools.debugger.remote-enabled" = true;
+
+          # Change colors of PDFJS pdf reader
+          "pdfjs.forcePageColors" = true;
+          "pdfjs.pageColorsBackground" = "${base00}";
+          "pdfjs.pageColorsForeground" = "${base05}";
+
         };
 
         # TODO this is a cleaner way of structuring things,
@@ -188,7 +197,25 @@ with config.lib.stylix.colors.withHashtag;
 
         userContent = ''
 
+            :root {
+                    /* PDF.js tweaks, might specify class further if it causes issues*/
+                    --body-bg-color: ${base01} !important;
+                    --field-bg-color: ${base01} !important;
+                    --toolbar-bg-color: ${base00} !important;
+                    --toolbar-icon-bg-color: ${base0B} !important;
+                    --toolbar-border-color: ${base0E} !important;
+                    --sidebar-toolbar-bg-color: ${base01} !important;
+                    --toggled-btn-color: ${base09} !important;
+                    --toggled-btn-bg-color: ${base01} !important;
+                    --dropdown-btn-bg-color: ${base0D} !important;
+                    --main-color: ${base05} !important;
+            }
+            .toolbarField {
+                    color: ${base0A} !important;
+            }
+
             /* styling to apply to all about: pages */
+            /* https://github.com/ATechnocratis/widefox/blob/main/chrome/userContent-files/aboutpages/about_pages_Darker.css */
             @-moz-document url-prefix("about:"),
             url-prefix("chrome://userchromejs/content/aboutconfig/aboutconfig.xhtml"),url-prefix(view-source)  {
                 :root {
@@ -196,6 +223,7 @@ with config.lib.stylix.colors.withHashtag;
                     --bg-color: ${base00} !important;
                     --secondary-background: ${base01} !important;
                     --primary-font-color: ${base05} !important;
+                    --background-color-box: ${base01} !important;
                     --highlighted-font-color: ${base00} !important;
                     --primary-border: 1px solid ${base0E} !important;
                     --bright-border: 1px solid ${base0A} !important;
@@ -205,6 +233,7 @@ with config.lib.stylix.colors.withHashtag;
                     --faded-bright-border-color: rgba(${base0A-rgb-r}, ${base0A-rgb-g}, ${base0A-rgb-b}, .65) !important;
                     --in-content-border-focus: var(--bright-border-color) !important;
                     --primary-accent-color: ${base0D} !important;
+                    --color-accent-primary: ${base00} !important;
                     --in-content-page-background: ${base00};
                     --in-content-page-color: ${base05} !important;
                     --in-content-box-background-alt: ${base01} !important;
@@ -227,7 +256,10 @@ with config.lib.stylix.colors.withHashtag;
                     --in-content-category-background-hover: Highlight  !important;
                     --in-content-category-text-selected: ${base00}  !important;
                     --in-content-category-text-selected: ${base05}  !important;
-                    --in-content-category-background-selected: ${base01};
+                    --in-content-category-background-selected: ${base01} !important;
+
+                    /* color of toggle button nubs */
+                    --background-color-canvas: ${base0E} !important;
                 }
                 @media (min-width: 830px) {
                     :root {
@@ -332,6 +364,10 @@ with config.lib.stylix.colors.withHashtag;
                     background-color: ${base01} !important;
                     color: ${base05} !important;
                 }
+                #searchInput {
+                    background-color: ${base01} !important;
+                    color: ${base09} !important;
+                }
             }
 
 
@@ -374,76 +410,30 @@ with config.lib.stylix.colors.withHashtag;
                 }
             }
 
-
-            /* TODO: this section doesn't seem to work */
-            @-moz-document url-prefix(view-source)  {
-              *|*:root {
-                background-color: ${base00}  !important;
-                color: ${base05}  !important;
-              }
-             pre[id]:before,
-              span[id]:before {
-                color: ${base05}  !important;
-              }
-
-              .highlight .start-tag {
-                color: ${base0E}  !important;
-              }
-
-              .highlight .end-tag {
-                color: ${base0E}  !important;
-              }
-
-              .highlight .comment {
-                color: ${base0B} !important;
-              }
-
-              .highlight .cdata {
-                color: ${base08}  !important;
-              }
-
-              .highlight .doctype {
-                color: ${base0D}  !important;
-              }
-
-              .highlight .pi {
-                color: ${base0E}  !important;
-              }
-
-              .highlight .entity {
-                color: ${base0F}  !important;
-              }
-
-              .highlight .attribute-name {
-                color: ${base0B}  !important;
-              }
-
-              .highlight .attribute-value {
-                color: ${base0D}  !important;
-              }
-
-              .highlight .markupdeclaration {
-                color: ${base0D}  !important;
-                font-style: italic !important;
-              }
-
-              .highlight .error,
-              .highlight .error > :-moz-any(.start-tag, .end-tag, .comment, .cdata, .doctype,
-              .pi, .entity, .attribute-name, .attribute-value) {
-                color: ${base08}  !important;
-              }
+            /* TODO still really ugly */
+            @-moz-document url-prefix(about:performance) {
+                html, #dispatch-table {
+                    background:none!Important;
+                }
+                #dispatch-thead>tr>td {
+                    background-color: ${base00};
+                    backdrop-filter: blur(10px);
+                }
+                td {
+                    color: ${base01} !important;
+                }
+                #column-name {
+                    padding-right: 60px!important;
+                }
+                #column-type {
+                    padding-right: 0px!important;
+                }
+                td {
+                    min-width: 10px!Important;
+                    width: 20px!Important;
+                }
             }
 
-
-
-          /* TODO maybe redundant change background of new tab page and loading pages to prevent flashbang*/
-          @-moz-document url("about:newtab"),
-          url("about:home")
-          {
-          	:root[lwt-newtab-brighttext] {
-          		--newtab-background-color: ${base00} !important;
-          	}
-          }
 
           /* change highlighted text color in web pages (not URL bar)
           /* TODO: broken*/
@@ -459,7 +449,6 @@ with config.lib.stylix.colors.withHashtag;
         # Custom CSS style options 
         userChrome = ''
 
-                            /* TODO this stopped working after 5 mins??? */
                             /* get rid of blinding white loading screen for tabs */
                             .browserContainer { background-color: ${base00} !important; }
 
