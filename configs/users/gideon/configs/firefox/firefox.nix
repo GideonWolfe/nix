@@ -448,13 +448,16 @@ with config.lib.stylix.colors.withHashtag;
               }
 
 
-            /* change highlighted text color in web pages (not URL bar)
-            /* TODO: broken*/
-            @-moz-document regexp("http(s)?:.*") {
-              ::selection {
-                background-color: ${base05};
-                color: ${base00};
-              }
+            /* change highlighted text color in web pages (not URL bar) */
+            @layer {
+                ::selection {
+                    background-color: ${base0D} !important;
+                    color: ${base00} !important;
+                }
+                ::-moz-selection {
+                    background-color: ${base0D} !important;
+                    color: ${base00} !important;
+                }
             }
 
           /* TODO none of this view source stuff works */
@@ -621,9 +624,18 @@ with config.lib.stylix.colors.withHashtag;
           					#unified-extensions-button{
           						color: ${base0F} !important;
           					}
+          					/* Account icon in toolbar */
+          					#fxa-toolbar-menu-button{
+          						color: ${base08} !important;
+          					}
 
           					/* Disable favorite star button */
           					#star-button-box { display:none !important; }
+
+          					/* close button */
+          					#browser-window-close-button{
+          						color: ${base08} !important;
+          					}
 
           					/* Reader view icon */
           					#reader-mode-button-icon { color: ${base09} !important }
