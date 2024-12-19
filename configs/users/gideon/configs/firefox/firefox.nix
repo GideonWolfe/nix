@@ -188,6 +188,10 @@ with config.lib.stylix.colors.withHashtag;
           "pdfjs.pageColorsBackground" = "${base00}";
           "pdfjs.pageColorsForeground" = "${base05}";
 
+          # allow plugins on all pages
+          "extensions.webextensions.restrictedDomains" = "";
+          "extensions.webextensions.restrictedDomains.enabled" = false;
+          "privacy.resistFingerprinting.block_mozAddonManager" = true;
         };
 
         # TODO this is a cleaner way of structuring things,
@@ -197,252 +201,328 @@ with config.lib.stylix.colors.withHashtag;
 
         userContent = ''
 
-            :root {
-                    /* PDF.js tweaks, might specify class further if it causes issues*/
-                    --body-bg-color: ${base01} !important;
-                    --field-bg-color: ${base01} !important;
-                    --toolbar-bg-color: ${base00} !important;
-                    --toolbar-icon-bg-color: ${base0B} !important;
-                    --toolbar-border-color: ${base0E} !important;
-                    --sidebar-toolbar-bg-color: ${base01} !important;
-                    --toggled-btn-color: ${base09} !important;
-                    --toggled-btn-bg-color: ${base01} !important;
-                    --dropdown-btn-bg-color: ${base0D} !important;
-                    --main-color: ${base05} !important;
+              :root {
+                      /* PDF.js tweaks, might specify class further if it causes issues*/
+                      --body-bg-color: ${base01} !important;
+                      --field-bg-color: ${base01} !important;
+                      --toolbar-bg-color: ${base00} !important;
+                      --toolbar-icon-bg-color: ${base0B} !important;
+                      --toolbar-border-color: ${base0E} !important;
+                      --sidebar-toolbar-bg-color: ${base01} !important;
+                      --toggled-btn-color: ${base09} !important;
+                      --toggled-btn-bg-color: ${base01} !important;
+                      --dropdown-btn-bg-color: ${base00} !important;
+                      --main-color: ${base05} !important;
+                      --text-color: ${base05} !important;
+              }
+              /* current page number */
+              .toolbarField {
+                      color: ${base0A} !important;
+              }
+              /* drop down menu for zooming in PDF reader */
+              .dropdownToolbarButton {
+                      color: ${base05} !important;
+                      background-color: ${base00} !important;
+                      border: 1px solid ${base0E} !important;
+              }
+
+              /* styling to apply to all about: pages */
+              /* https://github.com/ATechnocratis/widefox/blob/main/chrome/userContent-files/aboutpages/about_pages_Darker.css */
+              @-moz-document url-prefix("about:"),
+              url-prefix("chrome://userchromejs/content/aboutconfig/aboutconfig.xhtml"),url-prefix(view-source)  {
+                  :root {
+                      --primary-background: ${base00} !important;
+                      --bg-color: ${base00} !important;
+                      --secondary-background: ${base01} !important;
+                      --primary-font-color: ${base05} !important;
+                      --background-color-box: ${base01} !important;
+                      --highlighted-font-color: ${base00} !important;
+                      --primary-border: 1px solid ${base0E} !important;
+                      --bright-border: 1px solid ${base0A} !important;
+                      --border-color: ${base0D} !important;
+                      --bright-border-color: ${base0A} !important;
+                      --primary-icon-color: ${base05} !important;
+                      --faded-bright-border-color: rgba(${base0A-rgb-r}, ${base0A-rgb-g}, ${base0A-rgb-b}, .65) !important;
+                      --in-content-border-focus: ${base0E} !important;
+                      --in-content-border-color: ${base09} !important;
+                      /* --primary-accent-color: ${base0D} !important; */
+                      --color-accent-primary: ${base0E} !important;
+                      --color-accent-primary-hover: ${base0D} !important;
+                      --in-content-page-background: ${base00};
+                      --in-content-page-color: ${base05} !important;
+                      --in-content-box-background-alt: ${base01} !important;
+                      --in-content-box-info-background: ${base00} !important;
+                      --in-content-button-background: ${base01} !important;
+                      --in-content-button-background-alt: ${base00} !important;
+                      --in-content-box-border-color: ${base01} !important;
+                      --in-content-box-background: ${base00} !important;
+                      --in-content-box-background-op: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.5) !important;
+                      --in-content-primary-button-background: ${base0D} !important;
+                      --in-content-primary-button-background-hover: ${base0B} !important;
+                      --in-content-primary-button-background-active: ${base0C} !important;
+                      --in-content-text-color: ${base05} !important;
+                      --in-content-focus-outline-color: ${base09} !important;
+                      --search-box: ${base00} !important;
+                      --checkbox-checked-color: ${base0B} !important;
+                      --in-content-item-selected: ${base0B} !important;
+                      --in-content-primary-button-text-color: var(--highlighted-font-color) !important;
+                      --in-content-category-text-hover: HighlightText  !important;
+                      --in-content-category-background-hover: Highlight  !important;
+                      --in-content-category-text-selected: ${base00}  !important;
+                      --in-content-category-text-selected: ${base05}  !important;
+                      --in-content-category-background-selected: ${base01} !important;
+
+                      /* color of toggle button nubs */
+                      --background-color-canvas: ${base00} !important;
+                  }
+                  @media (min-width: 830px) {
+                      :root {
+                          --in-content-page-background: ${base00}!important;
+                      }
+                  } 
+              }
+
+              /* specific styling for about:preferences */
+              @-moz-document url-prefix("about:preferences") {
+                  h1 {
+                      font-size: 1.5em!important;
+                      font-weight: 900 !important;
+                  }
+                  .main-content {
+                      background-color: ${base00} !important;
+                      color: ${base05}!important;
+                  }
+                  .sticky-container {
+                      background-color: ${base00} !important;
+                  }
+                  #categories>.category[selected], #categories>.category.selected {
+                      color: ${base08} !important;
+                  }
+                  html, h1, #categories {
+                      color: ${base05} !important;
+                  }
+                  .navigation, #handersView, #engineShown, #engineName, #engineKeyword, .dialogTitleBar {
+                      background-color: ${base01} !important;
+                      color: ${base05} !important;
+                  }
+                  #searchInput {
+                      background-color: ${base01} !important;
+                      color: ${base09} !important;
+                  }
+                  #filter {
+                      background-color: ${base01} !important;
+                      color: ${base09} !important;
+                  }
+                  #downloadFolder {
+                      background-color: ${base01} !important;
+                      color: ${base09} !important;
+                  }
+                  #typeColumn {
+                      background-color: ${base01} !important;
+                      color: ${base09} !important;
+                  }
+                  #actionColumn {
+                      background-color: ${base01} !important;
+                      color: ${base09} !important;
+                  }
+                  #handlersView {
+                      background-color: ${base01} !important;
+                      color: ${base05} !important;
+                  }
+                  #applicationsGroup listheader {
+                      background-color: ${base01} !important;
+                  }
+                  #contentBlockingOptionStandard, #contentBlockingOptionStrict, #contentBlockingOptionCustom {
+                      background-color: ${base01} !important;
+                      color: ${base05} !important;
+                      border: 0px  !important;
+                  }
+                  description {
+                      color: ${base05} !important;
+                  }
+                  #engineChildren {
+                      background-color: ${base01} !important;
+                      color: ${base05} !important;
+                  }
+                  .content-blocking-warning {
+                      background: ${base01} !important;
+                  }
+                  .checkbox-check, input[type="checkbox"] {
+                      border: 1px dashed var(--in-content-accent-color)  !important;
+                      background-color: transparent  !important;
+                      -moz-appearance: none  !important;
+                      opacity: 0.7 !important;
+                  }
+                  .checkbox-check[checked] {
+                      opacity: 1 !important;
+                  }
+                  input[type="checkbox"] {
+                      border: 1px dashed ${base0D}  !important;
+                      background-color: transparent  !important;
+                      -moz-appearance: none  !important;
+                  }
+                  .radio-check {
+                      background-color: transparent  !important;
+                  }
+              }
+
+              /* specific styling for addons manager */
+              @-moz-document url-prefix("about:addons") {
+                  #sidebar {
+                      background-color: ${base01};
+                  }
+                  #full {
+                      color: ${base05} !important;
+                  }
+                  .card {
+                      background-color: ${base01} !important;
+                      color: ${base05} !important;
+                  }
+                  #searchInput {
+                      background-color: ${base01} !important;
+                      color: ${base09} !important;
+                  }
+              }
+
+              /* specific styling for debugging page */
+              @-moz-document url-prefix(about:debugging) {
+                  :root {
+                      --bg-color: ${base00} !important;
+                      --box-background: ${base01} !important;
+                      --box-border-color: ${base0D} !important;
+                      --text-color: ${base05} !important;
+                      --caption-20-color: ${base05} !important;
+                      --sidebar-selected-color: ${base05} !important;
+                      --card-separator-color: rgba(${base0B-rgb-r}, ${base0B-rgb-g}, ${base0B-rgb-b}, .65) !important;
+                  }
+                  .sidebar-item__link, .sidebar-item__link:hover {
+                      color: ${base05} !important;
+                      filter: sepia(0.1) !important;
+                  }
+                  .connect-section__header__icon, .connect-section__header__icon, .sidebar__footer__icon, .icon-label__icon {
+                      filter: invert(1) !important;
+                  }
+                  .default-button {
+                      color: ${base0A} !important;
+                      background-color: ${base01} !important;
+                  }
+                  .sidebar__label, .fieldpair__description {
+                      color: ${base05} !important;
+                  }
+                  .sidebar-item:not(.sidebar-item--selectable) {
+                      color: ${base05} !important;
+                  }
+                  .sidebar {
+                      background-color: ${base01} !important;
+                  }
+                  .card {
+                      background: ${base01} !important;
+                  }
+                  .fieldpair {
+                      border-color: ${base0C} !important;
+                  }
+              }
+
+              /* TODO still really ugly */
+              @-moz-document url-prefix(about:performance) {
+                  html, #dispatch-table {
+                      background:none!Important;
+                  }
+                  #dispatch-thead>tr>td {
+                      background-color: ${base00};
+                      backdrop-filter: blur(10px);
+                  }
+                  td {
+                      color: ${base01} !important;
+                  }
+                  #column-name {
+                      padding-right: 60px!important;
+                  }
+                  #column-type {
+                      padding-right: 0px!important;
+                  }
+                  td {
+                      min-width: 10px!Important;
+                      width: 20px!Important;
+                  }
+              }
+
+
+            /* change highlighted text color in web pages (not URL bar)
+            /* TODO: broken*/
+            @-moz-document regexp("http(s)?:.*") {
+              ::selection {
+                background-color: ${base05};
+                color: ${base00};
+              }
             }
-            .toolbarField {
-                    color: ${base0A} !important;
-            }
 
-            /* styling to apply to all about: pages */
-            /* https://github.com/ATechnocratis/widefox/blob/main/chrome/userContent-files/aboutpages/about_pages_Darker.css */
-            @-moz-document url-prefix("about:"),
-            url-prefix("chrome://userchromejs/content/aboutconfig/aboutconfig.xhtml"),url-prefix(view-source)  {
-                :root {
-                    --primary-background: ${base00} !important;
-                    --bg-color: ${base00} !important;
-                    --secondary-background: ${base01} !important;
-                    --primary-font-color: ${base05} !important;
-                    --background-color-box: ${base01} !important;
-                    --highlighted-font-color: ${base00} !important;
-                    --primary-border: 1px solid ${base0E} !important;
-                    --bright-border: 1px solid ${base0A} !important;
-                    --border-color: ${base0D} !important;
-                    --bright-border-color: ${base0A} !important;
-                    --primary-icon-color: ${base05} !important;
-                    --faded-bright-border-color: rgba(${base0A-rgb-r}, ${base0A-rgb-g}, ${base0A-rgb-b}, .65) !important;
-                    --in-content-border-focus: var(--bright-border-color) !important;
-                    --primary-accent-color: ${base0D} !important;
-                    --color-accent-primary: ${base00} !important;
-                    --in-content-page-background: ${base00};
-                    --in-content-page-color: ${base05} !important;
-                    --in-content-box-background-alt: ${base01} !important;
-                    --in-content-box-info-background: ${base00} !important;
-                    --in-content-button-background: ${base00} !important;
-                    --in-content-button-background-alt: ${base01} !important;
-                    --in-content-box-border-color: ${base01} !important;
-                    --in-content-box-background: ${base00} !important;
-                    --in-content-box-background-op: rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, 0.5) !important;
-                    --in-content-primary-button-background: ${base01} !important;
-                    --in-content-primary-button-background-hover: ${base08} !important;
-                    --in-content-primary-button-background-active: ${base0D} !important;
-                    --in-content-text-color: ${base05} !important;
-                    --in-content-focus-outline-color: ${base09} !important;
-                    --search-box: ${base00} !important;
-                    --checkbox-checked-color: ${base0B} !important;
-                    --in-content-item-selected: ${base0B} !important;
-                    --in-content-primary-button-text-color: var(--highlighted-font-color) !important;
-                    --in-content-category-text-hover: HighlightText  !important;
-                    --in-content-category-background-hover: Highlight  !important;
-                    --in-content-category-text-selected: ${base00}  !important;
-                    --in-content-category-text-selected: ${base05}  !important;
-                    --in-content-category-background-selected: ${base01} !important;
+          /* TODO none of this view source stuff works */
+          @-moz-document url-prefix(view-source:) {
 
-                    /* color of toggle button nubs */
-                    --background-color-canvas: ${base0E} !important;
-                }
-                @media (min-width: 830px) {
-                    :root {
-                        --in-content-page-background: ${base00}!important;
-                    }
-                } 
-            }
+              /* *|*:root { */
+              /*    background: none !important; */
+              /* } */
 
-            /* specific styling for about:preferences */
-            @-moz-document url-prefix("about:preferences") {
-                h1 {
-                    font-size: 1.5em!important;
-                    font-weight: 900 !important;
-                }
-                .main-content {
-                    background-color: ${base00} !important;
-                    color: ${base05}!important;
-                }
-                .sticky-container {
-                    background-color: ${base00} !important;
-                }
-                #categories>.category[selected], #categories>.category.selected {
-                    color: ${base08} !important;
-                }
-                html, h1, #categories {
-                    color: ${base05} !important;
-                }
-                .navigation, #handersView, #engineShown, #engineName, #engineKeyword, .dialogTitleBar {
-                    background-color: ${base01} !important;
-                    color: ${base05} !important;
-                }
-                #searchInput {
-                    background-color: ${base01} !important;
-                    color: ${base09} !important;
-                }
-                #filter {
-                    background-color: ${base01} !important;
-                    color: ${base09} !important;
-                }
-                #downloadFolder {
-                    background-color: ${base01} !important;
-                    color: ${base09} !important;
-                }
-                #typeColumn {
-                    background-color: ${base01} !important;
-                    color: ${base09} !important;
-                }
-                #actionColumn {
-                    background-color: ${base01} !important;
-                    color: ${base09} !important;
-                }
-                #handlersView {
-                    background-color: ${base01} !important;
-                    color: ${base05} !important;
-                }
-                #applicationsGroup listheader {
-                    background-color: ${base01} !important;
-                }
-                #contentBlockingOptionStandard, #contentBlockingOptionStrict, #contentBlockingOptionCustom {
-                    background-color: ${base01} !important;
-                    color: ${base05} !important;
-                    border: 0px  !important;
-                }
-                description {
-                    color: ${base05} !important;
-                }
-                #engineChildren {
-                    background-color: ${base01} !important;
-                    color: ${base05} !important;
-                }
-                .content-blocking-warning {
-                    background: ${base01} !important;
-                }
-                .checkbox-check, input[type="checkbox"] {
-                    border: 1px dashed var(--in-content-accent-color)  !important;
-                    background-color: transparent  !important;
-                    -moz-appearance: none  !important;
-                    opacity: 0.7 !important;
-                }
-                .checkbox-check[checked] {
-                    opacity: 1 !important;
-                }
-                input[type="checkbox"] {
-                    border: 1px dashed ${base0D}  !important;
-                    background-color: transparent  !important;
-                    -moz-appearance: none  !important;
-                }
-                .radio-check {
-                    background-color: transparent  !important;
-                }
-            }
+              #viewsource {
+                  color: ${base05};
+              }
 
-            /* specific styling for addons manager */
-            @-moz-document url-prefix("about:addons") {
-                #sidebar {
-                    background-color: ${base01};
-                }
-                #full {
-                    color: ${base05} !important;
-                }
-                .card {
-                    background-color: ${base01} !important;
-                    color: ${base05} !important;
-                }
-                #searchInput {
-                    background-color: ${base01} !important;
-                    color: ${base09} !important;
-                }
-            }
+              pre[id]:before,
+              span[id]:before {
+                  width: 6ch !important;
+                  color: ${base05} !important;
+                  margin-left: -7ch !important;
+              }
+              pre {
+                  padding-left: 1ch;
+                  margin-left: 6ch !important;
+                  border-left: 2px solid ${base01};
+              }
+              pre > :first-child {
+                  padding-right: 1ch;
+              }
 
-
-            /* specific styling for debugging page */
-            @-moz-document url-prefix(about:debugging) {
-                :root {
-                    --bg-color: ${base00} !important;
-                    --box-background: ${base01} !important;
-                    --box-border-color: ${base0D} !important;
-                    --text-color: ${base05} !important;
-                    --caption-20-color: ${base05} !important;
-                    --sidebar-selected-color: ${base05} !important;
-                    --card-separator-color: rgba(${base0B-rgb-r}, ${base0B-rgb-g}, ${base0B-rgb-b}, .65) !important;
-                }
-                .sidebar-item__link, .sidebar-item__link:hover {
-                    color: ${base05} !important;
-                    filter: sepia(0.1) !important;
-                }
-                .connect-section__header__icon, .connect-section__header__icon, .sidebar__footer__icon, .icon-label__icon {
-                    filter: invert(1) !important;
-                }
-                .default-button {
-                    color: ${base0A} !important;
-                    background-color: ${base01} !important;
-                }
-                .sidebar__label, .fieldpair__description {
-                    color: ${base05} !important;
-                }
-                .sidebar-item:not(.sidebar-item--selectable) {
-                    color: ${base05} !important;
-                }
-                .sidebar {
-                    background-color: ${base01} !important;
-                }
-                .card {
-                    background: ${base01} !important;
-                }
-                .fieldpair {
-                    border-color: ${base0C} !important;
-                }
-            }
-
-            /* TODO still really ugly */
-            @-moz-document url-prefix(about:performance) {
-                html, #dispatch-table {
-                    background:none!Important;
-                }
-                #dispatch-thead>tr>td {
-                    background-color: ${base00};
-                    backdrop-filter: blur(10px);
-                }
-                td {
-                    color: ${base01} !important;
-                }
-                #column-name {
-                    padding-right: 60px!important;
-                }
-                #column-type {
-                    padding-right: 0px!important;
-                }
-                td {
-                    min-width: 10px!Important;
-                    width: 20px!Important;
-                }
-            }
-
-
-          /* change highlighted text color in web pages (not URL bar)
-          /* TODO: broken*/
-          @-moz-document regexp("http(s)?:.*") {
-            ::selection {
-              background-color: ${base05};
-              color: ${base00};
-            }
+              .highlight .start-tag {
+               color: ${base0E} !important;
+              }
+              .highlight .end-tag {
+               color: ${base0E} !important;
+              }
+              .highlight .comment {
+               color: ${base04} !important;
+              }
+              .highlight .cdata {
+               color: ${base08} !important;
+              }
+              .highlight .doctype {
+               color: ${base0D} !important;
+              }
+              .highlight .pi {
+               color: ${base0D} !important; 
+              }
+              .highlight .entity {
+               color: ${base0A} !important;
+              }
+              .highlight .attribute-name {
+               color: ${base05} !important;
+              }
+              .highlight .attribute-value {
+               color: ${base0B} !important;
+              }
+              .highlight .markupdeclaration {
+               color: ${base0C} !important;
+              }
+              .highlight .error,
+              .highlight .error > :-moz-any(.start-tag, .end-tag, .comment, .cdata, .doctype,
+              .pi, .entity, .attribute-name, .attribute-value) {
+                  color: ${base01} !important;
+                  background-color: ${base08} !important;
+              }
           }
+
+
+
 
         '';
 
