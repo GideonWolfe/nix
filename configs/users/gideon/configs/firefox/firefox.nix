@@ -169,6 +169,7 @@ with config.lib.stylix.colors.withHashtag;
           "reader.custom_colors.unvisited-links" = "${base0B}";
           "reader.custom_colors.visited-links" = "${base08}";
 
+          # Colors available when using highlighter tool in PDF
           "pdfjs.highlightEditorColors" =
             "yellow=${base0A},green=${base0B},blue=${base0D},pink=${base0E},red=${base08}";
 
@@ -200,7 +201,8 @@ with config.lib.stylix.colors.withHashtag;
         #userChrome = builtins.readFile ./userChrome.css;
 
         userContent = ''
-
+              
+              /* anything here gets applied universally to every page and element */
               :root {
                       /* PDF.js tweaks, might specify class further if it causes issues*/
                       --body-bg-color: ${base01} !important;
@@ -214,8 +216,18 @@ with config.lib.stylix.colors.withHashtag;
                       --dropdown-btn-bg-color: ${base00} !important;
                       --main-color: ${base05} !important;
                       --text-color: ${base05} !important;
+                      --doorhanger-bg-color: ${base00} !important;
+
+                      /* tweaks to "firefox view" page */
+                     --fxview-background-color: ${base00} !important;
+                     --fxview-background-color-secondary: ${base01} !important;
+                     --fxview-primary-action-background: ${base0D} !important;
+                     --fxview-border: ${base0F} !important;
+                     --page-nav-button-text-color: ${base0A} !important;
+                     --button-text-color: ${base05} !important;
+
               }
-              /* current page number */
+              /* current page number in PDF*/
               .toolbarField {
                       color: ${base0A} !important;
               }
@@ -224,6 +236,20 @@ with config.lib.stylix.colors.withHashtag;
                       color: ${base05} !important;
                       background-color: ${base00} !important;
                       border: 1px solid ${base0E} !important;
+              }
+
+              .editorParamsSlider {
+                background-color: ${base0E};
+              }
+
+              /* styling for all input boxes (fixes search on FF view page )*/
+              input {
+                      color: ${base05} !important;
+                      background-color: ${base01} !important;
+              }
+              /* x symbol in input bars */
+              .search-container {
+                      color: ${base08} !important;
               }
 
               /* styling to apply to all about: pages */
@@ -272,7 +298,7 @@ with config.lib.stylix.colors.withHashtag;
                       --in-content-category-text-selected: ${base05}  !important;
                       --in-content-category-background-selected: ${base01} !important;
 
-                      /* color of toggle button nubs */
+                      /* color of toggle button nubs and other toggle colors*/
                       --background-color-canvas: ${base00} !important;
                   }
                   @media (min-width: 830px) {
@@ -423,7 +449,6 @@ with config.lib.stylix.colors.withHashtag;
                   }
               }
 
-              /* TODO still really ugly */
               @-moz-document url-prefix(about:performance) {
                   html, #dispatch-table {
                       background:none!Important;

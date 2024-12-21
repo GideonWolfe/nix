@@ -25,9 +25,9 @@
     # TUI and GUI RSS readers
     pkgs.newsboat
     #pkgs.akregator #Qt RSS reader
-    #pkgs.newsflash # GTK RSS reader
+    pkgs.newsflash # GTK RSS reader
 
     # TUI Podcast client
-    #pkgs.castero #Only in unstable
+    pkgs.castero # Only in unstable
   ];
 }

@@ -11,13 +11,13 @@
 		pkgs.zathura # PDF viewer
 		pkgs.poppler # PDF rendering library
 		pkgs.okular # Documant/PDF viewer
-		pkgs.xournalpp # paint.net clone
+		pkgs.xournalpp # paint.net clone #TODO: theme paper color, etc (need to generate XML)
 		#pkgs.mdbook # Create books from markdown # lots of extra addons for this, check package list
 		#pkgs.calligra # suite of productivity apps
 		#pkgs.gaphor # python UML modeling tool
 		pkgs.foliate # GUI Ebook reader
-		#pkgs.texliveFull # full latex environment
-		#pkgs.texstudio # LaTeX Editor
+		pkgs.texliveFull # full latex environment
+		pkgs.texstudio # LaTeX Editor
 
 		#########
 		# TASKS #
@@ -28,8 +28,8 @@
 		############
 		# CALENDAR #
 		############
-		pkgs.calcurse
-		#pkgs.calcure # modern calendar TUI
+        #pkgs.calcurse
+		pkgs.calcure # modern calendar TUI
 		pkgs.khal
 
 		# TUI timer

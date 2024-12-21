@@ -34,7 +34,7 @@
     ./packages/productivity/comms.nix
 
     # Gaming
-    #./user/packages/gaming.nix
+    ./packages/gaming.nix
 
     # STEM
     ./packages/science/astronomy.nix
@@ -66,6 +66,7 @@
     # Configs for calendar settings and sync
     ./configs/calendar/calendar.nix
     ./configs/calendar/khal.nix
+    ./configs/calendar/calcure.nix
 
     # Configs for contacts settings and sync
     ./configs/contacts/contacts.nix

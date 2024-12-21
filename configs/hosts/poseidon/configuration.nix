@@ -64,6 +64,9 @@
     # Local plantuml server
     ./system/services/plantuml.nix
 
+    # Config firewall, etc. for steam
+    ./system/services/steam.nix
+
     ############
     # PACKAGES #
     ############
