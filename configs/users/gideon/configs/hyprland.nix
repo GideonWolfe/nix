@@ -64,9 +64,9 @@ with config.lib.stylix.colors;
       #bind = $mod SHIFT, F, fullscreen
       bind = $mod SHIFT, F, fullscreen, 2
       #bind = $mod, M, exit,
-      bind = $mod SHIFT, P, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/navigation/hyprland-window-switcher.sh,
-      bind = $mod SHIFT, S, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/search/wofi-web-search.sh,
-      bind = $mod SHIFT, E, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji,
+      bind = $mod SHIFT, P, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/navigation/hyprland-window-switcher.sh
+      bind = $mod SHIFT, S, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/search/wofi-web-search.sh
+      bind = $mod SHIFT, E, exec, ${lib.getExe pkgs.wofi-emoji}
       bind = $mod SHIFT, G, togglegroup,
       bind = $mod, G, changegroupactive,
       bind = $mod, V, togglefloating,
@@ -134,6 +134,13 @@ with config.lib.stylix.colors;
       bindel = ,XF86MonBrightnessDown, exec, sudo /run/current-system/sw/bin/light -U 10
       bindel = ,XF86MonBrightnessUp, exec, sudo /run/current-system/sw/bin/light -A 10
 
+      # PrintScreen key bindings
+      # Screenshot a window
+      bind = $mod, PRINT, exec, hyprshot -m window
+      # Screenshot a monitor
+      bind = , PRINT, exec, hyprshot -m output
+      # Screenshot a region
+      bind = $mod SHIFT, PRINT, exec, hyprshot -m region
 
       # Hyprlock when the lid is closed
       bindl=,switch:on:Lid Switch, exec, hyprctl dispatch exec hyprlock && systemctl suspend

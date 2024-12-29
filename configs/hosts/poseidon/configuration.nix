@@ -162,7 +162,11 @@
     home = "/home/gideon";
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel" # Enable ‘sudo’ for the user.
+      "docker" # Let the user run docker commands
+      "dialout" # let programs run by the user (like chirp) access USB ports
+    ];
     packages = with pkgs; [ firefox neovim tree ];
   };
 

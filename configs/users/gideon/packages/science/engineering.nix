@@ -22,7 +22,7 @@
     #pkgs.baudline # scientific signal analysis app
     pkgs.sigrok-cli # signal analysis software
     pkgs.pulseview # GUI for sigrok
-        #pkgs.scope-tui # TUI oscilloscope/vectorscope.spectroscope
+    #pkgs.scope-tui # TUI oscilloscope/vectorscope.spectroscope
 
     #########
     # RADIO #
@@ -30,5 +30,8 @@
     pkgs.chirp # GUI programming radios
     pkgs.jtdx # weak signal digital comm modes for HAM
     pkgs.gridtracker # GUI for jdtx
+    pkgs.urh # Universal Radio Hacker
+    pkgs.qdmr # GUI for DMR radio programming
+    pkgs.qradiolink # SDR radio GUI
   ];
 }

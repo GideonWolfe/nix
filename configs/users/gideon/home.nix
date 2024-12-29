@@ -101,6 +101,9 @@
     # Wofi
     ./configs/wofi/wofi.nix
 
+    # imv
+    ./configs/imv.nix
+
     # Firefox
     ./configs/firefox/firefox.nix
 
