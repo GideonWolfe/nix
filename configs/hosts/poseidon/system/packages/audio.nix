@@ -19,5 +19,6 @@
         # General
 		playerctl # MPRIS control CLI
 		ffmpeg
+        soundconverter # sound conversion GUI
 	];
 }

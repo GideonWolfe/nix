@@ -29,7 +29,8 @@
     pkgs.piper-tts # Advanced text to speech
     #pkgs.shaq # CLI for Shazam (Song identifier)
     pkgs.spotdl # Download spotify playlists/metadata
-    pkgs.pyradio # TUI internet radio
+    pkgs.pyradio # TUI internet radio: run with --no-themes to disable color themes and use system
+    pkgs.easyeffects # Sound effects for pipewire apps
 
     # Music Production
     #pkgs.reaper # DAW
@@ -45,6 +46,7 @@
     #pkgs.proteus # Capure guitar sound and train ML model on it
     #pkgs.tuxguitar # GUI for writing tabs
     #pkgs.helm # virtual synthesizer
-    #pkgs.calf # music plugins (effects, tools, etc)
+    #pkgs.calf # music plugins (effects, tools, etc)   
+    #pkgs.infamousPlugins # more LV2 plugins
   ];
 }

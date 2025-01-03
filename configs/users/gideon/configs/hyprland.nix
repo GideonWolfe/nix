@@ -74,6 +74,10 @@ with config.lib.stylix.colors;
       bind = $mod, P, pseudo, # dwindle
       bind = $mod, J, togglesplit, # dwindle
 
+      # Move/resize windows with mainMod + LMB/RMB and dragging
+      bindm = $mod, mouse:272, movewindow
+      bindm = $mod, mouse:273, resizewindow
+
       # Move focus with mod + arrow keys
       bind = $mod, left, movefocus, l
       bind = $mod, right, movefocus, r

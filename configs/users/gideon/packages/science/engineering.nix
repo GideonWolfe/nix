@@ -15,14 +15,19 @@
     pkgs.sweethome3d.furniture-editor
     #pkgs.cura
     pkgs.candle # GRBLE/Gcode visualizer (for Cnc I think)
+    pkgs.mujoco # general purpose physics sim/modeler
+    pkgs.openrocket # 3D rocket simulator/modeler
+    pkgs.leocad # 3D CAD modeler for legos
 
     ###############
     # ELECTRONICS #
     ###############
+    #BUG: 404 for package
     #pkgs.baudline # scientific signal analysis app
     pkgs.sigrok-cli # signal analysis software
     pkgs.pulseview # GUI for sigrok
     #pkgs.scope-tui # TUI oscilloscope/vectorscope.spectroscope
+    pkgs.picoscope # oscilloscope GUI
 
     #########
     # RADIO #

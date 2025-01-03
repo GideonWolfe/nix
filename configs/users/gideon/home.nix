@@ -113,6 +113,9 @@
     # Zathura
     ./configs/zathura.nix
 
+    # foliate
+    ./configs/foliate.nix
+
     # Zathura
     ./configs/btop.nix
 
@@ -137,8 +140,12 @@
     # Better Cat
     ./configs/bat.nix
 
+    # 3D image viewer
+    ./configs/f3d.nix
+
     # Screenshotting tool
     ./configs/flameshot.nix
+    ./configs/swappy.nix
 
     # Cava
     ./configs/cava.nix

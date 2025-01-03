@@ -57,9 +57,11 @@
     dnstop # DNS traffic monitor
     bandwhich # bandwidth monitor
     jnettop
+    netscanner # network scanner
     trippy
-    ktop # kernel monitor
+    ktop # kubernetes monitor
     kernelshark # GUI kernel monitor
+    kmon # TUI kernel monitor
     glances # system/process monitor
     bmon # bandwidth monitor
     nload # network load monitor
@@ -91,8 +93,11 @@
     bemenu # like dmenu, required by sth
     scrot # screenshot
     flameshot # screenshot GUI
-    hyprshot # screenshot GUI
+    swappy # screenshot GUI
+    hyprshot # screenshot tool
     speedtest-cli
+    #BUG: conflicts with "speedtest" command offered by speedtest-cli
+    #speedtest # GTK frontend for librespeed
     xdg-user-dirs # change default user directoryies
     xdg-utils
     fzf
@@ -103,6 +108,7 @@
     libsForQt5.qt5.qttools # toolset that includes qdbusviewer
     libsForQt5.qt5.qtwayland # wayland compatibility
     gpg-tui # TUI for GnuPG
+    f3d # lightweight 3D model viewer
 
     pstree # process tree
 
@@ -161,6 +167,7 @@
     xfce.thunar-volman # allow thunar to manage removable drives
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin # we have easytag for this but it doesn't hurt
+    nautilus
 
     # Replacements for various X utils
     wev # wayland xev

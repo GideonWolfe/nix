@@ -6,9 +6,11 @@
     # UTILITIES #
     pkgs.hexyl # CLI Hex viewer
     pkgs.hyx # CLI Hex editor
+    pkgs.imhex # GUI Hex editor
+    pkgs.biodiff # hex diff viewer
     pkgs.highlight # highlight code output
     pkgs.jq # CLI JSON parser
-    pkgs.fx # TUI JSON viewer 
+    pkgs.fx # TUI JSON viewer
     pkgs.jqp # TUI playground for JQ
     pkgs.lazydocker # TUI docker interface
     pkgs.dive # Explore every layer in a docker image
@@ -18,8 +20,8 @@
     #pkgs.ngrok # expose local port to WAN
     #pkgs.graphviz # graph visualization software
     pkgs.cloc # count lines of code
-    #pkgs.lemmeknow # identify anything
-    #pkgs.mprocs # run multiple processes and show output in the same TUI
+    pkgs.lemmeknow # identify anything
+    pkgs.mprocs # run multiple processes and show output in the same TUI
     #pkgs.2fa # CLI 2FA client
     pkgs.gource # animate repo history
     pkgs.serie # TUI git log viewer
@@ -30,11 +32,11 @@
     #pkgs.vscode
 
     # GUI
-    #pkgs.pencil # Prototyping tool (like figma)
+    pkgs.pencil # Prototyping tool (like figma)
     #pkgs.akira # Prototyping / design tool
     #pkgs.gdbgui # browser based GUI for GDB
-    #pkgs.seer # GDB frontend
-    #pkgs.harlequin # SQL IDE
+    pkgs.seer # GDB frontend
+    pkgs.harlequin # SQL IDE
 
     # Security
     pkgs.radare2

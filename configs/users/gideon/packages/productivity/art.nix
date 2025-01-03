@@ -9,6 +9,12 @@
     pkgs.inkscape
     pkgs.krita
 
+    ############
+    # MODELING #
+    ############
+    pkgs.blockbench # Low-poly 3d modeler
+
+
     ###############
     # PHOTOGRAPHY #
     ###############

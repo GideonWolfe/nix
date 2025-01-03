@@ -252,6 +252,7 @@ with config.lib.stylix.colors.withHashtag;
                       color: ${base08} !important;
               }
 
+
               /* styling to apply to all about: pages */
               /* https://github.com/ATechnocratis/widefox/blob/main/chrome/userContent-files/aboutpages/about_pages_Darker.css */
               @-moz-document url-prefix("about:"),
@@ -548,8 +549,6 @@ with config.lib.stylix.colors.withHashtag;
                   background-color: ${base08} !important;
               }
           }
-
-
 
 
         '';
