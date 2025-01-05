@@ -140,8 +140,14 @@
     # Better Cat
     ./configs/bat.nix
 
+    # quick finder
+    ./configs/fzf.nix
+
     # 3D image viewer
     ./configs/f3d.nix
+
+    # 3D image viewer
+    ./configs/gnuplot.nix
 
     # Screenshotting tool
     ./configs/flameshot.nix

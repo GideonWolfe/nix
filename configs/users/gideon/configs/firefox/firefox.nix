@@ -556,6 +556,64 @@ with config.lib.stylix.colors.withHashtag;
         # Custom CSS style options 
         userChrome = ''
 
+            /* root variables to propagate through MANY UI elements */
+            :root {
+                --in-content-page-background: ${base00} !important;
+                --in-content-page-color: ${base05} !important;
+
+                --in-content-text-color: var(--in-content-page-color);
+                --in-content-box-background-odd: ${base01};
+                --in-content-box-info-background: ${base00};
+                --in-content-border-color: ${base0D};
+                --in-content-border-invalid: ${base08};
+                --in-content-primary-button-text-color: ${base05};
+                --in-content-primary-button-background: ${base0D};
+                --in-content-primary-button-background-hover: ${base0B};
+                --in-content-primary-button-background-active: ${base0C};
+                --in-content-danger-button-background: ${base08};
+                --in-content-danger-button-background-hover: ${base13};
+                --in-content-danger-button-background-active: ${base12};
+                --in-content-table-background: ${base01};
+                --card-outline-color: ${base0B};
+                --dialog-warning-text-color: ${base08};
+
+                --in-content-box-border-color: ${base0F};
+                --in-content-box-info-background: ${base00};
+                --in-content-item-hover: color-mix(in srgb, var(--in-content-primary-button-background) 20%, transparent);
+                --in-content-item-hover-text: var(--in-content-page-color);
+                --in-content-item-selected: var(--in-content-primary-button-background);
+                --in-content-item-selected-text: var(--in-content-primary-button-text-color);
+                --in-content-border-invalid: ${base08};
+                --in-content-border-color: ${base0F};
+                --in-content-button-text-color: var(--in-content-text-color);
+                --in-content-button-text-color-hover: var(--in-content-text-color);
+                --in-content-button-text-color-active: var(--in-content-button-text-color-hover);
+                --in-content-button-background: ${base01};
+                --in-content-button-background-hover: ${base00};
+                --in-content-button-background-active: color-mix(in srgb, currentColor 21%, transparent);
+                --in-content-button-border-color: transparent;
+                --in-content-button-border-color-hover: transparent;
+                --in-content-button-border-color-active: var(--in-content-button-border-color-hover);
+                --in-content-primary-button-text-color: ${base00};
+                --in-content-primary-button-text-color-hover: var(--in-content-primary-button-text-color);
+                --in-content-primary-button-text-color-active: var(--in-content-primary-button-text-color);
+                --in-content-primary-button-background: ${base0D};
+                --in-content-primary-button-background-hover: ${base16};
+                --in-content-primary-button-background-active: ${base0C};
+                --in-content-primary-button-border-color: transparent;
+                --in-content-primary-button-border-hover: transparent;
+                --in-content-primary-button-border-active: transparent;
+                --in-content-danger-button-background: ${base08};
+                --in-content-danger-button-background-hover: ${base12};
+                --in-content-danger-button-background-active: ${base09};
+                --focus-outline-color: ${base09};
+                --in-content-focus-outline-color: var(--focus-outline-color);
+                --in-content-table-background: ${base00};
+                --in-content-table-border-color: var(--in-content-box-border-color);
+                --in-content-table-header-background: var(--in-content-primary-button-background);
+                --in-content-table-header-color: var(--in-content-primary-button-text-color);
+            }
+
                             /* get rid of blinding white loading screen for tabs */
                             .browserContainer { background-color: ${base00} !important; }
 
