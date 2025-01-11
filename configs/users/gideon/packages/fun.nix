@@ -3,7 +3,7 @@
 {
 	home.packages = [
 		# screensavers
-		#pkgs.unimatrix #only in unstable
+		pkgs.unimatrix
 		pkgs.asciiquarium
 		pkgs.pipes
 		pkgs.sl
@@ -17,5 +17,7 @@
 		pkgs.lolcat
 		# Misc
 		pkgs.thokr # typing speedtest in TUI
+        # games
+        pkgs.sgt-puzzles
 	];
 }

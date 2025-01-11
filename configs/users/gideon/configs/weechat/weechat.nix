@@ -445,6 +445,7 @@ with config.lib.stylix.colors.withHashtag;
       [notify]
 
       [filter]
+      irc_smart = on;*;irc_smart_filter;*
 
       [key]
       backspace = "/input delete_previous_char"

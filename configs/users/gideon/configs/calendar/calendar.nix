@@ -8,7 +8,8 @@ with config.lib.stylix.colors.withHashtag;
     accounts = {
       gmail = {
         primary = true;
-        primaryCollection = "wolfegideon@gmail.com"; # this will be the default_calendar in khal
+        primaryCollection =
+          "wolfegideon@gmail.com"; # this will be the default_calendar in khal
         name = "wolfegideon@gmail.com";
         # Define how the calendar is stored locally
         local = {
@@ -34,6 +35,8 @@ with config.lib.stylix.colors.withHashtag;
           tokenFile = "${config.home.homeDirectory}/calendars/tokenfile";
         };
 
+        # TODO: https://github.com/nix-community/home-manager/pull/5484
+        # Should be able to enable for thunderbird soon!
         khal = {
           enable = true;
           type = "discover";

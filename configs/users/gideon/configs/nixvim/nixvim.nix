@@ -26,6 +26,7 @@ with config.lib.stylix.colors.withHashtag;
     ./plugins/ui/nvim-tree.nix
     ./plugins/ui/nvim-ufo.nix
     ./plugins/ui/rainbow-delimiters.nix
+    ./plugins/ui/web-devicons.nix
     ./plugins/ui/statuscol.nix
     ./plugins/ui/telescope.nix
     ./plugins/ui/trouble.nix

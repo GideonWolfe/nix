@@ -20,12 +20,16 @@
 
     # Hyprland
     # Enable when ready for it
-    ../gideon/configs/sway.nix
-    ../gideon/configs/swaylock.nix
+    #../gideon/configs/sway.nix
+    #../gideon/configs/swaylock.nix
     #./configs/swayidle.nix
+    ../gideon/configs/hyprland.nix
+    ../gideon/configs/hyprpaper.nix
+    ../gideon/configs/hypridle.nix
+    ../gideon/configs/hyprlock.nix
 
     # Cursor settings
-    #./configs/cursor.nix
+    ../gideon/configs/cursor.nix
 
     # Neovim
     #./configs/nixvim/nixvim.nix
@@ -36,52 +40,69 @@
     #./configs/kanshi.nix
 
     # Kitty
-    #./configs/kitty.nix
+    ../gideon/configs/kitty.nix
 
     # Waybar
     ../gideon/configs/waybar.nix
 
     # Wofi
-    #./configs/wofi/wofi.nix
+    ../gideon/configs/wofi/wofi.nix
+
+    # imv
+    ../gideon/configs/imv.nix
 
     # Firefox
-    ./configs/firefox/firefox.nix
+    #./configs/firefox/firefox.nix
+    ../gideon/configs/firefox/firefox.nix
 
-    # Firefox
-    #./configs/chromium.nix
-
-    # Zathura
-    #./configs/zathura.nix
+    # Chromium
+    ../gideon/configs/chromium.nix
 
     # Zathura
-    #./configs/btop.nix
+    ../gideon/configs/zathura.nix
+
+    # foliate
+    ../gideon/configs/foliate.nix
+
+    # btop
+    ../gideon/configs/btop.nix
 
     # GTK settings/theming
-    #./configs/gtk.nix
+    ../gideon/configs/gtk.nix
 
     # Qt settings/theming
-    #./configs/qt.nix
+    ../gideon/configs/qt.nix
 
     # Custom user directories
-    ./configs/xdg-user-dirs.nix
+    ../gideon/configs/xdg-user-dirs.nix
 
-    # Custom user directories
+    # Custom default applications
     ./configs/mimetypes.nix
 
     # Better CD
-    ./configs/zoxide.nix
+    ../gideon/configs/zoxide.nix
 
     # Better LS
-    ./configs/eza.nix
+    ../gideon/configs/eza.nix
 
     # Better Cat
-    ./configs/bat.nix
+    ../gideon/configs/bat.nix
+
+    # quick finder
+    ../gideon/configs/fzf.nix
+
+    # 3D image viewer
+    ../gideon/configs/f3d.nix
+
+    # Graph utility
+    ../gideon/configs/gnuplot.nix
 
     # Screenshotting tool
     #./configs/flameshot.nix
+    ../gideon/configs/swappy.nix
 
     # Cava
-    #./configs/cava.nix
+    ../gideon/configs/cava.nix
 
     # Git
     ./configs/git.nix
@@ -95,26 +116,30 @@
     #./configs/email/mbsync.nix
 
     # Bluetooth (enabling applet)
-    #./configs/bluetooth.nix
+    ../gideon/configs/bluetooth.nix
 
     # Shell config
     # Inherit main user shell config
     ../gideon/configs/fish.nix
 
     # Notification client
-    ./configs/mako.nix
+    #./configs/mako.nix
 
     # Nix theming framwork
     ./configs/stylix.nix
+
+    # Spotify theming tool
+    ../gideon/configs/spicetify.nix
 
     # Custom startpage
     ./configs/startpage/style.nix
     ./configs/startpage/service.nix
 
     # These configs have to be generated manually
-    #./configs/darkreader.nix
+    ../gideon/configs/darkreader.nix
 
-
+    # VS Code
+    ../gideon/configs/vscode.nix
 
     ./configs/server/directories.nix
 

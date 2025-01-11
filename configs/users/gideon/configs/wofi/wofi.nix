@@ -7,7 +7,8 @@ with config.lib.stylix.colors.withHashtag;
 		enable = true;
 
 		# https://cloudninja.pw/docs/wofi.html
-		style = ''
+        # HACK: override because HM module wants to conflict? as of 24.11
+		style = lib.mkForce ''
 			#outer-box {
 				border: 2px solid ${base0E};
 			}

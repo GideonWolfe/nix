@@ -1,72 +1,86 @@
 { config, lib, pkgs, ... }:
 
 {
-	home.packages = [
-		
-		#pkgs.kdePackages.umbrello # UML modeler
+  home.packages = [
 
-		##############
-		# OFFICE/PDF #
-		##############
-		pkgs.zathura # PDF viewer
-		pkgs.poppler # PDF rendering library
-		pkgs.okular # Documant/PDF viewer
-		pkgs.xournalpp # paint.net clone
-		#pkgs.mdbook # Create books from markdown # lots of extra addons for this, check package list
-		#pkgs.calligra # suite of productivity apps
-		#pkgs.gaphor # python UML modeling tool
-		pkgs.foliate # GUI Ebook reader
-		#pkgs.texliveFull # full latex environment
-		#pkgs.texstudio # LaTeX Editor
+    #pkgs.kdePackages.umbrello # UML modeler
 
-		#########
-		# TASKS #
-		#########
-		#pkgs.zanshin
-		pkgs.dijo
+    ##############
+    # OFFICE/PDF #
+    ##############
+    pkgs.libreoffice
+    pkgs.zathura # PDF viewer
+    pkgs.poppler # PDF rendering library
+    pkgs.okular # Documant/PDF viewer
+    pkgs.xournalpp # paint.net clone #TODO: theme paper color, etc (need to generate XML)
+    pkgs.mdbook # Create books from markdown # lots of extra addons for this, check package list
+    pkgs.calligra # suite of productivity apps
+    pkgs.gaphor # python UML modeling tool
+    pkgs.foliate # GUI Ebook reader
+    pkgs.texliveFull # full latex environment
+    pkgs.texstudio # LaTeX Editor
+    pkgs.visidata # Interactive terminal multitool for tabular data
 
-		############
-		# CALENDAR #
-		############
-		pkgs.calcurse
-		#pkgs.calcure # modern calendar TUI
-		pkgs.khal
+    #########
+    # TASKS #
+    #########
+    #pkgs.zanshin
+    pkgs.dijo
 
-		# TUI timer
-		pkgs.peaclock
-		pkgs.kronometer
+    ############
+    # CALENDAR #
+    ############
+    #pkgs.calcurse
+    pkgs.calcure # modern calendar TUI
+    pkgs.khal
 
-		# Password manager
-		pkgs.keepassxc
-		pkgs.gnome.seahorse
+    # TUI timer
+    pkgs.peaclock
+    pkgs.mpris-timer # GTK Timer
+    #pkgs.kronometer # ugly QT timer :(
 
-		# Emoji selector
-		pkgs.wofi-emoji
+    # Password manager
+    pkgs.keepassxc
+    pkgs.seahorse
 
-		#########
-		# UTILS #
-		#########
-		#pkgs.barcode # barcode generator
-		#pkgs.zbar # barcode scanner
-		#pkgs.gpick # color picker
-		pkgs.translate-shell # google translate in the shell
-		pkgs.shell-gpt # CLI for ChatGPT
-		pkgs.ov # terminal pager
-        pkgs.maim # scrot replacement
+    # Emoji selector
+    pkgs.wofi-emoji
 
-		#########
-		# PHOTO #
-		#########
-		#pkgs.exif # manipulate photo metadata
-		#pkgs.gifsicle # manipulate gif metadata
+    #########
+    # UTILS #
+    #########
+    #pkgs.barcode # barcode generator
+    #pkgs.zbar # barcode scanner
+    #pkgs.gpick # color picker
+    pkgs.translate-shell # google translate in the shell
+    pkgs.shell-gpt # CLI for ChatGPT
+    pkgs.ov # terminal pager
+    pkgs.maim # scrot replacement
+    pkgs.kando # pie menu
+    pkgs.sc-im # spreadsheet calculator
+    pkgs.qrtool # encode/decode QR images
+    pkgs.exhibit # GNOME 3D model viewer
+    pkgs.filezilla # FTP client
+    pkgs.transmission_4-gtk # torrent client
+    pkgs.chance # dice roller, binary name is rollit
 
-		###########
-		# FINANCE #
-		###########
-		pkgs.cointop # TUI Crypto price tracker
-		
+    #########
+    # PHOTO #
+    #########
+    pkgs.exif # manipulate photo metadata
+    pkgs.gifsicle # manipulate gif metadata
+    pkgs.gnome-frog # OCR tool
 
-        pkgs.trilium-desktop
+    ###########
+    # FINANCE #
+    ###########
+    pkgs.cointop # TUI Crypto price tracker
+    pkgs.ticker
+    pkgs.tickrs
 
-	];
+    # Workspaces and Knowledge Bases
+    pkgs.trilium-desktop
+    pkgs.affine
+
+  ];
 }

@@ -48,14 +48,14 @@
     ./system/services/docker.nix
 
     # Printer support
-    #./system/services/printing.nix
+    ./system/services/printing.nix
 
     # Virtual FS (used to cache album art)
     #./system/services/gvfs.nix
 
     # UI
-    #./system/graphics/hyprland.nix
-    #./system/graphics/wayland.nix
+    ./system/graphics/hyprland.nix
+    ./system/graphics/wayland.nix
 
     # Audio
     ./system/services/audio/pipewire.nix
@@ -102,7 +102,6 @@
     ./server/services/media/navidrome.nix
     ./server/services/admin/homarr.nix
 
-
     ./server/services/productivity/vaultwarden/vaultwarden.nix
 
     ./server/services/networking/wireguard.nix
@@ -146,21 +145,28 @@
   # list of programs I want to execute WITHOUT passwd (ie from waybar)
   security.sudo = {
     enable = true;
-    extraRules = [{
-
-      groups = [ "wheel" ];
-      commands = [{
-        command = "/run/current-system/sw/bin/iotop";
-        options = [ "NOPASSWD" ];
-      }];
-    }];
+    extraConfig = ''
+      %wheel	ALL=(root)	NOPASSWD: /run/current-system/sw/bin/light
+    '';
+    # extraRules = [{
+    #
+    #   groups = [ "wheel" ];
+    #   commands = [{
+    #     command = "/run/current-system/sw/bin/iotop";
+    #     options = [ "NOPASSWD" ];
+    #   }];
+    # }];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.overseer = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel" # Enable ‘sudo’ for the user.
+      "docker" # Let the user run docker commands
+      "dialout" # let programs run by the user (like chirp) access USB ports
+    ];
     packages = with pkgs; [ firefox neovim tree git ];
   };
 

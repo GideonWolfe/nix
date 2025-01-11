@@ -8,6 +8,8 @@
 		#############
 		pkgs.celestia
 		pkgs.kstars
+		pkgs.gpredict
+        
 
 	];
 }

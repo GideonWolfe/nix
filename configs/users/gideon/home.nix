@@ -22,31 +22,31 @@
     ./packages/productivity/web.nix
 
     # Audio
-    #./packages/productivity/audio.nix
+    ./packages/productivity/audio.nix
 
     # Video
-    #./packages/productivity/video.nix
+    ./packages/productivity/video.nix
 
     # Art
-    #./packages/productivity/art.nix
+    ./packages/productivity/art.nix
 
     # Comms
     ./packages/productivity/comms.nix
 
     # Gaming
-    #./user/packages/gaming.nix
+    ./packages/gaming.nix
 
     # STEM
-    #./packages/science/astronomy.nix
-    #./packages/science/biology.nix
-    #./packages/science/chemistry.nix
-    #./packages/science/data.nix
-    #./user/packages/science/education.nix
-    #./packages/science/geography.nix
+    ./packages/science/astronomy.nix
+    ./packages/science/biology.nix
+    ./packages/science/chemistry.nix
+    ./packages/science/data.nix
+    ./packages/science/education.nix
+    ./packages/science/geography.nix
     ./packages/science/math.nix
     #./user/packages/science/medecine.nix
     ./packages/science/utilities.nix
-    #./packages/science/engineering.nix
+    ./packages/science/engineering.nix
 
     # Development
     ./packages/development/rust.nix
@@ -66,6 +66,7 @@
     # Configs for calendar settings and sync
     ./configs/calendar/calendar.nix
     ./configs/calendar/khal.nix
+    ./configs/calendar/calcure.nix
 
     # Configs for contacts settings and sync
     ./configs/contacts/contacts.nix
@@ -74,9 +75,12 @@
     # Hyprland
     # Enable when ready for it
     ./configs/hyprland.nix
+    ./configs/hyprpaper.nix
+    ./configs/hypridle.nix
+    ./configs/hyprlock.nix
     ./configs/sway.nix
     ./configs/swaylock.nix
-    ./configs/swayidle.nix
+    #./configs/swayidle.nix
 
     # Cursor settings
     ./configs/cursor.nix
@@ -85,28 +89,33 @@
     ./configs/nixvim/nixvim.nix
 
     # Display configs
-    ./configs/kanshi.nix
+    #./configs/kanshi.nix
 
     # Kitty
     ./configs/kitty.nix
 
     # Waybar
     ./configs/waybar.nix
-    #./user/configs/waybar_new.nix
 
     # Wofi
     ./configs/wofi/wofi.nix
 
+    # imv
+    ./configs/imv.nix
+
     # Firefox
     ./configs/firefox/firefox.nix
 
-    # Firefox
+    # Chromium
     ./configs/chromium.nix
 
     # Zathura
     ./configs/zathura.nix
 
-    # Zathura
+    # foliate
+    ./configs/foliate.nix
+
+    # btop
     ./configs/btop.nix
 
     # GTK settings/theming
@@ -118,7 +127,7 @@
     # Custom user directories
     ./configs/xdg-user-dirs.nix
 
-    # Custom user directories
+    # Custom default applications
     ./configs/mimetypes.nix
 
     # Better CD
@@ -130,21 +139,36 @@
     # Better Cat
     ./configs/bat.nix
 
+    # quick finder
+    ./configs/fzf.nix
+
+    # 3D image viewer
+    ./configs/f3d.nix
+
+    # Graph utility
+    ./configs/gnuplot.nix
+
     # Screenshotting tool
     ./configs/flameshot.nix
+    ./configs/swappy.nix
 
     # Cava
     ./configs/cava.nix
+    ./configs/glava/shaders.nix
+    ./configs/glava/rc.nix
 
     # Git
     ./configs/git.nix
+
+    # KDE Connect
+    ./configs/kdeconnect.nix
 
     # SSH
     ./configs/ssh/ssh.nix
 
     # Neomutt
     ./configs/email/neomutt/neomutt.nix
-    ./configs/email/thunderbird/thunderbird.nix #uses lots of storage
+    ./configs/email/thunderbird/thunderbird.nix # uses lots of storage
     ./configs/email/email.nix
     ./configs/email/mbsync.nix
 
@@ -154,7 +178,7 @@
 
     # Newsboat
     ./configs/newsboat/newsboat.nix
-    ./configs/newsboat/urls.nix
+    #./configs/newsboat/urls.nix
 
     # Bluetooth (enabling applet)
     ./configs/bluetooth.nix
@@ -163,12 +187,13 @@
     ./configs/fish.nix
 
     # Notification client
-    ./configs/mako.nix
+    # Disabling because hyprpanel handles it
+    #./configs/mako.nix
 
     # Nix theming framwork
     ./configs/stylix.nix
 
-    # Nix theming framwork
+    # Spotify theming tool
     ./configs/spicetify.nix
 
     # Custom startpage
@@ -187,7 +212,7 @@
     ./configs/plantuml.nix
 
     # VS Code
-    #./configs/vscode.nix
+    ./configs/vscode.nix
 
     # Projects
     ./configs/projects/zeroday.nix
@@ -198,11 +223,9 @@
     ./configs/projects/tech.nix
     ./configs/projects/music.nix
 
-
     #TODO: enable when config done
-    #./configs/eww/eww.nix
-    ./configs/ags/ags.nix
-    ./configs/ags/style.nix
+    #./configs/ags/ags.nix
+    #./configs/ags/style.nix
 
     ../../modules/keys/ssh.nix
   ];
@@ -221,21 +244,6 @@
       "  mkdir -p ${config.home.homeDirectory}/pictures/screenshots/\n";
     createScreenRecordings = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/videos/screen_recordings/\n";
-    # Email mailboxes
-    # createDraft = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/drafts/\n";
-    # createInbox = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/inbox/\n";
-    # createAll = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/all/\n";
-    # createStarred = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/starred/\n";
-    # createSent = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/sent/\n";
-    # createTrash = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/trash/\n";
-    # createSpam = lib.hm.dag.entryAfter [ "writeBoundary" ]
-    #   "  mkdir -p ${config.home.homeDirectory}/mail/gmail/spam/\n";
     createCalendarGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/calendars/gmail/\n";
     createContactsGmail = lib.hm.dag.entryAfter [ "writeBoundary" ]

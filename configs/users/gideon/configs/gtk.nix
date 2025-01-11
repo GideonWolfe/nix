@@ -7,8 +7,11 @@ with config.lib.stylix.colors.withHashtag;
 		enable = true;
 
 		iconTheme = {
-			#name = "Papirus";
-			name = "ePapirus-dark";
+            # these are in /run/current-system/sw/share/icons
+			# name = "breeze-dark";
+   #          package = pkgs.libsForQt5.breeze-icons;
+			name = "Adwaita";
+            package = pkgs.adwaita-icon-theme;
 		};
 
 	};

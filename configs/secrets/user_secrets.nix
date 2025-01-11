@@ -10,7 +10,8 @@
     secrets = {
       # Secrets for gideon
       vdirsyncer_google_client_id = {
-        file = ./secrets/users/gideon/calendar/vdirsyncer/vdirsyncer_google_client_id.age;
+        file =
+          ./secrets/users/gideon/calendar/vdirsyncer/vdirsyncer_google_client_id.age;
         path =
           "${config.home.homeDirectory}/.secrets/calendar/vdirsyncer/vdirsyncer_google_client_id";
       };
@@ -21,29 +22,37 @@
           "${config.home.homeDirectory}/.secrets/calendar/vdirsyncer/vdirsyncer_google_client_secret";
       };
       mbsync_google_wolfegideon_app_password = {
-        file = ./secrets/users/gideon/email/gmail/mbsync_google_wolfegideon_app_password.age;
+        file =
+          ./secrets/users/gideon/email/gmail/mbsync_google_wolfegideon_app_password.age;
         path =
           "${config.home.homeDirectory}/.secrets/email/gmail/mbsync_google_wolfegideon_app_password";
       };
       mbsync_gideonwolfexyz_password = {
-        file = ./secrets/users/gideon/email/gideonwolfexyz/mbsync_gideonwolfexyz_password.age;
+        file =
+          ./secrets/users/gideon/email/gideonwolfexyz/mbsync_gideonwolfexyz_password.age;
         path =
           "${config.home.homeDirectory}/.secrets/email/gideonwolfexyz/mbsync_gideonwolfexyz_password";
       };
       mbsync_gideonwolfecom_password = {
-        file = ./secrets/users/gideon/email/gideonwolfecom/mbsync_gideonwolfecom_password.age;
+        file =
+          ./secrets/users/gideon/email/gideonwolfecom/mbsync_gideonwolfecom_password.age;
         path =
           "${config.home.homeDirectory}/.secrets/email/gideonwolfecom/mbsync_gideonwolfecom_password";
       };
-      weechat_libera_password= {
-        file = ./secrets/users/gideon/irc/weechat/weechat_libera_password.age;
+      # file used by weechat to abstract secrets into
+      weechat_sec_conf = {
+        file = ./secrets/users/gideon/irc/weechat/weechat_sec_conf.age;
         path =
-          "${config.home.homeDirectory}/.secrets/irc/weechat/weechat_libera_password";
+          "${config.home.homeDirectory}/.config/weechat/sec.conf";
       };
-      newsboat_config= {
-        file = ./secrets/users/gideon/newsboat/newsboat_config.age;
+      freshrss_api_key = {
+        file = ./secrets/users/gideon/rss/freshrss_api_key.age;
+        path = "${config.home.homeDirectory}/.secrets/rss/freshrss_api_key";
+      };
+      weatherapi_api_key = {
+        file = ./secrets/users/gideon/infra/weatherapi_api_key.age;
         path =
-          "${config.home.homeDirectory}/.config/newsboat/config";
+          "${config.home.homeDirectory}/.secrets/infra/weatherapi_api_key.json";
       };
     };
   };
