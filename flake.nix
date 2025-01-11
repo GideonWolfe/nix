@@ -114,10 +114,15 @@
 
         overseer = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = {
+            inherit spicetify-nix;
+            inherit inputs;
+          };
           modules = [
             stylix.homeManagerModules.stylix
             agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
+            spicetify-nix.homeManagerModules.default
             ./configs/users/overseer/home.nix
           ];
         };

@@ -194,7 +194,6 @@
     symbola
     noto-fonts-monochrome-emoji
     # chinese, japanese, korean
-    noto-fonts-cjk
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     # Font Awesome
