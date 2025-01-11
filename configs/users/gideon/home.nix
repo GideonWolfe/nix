@@ -96,7 +96,6 @@
 
     # Waybar
     ./configs/waybar.nix
-    #./user/configs/waybar_new.nix
 
     # Wofi
     ./configs/wofi/wofi.nix
@@ -116,7 +115,7 @@
     # foliate
     ./configs/foliate.nix
 
-    # Zathura
+    # btop
     ./configs/btop.nix
 
     # GTK settings/theming
@@ -128,7 +127,7 @@
     # Custom user directories
     ./configs/xdg-user-dirs.nix
 
-    # Custom user directories
+    # Custom default applications
     ./configs/mimetypes.nix
 
     # Better CD
@@ -146,7 +145,7 @@
     # 3D image viewer
     ./configs/f3d.nix
 
-    # 3D image viewer
+    # Graph utility
     ./configs/gnuplot.nix
 
     # Screenshotting tool
@@ -194,7 +193,7 @@
     # Nix theming framwork
     ./configs/stylix.nix
 
-    # Nix theming framwork
+    # Spotify theming tool
     ./configs/spicetify.nix
 
     # Custom startpage

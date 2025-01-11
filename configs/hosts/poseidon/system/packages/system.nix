@@ -127,7 +127,6 @@
     swayidle
 
     # Virtualization service
-    # TODO enable on real hardware
     #libvirt
     #virt-manager
     qemu

@@ -65,8 +65,11 @@
     dnstop # DNS traffic monitor
     bandwhich # bandwidth monitor
     jnettop
-    ktop # kernel monitor
+    netscanner # network scanner
+    trippy
+    ktop # kubernetes monitor
     kernelshark # GUI kernel monitor
+    kmon # TUI kernel monitor
     glances # system/process monitor
     bmon # bandwidth monitor
     nload # network load monitor
@@ -78,8 +81,10 @@
     cpupower-gui # GUI for tweaking CPU
     hardinfo # GUI for devices/hardware
     hwinfo # get info about hardware
-    psensor # hardware monitoring GUI
+    resources # hardware monitoring GUI
     zenith # another TUI system monitor
+    libgtop # library for system monitoring (used by hyprpanel)
+    light # utility for changing backlight brightness
 
     # Utilities
     bc # calculator
@@ -96,6 +101,8 @@
     bemenu # like dmenu, required by sth
     scrot # screenshot
     flameshot # screenshot GUI
+    swappy # screenshot GUI
+    hyprshot # screenshot GUI
     speedtest-cli
     xdg-user-dirs # change default user directoryies
     xdg-utils
@@ -107,13 +114,14 @@
     libsForQt5.qt5.qttools # toolset that includes qdbusviewer
     libsForQt5.qt5.qtwayland # wayland compatibility
     gpg-tui # TUI for GnuPG
+    f3d # lightweight 3D model viewer
 
     pstree # process tree
 
     # Notification daemon
     libnotify
     #dunst
-    mako
+    #mako
 
     # Disk Automount daemon
     udiskie
@@ -125,9 +133,9 @@
     swayidle
 
     # Virtualization service
-    # TODO enable on real hardware
     #libvirt
     #virt-manager
+    qemu
 
     # Alternate shells
     fish
@@ -152,7 +160,8 @@
     lact # GUI for AMD GPU control
     pciutils # providing utils for PCI devices such as lspci command
     #vial # QMK fork and GUI for keyboard configuration
-    #yubikey-personalization-gui
+    gsmartcontrol # GUI for smartmontools hard drive health
+    kdiskmark # disk benchmark GUI
 
     # File managers
     ranger
@@ -160,6 +169,7 @@
     xfce.thunar-volman # allow thunar to manage removable drives
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin # we have easytag for this but it doesn't hurt
+    nautilus
 
     # Replacements for various X utils
     wev # wayland xev

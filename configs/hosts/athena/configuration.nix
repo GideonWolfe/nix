@@ -48,14 +48,14 @@
     ./system/services/docker.nix
 
     # Printer support
-    #./system/services/printing.nix
+    ./system/services/printing.nix
 
     # Virtual FS (used to cache album art)
     #./system/services/gvfs.nix
 
     # UI
-    #./system/graphics/hyprland.nix
-    #./system/graphics/wayland.nix
+    ./system/graphics/hyprland.nix
+    ./system/graphics/wayland.nix
 
     # Audio
     ./system/services/audio/pipewire.nix
@@ -144,14 +144,17 @@
   # list of programs I want to execute WITHOUT passwd (ie from waybar)
   security.sudo = {
     enable = true;
-    extraRules = [{
-
-      groups = [ "wheel" ];
-      commands = [{
-        command = "/run/current-system/sw/bin/iotop";
-        options = [ "NOPASSWD" ];
-      }];
-    }];
+    extraConfig = ''
+      %wheel	ALL=(root)	NOPASSWD: /run/current-system/sw/bin/light
+    '';
+    # extraRules = [{
+    #
+    #   groups = [ "wheel" ];
+    #   commands = [{
+    #     command = "/run/current-system/sw/bin/iotop";
+    #     options = [ "NOPASSWD" ];
+    #   }];
+    # }];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
