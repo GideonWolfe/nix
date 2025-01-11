@@ -2,7 +2,7 @@
 
 {
   virtualisation.oci-containers.containers.homarr = {
-    image = "ghcr.io/ajnart/homarr:latest";
+    image = "ghcr.io/ajnart/homarr:0.15.10";
     ports = [ "4205:7575" ];
     autoStart = true;
     environment = {
