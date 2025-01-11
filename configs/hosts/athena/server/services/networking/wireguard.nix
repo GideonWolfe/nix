@@ -47,6 +47,10 @@
           publicKey = "Ls+l1TbBvthQ/jVPTXtKrxuaca+yehG6A+cHHrx290s=";
           allowedIPs = [ "10.100.0.2/32" ];
         }
+        { # Laptop (baremetal)
+          publicKey = "RKr0FtPL+VnOal/gy8kkwHx+IJbzimoEgZ5KO8X18XE=";
+          allowedIPs = [ "10.100.0.4/32" ];
+        }
         { # Pixel8
           # Keypair generated in Android app
           publicKey = "qgtU/gzNYCHI9bnn2RqMZHcyOe3AFmGUU69wgrcNfzA=";
