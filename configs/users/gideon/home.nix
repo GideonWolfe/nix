@@ -213,7 +213,7 @@
     ./configs/plantuml.nix
 
     # VS Code
-    #./configs/vscode.nix
+    ./configs/vscode.nix
 
     # Projects
     ./configs/projects/zeroday.nix

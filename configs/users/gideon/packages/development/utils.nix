@@ -29,7 +29,7 @@
     pkgs.atac # Postman like API tester (TUI)
 
     # IDEs
-    #pkgs.vscode
+    pkgs.vscode
 
     # GUI
     pkgs.pencil # Prototyping tool (like figma)

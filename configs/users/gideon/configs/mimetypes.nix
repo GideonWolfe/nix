@@ -18,6 +18,7 @@ with config.lib.stylix.colors.withHashtag;
       # Archives
       "application/gzip" = [ "org.gnome.FileRoller.desktop" ];
       "application/zip" = [ "org.gnome.FileRoller.desktop" ];
+      "application/x-zip-compressed" = [ "org.gnome.FileRoller.desktop" ];
       "application/x-7z-compressed" = [ "org.gnome.FileRoller.desktop" ];
       "application/x-freearc" = [ "org.gnome.FileRoller.desktop" ];
       "application/x-tar" = [ "org.gnome.FileRoller.desktop" ];
@@ -51,8 +52,9 @@ with config.lib.stylix.colors.withHashtag;
 
       # Docs
       "application/pdf" = [ "zathura.desktop" "ark.desktop" ];
-      #"application/msword" = []; #TODO setup libre office
-      #"application/vnd.ms-excel" = []; #.xls
+      "application/msword" = [ "writer.desktop" ]; # TODO setup libre office
+      "application/vnd.ms-excel" = [ "calc.desktop" ]; # .xls
+      "application/vnd.ms-powerpoint" = [ "impress.desktop" ]; # .xls
       #"application/vnd.openxmlformats-officedocument.wordprocessingml.document" = []; # docx
       #"application/vnd.openxmlformats-officedocument.presentationml.presentation" = []; # pptx
       #"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = []; # .xlsx
@@ -69,11 +71,13 @@ with config.lib.stylix.colors.withHashtag;
 
       # Ebooks
       "application/vnd.amazon.ebook" = [ "foliate.desktop" ];
+      "application/epub+zip" = [ "foliate.desktop" ];
 
       #Fonts
       "font/otf" = [ "org.gnome.font-viewer.desktop" ];
       "font/ttf" = [ "org.gnome.font-viewer.desktop" ];
       "font/woff" = [ "org.gnome.font-viewer.desktop" ];
+      "font/woff2" = [ "org.gnome.font-viewer.desktop" ];
 
       # TODO: "unable to find terminal required for this application"
       # Text
@@ -81,7 +85,7 @@ with config.lib.stylix.colors.withHashtag;
       #"text/javascript" = ["nvim.desktop"];
       #"text/json" = ["nvim.desktop"];
       #"text/csv" = ["nvim.desktop"];
-      "text/plain" = ["nvim.desktop"];
+      "text/plain" = [ "nvim.desktop" ];
     };
 
   };

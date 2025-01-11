@@ -18,6 +18,7 @@
     pkgs.mujoco # general purpose physics sim/modeler
     pkgs.openrocket # 3D rocket simulator/modeler
     pkgs.leocad # 3D CAD modeler for legos
+    pkgs.orca-slicer # Slicer for 3D printing and Bambu printers
 
     ###############
     # ELECTRONICS #
