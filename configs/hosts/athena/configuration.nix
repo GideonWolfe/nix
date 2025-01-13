@@ -34,6 +34,7 @@
 
     #smartd hdd health
     ./system/services/smartd.nix
+    ./system/services/scrutiny.nix
 
     # System level theming
     ./system/graphics/stylix.nix
@@ -88,6 +89,7 @@
     ./server/services/productivity/mealie/mealie.nix
     ./server/services/productivity/freshrss/freshrss.nix
     ./server/services/productivity/hoarder/hoarder.nix
+    ./server/services/productivity/paperless/paperless.nix
     #./server/services/productivity/saltrim/saltrim.nix
     ./server/services/media/nzbget.nix
     ./server/services/media/sonarr.nix
@@ -100,6 +102,8 @@
     ./server/services/media/jellyfin.nix
     ./server/services/media/jellyseerr.nix
     ./server/services/media/navidrome.nix
+    ./server/services/media/calibre-web-automated.nix
+    ./server/services/media/calibre-web-automated-downloader.nix
     ./server/services/admin/homarr.nix
 
     ./server/services/productivity/vaultwarden/vaultwarden.nix

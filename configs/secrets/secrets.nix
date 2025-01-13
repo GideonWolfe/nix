@@ -23,6 +23,7 @@ in {
   "vaultwarden_env.age".publicKeys = [ root_athena ];
   "mealie_env.age".publicKeys = [ root_athena ];
   "crowdsec_api_key.age".publicKeys = [ root_athena ];
+  "paperless_admin_pass.age".publicKeys = [ root_athena ];
   # User secrets
   "vdirsyncer_google_client_id.age".publicKeys =
     [ gideon_hermes gideon_poseidon ];

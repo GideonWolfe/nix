@@ -8,6 +8,7 @@
     environment = {
       PUID = "1000";
       PGID = "100";
+      BASE_URL = "https://homarr.gideonwolfe.xyz";
     };
     volumes = [
       #"/pool/data/services/admin/homarr/data/:/app/data/configs"
@@ -17,7 +18,15 @@
 
     ];
     extraOptions = [ "--network=traefik_proxy" ];
-  };
 
+    labels = {
+      "traefik.enable" = "true";
+      "traefik.docker.network" = "traefik_proxy";
+      "traefik.http.routers.homarr.rule" = ''Host(`homarr.gideonwolfe.xyz`)'';
+      "traefik.http.routers.homarr.entrypoints" = "http,https";
+      "traefik.http.routers.homarr.tls.certresolver" = ''myresolver'';
+    };
+
+  };
 
 }
