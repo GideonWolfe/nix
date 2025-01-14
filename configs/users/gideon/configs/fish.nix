@@ -16,8 +16,11 @@
     };
 
     #TODO there's no home manager setting for this??
-    interactiveShellInit =
-      "	set fish_greeting #disable greeting\n	set __done_notification_command '${pkgs.libnotify}/bin/notify-send \\$title \\$message'\n	fish_vi_key_bindings\n";
+    interactiveShellInit = ''
+      set fish_greeting #disable greeting
+      fish_vi_key_bindings
+    '';
+    #"	set fish_greeting #disable greeting\n	set __done_notification_command '${pkgs.libnotify}/bin/notify-send $title $message'\n	fish_vi_key_bindings\n";
 
     plugins = [{
       name = "done";
