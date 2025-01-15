@@ -217,6 +217,10 @@ with config.lib.stylix.colors.withHashtag;
                       --main-color: ${base05} !important;
                       --text-color: ${base05} !important;
                       --doorhanger-bg-color: ${base00} !important;
+                      --treeitem-color: ${base09} !important;
+                      --treeitem-selected-color: ${base0E} !important;
+                      --treeitem-hover-color: ${base0B} !important;
+                      --button-hover-color: ${base0A} !important;
 
                       /* tweaks to "firefox view" page */
                      --fxview-background-color: ${base00} !important;
@@ -612,6 +616,7 @@ with config.lib.stylix.colors.withHashtag;
                 --in-content-table-border-color: var(--in-content-box-border-color);
                 --in-content-table-header-background: var(--in-content-primary-button-background);
                 --in-content-table-header-color: var(--in-content-primary-button-text-color);
+
             }
 
                             /* get rid of blinding white loading screen for tabs */
@@ -921,7 +926,6 @@ with config.lib.stylix.colors.withHashtag;
 
           					/*------------- CONTEXT MENUS  --------*/
 
-          					/* TODO Star doesn't work?*/
           					#context-back {
           						color: ${base09} !important;
           					}
@@ -934,7 +938,7 @@ with config.lib.stylix.colors.withHashtag;
           					#context-stop {
           						color: ${base08} !important;
           					}
-          					#context-star {
+          					#context-bookmarkpage {
           						color: ${base0A} !important;
           					}
 
