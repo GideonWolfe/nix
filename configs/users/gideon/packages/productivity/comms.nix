@@ -15,7 +15,7 @@
     pkgs.vesktop
     #pkgs.betterdiscord-installer
     pkgs.slack
-    #pkgs.zoom-us
+    pkgs.zoom-us
     pkgs.thunderbird
 
     ########
