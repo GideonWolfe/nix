@@ -4,7 +4,7 @@
 
   # Backend Bar Assistant API
   virtualisation.oci-containers.containers.sr_server = {
-    image = "barassistant/server:v3";
+    image = "barassistant/server:v4";
     autoStart = true;
     environment = {
       #APP_URL = "$API_URL";
@@ -24,15 +24,17 @@
       "traefik.enable" = "true";
       "traefik.docker.network" = "traefik_proxy";
       #"traefik.http.routers.saltrim_barassistant.rule" = "Host(`sr.gideonwolfe.xyz/bar`)";
-      "traefik.http.routers.saltrim_barassistant.rule" = "Host(`sr.gideonwolfe.xyz`) && Path(`bar`)";
+      "traefik.http.routers.saltrim_barassistant.rule" =
+        "Host(`sr.gideonwolfe.xyz`) && Path(`bar`)";
       "traefik.http.routers.saltrim_barassistant.entrypoints" = "https";
-      "traefik.http.routers.saltrim_barassistant.tls.certresolver" = "myresolver";
+      "traefik.http.routers.saltrim_barassistant.tls.certresolver" =
+        "myresolver";
     };
   };
 
   # Frontend Vue application
   virtualisation.oci-containers.containers.sr_frontend = {
-    image = "barassistant/salt-rim:v2";
+    image = "barassistant/salt-rim:v3";
     autoStart = true;
     environment = {
       #API_URL = "$API_URL";
@@ -95,7 +97,8 @@
     labels = {
       "traefik.enable" = "true";
       "traefik.docker.network" = "traefik_proxy";
-      "traefik.http.routers.saltrim_search.rule" = "Host(`sr.gideonwolfe.xyz`) && Path(`search`)";
+      "traefik.http.routers.saltrim_search.rule" =
+        "Host(`sr.gideonwolfe.xyz`) && Path(`search`)";
       "traefik.http.routers.saltrim_search.entrypoints" = "https";
       "traefik.http.routers.saltrim_search.tls.certresolver" = "myresolver";
     };

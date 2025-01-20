@@ -10,7 +10,7 @@
 
     enable = true;
     # Increment to upgrade
-    package = pkgs.nextcloud29;
+    package = pkgs.nextcloud30;
 
     # Must match hostname in traefik config
     hostName = "nc.gideonwolfe.xyz";

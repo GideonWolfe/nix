@@ -18,6 +18,10 @@
         file = ./secrets/services/mealie/mealie_env.age;
         path = "/secrets/services/mealie/.env";
       };
+      paperless_admin_pass = {
+        file = ./secrets/services/paperless/paperless_admin_pass.age;
+        path = "/secrets/services/paperless/paperless_admin_pass";
+      };
       crowdsec_api_key = {
         file = ./secrets/services/crowdsec/crowdsec_api_key.age;
         path = "/var/lib/traefik/crowdsec_api_key";

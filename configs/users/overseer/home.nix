@@ -132,8 +132,8 @@
     ../gideon/configs/spicetify.nix
 
     # Custom startpage
-    ./configs/startpage/style.nix
-    ./configs/startpage/service.nix
+    ../gideon/configs/startpage/style.nix
+    ../gideon/configs/startpage/service.nix
 
     # These configs have to be generated manually
     ../gideon/configs/darkreader.nix

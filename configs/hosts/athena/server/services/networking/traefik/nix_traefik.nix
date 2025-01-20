@@ -15,9 +15,9 @@
     # Traefik static configuration
     staticConfigOptions = {
 
-      log = { 
-          level = "ERROR";
-          #level = "DEBUG";
+      log = {
+        level = "ERROR";
+        #level = "DEBUG";
       };
       # Access log to be mounted in crowdsec container
       accesslog = { filepath = "/var/lib/traefik/logs/access.log"; };
@@ -54,7 +54,7 @@
         https = {
           address = ":443";
           forwardedHeaders.insecure = true;
-            #BUG: TESTING
+          #BUG: TESTING
           http.middlewares = "crowdsec@file";
         };
 
@@ -88,7 +88,8 @@
               bouncer = {
                 enabled = "true";
                 logLevel = "DEBUG";
-                crowdsecLapiKeyFile = "${config.age.secrets.crowdsec_api_key.path}";
+                crowdsecLapiKeyFile =
+                  "${config.age.secrets.crowdsec_api_key.path}";
                 crowdsecMode = "live";
                 crowdsecLapiHost = "192.168.0.158:4223";
               };
@@ -120,6 +121,14 @@
             tls.certResolver = "myresolver";
           };
 
+          paperless = {
+            entryPoints = [ "https" "http" ];
+            rule = "Host(`pngx.gideonwolfe.xyz`)";
+            service = "paperless";
+            tls.domains = [{ main = "*.gideonwolfe.xyz"; }];
+            tls.certResolver = "myresolver";
+          };
+
         };
 
         services = {
@@ -135,6 +144,13 @@
             loadBalancer = {
               passHostHeader = true;
               servers = [{ url = "http://192.168.0.158:8222"; }];
+            };
+          };
+
+          paperless = {
+            loadBalancer = {
+              passHostHeader = true;
+              servers = [{ url = "http://192.168.0.158:4234"; }];
             };
           };
 
