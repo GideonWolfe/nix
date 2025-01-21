@@ -27,6 +27,14 @@
         path = "/var/lib/traefik/crowdsec_api_key";
         owner = "traefik";
       };
+      crowdsec_whitelist = {
+        file = ./secrets/services/crowdsec/crowdsec_whitelist.age;
+        path = "/secrets/services/crowdsec/whitelist.yaml";
+      };
+      romm_env = {
+        file = ./secrets/services/romm/romm_env.age;
+        path = "/secrets/services/romm/.env";
+      };
     };
   };
 }
