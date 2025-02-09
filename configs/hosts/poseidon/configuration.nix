@@ -64,6 +64,9 @@
     # Config firewall, etc. for steam
     ./system/services/steam.nix
 
+    # service for configuring gaming mice
+    ./system/services/ratbagd.nix
+
     ############
     # PACKAGES #
     ############

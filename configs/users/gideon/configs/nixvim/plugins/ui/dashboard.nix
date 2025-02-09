@@ -1,7 +1,8 @@
 {
   programs.nixvim.plugins.dashboard = {
       
-    enable = true;
+    #TODO: testing dashboard from snacks.nvim
+    enable = false;
 
 
 

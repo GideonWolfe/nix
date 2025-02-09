@@ -186,6 +186,9 @@
     # Shell config
     ./configs/fish.nix
 
+    # TTY config
+    ./configs/zellij.nix
+
     # Notification client
     # Disabling because hyprpanel handles it
     #./configs/mako.nix

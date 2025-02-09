@@ -693,9 +693,14 @@ with config.lib.stylix.colors.withHashtag;
           					#downloads-button{
           						color: ${base0E} !important;
           					}	
+          					/* Downloads progress inner circle coloring */
           					#downloads-indicator-progress-inner{
           						--toolbarbutton-icon-fill-attention: ${base0B} !important;
           					}	
+          					/* Downloads dropdown progress bar coloring */
+                            .downloadProgress::-moz-progress-bar {
+                              --download-progress-fill-color: ${base09};
+                            }
 
           					/* example of setting image as icon https://www.reddit.com/r/FirefoxCSS/comments/cy8w4d/new_tab_button_customization/ */
           					/* New Tab Buttons */

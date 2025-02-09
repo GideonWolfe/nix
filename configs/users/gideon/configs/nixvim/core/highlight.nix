@@ -106,31 +106,31 @@ with config.lib.stylix.colors.withHashtag;
     };
 
     # Colors for vim mode section
-    lualine_a_insert = {
-      bg = "${base00}";
-      fg = "${base0B}";
-    };
-    lualine_a_normal = {
-      bg = "${base00}";
-      fg = "${base0D}";
-    };
-    lualine_a_command = {
-      bg = "${base00}";
-      fg = "${base0E}";
-    };
-    lualine_a_replace = {
-      bg = "${base00}";
-      fg = "${base0A}";
-    };
-    lualine_a_visual = {
-      bg = "${base00}";
-      fg = "${base0C}";
-    };
-    lualine_a_terminal = {
-      bg = "${base00}";
-      fg = "${base0F}";
-    };
-
+    # lualine_a_insert = {
+    #   bg = "${base00}";
+    #   fg = "${base0B}";
+    # };
+    # lualine_a_normal = {
+    #   bg = "${base00}";
+    #   fg = "${base0D}";
+    # };
+    # lualine_a_command = {
+    #   bg = "${base00}";
+    #   fg = "${base0E}";
+    # };
+    # lualine_a_replace = {
+    #   bg = "${base00}";
+    #   fg = "${base0A}";
+    # };
+    # lualine_a_visual = {
+    #   bg = "${base00}";
+    #   fg = "${base0C}";
+    # };
+    # lualine_a_terminal = {
+    #   bg = "${base00}";
+    #   fg = "${base0F}";
+    # };
+    #
     # Branch information
     lualine_b_insert = {
       bg = "${base00}";
@@ -331,51 +331,28 @@ with config.lib.stylix.colors.withHashtag;
       fg = "${base08}";
     };
 
-    # TODO: I don't think are doing anything
-    lualine_x_filetype_DevIconLua_normal = {
-      bg = "${base00}";
-      fg = "${base0D}";
-    };
-    lualine_x_filetype_DevIconLua_insert = {
-      bg = "${base00}";
-      fg = "${base0B}";
-    };
-    lualine_x_filetype_DevIconLua_visual = {
-      bg = "${base00}";
-      fg = "${base0C}";
-    };
-    lualine_x_filetype_DevIconLua_replace = {
-      bg = "${base00}";
-      fg = "${base0A}";
-    };
-    lualine_x_filetype_DevIconLua_command = {
-      bg = "${base00}";
-      fg = "${base0E}";
-    };
-
     # TODO: these aren't working
     # Separators
-
-    lualine_transitional_lualine_a_normal_to_lualine_c_normal = {
-      bg = "${base00}";
-      fg = "${base0B}";
-    };
-    lualine_transitional_lualine_a_normal_to_lualine_b_normal = {
-      bg = "${base00}";
-      fg = "${base0C}";
-    };
-    lualine_transitional_lualine_a_insert_to_lualine_b_insert = {
-      bg = "${base00}";
-      fg = "${base0E}";
-    };
-    lualine_transitional_lualine_b_normal_to_lualine_c_normal = {
-      bg = "${base00}";
-      fg = "${base0F}";
-    };
-    lualine_transitional_lualine_b_insert_to_lualine_c_normal = {
-      bg = "${base00}";
-      fg = "${base0F}";
-    };
+    # lualine_transitional_lualine_a_normal_to_lualine_c_normal = {
+    #   bg = "${base00}";
+    #   fg = "${base0B}";
+    # };
+    # lualine_transitional_lualine_a_normal_to_lualine_b_normal = {
+    #   bg = "${base00}";
+    #   fg = "${base0C}";
+    # };
+    # lualine_transitional_lualine_a_insert_to_lualine_b_insert = {
+    #   bg = "${base00}";
+    #   fg = "${base0E}";
+    # };
+    # lualine_transitional_lualine_b_normal_to_lualine_c_normal = {
+    #   bg = "${base00}";
+    #   fg = "${base0F}";
+    # };
+    # lualine_transitional_lualine_b_insert_to_lualine_c_normal = {
+    #   bg = "${base00}";
+    #   fg = "${base0F}";
+    # };
 
     # Rainbow delimiters
     RainbowDelimiterRed = {

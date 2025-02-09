@@ -49,6 +49,12 @@ with config.lib.stylix.colors;
       exec-once = hyprpanel
       exec-once = kando
 
+      #exec-once = hyprctl setcursor catppuccin-mocha-dark-cursors 40
+      exec-once = hyprctl setcursor ${config.home.pointerCursor.name} ${
+        builtins.toString (config.home.pointerCursor.size + 8)
+      }
+      #env = HYPRCURSOR_THEME,catppuccin-mocha-dark-cursors
+      #env = HYPRCURSOR_SIZE,40
 
       monitor=,preferred,auto,1
 
@@ -123,8 +129,8 @@ with config.lib.stylix.colors;
       bind = $mod SHIFT, 0, movetoworkspace, 10
 
       # Volume/media binds
-      bindel = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-      bindel = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      bindel = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
+      bindel = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
       bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bindl = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       # Skip player on long press and only skip 5s on normal press
