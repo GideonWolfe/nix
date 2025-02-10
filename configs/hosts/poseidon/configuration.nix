@@ -72,25 +72,32 @@
     ############
 
     # Flatpak
-    ./system/packages/flatpak.nix
+    #./system/packages/flatpak.nix
+    ../../modules/packages/system/flatpak.nix
 
     # Audio
-    ./system/packages/audio.nix
+    #./system/packages/audio.nix
+    ../../modules/packages/system/audio.nix
 
     # Video
-    ./system/packages/video.nix
+    #./system/packages/video.nix
+    ../../modules/packages/system/video.nix
 
     # Development
-    ./system/packages/development.nix
+    #./system/packages/development.nix
+    ../../modules/packages/system/development.nix
 
     # Networking
-    ./system/packages/networking.nix
+    #./system/packages/networking.nix
+    ../../modules/packages/system/networking.nix
 
     # Graphics
-    ./system/packages/ui.nix
+    #./system/packages/ui.nix
+    ../../modules/packages/system/ui.nix
 
     # System
-    ./system/packages/system.nix
+    #./system/packages/system.nix
+    ../../modules/packages/system/system.nix
 
   ];
 

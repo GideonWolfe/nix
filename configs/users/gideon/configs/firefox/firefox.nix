@@ -809,6 +809,11 @@ with config.lib.stylix.colors.withHashtag;
           						background-color: ${base00};
           					}
 
+                            /* BUGGED should change bg of find bar */
+                            .browserContainer > findbar {
+          						background-color: ${base00};
+
+                            }
 
           					/* Search box when no results found */
           					.findbar-textbox[status="notfound"] {
