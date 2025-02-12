@@ -96,11 +96,25 @@ with config.lib.stylix.colors.withHashtag;
             "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi";
           "default_area" = "menupanel";
         };
-        # Floccus bookmarks
+        # Hoarder
         "addon@hoarder.app" = {
           "installation_mode" = "force_installed";
           "install_url" =
             "https://addons.mozilla.org/firefox/downloads/latest/hoarder/latest.xpi";
+          "default_area" = "menupanel";
+        };
+        # SponsorBlock
+        "sponsorBlocker@ajay.app" = {
+          "installation_mode" = "force_installed";
+          "install_url" =
+            "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+          "default_area" = "menupanel";
+        };
+        # Reddit Enhancement Suite
+        "jid1-xUfzOsOFlzSOXg@jetpack" = {
+          "installation_mode" = "force_installed";
+          "install_url" =
+            "https://addons.mozilla.org/firefox/downloads/latest/reddit-enhancement-suite/latest.xpi";
           "default_area" = "menupanel";
         };
       };
@@ -175,7 +189,9 @@ with config.lib.stylix.colors.withHashtag;
 
           # Use neovim to view source
           "view_source.editor.external" = true;
-          "view_source.editor.path" = "${pkgs.neovim}/bin/nvim";
+          "view_source.editor.path" = "${pkgs.alacritty}/bin/alacritty";
+          #"view_source.editor.args" = "${pkgs.neovim}/bin/nvim";
+          "view_source.editor.args" = "--command nvim";
 
           # Some style settings
           "browser.chrome.favicons" = false;
@@ -412,6 +428,16 @@ with config.lib.stylix.colors.withHashtag;
                   #searchInput {
                       background-color: ${base01} !important;
                       color: ${base09} !important;
+                  }
+              }
+
+              /* specific styling for support page */
+              @-moz-document url-prefix("about:support") {
+                  :root {
+                      --in-content-table-background: ${base01} !important;
+                  }
+                  table {
+                      background-color: ${base01} !important;
                   }
               }
 
@@ -809,9 +835,10 @@ with config.lib.stylix.colors.withHashtag;
           						background-color: ${base00};
           					}
 
-                            /* BUGGED should change bg of find bar */
+                            /* bg/border of find bar */
                             .browserContainer > findbar {
-          						background-color: ${base00};
+          						background-color: ${base00} !important;
+          						border-top-color: ${base0E} !important;
 
                             }
 
