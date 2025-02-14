@@ -82,5 +82,9 @@
     pkgs.trilium-desktop
     pkgs.affine
 
+    #LLM
+    pkgs.tenere # llm TUI
+    pkgs.llm # LLM CLI
+
   ];
 }
