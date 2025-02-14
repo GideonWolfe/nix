@@ -21,13 +21,17 @@ with config.lib.stylix.colors;
       #];
 
       group = {
-        #col.border_active = "rgb(${base0D})";
-        #col.border_inactive = "rgb(${base00})";
+        "col.border_active" = lib.mkForce "rgb(${base0D})";
+        "col.border_inactive" = lib.mkForce "rgb(${base00})";
         groupbar = {
           font_size = config.stylix.fonts.sizes.desktop;
           text_color = "rgb(${base05})";
-          #col.active = "rgb(${base0D})";
-          #col.inactive = "rgb(${base00})";
+          gradients = true;
+          #"col.active" = lib.mkForce "rgb(${base0D})";
+          #"col.active" = lib.mkForce "rgb(${base0D}) rgb(${base0E}) 45deg";
+          #"col.active" = lib.mkForce "rgb(${base0E}) rgb(${base0E}) 45deg";
+          "col.inactive" = lib.mkForce "rgb(${base01})";
+          "col.active" = lib.mkForce "rgb(${base00})";
           #col.locked_active = "rgb(${base0D})";
           #col.locked_inactive = "rgb(${base00})";
         };
@@ -182,15 +186,11 @@ with config.lib.stylix.colors;
       windowrulev2 = workspace special:translator,class:(kitty-translator)
       bind = $mod, T, exec, hyprctl clients | grep "kitty-translator" && hyprctl dispatch togglespecialworkspace translator || kitty --class "kitty-translator" trans -theme random -I &
 
-      group {
-        col.border_active = "rgb(${base0D}) rgb(${base0D})";
-        col.border_inactive = "rgb(${base00}) rgb(${base00})";
-
-        groupbar {
-          col.active = "rgb(${base0D})";
-          col.inactive = "rgb(${base00})";
-        }
-      }
+      # LLM scratchpad
+      windowrulev2 = float,class:(kitty-ai)
+      windowrulev2 = size 800 800,class:(kitty-ai)
+      windowrulev2 = workspace special:ai,class:(kitty-ai)
+      bind = $mod, A, exec, hyprctl clients | grep "kitty-ai" && hyprctl dispatch togglespecialworkspace ai || kitty --class "kitty-ai" tenere &
 
     '';
 
