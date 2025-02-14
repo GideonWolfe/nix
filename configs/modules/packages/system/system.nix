@@ -67,6 +67,7 @@
     glances # system/process monitor
     bmon # bandwidth monitor
     nload # network load monitor
+    oha # HTTP monitor/tester
     nmon # system monitor
     powertop # power analyzer (intel laptops)
     lm_sensors # hardware sensors
@@ -169,6 +170,7 @@
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin # we have easytag for this but it doesn't hurt
     nautilus
+    tuifimanager # GUI like fm in the TUI
 
     # Replacements for various X utils
     wev # wayland xev
