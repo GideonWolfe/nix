@@ -85,6 +85,7 @@
     #LLM
     pkgs.tenere # llm TUI
     pkgs.llm # LLM CLI
+    pkgs.tgpt # LLM CLI
 
   ];
 }

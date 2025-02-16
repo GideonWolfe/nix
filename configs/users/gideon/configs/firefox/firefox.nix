@@ -8,116 +8,126 @@ with config.lib.stylix.colors.withHashtag;
 
     # Change policies from https://mozilla.github.io/policy-templates/
     policies = {
-      AppAutoUpdate = false;
+      # AppAutoUpdate = false;
       DisablePocket = true;
-      DisableTelemetry = true;
-      OverrideFirstRunPage = "";
-      OverridePostUpdatePage = "";
-      DisableProfileImport =
-        true; # Purity enforcement: Only allow nix-defined profiles
-      DisableProfileRefresh =
-        true; # Disable the Refresh Firefox button on about:support and support.mozilla.org
-      DisableSetDesktopBackground =
-        true; # Remove the “Set As Desktop Background…” menuitem when right clicking on an image, because Nix is the only thing that can manage the backgroud
-      EnableTrackingProtection = {
-        Value = true;
-        Locked = true;
-        Cryptomining = true;
-        Fingerprinting = true;
-        EmailTracking = true;
-      };
-      FirefoxHome = {
-        "Search" = true;
-        "TopSites" = true;
-        "SponsoredTopSites" = false;
-        "Highlights" = false;
-        "Pocket" = false;
-        "SponsoredPocket" = false;
-        #"Snippets" = true | false,
-        #"Locked" = true | false
-      };
-      ShowHomeButton = true;
+      # DisableTelemetry = true;
+      # OverrideFirstRunPage = "";
+      # OverridePostUpdatePage = "";
+      # DisableProfileImport =
+      #   true; # Purity enforcement: Only allow nix-defined profiles
+      # DisableProfileRefresh =
+      #   true; # Disable the Refresh Firefox button on about:support and support.mozilla.org
+      # DisableSetDesktopBackground =
+      #   true; # Remove the “Set As Desktop Background…” menuitem when right clicking on an image, because Nix is the only thing that can manage the backgroud
+      # EnableTrackingProtection = {
+      #   Value = true;
+      #   Locked = true;
+      #   Cryptomining = true;
+      #   Fingerprinting = true;
+      #   EmailTracking = true;
+      # };
+      # FirefoxHome = {
+      #   "Search" = true;
+      #   "TopSites" = true;
+      #   "SponsoredTopSites" = false;
+      #   "Highlights" = false;
+      #   "Pocket" = false;
+      #   "SponsoredPocket" = false;
+      #   #"Snippets" = true | false,
+      #   #"Locked" = true | false
+      # };
+      # ShowHomeButton = true;
 
-      FirefoxSuggest = {
-        "WebSuggestions" = true;
-        "SponsoredSuggestions" = false;
-        "ImproveSuggest" = true;
-        #"Locked" = true | false
-      };
+      # FirefoxSuggest = {
+      #   "WebSuggestions" = true;
+      #   "SponsoredSuggestions" = false;
+      #   "ImproveSuggest" = true;
+      #   #"Locked" = true | false
+      # };
+      #
+      # How different mimetypes and file extensions are handled
+      # BUG: this isn't working
+      # Handlers = {
+      #   mimeTypes = {
+      #     "application/msword" = {
+      #       "action" = "useSystemDefault";
+      #       "ask" = false;
+      #     };
+      #   };
+      # };
 
-      ExtensionSettings = {
-        # Ublock Origin
-        "uBlock0@raymondhill.net" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-          "default_area" = "menupanel";
-        };
-
-        # Vimium
-        "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
-          "default_area" = "menupanel";
-        };
-        # Keepa (amazon price tracker)
-        "amptra@keepa.com" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/keepa/latest.xpi";
-          "default_area" = "menupanel";
-        };
-        # Dark Reader
-        "addon@darkreader.org" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-          "default_area" = "menupanel";
-        };
-        # New Tab Override
-        "newtaboverride@agenedia.com" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/new-tab-override/latest.xpi";
-          "default_area" = "menupanel";
-        };
-        # Bitwarden password manager
-        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-          "default_area" = "menupanel";
-        };
-        # Floccus bookmarks
-        "floccus@handmadeideas.org" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi";
-          "default_area" = "menupanel";
-        };
-        # Hoarder
-        "addon@hoarder.app" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/hoarder/latest.xpi";
-          "default_area" = "menupanel";
-        };
-        # SponsorBlock
-        "sponsorBlocker@ajay.app" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
-          "default_area" = "menupanel";
-        };
-        # Reddit Enhancement Suite
-        "jid1-xUfzOsOFlzSOXg@jetpack" = {
-          "installation_mode" = "force_installed";
-          "install_url" =
-            "https://addons.mozilla.org/firefox/downloads/latest/reddit-enhancement-suite/latest.xpi";
-          "default_area" = "menupanel";
-        };
-      };
+      # ExtensionSettings = {
+      #   # Ublock Origin
+      #   "uBlock0@raymondhill.net" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      #   # Vimium
+      #   "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      #   # Keepa (amazon price tracker)
+      #   "amptra@keepa.com" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/keepa/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      #   # Dark Reader
+      #   "addon@darkreader.org" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      #   # New Tab Override
+      #   "newtaboverride@agenedia.com" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/new-tab-override/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      #   # Bitwarden password manager
+      #   "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      #   # Floccus bookmarks
+      #   "floccus@handmadeideas.org" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      #   # Hoarder
+      #   "addon@hoarder.app" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/hoarder/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      #   # SponsorBlock
+      #   "sponsorBlocker@ajay.app" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      #   # Reddit Enhancement Suite
+      #   "jid1-xUfzOsOFlzSOXg@jetpack" = {
+      #     "installation_mode" = "force_installed";
+      #     "install_url" =
+      #       "https://addons.mozilla.org/firefox/downloads/latest/reddit-enhancement-suite/latest.xpi";
+      #     "default_area" = "menupanel";
+      #   };
+      # };
 
     };
 
@@ -190,7 +200,6 @@ with config.lib.stylix.colors.withHashtag;
           # Use neovim to view source
           "view_source.editor.external" = true;
           "view_source.editor.path" = "${pkgs.alacritty}/bin/alacritty";
-          #"view_source.editor.args" = "${pkgs.neovim}/bin/nvim";
           "view_source.editor.args" = "--command nvim";
 
           # Some style settings
@@ -209,6 +218,21 @@ with config.lib.stylix.colors.withHashtag;
           "extensions.webextensions.restrictedDomains" = "";
           "extensions.webextensions.restrictedDomains.enabled" = false;
           "privacy.resistFingerprinting.block_mozAddonManager" = true;
+
+          # Automatically install declared plugins
+          #BUG: added on discord advice, doesn't seem to work
+          "extensions.autoDisableScopes" = 0;
+
+          # turn of google safebrowsing (it literally sends a sha sum of everything you download to google)
+          "browser.safebrowsing.downloads.remote.block_dangerous" = false;
+          "browser.safebrowsing.downloads.remote.block_dangerous_host" = false;
+          "browser.safebrowsing.downloads.remote.block_potentially_unwanted" =
+            false;
+          "browser.safebrowsing.downloads.remote.block_uncommon" = false;
+          "browser.safebrowsing.downloads.remote.url" = false;
+          "browser.safebrowsing.downloads.remote.enabled" = false;
+          "browser.safebrowsing.downloads.enabled" = false;
+
         };
 
         # TODO this is a cleaner way of structuring things,
@@ -237,7 +261,8 @@ with config.lib.stylix.colors.withHashtag;
                       --treeitem-selected-color: ${base0E} !important;
                       --treeitem-hover-color: ${base0B} !important;
                       --button-hover-color: ${base0A} !important;
-
+                      --tab-line-selected-color: ${base0D} !important;
+                      --tab-line-hover-color: ${base0E} !important;
                       /* tweaks to "firefox view" page */
                      --fxview-background-color: ${base00} !important;
                      --fxview-background-color-secondary: ${base01} !important;
@@ -246,6 +271,13 @@ with config.lib.stylix.colors.withHashtag;
                      --page-nav-button-text-color: ${base0A} !important;
                      --button-text-color: ${base05} !important;
 
+                      --theme-selection-background: ${base09} !important;
+
+                      /* tab bar on API response page*/
+                      --theme-tab-toolbar-background: ${base01} !important;
+
+                      /* outline around search bars n stuff*/
+                      --theme-focus-outline-color: ${base0D} !important;
               }
               /* current page number in PDF*/
               .toolbarField {
@@ -270,6 +302,33 @@ with config.lib.stylix.colors.withHashtag;
               /* x symbol in input bars */
               .search-container {
                       color: ${base08} !important;
+              }
+
+
+              /* API response pages */
+              .panelContent {
+                background: ${base01} !important;
+              }
+              .treeTable .treeRow.selected :where(:not(.objectBox-jsonml)), .treeTable .treeRow.selected .treeLabelCell::after {
+                color: ${base00} !important;
+              }
+              .objectBox-textNode, .objectBox-string, .objectBox-symbol {
+                color: ${base0E} !important;
+              }
+              .treeTable .treeRow.selected :not(input, textarea)::selection {
+                color: ${base00} !important;
+                background-color: ${base0D} !important;
+              }
+              .toolbar .btn {
+                color: ${base00} !important;
+                background: ${base0D} !important;
+              }
+              .toolbar .btn:hover {
+                color: ${base00} !important;
+                background: ${base0B} !important;
+              }
+              .toolbar {
+                background: ${base01} !important;
               }
 
 
@@ -321,6 +380,15 @@ with config.lib.stylix.colors.withHashtag;
 
                       /* color of toggle button nubs and other toggle colors*/
                       --background-color-canvas: ${base00} !important;
+                      
+                      --card-outline-color: ${base09} !important;
+
+                      --theme-icon-color: ${base0B} !important;
+                      --theme-icon-dimmed-color: ${base04} !important;
+                      --theme-icon-checked-color: ${base0D} !important;
+                      --theme-icon-warning-color: ${base09} !important;
+
+
                   }
                   @media (min-width: 830px) {
                       :root {
@@ -580,6 +648,272 @@ with config.lib.stylix.colors.withHashtag;
               }
           }
 
+          /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/content/auto_devtools_theme.css */
+          /* Make devtools use dark theme if your OS is in dark mode. Set devtools to Light-theme for this style to work */
+          @-moz-document url("about:devtools-toolbox"), url-prefix("chrome://devtools/content/"){
+            @media(prefers-color-scheme: dark){
+              :root {
+                --badge-active-background-color: ${base0D} !important;
+                --badge-active-border-color: ${base08} !important;
+                --badge-background-color: ${base00} !important;
+                --badge-border-color: ${base0A} !important;
+                --badge-color: ${base05} !important;
+                --badge-hover-background-color: ${base01} !important;
+                --badge-interactive-background-color: ${base01} !important;
+                --badge-interactive-color: ${base0A} !important;
+                --badge-scrollable-color: ${base0E} !important;
+                --badge-scrollable-background-color: transparent !important;
+                
+                --tab-line-hover-color: ${base08} !important;
+                --toggle-thumb-color: var(--grey-40) !important;
+                --toggle-track-color: var(--grey-60) !important;
+                --searchbox-no-match-background-color: ${base00} !important;
+                --searchbox-no-match-stroke-color: ${base08} !important;
+                
+                --bezier-diagonal-color: ${base05} !important;
+                
+                --bezier-grid-color: rgba(0, 0, 0, 0.2) !important;
+                --theme-tooltip-color: var(--theme-text-color-strong) !important;
+                --theme-tooltip-background: ${base00} !important;
+                --theme-tooltip-shadow: rgba(25, 25, 25, 0.76) !important;
+                --theme-tooltip-icon-dimmed-color: rgb(255, 255, 255) !important;
+                --theme-arrowpanel-background: var(--theme-popup-background) !important;
+                --theme-arrowpanel-color: var(--theme-popup-color) !important;
+                --theme-arrowpanel-border-color: var(--theme-popup-border-color) !important;
+                --theme-arrowpanel-separator: ${base0F} !important;
+                --theme-arrowpanel-dimmed: var(--theme-popup-dimmed) !important;
+                --theme-arrowpanel-dimmed-further: rgba(249,249,250,.15) !important;
+                --theme-arrowpanel-disabled-color: rgba(249,249,250,.5) !important;
+                
+                --theme-body-background: ${base00} !important;
+                --theme-body-emphasized-background: ${base01} !important;
+                --theme-sidebar-background: ${base00} !important;
+
+                /* Toolbar */
+                --theme-tab-toolbar-background: ${base01} !important;
+                --theme-toolbar-background: ${base00} !important;
+                --theme-toolbar-color: ${base05} !important;
+                --theme-toolbar-selected-color: ${base05} !important;
+                --theme-toolbar-highlighted-color: ${base0B} !important;
+                --theme-toolbar-background-hover: ${base01} !important;
+                --theme-toolbar-background-alt: ${base01} !important;
+                --theme-toolbar-hover: ${base01} !important;
+                --theme-toolbar-hover-active: ${base02} !important;
+                --theme-toolbar-separator: ${base0E} !important;
+
+
+                /* Toolbar buttons */
+                --toolbarbutton-background: ${base00} !important;
+                --toolbarbutton-hover-background: ${base01} !important;
+                --toolbarbutton-focus-background: ${base01} !important;
+                --toolbarbutton-focus-color: ${base0B} !important;
+                --toolbarbutton-checked-background: ${base0A} !important;
+                --toolbarbutton-checked-focus-background: ${base0B} !important;
+                --toolbarbutton-checked-color: ${base05} !important;
+
+                /* Buttons */
+                --theme-button-background: ${base00} !important;
+                --theme-button-active-background: ${base01} !important;
+
+                /* Accordion headers */
+                --theme-accordion-header-background: ${base00} !important;
+                --theme-accordion-header-hover: ${base01} !important;
+
+                /* Selection */
+                --theme-selection-background: ${base09} !important;
+                --theme-selection-background-hover: ${base01} !important;
+                --theme-selection-focus-background: ${base01} !important;
+                --theme-selection-color: ${base00} !important;
+
+                /* Border color that splits the toolbars/panels/headers. */
+                --theme-splitter-color: ${base04} !important;
+                --theme-emphasized-splitter-color: ${base0A} !important;
+                --theme-emphasized-splitter-color-hover: ${base09} !important;
+
+                /* Icon colors */
+                --theme-icon-color: ${base0B} !important;
+                --theme-icon-dimmed-color: ${base04} !important;
+                --theme-icon-checked-color: ${base0D} !important;
+                --theme-icon-error-color: ${base08} !important;
+                --theme-icon-warning-color: ${base0A} !important;
+
+                /* Text color */
+                --theme-comment: ${base04} !important;
+                --theme-body-color: ${base05} !important;
+                --theme-text-color-alt: var(${base04}) !important;
+                --theme-text-color-inactive: ${base04} !important;
+                --theme-text-color-strong: ${base0E} !important;
+                --theme-stack-trace-text: ${base08} !important;
+                --theme-internal-link-color: ${base0D} !important;
+
+                --theme-highlight-green: ${base0B} !important;
+                --theme-highlight-blue: ${base0D} !important;
+                --theme-highlight-purple: ${base0E} !important;
+                --theme-highlight-red: ${base08} !important;
+                --theme-highlight-yellow: ${base0A} !important;
+
+                /* These theme-highlight color variables have not been photonized. */
+                --theme-highlight-bluegrey: ${base0D} !important;
+                --theme-highlight-lightorange: ${base09} !important;
+                --theme-highlight-orange: ${base09} !important;
+                --theme-highlight-pink: ${base0E} !important;
+                --theme-highlight-gray: ${base05} !important;
+
+                /* For accessibility purposes we want to enhance the focus styling. This
+                 * should improve keyboard navigation usability. */
+                --theme-focus-outline-color: ${base04} !important;
+
+                /* Colors used in Graphs, like performance tools. Mostly similar to some "highlight-*" colors. */
+                --theme-graphs-green: ${base0B} !important;
+                --theme-graphs-blue: ${base0D} !important;
+                --theme-graphs-bluegrey: ${base0D} !important;
+                --theme-graphs-purple: ${base0E} !important;
+                --theme-graphs-yellow: ${base0A} !important;
+                --theme-graphs-orange: ${base09} !important;
+                --theme-graphs-red: ${base08} !important;
+                --theme-graphs-grey: ${base04} !important;
+                --theme-graphs-full-red: ${base08} !important;
+                --theme-graphs-full-blue: ${base0D} !important;
+
+                /* Common popup styles(used by HTMLTooltip and autocomplete) */
+                --theme-popup-background: ${base01} !important;
+                --theme-popup-color: ${base0A} !important;
+                --theme-popup-border-color: ${base0A} !important;
+                --theme-popup-dimmed: rgba(249, 249, 250, 0.1) !important;
+
+                /* Styling for devtool buttons */
+                --theme-toolbarbutton-background: ${base01} !important;
+                --theme-toolbarbutton-color: ${base0A} !important;
+                --theme-toolbarbutton-hover-background: ${base00} !important;
+                --theme-toolbarbutton-checked-background: ${base0E} !important;
+                --theme-toolbarbutton-checked-color: ${base00} !important;
+                --theme-toolbarbutton-checked-hover-background: ${base08} !important;
+                --theme-toolbarbutton-checked-hover-color: ${base00} !important;
+                --theme-toolbarbutton-active-background: ${base00} !important;
+                --theme-toolbarbutton-active-color: ${base0B} !important;
+
+                --theme-toolbar-selected-color: ${base09} !important;
+                --theme-toolbar-hover-color: ${base0E} !important;
+
+                /* Used for select elements */
+                --theme-select-background: ${base01} !important;
+                --theme-select-color: ${base05} !important;
+                --theme-select-hover-border-color: ${base03} !important;
+
+                /* Warning colors */
+                --theme-warning-background: ${base00} !important;
+                --theme-warning-border: ${base08} !important;
+                --theme-warning-color: ${base08} !important;
+
+                /* Flashing colors used to highlight updates */
+                --theme-contrast-background: #4f4b1f !important; /* = Yellow 50-a20 on body background */
+                --theme-contrast-background-alpha: rgba(255, 233, 0, 0.15) !important; /* Yellow 50-a15 */
+                --theme-contrast-color: ${base05} !important;
+                --theme-contrast-border: ${base0A} !important;
+                
+                --markup-hidden-attr-name-color: ${base04} !important;
+                --markup-hidden-attr-value-color: ${base05} !important;
+                --markup-hidden-punctuation-color: ${base04} !important;
+                --markup-hidden-tag-color: ${base04} !important;
+                --markup-outline: var(--theme-selection-background) !important;
+                --markup-drag-line: ${base04} !important;
+                --markup-drop-line: ${base0D} !important;
+                --markup-overflow-causing-background-color: rgba(148, 0, 255, 0.38) !important;
+                
+                --console-input-background: var(--theme-tab-toolbar-background) !important;
+                --console-message-background: var(--theme-body-background) !important;
+                --console-message-border: var(--theme-splitter-color) !important;
+                --console-message-color: ${base05} !important;
+                --console-error-background: ${base00} !important;
+                --console-error-border: var(--theme-splitter-color) !important;
+                --console-error-color: ${base08} !important;
+                --console-warning-border: var(--theme-splitter-color) !important;
+                --console-warning-color: ${base09} !important;
+                --console-navigation-color: var(--theme-highlight-blue) !important;
+                --console-navigation-border: ${base0D} !important;
+                --console-indent-border-color: var(--theme-highlight-blue) !important;
+                --console-repeat-bubble-background: ${base0D} !important;
+                --error-color: ${base08} !important;
+                --console-output-color: ${base05} !important;
+                
+                --scrollbar-color: ${base04} var(--theme-splitter-color) !important;
+
+                --tab-line-selected-color: ${base0D} !important;
+
+                /* graphs on networking tab */
+                --timing-wait-color: ${base0D} !important;
+                --timing-send-color: ${base0C} !important;
+                --timing-receive-color: ${base0B} !important;
+                --timing-connect-color: ${base09} !important;
+                --timing-ssl-color: ${base0A} !important;
+                --timing-dns-color: ${base0E} !important;
+                --timing-server-color-1: ${base0E} !important;
+                --timing-server-color-2: ${base0F} !important;
+                --timing-server-color-3: ${base0C} !important;
+                --timing-server-color-total: ${base09} !important;
+
+                /* rule header for styles */
+                --rule-header-background-color: ${base01} !important;
+              }
+            }
+
+
+            /* Toolbox */
+            .devtools-tabbar {
+              color: ${base05} !important;
+              background-color: ${base01} !important;
+            }
+            .devtools-tab {
+              background-color: ${base00} !important;
+              color: ${base05} !important;
+            }
+            .devtools-tab:hover {
+              background-color: ${base01} !important;
+              color: ${base0E} !important;
+            }
+            .devtools-tab:active {
+              background-color: ${base01} !important;
+              color: ${base0D} !important;
+            }
+            .devtools-tab.selected {
+              color: ${base09} !important;
+            }
+
+            /* toolbox error button */
+            .toolbox-error::before {
+              fill: ${base08} !important;
+            }
+
+            /* Notification box (above toolbox) */
+            .notificationbox .notification {
+              color: ${base05} !important;
+              background-color: ${base01} !important;
+            }
+
+            /* badge for XHR requests */
+            .webconsole-app .message.network .xhr {
+                background-color: ${base09} !important;
+                color: ${base00} !important;
+            }
+
+            /* request and response error header */
+            .theme-dark .network-monitor .request-error-header, .theme-dark .network-monitor .response-error-header {
+              background-color: ${base08} !important;
+              color: ${base00} !important;
+            }
+
+            /* "Start recording" button on performance page */
+            .perf-photon-button-primary {
+              background-color: ${base0D} !important;
+              color: ${base00} !important;
+            }
+            .perf-photon-button-primary:hover:not([disabled]) {
+              background-color: ${base0B} !important;
+            }
+            .perf-photon-button-primary:hover:active:not([disabled]) {
+              background-color: ${base08} !important;
+            }
+          }
 
         '';
 
@@ -604,7 +938,7 @@ with config.lib.stylix.colors.withHashtag;
                 --in-content-danger-button-background-hover: ${base13};
                 --in-content-danger-button-background-active: ${base12};
                 --in-content-table-background: ${base01};
-                --card-outline-color: ${base0B};
+                --card-outline-color: ${base0B} !important;
                 --dialog-warning-text-color: ${base08};
 
                 --in-content-box-border-color: ${base0F};
@@ -715,6 +1049,16 @@ with config.lib.stylix.colors.withHashtag;
           						color: ${base08} !important;
           					}
 
+          					/* webcam enabled recording coloring */
+                            #webrtc-sharing-icon[sharing]:not([paused]) {
+                                fill: ${base08} !important;
+                            }
+
+          					/* settings button for when permissions are used */
+                            #permissions-granted-icon {
+          						color: ${base09} !important;
+                            }
+
           					/* Downloads button coloring */
           					#downloads-button{
           						color: ${base0E} !important;
@@ -823,6 +1167,12 @@ with config.lib.stylix.colors.withHashtag;
           						color: ${base08} !important;
           						font-weight: bold !important;
           					}
+
+                            .tabbrowser-tab[pinned] {
+                                width: 100px;
+                                border: 1px solid ${base0E};
+          						font-weight: italic !important;
+                            }
 
           					/*-----------------------------------------*/
 

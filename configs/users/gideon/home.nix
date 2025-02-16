@@ -183,6 +183,7 @@
 
     # Git
     ./configs/git.nix
+    ./configs/gh.nix
 
     # KDE Connect
     ./configs/kdeconnect.nix

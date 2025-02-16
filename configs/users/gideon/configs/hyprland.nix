@@ -190,7 +190,8 @@ with config.lib.stylix.colors;
       windowrulev2 = float,class:(kitty-ai)
       windowrulev2 = size 800 800,class:(kitty-ai)
       windowrulev2 = workspace special:ai,class:(kitty-ai)
-      bind = $mod, A, exec, hyprctl clients | grep "kitty-ai" && hyprctl dispatch togglespecialworkspace ai || kitty --class "kitty-ai" tenere &
+      #bind = $mod, A, exec, hyprctl clients | grep "kitty-ai" && hyprctl dispatch togglespecialworkspace ai || kitty --class "kitty-ai" tenere &
+      bind = $mod, A, exec, hyprctl clients | grep "kitty-ai" && hyprctl dispatch togglespecialworkspace ai || kitty --class "kitty-ai" tgpt -m &
 
     '';
 
