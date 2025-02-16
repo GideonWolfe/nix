@@ -1108,10 +1108,10 @@ with config.lib.stylix.colors.withHashtag;
           					/* #reader-mode-button[readeractive] > .urlbar-icon { */
           					/*	color: ${base0E} !important */
           					/* } */
-          					#reader-mode-button-icon[readeractive] {
-          						color: ${base08} !important 
-          					}
 
+                            #reader-mode-button[readeractive] > .urlbar-icon {
+                              fill: ${base08} !important;
+                            }
 
           					/*-----------------------------------------*/
 
@@ -1170,9 +1170,12 @@ with config.lib.stylix.colors.withHashtag;
 
                             .tabbrowser-tab[pinned] {
                                 width: 100px;
-                                border: 1px solid ${base0E};
-          						font-weight: italic !important;
+                                border: 1px solid ${base0E} !important;
+          						font-style: italic !important;
                             }
+                            /* .tab-background[pinned] { */
+                            /*     border: 1px solid ${base0E} !important; */
+                            /* } */
 
           					/*-----------------------------------------*/
 
