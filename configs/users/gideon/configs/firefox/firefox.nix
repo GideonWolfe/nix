@@ -584,69 +584,50 @@ with config.lib.stylix.colors.withHashtag;
                 }
             }
 
-          /* TODO none of this view source stuff works */
-          @-moz-document url-prefix(view-source:) {
-
-              /* *|*:root { */
-              /*    background: none !important; */
-              /* } */
-
-              #viewsource {
-                  color: ${base05};
+            /* View source syntax highlighting */
+            @media (-moz-bool-pref: "view_source.syntax_highlight") {
+              .start-tag,
+              .end-tag {
+                color: ${base0E} !important;
+                font-weight: bold;
               }
-
-              pre[id]:before,
-              span[id]:before {
-                  width: 6ch !important;
-                  color: ${base05} !important;
-                  margin-left: -7ch !important;
+              .comment {
+                color: ${base04} !important;
+                font-style: italic;
               }
-              pre {
-                  padding-left: 1ch;
-                  margin-left: 6ch !important;
-                  border-left: 2px solid ${base01};
+              .cdata {
+                color: ${base08} !important;
               }
-              pre > :first-child {
-                  padding-right: 1ch;
+              .doctype,
+              .markupdeclaration {
+                color: ${base0D} !important;
+                font-style: italic;
               }
-
-              .highlight .start-tag {
-               color: ${base0E} !important;
+              .pi {
+                color: ${base0E} !important;
+                font-style: italic;
               }
-              .highlight .end-tag {
-               color: ${base0E} !important;
+              .entity {
+                color: ${base08} !important;
               }
-              .highlight .comment {
-               color: ${base04} !important;
+              .text {
+                font-weight: normal;
+                color: ${base05} !important;
               }
-              .highlight .cdata {
-               color: ${base08} !important;
+              .attribute-name {
+                font-weight: bold;
               }
-              .highlight .doctype {
-               color: ${base0D} !important;
+              .attribute-value {
+                color: ${base08} !important;
+                font-weight: normal;
               }
-              .highlight .pi {
-               color: ${base0D} !important; 
+              .error {
+                color: ${base00} !important;
+                font-weight: bold;
+                background-color: ${base08} !important;
+                text-decoration: underline wavy ${base08} 0.5px !important;
               }
-              .highlight .entity {
-               color: ${base0A} !important;
-              }
-              .highlight .attribute-name {
-               color: ${base05} !important;
-              }
-              .highlight .attribute-value {
-               color: ${base0B} !important;
-              }
-              .highlight .markupdeclaration {
-               color: ${base0C} !important;
-              }
-              .highlight .error,
-              .highlight .error > :-moz-any(.start-tag, .end-tag, .comment, .cdata, .doctype,
-              .pi, .entity, .attribute-name, .attribute-value) {
-                  color: ${base01} !important;
-                  background-color: ${base08} !important;
-              }
-          }
+            }
 
           /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/content/auto_devtools_theme.css */
           /* Make devtools use dark theme if your OS is in dark mode. Set devtools to Light-theme for this style to work */
@@ -977,6 +958,7 @@ with config.lib.stylix.colors.withHashtag;
                 --in-content-table-header-background: var(--in-content-primary-button-background);
                 --in-content-table-header-color: var(--in-content-primary-button-text-color);
 
+
             }
 
                             /* get rid of blinding white loading screen for tabs */
@@ -1113,6 +1095,16 @@ with config.lib.stylix.colors.withHashtag;
                               fill: ${base08} !important;
                             }
 
+
+                            #urlbar-zoom-button {
+                              background-color: ${base00}!important;
+                              color: ${base0A} !important;
+                            }
+                            #urlbar-zoom-button:hover {
+                              background-color: ${base0A}!important;
+                              color: ${base00} !important;
+                            }
+
           					/*-----------------------------------------*/
 
 
@@ -1176,6 +1168,45 @@ with config.lib.stylix.colors.withHashtag;
                             /* .tab-background[pinned] { */
                             /*     border: 1px solid ${base0E} !important; */
                             /* } */
+
+
+                            /* Speaker icon on tab playing media  */
+                            /* TODO not sure what activemedia-blocked does, may want to style differently  */
+                            .tab-icon-overlay {
+                              &:not([crashed]) {
+                                &:is([soundplaying], [activemedia-blocked]) {
+                                  background-color: ${base0B} !important;
+                                  fill: ${base00} !important;
+                                }
+                              }
+                            }
+                            /* Speaker icon on tab playing media hovering */
+                            .tab-icon-overlay {
+                              &:not([crashed]) {
+                                &:is([soundplaying], [activemedia-blocked]):hover {
+                                  background-color: ${base09} !important;
+                                  fill: ${base00} !important;
+                                }
+                              }
+                            }
+                            /* Speaker icon on tab muted media  */
+                            .tab-icon-overlay {
+                              &:not([crashed]) {
+                                &:is([muted], [activemedia-blocked]) {
+                                  background-color: ${base08} !important;
+                                  fill: ${base00} !important;
+                                }
+                              }
+                            }
+                            /* Speaker icon on tab muted media hovering */
+                            .tab-icon-overlay {
+                              &:not([crashed]) {
+                                &:is([muted], [activemedia-blocked]):hover {
+                                  background-color: ${base0D} !important;
+                                  fill: ${base00} !important;
+                                }
+                              }
+                            }
 
           					/*-----------------------------------------*/
 
