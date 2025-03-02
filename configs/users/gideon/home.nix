@@ -243,7 +243,7 @@
     ./configs/vscode.nix
 
     # Projects
-    ./configs/projects/zeroday.nix
+        #./configs/projects/zeroday.nix
     ./configs/projects/forgetter.nix
     ./configs/projects/science.nix
     ./configs/projects/art.nix
