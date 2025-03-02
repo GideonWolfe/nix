@@ -8,7 +8,7 @@
     ##########
     # TODO enable when more space
     pkgs.freecad # general CAD
-    pkgs.kicad # PCB designer
+    #pkgs.kicad # PCB designer
     pkgs.blender # 3D modeler, animator, and designer
     pkgs.sweethome3d.application # Interior design GUI
     pkgs.sweethome3d.textures-editor
@@ -18,7 +18,7 @@
     pkgs.mujoco # general purpose physics sim/modeler
     pkgs.openrocket # 3D rocket simulator/modeler
     pkgs.leocad # 3D CAD modeler for legos
-    pkgs.orca-slicer # Slicer for 3D printing and Bambu printers
+    #pkgs.orca-slicer # Slicer for 3D printing and Bambu printers
 
     ###############
     # ELECTRONICS #
