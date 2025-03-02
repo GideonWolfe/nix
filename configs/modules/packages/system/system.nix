@@ -84,6 +84,12 @@
     # Utilities
     bc # calculator
     bat # better cat
+    bat-extras.batman
+    bat-extras.batpipe
+    bat-extras.batgrep
+    bat-extras.batdiff
+    bat-extras.batwatch
+    bat-extras.prettybat
     csview # cat out CSV files
     imv # like mpv for images
     fd # better find
