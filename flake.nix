@@ -16,11 +16,11 @@
     };
 
     # Overriding hyperland package to get more opts
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     #ags.url = "github:Aylur/ags";
@@ -49,7 +49,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, agenix, stylix, spicetify-nix, nixvim
-    , hyprland, hyprland-plugins, hyprpanel, ... }@inputs:
+    , hyprpanel, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
