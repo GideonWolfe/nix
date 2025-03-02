@@ -8,6 +8,8 @@ with config.lib.stylix.colors;
     # allow home manager to configure hyprland	
     enable = true;
 
+    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+
     systemd.enable = true;
 
     settings = {
@@ -44,6 +46,22 @@ with config.lib.stylix.colors;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
         enable_swallow = true;
+      };
+
+      # This is where the actual plugin config happens
+      # Plugin packages are added at the bottom 
+      plugin = {
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "rgb(${base01})";
+          workspace_method = "first 1";
+          #"center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+          enable_gesture = true; # laptop touchpad
+          gesture_fingers = 3; # 3 or 4
+          gesture_distance = 150; # how far is the "max"
+          gesture_positive = true; # positive = swipe down. Negative = swipe up.
+        };
       };
 
     };
@@ -193,13 +211,20 @@ with config.lib.stylix.colors;
       #bind = $mod, A, exec, hyprctl clients | grep "kitty-ai" && hyprctl dispatch togglespecialworkspace ai || kitty --class "kitty-ai" tenere &
       bind = $mod, A, exec, hyprctl clients | grep "kitty-ai" && hyprctl dispatch togglespecialworkspace ai || kitty --class "kitty-ai" tgpt -m &
 
+
+      bind = SUPER, grave, hyprexpo:expo, toggle # can be: toggle, off/disable or on/enable
+      #bind = SUPER, grave, overview:toggle
+
     '';
 
-    # BUG: https://github.com/hyprwm/hyprland-plugins/issues/193
-    # plugins = [
-    #   inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprtrails
-    #   #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
-    # ];
-    #
+    # This adds specific packages as plugins, not configuring them
+    plugins = [
+      # only one should be enabled at a time
+      # they both have binds to activate with three fingers on trackpad
+      # can be disabled but might as well keep only one around
+      pkgs.hyprlandPlugins.hyprexpo
+      #pkgs.hyprlandPlugins.hyprspace
+    ];
+
   };
 }
