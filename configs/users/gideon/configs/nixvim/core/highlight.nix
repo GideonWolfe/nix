@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -85,12 +85,16 @@ with config.lib.stylix.colors.withHashtag;
       bold = true;
     };
 
-    # active line number
-    CursorLineNr = {
-      bg = "${base00}";
-      fg = "${base0E}";
-      bold = true;
-    };
+    # # active line number
+    # CursorLineNr = lib.mkForce {
+    #   # bg = "${base00}";
+    #   #fg = "${base0E}";
+    #   #fg = "red";
+    #   #bg = "${base00}";
+    #   ctermfg = "red";
+    #   #guifg = "${base0E}";
+    #   bold = true;
+    # };
 
     # color of fold line
     FoldColumn = {
@@ -425,6 +429,16 @@ with config.lib.stylix.colors.withHashtag;
     DashboardHeader = {
       bg = "${base00}";
       fg = "${base0E}";
+    };
+  };
+
+  # Some highlight groups get overidden 
+  # so we override them back here
+  programs.nixvim.highlightOverride = {
+    # active line number
+    CursorLineNr = {
+      fg = "${base0E}";
+      bold = true;
     };
   };
 }
