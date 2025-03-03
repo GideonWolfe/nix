@@ -50,6 +50,7 @@
     libsForQt5.ark # advanced archive manager, haven't figured out KDE theming yet
     gnome.file-roller # archive utility
     zip
+    p7zip
     czkawka # duplicate file finding GUI
     szyszka # bulk file renamer GUI
     file

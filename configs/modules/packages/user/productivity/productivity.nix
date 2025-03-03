@@ -81,6 +81,12 @@
     # Workspaces and Knowledge Bases
     pkgs.trilium-desktop
     pkgs.affine
+    pkgs.obsidian
+
+    #LLM
+    pkgs.tenere # llm TUI
+    pkgs.llm # LLM CLI
+    pkgs.tgpt # LLM CLI
 
   ];
 }

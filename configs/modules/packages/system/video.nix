@@ -10,6 +10,8 @@
     handbrake # GUI command is ghb
     # Downloaders
     yt-dlp # better youtube-dl
+    vdhcoapp # companion for video downloader firefox plugin
+
     # Take photos through webcam
     gnome.cheese
     neofetch

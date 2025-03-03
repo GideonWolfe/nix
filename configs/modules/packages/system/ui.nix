@@ -19,6 +19,9 @@
     hyprland
     sway
 
+    # Cursor
+    hyprcursor
+
     # Icons
     libsForQt5.breeze-icons # icon set for system icons
     papirus-icon-theme

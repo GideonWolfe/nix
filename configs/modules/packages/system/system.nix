@@ -37,11 +37,12 @@
     screen
 
     # File Operations
-    #unrar
+    unrar
     unzip
     libsForQt5.ark # advanced archive manager, haven't figured out KDE theming yet
     gnome.file-roller # archive utility
     zip
+    p7zip
     czkawka # duplicate file finding GUI
     szyszka # bulk file renamer GUI
     file
@@ -58,6 +59,7 @@
     bandwhich # bandwidth monitor
     jnettop
     netscanner # network scanner
+    wavemon # network monitor
     trippy
     ktop # kubernetes monitor
     kernelshark # GUI kernel monitor
@@ -65,6 +67,7 @@
     glances # system/process monitor
     bmon # bandwidth monitor
     nload # network load monitor
+    oha # HTTP monitor/tester
     nmon # system monitor
     powertop # power analyzer (intel laptops)
     lm_sensors # hardware sensors
@@ -81,6 +84,12 @@
     # Utilities
     bc # calculator
     bat # better cat
+    bat-extras.batman
+    bat-extras.batpipe
+    bat-extras.batgrep
+    bat-extras.batdiff
+    bat-extras.batwatch
+    bat-extras.prettybat
     csview # cat out CSV files
     imv # like mpv for images
     fd # better find
@@ -167,6 +176,7 @@
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin # we have easytag for this but it doesn't hurt
     nautilus
+    tuifimanager # GUI like fm in the TUI
 
     # Replacements for various X utils
     wev # wayland xev

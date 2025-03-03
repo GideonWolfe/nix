@@ -13,48 +13,72 @@
     ############
 
     #Theming
-    ./packages/theming.nix
+    #./packages/theming.nix
+    ../../modules/packages/user/theming.nix
 
     # Productivity packages
-    ./packages/productivity/productivity.nix
+    #./packages/productivity/productivity.nix
+    ../../modules/packages/user/productivity/productivity.nix
 
     # Web
-    ./packages/productivity/web.nix
+    #./packages/productivity/web.nix
+    ../../modules/packages/user/productivity/web.nix
 
     # Audio
-    ./packages/productivity/audio.nix
+    #./packages/productivity/audio.nix
+    ../../modules/packages/user/productivity/audio.nix
 
     # Video
-    ./packages/productivity/video.nix
+    #./packages/productivity/video.nix
+    ../../modules/packages/user/productivity/video.nix
 
     # Art
-    ./packages/productivity/art.nix
+    #./packages/productivity/art.nix
+    ../../modules/packages/user/productivity/art.nix
 
     # Comms
-    ./packages/productivity/comms.nix
+    #./packages/productivity/comms.nix
+    ../../modules/packages/user/productivity/comms.nix
 
     # Gaming
-    ./packages/gaming.nix
+    #./packages/gaming.nix
+    ../../modules/packages/user/gaming.nix
 
     # STEM
-    ./packages/science/astronomy.nix
-    ./packages/science/biology.nix
-    ./packages/science/chemistry.nix
-    ./packages/science/data.nix
-    ./packages/science/education.nix
-    ./packages/science/geography.nix
-    ./packages/science/math.nix
+    # ./packages/science/astronomy.nix
+    # ./packages/science/biology.nix
+    # ./packages/science/chemistry.nix
+    # ./packages/science/data.nix
+    # ./packages/science/education.nix
+    # ./packages/science/geography.nix
+    # ./packages/science/math.nix
     #./user/packages/science/medecine.nix
-    ./packages/science/utilities.nix
-    ./packages/science/engineering.nix
+    # ./packages/science/utilities.nix
+    # ./packages/science/engineering.nix
+
+    ../../modules/packages/user/science/astronomy.nix
+    ../../modules/packages/user/science/biology.nix
+    ../../modules/packages/user/science/chemistry.nix
+    ../../modules/packages/user/science/data.nix
+    ../../modules/packages/user/science/education.nix
+    ../../modules/packages/user/science/geography.nix
+    ../../modules/packages/user/science/math.nix
+    #../../modules/packages/user/science/medecine.nix
+    ../../modules/packages/user/science/utilities.nix
+    ../../modules/packages/user/science/engineering.nix
 
     # Development
-    ./packages/development/rust.nix
-    ./packages/development/js.nix
-    ./packages/development/utils.nix
+    # ./packages/development/rust.nix
+    # ./packages/development/js.nix
+    # ./packages/development/utils.nix
+
+    ../../modules/packages/user/development/rust.nix
+    ../../modules/packages/user/development/js.nix
+    ../../modules/packages/user/development/utils.nix
 
     # Random fun packages
-    ./packages/fun.nix
+        #./packages/fun.nix
+    ../../modules/packages/user/fun.nix
 
     ###########
     # CONFIGS #
@@ -159,6 +183,7 @@
 
     # Git
     ./configs/git.nix
+    ./configs/gh.nix
 
     # KDE Connect
     ./configs/kdeconnect.nix
@@ -185,6 +210,9 @@
 
     # Shell config
     ./configs/fish.nix
+
+    # TTY config
+    ./configs/zellij.nix
 
     # Notification client
     # Disabling because hyprpanel handles it
@@ -215,7 +243,7 @@
     ./configs/vscode.nix
 
     # Projects
-    ./configs/projects/zeroday.nix
+        #./configs/projects/zeroday.nix
     ./configs/projects/forgetter.nix
     ./configs/projects/science.nix
     ./configs/projects/art.nix

@@ -1,7 +1,8 @@
 {
 
   programs.nixvim.plugins.cmp_luasnip = { enable = true; };
-  programs.nixvim.plugins.cmp-path = { enable = true; };
+  #programs.nixvim.plugins.cmp-path = { enable = true; };
+  programs.nixvim.plugins.cmp-async-path = { enable = true; };
   programs.nixvim.plugins.cmp-buffer = { enable = true; };
   programs.nixvim.plugins.cmp-calc = { enable = true; };
   programs.nixvim.plugins.cmp-cmdline = { enable = true; };
@@ -22,6 +23,7 @@
   programs.nixvim.plugins.cmp = {
 
     enable = true;
+    #TODO: test to see if its better true
     autoEnableSources = false;
 
     settings = {
@@ -99,9 +101,10 @@
               { name = 'nvim_lua' },
               { name = 'luasnip' },
               { name = 'buffer' },
-              { name = 'path' },
+              { name = 'async_path' },
               { name = 'emoji' },
               { name = 'git' },
+              { name = 'latex_symbols' },
               { name = 'crates' },
               { name = 'dictionary' },
               { name = 'calc' },

@@ -10,5 +10,6 @@
 		#pkgs.jstest-gtk #joystick tester
 		#pkgs.cutechess # chess engine
         #pkgs.maptool VTT for tabletop games
+        pkgs.flips # IPS and BPS patcher (for making romhacks)
 	];
 }

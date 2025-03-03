@@ -5,6 +5,7 @@
 
     # UTILITIES #
     pkgs.hexyl # CLI Hex viewer
+    pkgs.binsider # CLI Hex viewer
     pkgs.hyx # CLI Hex editor
     pkgs.imhex # GUI Hex editor
     pkgs.biodiff # hex diff viewer
@@ -16,6 +17,8 @@
     pkgs.dive # Explore every layer in a docker image
     pkgs.git
     pkgs.lazygit # TUI git interface
+    #pkgs.gh # CLI/TUI for github
+    #pkgs.gh-dash # dashboard for gh
     pkgs.wildcard # GUI regex tester
     #pkgs.ngrok # expose local port to WAN
     #pkgs.graphviz # graph visualization software

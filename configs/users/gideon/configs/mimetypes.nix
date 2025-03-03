@@ -25,6 +25,9 @@ with config.lib.stylix.colors.withHashtag;
       "application/x-bzip" = [ "org.gnome.FileRoller.desktop" ];
       "application/x-bzip2" = [ "org.gnome.FileRoller.desktop" ];
 
+      "x-scheme-handler/magnet" = [ "transmission-gtk.desktop" ];
+      "application/x-bittorent" = [ "transmission-gtk.desktop" ];
+
       # Directories
       "inode/directory" = lib.mkForce [ "thunar.desktop" ];
 
@@ -38,10 +41,10 @@ with config.lib.stylix.colors.withHashtag;
       "application/x-cdf" = [ "vlc.desktop" ];
       "audio/midi" = [ "reaper.desktop" ];
 
-      # Video
-      "video/mp4" = [ "vlc.desktop" ];
-      "video/mpeg" = [ "vlc.desktop" ];
-      "video/ogg" = [ "vlc.desktop" ];
+      # Video 
+      "video/mp4" = [ "mpv.desktop" "vlc.desktop" ];
+      "video/mpeg" = [ "mpv.desktop" "vlc.desktop" ];
+      "video/ogg" = [ "mpv.desktop" "vlc.desktop" ];
 
       # Images
       "image/png" = [ "imv.desktop" ];
@@ -51,7 +54,7 @@ with config.lib.stylix.colors.withHashtag;
       "image/tiff" = [ "gimp.desktop" ];
 
       # Docs
-      "application/pdf" = [ "zathura.desktop" "ark.desktop" ];
+      "application/pdf" = [ "org.pwmt.zathura.desktop" "ark.desktop" ];
       "application/msword" = [ "writer.desktop" ]; # TODO setup libre office
       "application/vnd.ms-excel" = [ "calc.desktop" ]; # .xls
       "application/vnd.ms-powerpoint" = [ "impress.desktop" ]; # .xls

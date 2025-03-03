@@ -7,7 +7,7 @@
     pkgs.weechatScripts.weechat-notify-send # allow weechat to send notifications
     pkgs.weechatScripts.autosort
     pkgs.weechatScripts.highmon
-    pkgs.element-desktop-wayland # Matrix GUI
+    pkgs.element-desktop # Matrix GUI
     pkgs.signal-desktop
     pkgs.gurk-rs # signal TUI
     pkgs.neomutt # Email TUI

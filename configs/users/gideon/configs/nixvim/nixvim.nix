@@ -18,6 +18,7 @@ with config.lib.stylix.colors.withHashtag;
     ./plugins/ui/bufferline.nix
     ./plugins/ui/dashboard.nix
     ./plugins/ui/fidget.nix
+    ./plugins/ui/helpview.nix
     ./plugins/ui/indent-blankline.nix
     ./plugins/ui/lspkind.nix
     ./plugins/ui/lualine.nix
@@ -60,6 +61,9 @@ with config.lib.stylix.colors.withHashtag;
     ./plugins/utils/treesitter.nix
     ./plugins/utils/todo-comments.nix
     ./plugins/utils/vimtex.nix
+    ./plugins/utils/snacks.nix
+    ./plugins/utils/hmts.nix
+    ./plugins/utils/image.nix
 
     # Development plugins for specific frameworks/langs
     ./plugins/dev/godot.nix

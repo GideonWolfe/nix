@@ -14,6 +14,10 @@
         };
       };
 
+      notify = {
+        enabled = false; # handled by snacks;
+      };
+
       popupmenu = {
         enabled = true;
         #backend = "cmp"; # should be nui if I can install it
