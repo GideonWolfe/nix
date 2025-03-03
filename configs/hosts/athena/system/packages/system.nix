@@ -45,7 +45,7 @@
     screen
 
     # File Operations
-    #unrar
+    unrar
     unzip
     libsForQt5.ark # advanced archive manager, haven't figured out KDE theming yet
     gnome.file-roller # archive utility

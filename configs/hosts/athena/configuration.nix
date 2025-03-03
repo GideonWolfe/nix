@@ -105,6 +105,8 @@
     ./server/services/media/calibre-web-automated.nix
     ./server/services/media/calibre-web-automated-downloader.nix
     ./server/services/admin/homarr.nix
+    ./server/services/media/slskd.nix
+    ./server/services/media/romm.nix
 
     ./server/services/productivity/vaultwarden/vaultwarden.nix
 
