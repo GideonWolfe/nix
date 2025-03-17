@@ -10,6 +10,8 @@
     # Merger FS for data disks
     mergerfs
     mergerfs-tools
+    # provides lsusb and other commands
+    usbutils
 
     # Greeter daemon for login sessions
     greetd.greetd
@@ -185,6 +187,8 @@
 
     # monitor data being sent through pipe
     pv
+
+    transmission-gtk
   ];
 
   fonts.packages = with pkgs; [

@@ -45,6 +45,9 @@
     ./system/services/networks/ssh.nix
     ./system/services/networks/firewall.nix
 
+     # automatically mount external disks
+    ./system/services/udisks2.nix
+
     # Docker
     ./system/services/docker.nix
 
@@ -118,6 +121,12 @@
     #./server/services/productivity/nextcloud/nextcloud-aio-mastercontainer.nix
     ./server/services/productivity/nextcloud/nextcloud.nix
     ./server/services/productivity/triliumnext/triliumnext.nix
+
+    # Wiki backups
+    ./server/services/productivity/kiwix/kiwix.nix
+
+    # Obsidian Syncing
+    #./server/services/productivity/obsidian-livesync/obsidian-livesync.nix
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;

@@ -35,6 +35,10 @@
         file = ./secrets/services/romm/romm_env.age;
         path = "/secrets/services/romm/.env";
       };
+      obsidian_livesync_env = {
+        file = ./secrets/services/obsidian_livesync/obsidian_livesync_env.age;
+        path = "/secrets/services/obsidian_livesync/.env";
+      };
     };
   };
 }

@@ -77,7 +77,8 @@
     ../gideon/configs/xdg-user-dirs.nix
 
     # Custom default applications
-    ./configs/mimetypes.nix
+        #./configs/mimetypes.nix
+    ../gideon/configs/mimetypes.nix
 
     # Better CD
     ../gideon/configs/zoxide.nix

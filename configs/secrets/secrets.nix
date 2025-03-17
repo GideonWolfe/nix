@@ -26,6 +26,7 @@ in {
   "crowdsec_whitelist.age".publicKeys = [ root_athena ];
   "paperless_admin_pass.age".publicKeys = [ root_athena ];
   "romm_env.age".publicKeys = [ root_athena ];
+  "obsidian_livesync_env.age".publicKeys = [ root_athena ];
   # User secrets
   "vdirsyncer_google_client_id.age".publicKeys =
     [ gideon_hermes gideon_poseidon ];
