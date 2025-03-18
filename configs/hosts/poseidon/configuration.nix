@@ -173,6 +173,7 @@
       "wheel" # Enable ‘sudo’ for the user.
       "docker" # Let the user run docker commands
       "dialout" # let programs run by the user (like chirp) access USB ports
+      "input" # let programs run by the user (like chirp) access touchpad input (for fusuma gestures)
     ];
     packages = with pkgs; [ firefox neovim tree ];
   };

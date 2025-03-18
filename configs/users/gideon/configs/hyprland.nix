@@ -62,14 +62,35 @@ with config.lib.stylix.colors;
           gesture_distance = 150; # how far is the "max"
           gesture_positive = true; # positive = swipe down. Negative = swipe up.
         };
+        # for hyprgrass touch screen gestures
+        touch_gestures = {
+          sensitivity = 50.0;
+          workspace_swipe = "true";
+          workspace_swipe_fingers = 4;
+          workspace_swipe_edge = "d";
+          workspace_swipe_cancel_ratio = 0.15;
+          long_press_delay = 400;
+          resize_on_border_long_press = true;
+          edge_margin = 10;
+
+          hyprgrass-bind = [
+            # swipe left from right edge to move one workspace up
+            ", edge:r:l, workspace, +1"
+
+            # tap with 3 fingers
+            ", tap:3, exec, kitty"
+          ];
+
+        };
       };
 
     };
     extraConfig = ''
+      # not needed since hyprpanel handles bar and notifs
       #exec = pkill waybar & sleep 0.5 && waybar
+      #exec-once = kando
 
       exec-once = hyprpanel
-      exec-once = kando
 
       #exec-once = hyprctl setcursor catppuccin-mocha-dark-cursors 40
       exec-once = hyprctl setcursor ${config.home.pointerCursor.name} ${
@@ -219,11 +240,15 @@ with config.lib.stylix.colors;
 
     # This adds specific packages as plugins, not configuring them
     plugins = [
+      # Workspace Switcher
       # only one should be enabled at a time
       # they both have binds to activate with three fingers on trackpad
       # can be disabled but might as well keep only one around
       pkgs.hyprlandPlugins.hyprexpo
       #pkgs.hyprlandPlugins.hyprspace
+
+      # Touch gestures
+      pkgs.hyprlandPlugins.hyprgrass
     ];
 
   };

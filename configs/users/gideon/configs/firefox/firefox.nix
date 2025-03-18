@@ -258,6 +258,11 @@ with config.lib.stylix.colors.withHashtag;
           "browser.safebrowsing.downloads.remote.enabled" = false;
           "browser.safebrowsing.downloads.enabled" = false;
 
+
+          # disable pinch to zoom (it interferes with fusama)
+          # BUG: this doesn't work
+          "browser.gesture.pinch" = false;
+
         };
 
         # TODO this is a cleaner way of structuring things,

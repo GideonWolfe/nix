@@ -63,6 +63,7 @@
     pkgs.filezilla # FTP client
     pkgs.transmission_4-gtk # torrent client
     pkgs.chance # dice roller, binary name is rollit
+    pkgs.kiwix # offline viewer for zim files (wikis/docs)
 
     #########
     # PHOTO #

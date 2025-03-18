@@ -255,6 +255,12 @@
     #./configs/ags/ags.nix
     #./configs/ags/style.nix
 
+    ./configs/obsidian/obsidian-stylix-css.nix
+
+    
+    # touch pad gestures
+    ./configs/fusuma.nix
+
     ../../modules/keys/ssh.nix
   ];
 
@@ -282,6 +288,8 @@
     # Project folder
     createProjects = lib.hm.dag.entryAfter [ "writeBoundary" ]
       "  mkdir -p ${config.home.homeDirectory}/projects/\n";
+    createNotes = lib.hm.dag.entryAfter [ "writeBoundary" ]
+      "  mkdir -p ${config.home.homeDirectory}/notes/${config.home.username}\n";
   };
 
   # This value determines the Home Manager release that your configuration is

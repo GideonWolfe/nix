@@ -18,9 +18,10 @@
 
     # Nix tools
     nix-tree # browse dependencies of nix store
+    nix-output-monitor # adds visuals to build outputs
 
     # make secrets available to apps
-    gnome.gnome-keyring
+    gnome-keyring
 
     # Terminals
     alacritty
@@ -40,7 +41,7 @@
     unrar
     unzip
     libsForQt5.ark # advanced archive manager, haven't figured out KDE theming yet
-    gnome.file-roller # archive utility
+    file-roller # archive utility
     zip
     p7zip
     czkawka # duplicate file finding GUI
@@ -110,8 +111,8 @@
     xdg-user-dirs # change default user directoryies
     xdg-utils
     fzf
-    gnome.gucharmap # Unicode character viewer
-    gnome.gnome-font-viewer
+    gucharmap # Unicode character viewer
+    gnome-font-viewer
     tldr # better man pages with examples
     espeak
     libsForQt5.qt5.qttools # toolset that includes qdbusviewer
@@ -150,7 +151,7 @@
     # Filesystem Utilities
     ntfs3g # NTFS driver
     gparted
-    gnome.gnome-disk-utility
+    gnome-disk-utility
     diskonaut # disk usage analyzer TUI
     baobab # disk usage analyzer GUI
     ventoy # create bootable USBs
@@ -161,6 +162,7 @@
     piper # GTK frontend to configure mice
     #solaar # GUI for Logitech Unifying Reciever config
     antimicrox # GUI for mapping buttons on input devices
+    steamcontroller # drivers for the steam controller
     openrgb-with-all-plugins # OpenRGB
     #lact # GUI for AMD GPU control
     #nvitop # Interactive TUI for Nvidia GPU control # this may need additional plugins to detect other GPUs, check package list

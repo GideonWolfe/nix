@@ -13,7 +13,7 @@
     vdhcoapp # companion for video downloader firefox plugin
 
     # Take photos through webcam
-    gnome.cheese
+    cheese
     neofetch
   ];
 }
