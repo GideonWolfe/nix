@@ -81,6 +81,16 @@
           ];
         };
 
+        hades = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            stylix.nixosModules.stylix
+            agenix.nixosModules.default
+            ./configs/hosts/hades/configuration.nix
+          ];
+        };
+
         # Homeserver
         athena = lib.nixosSystem {
           inherit system;

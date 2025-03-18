@@ -61,7 +61,8 @@
     ###########
 
     # Session/env variables
-    ./configs/session-variables.nix
+    ../../modules/configs/user/session-variables.nix
+    #./configs/session-variables.nix
 
     # Configs for calendar settings and sync
     ./configs/calendar/calendar.nix
@@ -73,96 +74,130 @@
     ./configs/contacts/khard.nix
 
     # Hyprland
-    # Enable when ready for it
-    ./configs/hyprland.nix
-    ./configs/hyprpaper.nix
-    ./configs/hypridle.nix
-    ./configs/hyprlock.nix
-    ./configs/sway.nix
-    ./configs/swaylock.nix
-    #./configs/swayidle.nix
+    ../../modules/configs/user/hyprland.nix
+    ../../modules/configs/user/hyprpaper.nix
+    ../../modules/configs/user/hypridle.nix
+    ../../modules/configs/user/hyprlock.nix
+    ../../modules/configs/user/sway.nix
+    ../../modules/configs/user/swaylock.nix
+
+    # ./configs/hyprland.nix
+    # ./configs/hyprpaper.nix
+    # ./configs/hypridle.nix
+    # ./configs/hyprlock.nix
+    # ./configs/sway.nix
+    # ./configs/swaylock.nix
 
     # Cursor settings
-    ./configs/cursor.nix
+    ../../modules/configs/user/cursor.nix
+    #./configs/cursor.nix
 
     # Neovim
-    ./configs/nixvim/nixvim.nix
+    ../../modules/configs/user/nixvim/nixvim.nix
+    #./configs/nixvim/nixvim.nix
 
     # Display configs
     #./configs/kanshi.nix
 
     # Kitty
-    ./configs/kitty.nix
+    ../../modules/configs/user/kitty.nix
+    #./configs/kitty.nix
 
     # Waybar
-    ./configs/waybar.nix
+    ../../modules/configs/user/waybar.nix
+    #./configs/waybar.nix
 
     # Wofi
-    ./configs/wofi/wofi.nix
+    ../../modules/configs/user/wofi/wofi.nix
+    #./configs/wofi/wofi.nix
 
     # imv
-    ./configs/imv.nix
+    ../../modules/configs/user/imv.nix
+    #./configs/imv.nix
 
     # Firefox
-    ./configs/firefox/firefox.nix
+    ../../modules/configs/user/firefox/firefox.nix
+    #./configs/firefox/firefox.nix
 
     # Chromium
-    ./configs/chromium.nix
+    ../../modules/configs/user/chromium.nix
+    #./configs/chromium.nix
 
     # Zathura
-    ./configs/zathura.nix
+    ../../modules/configs/user/zathura.nix
+    #./configs/zathura.nix
 
     # foliate
-    ./configs/foliate.nix
+    ../../modules/configs/user/foliate.nix
+    #./configs/foliate.nix
 
     # btop
-    ./configs/btop.nix
+    ../../modules/configs/user/btop.nix
+    #./configs/btop.nix
 
     # GTK settings/theming
-    ./configs/gtk.nix
+    ../../modules/configs/user/gtk.nix
+    #./configs/gtk.nix
 
     # Qt settings/theming
-    ./configs/qt.nix
+    ../../modules/configs/user/qt.nix
+    #./configs/qt.nix
 
     # Custom user directories
-    ./configs/xdg-user-dirs.nix
+    ../../modules/configs/user/xdg-user-dirs.nix
+    #./configs/xdg-user-dirs.nix
 
     # Custom default applications
-    ./configs/mimetypes.nix
+    ../../modules/configs/user/mimetypes.nix
+    #./configs/mimetypes.nix
 
     # Better CD
-    ./configs/zoxide.nix
+    ../../modules/configs/user/zoxide.nix
+    #./configs/zoxide.nix
 
     # Better LS
-    ./configs/eza.nix
+    ../../modules/configs/user/eza.nix
+    #./configs/eza.nix
 
     # Better Cat
-    ./configs/bat.nix
+    ../../modules/configs/user/bat.nix
+    #./configs/bat.nix
 
     # quick finder
-    ./configs/fzf.nix
+    ../../modules/configs/user/fzf.nix
+    #./configs/fzf.nix
 
     # 3D image viewer
-    ./configs/f3d.nix
+    ../../modules/configs/user/f3d.nix
+    #./configs/f3d.nix
 
     # Graph utility
-    ./configs/gnuplot.nix
+    ../../modules/configs/user/gnuplot.nix
+    #./configs/gnuplot.nix
 
     # Screenshotting tool
-    ./configs/flameshot.nix
-    ./configs/swappy.nix
+    ../../modules/configs/user/flameshot.nix
+    ../../modules/configs/user/swappy.nix
+    # ./configs/flameshot.nix
+    # ./configs/swappy.nix
 
     # Cava
-    ./configs/cava.nix
-    ./configs/glava/shaders.nix
-    ./configs/glava/rc.nix
+    ../../modules/configs/user/cava.nix
+    ../../modules/configs/user/glava/shaders.nix
+    ../../modules/configs/user/glava/rc.nix
+    # ./configs/cava.nix
+    # ./configs/glava/shaders.nix
+    # ./configs/glava/rc.nix
 
     # Git
-    ./configs/git.nix
-    ./configs/gh.nix
+    ../../modules/configs/user/git.nix
+    ../../modules/configs/user/gh.nix
+    # ./configs/git.nix
+    # ./configs/gh.nix
 
     # KDE Connect
-    ./configs/kdeconnect.nix
+    ../../modules/configs/user/kdeconnect.nix
+    #./configs/kdeconnect.nix
 
     # SSH
     ./configs/ssh/ssh.nix
@@ -178,17 +213,20 @@
     ./configs/weechat/weechat.nix
 
     # Newsboat
-    ./configs/newsboat/newsboat.nix
-    #./configs/newsboat/urls.nix
+    ../../modules/configs/user/newsboat/newsboat.nix
+    #./configs/newsboat/newsboat.nix
 
     # Bluetooth (enabling applet)
-    ./configs/bluetooth.nix
+    ../../modules/configs/user/bluetooth.nix
+    #./configs/bluetooth.nix
 
     # Shell config
-    ./configs/fish.nix
+    ../../modules/configs/user/fish.nix
+    #./configs/fish.nix
 
     # TTY config
-    ./configs/zellij.nix
+    ../../modules/configs/user/zellij.nix
+    #./configs/zellij.nix
 
     # Notification client
     # Disabling because hyprpanel handles it
@@ -198,44 +236,56 @@
     ./configs/stylix.nix
 
     # Spotify theming tool
-    ./configs/spicetify.nix
+    ../../modules/configs/user/spicetify.nix
+    #./configs/spicetify.nix
 
     # Custom startpage
-    ./configs/startpage/style.nix
-    ./configs/startpage/service.nix
+    ../../modules/configs/user/startpage/style.nix
+    ../../modules/configs/user/startpage/service.nix
+    # ./configs/startpage/style.nix
+    # ./configs/startpage/service.nix
 
     # These configs have to be generated manually
-    ./configs/darkreader.nix
+    ../../modules/configs/user/darkreader.nix
+    #./configs/darkreader.nix
 
-    # These configs have to be generated manually
-    ./configs/vdirsyncer.nix
+    ../../modules/configs/user/vdirsyncer.nix
+    #./configs/vdirsyncer.nix
 
-    ./configs/fastfetch.nix
+    ../../modules/configs/user/fastfetch.nix
+    #./configs/fastfetch.nix
 
     # custom style for plantuml server
-    ./configs/plantuml.nix
+    ../../modules/configs/user/plantuml.nix
+    #./configs/plantuml.nix
 
     # VS Code
-    ./configs/vscode.nix
+    ../../modules/configs/user/vscode.nix
+    #./configs/vscode.nix
 
     # Projects
+    ../../modules/configs/user/projects/forgetter.nix
+    ../../modules/configs/user/projects/science.nix
+    ../../modules/configs/user/projects/art.nix
+    ../../modules/configs/user/projects/photography.nix
+    ../../modules/configs/user/projects/tech.nix
+    ../../modules/configs/user/projects/music.nix
         #./configs/projects/zeroday.nix
-    ./configs/projects/forgetter.nix
-    ./configs/projects/science.nix
-    ./configs/projects/art.nix
-    ./configs/projects/photography.nix
-    ./configs/projects/tech.nix
-    ./configs/projects/music.nix
+    # ./configs/projects/forgetter.nix
+    # ./configs/projects/science.nix
+    # ./configs/projects/art.nix
+    # ./configs/projects/photography.nix
+    # ./configs/projects/tech.nix
+    # ./configs/projects/music.nix
 
-    #TODO: enable when config done
-    #./configs/ags/ags.nix
-    #./configs/ags/style.nix
 
+        #../../modules/configs/user/obsidian/obsidian-stylix-css.nix
     ./configs/obsidian/obsidian-stylix-css.nix
 
     
     # touch pad gestures
-    ./configs/fusuma.nix
+    ../../modules/configs/user/fusuma.nix
+    #./configs/fusuma.nix
 
     ../../modules/keys/ssh.nix
   ];
