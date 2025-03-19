@@ -53,7 +53,7 @@
     ./system/services/audio/pipewire.nix
 
     # Local plantuml server
-    ./system/services/plantuml.nix
+    #./system/services/plantuml.nix
 
     ############
     # PACKAGES #

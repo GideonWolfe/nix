@@ -53,7 +53,7 @@
     #./system/services/printing.nix
 
     # Virtual FS (used to cache album art)
-    ../../modules/configs/system/gvfs.nix
+    ../../modules/configs/system/services/gvfs.nix
     #./system/services/gvfs.nix
 
     # UI
@@ -137,6 +137,9 @@
   security.pam.services.swaylock = { text = "	auth include login\n"; };
 
   #hardware.opengl.enable = true;
+
+  # enable CKB Next for my corsair keyboard
+  hardware.ckb-next.enable = true;
 
   services.weechat.enable = false;
 

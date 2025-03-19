@@ -256,7 +256,7 @@
     #./configs/fastfetch.nix
 
     # custom style for plantuml server
-    ../../modules/configs/user/plantuml.nix
+    #../../modules/configs/user/plantuml.nix
     #./configs/plantuml.nix
 
     # VS Code
@@ -279,8 +279,8 @@
     # ./configs/projects/music.nix
 
 
-        #../../modules/configs/user/obsidian/obsidian-stylix-css.nix
-    ./configs/obsidian/obsidian-stylix-css.nix
+    ../../modules/configs/user/obsidian/obsidian-stylix-css.nix
+        #./configs/obsidian/obsidian-stylix-css.nix
 
     
     # touch pad gestures

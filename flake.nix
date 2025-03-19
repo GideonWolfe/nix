@@ -112,13 +112,28 @@
             inherit inputs;
           };
           modules = [
-            #hyprland.homeManagerModules.default
             stylix.homeManagerModules.stylix
             agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
-            #ags.homeManagerModules.default
             spicetify-nix.homeManagerModules.default
             ./configs/users/gideon/home.nix
+          ];
+        };
+
+        # Specific HM config for my desktop
+        "gideon@hades" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit spicetify-nix;
+            inherit inputs;
+          };
+          modules = [
+            stylix.homeManagerModules.stylix
+            agenix.homeManagerModules.age
+            nixvim.homeManagerModules.nixvim
+            spicetify-nix.homeManagerModules.default
+            ./configs/users/gideon/home.nix
+            ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
           ];
         };
 
