@@ -10,7 +10,7 @@
       Restart = "always";
       RestartSec = 1;
       WorkingDirectory =
-        "${config.home.homeDirectory}/nix/configs/users/gideon/configs/startpage/data";
+        "${config.home.homeDirectory}/nix/configs/modules/configs/user/startpage/data";
       ExecStart = "${pkgs.miniserve}/bin/miniserve --index index.html -p 9876";
     };
   };
@@ -27,7 +27,7 @@
     Install = { WantedBy = [ "default.target" ]; };
     Path = {
       PathChanged =
-        "${config.home.homeDirectory}/nix/configs/users/gideon/configs/startpage/data/index.html";
+        "${config.home.homeDirectory}/nix/configs/modules/configs/user/startpage/data/index.html";
     };
     #BUG: this should create [Path] according to docs, but it creates [pathConfig]
     # pathConfig = {

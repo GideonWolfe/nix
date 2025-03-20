@@ -62,7 +62,6 @@
 
     # Session/env variables
     ../../modules/configs/user/session-variables.nix
-    #./configs/session-variables.nix
 
     # Configs for calendar settings and sync
     ./configs/calendar/calendar.nix
@@ -194,7 +193,6 @@
 
     # Spotify theming tool
     ../../modules/configs/user/spicetify.nix
-    #./configs/spicetify.nix
 
     # Custom startpage
     ../../modules/configs/user/startpage/style.nix
@@ -223,7 +221,6 @@
     ../../modules/configs/user/projects/music.nix
 
     ../../modules/configs/user/obsidian/obsidian-stylix-css.nix
-    #./configs/obsidian/obsidian-stylix-css.nix
 
     # touch pad gestures
     ../../modules/configs/user/fusuma.nix
