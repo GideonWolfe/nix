@@ -182,6 +182,7 @@
 
     # Replacements for various X utils
     wev # wayland xev
+    evtest # event tester like wev but picks up things wev doesn't?
     ydotool # (wayland xdotool)
     wl-clipboard # wayland xclip
 
