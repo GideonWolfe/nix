@@ -34,7 +34,8 @@ with config.lib.stylix.colors; {
         outer_color = "rgb(${base0D-rgb-r}, ${base0D-rgb-g}, ${base0D-rgb-b})";
         check_color = "rgb(${base0A-rgb-r}, ${base0A-rgb-g}, ${base0A-rgb-b})";
         fail_color = "rgb(${base08-rgb-r}, ${base08-rgb-g}, ${base08-rgb-b})";
-        capslock_color = "rgb(${base09-rgb-r}, ${base09-rgb-g}, ${base09-rgb-b})";
+        capslock_color =
+          "rgb(${base09-rgb-r}, ${base09-rgb-g}, ${base09-rgb-b})";
         outline_thickness = 5;
         placeholder_text = "Blow above legal limit to unlock";
         fail_text = "get rekt";

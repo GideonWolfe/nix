@@ -77,6 +77,7 @@
     ../../modules/configs/user/hyprpaper.nix
     ../../modules/configs/user/hypridle.nix
     ../../modules/configs/user/hyprlock.nix
+    ../../modules/configs/user/hyprpanel.nix
     ../../modules/configs/user/sway.nix
     ../../modules/configs/user/swaylock.nix
 

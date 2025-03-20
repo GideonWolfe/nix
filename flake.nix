@@ -116,11 +116,13 @@
             agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
             spicetify-nix.homeManagerModules.default
+            hyprpanel.homeManagerModules.hyprpanel
             ./configs/users/gideon/home.nix
           ];
         };
 
         # Specific HM config for my desktop
+        # the exact same home.nix, but i'm adding my desktop hyprland monitor config
         "gideon@hades" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
@@ -132,6 +134,7 @@
             agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
             spicetify-nix.homeManagerModules.default
+            hyprpanel.homeManagerModules.hyprpanel
             ./configs/users/gideon/home.nix
             ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
           ];
