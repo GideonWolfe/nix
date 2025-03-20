@@ -200,6 +200,10 @@ with config.lib.stylix.colors.withHashtag;
           "browser.display.use_document_colors" = false;
           "browser.display.use_document_fonts" = 1;
 
+          # Selects "light" theme so websites don't automatically use dark mode
+          # this works better for DarkReader
+          "layout.css.prefers-color-scheme.content-override" = 1;
+
           # active/unvisited/visited links (if not otherwise themed)
           "browser.active_color" = "${base0C}";
           "browser.anchor_color" = "${base0D}";
