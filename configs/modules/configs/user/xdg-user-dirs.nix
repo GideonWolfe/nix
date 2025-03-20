@@ -1,18 +1,16 @@
 { pkgs, lib, ... }:
 
 {
-
-	# Enable User Dirs
-	xdg.userDirs.enable = true;
-
-	xdg.userDirs.videos = "$HOME/videos";
-	xdg.userDirs.pictures = "$HOME/pictures";
-	xdg.userDirs.music = "$HOME/music";
-	xdg.userDirs.download = "$HOME/downloads";
-	xdg.userDirs.documents = "$HOME/documents";
-	# shouldn't be used
-	xdg.userDirs.desktop = "$HOME/desktop";
-	xdg.userDirs.publicShare = "$HOME/public";
-	xdg.userDirs.templates = "$HOME/templates";
-
+  # Enable User Dirs
+  xdg.userDirs = {
+    enable = true;
+    videos = "$HOME/videos";
+    pictures = "$HOME/pictures";
+    music = "$HOME/music";
+    download = "$HOME/downloads";
+    documents = "$HOME/documents";
+    desktop = "$HOME/desktop";
+    publicShare = "$HOME/public";
+    templates = "$HOME/templates";
+  };
 }

@@ -81,123 +81,84 @@
     ../../modules/configs/user/sway.nix
     ../../modules/configs/user/swaylock.nix
 
-    # ./configs/hyprland.nix
-    # ./configs/hyprpaper.nix
-    # ./configs/hypridle.nix
-    # ./configs/hyprlock.nix
-    # ./configs/sway.nix
-    # ./configs/swaylock.nix
-
     # Cursor settings
     ../../modules/configs/user/cursor.nix
-    #./configs/cursor.nix
 
     # Neovim
     ../../modules/configs/user/nixvim/nixvim.nix
-    #./configs/nixvim/nixvim.nix
-
-    # Display configs
-    #./configs/kanshi.nix
 
     # Kitty
     ../../modules/configs/user/kitty.nix
-    #./configs/kitty.nix
 
     # Waybar
     ../../modules/configs/user/waybar.nix
-    #./configs/waybar.nix
 
     # Wofi
     ../../modules/configs/user/wofi/wofi.nix
-    #./configs/wofi/wofi.nix
 
     # imv
     ../../modules/configs/user/imv.nix
-    #./configs/imv.nix
 
     # Firefox
     ../../modules/configs/user/firefox/firefox.nix
-    #./configs/firefox/firefox.nix
 
     # Chromium
     ../../modules/configs/user/chromium.nix
-    #./configs/chromium.nix
 
     # Zathura
     ../../modules/configs/user/zathura.nix
-    #./configs/zathura.nix
 
     # foliate
     ../../modules/configs/user/foliate.nix
-    #./configs/foliate.nix
 
     # btop
     ../../modules/configs/user/btop.nix
-    #./configs/btop.nix
 
     # GTK settings/theming
     ../../modules/configs/user/gtk.nix
-    #./configs/gtk.nix
 
     # Qt settings/theming
     ../../modules/configs/user/qt.nix
-    #./configs/qt.nix
 
     # Custom user directories
     ../../modules/configs/user/xdg-user-dirs.nix
-    #./configs/xdg-user-dirs.nix
 
     # Custom default applications
     ../../modules/configs/user/mimetypes.nix
-    #./configs/mimetypes.nix
 
     # Better CD
     ../../modules/configs/user/zoxide.nix
-    #./configs/zoxide.nix
 
     # Better LS
     ../../modules/configs/user/eza.nix
-    #./configs/eza.nix
 
     # Better Cat
     ../../modules/configs/user/bat.nix
-    #./configs/bat.nix
 
     # quick finder
     ../../modules/configs/user/fzf.nix
-    #./configs/fzf.nix
 
     # 3D image viewer
     ../../modules/configs/user/f3d.nix
-    #./configs/f3d.nix
 
     # Graph utility
     ../../modules/configs/user/gnuplot.nix
-    #./configs/gnuplot.nix
 
     # Screenshotting tool
     ../../modules/configs/user/flameshot.nix
     ../../modules/configs/user/swappy.nix
-    # ./configs/flameshot.nix
-    # ./configs/swappy.nix
 
     # Cava
     ../../modules/configs/user/cava.nix
     ../../modules/configs/user/glava/shaders.nix
     ../../modules/configs/user/glava/rc.nix
-    # ./configs/cava.nix
-    # ./configs/glava/shaders.nix
-    # ./configs/glava/rc.nix
 
     # Git
     ../../modules/configs/user/git.nix
     ../../modules/configs/user/gh.nix
-    # ./configs/git.nix
-    # ./configs/gh.nix
 
     # KDE Connect
     ../../modules/configs/user/kdeconnect.nix
-    #./configs/kdeconnect.nix
 
     # SSH
     ./configs/ssh/ssh.nix
@@ -214,19 +175,15 @@
 
     # Newsboat
     ../../modules/configs/user/newsboat/newsboat.nix
-    #./configs/newsboat/newsboat.nix
 
     # Bluetooth (enabling applet)
     ../../modules/configs/user/bluetooth.nix
-    #./configs/bluetooth.nix
 
     # Shell config
     ../../modules/configs/user/fish.nix
-    #./configs/fish.nix
 
     # TTY config
     ../../modules/configs/user/zellij.nix
-    #./configs/zellij.nix
 
     # Notification client
     # Disabling because hyprpanel handles it
@@ -242,18 +199,13 @@
     # Custom startpage
     ../../modules/configs/user/startpage/style.nix
     ../../modules/configs/user/startpage/service.nix
-    # ./configs/startpage/style.nix
-    # ./configs/startpage/service.nix
 
     # These configs have to be generated manually
     ../../modules/configs/user/darkreader.nix
-    #./configs/darkreader.nix
 
     ../../modules/configs/user/vdirsyncer.nix
-    #./configs/vdirsyncer.nix
 
     ../../modules/configs/user/fastfetch.nix
-    #./configs/fastfetch.nix
 
     # custom style for plantuml server
     #../../modules/configs/user/plantuml.nix
@@ -261,7 +213,6 @@
 
     # VS Code
     ../../modules/configs/user/vscode.nix
-    #./configs/vscode.nix
 
     # Projects
     ../../modules/configs/user/projects/forgetter.nix
@@ -270,22 +221,12 @@
     ../../modules/configs/user/projects/photography.nix
     ../../modules/configs/user/projects/tech.nix
     ../../modules/configs/user/projects/music.nix
-        #./configs/projects/zeroday.nix
-    # ./configs/projects/forgetter.nix
-    # ./configs/projects/science.nix
-    # ./configs/projects/art.nix
-    # ./configs/projects/photography.nix
-    # ./configs/projects/tech.nix
-    # ./configs/projects/music.nix
-
 
     ../../modules/configs/user/obsidian/obsidian-stylix-css.nix
-        #./configs/obsidian/obsidian-stylix-css.nix
+    #./configs/obsidian/obsidian-stylix-css.nix
 
-    
     # touch pad gestures
     ../../modules/configs/user/fusuma.nix
-    #./configs/fusuma.nix
 
     ../../modules/keys/ssh.nix
   ];

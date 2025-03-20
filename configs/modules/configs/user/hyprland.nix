@@ -117,14 +117,23 @@ with config.lib.stylix.colors;
       bind = $mod, k, movefocus, u
       bind = $mod, j, movefocus, d
 
-      bind = $mod SHIFT, Left, movewindow, l
-      bind = $mod SHIFT, Right, movewindow, r
-      bind = $mod SHIFT, Up, movewindow, u
-      bind = $mod SHIFT, Down, movewindow, d
-      bind = $mod SHIFT, h, movewindow, l
-      bind = $mod SHIFT, l, movewindow, r
-      bind = $mod SHIFT, k, movewindow, u
-      bind = $mod SHIFT, j, movewindow, d
+      #bind = $mod SHIFT, Left, movewindow, l
+      #bind = $mod SHIFT, Right, movewindow, r
+      #bind = $mod SHIFT, Up, movewindow, u
+      #bind = $mod SHIFT, Down, movewindow, d
+      #bind = $mod SHIFT, h, movewindow, l
+      #bind = $mod SHIFT, l, movewindow, r
+      #bind = $mod SHIFT, k, movewindow, u
+      #bind = $mod SHIFT, j, movewindow, d
+
+      bind = $mod SHIFT, Left, movewindoworgroup, l
+      bind = $mod SHIFT, Right, movewindoworgroup, r
+      bind = $mod SHIFT, Up, movewindoworgroup, u
+      bind = $mod SHIFT, Down, movewindoworgroup, d
+      bind = $mod SHIFT, h, movewindoworgroup, l
+      bind = $mod SHIFT, l, movewindoworgroup, r
+      bind = $mod SHIFT, k, movewindoworgroup, u
+      bind = $mod SHIFT, j, movewindoworgroup, d
 
       # Switch workspaces with mod + [0-9]
       bind = $mod, 1, workspace, 1
@@ -149,6 +158,23 @@ with config.lib.stylix.colors;
       bind = $mod SHIFT, 8, movetoworkspace, 8
       bind = $mod SHIFT, 9, movetoworkspace, 9
       bind = $mod SHIFT, 0, movetoworkspace, 10
+
+      # i3 like resize submap
+      # uses binde to allow holding
+      bind = $mod, R,submap,resize
+      submap=resize
+      binde = , right, resizeactive, 10 0
+      binde = , left, resizeactive, -10 0
+      binde = , up, resizeactive, 0 -10
+      binde = , down, resizeactive, 0 10
+      binde = , l, resizeactive, 10 0
+      binde = , h, resizeactive, -10 0
+      binde = , k, resizeactive, 0 -10
+      binde = , j, resizeactive, 0 10
+      binde = , Return,submap,reset
+      submap=reset
+
+
 
       # Volume/media binds
       bindel = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+

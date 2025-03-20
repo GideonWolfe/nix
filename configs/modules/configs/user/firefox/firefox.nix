@@ -6,6 +6,9 @@ with config.lib.stylix.colors.withHashtag;
   programs.firefox = {
     enable = true;
 
+    # allow vdhcoapp to run in FF without setup step
+    nativeMessagingHosts = [ pkgs.vdhcoapp ];
+
     # Change policies from https://mozilla.github.io/policy-templates/
     policies = {
       AppAutoUpdate = false;
@@ -171,7 +174,11 @@ with config.lib.stylix.colors.withHashtag;
         # https://kb.mozillazine.org/About:config_entries
         settings = {
 
+          # Enable Autoscroll
           "general.autoScroll" = true;
+
+          # Enable Scrolling on tabs to switch
+          "toolkit.tabbox.switchByScrolling" = true;
 
           # Change browser homepage
           "browser.startup.homepage" = "http://localhost:9876";
@@ -620,7 +627,7 @@ with config.lib.stylix.colors.withHashtag;
                        }
                        .comment {
                          color: ${base04} !important;
-                         font-style: italic;
+                         /* font-style: italic; */
                        }
                        .cdata {
                          color: ${base08} !important;
