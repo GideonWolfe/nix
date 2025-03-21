@@ -21,35 +21,35 @@ with config.lib.stylix.colors.withHashtag;
     overlay.enable = true;
 
     # Layouts for bars
-    layout = {
-      "bar.layouts" = {
-        # Right monitor
-        "0" = {
-          left = [ "dashboard" "workspaces" ];
-          middle = [ "media" ];
-          right = [
-            "volume"
-            "network"
-            "bluetooth"
-            "systray"
-            "hypridle"
-            "notifications"
-          ];
-        };
-        # Middle monitor
-        "1" = {
-          left = [ "dashboard" "workspaces" ];
-          middle = [ "media" ];
-          right = [ "volume" "clock" "notifications" ];
-        };
-        # Left monitor
-        "2" = {
-          left = [ "dashboard" "workspaces" ];
-          middle = [ "media" ];
-          right = [ "volume" "clock" "notifications" ];
-        };
-      };
-    };
+    # layout = {
+    #   "bar.layouts" = {
+    #     # Right monitor
+    #     "0" = {
+    #       left = [ "dashboard" "workspaces" ];
+    #       middle = [ "media" ];
+    #       right = [
+    #         "volume"
+    #         "network"
+    #         "bluetooth"
+    #         "systray"
+    #         "hypridle"
+    #         "notifications"
+    #       ];
+    #     };
+    #     # Middle monitor
+    #     "1" = {
+    #       left = [ "dashboard" "workspaces" ];
+    #       middle = [ "media" ];
+    #       right = [ "volume" "clock" "notifications" ];
+    #     };
+    #     # Left monitor
+    #     "2" = {
+    #       left = [ "dashboard" "workspaces" ];
+    #       middle = [ "media" ];
+    #       right = [ "volume" "clock" "notifications" ];
+    #     };
+    #   };
+    # };
     settings = {
 
       theme = {
