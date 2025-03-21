@@ -20,36 +20,6 @@ with config.lib.stylix.colors.withHashtag;
 
     overlay.enable = true;
 
-    # Layouts for bars
-    # layout = {
-    #   "bar.layouts" = {
-    #     # Right monitor
-    #     "0" = {
-    #       left = [ "dashboard" "workspaces" ];
-    #       middle = [ "media" ];
-    #       right = [
-    #         "volume"
-    #         "network"
-    #         "bluetooth"
-    #         "systray"
-    #         "hypridle"
-    #         "notifications"
-    #       ];
-    #     };
-    #     # Middle monitor
-    #     "1" = {
-    #       left = [ "dashboard" "workspaces" ];
-    #       middle = [ "media" ];
-    #       right = [ "volume" "clock" "notifications" ];
-    #     };
-    #     # Left monitor
-    #     "2" = {
-    #       left = [ "dashboard" "workspaces" ];
-    #       middle = [ "media" ];
-    #       right = [ "volume" "clock" "notifications" ];
-    #     };
-    #   };
-    # };
     settings = {
 
       theme = {
@@ -64,7 +34,7 @@ with config.lib.stylix.colors.withHashtag;
           menus = {
             popover.scaling = 80;
             menu = {
-              dashboard.scaling = 80;
+              dashboard.scaling = 70;
               dashboard.confirmation_scaling = 80;
               network.scaling = 80;
               bluetooth.scaling = 80;
@@ -125,6 +95,9 @@ with config.lib.stylix.colors.withHashtag;
       menus = {
         # Settings for dashboard menu
         dashboard = {
+
+          powermenu.avatar.image = "${config.home.homeDirectory}/nix/configs/users/${config.home.username}/configs/profile.png";
+
           # Directory shortcuts
           directories = {
             # Left column

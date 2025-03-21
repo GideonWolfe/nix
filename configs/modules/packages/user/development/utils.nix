@@ -17,6 +17,7 @@
     pkgs.dive # Explore every layer in a docker image
     pkgs.git
     pkgs.lazygit # TUI git interface
+    pkgs.meld # GUI diff/merge tool
     #pkgs.gh # CLI/TUI for github
     #pkgs.gh-dash # dashboard for gh
     pkgs.wildcard # GUI regex tester

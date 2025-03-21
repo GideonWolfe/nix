@@ -18,7 +18,12 @@
       options = { theme = "base16-stylix"; };
     };
 
-    extraConfig = { push = { autoSetupRemote = true; }; };
+    extraConfig = {
+      push = { autoSetupRemote = true; };
+      merge = { tool = "nvim"; };
+      mergetool = { prompt = false; };
+      "mergetool \"nvim\"" = { cmd = "nvim -f -c 'DiffviewOpen'"; };
+    };
 
     hooks = {
       #TODO this should point to another dir
