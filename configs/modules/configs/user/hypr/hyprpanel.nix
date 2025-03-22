@@ -98,7 +98,8 @@ with config.lib.stylix.colors.withHashtag;
         # Settings for dashboard menu
         dashboard = {
 
-          powermenu.avatar.image = "${config.home.homeDirectory}/nix/configs/users/${config.home.username}/configs/profile.png";
+          powermenu.avatar.image =
+            "${config.home.homeDirectory}/nix/configs/users/${config.home.username}/configs/profile.png";
 
           # Directory shortcuts
           directories = {
@@ -143,6 +144,11 @@ with config.lib.stylix.colors.withHashtag;
             };
           };
         };
+
+        clock = {
+          weather = { key = "${config.age.secrets.weatherapi_api_key.path}"; };
+        };
+
       };
     };
   };
