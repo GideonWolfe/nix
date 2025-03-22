@@ -6,7 +6,7 @@ with config.lib.stylix.colors.withHashtag;
   programs.zellij = {
     enable = true;
     enableFishIntegration = false;
-    enableBashIntegration = true;
+    enableBashIntegration = false;
     enableZshIntegration = true;
     settings = {
       default_shell = "fish";

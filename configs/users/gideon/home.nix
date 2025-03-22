@@ -73,13 +73,14 @@
     ./configs/contacts/khard.nix
 
     # Hyprland
-    ../../modules/configs/user/hyprland.nix
-    ../../modules/configs/user/hyprpaper.nix
-    ../../modules/configs/user/hypridle.nix
-    ../../modules/configs/user/hyprlock.nix
-    ../../modules/configs/user/hyprpanel.nix
-    ../../modules/configs/user/sway.nix
-    ../../modules/configs/user/swaylock.nix
+    ../../modules/configs/user/hypr/hyprland.nix
+    ../../modules/configs/user/hypr/hyprpaper.nix
+    ../../modules/configs/user/hypr/hypridle.nix
+    ../../modules/configs/user/hypr/hyprlock.nix
+    ../../modules/configs/user/hypr/hyprpanel.nix
+    # ../../modules/configs/user/sway/sway.nix
+    # ../../modules/configs/user/sway/swaylock.nix
+    # ../../modules/configs/user/sway/swayidle.nix
 
     # Cursor settings
     ../../modules/configs/user/cursor.nix
@@ -180,7 +181,9 @@
     ../../modules/configs/user/bluetooth.nix
 
     # Shell config
-    ../../modules/configs/user/fish.nix
+    ../../modules/configs/user/shell/fish.nix
+    ../../modules/configs/user/shell/bash.nix
+    ../../modules/configs/user/shell/starship.nix
 
     # TTY config
     ../../modules/configs/user/zellij.nix

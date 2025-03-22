@@ -10,7 +10,6 @@ with config.lib.stylix.colors.withHashtag;
             freshrss-url "https://rss.gideonwolfe.xyz/api/greader.php"
             freshrss-login "gideon"
             freshrss-passwordfile "${config.home.homeDirectory}/.secrets/rss/freshrss_api_key"
-            #freshrss-passwordfile "/home/gideon/.secrets/rss/freshrss_api_key"
 
 # -- feeds ---------------------------------------------------------------------
 
