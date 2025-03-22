@@ -31,6 +31,8 @@ with config.lib.stylix.colors.withHashtag;
         bar = {
           scaling = 75;
           floating = false;
+          # move the dropdowns up a bit
+          dropdownGap = "2.5em";
           menus = {
             popover.scaling = 80;
             menu = {

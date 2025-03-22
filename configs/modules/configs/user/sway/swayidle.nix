@@ -3,18 +3,15 @@
 with config.lib.stylix.colors.withHashtag;
 
 {
-	services.swayidle = {
-		enable = true;
-		timeouts = [
-			{
-				timeout = 300;
-				#command = "${pkgs.swaylock}/bin/swaylock -f";
-				#command = "${pkgs.swaylock-effects}/bin/swaylock -f";
-				command = "${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/power/lock.sh";
-				# TODO this chained command doesn't seem to work
-				#command = "${pkgs.swaylock}/bin/swaylock -f; systemctl suspend";
-			}
-		];
+  services.swayidle = {
+    enable = true;
+    timeouts = [{
+      timeout = 300;
+      command =
+        "${config.home.homeDirectory}/nix/configs/modules/scripts/user/desktop/power/lock.sh";
+      # TODO this chained command doesn't seem to work
+      #command = "${pkgs.swaylock}/bin/swaylock -f; systemctl suspend";
+    }];
 
-	};
+  };
 }
