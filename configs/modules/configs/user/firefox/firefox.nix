@@ -368,6 +368,11 @@ with config.lib.stylix.colors.withHashtag;
                          background: ${base01} !important;
                        }
 
+                       /* text color of visited links */
+                       /* works for some, darkdreader seems to override others */
+                       .a:visited:not(.no-visited) {
+                         color: ${base0E} !important;
+                       }
 
                        /* styling to apply to all about: pages */
                        /* https://github.com/ATechnocratis/widefox/blob/main/chrome/userContent-files/aboutpages/about_pages_Darker.css */

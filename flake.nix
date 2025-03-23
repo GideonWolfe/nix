@@ -137,6 +137,26 @@
             hyprpanel.homeManagerModules.hyprpanel
             ./configs/users/gideon/home.nix
             ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
+            ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
+          ];
+        };
+
+        # Specific HM config for my laptop
+        # the exact same home.nix, but i'm adding my desktop hyprland monitor config
+        "gideon@poseidon" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit spicetify-nix;
+            inherit inputs;
+          };
+          modules = [
+            stylix.homeManagerModules.stylix
+            agenix.homeManagerModules.age
+            nixvim.homeManagerModules.nixvim
+            spicetify-nix.homeManagerModules.default
+            hyprpanel.homeManagerModules.hyprpanel
+            ./configs/users/gideon/home.nix
+            ./configs/modules/configs/user/laptop-hyprpanel-layout.nix
           ];
         };
 
