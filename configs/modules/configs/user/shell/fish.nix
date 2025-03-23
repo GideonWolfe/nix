@@ -12,7 +12,7 @@
       ga = "git add";
       gp = "git push";
       dc = "docker-compose";
-      scope-tui = "scope-tui pulse pipewire.monitor";
+      scope-tui = "scope-tui --no-ui pulse pipewire.monitor";
     };
 
     #TODO there's no home manager setting for this??

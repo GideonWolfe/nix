@@ -7,10 +7,10 @@
     xdg-desktop-portal
     xdg-desktop-portal-wlr
     xdg-desktop-portal-hyprland
-    xdg-desktop-portal-gnome
+    #xdg-desktop-portal-gnome
     xdg-desktop-portal-gtk
     lxqt.xdg-desktop-portal-lxqt
-    xdg-desktop-portal-kde
+        #xdg-desktop-portal-kde
 
     # xprop replacement
     wlprop

@@ -43,6 +43,7 @@
     # ./system/services/networks/ssh.nix
     # ./system/services/networks/wireguard.nix
     # ./system/services/networks/firewall.nix
+    ../../modules/configs/system/services/kdeconnect.nix
 
     # Docker
     ../../modules/configs/system/services/docker.nix
