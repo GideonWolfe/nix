@@ -66,16 +66,16 @@ with config.lib.stylix.colors.withHashtag;
           showWsIcons = true;
           showApplicationIcons = false;
           # workspaceIconMap = {
-          #   "1"= "";
-          #   "2"= "";
-          #   "3"= "";
-          #   "4"= "";
-          #   "5"= "";
-          #   "6"= "";
-          #   "7"= "";
-          #   "8"= "";
-          #   "9"= "";
-          #   "10"= "";
+            #   "1" = "";
+            #   "2"= "";
+            #   "3"= "";
+            #   "4"= "";
+            #   "5"= "";
+            #   "6"= "";
+            #   "7"= "";
+            #   "8"= "";
+            #   "9"= "";
+            #   "10"= "";
           # };
         };
         # Volume module
@@ -91,6 +91,23 @@ with config.lib.stylix.colors.withHashtag;
 
         # Media module
         media = { middleClick = "playerctl play-pause"; };
+
+        #BUG: not working
+        # systray.customIcons = {
+        #   "spotify-client" = {
+        #     icon = "󰓇";
+        #     color = "${green}";
+        #   };
+        #   "ckb-next_ckb-next" = {
+        #     icon = "";
+        #     color = "${orange}";
+        #   };
+        #   "steam" = {
+        #     icon = "󰓓";
+        #     color = "${blue}";
+        #   };
+        # };
+
       };
 
       # Settings for the dropdown menus themselves

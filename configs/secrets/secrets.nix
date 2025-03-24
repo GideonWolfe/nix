@@ -42,7 +42,7 @@ in {
   "mbsync_gideonwolfecom_password.age".publicKeys =
     [ gideon_hermes gideon_poseidon ];
   "weechat_sec_conf.age".publicKeys = [ gideon_hermes gideon_poseidon ];
-  # "weatherapi_api_key.age".publicKeys = [ gideon_hermes gideon_poseidon ];
-  "weatherapi_api_key.age".publicKeys = users;
+  "weatherapi_api_key.age".publicKeys = [ gideon_hermes gideon_poseidon gideon_hades ];
+    #"weatherapi_api_key.age".publicKeys = users;
   "freshrss_api_key.age".publicKeys = [ gideon_hermes gideon_poseidon ];
 }
