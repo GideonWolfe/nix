@@ -29,7 +29,7 @@ with config.lib.stylix.colors.withHashtag;
       "application/x-bittorent" = [ "transmission-gtk.desktop" ];
 
       # Directories
-      "inode/directory" = lib.mkForce [ "thunar.desktop" ];
+      "inode/directory" = lib.mkForce [ "org.gnome.Nautilus.desktop" ];
 
       # Audio
       "audio/aac" = [ "vlc.desktop" ];

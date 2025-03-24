@@ -8,4 +8,7 @@ with config.lib.stylix.colors.withHashtag;
 		enable = true;
 		terminal = "kitty";
 	};
+
+    # enable previewing service
+    services.gnome.sushi.enable = true;
 }
