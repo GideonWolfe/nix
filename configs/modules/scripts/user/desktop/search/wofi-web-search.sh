@@ -57,6 +57,7 @@ search_options[youtube]="https://www.youtube.com/results?search_query="
 search_options[amazon]="https://www.amazon.com/s?k="
 search_options[craigslist]="https://newyork.craigslist.org/search/sss?query="
 search_options[ebay]="https://www.ebay.com/sch/i.html?&_nkw="
+search_options[cabelas]="https://www.cabelas.com/SearchDisplay#q="
 # Linux
 search_options[archaur]="https://aur.archlinux.org/packages/?O=0&K="
 search_options[archpkg]="https://archlinux.org/packages/?sort=&q="

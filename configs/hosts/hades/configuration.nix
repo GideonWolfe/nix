@@ -79,6 +79,10 @@
     ../../modules/configs/system/services/ratbagd.nix
     # ./system/services/ratbagd.nix
 
+    # adding extensions for nautilus
+    ../../modules/configs/system/nautilus.nix
+
+
     ############
     # PACKAGES #
     ############

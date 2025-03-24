@@ -335,6 +335,7 @@ with config.lib.stylix.colors.withHashtag;
                        input {
                                color: ${base05} !important;
                                background-color: ${base01} !important;
+                               border-color: ${base01} !important;
                        }
                        /* x symbol in input bars */
                        .search-container {

@@ -178,6 +178,7 @@
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin # we have easytag for this but it doesn't hurt
     nautilus
+    sushi # quick preview for nautilus
     tuifimanager # GUI like fm in the TUI
 
     # Replacements for various X utils
