@@ -1,4 +1,5 @@
 {
+  programs.kdeconnect.enable = true;
   networking.firewall = rec {
     allowedTCPPortRanges = [{
       from = 1714;

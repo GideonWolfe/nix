@@ -14,7 +14,10 @@ let
   gideon_poseidon =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINnghAhilL7n/8w++x1CwrnBh+x3asbZmTUkWccR6K1o gideon@poseidon";
 
-  users = [ gideon_hermes gideon_poseidon ];
+  gideon_hades =
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN0dV9NyE5E/cmPRyMg9wK7lEKVRdJ3us8kWZjd1ZpJ3 gideon@hades";
+
+  users = [ gideon_hermes gideon_poseidon gideon_hades ];
   systems = [ root_hermes root_athena root_poseidon ];
 
 in {
@@ -39,7 +42,7 @@ in {
   "mbsync_gideonwolfecom_password.age".publicKeys =
     [ gideon_hermes gideon_poseidon ];
   "weechat_sec_conf.age".publicKeys = [ gideon_hermes gideon_poseidon ];
-  "weatherapi_api_key.age".publicKeys =
-    [ gideon_hermes gideon_poseidon ];
+  # "weatherapi_api_key.age".publicKeys = [ gideon_hermes gideon_poseidon ];
+  "weatherapi_api_key.age".publicKeys = users;
   "freshrss_api_key.age".publicKeys = [ gideon_hermes gideon_poseidon ];
 }
