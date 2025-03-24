@@ -3,29 +3,6 @@ with config.lib.stylix.colors.withHashtag;
 let inherit (config.nixvim) helpers;
 in {
 
-  programs.nixvim.extraConfigLua = ''
-
-    function fmtMode()
-        local mode = vim.api.nvim_get_mode()["mode"]
-        if mode == "n" then
-    	return ''
-        elseif mode == "i" then
-    	return ''
-        elseif mode == "v" then
-    	return ''
-        elseif mode == "V" then
-    	return ''
-        elseif mode == "\22" then -- wierd encodings for ctrl + v
-    	return ''
-        elseif mode == "c" then
-    	return ''
-        elseif mode == "R" then
-    	return ''
-    	-- else
-    	--  return '?'
-        end
-    end
-  '';
   #
   programs.nixvim.plugins.lualine = {
     enable = true;
@@ -81,6 +58,33 @@ in {
     };
 
     settings = {
+
+      sections = {
+        lualine_a = [{
+          name.__raw = ''
+            function()
+                local mode = vim.api.nvim_get_mode()["mode"]
+                if mode == "n" then
+                    return ''
+                elseif mode == "i" then
+                    return ''
+                elseif mode == "v" then
+                    return ''
+                elseif mode == "V" then
+                    return ''
+                elseif mode == "\22" then -- wierd encodings for ctrl + v
+                    return ''
+                elseif mode == "c" then
+                    return ''
+                elseif mode == "R" then
+                    return ''
+                -- else
+                --  return '?'
+                end
+            end
+          '';
+        }];
+      };
       options = {
 
         #theme = "lualine_stylix_theme";

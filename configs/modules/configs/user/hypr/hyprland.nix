@@ -163,8 +163,8 @@ with config.lib.stylix.colors;
         "$mod, T, exec, hyprctl clients | grep 'kitty-translator' && hyprctl dispatch togglespecialworkspace translator || kitty --class 'kitty-translator' trans -theme random -I &"
 
         # Toggle AI scratchpad
-        "$mod, A, exec, hyprctl clients | grep 'kitty-ai' && hyprctl dispatch togglespecialworkspace ai || kitty --class 'kitty-ai' tenere &"
-        #"$mod, A, exec, hyprctl clients | grep 'kitty-ai' && hyprctl dispatch togglespecialworkspace ai || kitty --class 'kitty-ai' tgpt -m &"
+        #"$mod, A, exec, hyprctl clients | grep 'kitty-ai' && hyprctl dispatch togglespecialworkspace ai || kitty --class 'kitty-ai' tenere &"
+        "$mod, A, exec, hyprctl clients | grep 'kitty-ai' && hyprctl dispatch togglespecialworkspace ai || kitty --class 'kitty-ai' tgpt -m &"
 
         # toggle for workspace overview
         "SUPER, grave, hyprexpo:expo, toggle" # can be: toggle, off/disable or on/enable
