@@ -226,6 +226,8 @@
 
     ../../modules/configs/user/obsidian/obsidian-stylix-css.nix
 
+    ../../modules/configs/user/blender/blender-theme.nix
+
     # touch pad gestures
     ../../modules/configs/user/fusuma.nix
 

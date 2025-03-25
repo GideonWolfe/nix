@@ -8,4 +8,8 @@
     localNetworkGameTransfers.openFirewall =
       true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
+  # Enable Udev rules for controllers and other hardware
+  hardware.steam-hardware.enable = true;
+  # Enable Xbox controller driver
+  hardware.xone.enable = true;
 }
