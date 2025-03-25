@@ -88,6 +88,7 @@
     pkgs.tenere # llm TUI
     pkgs.llm # LLM CLI
     pkgs.tgpt # LLM CLI
+    pkgs.lmstudio # LLM GUI
 
   ];
 }
