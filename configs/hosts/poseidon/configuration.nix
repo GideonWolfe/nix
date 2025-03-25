@@ -21,51 +21,53 @@
     ./system/system/system.nix
 
     # Login manager/greeter
-    ./system/services/greeter.nix
+    ../../modules/configs/system/services/login/greeter.nix
+    ../../modules/configs/system/services/login/displayManager.nix
 
     # GNOME Keyring
-    ./system/services/gnome-keyring.nix
+    ../../modules/configs/system/services/gnome-keyring.nix
 
     # Virtualization 
-    ./system/services/virtualization.nix
+    ../../modules/configs/system/services/virtualization.nix
 
     # System level theming
     ./system/graphics/stylix.nix
 
     # Networking and Bluetooth
-    ./system/services/networks/networking.nix
-    ./system/services/networks/bluetooth.nix
     ./system/services/networks/ssh.nix
     ./system/services/networks/wireguard.nix
-    ./system/services/networks/firewall.nix
+    ../../modules/configs/system/services/networks/network-manager.nix
+    ../../modules/configs/system/services/networks/bluetooth.nix
+    ../../modules/configs/system/services/kdeconnect.nix
+
 
     # Power management services
-    ./system/services/power.nix
+    ../../modules/configs/system/services/power.nix
 
     # Docker
-    ./system/services/docker.nix
+    ../../modules/configs/system/services/docker.nix
 
     # Printer support
-    ./system/services/printing.nix
+    ../../modules/configs/system/services/printing.nix
 
     # Virtual FS (used to cache album art)
-    ./system/services/gvfs.nix
+    ../../modules/configs/system/services/gvfs.nix
 
     # UI
-    ./system/graphics/hyprland.nix
-    ./system/graphics/wayland.nix
+    ../../modules/configs/system/services/graphics/hyprland.nix
+    ../../modules/configs/system/services/graphics/wayland.nix
 
     # Audio
-    ./system/services/audio/pipewire.nix
+    ../../modules/configs/system/services/audio/pipewire.nix
 
     # Local plantuml server
-    ./system/services/plantuml.nix
+    ../../modules/configs/system/services/plantuml.nix
 
     # Config firewall, etc. for steam
-    ./system/services/steam.nix
+    ../../modules/configs/system/services/steam.nix
 
     # service for configuring gaming mice
-    ./system/services/ratbagd.nix
+    ../../modules/configs/system/services/ratbagd.nix
 
     ############
     # PACKAGES #

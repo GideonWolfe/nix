@@ -123,7 +123,7 @@ with config.lib.stylix.colors.withHashtag;
           "${modifier}+Shift+q" = "kill";
           #"${modifier}+Shift+x" = "exec swaylock";
           "${modifier}+Shift+x" =
-            "exec ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/power/lock.sh";
+            "exec ${config.home.homeDirectory}/nix/configs/modules/scripts/user/desktop/power/lock.sh";
           "${modifier}+Shift+f" = "fullscreen toggle";
           "${modifier}+Shift+s" = "layout stacking";
           "${modifier}+Shift+w" = "layout tabbed";
@@ -137,12 +137,12 @@ with config.lib.stylix.colors.withHashtag;
           "${modifier}+m" =
             "exec swaymsg [app_id='calculator'] scratchpad show"; # HACK not sure why I need to exec swaymsg on this one
           "${modifier}+p" =
-            "exec ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/navigation/sway-window-switcher.sh";
+            "exec ${config.home.homeDirectory}/nix/configs/modules/scripts/user/desktop/navigation/sway-window-switcher.sh";
           "${modifier}+s" =
-            "exec ${config.home.homeDirectory}/nix/configs/users/gideon/scripts/system/search/wofi-web-search.sh";
+            "exec ${config.home.homeDirectory}/nix/configs/modules/scripts/user/desktop/search/wofi-web-search.sh";
           #TODO awk doesn't actually output anything
           "${modifier}+f" =
-            "exec cat ${config.home.homeDirectory}/nix/configs/users/gideon/configs/wofi/lists/french.csv | wofi --dmenu | awk '{print $1}'";
+            "exec cat ${config.home.homeDirectory}/nix/configs/modules/configs/user/wofi/lists/french.csv | wofi --dmenu | awk '{print $1}'";
         };
 
     };

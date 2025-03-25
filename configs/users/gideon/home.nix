@@ -78,9 +78,9 @@
     ../../modules/configs/user/hypr/hypridle.nix
     ../../modules/configs/user/hypr/hyprlock.nix
     ../../modules/configs/user/hypr/hyprpanel.nix
-    # ../../modules/configs/user/sway/sway.nix
-    # ../../modules/configs/user/sway/swaylock.nix
-    # ../../modules/configs/user/sway/swayidle.nix
+    ../../modules/configs/user/sway/sway.nix
+    ../../modules/configs/user/sway/swaylock.nix
+    ../../modules/configs/user/sway/swayidle.nix
 
     # Cursor settings
     ../../modules/configs/user/cursor.nix

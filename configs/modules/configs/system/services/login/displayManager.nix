@@ -1,28 +1,16 @@
 { config, lib, pkgs, inputs, ... }:
 
-let
-  hyprland-session = "${
-      inputs.hyprland.packages.${pkgs.system}.hyprland
-    }/share/wayland-sessions";
-in {
+{
   # Global displaymanager config
+  # Hyprland creates its own entries
   services.xserver.displayManager = {
     session = [
-      {
-        manage = "window";
-        name = "hyprland";
-        start = "${
-            inputs.hyprland.packages.${pkgs.system}.hyprland
-          }/share/wayland-sessions";
-      }
+      # Adding entry for sway since it doesn't add one automatically
       {
         manage = "window";
         name = "sway";
-        start = "${
-            inputs.hyprland.packages.${pkgs.system}.sway
-          }/share/wayland-sessions";
+        start = "${pkgs.sway}/bin/sway";
       }
     ];
   };
-
 }

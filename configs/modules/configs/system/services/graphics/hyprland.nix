@@ -7,7 +7,7 @@
     enable = true;
     # Start using Universal Wayland Session Manager
     # Recommended on systemd systems like nix
-    #withUWSM = true;
+    withUWSM = true;
   };
 
 }

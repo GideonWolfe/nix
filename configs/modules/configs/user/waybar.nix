@@ -38,9 +38,9 @@ with config.lib.stylix.colors.withHashtag;
         #];
         modules-left = [
           "group/systemMenu"
-          # "sway/workspaces"
-          # "sway/mode"
+          "sway/workspaces"
           "hyprland/workspaces"
+          # "sway/mode"
           #"hyprland/window"
           "hyprland/submap"
         ];
@@ -80,14 +80,14 @@ with config.lib.stylix.colors.withHashtag;
         "custom/poweroff" = {
           format = "<span color='${base08}'>  </span>";
           on-click =
-            "$HOME/nix/configs/users/gideon/scripts/system/power/poweroff.sh";
+            "$HOME/nix/configs/modules/scripts/user/desktop/power/poweroff.sh";
           #tooltip = true;
           tooltip-format = "<span color='${base08}'>Power Off </span>";
         };
         "custom/reboot" = {
           format = "<span color='${base09}'>  </span>";
           on-click =
-            "$HOME/nix/configs/users/gideon/scripts/system/power/reboot.sh";
+            "$HOME/nix/configs/modules/scripts/user/desktop/power/reboot.sh";
           tooltip-format = "<span color='${base09}'>Reboot</span>";
         };
         "custom/logout" = {
@@ -98,7 +98,7 @@ with config.lib.stylix.colors.withHashtag;
         "custom/suspend" = {
           format = "<span color='${base0D}'>  </span>";
           on-click =
-            "$HOME/nix/configs/users/gideon/scripts/system/power/suspend.sh";
+            "$HOME/nix/configs/modules/scripts/user/desktop/power/suspend.sh";
           tooltip-format = "<span color='${base0D}'>Suspend</span>";
         };
 
@@ -290,11 +290,11 @@ with config.lib.stylix.colors.withHashtag;
           interval = 1;
           format = "<span color='${base0D}'>{} </span>";
           exec =
-            "$HOME/nix/configs/users/gideon/scripts/system/screen-capture/screen-recorder.sh status";
+            "$HOME/nix/configs/modules/scripts/user/desktop/screen-capture/screen-recorder.sh status";
           on-click-middle =
-            "$HOME/nix/configs/users/gideon/scripts/system/screen-capture/screen-recorder.sh toggle display";
+            "$HOME/nix/configs/modules/scripts/user/desktop/screen-capture/screen-recorder.sh toggle display";
           on-click-left =
-            "$HOME/nix/configs/user/gideon/scripts/system/screen-capture/screen-recorder.sh toggle region";
+            "$HOME/nix/configs/modules/scripts/user/desktop/screen-capture/screen-recorder.sh toggle region";
           on-click-right =
             "$HOME/nix/configs/user/gideon/scripts/system/screen-capture/screen-recorder.sh toggle fullscreen";
           return-type = "json";
@@ -305,11 +305,11 @@ with config.lib.stylix.colors.withHashtag;
           interval = 1;
           format = "<span color='${base0D}'>{} </span>";
           exec =
-            "$HOME/nix/configs/users/gideon/scripts/system/notifications/mako-toggle-waybar.sh status";
+            "$HOME/nix/configs/modules/scripts/user/desktop/notifications/mako-toggle-waybar.sh status";
           on-click-left =
-            "$HOME/nix/configs/users/gideon/scripts/system/notifications/mako-toggle-waybar.sh toggle";
+            "$HOME/nix/configs/modules/scripts/user/desktop/notifications/mako-toggle-waybar.sh toggle";
           on-click-right =
-            "$HOME/nix/configs/users/gideon/scripts/system/notifications/mako-toggle-waybar.sh toggle";
+            "$HOME/nix/configs/modules/scripts/user/desktop/notifications/mako-toggle-waybar.sh toggle";
           return-type = "json";
           signal = 8;
         };
