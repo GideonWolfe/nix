@@ -21,8 +21,7 @@
     ./system/system/system.nix
 
     # Login manager/greeter
-        #./system/services/login/greeter.nix
-    ./system/services/login/lightdm.nix
+    ./system/services/greeter.nix
 
     # GNOME Keyring
     ./system/services/gnome-keyring.nix
