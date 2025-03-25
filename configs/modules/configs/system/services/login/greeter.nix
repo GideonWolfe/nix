@@ -11,10 +11,9 @@ in {
     enable = true;
     settings = {
       default_session = {
-                #command = "${tuigreet} --time --cmd ${pkgs.hyprland}/bin/Hyprland";
-        command = "${tuigreet} --time  --sessions ${config.services.xserver.displayManager.sessionData.desktops}/share/wayland-sessions --remember --remember-user-session --cmd ${pkgs.hyprland}/bin/Hyprland";
-                #command = "${tuigreet} --time --cmd ${hyprland-session}/hyprland.desktop";
-        #command = "${tuigreet} --time --cmd ${pkgs.sway}/bin/sway";
+        # Command to launch tuigreet, a TUI based greeter
+        command =
+          "${tuigreet} --time  --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions:${config.services.displayManager.sessionData.desktops}/share/xsessions --remember --remember-user-session";
         user = "greeter";
       };
     };
