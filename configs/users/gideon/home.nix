@@ -224,9 +224,16 @@
     ../../modules/configs/user/projects/tech.nix
     ../../modules/configs/user/projects/music.nix
 
+    # Obsidian theme
     ../../modules/configs/user/obsidian/obsidian-stylix-css.nix
 
+    # Blender theme
     ../../modules/configs/user/blender/blender-theme.nix
+
+    # Element settings (and theme)
+    ../../modules/configs/user/element/element.nix
+
+    ../../modules/configs/user/thunderbird.nix
 
     # touch pad gestures
     ../../modules/configs/user/fusuma.nix

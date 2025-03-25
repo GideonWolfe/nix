@@ -50,9 +50,14 @@ with config.lib.stylix.colors.withHashtag;
                   "${base07}"
                 ],
                 "avatar-background-colors": [
-                  "${base0D}",
                   "${base0E}",
-                  "${base0B}"
+                  "${base08}",
+                  "${base09}",
+                  "${base0B}",
+                  "${base0C}",
+                  "${base0F}",
+                  "${base0D}",
+                  "${base07}"
                 ]
               }
             }
