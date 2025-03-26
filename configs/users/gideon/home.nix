@@ -232,9 +232,15 @@
 
     # Element settings (and theme)
     ../../modules/configs/user/element/element.nix
-        
+
     # Ghidra theme
     ../../modules/configs/user/ghidra/ghidra.nix
+
+    # Kicad theme
+    ../../modules/configs/user/kicad/kicad.nix
+
+    # OBS theme
+    ../../modules/configs/user/obs-studio/obs-theme.nix
 
     ../../modules/configs/user/thunderbird.nix
 
