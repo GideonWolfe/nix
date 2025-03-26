@@ -170,6 +170,7 @@
     #vial # QMK fork and GUI for keyboard configuration
     gsmartcontrol # GUI for smartmontools hard drive health
     kdiskmark # disk benchmark GUI
+    dualsensectl # CLI interface for controlling Sony Dualsense controllers
 
     # File managers
     ranger

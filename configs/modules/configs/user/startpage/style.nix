@@ -8,7 +8,7 @@ with config.lib.stylix.colors.withHashtag;
 	home.file = {
 
 		# Creating the CSS file to theme the startpage
-		"nix/configs/users/gideon/configs/startpage/data/style.css" = {
+		"nix/configs/modules/configs/user/startpage/data/style.css" = {
 
 			# Trigger a reload of the container
 			onChange = "${pkgs.docker}/bin/docker restart startpage";

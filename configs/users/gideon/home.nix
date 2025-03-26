@@ -232,6 +232,9 @@
 
     # Element settings (and theme)
     ../../modules/configs/user/element/element.nix
+        
+    # Ghidra theme
+    ../../modules/configs/user/ghidra/ghidra.nix
 
     ../../modules/configs/user/thunderbird.nix
 
