@@ -40,6 +40,7 @@ with config.lib.stylix.colors;
         "spotify"
         "sleep 2; kitty --class 'kitty-cava' cava &"
         "sleep 2; kitty --class 'kitty-scope-tui' scope-tui --no-ui --scale 0.15 --channels 3 pulse pipewire.monitor &"
+        "sleep 2; NickvisionCavalier.GNOME"
         # Monitor workspace
         "kitty --class 'kitty-btop' btop &"
         # Obsidian Workspace
@@ -136,16 +137,16 @@ with config.lib.stylix.colors;
         "$mod, 0, workspace, 10"
 
         # Move active window to a workspace with mod + SHIFT + [0-9]
-        "$mod SHIFT, 1, movetoworkspace, 1"
-        "$mod SHIFT, 2, movetoworkspace, 2"
-        "$mod SHIFT, 3, movetoworkspace, 3"
-        "$mod SHIFT, 4, movetoworkspace, 4"
-        "$mod SHIFT, 5, movetoworkspace, 5"
-        "$mod SHIFT, 6, movetoworkspace, 6"
-        "$mod SHIFT, 7, movetoworkspace, 7"
-        "$mod SHIFT, 8, movetoworkspace, 8"
-        "$mod SHIFT, 9, movetoworkspace, 9"
-        "$mod SHIFT, 0, movetoworkspace, 10"
+        "$mod SHIFT, 1, movetoworkspacesilent, 1"
+        "$mod SHIFT, 2, movetoworkspacesilent, 2"
+        "$mod SHIFT, 3, movetoworkspacesilent, 3"
+        "$mod SHIFT, 4, movetoworkspacesilent, 4"
+        "$mod SHIFT, 5, movetoworkspacesilent, 5"
+        "$mod SHIFT, 6, movetoworkspacesilent, 6"
+        "$mod SHIFT, 7, movetoworkspacesilent, 7"
+        "$mod SHIFT, 8, movetoworkspacesilent, 8"
+        "$mod SHIFT, 9, movetoworkspacesilent, 9"
+        "$mod SHIFT, 0, movetoworkspacesilent, 10"
 
         # Menus
         # Kando desktop menu
@@ -249,6 +250,7 @@ with config.lib.stylix.colors;
         "workspace 1 silent, class:^(spotify)$"
         "workspace 1 silent,class:(kitty-cava)"
         "workspace 1 silent,class:(kitty-scope-tui)"
+        "workspace 1 silent,class:(org.nickvision.cavalier)"
         # Monitor workspace
         "workspace 8 silent,class:(kitty-btop)"
         # Obsidian

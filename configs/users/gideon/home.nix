@@ -248,6 +248,15 @@
     # MPV theme/config
     ../../modules/configs/user/mpv/mpv.nix
 
+    # Libreoffice theme
+    ../../modules/configs/user/libreoffice/libreoffice.nix
+
+    # blockbench theme
+    ../../modules/configs/user/blockbench/blockbench.nix
+
+    # Cavalier settings
+    ../../modules/configs/user/cavalier/cavalier.nix
+
     # touch pad gestures
     ../../modules/configs/user/fusuma.nix
 
