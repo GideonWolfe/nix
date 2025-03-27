@@ -242,7 +242,11 @@
     # OBS theme
     ../../modules/configs/user/obs-studio/obs-theme.nix
 
+    # Thunderbird config and theme
     ../../modules/configs/user/thunderbird/thunderbird.nix
+
+    # MPV theme/config
+    ../../modules/configs/user/mpv/mpv.nix
 
     # touch pad gestures
     ../../modules/configs/user/fusuma.nix
