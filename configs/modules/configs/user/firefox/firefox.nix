@@ -183,6 +183,9 @@ with config.lib.stylix.colors.withHashtag;
           # Change browser homepage
           "browser.startup.homepage" = "http://localhost:9876";
 
+          # Always restore session
+          "browser.startup.page" = 3;
+
           # Enable userChrome.css styling
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 

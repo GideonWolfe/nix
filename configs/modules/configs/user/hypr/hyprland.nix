@@ -35,6 +35,17 @@ with config.lib.stylix.colors;
         "hyprctl setcursor ${config.home.pointerCursor.name} ${
           builtins.toString (config.home.pointerCursor.size + 8)
         }"
+
+        # Music workspace
+        "spotify"
+        "sleep 2; kitty --class 'kitty-cava' cava &"
+        "sleep 2; kitty --class 'kitty-scope-tui' scope-tui --no-ui --scale 0.15 --channels 3 pulse pipewire.monitor &"
+        # Monitor workspace
+        "kitty --class 'kitty-btop' btop &"
+        # Obsidian Workspace
+        "obsidian"
+        # Discord
+        "vesktop"
       ];
 
       # Mouse bindings
@@ -232,6 +243,18 @@ with config.lib.stylix.colors;
 
         # To make KDE connect message reply window not be tiny
         "minsize 400 400, title:(Messages — KDE Connect Daemon)"
+
+        # Bind programs to specific worskspaces for autostart purposes
+        # Music Workspace
+        "workspace 1 silent, class:^(spotify)$"
+        "workspace 1 silent,class:(kitty-cava)"
+        "workspace 1 silent,class:(kitty-scope-tui)"
+        # Monitor workspace
+        "workspace 8 silent,class:(kitty-btop)"
+        # Obsidian
+        "workspace 6 silent,class:(obsidian)"
+        # Comms Workspace
+        "workspace 9 silent,class:(vesktop)"
       ];
 
       # legacy windowrule to make Kando work
