@@ -8,7 +8,7 @@
     ##########
     # TODO enable when more space
     pkgs.freecad # general CAD
-    pkgs.kicad # PCB designer
+    #pkgs.kicad # PCB designer
     pkgs.blender # 3D modeler, animator, and designer
     pkgs.sweethome3d.application # Interior design GUI
     pkgs.sweethome3d.textures-editor
