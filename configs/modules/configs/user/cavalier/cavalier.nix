@@ -31,8 +31,8 @@ with config.lib.stylix.colors.withHashtag;
         "ItemsRoundness": 0.5,
         "Filling": false,
         "LinesThickness": 6,
-        "Mode": 0,
-        "Mirror": 2,
+        "Mode": 6,
+        "Mirror": 0,
         "ReverseMirror": false,
         "InnerRadius": 0.5,
         "Rotation": 0,
@@ -40,7 +40,9 @@ with config.lib.stylix.colors.withHashtag;
           {
             "Name": "Default",
             "FgColors": [
-              "${base0E}"
+              "${base0D}",
+              "${base0E}",
+              "${base07}"
             ],
             "BgColors": [
               "${base00}"
