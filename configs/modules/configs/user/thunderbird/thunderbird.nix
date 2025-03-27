@@ -13,7 +13,40 @@ with config.lib.stylix.colors.withHashtag;
         isDefault = true;
 
         settings = {
+          # Enable userChrome customizations
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+          # Allow remote images to be loaded
+          "mailnews.message_display.disable_remote_image" = false;
+
+          # Main app color
+          "browser.display.background_color" = "${base00}";
+          "browser.display.foreground_color" = "${base05}";
+          # Force for all messages
+          "browser.display.document_color_use" = 2;
+
+          # Link colors
+          "layout.css.visited_links_enabled" = true;
+          "browser.visited_color" = "${base0E}";
+          "reader.custom_colors.visited-links" = "${base0E}";
+          "reader.custom_colors.unvisited-links" = "${base0D}";
+          "browser.anchor_color" = "${base0D}";
+          "browser.anchor_color.dark" = "${base0E}";
+
+
+          "font.name.sans-serif.x-western" = "${config.stylix.fonts.serif.name}";
+
+          # Color of important tag in mail
+          "mailnews.tags.$label1.color" = "${base08}";
+          # Work tag
+          "mailnews.tags.$label2.color" = "${base09}";
+          # Personal tag
+          "mailnews.tags.$label3.color" = "${base0B}";
+          # To Do Tag
+          "mailnews.tags.$label4.color" = "${base0D}";
+          # Later Tag
+          "mailnews.tags.$label5.color" = "${base0E}";
+
         };
 
         userChrome = ''
@@ -49,6 +82,8 @@ with config.lib.stylix.colors.withHashtag;
             --folder-color-folder-filter: ${base07} !important;
             --folder-color-folder-rss: ${base09} !important;
 
+            --tabs-toolbar-background-color: ${base00} !important;
+
             --tree-card-background: ${base00} !important;
             --tree-card-background-selected-current: ${base01} !important;
             --tree-card-background-selected: ${base01} !important;
@@ -58,14 +93,14 @@ with config.lib.stylix.colors.withHashtag;
             --read-status-fill: transparent !important;
             --read-status-stroke: ${base0D} !important;
 
-            --search-bar-color: ${base01} !important;
 
-            /* should be color of tag icon but getting overriden*/
-            --tag-\$label1-backcolor: ${base08} !important;
-            --tag-color: ${base08} !important;
 
             --thread-pane-flag-fill: ${base0A} !important;
             --thread-pane-flag-stroke: ${base0A} !important;
+
+
+            --search-bar-border-color: ${base0B} !important;
+            --search-focus-outline-color: ${base0E} !important;
 
           }
 
