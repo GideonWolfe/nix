@@ -90,7 +90,7 @@ with config.lib.stylix.colors.withHashtag;
         };
 
         # Media module
-        media = { middleClick = "playerctl play-pause"; };
+        media = { middleClick = "playerctl --player playerctld play-pause"; };
 
         #BUG: not working
         # systray.customIcons = {

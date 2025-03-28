@@ -76,11 +76,14 @@ with config.lib.stylix.colors;
         # Mute Mic key toggle
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         # Play/Pause button
-        ", XF86AudioPlay, exec, playerctl play-pause"
+        #", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPlay, exec, playerctl --player playerctld play-pause"
         # Previous button
-        ", XF86AudioPrev, exec, playerctl previous"
+        #", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioPrev, exec, playerctl --player playerctld previous"
         # Next button
-        ", XF86AudioNext, exec, playerctl next"
+        #", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioNext, exec, playerctl --player playerctld next"
 
         # Hyprlock when the lid is closed
         ",switch:on:Lid Switch, exec, hyprctl dispatch exec hyprlock && systemctl suspend"
