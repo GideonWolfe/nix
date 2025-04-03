@@ -5,6 +5,7 @@
     #pkgs.steam don't use, use programs.steam.enable instead
     pkgs.protontricks
     pkgs.lutris
+    pkgs.itch
     pkgs.nexusmods-app-unfree
     #pkgs.mangohud
     #pkgs.jstest-gtk #joystick tester

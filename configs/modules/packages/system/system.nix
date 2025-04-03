@@ -119,6 +119,7 @@
     libsForQt5.qt5.qtwayland # wayland compatibility
     gpg-tui # TUI for GnuPG
     f3d # lightweight 3D model viewer
+        #appimage-run # run appimages without dependency errors from nix
 
     pstree # process tree
 
@@ -171,6 +172,7 @@
     gsmartcontrol # GUI for smartmontools hard drive health
     kdiskmark # disk benchmark GUI
     dualsensectl # CLI interface for controlling Sony Dualsense controllers
+    ddcui # GUI for controlling DDC compatible external displays (gddcontrol comes default but segfaults)
 
     # File managers
     ranger

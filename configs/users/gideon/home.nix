@@ -257,6 +257,15 @@
     # Cavalier settings
     ../../modules/configs/user/cavalier/cavalier.nix
 
+    # Minimeter settings
+    ../../modules/configs/user/minimeters.nix
+
+    # halloy config
+    ../../modules/configs/user/irc/halloy.nix
+
+    # Godot theme
+    ../../modules/configs/user/godot/godot-theme.nix
+
     # touch pad gestures
     ../../modules/configs/user/fusuma.nix
 

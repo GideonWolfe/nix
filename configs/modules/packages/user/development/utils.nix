@@ -35,6 +35,9 @@
     # IDEs
     pkgs.vscode
 
+    # Godot
+    pkgs.godot_4
+
     # GUI
     pkgs.pencil # Prototyping tool (like figma)
     #pkgs.akira # Prototyping / design tool

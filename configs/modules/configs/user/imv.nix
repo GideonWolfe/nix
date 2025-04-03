@@ -18,6 +18,8 @@ with config.lib.stylix.colors.withHashtag;
       # config file.
       suppress_default_binds = true
       background = ${base00}
+      overlay_text_color = ${base05}
+      overlay_background_color = ${base01}
 
       [aliases]
       # Define aliases here. Any arguments passed to an alias are appended to the

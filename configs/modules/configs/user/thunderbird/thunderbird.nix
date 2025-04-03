@@ -33,8 +33,8 @@ with config.lib.stylix.colors.withHashtag;
           "browser.anchor_color" = "${base0D}";
           "browser.anchor_color.dark" = "${base0E}";
 
-
-          "font.name.sans-serif.x-western" = "${config.stylix.fonts.serif.name}";
+          "font.name.sans-serif.x-western" =
+            "${config.stylix.fonts.serif.name}";
 
           # Color of important tag in mail
           "mailnews.tags.$label1.color" = "${base08}";
@@ -87,11 +87,22 @@ with config.lib.stylix.colors.withHashtag;
             --tree-card-background: ${base00} !important;
             --tree-card-background-selected-current: ${base01} !important;
             --tree-card-background-selected: ${base01} !important;
+            --tree-card-background-current-spam: ${base00} !important;
+            --tree-card-background-selected-current-spam: ${base00} !important;
+            --tree-card-border-hover-spam: ${base08} !important;
+            --tree-card-border-selected-spam: ${base08} !important;
+
+            --indicator-border-selected-spam: ${base08} !important;
+            --indicator-background-selected-spam: ${base08} !important;
+
             --tree-card-border: ${base03} !important;
             --tree-card-border-focus: ${base0E} !important;
             --treeitem-text-active: ${base0E} !important;
             --read-status-fill: transparent !important;
             --read-status-stroke: ${base0D} !important;
+
+            --list-indicator-background-selected-focused: ${base0A} !important;
+            --list-indicator-background-selected-current: ${base09} !important;
 
 
 
@@ -137,6 +148,25 @@ with config.lib.stylix.colors.withHashtag;
               }
             }
           }
+
+
+          /* color of buttons in email notifications */
+          /* TODO find theme that works (and not just hover) */
+          .notification-button {
+            &:not([disabled]):hover {
+              color: ${base0B} !important;
+              background-color: ${base00} !important;
+            }
+          }
+
+          /* color of warning in email like spam*/
+          :host(notification-message[type="warning"]).text-content, div.container, div.content {
+            --message-bar-background-color: ${base0A} !important;
+            --message-bar-text-color: ${base00} !important;
+            border-radius: 0px !important;
+          }
+
+
 
         '';
 

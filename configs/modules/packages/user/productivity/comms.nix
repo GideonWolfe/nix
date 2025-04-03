@@ -3,6 +3,7 @@
 {
   home.packages = [
     pkgs.lyrebird # voice changer
+    pkgs.halloy # IRC GUI
     pkgs.weechat # IRC TUI
     pkgs.weechatScripts.weechat-notify-send # allow weechat to send notifications
     pkgs.weechatScripts.autosort
