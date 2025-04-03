@@ -57,6 +57,9 @@
     ../../modules/configs/system/services/gvfs.nix
     #./system/services/gvfs.nix
 
+    # Appimage support
+    ../../modules/configs/system/services/appimage.nix
+
     # UI
     ../../modules/configs/system/services/graphics/wayland.nix
     ../../modules/configs/system/services/graphics/hyprland.nix
@@ -82,6 +85,10 @@
     # adding extensions for nautilus
     ../../modules/configs/system/nautilus.nix
 
+    # service for configuring external display brightness and other settings
+    ../../modules/configs/system/services/ddccontrol.nix
+    # Needed for above to work, but also needed for any i2c dev stuff
+    ../../modules/configs/system/services/i2c.nix
 
     ############
     # PACKAGES #
@@ -157,6 +164,7 @@
     '';
   };
 
+  # TODO: extract this out so I don't have to update groups on every machine
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gideon = {
     home = "/home/gideon";
@@ -167,6 +175,7 @@
       "docker" # Let the user run docker commands
       "dialout" # let programs run by the user (like chirp) access USB ports
       "input" # let programs run by the user (like chirp) access touchpad input (for fusuma gestures)
+      "i2c" # allow the user to control i2c devices like external displays through ddc
     ];
     packages = with pkgs; [ firefox neovim tree ];
   };

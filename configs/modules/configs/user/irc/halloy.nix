@@ -63,7 +63,7 @@ with config.lib.stylix.colors.withHashtag;
 
 
       [file_transfer]
-      save_directory = "/home/gideon/downloads/"
+      save_directory = "${config.xdg.userDirs.download}"
 
 
       [font]
@@ -83,6 +83,19 @@ with config.lib.stylix.colors.withHashtag;
       [sidebar]
       buffer_action = "replace-pane"
       buffer_focused_action = "close-pane"
+
+      [buffer.server_messages.join]
+      smart = 180
+
+      [buffer.server_messages.part]
+      smart = 180
+
+      [buffer.server_messages.quit]
+      smart = 180
+
+      [buffer.server_messages.topic]
+      enabled = false
+
     '';
   };
 
