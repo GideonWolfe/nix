@@ -84,6 +84,7 @@ with config.lib.stylix.colors.withHashtag;
 
             --tabs-toolbar-background-color: ${base00} !important;
 
+            --tree-pane-background: ${base01} !important;
             --tree-card-background: ${base00} !important;
             --tree-card-background-selected-current: ${base01} !important;
             --tree-card-background-selected: ${base01} !important;
@@ -97,6 +98,7 @@ with config.lib.stylix.colors.withHashtag;
 
             --tree-card-border: ${base03} !important;
             --tree-card-border-focus: ${base0E} !important;
+            --tree-card-border-hover: ${base0B} !important;
             --treeitem-text-active: ${base0E} !important;
             --read-status-fill: transparent !important;
             --read-status-stroke: ${base0D} !important;
