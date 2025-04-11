@@ -63,6 +63,9 @@
     # Session/env variables
     ../../modules/configs/user/session-variables.nix
 
+    # Enable wrapper for builds
+    ../../modules/configs/user/nh.nix
+
     # Configs for calendar settings and sync
     ./configs/calendar/calendar.nix
     ./configs/calendar/khal.nix
@@ -135,6 +138,9 @@
 
     # Better Cat
     ../../modules/configs/user/bat.nix
+
+    # Better shell history
+    ../../modules/configs/user/atuin.nix
 
     # quick finder
     ../../modules/configs/user/fzf.nix

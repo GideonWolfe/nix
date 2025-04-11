@@ -7,6 +7,7 @@
 
     shellAbbrs = {
       x = "eza";
+      cp = "xcp";
       v = "nvim";
       p = "python3";
       ga = "git add";
