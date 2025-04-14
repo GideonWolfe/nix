@@ -353,9 +353,10 @@ with config.lib.stylix.colors.withHashtag;
                        .treeTable .treeRow.selected :where(:not(.objectBox-jsonml)), .treeTable .treeRow.selected .treeLabelCell::after {
                          color: ${base00} !important;
                        }
-                       .objectBox-textNode, .objectBox-string, .objectBox-symbol {
+                       /* this is turning all console messages purple */
+                       /* .objectBox-textNode, .objectBox-string, .objectBox-symbol {
                          color: ${base0E} !important;
-                       }
+                       } */
                        .treeTable .treeRow.selected :not(input, textarea)::selection {
                          color: ${base00} !important;
                          background-color: ${base0D} !important;
@@ -665,13 +666,12 @@ with config.lib.stylix.colors.withHashtag;
                          font-weight: bold;
                        }
                        .attribute-value {
-                         color: ${base08} !important;
+                         color: ${base09} !important;
                          font-weight: normal;
                        }
                        .error {
-                         color: ${base00} !important;
+                         color: ${base08} !important;
                          font-weight: bold;
-                         background-color: ${base08} !important;
                          text-decoration: underline wavy ${base08} 0.5px !important;
                        }
                      }
@@ -768,7 +768,7 @@ with config.lib.stylix.colors.withHashtag;
                          /* Text color */
                          --theme-comment: ${base04} !important;
                          --theme-body-color: ${base05} !important;
-                         --theme-text-color-alt: var(${base04}) !important;
+                         --theme-text-color-alt: ${base04} !important;
                          --theme-text-color-inactive: ${base04} !important;
                          --theme-text-color-strong: ${base0E} !important;
                          --theme-stack-trace-text: ${base08} !important;
@@ -941,6 +941,33 @@ with config.lib.stylix.colors.withHashtag;
                      .perf-photon-button-primary:hover:active:not([disabled]) {
                        background-color: ${base08} !important;
                      }
+                   }
+
+
+                   /* Fixes for Reddit Enhancement Suite */
+                   &.res-commentBoxes .comment,
+                   &.res-commentBoxes .comment .comment .comment,
+                   &.res-commentBoxes .comment .comment .comment .comment .comment,
+                   &.res-commentBoxes .comment .comment .comment .comment .comment .comment .comment,
+                   &.res-commentBoxes .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+                       background-color: ${base00} !important;
+                   }
+
+                   &.res-commentBoxes .comment .comment,
+                   &.res-commentBoxes .comment .comment .comment .comment,
+                   &.res-commentBoxes .comment .comment .comment .comment .comment .comment,
+                   &.res-commentBoxes .comment .comment .comment .comment .comment .comment .comment .comment,
+                   &.res-commentBoxes .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+                       background-color: ${base01} !important;
+                   }
+                   &.res-commentBoxes .comment .comment {
+                       background-color: ${base00} !important;
+                   }
+                   .res-commentBoxes .comment {
+                     border: 1px solid ${base02} !important;
+                   }
+                   .res-voteEnhancements-highlightScores span.score {
+                     color: ${base0E} !important;
                    }
 
         '';
