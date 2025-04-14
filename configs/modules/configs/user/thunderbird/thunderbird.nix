@@ -114,6 +114,7 @@ with config.lib.stylix.colors.withHashtag;
 
             --tree-card-border: ${base03} !important;
             --tree-card-border-focus: ${base0E} !important;
+            --tree-card-border-hover: ${base0B} !important;
             --treeitem-text-active: ${base0E} !important;
             --treeitem-background-selected: ${base01} !important;
             --read-status-fill: transparent !important;

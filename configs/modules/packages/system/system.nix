@@ -47,7 +47,8 @@
     czkawka # duplicate file finding GUI
     szyszka # bulk file renamer GUI
     file
-    ripgrep
+    ripgrep # better grep
+    xcp # better cp
 
     # Monitors
     atop # system/process monitor
