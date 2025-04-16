@@ -176,6 +176,7 @@
       "dialout" # let programs run by the user (like chirp) access USB ports
       "input" # let programs run by the user (like chirp) access touchpad input (for fusuma gestures)
       "i2c" # allow the user to control i2c devices like external displays through ddc
+      "plugdev" # needed for RTL-SDR
     ];
     packages = with pkgs; [ firefox neovim tree ];
   };

@@ -39,5 +39,11 @@
     pkgs.urh # Universal Radio Hacker
     pkgs.qdmr # GUI for DMR radio programming
     pkgs.qradiolink # SDR radio GUI
+    pkgs.sdrpp # SDR++
+    pkgs.sdrangel
+    pkgs.gnuradio
+    pkgs.inspectrum
+    pkgs.rtl-sdr
+    pkgs.gqrx
   ];
 }

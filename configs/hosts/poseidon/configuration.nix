@@ -40,7 +40,6 @@
     ../../modules/configs/system/services/networks/bluetooth.nix
     ../../modules/configs/system/services/kdeconnect.nix
 
-
     # Power management services
     ../../modules/configs/system/services/power.nix
 
@@ -52,6 +51,9 @@
 
     # Virtual FS (used to cache album art)
     ../../modules/configs/system/services/gvfs.nix
+
+    # Appimage support
+    ../../modules/configs/system/services/appimage.nix
 
     # UI
     ../../modules/configs/system/services/graphics/hyprland.nix
@@ -68,6 +70,9 @@
 
     # service for configuring gaming mice
     ../../modules/configs/system/services/ratbagd.nix
+
+    # service for RTL-SDR
+    ../../modules/configs/system/services/rtl-sdr.nix
 
     ############
     # PACKAGES #
@@ -176,6 +181,7 @@
       "docker" # Let the user run docker commands
       "dialout" # let programs run by the user (like chirp) access USB ports
       "input" # let programs run by the user (like chirp) access touchpad input (for fusuma gestures)
+      "plugdev" # for RTL-SDR
     ];
     packages = with pkgs; [ firefox neovim tree ];
   };

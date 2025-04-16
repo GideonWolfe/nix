@@ -40,6 +40,7 @@ with config.lib.stylix.colors.withHashtag;
           "#raspberrypi",
           "#systemd",
           "#hamradio",
+          "##rtlsdr",
           "#javascript",
           "#nextcloud",
           "#datahoarder",
