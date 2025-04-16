@@ -51,6 +51,15 @@ with config.lib.stylix.colors.withHashtag;
 
         userChrome = ''
           :root {
+            --bg-color: ${base01} !important;
+            --text-color: ${base05} !important;
+            --title-color: ${base0D} !important;
+            --primary-color: ${base0D} !important;
+            --primary-color-hover: ${base0B} !important;
+            --btn-color: ${base05} !important;
+            --btn-bg: ${base01} !important;
+            --btn-bg-hover: ${base00} !important;
+            --popup-bg: ${base02} !important;
             --primary: ${base0D} !important;
             --layout-background-0: ${base00} !important;
             --layout-background-1: ${base01} !important;
@@ -84,7 +93,14 @@ with config.lib.stylix.colors.withHashtag;
 
             --tabs-toolbar-background-color: ${base00} !important;
 
-            --tree-pane-background: ${base01} !important;
+            --tree-view-bg: ${base00} !important;
+            --tree-view-color: ${base05} !important;
+            --tree-header-bg: ${base05} !important;
+            --thread-pane-spam-fill: ${base00} !important;
+            --thread-pane-spam-stroke: ${base08} !important;
+            --thread-pane-unread-fill: ${base00} !important;
+            --thread-pane-unread-stroke: ${base0B} !important;
+
             --tree-card-background: ${base00} !important;
             --tree-card-background-selected-current: ${base01} !important;
             --tree-card-background-selected: ${base01} !important;
@@ -100,6 +116,7 @@ with config.lib.stylix.colors.withHashtag;
             --tree-card-border-focus: ${base0E} !important;
             --tree-card-border-hover: ${base0B} !important;
             --treeitem-text-active: ${base0E} !important;
+            --treeitem-background-selected: ${base01} !important;
             --read-status-fill: transparent !important;
             --read-status-stroke: ${base0D} !important;
 
