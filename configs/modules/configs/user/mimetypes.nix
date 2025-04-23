@@ -32,13 +32,14 @@ with config.lib.stylix.colors.withHashtag;
       "inode/directory" = lib.mkForce [ "org.gnome.Nautilus.desktop" ];
 
       # Audio
-      "audio/aac" = [ "vlc.desktop" ];
-      "audio/mp3" = [ "vlc.desktop" ];
-      "audio/ogg" = [ "vlc.desktop" ];
-      "audio/wav" = [ "vlc.desktop" ];
-      "audio/webm" = [ "vlc.desktop" ];
-      "audio/webp" = [ "vlc.desktop" ];
-      "application/x-cdf" = [ "vlc.desktop" ];
+      "audio/aac" = ["org.gnome.Decibels.desktop" "vlc.desktop" ];
+      "audio/mp3" = ["org.gnome.Decibels.desktop" "vlc.desktop" ];
+      "audio/mpeg" = ["org.gnome.Decibels.desktop" "vlc.desktop" ];
+      "audio/ogg" = ["org.gnome.Decibels.desktop" "vlc.desktop" ];
+      "audio/wav" = ["org.gnome.Decibels.desktop" "vlc.desktop" ];
+      "audio/webm" = ["org.gnome.Decibels.desktop" "vlc.desktop" ];
+      "audio/webp" = ["org.gnome.Decibels.desktop" "vlc.desktop" ];
+      "application/x-cdf" = ["org.gnome.Decibels.desktop" "vlc.desktop" ];
       "audio/midi" = [ "reaper.desktop" ];
 
       # Video 

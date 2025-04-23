@@ -27,8 +27,10 @@
     #pkgs.baudline # scientific signal analysis app
     pkgs.sigrok-cli # signal analysis software
     pkgs.pulseview # GUI for sigrok
+    pkgs.sigdigger # Qt-based digital signal analyzer
     #pkgs.scope-tui # TUI oscilloscope/vectorscope.spectroscope
     pkgs.picoscope # oscilloscope GUI
+    pkgs.simulide # Simple real time electronic circuit simulator
 
     #########
     # RADIO #
@@ -45,5 +47,6 @@
     pkgs.inspectrum
     pkgs.rtl-sdr
     pkgs.gqrx
+    pkgs.welle-io # DAB/DAB+ decoding (internet radio)
   ];
 }

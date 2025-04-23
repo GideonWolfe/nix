@@ -10,6 +10,7 @@
         pkgs.wiki-tui # TUI for wikipedia
         pkgs.youplot # pipe data and plot in your terminal
         pkgs.surfer # general waveform viewer
+        pkgs.gnome-recipes # need a better place for this
 
 	];
 }

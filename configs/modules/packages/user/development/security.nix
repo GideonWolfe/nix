@@ -25,6 +25,8 @@
     #pkgs.john # John the ripper
     #pkgs.metasploit-framework
     #pkgs.johnny # GUI for John the Ripper
+    # file tools
+    pkgs.exiflooter
 
   ];
 }

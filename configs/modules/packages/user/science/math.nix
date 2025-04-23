@@ -14,6 +14,7 @@
     pkgs.libqalculate # advanced calculator
     #pkgs.qalculate-qt # frontend for qalculate
     pkgs.qalculate-gtk # frontend for qalculate
+    pkgs.gnome-graphs # GNOME app for quick plotting
 
   ];
 }

@@ -7,7 +7,7 @@
     xdg-desktop-portal
     xdg-desktop-portal-wlr
     xdg-desktop-portal-hyprland
-    #xdg-desktop-portal-gnome
+    xdg-desktop-portal-gnome # required for GNOME apps like eyedropper to work
     xdg-desktop-portal-gtk
     lxqt.xdg-desktop-portal-lxqt
         #xdg-desktop-portal-kde

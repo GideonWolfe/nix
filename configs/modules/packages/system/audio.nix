@@ -20,6 +20,7 @@
     playerctl # MPRIS control CLI
     ffmpeg
     soundconverter # sound conversion GUI
+    decibels # GNOME simple audio player GUI
 
     # musicbrainz tagger
     picard

@@ -50,6 +50,9 @@
     ripgrep # better grep
     xcp # better cp
 
+    gnome-decoder # QR code GUI
+    gnome-clocks # GUI for clocks/timers/alarms
+
     # Monitors
     atop # system/process monitor
     btop
@@ -65,6 +68,7 @@
     trippy
     ktop # kubernetes monitor
     kernelshark # GUI kernel monitor
+    sysdig # advanced system tracing tool
     kmon # TUI kernel monitor
     glances # system/process monitor
     bmon # bandwidth monitor
@@ -142,6 +146,7 @@
     #libvirt
     #virt-manager
     qemu
+    bottles # Wine prefix manager GUI
 
     # Alternate shells
     fish
@@ -157,6 +162,7 @@
     diskonaut # disk usage analyzer TUI
     baobab # disk usage analyzer GUI
     ventoy # create bootable USBs
+    impression # GNOME util to quickly burn ISOs
     simple-mtpfs # mount cell phone filesystems
     dosfstools # drivers for DOS filesystems
 
@@ -174,6 +180,7 @@
     kdiskmark # disk benchmark GUI
     dualsensectl # CLI interface for controlling Sony Dualsense controllers
     ddcui # GUI for controlling DDC compatible external displays (gddcontrol comes default but segfaults)
+    simple-scan # GNOME GUI for document scanner
 
     # File managers
     ranger

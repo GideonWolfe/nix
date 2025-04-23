@@ -16,5 +16,8 @@
 		pkgs.molsketch # 2D molecular editor
 		pkgs.gromacs # molecular dynamics
 
+        # brewing
+        pkgs.brewtarget # beer recipe creation tool
+
 	];
 }

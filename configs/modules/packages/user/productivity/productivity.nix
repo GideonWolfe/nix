@@ -15,8 +15,10 @@
     pkgs.xournalpp # paint.net clone #TODO: theme paper color, etc (need to generate XML)
     pkgs.mdbook # Create books from markdown # lots of extra addons for this, check package list
     pkgs.calligra # suite of productivity apps
+    pkgs.drawio # desktop version of draw.io
     pkgs.gaphor # python UML modeling tool
     pkgs.foliate # GUI Ebook reader
+    pkgs.sigil # ePub editor
     pkgs.texliveFull # full latex environment
     pkgs.texstudio # LaTeX Editor
     pkgs.visidata # Interactive terminal multitool for tabular data
@@ -42,9 +44,13 @@
     # Password manager
     pkgs.keepassxc
     pkgs.seahorse
+    pkgs.bitwarden-desktop # connects to vaultwarden 
 
     # Emoji selector
     pkgs.wofi-emoji
+
+    # GUI for weather
+    pkgs.gnome-weather
 
     #########
     # UTILS #
@@ -62,15 +68,25 @@
     pkgs.exhibit # GNOME 3D model viewer
     pkgs.filezilla # FTP client
     pkgs.transmission_4-gtk # torrent client
+    pkgs.webtorrent_desktop # stream torrents from the web
+    pkgs.tartube-yt-dlp # GUI for youtube-dlp
     pkgs.chance # dice roller, binary name is rollit
     pkgs.kiwix # offline viewer for zim files (wikis/docs)
+    pkgs.goldendict-ng # GUI dictionary with support for web and local files
+    pkgs.artha # offline GKT1 thesaurus
+    pkgs.wordbook # GNOME dictionary
 
     #########
     # PHOTO #
     #########
     pkgs.exif # manipulate photo metadata
+    pkgs.exiftool # manipulate photo metadata
+    pkgs.photini # GUI for viewing/editing photo metadata
     pkgs.gifsicle # manipulate gif metadata
     pkgs.gnome-frog # OCR tool
+    pkgs.gImageReader # Simple Gtk/Qt front-end to tesseract-ocr
+    pkgs.upscayl # local AI image upscaler
+    pkgs.loupe # gnome-image-viewer GUI for light editing and viewing
 
     ###########
     # FINANCE #
@@ -78,6 +94,8 @@
     pkgs.cointop # TUI Crypto price tracker
     pkgs.ticker
     pkgs.tickrs
+    pkgs.gnucash # basic accounting software
+    pkgs.wealthfolio # local finance/portfolio tracker
 
     # Workspaces and Knowledge Bases
     pkgs.trilium-desktop
