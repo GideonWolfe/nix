@@ -4,6 +4,7 @@
   home.packages = [
 
     #pkgs.kdePackages.umbrello # UML modeler
+    pkgs.authenticator # GNOME 2FA client
 
     ##############
     # OFFICE/PDF #
@@ -11,7 +12,8 @@
     pkgs.libreoffice
     pkgs.zathura # PDF viewer
     pkgs.poppler # PDF rendering library
-    pkgs.okular # Documant/PDF viewer
+    #pkgs.okular # Documant/PDF viewer
+    pkgs.evince # GNOME Documant/PDF viewer
     pkgs.xournalpp # paint.net clone #TODO: theme paper color, etc (need to generate XML)
     pkgs.mdbook # Create books from markdown # lots of extra addons for this, check package list
     pkgs.calligra # suite of productivity apps
@@ -28,6 +30,7 @@
     #########
     #pkgs.zanshin
     pkgs.dijo
+    pkgs.gtg # Getting Things GNOME (offline task manager)
 
     ############
     # CALENDAR #
@@ -35,6 +38,7 @@
     #pkgs.calcurse
     pkgs.calcure # modern calendar TUI
     pkgs.khal
+    pkgs.gnome-calendar
 
     # TUI timer
     pkgs.peaclock
@@ -44,7 +48,7 @@
     # Password manager
     pkgs.keepassxc
     pkgs.seahorse
-    pkgs.bitwarden-desktop # connects to vaultwarden 
+    pkgs.bitwarden-desktop # connects to vaultwarden
 
     # Emoji selector
     pkgs.wofi-emoji
@@ -59,6 +63,7 @@
     #pkgs.zbar # barcode scanner
     #pkgs.gpick # color picker
     pkgs.translate-shell # google translate in the shell
+    pkgs.dialect # GNOME GUI for translating
     pkgs.shell-gpt # CLI for ChatGPT
     pkgs.ov # terminal pager
     pkgs.maim # scrot replacement
@@ -86,6 +91,7 @@
     pkgs.gnome-frog # OCR tool
     pkgs.gImageReader # Simple Gtk/Qt front-end to tesseract-ocr
     pkgs.upscayl # local AI image upscaler
+    pkgs.upscaler # local GNOME image upscaler
     pkgs.loupe # gnome-image-viewer GUI for light editing and viewing
 
     ###########

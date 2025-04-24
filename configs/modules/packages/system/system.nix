@@ -100,6 +100,7 @@
     imv # like mpv for images
     fd # better find
     lnav # logfile viewer
+    gnome-logs # GUI logfile viewer
     sysz # fzf for systemctl
     moreutils # additional unix tools
     s-tui # TUI stress tester
@@ -181,6 +182,7 @@
     dualsensectl # CLI interface for controlling Sony Dualsense controllers
     ddcui # GUI for controlling DDC compatible external displays (gddcontrol comes default but segfaults)
     simple-scan # GNOME GUI for document scanner
+    gnome-firmware # GUI for installing device firmware
 
     # File managers
     ranger

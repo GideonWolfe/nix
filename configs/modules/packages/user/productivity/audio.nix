@@ -11,6 +11,7 @@
     pkgs.asunder # CD ripper GUI
     pkgs.brasero # GNOME CD/DVD burner
     #pkgs.easytag # GUI for editing audio metadata
+    pkgs.eartag # GNOME GUI for editing audio metadata
     #pkgs.cava # TUI music visualizer
     pkgs.cavalier # cava based visualizers
     pkgs.scope-tui # TUI oscilloscope/vectorscope.spectroscope also a music visualizer
@@ -21,6 +22,7 @@
     pkgs.blanket # ambient noise player
     pkgs.piper-tts # Advanced text to speech
     #pkgs.shaq # CLI for Shazam (Song identifier)
+    pkgs.mousai # GTK song identifier
     pkgs.spotdl # Download spotify playlists/metadata
     pkgs.pyradio # TUI internet radio: run with --no-themes to disable color themes and use system
     pkgs.shortwave # GNOME internet radio
