@@ -22,6 +22,7 @@
     ##########
     pkgs.gimp
     pkgs.letterpress # create ascii art from images
+    pkgs.paleta # extract dominant colors from an image
 
     #########
     # MUSIC #

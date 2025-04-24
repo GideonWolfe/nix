@@ -10,11 +10,14 @@
     pkgs.weechatScripts.highmon
     pkgs.element-desktop # "official" Matrix GUI
     pkgs.fractal # GNOME Matrix GUI
+    pkgs.gomuks #  Matrix TUI
     pkgs.signal-desktop
     pkgs.gurk-rs # signal TUI
+    pkgs.flare-signal # GNOME Signal GUI
     pkgs.neomutt # Email TUI
     #pkgs.discord
     pkgs.vesktop
+    pkgs.dissent # GTK Discord client
     #pkgs.betterdiscord-installer
     pkgs.slack
     pkgs.zoom-us

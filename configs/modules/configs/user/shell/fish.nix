@@ -14,6 +14,7 @@
       gp = "git push";
       dc = "docker-compose";
       scope-tui = "scope-tui --no-ui --scale 0.15 --channels 3 pulse pipewire.monitor";
+      pkg = "nix-shell -p";
     };
 
     #TODO there's no home manager setting for this??

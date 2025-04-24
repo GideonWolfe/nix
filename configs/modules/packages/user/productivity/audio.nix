@@ -29,6 +29,7 @@
     pkgs.easyeffects # Sound effects for pipewire apps
     pkgs.cozy # GNOME audiobook player
     pkgs.flacon # Extracts audio tracks from an audio CD image to separate tracks
+    pkgs.audio-sharing # Automatically share the current audio playback in the form of an RTSP stream
 
     ##################
     # Music Players  #

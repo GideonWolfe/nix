@@ -6,6 +6,8 @@
     #pkgs.kdePackages.umbrello # UML modeler
     pkgs.authenticator # GNOME 2FA client
 
+    pkgs.concessio # GTK app to understand/convert file permissions
+
     ##############
     # OFFICE/PDF #
     ##############
@@ -113,6 +115,11 @@
     pkgs.llm # LLM CLI
     pkgs.tgpt # LLM CLI
     pkgs.lmstudio # LLM GUI
+
+
+    # Dashboards
+    pkgs.wtf
+    pkgs.sampler
 
   ];
 }

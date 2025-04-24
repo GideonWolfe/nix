@@ -15,9 +15,11 @@
 		pkgs.charasay
 		pkgs.dwt1-shell-color-scripts
 		pkgs.lolcat
+		pkgs.calligraphy # GTK app to preview/generate ASCII 
 		# Misc
 		pkgs.thokr # typing speedtest in TUI
         # games
         pkgs.sgt-puzzles
+        pkgs.astrolog # astrology software
 	];
 }

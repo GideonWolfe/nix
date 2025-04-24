@@ -275,6 +275,9 @@
     # touch pad gestures
     ../../modules/configs/user/fusuma.nix
 
+    # Astrolog config/theme
+    ../../modules/configs/user/astrolog.nix
+
     ../../modules/keys/ssh.nix
   ];
 
