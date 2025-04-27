@@ -18,6 +18,7 @@
     pkgs.evince # GNOME Documant/PDF viewer
     pkgs.xournalpp # paint.net clone #TODO: theme paper color, etc (need to generate XML)
     pkgs.mdbook # Create books from markdown # lots of extra addons for this, check package list
+    pkgs.apostrophe # GNOME Markdown editor
     pkgs.calligra # suite of productivity apps
     pkgs.drawio # desktop version of draw.io
     pkgs.gaphor # python UML modeling tool
@@ -72,6 +73,7 @@
     pkgs.kando # pie menu
     pkgs.sc-im # spreadsheet calculator
     pkgs.qrtool # encode/decode QR images
+    pkgs.zint # powerful barcode creator
     pkgs.exhibit # GNOME 3D model viewer
     pkgs.filezilla # FTP client
     pkgs.transmission_4-gtk # torrent client
@@ -115,7 +117,6 @@
     pkgs.llm # LLM CLI
     pkgs.tgpt # LLM CLI
     pkgs.lmstudio # LLM GUI
-
 
     # Dashboards
     pkgs.wtf

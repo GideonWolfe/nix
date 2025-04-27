@@ -10,7 +10,7 @@
     pkgs.weechatScripts.highmon
     pkgs.element-desktop # "official" Matrix GUI
     pkgs.fractal # GNOME Matrix GUI
-    pkgs.gomuks #  Matrix TUI
+    #pkgs.gomuks # Matrix TUI #BUG: has a CSV
     pkgs.signal-desktop
     pkgs.gurk-rs # signal TUI
     pkgs.flare-signal # GNOME Signal GUI

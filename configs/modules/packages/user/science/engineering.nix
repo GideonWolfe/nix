@@ -42,6 +42,7 @@
     pkgs.qdmr # GUI for DMR radio programming
     pkgs.qradiolink # SDR radio GUI
     pkgs.sdrpp # SDR++
+    pkgs.cubicsdr # sdr app
     pkgs.sdrangel
     pkgs.gnuradio
     pkgs.inspectrum
