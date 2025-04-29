@@ -25,7 +25,6 @@ with config.lib.stylix.colors; {
 
       input-field = [{
         size = "200, 50";
-        position = "0, -80";
         monitor = "";
         dots_center = true;
         fade_on_empty = false;
@@ -40,28 +39,57 @@ with config.lib.stylix.colors; {
         placeholder_text = "Blow above legal limit to unlock";
         fail_text = "get rekt";
         shadow_passes = 2;
+        position = "0, 100";
+        halign = "center";
+        valign = "bottom";
+      }];
+
+      # Wallpaper window
+      image = [{
+        path = "${config.stylix.image}";
+        size = 300; # lesser side if not 1:1 ratio
+        rounding = -1; # negative values mean circle
+        border_size = 4;
+        border_color = "rgb(${base0B-rgb-r}, ${base0B-rgb-g}, ${base0B-rgb-b})";
+        rotate = 0; # degrees, counter-clockwise
+        reload_time = -1; # seconds between reloading, 0 to reload with SIGUSR2
+        position = "0, 0";
+        halign = "center";
+        valign = "center";
       }];
 
       label = [
+        # Time
         {
           text = "$TIME";
           color = "rgb(${base0E-rgb-r}, ${base0E-rgb-g}, ${base0E-rgb-b})";
           font_size = 95;
           font_family = "${config.stylix.fonts.serif.name}";
-          position = "0, 300";
+          position = "0, 400";
           halign = "center";
           valign = "center";
         }
+        # Date
         {
           text = ''cmd[update:1000] echo $(date +"%A, %B %d")'';
           color = "rgb(${base0B-rgb-r}, ${base0B-rgb-g}, ${base0B-rgb-b})";
           font_size = 22;
           #font_family = "JetBrains Mono";
-          position = "0, 200";
+          position = "0, 300";
           halign = "center";
           valign = "center";
-
         }
+        # Username
+        {
+          text = "   ${config.home.username}";
+          color = "rgb(${base0E-rgb-r}, ${base0E-rgb-g}, ${base0E-rgb-b})";
+          font_size = 18;
+          font_family = "${config.stylix.fonts.serif.name}";
+          position = "0, 200";
+          halign = "center";
+          valign = "bottom";
+        }
+
       ];
     };
   };

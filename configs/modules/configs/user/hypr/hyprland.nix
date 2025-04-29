@@ -23,7 +23,8 @@ with config.lib.stylix.colors;
       # Commands that will get executed on login
       exec-once = [
         # Start HyprPanel
-        "hyprpanel"
+        #"hyprpanel"
+        #INFO: enabled through hyprpanel.enable
 
         # Or start waybar
         #"pkill waybar & sleep 0.5 && waybar"
@@ -35,6 +36,9 @@ with config.lib.stylix.colors;
         "hyprctl setcursor ${config.home.pointerCursor.name} ${
           builtins.toString (config.home.pointerCursor.size + 8)
         }"
+
+        # Start clipboard history daemon
+        "clipse -listen"
 
         # Music workspace
         "spotify"
@@ -174,6 +178,9 @@ with config.lib.stylix.colors;
         # Toggle calculator scratchpad
         "$mod, M, exec, hyprctl clients | grep 'kitty-calculator' && hyprctl dispatch togglespecialworkspace calculator || kitty --class 'kitty-calculator' qalc &"
 
+        # Toggle Clipboard scratchpad
+        "$mod, C, exec, hyprctl clients | grep 'kitty-clipboard' && hyprctl dispatch togglespecialworkspace clipboard || kitty --class 'kitty-clipboard' clipse &"
+
         # Toggle translator scratchpad
         "$mod, T, exec, hyprctl clients | grep 'kitty-translator' && hyprctl dispatch togglespecialworkspace translator || kitty --class 'kitty-translator' trans -theme random -I &"
 
@@ -234,6 +241,11 @@ with config.lib.stylix.colors;
         "float,class:(kitty-calculator)"
         "size 500 500,class:(kitty-calculator)"
         "workspace special:calculator,class:(kitty-calculator)"
+
+        # Clipboard Scratchpad
+        "float,class:(kitty-clipboard)"
+        "size 500 500,class:(kitty-clipboard)"
+        "workspace special:clipboard,class:(kitty-clipboard)"
 
         # Translator Scratchpad
         "float,class:(kitty-translator)"

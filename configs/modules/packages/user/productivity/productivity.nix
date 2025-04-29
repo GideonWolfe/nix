@@ -13,6 +13,7 @@
     ##############
     pkgs.libreoffice
     pkgs.zathura # PDF viewer
+    pkgs.tdf # TUI PDF viewer
     pkgs.poppler # PDF rendering library
     #pkgs.okular # Documant/PDF viewer
     pkgs.evince # GNOME Documant/PDF viewer
@@ -90,6 +91,7 @@
     #########
     pkgs.exif # manipulate photo metadata
     pkgs.exiftool # manipulate photo metadata
+    pkgs.kgeotag # standalone geotag editor/viewer
     pkgs.photini # GUI for viewing/editing photo metadata
     pkgs.gifsicle # manipulate gif metadata
     pkgs.gnome-frog # OCR tool

@@ -56,6 +56,7 @@
     # Random fun packages
     ../../modules/packages/user/fun.nix
 
+
     ###########
     # CONFIGS #
     ###########
@@ -277,6 +278,8 @@
 
     # Astrolog config/theme
     ../../modules/configs/user/astrolog.nix
+
+    ../../modules/configs/user/kando.nix
 
     ../../modules/keys/ssh.nix
   ];

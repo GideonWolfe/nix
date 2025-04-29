@@ -14,6 +14,7 @@
 
     # Take photos through webcam
     cheese
+    cameractrls
     neofetch
   ];
 }

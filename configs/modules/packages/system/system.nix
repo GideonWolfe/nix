@@ -65,6 +65,9 @@
     jnettop
     netscanner # network scanner
     wavemon # network monitor
+    flent # Advanced network tester CLI and GUI
+    netperf #util to measure network performance (required by flent)
+    http-getter # (required by flent)
     trippy
     ktop # kubernetes monitor
     kernelshark # GUI kernel monitor
@@ -125,7 +128,7 @@
     libsForQt5.qt5.qtwayland # wayland compatibility
     gpg-tui # TUI for GnuPG
     f3d # lightweight 3D model viewer
-        #appimage-run # run appimages without dependency errors from nix
+    #appimage-run # run appimages without dependency errors from nix
 
     pstree # process tree
 
@@ -166,6 +169,7 @@
     impression # GNOME util to quickly burn ISOs
     simple-mtpfs # mount cell phone filesystems
     dosfstools # drivers for DOS filesystems
+    uefitool # GUI for manipulating and viewing UEFI firmware files
 
     # Hardware 
     piper # GTK frontend to configure mice
@@ -175,6 +179,7 @@
     openrgb-with-all-plugins # OpenRGB
     #lact # GUI for AMD GPU control
     #nvitop # Interactive TUI for Nvidia GPU control # this may need additional plugins to detect other GPUs, check package list
+    gpu-viewer # GUI for GPU info
     pciutils # providing utils for PCI devices such as lspci command
     #vial # QMK fork and GUI for keyboard configuration
     gsmartcontrol # GUI for smartmontools hard drive health
@@ -183,6 +188,7 @@
     ddcui # GUI for controlling DDC compatible external displays (gddcontrol comes default but segfaults)
     simple-scan # GNOME GUI for document scanner
     gnome-firmware # GUI for installing device firmware
+    gnome-tecla # GUI for viewing keyboard layout
 
     # File managers
     ranger
@@ -199,6 +205,9 @@
     evtest # event tester like wev but picks up things wev doesn't?
     ydotool # (wayland xdotool)
     wl-clipboard # wayland xclip
+
+    # Clipboard history tool
+    clipse #TUI
 
     # Icon set
     #papirus-icon-theme

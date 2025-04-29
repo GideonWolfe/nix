@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
-{
+let dedoc = pkgs.callPackage ./dedoc.nix { };
+in {
   home.packages = [
 
     # UTILITIES #
@@ -46,6 +47,7 @@
     pkgs.seer # GDB frontend
     pkgs.harlequin # SQL IDE
     pkgs.zeal # offline docs browser
+    pkgs.devdocs-desktop # offline docs browser
 
     # Security
     pkgs.radare2
@@ -72,5 +74,7 @@
 
     # web dev
     pkgs.sassc
+
+    dedoc
   ];
 }

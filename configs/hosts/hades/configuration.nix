@@ -93,6 +93,9 @@
     # Needed for above to work, but also needed for any i2c dev stuff
     ../../modules/configs/system/services/rtl-sdr.nix
 
+    # AI stuff
+    ../../modules/configs/system/services/ai/sillytavern.nix
+
     ############
     # PACKAGES #
     ############

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env -S nix shell nixpkgs#bash --command bash
 
 
 COMMITNOTIFICATION=$(git log -1 HEAD --format=reference)
