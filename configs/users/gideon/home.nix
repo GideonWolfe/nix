@@ -281,6 +281,8 @@
 
     ../../modules/configs/user/kando.nix
 
+    ../../modules/configs/user/clipse.nix
+
     ../../modules/keys/ssh.nix
   ];
 
