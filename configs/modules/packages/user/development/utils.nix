@@ -23,6 +23,7 @@ in {
     #pkgs.gh # CLI/TUI for github
     #pkgs.gh-dash # dashboard for gh
     pkgs.wildcard # GUI regex tester
+    pkgs.rexi # TUI regex tester
     #pkgs.ngrok # expose local port to WAN
     #pkgs.graphviz # graph visualization software
     pkgs.cloc # count lines of code
@@ -34,6 +35,7 @@ in {
     pkgs.bitwise # TUI and CLI bitwise operation calc
     pkgs.atac # Postman like API tester (TUI)
     pkgs.dblab # TUI client for local and remote databases
+    pkgs.sttr # TUI for string transformation
 
     # IDEs
     pkgs.vscode
