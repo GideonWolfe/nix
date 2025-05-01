@@ -33,6 +33,7 @@ in {
     pkgs.serie # TUI git log viewer
     pkgs.bitwise # TUI and CLI bitwise operation calc
     pkgs.atac # Postman like API tester (TUI)
+    pkgs.dblab # TUI client for local and remote databases
 
     # IDEs
     pkgs.vscode

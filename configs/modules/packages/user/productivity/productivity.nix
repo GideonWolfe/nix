@@ -20,10 +20,13 @@
     pkgs.xournalpp # paint.net clone #TODO: theme paper color, etc (need to generate XML)
     pkgs.mdbook # Create books from markdown # lots of extra addons for this, check package list
     pkgs.apostrophe # GNOME Markdown editor
+    pkgs.frogmouth # advanced TUI markdown reader
+    pkgs.glow # TUI markdown quick previewer
     pkgs.calligra # suite of productivity apps
     pkgs.drawio # desktop version of draw.io
     pkgs.gaphor # python UML modeling tool
     pkgs.foliate # GUI Ebook reader
+    pkgs.epy # TUI Ebook reader
     pkgs.sigil # ePub editor
     pkgs.texliveFull # full latex environment
     pkgs.texstudio # LaTeX Editor
@@ -77,6 +80,7 @@
     pkgs.zint # powerful barcode creator
     pkgs.exhibit # GNOME 3D model viewer
     pkgs.filezilla # FTP client
+    pkgs.termscp # TUI FTP client
     pkgs.transmission_4-gtk # torrent client
     pkgs.webtorrent_desktop # stream torrents from the web
     pkgs.tartube-yt-dlp # GUI for youtube-dlp
