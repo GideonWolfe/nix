@@ -188,6 +188,9 @@ with config.lib.stylix.colors;
         #"$mod, A, exec, hyprctl clients | grep 'kitty-ai' && hyprctl dispatch togglespecialworkspace ai || kitty --class 'kitty-ai' tenere &"
         "$mod, A, exec, hyprctl clients | grep 'kitty-ai' && hyprctl dispatch togglespecialworkspace ai || kitty --class 'kitty-ai' tgpt -m &"
 
+        # Toggle weather scratchpad
+        "$mod, W, exec, hyprctl clients | grep 'org.gnome.Weather' && hyprctl dispatch togglespecialworkspace weather || gnome-weather &"
+
         # toggle for workspace overview
         "SUPER, grave, hyprexpo:expo, toggle" # can be: toggle, off/disable or on/enable
         #"SUPER, grave, overview:toggle"
@@ -256,6 +259,11 @@ with config.lib.stylix.colors;
         "float,class:(kitty-ai)"
         "size 800 800,class:(kitty-ai)"
         "workspace special:ai,class:(kitty-ai)"
+
+        # Weather Scratchpad
+        "float,class:(org.gnome.Weather)"
+        "size 800 800,class:(org.gnome.Weather)"
+        "workspace special:weather,class:(org.gnome.Weather)"
 
         # To make KDE connect message reply window not be tiny
         "minsize 400 400, title:(Messages — KDE Connect Daemon)"
