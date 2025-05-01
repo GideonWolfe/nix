@@ -36,6 +36,7 @@ in {
     pkgs.atac # Postman like API tester (TUI)
     pkgs.dblab # TUI client for local and remote databases
     pkgs.sttr # TUI for string transformation
+    pkgs.gtkhash # GUI for getting hashes of files
 
     # IDEs
     pkgs.vscode

@@ -90,6 +90,11 @@
     pkgs.artha # offline GKT1 thesaurus
     pkgs.wordbook # GNOME dictionary
 
+    # nix tools
+    # couple things to access dconf settings and convert them to nix
+    pkgs.dconf2nix
+    pkgs.dconf-editor
+
     #########
     # PHOTO #
     #########

@@ -45,6 +45,9 @@
     # ./system/services/networks/firewall.nix
     ../../modules/configs/system/services/kdeconnect.nix
 
+    # Local Send
+    ../../modules/configs/system/services/localsend.nix
+
     # Docker
     ../../modules/configs/system/services/docker.nix
     #./system/services/docker.nix

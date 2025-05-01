@@ -283,6 +283,8 @@
 
     ../../modules/configs/user/clipse.nix
 
+    ../../modules/configs/user/shortwave.nix
+
     ../../modules/keys/ssh.nix
   ];
 
