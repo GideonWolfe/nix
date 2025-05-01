@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   # Main Telescope plugin
   programs.nixvim.plugins.lsp = {
 
@@ -29,6 +29,13 @@
 
       # Bash
       bashls = { enable = true; };
+
+      # Fish
+      fish_lsp = {
+        enable = true;
+        #BUG: wouldn't build without this set
+        package = pkgs.fish-lsp;
+      };
 
       # Clojure
       #clojure-lsp = { enable = true; };

@@ -247,7 +247,7 @@ with config.lib.stylix.colors;
 
         # Clipboard Scratchpad
         "float,class:(kitty-clipboard)"
-        "size 800 1000,class:(kitty-clipboard)"
+        "size 800 900,class:(kitty-clipboard)"
         "workspace special:clipboard,class:(kitty-clipboard)"
 
         # Translator Scratchpad

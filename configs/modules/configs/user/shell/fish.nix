@@ -13,7 +13,8 @@
       ga = "git add";
       gp = "git push";
       dc = "docker-compose";
-      scope-tui = "scope-tui --no-ui --scale 0.15 --channels 3 pulse pipewire.monitor";
+      scope-tui =
+        "scope-tui --no-ui --scale 0.15 --channels 3 pulse pipewire.monitor";
       pkg = "nix-shell -p";
     };
 
@@ -36,6 +37,8 @@
         body =
           "	set -l last_status $status \n	if not set -q __fish_prompt_normal \n		set -g __fish_prompt_normal (set_color normal) \n	end \n\n	# PWD \n	set_color $fish_color_cwd \n	echo -n (prompt_pwd) \n	set_color normal \n	\n	printf '%s ' (__fish_git_prompt) \n	if not test $last_status -eq 0 \n		set_color red\n	else\n	    set_color cyan\n	end \n\n\n	# set_color cyan \n	echo -n 'λ ' \n	set_color normal 	\n";
       };
+
+      op = { body = builtins.readFile ./fish/functions/op.fish; };
 
       # Vim prompt
       fish_mode_prompt = {

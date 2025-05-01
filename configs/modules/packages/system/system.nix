@@ -179,6 +179,7 @@
     openrgb-with-all-plugins # OpenRGB
     #lact # GUI for AMD GPU control
     #nvitop # Interactive TUI for Nvidia GPU control # this may need additional plugins to detect other GPUs, check package list
+    nvtopPackages.full # GPU monitor
     gpu-viewer # GUI for GPU info
     pciutils # providing utils for PCI devices such as lspci command
     #vial # QMK fork and GUI for keyboard configuration
