@@ -20,8 +20,10 @@ for i in $argv[1..-1]
     switch $extension
         case '*.json'
             fx "$i"; or cat "$i" | jqp
-        case '*.mp3' '*.wav'
+        case '*.wav'
             asak play "$i"
+        case '*.mp3'
+            mpv "$i"
         case '*.pdf'
             tdf "$i"
         case '*.md'

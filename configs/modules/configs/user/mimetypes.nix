@@ -55,7 +55,7 @@ with config.lib.stylix.colors.withHashtag;
       "image/tiff" = [ "gimp.desktop" ];
 
       # Docs
-      "application/pdf" = [ "org.pwmt.zathura.desktop" "ark.desktop" ];
+      "application/pdf" = [ "org.pwmt.zathura.desktop" "org.gnome.Evince-previewer.desktop" ];
       "application/msword" = [ "writer.desktop" ]; # TODO setup libre office
       "application/vnd.ms-excel" = [ "calc.desktop" ]; # .xls
       "application/vnd.ms-powerpoint" = [ "impress.desktop" ]; # .xls

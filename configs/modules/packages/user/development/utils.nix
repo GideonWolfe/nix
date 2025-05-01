@@ -23,7 +23,7 @@ in {
     #pkgs.gh # CLI/TUI for github
     #pkgs.gh-dash # dashboard for gh
     pkgs.wildcard # GUI regex tester
-    pkgs.rexi # TUI regex tester
+        #pkgs.rexi # TUI regex tester
     #pkgs.ngrok # expose local port to WAN
     #pkgs.graphviz # graph visualization software
     pkgs.cloc # count lines of code

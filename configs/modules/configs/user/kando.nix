@@ -7,7 +7,7 @@ with config.lib.stylix.colors;
   # Defines the Kando Menus
   xdg.configFile.kando-menus = {
     enable = true;
-    target = "kando/test.json";
+    target = "kando/menus.json";
     text = builtins.toJSON {
       menus = [{
         shortcut = "Control+Space";
@@ -27,38 +27,304 @@ with config.lib.stylix.colors;
               children = [
                 {
                   type = "uri";
-                  data = { uri = "https://www.google.com"; };
-                  name = "Google";
-                  icon = "google";
+                  data = { uri = "https://searchix.alanpearce.eu/"; };
+                  name = "Nix Search";
+                  icon = "nixos";
                   iconTheme = "simple-icons";
                 }
                 {
                   type = "uri";
-                  data = { uri = "https://github.com/kando-menu/kando"; };
-                  name = "Kando on GitHub";
-                  icon = "github";
+                  data = { uri = "https://reddit.com"; };
+                  name = "Reddit";
+                  icon = "reddit";
                   iconTheme = "simple-icons";
                 }
                 {
                   type = "uri";
-                  data = { uri = "https://ko-fi.com/schneegans"; };
-                  name = "Kando on Ko-fi";
-                  icon = "kofi";
-                  iconTheme = "simple-icons";
-                }
-                {
-                  type = "uri";
-                  data = { uri = "https://www.youtube.com/@simonschneegans"; };
-                  name = "Kando on YouTube";
+                  data = { uri = "https://youtube.com"; };
+                  name = "Youtube";
                   icon = "youtube";
                   iconTheme = "simple-icons";
                 }
                 {
                   type = "uri";
                   data = { uri = "https://discord.gg/hZwbVSDkhy"; };
-                  name = "Kando on Discord";
-                  icon = "discord";
+                  name = "Dotfiles";
+                  icon = "github";
                   iconTheme = "simple-icons";
+                }
+              ];
+            }
+            {
+              type = "submenu";
+              data = { };
+              name = "Utils";
+              icon = "bolt";
+              iconTheme = "material-symbols-rounded";
+              children = [
+                {
+                  type = "command";
+                  data = {
+                    command = "qalculate-gtk";
+                    delayed = true;
+                  };
+                  name = "Calculator";
+                  icon = "calculate";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "dialect";
+                    delayed = false;
+                  };
+                  name = "Translator";
+                  icon = "translate";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "resources";
+                    delayed = false;
+                  };
+                  name = "Task Manager";
+                  icon = "monitor_heart";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "hyprctl kill";
+                    delayed = false;
+                  };
+                  name = "Kill app";
+                  icon = "skull";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "cheese";
+                    delayed = false;
+                  };
+                  name = "Webcam";
+                  icon = "camera_video";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "hyprpicker -a";
+                    delayed = true;
+                  };
+                  name = "Color Picker";
+                  icon = "colorize";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "gnome-calendar";
+                    delayed = false;
+                  };
+                  name = "Calendar";
+                  icon = "calendar_month";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "gnome-clocks";
+                    delayed = false;
+                  };
+                  name = "Timer";
+                  icon = "timer";
+                  iconTheme = "material-symbols-rounded";
+                }
+              ];
+            }
+            {
+              type = "submenu";
+              data = { };
+              name = "Apps";
+              icon = "rocket_launch";
+              iconTheme = "material-symbols-rounded";
+              children = [
+                {
+                  type = "command";
+                  data = {
+                    command = "firefox";
+                    delayed = false;
+                  };
+                  name = "Firefox";
+                  icon = "firefoxbrowser";
+                  iconTheme = "simple-icons";
+                }
+                {
+                  type = "submenu";
+                  data = { };
+                  name = "Comms";
+                  icon = "headset_mic";
+                  iconTheme = "material-symbols-rounded";
+                  children = [
+                    {
+                      type = "command";
+                      data = {
+                        command = "flare";
+                        delayed = false;
+                      };
+                      name = "Signal";
+                      icon = "signal";
+                      iconTheme = "simple-icons";
+                    }
+                    {
+                      type = "command";
+                      data = {
+                        command = "thunderbird";
+                        delayed = false;
+                      };
+                      name = "Email";
+                      icon = "stacked_email";
+                      iconTheme = "material-symbols-rounded";
+                    }
+                    {
+                      type = "uri";
+                      data = { uri = "https://messages.google.com"; };
+                      name = "SMS";
+                      icon = "sms";
+                      iconTheme = "material-symbols-rounded";
+                    }
+                    {
+                      type = "command";
+                      data = {
+                        command = "slack";
+                        delayed = false;
+                      };
+                      name = "Slack";
+                      icon = "slack";
+                      iconTheme = "simple-icons";
+                    }
+                    {
+                      type = "command";
+                      data = {
+                        command = "halloy";
+                        delayed = false;
+                      };
+                      name = "IRC";
+                      icon = "terminal";
+                      iconTheme = "material-symbols-rounded";
+                    }
+                    {
+                      type = "command";
+                      data = {
+                        command = "vesktop";
+                        delayed = false;
+                      };
+                      name = "Discord";
+                      icon = "discord";
+                      iconTheme = "simple-icons";
+                    }
+                    {
+                      type = "command";
+                      data = {
+                        command = "fractal";
+                        delayed = false;
+                      };
+                      name = "Matrix";
+                      icon = "matrix";
+                      iconTheme = "simple-icons";
+                    }
+                  ];
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "cartridges";
+                    delayed = false;
+                  };
+                  name = "Games";
+                  icon = "stadia_controller";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "GDK_BACKEND=x11 delfin";
+                    delayed = false;
+                  };
+                  name = "Media";
+                  icon = "jellyfin";
+                  iconTheme = "simple-icons";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "bitwarden";
+                    delayed = false;
+                  };
+                  name = "Passwords";
+                  icon = "password";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "obsidian";
+                    delayed = false;
+                  };
+                  name = "Obsidian";
+                  icon = "obsidian";
+                  iconTheme = "simple-icons";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "nautilus";
+                    delayed = false;
+                  };
+                  name = "Files";
+                  icon = "folder_copy";
+                  iconTheme = "material-symbols-rounded";
+                }
+              ];
+            }
+            {
+              type = "submenu";
+              data = { };
+              name = "Settings";
+              icon = "settings";
+              iconTheme = "material-symbols-rounded";
+              children = [
+                {
+                  type = "command";
+                  data = {
+                    command = "pwvucontrol";
+                    delayed = false;
+                  };
+                  name = "Audio";
+                  icon = "sound_detection_loud_sound";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "nm-connection-editor";
+                    delayed = true;
+                  };
+                  name = "Network";
+                  icon = "lan";
+                  iconTheme = "material-symbols-rounded";
+                }
+                {
+                  type = "command";
+                  data = {
+                    command = "blueman-manager";
+                    delayed = false;
+                  };
+                  name = "Bluetooth";
+                  icon = "bluetooth";
+                  iconTheme = "material-symbols-rounded";
                 }
               ];
             }
@@ -161,7 +427,7 @@ with config.lib.stylix.colors;
 
   xdg.configFile.kando-config = {
     enable = true;
-    target = "kando/test1.json";
+    target = "kando/config.json";
     text = builtins.toJSON {
       menuTheme = "neon-lights";
       darkMenuTheme = "default";
