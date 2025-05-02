@@ -48,6 +48,7 @@
     szyszka # bulk file renamer GUI
     file
     ripgrep # better grep
+    clapgrep # GUI ripgrep
     xcp # better cp
 
     gnome-decoder # QR code GUI
