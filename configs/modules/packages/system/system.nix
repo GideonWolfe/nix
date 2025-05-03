@@ -127,6 +127,7 @@
     espeak
     libsForQt5.qt5.qttools # toolset that includes qdbusviewer
     libsForQt5.qt5.qtwayland # wayland compatibility
+    bustle # GTK app for viewing DBUS activity
     gpg-tui # TUI for GnuPG
     f3d # lightweight 3D model viewer
     #appimage-run # run appimages without dependency errors from nix

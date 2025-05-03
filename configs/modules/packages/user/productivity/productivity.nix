@@ -31,6 +31,7 @@
     pkgs.texliveFull # full latex environment
     pkgs.texstudio # LaTeX Editor
     pkgs.visidata # Interactive terminal multitool for tabular data
+    pkgs.komikku # GNOME app to discover/read comic books/manga
 
     #########
     # TASKS #
@@ -39,6 +40,7 @@
     pkgs.dijo
     pkgs.gtg # Getting Things GNOME (offline task manager)
     pkgs.planify # GTK task manager with nextcloud and todoist support
+    pkgs.errands # official GNOME task manager with nextcloud and ics support
 
     ############
     # CALENDAR #
