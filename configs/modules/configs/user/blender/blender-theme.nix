@@ -5,9 +5,10 @@ with config.lib.stylix.colors.withHashtag;
 {
 
   home.file.blender-stylix-theme = {
-#xdg.configFile.blender-stylix-theme = {
+    #xdg.configFile.blender-stylix-theme = {
     enable = true;
     target = ".config/blender/4.2/scripts/presets/interface_theme/stylix.xml";
+    # TODO: Use builtins.toXML for this
     text = ''
       <bpy>
         <Theme>

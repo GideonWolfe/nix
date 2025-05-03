@@ -444,6 +444,8 @@ with config.lib.stylix.colors;
       sidebarVisible = false;
       enableVersionCheck = true;
       zoomFactor = 1;
+      #INFO: fixes kando throwing error bc of symlinks
+      ignoreWriteProtectedConfigFiles = true;
     };
   };
 }
