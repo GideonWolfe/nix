@@ -40,6 +40,13 @@ with config.lib.stylix.colors.withHashtag;
           defaultCollection = "default";
         };
 
+        # Experimenting: allow Khal to scan contacts for birthdays
+        khal = {
+          enable = true;
+          collections = [ "default" ];
+          color = "${base0B}";
+        };
+
         # TODO: https://github.com/nix-community/home-manager/pull/5484
         # Should be able to enable for thunderbird soon!
 

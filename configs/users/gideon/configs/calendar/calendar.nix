@@ -2,6 +2,9 @@
 
 with config.lib.stylix.colors.withHashtag;
 
+#TODO: https://github.com/nix-community/home-manager/issues/5775
+# there might be thunderbird support soon
+
 {
   accounts.calendar = {
     basePath = "${config.home.homeDirectory}/calendars/";

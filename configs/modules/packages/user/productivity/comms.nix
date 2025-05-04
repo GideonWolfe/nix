@@ -22,6 +22,7 @@
     pkgs.slack
     pkgs.zoom-us
     pkgs.thunderbird
+    pkgs.tuba # GTK fediverse/mastadon client
 
     ########
     # NEWS #
