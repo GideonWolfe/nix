@@ -190,6 +190,11 @@
     packages = with pkgs; [ firefox neovim tree ];
   };
 
+  # BUG: google oath doesn't reconnect to gnome-control-center
+  services.gnome.gnome-online-accounts.enable = true;
+  services.accounts-daemon.enable = true;
+  services.gnome.evolution-data-server.enable = true;
+
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }

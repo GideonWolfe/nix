@@ -5,70 +5,87 @@ with config.lib.stylix.colors.withHashtag;
 let
 
   sdrppTheme = {
-    name = "Deep Pink";
-    author = "GayCookie";
+    name = "Stylix";
+    author = "GideonWolfe";
     Border = "#6D6D7F7F";
-    BorderShadow = "#00000000";
-    Button = "#670039FF";
-    ButtonActive = "#840049FF";
-    ButtonHovered = "#840049FF";
-    CheckMark = "#FF69B4FF";
-    ChildBg = "#FFFFFF00";
+    BorderShadow = "${base01}00";
+    Button = "${base00}FF";
+    ButtonActive = "${base02}FF";
+    ButtonHovered = "${base02}FF";
+    CheckMark = "${base0B}FF";
+    ChildBg = "${base05}00";
     DragDropTarget = "#FFFF00E5";
-    FrameBg = "#670039FF";
-    FrameBgActive = "#840049FF";
-    FrameBgHovered = "#840049FF";
+    FrameBg = "${base00}FF";
+    FrameBgActive = "${base02}FF";
+    FrameBgHovered = "${base02}FF";
     Header = "#A0A0B24F";
     HeaderActive = "#A0A0B24F";
     HeaderHovered = "#A0A0B266";
     MenuBarBg = "#232323FF";
-    ModalWindowDimBg = "#00000080";
+    ModalWindowDimBg = "${base01}80";
     NavHighlight = "#999999FF";
     NavWindowingDimBg = "#CCCCCC33";
-    NavWindowingHighlight = "#FFFFFFB2";
+    NavWindowingHighlight = "${base05}B2";
     PlotHistogram = "#BA9926FF";
     PlotHistogramHovered = "#FF9900FF";
-    PlotLines = "#FF69B4FF";
+    PlotLines = "${base0E}FF";
     PlotLinesHovered = "#FF6D59FF";
-    PopupBg = "#2B0018EE";
+    PopupBg = "${base01}EE";
     ResizeGrip = "#E8E8E83F";
     ResizeGripActive = "#757575F2";
     ResizeGripHovered = "#CECECEAA";
-    ScrollbarBg = "#4B0029FF";
-    ScrollbarGrab = "#FF69B4FF";
-    ScrollbarGrabActive = "#FF038FFF";
-    ScrollbarGrabHovered = "#FF69B4CC";
+    ScrollbarBg = "${base01}FF";
+    ScrollbarGrab = "${base0E}FF";
+    ScrollbarGrabActive = "${base09}FF";
+    ScrollbarGrabHovered = "${base0E}CC";
     Separator = "#6D6D7F7F";
     SeparatorActive = "#828282FF";
     SeparatorHovered = "#B7B7B7C6";
-    SliderGrab = "#FF69B4FF";
+    SliderGrab = "${base0E}FF";
     SliderGrabActive = "#FF038FFF";
-    Tab = "#FF69B4DB";
-    TabActive = "#FF69B4FF";
-    TabHovered = "#FF69B4CC";
+    Tab = "${base0E}DB";
+    TabActive = "${base0E}FF";
+    TabHovered = "${base0E}CC";
     TabUnfocused = "#111A25F7";
     TabUnfocusedActive = "#DB7093FF";
-    TableBorderLight = "#5E0034FF";
-    TableBorderStrong = "#2B0018EF";
-    TableHeaderBg = "#2B0018FF";
-    TableRowBg = "#00000000";
-    TableRowBgAlt = "#FFFFFF0F";
-    Text = "#FFFFFFFF";
+    TableBorderLight = "${base0B}FF";
+    TableBorderStrong = "${base01}EF";
+    TableHeaderBg = "${base01}FF";
+    TableRowBg = "${base01}00";
+    TableRowBgAlt = "${base05}0F";
+    Text = "${base05}FF";
     TextDisabled = "#7F7F7FFF";
     TextSelectedBg = "#DDDDDD59";
     TitleBg = "#0A0A0AFF";
     TitleBgActive = "#494949FF";
-    TitleBgCollapsed = "#00000082";
-    WindowBg = "#2B0018EF";
-    ClearColor = "#4B0029FF";
-    WaterfallBackground = "#2B0018FF";
+    TitleBgCollapsed = "${base01}82";
+    WindowBg = "${base01}EF";
+    ClearColor = "${base01}FF";
+    WaterfallBackground = "${base01}FF";
   };
 
-  jsonFile = pkgs.writeJSON "stylix.json" sdrppTheme;
+  sdrppColormap = {
+    name = "Stylix Colors";
+    author = "Gideon Wolfe";
+    map = [
+      "${base01}" # background
+      "${base00}" # light background
+      "${base02}"
+      "${base0E}" # purple
+      "${base0D}" # blue
+      "${base0A}" # yellow
+      "${base09}" # orange
+      "${base08}" # red
+    ];
+  };
 
-  sdrpp = prev.sdrpp.overrideAttrs (old: {
+  themeFile = pkgs.writers.writeJSON "stylix.json" sdrppTheme;
+  colormapFile = pkgs.writers.writeJSON "stylix.json" sdrppColormap;
+
+  sdrpp = pkgs.sdrpp.overrideAttrs (old: {
     postInstall = (old.postInstall or "") + ''
-      cp ${jsonFile} ${out}/share/sdrpp/themes
+      cp ${themeFile} $out/share/sdrpp/themes
+      cp ${colormapFile} $out/share/sdrpp/colormaps
     '';
   });
 
