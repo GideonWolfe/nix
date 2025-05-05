@@ -50,6 +50,8 @@
     pkgs.khal
     pkgs.gnome-calendar
 
+    pkgs.gnome-contacts # contacts viewer that can connect to NC or Google
+
     # TUI timer
     pkgs.peaclock
     pkgs.mpris-timer # GTK Timer

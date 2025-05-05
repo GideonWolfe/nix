@@ -15,5 +15,6 @@
     pkgs.flashgbx # GUI for r/w GBA cartridges (with the right hardware)
     pkgs.adwsteamgtk
     pkgs.cartridges # GTK game launcher that can detect other launchers
+    pkgs.protonplus # GTK app to manage proton/wine installations
   ];
 }

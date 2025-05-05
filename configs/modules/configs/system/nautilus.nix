@@ -17,7 +17,7 @@ with config.lib.stylix.colors.withHashtag;
 		terminal = "kitty";
 	};
 
-    sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${config.system.path}/lib/nautilus/extensions-4";
+    #sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${config.system.path}/lib/nautilus/extensions-4";
 
     # enable previewing service
     services.gnome.sushi.enable = true;

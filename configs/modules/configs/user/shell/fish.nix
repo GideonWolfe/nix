@@ -111,7 +111,8 @@
       };
       # Build Home Manager Config
       bldhome = {
-        body = "home-manager switch --flake /home/${config.home.username}/nix/";
+        #body = "home-manager switch --flake /home/${config.home.username}/nix/";
+        body = "nh home switch /home/${config.home.username}/nix/";
       };
 
       bldcommit = {

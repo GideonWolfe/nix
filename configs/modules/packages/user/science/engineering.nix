@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
-{
+let adsb_deku = pkgs.python312Packages.callPackage ./adsb_deku.nix { };
+in {
   home.packages = [
 
     ##########
@@ -41,7 +42,8 @@
     pkgs.urh # Universal Radio Hacker
     pkgs.qdmr # GUI for DMR radio programming
     pkgs.qradiolink # SDR radio GUI
-    pkgs.sdrpp # SDR++
+    # This is installed in the override I made for the theme
+    #pkgs.sdrpp # SDR++
     pkgs.cubicsdr # sdr app
     pkgs.sdrangel
     pkgs.gnuradio
@@ -49,5 +51,6 @@
     pkgs.rtl-sdr
     pkgs.gqrx
     pkgs.welle-io # DAB/DAB+ decoding (internet radio)
+    #adsb_deku
   ];
 }

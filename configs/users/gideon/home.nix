@@ -56,7 +56,6 @@
     # Random fun packages
     ../../modules/packages/user/fun.nix
 
-
     ###########
     # CONFIGS #
     ###########
@@ -284,6 +283,8 @@
     ../../modules/configs/user/clipse.nix
 
     ../../modules/configs/user/shortwave.nix
+
+    ../../modules/configs/user/sdrpp.nix
 
     ../../modules/keys/ssh.nix
   ];
