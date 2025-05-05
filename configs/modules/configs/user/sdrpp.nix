@@ -112,7 +112,7 @@ in {
 
   home.activation.changeSdrppColors =
     lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      cat ${config.home.homeDirectory}/.config/sdrpp/config.json | jq ''\' .bandColors.amateur = "${base0A}FF" | .bandColors.aviation = "${base0C}FF" | .bandColors.broadcast = "${base09}FF" | .bandColors.marine = "${base0D}FF" | .bandColors.military = "${base08}FF" | .bandColors.voice = "${base07}FF" | .colorMap = "Stylix Colors" | .theme = "Stylix" | .vfoColors.Radio = "${base0B}" ''\' | ${pkgs.moreutils}/bin/sponge ${config.home.homeDirectory}/test/gargle.json
+      cat ${config.home.homeDirectory}/.config/sdrpp/config.json | jq ''\' .bandColors.amateur = "${base0A}FF" | .bandColors.aviation = "${base0C}FF" | .bandColors.broadcast = "${base09}FF" | .bandColors.marine = "${base0D}FF" | .bandColors.military = "${base08}FF" | .bandColors.voice = "${base07}FF" | .colorMap = "Stylix Colors" | .theme = "Stylix" | .vfoColors.Radio = "${base0B}" ''\' | ${pkgs.moreutils}/bin/sponge ${config.home.homeDirectory}/.config/sdrpp/config.json
     '';
 
 }
