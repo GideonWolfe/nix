@@ -7,57 +7,57 @@ let
   sdrppTheme = {
     name = "Stylix";
     author = "GideonWolfe";
-    Border = "#6D6D7F7F";
+    Border = "${base04}7F";
     BorderShadow = "${base01}00";
     Button = "${base00}FF";
     ButtonActive = "${base02}FF";
     ButtonHovered = "${base02}FF";
     CheckMark = "${base0B}FF";
     ChildBg = "${base05}00";
-    DragDropTarget = "#FFFF00E5";
+    DragDropTarget = "${base0A}E5";
     FrameBg = "${base00}FF";
     FrameBgActive = "${base02}FF";
     FrameBgHovered = "${base02}FF";
-    Header = "#A0A0B24F";
-    HeaderActive = "#A0A0B24F";
-    HeaderHovered = "#A0A0B266";
-    MenuBarBg = "#232323FF";
+    Header = "${base04}4F";
+    HeaderActive = "${base04}4F";
+    HeaderHovered = "${base04}66";
+    MenuBarBg = "${base00}FF";
     ModalWindowDimBg = "${base01}80";
-    NavHighlight = "#999999FF";
-    NavWindowingDimBg = "#CCCCCC33";
+    NavHighlight = "${base04}FF";
+    NavWindowingDimBg = "${base04}33";
     NavWindowingHighlight = "${base05}B2";
-    PlotHistogram = "#BA9926FF";
-    PlotHistogramHovered = "#FF9900FF";
+    PlotHistogram = "${base09}FF";
+    PlotHistogramHovered = "${base0A}FF";
     PlotLines = "${base0E}FF";
-    PlotLinesHovered = "#FF6D59FF";
+    PlotLinesHovered = "${base08}FF";
     PopupBg = "${base01}EE";
-    ResizeGrip = "#E8E8E83F";
-    ResizeGripActive = "#757575F2";
-    ResizeGripHovered = "#CECECEAA";
+    ResizeGrip = "${base0B}3F";
+    ResizeGripActive = "${base03}F2";
+    ResizeGripHovered = "${base0B}AA";
     ScrollbarBg = "${base01}FF";
     ScrollbarGrab = "${base0E}FF";
     ScrollbarGrabActive = "${base09}FF";
     ScrollbarGrabHovered = "${base0E}CC";
-    Separator = "#6D6D7F7F";
-    SeparatorActive = "#828282FF";
-    SeparatorHovered = "#B7B7B7C6";
+    Separator = "${base03}7F";
+    SeparatorActive = "${base0D}FF";
+    SeparatorHovered = "${base04}C6";
     SliderGrab = "${base0E}FF";
-    SliderGrabActive = "#FF038FFF";
+    SliderGrabActive = "${base09}FF";
     Tab = "${base0E}DB";
     TabActive = "${base0E}FF";
     TabHovered = "${base0E}CC";
-    TabUnfocused = "#111A25F7";
-    TabUnfocusedActive = "#DB7093FF";
+    TabUnfocused = "${base00}F7";
+    TabUnfocusedActive = "${base08}FF";
     TableBorderLight = "${base0B}FF";
     TableBorderStrong = "${base01}EF";
     TableHeaderBg = "${base01}FF";
     TableRowBg = "${base01}00";
     TableRowBgAlt = "${base05}0F";
     Text = "${base05}FF";
-    TextDisabled = "#7F7F7FFF";
-    TextSelectedBg = "#DDDDDD59";
-    TitleBg = "#0A0A0AFF";
-    TitleBgActive = "#494949FF";
+    TextDisabled = "${base04}FF";
+    TextSelectedBg = "${base0D}59";
+    TitleBg = "${base01}FF";
+    TitleBgActive = "${base02}FF";
     TitleBgCollapsed = "${base01}82";
     WindowBg = "${base01}EF";
     ClearColor = "${base01}FF";
@@ -79,8 +79,19 @@ let
     ];
   };
 
+  sdrppBandColors = {
+    bandColors = {
+      amateur = "${base08}FF";
+      aviation = "${base0C}FF";
+      broadcast = "${base09}FF";
+      marine = "${base0D}FF";
+      military = "${base0A}FF";
+    };
+  };
+
   themeFile = pkgs.writers.writeJSON "stylix.json" sdrppTheme;
   colormapFile = pkgs.writers.writeJSON "stylix.json" sdrppColormap;
+  bandColorsFile = pkgs.writers.writeJSON "config.json" sdrppBandColors;
 
   sdrpp = pkgs.sdrpp.overrideAttrs (old: {
     postInstall = (old.postInstall or "") + ''
@@ -89,4 +100,19 @@ let
     '';
   });
 
-in { home.packages = [ sdrpp ]; }
+in {
+  home.packages = [ sdrpp ];
+  #services.avahi.enable = true;
+
+  # xdg.configFile.sdrpp-config = {
+  #   enable = true;
+  #   target = "sdrpp/config.json";
+  #   text = builtins.toJSON ;
+  # };
+
+  home.activation.changeSdrppColors =
+    lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      cat ${config.home.homeDirectory}/.config/sdrpp/config.json | jq ''\' .bandColors.amateur = "${base0A}FF" | .bandColors.aviation = "${base0C}FF" | .bandColors.broadcast = "${base09}FF" | .bandColors.marine = "${base0D}FF" | .bandColors.military = "${base08}FF" | .bandColors.voice = "${base07}FF" | .colorMap = "Stylix Colors" | .theme = "Stylix" | .vfoColors.Radio = "${base0B}" ''\' | ${pkgs.moreutils}/bin/sponge ${config.home.homeDirectory}/test/gargle.json
+    '';
+
+}
