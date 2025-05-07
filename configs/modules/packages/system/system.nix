@@ -16,6 +16,10 @@
     # Agenix client for secret management
     inputs.agenix.packages."${system}".default
 
+    # Manage user configs
+    # this bootstraps so we can build HM config (which also installs/enables hm)
+    home-manager
+
     # Nix tools
     nix-tree # browse dependencies of nix store
     nix-output-monitor # adds visuals to build outputs

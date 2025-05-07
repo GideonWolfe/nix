@@ -15,27 +15,20 @@
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
 
-    # Overriding hyperland package to get more opts
-    # hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    # Hyprpanel
+    # Adding as flake until an official HM module is merged
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
-    #ags.url = "github:Aylur/ags";
-
+    # Theming engine
     stylix = {
       url = "github:danth/stylix/release-24.11";
-      # url = "github:gideonwolfe/stylix/foliate";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
     };
 
-    #spicetify-nix = { url = "github:the-argus/spicetify-nix"; };
-
+    # Spotify theme
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,6 +48,15 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      # Base modules I want on every system
+      # TODO: figure out how to add (gideon@hades)
+      baseUserModules = [
+        stylix.homeManagerModules.stylix
+        agenix.homeManagerModules.age
+        nixvim.homeManagerModules.nixvim
+        spicetify-nix.homeManagerModules.default
+        hyprpanel.homeManagerModules.hyprpanel
+      ];
     in {
 
       # Definitions for individual hosts
@@ -140,6 +142,12 @@
             ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
             ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
           ];
+          # TODO: figure this out
+          # modules = baseUserModules + [
+          #   ./configs/users/gideon/home.nix
+          #   ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
+          #   ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
+          # ];
         };
 
         # Specific HM config for my laptop
