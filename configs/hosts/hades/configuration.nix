@@ -12,7 +12,7 @@
 
     ../../modules/icons.nix
 
-    ../../secrets/system_secrets.nix
+    #../../secrets/system_secrets.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -100,7 +100,7 @@
     ../../modules/configs/system/services/ai/sillytavern.nix
 
     ##TESTING RESTIC
-    ../../modules/configs/system/services/restic.nix
+        #../../modules/configs/system/services/restic.nix
 
     ############
     # PACKAGES #

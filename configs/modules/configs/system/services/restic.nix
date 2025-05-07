@@ -7,7 +7,7 @@
 
     # Configuration for the restic server
     server = {
-      enable = true;
+      enable = false;
       prometheus = true;
       # The root of all our backed up files
       #dataDir = "/test/backup";

@@ -106,8 +106,8 @@
 
       # Build NixOS System
       bldnix = {
-        body =
-          "sudo nixos-rebuild switch --flake /home/${config.home.username}/nix/";
+        #body = "sudo nixos-rebuild switch --flake /home/${config.home.username}/nix/";
+        body = "nh os switch /home/${config.home.username}/nix/";
       };
       # Build Home Manager Config
       bldhome = {
