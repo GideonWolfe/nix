@@ -20,6 +20,9 @@
     nix-tree # browse dependencies of nix store
     nix-output-monitor # adds visuals to build outputs
 
+    # backup CLI
+    restic
+
     # make secrets available to apps
     gnome-keyring
 

@@ -99,6 +99,9 @@
     # AI stuff
     ../../modules/configs/system/services/ai/sillytavern.nix
 
+    ##TESTING RESTIC
+    ../../modules/configs/system/services/restic.nix
+
     ############
     # PACKAGES #
     ############
