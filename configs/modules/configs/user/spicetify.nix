@@ -1,11 +1,11 @@
-{ pkgs, config, spicetify-nix, ... }:
+{ pkgs, config, inputs, ... }:
 
 with config.lib.stylix.colors;
 
 {
 
   programs.spicetify =
-    let spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+    let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
     in {
       enable = true;
       # https://github.com/Gerg-L/spicetify-nix/blob/master/docs/EXTENSIONS.md

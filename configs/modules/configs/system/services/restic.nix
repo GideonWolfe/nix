@@ -17,12 +17,13 @@
       # Automatically create repository for this backup
       initialize = true;
       # The destination of the backup operation
-      repository = "/test/backup/gideontest";
+      #repository = "/test/backup/gideontest";
+      repository = "/run/media/gideon/mnemosyne/backups/gideontest";
       # The path that will be backed up
       paths = [ "/home/gideon/test/backup/source" ];
       # The file containing the password to the remote repository
       passwordFile =
-        "/home/gideon/nix/configs/modules/configs/system/services/testpass.txt";
+        "/home/gideon/test/backup/testpass.txt";
       # How often the backup job should be run
       timerConfig = {
         #OnCalendar = "daily";

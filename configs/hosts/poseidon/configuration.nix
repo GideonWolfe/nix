@@ -12,7 +12,7 @@
 
     ../../modules/icons.nix
 
-    ../../secrets/system_secrets.nix
+    #../../secrets/system_secrets.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -74,6 +74,10 @@
     # service for RTL-SDR
     ../../modules/configs/system/services/rtl-sdr.nix
 
+    # TESTING
+    ../../modules/configs/system/services/restic.nix
+
+
     ############
     # PACKAGES #
     ############
@@ -109,6 +113,9 @@
   ];
 
   #stylix.image = ./system/graphics/zT7uCe2.png;
+
+  # TEST: disable docs to speed builds
+  documentation.nixos.enable = false;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -182,8 +189,9 @@
       "dialout" # let programs run by the user (like chirp) access USB ports
       "input" # let programs run by the user (like chirp) access touchpad input (for fusuma gestures)
       "plugdev" # for RTL-SDR
+      "storage" # for udiskie
     ];
-    packages = with pkgs; [ firefox neovim tree ];
+    packages = with pkgs; [ firefox vim tree ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

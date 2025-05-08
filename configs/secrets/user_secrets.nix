@@ -42,8 +42,7 @@
       # file used by weechat to abstract secrets into
       weechat_sec_conf = {
         file = ./secrets/users/gideon/irc/weechat/weechat_sec_conf.age;
-        path =
-          "${config.home.homeDirectory}/.config/weechat/sec.conf";
+        path = "${config.home.homeDirectory}/.config/weechat/sec.conf";
       };
       freshrss_api_key = {
         file = ./secrets/users/gideon/rss/freshrss_api_key.age;

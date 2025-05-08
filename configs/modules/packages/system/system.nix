@@ -199,6 +199,7 @@
     simple-scan # GNOME GUI for document scanner
     gnome-firmware # GUI for installing device firmware
     gnome-tecla # GUI for viewing keyboard layout
+    usbutils # adds utilities like lsusb
 
     # File managers
     ranger

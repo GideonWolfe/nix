@@ -59,6 +59,15 @@
       ];
     in {
 
+      # #BUG: doesn't work
+      # home-manager.sharedModules = [
+      #   stylix.homeManagerModules.stylix
+      #   agenix.homeManagerModules.age
+      #   nixvim.homeManagerModules.nixvim
+      #   spicetify-nix.homeManagerModules.default
+      #   hyprpanel.homeManagerModules.hyprpanel
+      # ];
+
       # Definitions for individual hosts
       nixosConfigurations = {
 
@@ -80,7 +89,24 @@
           modules = [
             stylix.nixosModules.stylix
             agenix.nixosModules.default
+            #nixvim.nixosModules.nixvim
             ./configs/hosts/poseidon/configuration.nix
+
+            # TESTING HM MODULE
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.gideon.imports = [
+                ./configs/users/gideon/home.nix
+                ./configs/modules/configs/user/laptop-hyprpanel-layout.nix
+                agenix.homeManagerModules.age
+                nixvim.homeManagerModules.nixvim
+                spicetify-nix.homeManagerModules.default
+                hyprpanel.homeManagerModules.hyprpanel
+              ];
+            }
           ];
         };
 
@@ -152,22 +178,22 @@
 
         # Specific HM config for my laptop
         # the exact same home.nix, but i'm adding my desktop hyprland monitor config
-        "gideon@poseidon" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit spicetify-nix;
-            inherit inputs;
-          };
-          modules = [
-            stylix.homeManagerModules.stylix
-            agenix.homeManagerModules.age
-            nixvim.homeManagerModules.nixvim
-            spicetify-nix.homeManagerModules.default
-            hyprpanel.homeManagerModules.hyprpanel
-            ./configs/users/gideon/home.nix
-            ./configs/modules/configs/user/laptop-hyprpanel-layout.nix
-          ];
-        };
+        # "gideon@poseidon" = home-manager.lib.homeManagerConfiguration {
+        #   inherit pkgs;
+        #   extraSpecialArgs = {
+        #     inherit spicetify-nix;
+        #     inherit inputs;
+        #   };
+        #   modules = [
+        #     stylix.homeManagerModules.stylix
+        #     agenix.homeManagerModules.age
+        #     nixvim.homeManagerModules.nixvim
+        #     spicetify-nix.homeManagerModules.default
+        #     hyprpanel.homeManagerModules.hyprpanel
+        #     ./configs/users/gideon/home.nix
+        #     ./configs/modules/configs/user/laptop-hyprpanel-layout.nix
+        #   ];
+        # };
 
         overseer = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

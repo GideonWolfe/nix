@@ -286,6 +286,9 @@
 
     ../../modules/configs/user/sdrpp.nix
 
+    # automount disks with udisks2
+    ../../modules/configs/user/udiskie.nix
+
     ../../modules/keys/ssh.nix
   ];
 
