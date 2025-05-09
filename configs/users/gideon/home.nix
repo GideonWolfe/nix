@@ -1,8 +1,19 @@
-{ lib, config, ... }:
+{ lib, config, inputs, ... }:
 
-{
+let
+
+  #TODO: how to use?
+  pkgDir = "../../modules/packages/user";
+
+in {
 
   imports = [
+
+    # Main modules from programs I want to use
+    inputs.agenix.homeManagerModules.age
+    inputs.nixvim.homeManagerModules.nixvim
+    inputs.spicetify-nix.homeManagerModules.default
+    inputs.hyprpanel.homeManagerModules.hyprpanel
 
     # Imports a list of all user based secrets
     # only the ones readable by this user will be generated
@@ -13,6 +24,7 @@
     ############
 
     #Theming
+    #../../modules/packages/user/theming.nix
     ../../modules/packages/user/theming.nix
 
     # Productivity packages
@@ -61,10 +73,10 @@
     ###########
 
     # Session/env variables
-    ../../modules/configs/user/session-variables.nix
+    ../../modules/configs/user/session-variables/session-variables.nix
 
     # Enable wrapper for builds
-    ../../modules/configs/user/nh.nix
+    ../../modules/configs/user/nh/nh.nix
 
     # Configs for calendar settings and sync
     ./configs/calendar/calendar.nix
@@ -86,86 +98,86 @@
     ../../modules/configs/user/sway/swayidle.nix
 
     # Cursor settings
-    ../../modules/configs/user/cursor.nix
+    ../../modules/configs/user/cursor/cursor.nix
 
     # Neovim
     ../../modules/configs/user/nixvim/nixvim.nix
 
     # Kitty
-    ../../modules/configs/user/kitty.nix
+    ../../modules/configs/user/kitty/kitty.nix
 
     # Waybar
-    ../../modules/configs/user/waybar.nix
+    ../../modules/configs/user/waybar/waybar.nix
 
     # Wofi
     ../../modules/configs/user/wofi/wofi.nix
 
     # imv
-    ../../modules/configs/user/imv.nix
+    ../../modules/configs/user/imv/imv.nix
 
     # Firefox
     ../../modules/configs/user/firefox/firefox.nix
 
     # Chromium
-    ../../modules/configs/user/chromium.nix
+    ../../modules/configs/user/chromium/chromium.nix
 
     # Zathura
-    ../../modules/configs/user/zathura.nix
+    ../../modules/configs/user/zathura/zathura.nix
 
     # foliate
-    ../../modules/configs/user/foliate.nix
+    ../../modules/configs/user/foliate/foliate.nix
 
     # btop
-    ../../modules/configs/user/btop.nix
+    ../../modules/configs/user/btop/btop.nix
 
     # GTK settings/theming
-    ../../modules/configs/user/gtk.nix
+    ../../modules/configs/user/gtk/gtk.nix
 
     # Qt settings/theming
-    ../../modules/configs/user/qt.nix
+    ../../modules/configs/user/qt/qt.nix
 
     # Custom user directories
-    ../../modules/configs/user/xdg-user-dirs.nix
+    ../../modules/configs/user/xdg-user-dirs/xdg-user-dirs.nix
 
     # Custom default applications
-    ../../modules/configs/user/mimetypes.nix
+    ../../modules/configs/user/mimetypes/mimetypes.nix
 
     # Better CD
-    ../../modules/configs/user/zoxide.nix
+    ../../modules/configs/user/zoxide/zoxide.nix
 
     # Better LS
-    ../../modules/configs/user/eza.nix
+    ../../modules/configs/user/eza/eza.nix
 
     # Better Cat
-    ../../modules/configs/user/bat.nix
+    ../../modules/configs/user/bat/bat.nix
 
     # Better shell history
-    ../../modules/configs/user/atuin.nix
+    ../../modules/configs/user/atuin/atuin.nix
 
     # quick finder
-    ../../modules/configs/user/fzf.nix
+    ../../modules/configs/user/fzf/fzf.nix
 
     # 3D image viewer
-    ../../modules/configs/user/f3d.nix
+    ../../modules/configs/user/f3d/f3d.nix
 
     # Graph utility
-    ../../modules/configs/user/gnuplot.nix
+    ../../modules/configs/user/gnuplot/gnuplot.nix
 
     # Screenshotting tool
-    ../../modules/configs/user/flameshot.nix
-    ../../modules/configs/user/swappy.nix
+    ../../modules/configs/user/flameshot/flameshot.nix
+    ../../modules/configs/user/swappy/swappy.nix
 
     # Cava
-    ../../modules/configs/user/cava.nix
+    ../../modules/configs/user/cava/cava.nix
     ../../modules/configs/user/glava/shaders.nix
     ../../modules/configs/user/glava/rc.nix
 
     # Git
-    ../../modules/configs/user/git.nix
-    ../../modules/configs/user/gh.nix
+    ../../modules/configs/user/git/git.nix
+    ../../modules/configs/user/gh/gh.nix
 
     # KDE Connect
-    ../../modules/configs/user/kdeconnect.nix
+    ../../modules/configs/user/kdeconnect/kdeconnect.nix
 
     # SSH
     ./configs/ssh/ssh.nix
@@ -184,7 +196,7 @@
     ../../modules/configs/user/newsboat/newsboat.nix
 
     # Bluetooth (enabling applet)
-    ../../modules/configs/user/bluetooth.nix
+    ../../modules/configs/user/bluetooth/bluetooth.nix
 
     # Shell config
     ../../modules/configs/user/shell/fish.nix
@@ -192,7 +204,7 @@
     ../../modules/configs/user/shell/starship.nix
 
     # TTY config
-    ../../modules/configs/user/zellij.nix
+    ../../modules/configs/user/zellij/zellij.nix
 
     # Notification client
     # Disabling because hyprpanel handles it
@@ -202,25 +214,25 @@
     ./configs/stylix.nix
 
     # Spotify theming tool
-    ../../modules/configs/user/spicetify.nix
+    ../../modules/configs/user/spicetify/spicetify.nix
 
     # Custom startpage
     ../../modules/configs/user/startpage/style.nix
     ../../modules/configs/user/startpage/service.nix
 
     # These configs have to be generated manually
-    ../../modules/configs/user/darkreader.nix
+    ../../modules/configs/user/darkreader/darkreader.nix
 
-    ../../modules/configs/user/vdirsyncer.nix
+    ../../modules/configs/user/vdirsyncer/vdirsyncer.nix
 
-    ../../modules/configs/user/fastfetch.nix
+    ../../modules/configs/user/fastfetch/fastfetch.nix
 
     # custom style for plantuml server
     #../../modules/configs/user/plantuml.nix
     #./configs/plantuml.nix
 
     # VS Code
-    ../../modules/configs/user/vscode.nix
+    ../../modules/configs/user/vscode/vscode.nix
 
     # Projects
     ../../modules/configs/user/projects/forgetter.nix
@@ -264,7 +276,7 @@
     ../../modules/configs/user/cavalier/cavalier.nix
 
     # Minimeter settings
-    ../../modules/configs/user/minimeters.nix
+    ../../modules/configs/user/minimeters/minimeters.nix
 
     # halloy config
     ../../modules/configs/user/irc/halloy.nix
@@ -273,21 +285,21 @@
     ../../modules/configs/user/godot/godot-theme.nix
 
     # touch pad gestures
-    ../../modules/configs/user/fusuma.nix
+    ../../modules/configs/user/fusuma/fusuma.nix
 
     # Astrolog config/theme
-    ../../modules/configs/user/astrolog.nix
+    ../../modules/configs/user/astrolog/astrolog.nix
 
-    ../../modules/configs/user/kando.nix
+    ../../modules/configs/user/kando/kando.nix
 
-    ../../modules/configs/user/clipse.nix
+    ../../modules/configs/user/clipse/clipse.nix
 
-    ../../modules/configs/user/shortwave.nix
+    ../../modules/configs/user/shortwave/shortwave.nix
 
-    ../../modules/configs/user/sdrpp.nix
+    ../../modules/configs/user/sdrpp/sdrpp.nix
 
     # automount disks with udisks2
-    ../../modules/configs/user/udiskie.nix
+    ../../modules/configs/user/udiskie/udiskie.nix
 
     ../../modules/keys/ssh.nix
   ];
