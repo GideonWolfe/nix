@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, inputs, ... }:
 
 {
 
@@ -9,162 +9,18 @@
     ############
 
     #Theming
-    #./packages/theming.nix
+    ./packages/theming.nix
 
     ###########
     # CONFIGS #
     ###########
-
-    # Session/env variables
-    ./configs/session-variables.nix
-
-    # Hyprland
-    ../../modules/configs/user/hypr/hyprland.nix
-    ../../modules/configs/user/hypr/hyprpaper.nix
-    ../../modules/configs/user/hypr/hypridle.nix
-    ../../modules/configs/user/hypr/hyprlock.nix
-
-    # Cursor settings
-    #../gideon/configs/cursor.nix
-    ../../modules/configs/user/cursor/cursor.nix
-
-    # Neovim
-    #../gideon/configs/nixvim/nixvim.nix
-    ../../modules/configs/user/nixvim/nixvim.nix
-
-    # Display configs
-    #./configs/kanshi.nix
-
-    # Kitty
-    #../gideon/configs/kitty.nix
-    ../../modules/configs/user/kitty/kitty.nix
-
-    # Waybar
-    #../gideon/configs/waybar.nix
-    ../../modules/configs/user/waybar/waybar.nix
-
-    # Wofi
-    # ../gideon/configs/wofi/wofi.nix
-    ../../modules/configs/user/wofi/wofi.nix
-
-    # imv
-    # ../gideon/configs/imv.nix
-    ../../modules/configs/user/imv/imv.nix
-
-    # Firefox
-    #./configs/firefox/firefox.nix
-    # ../gideon/configs/firefox/firefox.nix
-    ../../modules/configs/user/firefox/firefox.nix
-
-    # Chromium
-    # ../gideon/configs/chromium.nix
-    ../../modules/configs/user/chromium/chromium.nix
-
-    # Zathura
-    # ../gideon/configs/zathura.nix
-    ../../modules/configs/user/zathura/zathura.nix
-
-    # foliate
-    # ../gideon/configs/foliate.nix
-    ../../modules/configs/user/foliate/foliate.nix
-
-    # btop
-    # ../gideon/configs/btop.nix
-    ../../modules/configs/user/btop/btop.nix
-
-    # GTK settings/theming
-    # ../gideon/configs/gtk.nix
-    ../../modules/configs/user/gtk/gtk.nix
-
-    # Qt settings/theming
-    # ../gideon/configs/qt.nix
-    ../../modules/configs/user/qt/qt.nix
-
-    # Custom user directories
-    # ../gideon/configs/xdg-user-dirs.nix
-    ../../modules/configs/user/xdg-user-dirs/xdg-user-dirs.nix
-
-    # Custom default applications
-    #./configs/mimetypes.nix
-    # ../gideon/configs/mimetypes.nix
-    ../../modules/configs/user/mimetypes/mimetypes.nix
-
-    # Better CD
-    # ../gideon/configs/zoxide.nix
-    ../../modules/configs/user/zoxide/zoxide.nix
-
-    # Better LS
-    # ../gideon/configs/eza.nix
-    ../../modules/configs/user/eza/eza.nix
-
-    # Better Cat
-    # ../gideon/configs/bat.nix
-    ../../modules/configs/user/bat/bat.nix
-
-    # quick finder
-    # ../gideon/configs/fzf.nix
-    ../../modules/configs/user/fzf/fzf.nix
-
-    # 3D image viewer
-    # ../gideon/configs/f3d.nix
-    ../../modules/configs/user/f3d/f3d.nix
-
-    # Graph utility
-    # ../gideon/configs/gnuplot.nix
-    ../../modules/configs/user/gnuplot/gnuplot.nix
-
-    # Screenshotting tool
-    #./configs/flameshot.nix
-    # ../gideon/configs/swappy.nix
-    ../../modules/configs/user/swappy/swappy.nix
-
-    # Cava
-    # ../gideon/configs/cava.nix
-    ../../modules/configs/user/cava/cava.nix
-
-    # Git
-    ./configs/git.nix
+    ../../modules/configs/user/common.nix
 
     # SSH
     ./configs/ssh/ssh.nix
 
-    # Neomutt
-    #./configs/email/neomutt/neomutt.nix
-    #./configs/email/email.nix
-    #./configs/email/mbsync.nix
-
-    # Bluetooth (enabling applet)
-    #../gideon/configs/bluetooth.nix
-    ../../modules/configs/user/bluetooth.nix
-
-    # Shell config
-    # Inherit main user shell config
-    # ../gideon/configs/fish.nix
-    ../../modules/configs/user/shell/fish.nix
-
-    # Notification client
-    #./configs/mako.nix
-
     # Nix theming framwork
     ./configs/stylix.nix
-
-    # Spotify theming tool
-    # ../gideon/configs/spicetify.nix
-    ../../modules/configs/user/spicetify.nix
-
-    # Custom startpage
-    # ../gideon/configs/startpage/style.nix
-    # ../gideon/configs/startpage/service.nix
-    ../../modules/configs/user/startpage/style.nix
-    ../../modules/configs/user/startpage/service.nix
-
-    # These configs have to be generated manually
-    # ../gideon/configs/darkreader.nix
-    ../../modules/configs/user/darkreader.nix
-
-    # VS Code
-    # ../gideon/configs/vscode.nix
-    ../../modules/configs/user/vscode.nix
 
     ./configs/server/directories.nix
 

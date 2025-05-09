@@ -134,6 +134,15 @@
             stylix.nixosModules.stylix
             agenix.nixosModules.default
             ./configs/hosts/athena/configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.overseer.imports =
+                [ ./configs/users/overseer/home.nix ];
+            }
           ];
         };
       };
@@ -201,20 +210,20 @@
         #   ];
         # };
 
-        overseer = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit spicetify-nix;
-            inherit inputs;
-          };
-          modules = [
-            stylix.homeManagerModules.stylix
-            agenix.homeManagerModules.age
-            nixvim.homeManagerModules.nixvim
-            spicetify-nix.homeManagerModules.default
-            ./configs/users/overseer/home.nix
-          ];
-        };
+        # overseer = home-manager.lib.homeManagerConfiguration {
+        #   inherit pkgs;
+        #   extraSpecialArgs = {
+        #     inherit spicetify-nix;
+        #     inherit inputs;
+        #   };
+        #   modules = [
+        #     stylix.homeManagerModules.stylix
+        #     agenix.homeManagerModules.age
+        #     nixvim.homeManagerModules.nixvim
+        #     spicetify-nix.homeManagerModules.default
+        #     ./configs/users/overseer/home.nix
+        #   ];
+        # };
       };
     };
 

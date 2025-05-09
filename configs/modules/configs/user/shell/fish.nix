@@ -77,7 +77,7 @@
       mkd = { body = "mkdir -pv $argv"; };
 
       # Better defaults for tree
-      tree = { body = "command tree -C --dirsfirst $argv"; };
+      tree = { body = "command tree -a -C --dirsfirst $argv"; };
 
       # Sudo Do Last
       sdl = { body = "eval command sudo $history[1]"; };

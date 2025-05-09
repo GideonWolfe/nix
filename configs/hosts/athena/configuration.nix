@@ -182,7 +182,7 @@
       "docker" # Let the user run docker commands
       "dialout" # let programs run by the user (like chirp) access USB ports
     ];
-    packages = with pkgs; [ firefox neovim tree git ];
+    packages = with pkgs; [ firefox tree git ];
   };
 
   #TODO: make these fail gracefully when network already exists

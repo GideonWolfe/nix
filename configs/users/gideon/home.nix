@@ -10,6 +10,7 @@ in {
   imports = [
 
     # Main modules from programs I want to use
+    # ADDING TO COMMON, TEST REMOVAL HERE
     inputs.agenix.homeManagerModules.age
     inputs.nixvim.homeManagerModules.nixvim
     inputs.spicetify-nix.homeManagerModules.default
@@ -71,6 +72,9 @@ in {
     ###########
     # CONFIGS #
     ###########
+
+    # Common user config
+    ../../modules/configs/user/common.nix
 
     # Session/env variables
     ../../modules/configs/user/session-variables/session-variables.nix
@@ -223,6 +227,7 @@ in {
     # These configs have to be generated manually
     ../../modules/configs/user/darkreader/darkreader.nix
 
+    # TODO move this to common user
     ../../modules/configs/user/vdirsyncer/vdirsyncer.nix
 
     ../../modules/configs/user/fastfetch/fastfetch.nix
@@ -261,6 +266,7 @@ in {
     ../../modules/configs/user/obs-studio/obs-theme.nix
 
     # Thunderbird config and theme
+    # TODO abstract to common, maybe rename profile?
     ../../modules/configs/user/thunderbird/thunderbird.nix
 
     # MPV theme/config
