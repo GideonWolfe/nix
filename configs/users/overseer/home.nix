@@ -19,12 +19,6 @@
     ./configs/session-variables.nix
 
     # Hyprland
-    # Enable when ready for it
-    # ../gideon/configs/hyprland.nix
-    # ../gideon/configs/hyprpaper.nix
-    # ../gideon/configs/hypridle.nix
-    # ../gideon/configs/hyprlock.nix
-
     ../../modules/configs/user/hypr/hyprland.nix
     ../../modules/configs/user/hypr/hyprpaper.nix
     ../../modules/configs/user/hypr/hypridle.nix
@@ -32,7 +26,7 @@
 
     # Cursor settings
     #../gideon/configs/cursor.nix
-    ../../modules/configs/user/cursor.nix
+    ../../modules/configs/user/cursor/cursor.nix
 
     # Neovim
     #../gideon/configs/nixvim/nixvim.nix
@@ -43,11 +37,11 @@
 
     # Kitty
     #../gideon/configs/kitty.nix
-    ../../modules/configs/user/kitty.nix
+    ../../modules/configs/user/kitty/kitty.nix
 
     # Waybar
     #../gideon/configs/waybar.nix
-    ../../modules/configs/user/waybar
+    ../../modules/configs/user/waybar/waybar.nix
 
     # Wofi
     # ../gideon/configs/wofi/wofi.nix
@@ -55,7 +49,7 @@
 
     # imv
     # ../gideon/configs/imv.nix
-    ../../modules/configs/user/imv.nix
+    ../../modules/configs/user/imv/imv.nix
 
     # Firefox
     #./configs/firefox/firefox.nix
@@ -64,69 +58,69 @@
 
     # Chromium
     # ../gideon/configs/chromium.nix
-    ../../modules/configs/user/chromium.nix
+    ../../modules/configs/user/chromium/chromium.nix
 
     # Zathura
     # ../gideon/configs/zathura.nix
-    ../../modules/configs/user/zathura.nix
+    ../../modules/configs/user/zathura/zathura.nix
 
     # foliate
     # ../gideon/configs/foliate.nix
-    ../../modules/configs/user/foliate.nix
+    ../../modules/configs/user/foliate/foliate.nix
 
     # btop
     # ../gideon/configs/btop.nix
-    ../../modules/configs/user/btop.nix
+    ../../modules/configs/user/btop/btop.nix
 
     # GTK settings/theming
     # ../gideon/configs/gtk.nix
-    ../../modules/configs/user/gtk.nix
+    ../../modules/configs/user/gtk/gtk.nix
 
     # Qt settings/theming
     # ../gideon/configs/qt.nix
-    ../../modules/configs/user/qt.nix
+    ../../modules/configs/user/qt/qt.nix
 
     # Custom user directories
     # ../gideon/configs/xdg-user-dirs.nix
-    ../../modules/configs/user/xdg-user-dirs.nix
+    ../../modules/configs/user/xdg-user-dirs/xdg-user-dirs.nix
 
     # Custom default applications
     #./configs/mimetypes.nix
     # ../gideon/configs/mimetypes.nix
-    ../../modules/configs/user/mimetypes.nix
+    ../../modules/configs/user/mimetypes/mimetypes.nix
 
     # Better CD
     # ../gideon/configs/zoxide.nix
-    ../../modules/configs/user/zoxide.nix
+    ../../modules/configs/user/zoxide/zoxide.nix
 
     # Better LS
     # ../gideon/configs/eza.nix
-    ../../modules/configs/user/eza.nix
+    ../../modules/configs/user/eza/eza.nix
 
     # Better Cat
     # ../gideon/configs/bat.nix
-    ../../modules/configs/user/bat.nix
+    ../../modules/configs/user/bat/bat.nix
 
     # quick finder
     # ../gideon/configs/fzf.nix
-    ../../modules/configs/user/fzf.nix
+    ../../modules/configs/user/fzf/fzf.nix
 
     # 3D image viewer
     # ../gideon/configs/f3d.nix
-    ../../modules/configs/user/f3d.nix
+    ../../modules/configs/user/f3d/f3d.nix
 
     # Graph utility
     # ../gideon/configs/gnuplot.nix
-    ../../modules/configs/user/gnuplot.nix
+    ../../modules/configs/user/gnuplot/gnuplot.nix
 
     # Screenshotting tool
     #./configs/flameshot.nix
     # ../gideon/configs/swappy.nix
-    ../../modules/configs/user/swappy.nix
+    ../../modules/configs/user/swappy/swappy.nix
 
     # Cava
     # ../gideon/configs/cava.nix
-    ../../modules/configs/user/cava.nix
+    ../../modules/configs/user/cava/cava.nix
 
     # Git
     ./configs/git.nix
