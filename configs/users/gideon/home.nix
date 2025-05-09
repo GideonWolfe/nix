@@ -114,6 +114,7 @@ in {
     ../../modules/configs/user/thunderbird/thunderbird.nix
 
     ../../modules/keys/ssh.nix
+    ./configs/ssh/ssh.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
