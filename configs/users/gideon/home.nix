@@ -11,10 +11,10 @@ in {
 
     # Main modules from programs I want to use
     # ADDING TO COMMON, TEST REMOVAL HERE
-    inputs.agenix.homeManagerModules.age
-    inputs.nixvim.homeManagerModules.nixvim
-    inputs.spicetify-nix.homeManagerModules.default
-    inputs.hyprpanel.homeManagerModules.hyprpanel
+    # inputs.agenix.homeManagerModules.age
+    # inputs.nixvim.homeManagerModules.nixvim
+    # inputs.spicetify-nix.homeManagerModules.default
+    # inputs.hyprpanel.homeManagerModules.hyprpanel
 
     # Imports a list of all user based secrets
     # only the ones readable by this user will be generated
@@ -76,12 +76,6 @@ in {
     # Common user config
     ../../modules/configs/user/common.nix
 
-    # Session/env variables
-    ../../modules/configs/user/session-variables/session-variables.nix
-
-    # Enable wrapper for builds
-    ../../modules/configs/user/nh/nh.nix
-
     # Configs for calendar settings and sync
     ./configs/calendar/calendar.nix
     ./configs/calendar/khal.nix
@@ -90,101 +84,6 @@ in {
     # Configs for contacts settings and sync
     ./configs/contacts/contacts.nix
     ./configs/contacts/khard.nix
-
-    # Hyprland
-    ../../modules/configs/user/hypr/hyprland.nix
-    ../../modules/configs/user/hypr/hyprpaper.nix
-    ../../modules/configs/user/hypr/hypridle.nix
-    ../../modules/configs/user/hypr/hyprlock.nix
-    ../../modules/configs/user/hypr/hyprpanel.nix
-    ../../modules/configs/user/sway/sway.nix
-    ../../modules/configs/user/sway/swaylock.nix
-    ../../modules/configs/user/sway/swayidle.nix
-
-    # Cursor settings
-    ../../modules/configs/user/cursor/cursor.nix
-
-    # Neovim
-    ../../modules/configs/user/nixvim/nixvim.nix
-
-    # Kitty
-    ../../modules/configs/user/kitty/kitty.nix
-
-    # Waybar
-    ../../modules/configs/user/waybar/waybar.nix
-
-    # Wofi
-    ../../modules/configs/user/wofi/wofi.nix
-
-    # imv
-    ../../modules/configs/user/imv/imv.nix
-
-    # Firefox
-    ../../modules/configs/user/firefox/firefox.nix
-
-    # Chromium
-    ../../modules/configs/user/chromium/chromium.nix
-
-    # Zathura
-    ../../modules/configs/user/zathura/zathura.nix
-
-    # foliate
-    ../../modules/configs/user/foliate/foliate.nix
-
-    # btop
-    ../../modules/configs/user/btop/btop.nix
-
-    # GTK settings/theming
-    ../../modules/configs/user/gtk/gtk.nix
-
-    # Qt settings/theming
-    ../../modules/configs/user/qt/qt.nix
-
-    # Custom user directories
-    ../../modules/configs/user/xdg-user-dirs/xdg-user-dirs.nix
-
-    # Custom default applications
-    ../../modules/configs/user/mimetypes/mimetypes.nix
-
-    # Better CD
-    ../../modules/configs/user/zoxide/zoxide.nix
-
-    # Better LS
-    ../../modules/configs/user/eza/eza.nix
-
-    # Better Cat
-    ../../modules/configs/user/bat/bat.nix
-
-    # Better shell history
-    ../../modules/configs/user/atuin/atuin.nix
-
-    # quick finder
-    ../../modules/configs/user/fzf/fzf.nix
-
-    # 3D image viewer
-    ../../modules/configs/user/f3d/f3d.nix
-
-    # Graph utility
-    ../../modules/configs/user/gnuplot/gnuplot.nix
-
-    # Screenshotting tool
-    ../../modules/configs/user/flameshot/flameshot.nix
-    ../../modules/configs/user/swappy/swappy.nix
-
-    # Cava
-    ../../modules/configs/user/cava/cava.nix
-    ../../modules/configs/user/glava/shaders.nix
-    ../../modules/configs/user/glava/rc.nix
-
-    # Git
-    ../../modules/configs/user/git/git.nix
-    ../../modules/configs/user/gh/gh.nix
-
-    # KDE Connect
-    ../../modules/configs/user/kdeconnect/kdeconnect.nix
-
-    # SSH
-    ./configs/ssh/ssh.nix
 
     # Neomutt
     ./configs/email/neomutt/neomutt.nix
@@ -196,48 +95,11 @@ in {
     ./configs/weechat/buflist.nix
     ./configs/weechat/weechat.nix
 
-    # Newsboat
-    ../../modules/configs/user/newsboat/newsboat.nix
-
-    # Bluetooth (enabling applet)
-    ../../modules/configs/user/bluetooth/bluetooth.nix
-
-    # Shell config
-    ../../modules/configs/user/shell/fish.nix
-    ../../modules/configs/user/shell/bash.nix
-    ../../modules/configs/user/shell/starship.nix
-
-    # TTY config
-    ../../modules/configs/user/zellij/zellij.nix
-
-    # Notification client
-    # Disabling because hyprpanel handles it
-    #./configs/mako.nix
-
     # Nix theming framwork
     ./configs/stylix.nix
 
-    # Spotify theming tool
-    ../../modules/configs/user/spicetify/spicetify.nix
-
-    # Custom startpage
-    ../../modules/configs/user/startpage/style.nix
-    ../../modules/configs/user/startpage/service.nix
-
-    # These configs have to be generated manually
-    ../../modules/configs/user/darkreader/darkreader.nix
-
     # TODO move this to common user
     ../../modules/configs/user/vdirsyncer/vdirsyncer.nix
-
-    ../../modules/configs/user/fastfetch/fastfetch.nix
-
-    # custom style for plantuml server
-    #../../modules/configs/user/plantuml.nix
-    #./configs/plantuml.nix
-
-    # VS Code
-    ../../modules/configs/user/vscode/vscode.nix
 
     # Projects
     ../../modules/configs/user/projects/forgetter.nix
@@ -247,65 +109,9 @@ in {
     ../../modules/configs/user/projects/tech.nix
     ../../modules/configs/user/projects/music.nix
 
-    # Obsidian theme
-    ../../modules/configs/user/obsidian/obsidian-stylix-css.nix
-
-    # Blender theme
-    ../../modules/configs/user/blender/blender-theme.nix
-
-    # Element settings (and theme)
-    ../../modules/configs/user/element/element.nix
-
-    # Ghidra theme
-    ../../modules/configs/user/ghidra/ghidra.nix
-
-    # Kicad theme
-    ../../modules/configs/user/kicad/kicad.nix
-
-    # OBS theme
-    ../../modules/configs/user/obs-studio/obs-theme.nix
-
     # Thunderbird config and theme
     # TODO abstract to common, maybe rename profile?
     ../../modules/configs/user/thunderbird/thunderbird.nix
-
-    # MPV theme/config
-    ../../modules/configs/user/mpv/mpv.nix
-
-    # Libreoffice theme
-    ../../modules/configs/user/libreoffice/libreoffice.nix
-
-    # blockbench theme
-    ../../modules/configs/user/blockbench/blockbench.nix
-
-    # Cavalier settings
-    ../../modules/configs/user/cavalier/cavalier.nix
-
-    # Minimeter settings
-    ../../modules/configs/user/minimeters/minimeters.nix
-
-    # halloy config
-    ../../modules/configs/user/irc/halloy.nix
-
-    # Godot theme
-    ../../modules/configs/user/godot/godot-theme.nix
-
-    # touch pad gestures
-    ../../modules/configs/user/fusuma/fusuma.nix
-
-    # Astrolog config/theme
-    ../../modules/configs/user/astrolog/astrolog.nix
-
-    ../../modules/configs/user/kando/kando.nix
-
-    ../../modules/configs/user/clipse/clipse.nix
-
-    ../../modules/configs/user/shortwave/shortwave.nix
-
-    ../../modules/configs/user/sdrpp/sdrpp.nix
-
-    # automount disks with udisks2
-    ../../modules/configs/user/udiskie/udiskie.nix
 
     ../../modules/keys/ssh.nix
   ];

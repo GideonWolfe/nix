@@ -26,6 +26,7 @@
     ./zoxide/zoxide.nix # better cd
     ./eza/eza.nix # better ls
     ./bat/bat.nix # better cat
+    ./atuin/atuin.nix # TUI shell history
 
     ###############
     # Environment #
