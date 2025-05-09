@@ -174,6 +174,7 @@
     gnome-disk-utility
     diskonaut # disk usage analyzer TUI
     baobab # disk usage analyzer GUI
+    dysk # better df
     ventoy # create bootable USBs
     impression # GNOME util to quickly burn ISOs
     simple-mtpfs # mount cell phone filesystems

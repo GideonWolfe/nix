@@ -40,33 +40,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Secret Management
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { self, nixpkgs, home-manager, agenix, stylix, spicetify-nix, nixvim
-    , hyprpanel, ... }@inputs:
+    , hyprpanel, sops-nix, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      # Base modules I want on every system
-      # TODO: figure out how to add (gideon@hades)
-      baseUserModules = [
-        stylix.homeManagerModules.stylix
-        agenix.homeManagerModules.age
-        nixvim.homeManagerModules.nixvim
-        spicetify-nix.homeManagerModules.default
-        hyprpanel.homeManagerModules.hyprpanel
-      ];
     in {
-
-      # #BUG: doesn't work
-      # home-manager.sharedModules = [
-      #   stylix.homeManagerModules.stylix
-      #   agenix.homeManagerModules.age
-      #   nixvim.homeManagerModules.nixvim
-      #   spicetify-nix.homeManagerModules.default
-      #   hyprpanel.homeManagerModules.hyprpanel
-      # ];
 
       # Definitions for individual hosts
       nixosConfigurations = {
@@ -89,7 +77,6 @@
           modules = [
             stylix.nixosModules.stylix
             agenix.nixosModules.default
-            #nixvim.nixosModules.nixvim
             ./configs/hosts/poseidon/configuration.nix
 
             # TESTING HM MODULE
@@ -116,7 +103,26 @@
           modules = [
             stylix.nixosModules.stylix
             agenix.nixosModules.default
+            sops-nix.nixosModules.sops
             ./configs/hosts/hades/configuration.nix
+
+            # TESTING HM MODULE
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.gideon.imports = [
+                ./configs/users/gideon/home.nix
+                ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
+                ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
+                # INFO: these got moved to home.nix!
+                # agenix.homeManagerModules.age
+                # nixvim.homeManagerModules.nixvim
+                # spicetify-nix.homeManagerModules.default
+                # hyprpanel.homeManagerModules.hyprpanel
+              ];
+            }
           ];
         };
 
@@ -152,29 +158,29 @@
 
         # Specific HM config for my desktop
         # the exact same home.nix, but i'm adding my desktop hyprland monitor config
-        "gideon@hades" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit spicetify-nix;
-            inherit inputs;
-          };
-          modules = [
-            stylix.homeManagerModules.stylix
-            agenix.homeManagerModules.age
-            nixvim.homeManagerModules.nixvim
-            spicetify-nix.homeManagerModules.default
-            hyprpanel.homeManagerModules.hyprpanel
-            ./configs/users/gideon/home.nix
-            ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
-            ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
-          ];
-          # TODO: figure this out
-          # modules = baseUserModules + [
-          #   ./configs/users/gideon/home.nix
-          #   ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
-          #   ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
-          # ];
-        };
+        # "gideon@hades" = home-manager.lib.homeManagerConfiguration {
+        #   inherit pkgs;
+        #   extraSpecialArgs = {
+        #     inherit spicetify-nix;
+        #     inherit inputs;
+        #   };
+        #   modules = [
+        #     stylix.homeManagerModules.stylix
+        #     agenix.homeManagerModules.age
+        #     nixvim.homeManagerModules.nixvim
+        #     spicetify-nix.homeManagerModules.default
+        #     hyprpanel.homeManagerModules.hyprpanel
+        #     ./configs/users/gideon/home.nix
+        #     ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
+        #     ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
+        #   ];
+        #   # TODO: figure this out
+        #   # modules = baseUserModules + [
+        #   #   ./configs/users/gideon/home.nix
+        #   #   ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
+        #   #   ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
+        #   # ];
+        # };
 
         # Specific HM config for my laptop
         # the exact same home.nix, but i'm adding my desktop hyprland monitor config
