@@ -44,6 +44,7 @@
     # ./system/services/networks/wireguard.nix
     # ./system/services/networks/firewall.nix
     ../../modules/configs/system/services/kdeconnect.nix
+    ../../modules/configs/system/services/networks/ssh.nix
 
     # Local Send
     ../../modules/configs/system/services/localsend.nix
@@ -100,7 +101,11 @@
     ../../modules/configs/system/services/ai/sillytavern.nix
 
     ##TESTING RESTIC
-        #../../modules/configs/system/services/restic.nix
+    #../../modules/configs/system/services/restic.nix
+
+    # TESTING SOPS
+    ../../modules/configs/system/services/sops.nix
+
 
     ############
     # PACKAGES #
@@ -191,7 +196,7 @@
       "plugdev" # needed for RTL-SDR
       "storage" # needed for udisks/udiskie
     ];
-    packages = with pkgs; [ firefox neovim tree ];
+    packages = with pkgs; [ firefox tree ];
   };
 
   # BUG: google oath doesn't reconnect to gnome-control-center
