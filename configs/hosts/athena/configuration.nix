@@ -13,6 +13,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
+    # Enable restic for backups
+    ../../modules/configs/system/services/restic.nix
+
     # General System Settings
     ./system/system/system.nix
 
