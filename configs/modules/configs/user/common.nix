@@ -66,6 +66,8 @@
     ./chromium/chromium.nix
     ./firefox/firefox.nix
     ./darkreader/darkreader.nix
+    ./startpage/style.nix
+    ./startpage/service.nix
 
     ############
     # Hyprland #

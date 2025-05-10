@@ -31,6 +31,7 @@
     pkgs.flacon # Extracts audio tracks from an audio CD image to separate tracks
     pkgs.audio-sharing # Automatically share the current audio playback in the form of an RTSP stream
     pkgs.asak # TUI audio player/recorder
+    pkgs.spek # acoustic audio spectrum visualizer
 
     ##################
     # Music Players  #
