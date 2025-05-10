@@ -53,6 +53,22 @@
       "/home/overseer/server/services/media/romm/romm_database:/var/lib/mysql"
     ];
     extraOptions = [ "--network=traefik_proxy" ];
-
   };
+
+  # Set up a backup for my library
+  services.restic.backups.romm_library = {
+    initialize = true;
+    repository = "/run/media/overseer/mnemosyne/backups/games/romm/";
+    paths = "/pool/data/media/games/roms/romm/library";
+    passwordFile =
+      "/run/media/overseer/mnemosyne/backuppass.txt"; # TODO:  replace this with secret
+    timerConfig = {
+      #onCalendar = "daily";
+      onCalendar = "*:0/2"; # every 2 min for testing
+      Persistent = true; # remembers last run, runs if missed
+    };
+    runCheck = true;
+    checkOpts = [ "--read-data" ];
+  };
+
 }
