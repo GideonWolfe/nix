@@ -91,6 +91,7 @@
     pkgs.tartube-yt-dlp # GUI for youtube-dlp
     pkgs.chance # dice roller, binary name is rollit
     pkgs.kiwix # offline viewer for zim files (wikis/docs)
+    pkgs.web-archives # offline viewer for zim files (wikis/docs)
     pkgs.goldendict-ng # GUI dictionary with support for web and local files
     pkgs.artha # offline GKT1 thesaurus
     pkgs.wordbook # GNOME dictionary

@@ -6,19 +6,17 @@
 
     enable = true;
 
-    image = ../../../../../wallpapers/zT7uCe2.png;
-    #image = ../../../../../system/graphics/wallpapers/zT7uCe2.png;
-    #image = ./wallpapers/857o58w.jpg;
-    #image = "${config.users.users.gideon.home}/nix/system/graphics/wallpapers/zT7uCe2.png";
-    #image = /home/gideon/nix/user/configs/zT7uCe2.png;
+    image = ../../../../../wallpapers/topo.jpg;
+
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     polarity = "dark";
 
     fonts = {
-      #serif = {
-      #	package = pkgs.nerdfonts;
-      #	name = "Hack Nerd Font";
-      #};
+      serif = {
+      	package = pkgs.nerdfonts;
+      	name = "Hack Nerd Font";
+      };
 
       sansSerif = {
         package = pkgs.nerdfonts;

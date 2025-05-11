@@ -109,11 +109,6 @@
         #body = "sudo nixos-rebuild switch --flake /home/${config.home.username}/nix/";
         body = "nh os switch /home/${config.home.username}/nix/";
       };
-      # Build Home Manager Config
-      bldhome = {
-        #body = "home-manager switch --flake /home/${config.home.username}/nix/";
-        body = "nh home switch /home/${config.home.username}/nix/";
-      };
 
       bldcommit = {
         body =
