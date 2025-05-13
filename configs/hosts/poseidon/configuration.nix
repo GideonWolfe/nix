@@ -27,6 +27,11 @@
     # GNOME Keyring
     ../../modules/configs/system/services/gnome-keyring.nix
 
+    # GPG
+    ../../modules/configs/system/services/gnupg.nix
+    # Yubikey
+    ../../modules/configs/system/services/yubikey.nix
+
     # Virtualization 
     ../../modules/configs/system/services/virtualization.nix
 

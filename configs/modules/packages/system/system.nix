@@ -16,6 +16,10 @@
     # Agenix client for secret management
     inputs.agenix.packages."${system}".default
 
+    # Yubikey stuff
+    yubioath-flutter # Yubikey authenticator/manager
+    yubikey-manager # CLI manager
+
     # Manage user configs
     # this bootstraps so we can build HM config (which also installs/enables hm)
     home-manager

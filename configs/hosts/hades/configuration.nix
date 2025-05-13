@@ -28,6 +28,11 @@
     ../../modules/configs/system/services/gnome-keyring.nix
     #./system/services/gnome-keyring.nix
 
+    # Yubikey support
+    ../../modules/configs/system/services/yubikey.nix
+    # Enable GPG
+    ../../modules/configs/system/services/gnupg.nix
+
     # Virtualization 
     ../../modules/configs/system/services/virtualization.nix
     #./system/services/virtualization.nix
@@ -105,7 +110,6 @@
 
     # TESTING SOPS
     ../../modules/configs/system/services/sops.nix
-
 
     ############
     # PACKAGES #
