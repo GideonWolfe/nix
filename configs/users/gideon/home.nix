@@ -100,6 +100,9 @@ in {
     # Nix theming framwork
     ./configs/stylix.nix
 
+    # user specific git config
+    ./configs/git.nix
+
     # TODO move this to common user
     ../../modules/configs/user/vdirsyncer/vdirsyncer.nix
 

@@ -7,8 +7,8 @@
     # Allow HM to configure git
     enable = true;
 
-    userName = "Gideon Wolfe";
-    userEmail = "wolfegideon@gmail.com";
+    # userName = "Gideon Wolfe";
+    # userEmail = "wolfegideon@gmail.com";
 
     # https://github.com/github/gitignore
     #ignores = {}

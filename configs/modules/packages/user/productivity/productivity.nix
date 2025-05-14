@@ -62,6 +62,8 @@
     pkgs.seahorse
     pkgs.bitwarden-desktop # connects to vaultwarden
 
+    pkgs.lock # perform arbitrary encrypt/decrypt/signing with PGP keys
+
     # Emoji selector
     pkgs.wofi-emoji
 
