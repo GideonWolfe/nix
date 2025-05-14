@@ -27,5 +27,4 @@
       path = "${config.home.homeDirectory}/.ssh/gideon_ssh_sk";
     };
   };
-
 }
