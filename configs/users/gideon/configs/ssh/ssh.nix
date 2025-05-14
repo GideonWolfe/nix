@@ -18,11 +18,9 @@
       };
       homeserver = {
         hostname = "66.108.176.86";
-        #hostname = "${builtins.readFile config.age.secrets.ssh_athena_ip.path}";
         port = 2736;
         identityFile = [
           "${config.home.homeDirectory}/.ssh/gideon_ssh_sk"
-          #"/home/gideon/nix/configs/users/gideon/configs/ssh/keys/server-ssh"
         ];
         user = "overseer";
       };
