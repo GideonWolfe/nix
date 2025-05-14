@@ -23,6 +23,13 @@
     #./secrets/secret_defs.nix
     ../../secrets/system_secrets.nix
 
+    # SOPS
+    ../../modules/configs/system/services/sops.nix
+    # Yubikey support
+    ../../modules/configs/system/services/yubikey.nix
+    # Enable GPG
+    ../../modules/configs/system/services/gnupg.nix
+
     # Enable snapraid for drives
     ./system/system/snapraid.nix
 
@@ -48,7 +55,7 @@
     ./system/services/networks/ssh.nix
     ./system/services/networks/firewall.nix
 
-     # automatically mount external disks
+    # automatically mount external disks
     ./system/services/udisks2.nix
 
     # Docker

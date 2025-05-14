@@ -9,18 +9,9 @@ in {
 
   imports = [
 
-    # Main modules from programs I want to use
-    # ADDING TO COMMON, TEST REMOVAL HERE
-    # inputs.agenix.homeManagerModules.age
-    # inputs.nixvim.homeManagerModules.nixvim
-    # inputs.spicetify-nix.homeManagerModules.default
-    # inputs.hyprpanel.homeManagerModules.hyprpanel
-
     # Imports a list of all user based secrets
     # only the ones readable by this user will be generated
-    ../../secrets/user_secrets.nix
-
-    ./configs/secrets/sops.nix
+    #../../secrets/user_secrets.nix
 
     ############
     # PACKAGES #
@@ -77,6 +68,16 @@ in {
     # Common user config
     ../../modules/configs/user/common.nix
 
+    # Sops secret definitions
+    ./configs/secrets/sops.nix
+
+    # Personal SSH config
+    ./configs/ssh/ssh.nix
+    #../../modules/keys/ssh.nix
+
+    # GPG settings
+    ./configs/gpg/gpg.nix
+
     # Configs for calendar settings and sync
     ./configs/calendar/calendar.nix
     ./configs/calendar/khal.nix
@@ -117,10 +118,6 @@ in {
     # TODO abstract to common, maybe rename profile?
     ../../modules/configs/user/thunderbird/thunderbird.nix
 
-    ../../modules/keys/ssh.nix
-    ./configs/ssh/ssh.nix
-
-    ./configs/gpg/gpg.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
