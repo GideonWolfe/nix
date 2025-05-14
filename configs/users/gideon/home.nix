@@ -27,7 +27,6 @@ in {
     ############
 
     #Theming
-    #../../modules/packages/user/theming.nix
     ../../modules/packages/user/theming.nix
 
     # Productivity packages
