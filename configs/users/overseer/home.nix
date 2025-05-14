@@ -3,6 +3,8 @@
 {
 
   imports = [
+    # allow overseer to decode secrets
+    inputs.sops-nix.homeManagerModules.sops
 
     ############
     # PACKAGES #

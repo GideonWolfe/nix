@@ -112,11 +112,6 @@
                 ./configs/users/gideon/home.nix
                 ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
                 ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
-                # INFO: these got moved to home.nix!
-                # agenix.homeManagerModules.age
-                # nixvim.homeManagerModules.nixvim
-                # spicetify-nix.homeManagerModules.default
-                # hyprpanel.homeManagerModules.hyprpanel
               ];
             }
           ];
@@ -129,6 +124,7 @@
           modules = [
             stylix.nixosModules.stylix
             agenix.nixosModules.default
+            sops-nix.nixosModules.sops
             ./configs/hosts/athena/configuration.nix
 
             home-manager.nixosModules.home-manager
