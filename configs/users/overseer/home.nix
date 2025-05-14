@@ -8,6 +8,7 @@
 
     # grab gideon's secret defs
     ../gideon/configs/secrets/sops.nix
+    ../gideon/configs/gpg/gpg.nix
 
     ############
     # PACKAGES #
