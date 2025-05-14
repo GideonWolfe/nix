@@ -10,7 +10,8 @@
         realName = "Gideon Wolfe";
         userName = "wolfegideon";
         passwordCommand =
-          "cat ${config.age.secrets.mbsync_google_wolfegideon_app_password.path}";
+          #"cat ${config.age.secrets.mbsync_google_wolfegideon_app_password.path}";
+          "cat ${config.sops.secrets."wolfegideongmail/mbsync_password".path}";
 
         folders = {
           # Prepended by the configured maildirBasePath
@@ -36,9 +37,7 @@
           '';
         };
 
-        thunderbird = {
-            enable = true;
-        };
+        thunderbird = { enable = true; };
 
         mbsync = {
           enable = true;
@@ -50,7 +49,10 @@
               AuthMechs = "LOGIN";
               Pipelinedepth = 1;
               PassCmd =
-                "cat ${config.age.secrets.mbsync_google_wolfegideon_app_password.path}";
+                #"cat ${config.age.secrets.mbsync_google_wolfegideon_app_password.path}";
+                "cat ${
+                  config.sops.secrets."wolfegideongmail/mbsync_password".path
+                }";
             };
             local = {
               Path = "${config.home.homeDirectory}/mail/gmail/";
@@ -157,7 +159,8 @@
         realName = "Gideon Wolfe";
         userName = "gideon@gideonwolfe.xyz";
         passwordCommand =
-          "cat ${config.age.secrets.mbsync_gideonwolfexyz_password.path}";
+          #"cat ${config.age.secrets.mbsync_gideonwolfexyz_password.path}";
+          "cat ${config.sops.secrets."gideonwolfexyz/mbsync_password".path}";
 
         smtp = {
           host = "mail.privateemail.com";
@@ -196,10 +199,8 @@
             named-mailboxes "   Trash" =trash
           '';
         };
-        
-        thunderbird = {
-            enable = true;
-        };
+
+        thunderbird = { enable = true; };
 
         mbsync = {
           enable = true;
@@ -208,7 +209,10 @@
               Host = "mail.privateemail.com";
               Port = 993;
               PassCmd =
-                "cat ${config.age.secrets.mbsync_gideonwolfexyz_password.path}";
+                #"cat ${config.age.secrets.mbsync_gideonwolfexyz_password.path}";
+                "cat ${
+                  config.sops.secrets."gideonwolfexyz/mbsync_password".path
+                }";
             };
             local = {
               Path = "${config.home.homeDirectory}/mail/gideonwolfexyz/";
@@ -287,7 +291,8 @@
         realName = "Gideon Wolfe";
         userName = "gideon@gideonwolfe.com";
         passwordCommand =
-          "cat ${config.age.secrets.mbsync_gideonwolfecom_password.path}";
+          #"cat ${config.age.secrets.mbsync_gideonwolfecom_password.path}";
+          "cat ${config.sops.secrets."gideonwolfecom/mbsync_password".path}";
 
         smtp = {
           host = "mail.privateemail.com";
@@ -329,9 +334,7 @@
           '';
         };
 
-        thunderbird = {
-            enable = true;
-        };
+        thunderbird = { enable = true; };
 
         mbsync = {
           enable = true;
@@ -340,7 +343,10 @@
               Host = "mail.privateemail.com";
               Port = 993;
               PassCmd =
-                "cat ${config.age.secrets.mbsync_gideonwolfecom_password.path}";
+                #"cat ${config.age.secrets.mbsync_gideonwolfecom_password.path}";
+                "cat ${
+                  config.sops.secrets."gideonwolfecom/mbsync_password".path
+                }";
             };
             local = {
               Path = "${config.home.homeDirectory}/mail/gideonwolfecom/";

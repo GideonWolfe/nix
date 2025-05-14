@@ -163,7 +163,7 @@ with config.lib.stylix.colors.withHashtag;
         };
 
         clock = {
-          weather = { key = "${config.age.secrets.weatherapi_api_key.path}"; };
+          weather = { key = "${config.sops.secrets."weatherapi/apikey.json".path}"; };
         };
 
       };

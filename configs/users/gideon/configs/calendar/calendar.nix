@@ -27,11 +27,19 @@ with config.lib.stylix.colors.withHashtag;
         vdirsyncer = {
           enable = true;
           clientIdCommand =
-            [ "cat" "${config.age.secrets.vdirsyncer_google_client_id.path}" ];
+            #[ "cat" "${config.age.secrets.vdirsyncer_google_client_id.path}" ];
+            [
+              "cat"
+              "${config.sops.secrets."wolfegideongmail/client_id".path}"
+            ];
           clientSecretCommand = [
             "cat"
-            "${config.age.secrets.vdirsyncer_google_client_secret.path}"
+            "${config.sops.secrets."wolfegideongmail/client_secret".path}"
           ];
+          #               [
+          #   "cat"
+          #   "${config.age.secrets.vdirsyncer_google_client_secret.path}"
+          # ];
           # set remote calendar as source of truth
           conflictResolution = "remote wins";
           collections = [ "from a" "from b" ];
