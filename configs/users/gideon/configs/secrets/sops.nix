@@ -9,6 +9,14 @@
     gnupg.home = "${config.home.homeDirectory}/.gnupg";
 
     secrets."freshrss/apikey" = { };
+    secrets."weatherapi/apikey.json" = { };
+    secrets."wolfegideongmail/client_secret" = { };
+    secrets."wolfegideongmail/client_id" = { };
+    secrets."wolfegideongmail/mbsync_password" = { };
+    secrets."gideonwolfexyz/mbsync_password" = { };
+    secrets."gideonwolfecom/mbsync_password" = { };
+    secrets."irc/libera/nick" = { };
+    secrets."irc/libera/password" = { };
   };
 
 }
