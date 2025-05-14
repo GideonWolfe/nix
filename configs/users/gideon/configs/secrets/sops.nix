@@ -23,6 +23,9 @@
     secrets."termsonic/termsonic.toml" = {
       path = "${config.home.homeDirectory}/.config/termsonic.toml";
     };
+    secrets."ssh/gideon_ssh_sk/private_key" = {
+      path = "${config.home.homeDirectory}/.ssh/gideon_ssh_sk";
+    };
   };
 
 }
