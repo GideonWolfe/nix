@@ -17,6 +17,9 @@
     secrets."gideonwolfecom/mbsync_password" = { };
     secrets."irc/libera/nick" = { };
     secrets."irc/libera/password" = { };
+    secrets."irc/weechat/sec.conf" = {
+      path = "${config.home.homeDirectory}/.config/weechat/sec.conf";
+    };
   };
 
 }

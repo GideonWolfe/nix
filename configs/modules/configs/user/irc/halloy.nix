@@ -15,7 +15,7 @@ with config.lib.stylix.colors.withHashtag;
       nickname = "demoncore"
       username = "demoncore"
       realname = "demoncore"
-      nick_password_file = "${config.home.homeDirectory}/.config/halloy/password"
+      nick_password_file = "${config.sops.secrets."irc/libera/password".path}"
       server = "irc.libera.chat"
       port = 6697
       channels = [
