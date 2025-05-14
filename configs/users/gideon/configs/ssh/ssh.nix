@@ -10,6 +10,7 @@
         hostname = "github.com";
         #TODO: a better way to reference this
         identityFile = [
+          "${config.home.homeDirectory}/.ssh/gideon_ssh_sk"
           "/home/gideon/nix/configs/users/gideon/configs/ssh/keys/github-nixos-tester"
         ];
         #[ "/home/gideon/nix/user/configs/ssh/keys/github-nixos-tester" ];
