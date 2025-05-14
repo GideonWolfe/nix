@@ -294,6 +294,12 @@
           #"cat ${config.age.secrets.mbsync_gideonwolfecom_password.path}";
           "cat ${config.sops.secrets."gideonwolfecom/mbsync_password".path}";
 
+        gpg = {
+          key = builtins.readFile ../gideon_pub.asc;
+          signByDefault = true;
+          encryptByDefault = false;
+        };
+
         smtp = {
           host = "mail.privateemail.com";
           port = 587;
