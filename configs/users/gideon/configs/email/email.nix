@@ -295,7 +295,9 @@
           "cat ${config.sops.secrets."gideonwolfecom/mbsync_password".path}";
 
         gpg = {
-          key = builtins.readFile ../gideon_pub.asc;
+          #key = builtins.readFile ../gideon_pub.asc;
+                    #key = "gideon@gideonwolfe.com";
+          key = "538305FABF463DE5";
           signByDefault = true;
           encryptByDefault = false;
         };

@@ -15,11 +15,6 @@
   #
   stylix.targets = {
     firefox = { profileNames = [ "default" ]; };
-    # testing disabling bc it should be on by default
-    #zathura = { enable = true; };
-    # testing disabling bc it should be on by default
-    #nixvim = { enable = true; };
-    #hyprland = { enable = true; };
     # It doesn't really use enough colors! I set them manually
     spicetify = { enable = false; };
   };

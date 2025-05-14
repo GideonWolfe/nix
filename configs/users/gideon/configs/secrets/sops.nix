@@ -20,6 +20,9 @@
     secrets."irc/weechat/sec.conf" = {
       path = "${config.home.homeDirectory}/.config/weechat/sec.conf";
     };
+    secrets."termsonic/termsonic.toml" = {
+      path = "${config.home.homeDirectory}/.config/termsonic.toml";
+    };
   };
 
 }

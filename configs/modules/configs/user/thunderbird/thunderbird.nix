@@ -12,6 +12,8 @@ with config.lib.stylix.colors.withHashtag;
         #name = "default";
         isDefault = true;
 
+        withExternalGnupg = true;
+
         settings = {
           # Enable userChrome customizations
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
@@ -47,6 +49,8 @@ with config.lib.stylix.colors.withHashtag;
           # Later Tag
           "mailnews.tags.$label5.color" = "${base0E}";
 
+          "mail.openpgp.allow_external_gnupg" = true;
+          "mail.openpgp.fetch_pubkeys_from_gnupg" = true;
         };
 
         userChrome = ''
