@@ -88,10 +88,6 @@
               home-manager.users.gideon.imports = [
                 ./configs/users/gideon/home.nix
                 ./configs/modules/configs/user/laptop-hyprpanel-layout/laptop-hyprpanel-layout.nix
-                # agenix.homeManagerModules.age
-                # nixvim.homeManagerModules.nixvim
-                # spicetify-nix.homeManagerModules.default
-                # hyprpanel.homeManagerModules.hyprpanel
               ];
             }
           ];

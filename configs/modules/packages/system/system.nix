@@ -15,6 +15,7 @@
 
     # Agenix client for secret management
     inputs.agenix.packages."${system}".default
+    sops
 
     # Yubikey stuff
     yubioath-flutter # Yubikey authenticator/manager

@@ -9,7 +9,8 @@ with config.lib.stylix.colors.withHashtag;
             urls-source "freshrss"
             freshrss-url "https://rss.gideonwolfe.xyz/api/greader.php"
             freshrss-login "gideon"
-            freshrss-passwordfile "${config.home.homeDirectory}/.secrets/rss/freshrss_api_key"
+            #freshrss-passwordfile "${config.home.homeDirectory}/.secrets/rss/freshrss_api_key"
+            freshrss-passwordfile "${config.sops.secrets."freshrss/apikey".path}"
 
 # -- feeds ---------------------------------------------------------------------
 

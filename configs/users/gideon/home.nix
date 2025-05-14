@@ -20,6 +20,8 @@ in {
     # only the ones readable by this user will be generated
     ../../secrets/user_secrets.nix
 
+    ./configs/secrets/sops.nix
+
     ############
     # PACKAGES #
     ############

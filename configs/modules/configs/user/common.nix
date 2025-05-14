@@ -10,6 +10,7 @@
     inputs.nixvim.homeManagerModules.nixvim
     inputs.spicetify-nix.homeManagerModules.default
     inputs.hyprpanel.homeManagerModules.hyprpanel
+    inputs.sops-nix.homeManagerModules.sops
 
     # TODO remove we just need waybar to build cuz it uses the secret
     ../../../secrets/user_secrets.nix
