@@ -24,6 +24,22 @@
         ];
         user = "overseer";
       };
+      laptoptest = {
+        hostname = "192.168.0.77";
+        #port = 2736;
+        identityFile = [
+          #"/home/gideon/nix/configs/users/gideon/configs/ssh/keys/server-ssh"
+          "${config.home.homeDirectory}/.ssh/gideon_ssh_sk"
+        ];
+        #user = "gideon";
+      };
     };
+  };
+
+  # handle symlinking my public key to the SSH folder
+  home.file.gideon_ssh_sk_pub = {
+    enable = true;
+    source = ./gideon_ssh_sk.pub;
+    target = "${config.home.homeDirectory}/.ssh/gideon_ssh_sk.pub";
   };
 }
