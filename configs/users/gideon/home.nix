@@ -117,6 +117,8 @@ in {
 
     ../../modules/keys/ssh.nix
     ./configs/ssh/ssh.nix
+
+    ./configs/gpg/gpg.nix
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
