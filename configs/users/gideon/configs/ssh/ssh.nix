@@ -21,7 +21,8 @@
         #hostname = "${builtins.readFile config.age.secrets.ssh_athena_ip.path}";
         port = 2736;
         identityFile = [
-          "/home/gideon/nix/configs/users/gideon/configs/ssh/keys/server-ssh"
+          "${config.home.homeDirectory}/.ssh/gideon_ssh_sk"
+          #"/home/gideon/nix/configs/users/gideon/configs/ssh/keys/server-ssh"
         ];
         user = "overseer";
       };
