@@ -70,7 +70,8 @@ with config.lib.stylix.colors.withHashtag;
 
       compose_format = ''"[ %l] [ %a]%>─"'';
 
-      attach_format = ''"%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"'';
+      #attach_format = ''"%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"'';
+      attach_format = ''"%u%D  %T%-75.75d %<T?&   > %5s · %m/%M"'';
 
       # Sidebar options
       #BUG: this setting ignored

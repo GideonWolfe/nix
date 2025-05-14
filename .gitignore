@@ -1,5 +1,4 @@
 configs/users/*/configs/ssh/keys/*
-*.pub
 *.css
 
 #*.png
