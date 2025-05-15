@@ -10,4 +10,5 @@
       PasswordAuthentication = true;
     };
   };
+  programs.ssh.startAgent = true;
 }

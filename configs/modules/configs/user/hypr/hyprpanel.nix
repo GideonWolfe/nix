@@ -66,16 +66,16 @@ with config.lib.stylix.colors.withHashtag;
           showWsIcons = true;
           showApplicationIcons = false;
           # workspaceIconMap = {
-            #   "1" = "";
-            #   "2"= "";
-            #   "3"= "";
-            #   "4"= "";
-            #   "5"= "";
-            #   "6"= "";
-            #   "7"= "";
-            #   "8"= "";
-            #   "9"= "";
-            #   "10"= "";
+          #   "1" = "";
+          #   "2"= "";
+          #   "3"= "";
+          #   "4"= "";
+          #   "5"= "";
+          #   "6"= "";
+          #   "7"= "";
+          #   "8"= "";
+          #   "9"= "";
+          #   "10"= "";
           # };
         };
         # Volume module
@@ -163,7 +163,10 @@ with config.lib.stylix.colors.withHashtag;
         };
 
         clock = {
-          weather = { key = "${config.sops.secrets."weatherapi/apikey.json".path}"; };
+          weather = {
+            key = "${config.sops.secrets."weatherapi/apikey.json".path}";
+            location = "New York";
+          };
         };
 
       };

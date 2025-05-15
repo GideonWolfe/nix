@@ -63,6 +63,9 @@
     pkgs.bitwarden-desktop # connects to vaultwarden
 
     pkgs.lock # perform arbitrary encrypt/decrypt/signing with PGP keys
+    pkgs.gpg-tui # manage GnuPG through the terminal 
+    pkgs.sshs # TUI for opening SSH connections
+    pkgs.kleopatra # general certificate/encryption suite
 
     # Emoji selector
     pkgs.wofi-emoji
