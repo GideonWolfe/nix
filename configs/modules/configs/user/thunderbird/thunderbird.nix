@@ -27,6 +27,10 @@ with config.lib.stylix.colors.withHashtag;
           # Force for all messages
           "browser.display.document_color_use" = 2;
 
+          # Compose view colors
+          "msgcompose.background_color" = "${base01}";
+          "msgcompose.text_color" = "${base05}";
+
           # Link colors
           "layout.css.visited_links_enabled" = true;
           "browser.visited_color" = "${base0E}";
@@ -49,6 +53,7 @@ with config.lib.stylix.colors.withHashtag;
           # Later Tag
           "mailnews.tags.$label5.color" = "${base0E}";
 
+          # BUG: not working so great
           "mail.openpgp.allow_external_gnupg" = true;
           "mail.openpgp.fetch_pubkeys_from_gnupg" = true;
         };
@@ -61,12 +66,16 @@ with config.lib.stylix.colors.withHashtag;
             --primary-color: ${base0D} !important;
             --primary-color-hover: ${base0B} !important;
             --btn-color: ${base05} !important;
+            --button-background-color: ${base01} !important;
+            --button-border-color: ${base0B} !important;
             --btn-bg: ${base01} !important;
             --btn-bg-hover: ${base00} !important;
             --popup-bg: ${base02} !important;
             --primary: ${base0D} !important;
             --layout-background-0: ${base00} !important;
             --layout-background-1: ${base01} !important;
+            --layout-background-2: ${base00} !important;
+            --layout-background-3: ${base00} !important;
             --layout-border-0: ${base01} !important;
             --layout-color-1: ${base05} !important;
             --spaces-bg-color: ${base01} !important;
@@ -136,7 +145,34 @@ with config.lib.stylix.colors.withHashtag;
             --search-bar-border-color: ${base0B} !important;
             --search-focus-outline-color: ${base0E} !important;
 
+            /* Calendar View Stuff */
+            /* BUG: being overriden by main calendar css */
+            --mmMainColor: ${base05} !important;
+            --mmMainBackground: ${base01} !important;
+            --mmMainBorderColor: ${base06} !important;
+            --mmBoxBackground: ${base00} !important;
+            --mmBoxBorderColor: ${base00} !important;
+            --mmBoxItemColor: ${base0D} !important;
+            --mmDayColor: ${base05} !important;
+            --mmDayOtherColor: ${base04} !important;
+            --mmDayWeekColor: ${base0B} !important;
+            --mmDayTodayColor: ${base0D} !important;
+            --mmDaySelectedColor: ${base0E} !important;
+            --mmDaySelectedTodayColor: color-mix(in srgb, ${base0F} 20%, transparent) !important;
+            --calendar-view-toggle-background: ${base00} !important;
+            --calendar-view-toggle-border-color: ${base0D} !important;
+            --viewTimeBoxColor: ${base0B} !important;
           }
+
+          /* indicator of current time of day on cal */
+          .multiday-timebar-now-indicator {
+              border: 2px solid ${base08} !important;
+          }
+          .multiday-grid.multiday-grid-rotated .timeIndicator,
+          .multiday-grid:not(.multiday-grid-rotated) .timeIndicator {
+              border-block-start: 2px solid ${base08} !important;
+          }
+
 
           /* star button for emails when starred*/
           button.email-action-flagged {
