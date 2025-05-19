@@ -17,5 +17,8 @@
     firefox = { profileNames = [ "default" ]; };
     # It doesn't really use enough colors! I set them manually
     spicetify = { enable = false; };
+    # TODO: enable on 25.05
+    # default is false
+        #qt.enable = true;
   };
 }
