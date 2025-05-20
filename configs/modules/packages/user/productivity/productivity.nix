@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
+let hackernews-tui = pkgs.callPackage ./hackernews-tui.nix { };
 
-{
+in {
   home.packages = [
 
     #pkgs.kdePackages.umbrello # UML modeler
@@ -63,7 +64,7 @@
     pkgs.bitwarden-desktop # connects to vaultwarden
 
     pkgs.lock # perform arbitrary encrypt/decrypt/signing with PGP keys
-    pkgs.gpg-tui # manage GnuPG through the terminal 
+    pkgs.gpg-tui # manage GnuPG through the terminal
     pkgs.sshs # TUI for opening SSH connections
     pkgs.kleopatra # general certificate/encryption suite
 
@@ -143,6 +144,8 @@
     # Dashboards
     pkgs.wtf
     pkgs.sampler
+
+    hackernews-tui
 
   ];
 }

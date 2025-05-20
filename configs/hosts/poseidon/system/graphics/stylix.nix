@@ -6,7 +6,7 @@
 
     enable = true;
 
-    image = ../../../../../wallpapers/leaves_plant_bw_167185_1920x1080.jpg;
+    image = ../../../../../wallpapers/FzrFRrt.jpg;
 
     base16Scheme =
       "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";

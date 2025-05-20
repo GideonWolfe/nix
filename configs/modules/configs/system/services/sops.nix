@@ -9,7 +9,8 @@
   sops = {
     # Tell SOPS where to find secrets
     # This will be the same on every system
-    defaultSopsFile = ../../../../secrets/secrets.yaml;
+    #defaultSopsFile = ../../../../secrets/secrets.yaml;
+    defaultSopsFile = ../../../../secrets/gideon_secrets.yaml;
 
     age = {
       # Tell SOPS where to find the host private key
@@ -25,6 +26,7 @@
 
     };
 
-    secrets = { hello = { }; };
+    #secrets = { hello = { }; };
+    secrets."freshrss/apikey" = { };
   };
 }

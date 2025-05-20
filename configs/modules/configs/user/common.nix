@@ -120,5 +120,6 @@
     ./astrolog/astrolog.nix
     ./shortwave/shortwave.nix
     ./sdrpp/sdrpp.nix
+    ./hackernews-tui/hackernews-tui.nix
   ];
 }
