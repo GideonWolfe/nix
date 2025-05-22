@@ -11,7 +11,7 @@ in rustPlatform.buildRustPackage {
     hash = "sha256-p2MhVM+dbNiWlhvlSKdwXE37dKEaE2JCmT1Ari3b0WI=";
   };
 
-  cargoHash = "sha256-nP/xGUxeNGtcTYdyDxEWeO/EW2ChB8QDteE3rCWFHEA=";
+  cargoHash = "sha256-KuqAyuU/LOFwvvfplHqq56Df4Dkr5PkUK1Fgeaq1REs=";
 
   meta = {
     description = "A Terminal UI to browse Hacker News";

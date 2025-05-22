@@ -6,7 +6,6 @@
     #############
     # GEOGRAPHY #
     #############
-    pkgs.marble # virtual globe
     pkgs.gnome-maps
     #pkgs.mapscii # tui braille map
     pkgs.globe-cli # TUI globe

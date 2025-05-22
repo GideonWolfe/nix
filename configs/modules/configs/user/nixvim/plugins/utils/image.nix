@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins.image = {
     enable = true;
-    backend = "kitty";
+    settings.backend = "kitty";
   };
 }

@@ -51,7 +51,7 @@ in {
     pkgs.rtl-sdr
     pkgs.gqrx
     pkgs.welle-io # DAB/DAB+ decoding (internet radio)
-    #adsb_deku
+    adsb_deku
     pkgs.unixcw # play a text file as morse code
   ];
 }

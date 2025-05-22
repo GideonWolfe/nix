@@ -40,7 +40,7 @@ in {
     #pkgs.zanshin
     pkgs.dijo
     pkgs.gtg # Getting Things GNOME (offline task manager)
-    pkgs.planify # GTK task manager with nextcloud and todoist support
+        #pkgs.planify # GTK task manager with nextcloud and todoist support
     pkgs.errands # official GNOME task manager with nextcloud and ics support
 
     ############
@@ -66,7 +66,7 @@ in {
     pkgs.lock # perform arbitrary encrypt/decrypt/signing with PGP keys
     pkgs.gpg-tui # manage GnuPG through the terminal
     pkgs.sshs # TUI for opening SSH connections
-    pkgs.kleopatra # general certificate/encryption suite
+    pkgs.kdePackages.kleopatra # general certificate/encryption suite
 
     # Emoji selector
     pkgs.wofi-emoji
@@ -106,13 +106,15 @@ in {
     # couple things to access dconf settings and convert them to nix
     pkgs.dconf2nix
     pkgs.dconf-editor
+    pkgs.nix-search-tv # fuzzy search nix packages
+    pkgs.television # general purpose Fuzzy Finder, should be moved
 
     #########
     # PHOTO #
     #########
     pkgs.exif # manipulate photo metadata
     pkgs.exiftool # manipulate photo metadata
-    pkgs.kgeotag # standalone geotag editor/viewer
+        #pkgs.kgeotag # standalone geotag editor/viewer #BUG: fails bc marble wont buld
     pkgs.photini # GUI for viewing/editing photo metadata
     pkgs.gifsicle # manipulate gif metadata
     pkgs.gnome-frog # OCR tool
@@ -142,7 +144,7 @@ in {
     pkgs.lmstudio # LLM GUI
 
     # Dashboards
-    pkgs.wtf
+    pkgs.wtfutil
     pkgs.sampler
 
     hackernews-tui

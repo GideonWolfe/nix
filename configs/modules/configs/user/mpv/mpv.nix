@@ -6,7 +6,8 @@ with config.lib.stylix.colors.withHashtag;
   programs.mpv = {
     enable = true;
     scripts = [ pkgs.mpvScripts.mpris ];
-    config = {
+    # BUG: home manager module was interfering
+    config = lib.mkForce {
       background-color = "${base00}";
       osd-back-color = "${base01}";
       osd-border-color = "${base0E}";

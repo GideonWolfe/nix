@@ -7,7 +7,7 @@
 		#############
 		# CHEMISTRY #
 		#############
-		pkgs.kalzium # Periodic table
+		pkgs.kdePackages.kalzium # Periodic table
 		pkgs.pymol # molecular graphics tool
 		pkgs.openmolcas # quantum chemistry software
 		pkgs.chemtool # draw chemical structures
