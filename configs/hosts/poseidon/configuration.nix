@@ -83,7 +83,8 @@
     ../../modules/configs/system/services/restic.nix
 
     # TESTING SOPS
-    ../../modules/configs/system/services/sops.nix
+        #../../modules/configs/system/services/sops.nix
+    ./system/system/sops.nix
 
     ############
     # PACKAGES #

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -163,7 +163,7 @@ with config.lib.stylix.colors.withHashtag;
 
         clock = {
           weather = {
-            key = "${config.sops.secrets."weatherapi/apikey.json".path}";
+            key = "${osConfig.sops.secrets."weatherapi/apikey.json".path}";
             location = "New York";
           };
         };

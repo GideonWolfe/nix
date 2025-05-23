@@ -15,17 +15,17 @@
 
     fonts = {
       serif = {
-        package = pkgs.nerdfonts;
+        package = pkgs.nerd-fonts.hack;
         name = "Hack Nerd Font";
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts;
+        package = pkgs.nerd-fonts.hack;
         name = "Hack Nerd Font";
       };
 
       monospace = {
-        package = pkgs.nerdfonts;
+        package = pkgs.nerd-fonts.hack;
         name = "Hack Nerd Font Mono";
       };
 

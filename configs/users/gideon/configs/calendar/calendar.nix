@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -30,11 +30,13 @@ with config.lib.stylix.colors.withHashtag;
             #[ "cat" "${config.age.secrets.vdirsyncer_google_client_id.path}" ];
             [
               "cat"
-              "${config.sops.secrets."wolfegideongmail/client_id".path}"
+                            #"${config.sops.secrets."wolfegideongmail/client_id".path}"
+              "${osConfig.sops.secrets."wolfegideongmail/client_id".path}"
             ];
           clientSecretCommand = [
             "cat"
-            "${config.sops.secrets."wolfegideongmail/client_secret".path}"
+                        #"${config.sops.secrets."wolfegideongmail/client_secret".path}"
+            "${osConfig.sops.secrets."wolfegideongmail/client_secret".path}"
           ];
           #               [
           #   "cat"

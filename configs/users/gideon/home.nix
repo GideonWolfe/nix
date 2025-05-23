@@ -69,7 +69,7 @@ in {
     ../../modules/configs/user/common.nix
 
     # Sops secret definitions
-    ./configs/secrets/sops.nix
+        #./configs/secrets/sops.nix
 
     # Personal SSH config
     ./configs/ssh/ssh.nix

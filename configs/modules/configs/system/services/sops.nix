@@ -10,7 +10,9 @@
     # Tell SOPS where to find secrets
     # This will be the same on every system
     #defaultSopsFile = ../../../../secrets/secrets.yaml;
-    defaultSopsFile = ../../../../secrets/gideon_secrets.yaml;
+    #defaultSopsFile = ../../../../secrets/gideon_secrets.yaml;
+
+    gnupg.sshKeyPaths = [ ];
 
     age = {
       # Tell SOPS where to find the host private key
@@ -25,8 +27,5 @@
       generateKey = true;
 
     };
-
-    #secrets = { hello = { }; };
-    secrets."freshrss/apikey" = { };
   };
 }
