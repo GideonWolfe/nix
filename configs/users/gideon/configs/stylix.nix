@@ -19,6 +19,6 @@
     spicetify = { enable = false; };
     # TODO: enable on 25.05
     # default is false
-        #qt.enable = true;
+    qt.enable = true;
   };
 }

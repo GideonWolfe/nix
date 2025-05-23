@@ -79,7 +79,7 @@
     netscanner # network scanner
     wavemon # network monitor
     flent # Advanced network tester CLI and GUI
-    netperf #util to measure network performance (required by flent)
+    netperf # util to measure network performance (required by flent)
     http-getter # (required by flent)
     trippy
     ktop # kubernetes monitor
@@ -96,7 +96,7 @@
     hddtemp # display hard disk temps
     pkgtop # TUI package monitor
     cpupower-gui # GUI for tweaking CPU
-    hardinfo # GUI for devices/hardware
+    hardinfo2 # GUI for devices/hardware
     hwinfo # get info about hardware
     resources # hardware monitoring GUI
     zenith # another TUI system monitor
@@ -177,10 +177,10 @@
     ntfs3g # NTFS driver
     gparted
     gnome-disk-utility
-    diskonaut # disk usage analyzer TUI
+    gdu # disk usage analyzer TUI
     baobab # disk usage analyzer GUI
     dysk # better df
-    ventoy # create bootable USBs
+        #ventoy # create bootable USBs #INFO: MARKED INSECURE
     impression # GNOME util to quickly burn ISOs
     simple-mtpfs # mount cell phone filesystems
     dosfstools # drivers for DOS filesystems
@@ -224,7 +224,7 @@
     wl-clipboard # wayland xclip
 
     # Clipboard history tool
-    clipse #TUI
+    clipse # TUI
 
     # Icon set
     #papirus-icon-theme
@@ -236,7 +236,7 @@
 
   fonts.packages = with pkgs; [
     # collection of patched fonts
-    nerdfonts
+    nerd-fonts.hack
     #noto-fonts
     # symbols and emoji (outlined)
     #symbola

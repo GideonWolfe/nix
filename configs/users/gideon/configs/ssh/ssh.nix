@@ -5,6 +5,8 @@
 
     enable = true;
 
+    #addKeysToAgent = "yes";
+
     matchBlocks = {
       github = {
         hostname = "github.com";
@@ -19,9 +21,7 @@
       homeserver = {
         hostname = "66.108.176.86";
         port = 2736;
-        identityFile = [
-          "${config.home.homeDirectory}/.ssh/gideon_ssh_sk"
-        ];
+        identityFile = [ "${config.home.homeDirectory}/.ssh/gideon_ssh_sk" ];
         user = "overseer";
       };
       laptoptest = {
@@ -33,6 +33,10 @@
         ];
         #user = "gideon";
         forwardAgent = true;
+        extraOptions = {
+                    #IdentityAgent = "${ builtins.getEnv "XDG_RUNTIME_DIR" }/yubikey-agent/yubikey-agent.sock";
+          IdentityAgent = "/run/user/1000/yubikey-agent/yubikey-agent.sock";
+        };
       };
     };
   };

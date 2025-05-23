@@ -3,12 +3,12 @@
 {
   services.openssh = {
     enable = true;
-    ports = [2736];
+    ports = [ 2736 ];
     openFirewall = true;
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = true;
     };
   };
-  programs.ssh.startAgent = true;
+  #programs.ssh.startAgent = true;
 }

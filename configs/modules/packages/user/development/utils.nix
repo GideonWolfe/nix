@@ -19,6 +19,7 @@ in {
     pkgs.git
     pkgs.lazygit # TUI git interface
     pkgs.gitg # simple GNOME git repo viewer
+    pkgs.sourcegit # GUI GIT client
     pkgs.meld # GUI diff/merge tool
     #pkgs.gh # CLI/TUI for github
     #pkgs.gh-dash # dashboard for gh

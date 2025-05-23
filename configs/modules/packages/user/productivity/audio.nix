@@ -17,7 +17,8 @@
     pkgs.scope-tui # TUI oscilloscope/vectorscope.spectroscope also a music visualizer
     pkgs.catnip # more visualizers
     pkgs.cli-visualizer # another visualizer
-    pkgs.projectm # more visualizers
+    pkgs.projectm-sdl-cpp # more visualizers
+        #pkgs.libprojectm might not be needed
     pkgs.glava
     pkgs.blanket # ambient noise player
     pkgs.piper-tts # Advanced text to speech

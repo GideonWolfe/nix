@@ -192,7 +192,7 @@ with config.lib.stylix.colors;
         "$mod, W, exec, hyprctl clients | grep 'org.gnome.Weather' && hyprctl dispatch togglespecialworkspace weather || gnome-weather &"
 
         # toggle for workspace overview
-        "SUPER, grave, hyprexpo:expo, toggle" # can be: toggle, off/disable or on/enable
+        #"SUPER, grave, hyprexpo:expo, toggle" # can be: toggle, off/disable or on/enable
         #"SUPER, grave, overview:toggle"
       ];
 

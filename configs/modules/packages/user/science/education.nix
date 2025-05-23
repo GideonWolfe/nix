@@ -8,7 +8,7 @@
 		#############
 		pkgs.anki # flash card system
 		pkgs.aldo # Learn morse code
-		pkgs.minuet # Learn music theory
+		pkgs.kdePackages.minuet # Learn music theory
 		pkgs.solfege # Learn music theory
 	];
 }

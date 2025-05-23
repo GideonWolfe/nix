@@ -90,7 +90,7 @@
     #############################
     # Essential Program Configs #
     #############################
-    ./nixvim/nixvim.nix
+        #./nixvim/nixvim.nix
 
     ################################
     # NonEssential Program Configs #
@@ -121,5 +121,7 @@
     ./shortwave/shortwave.nix
     ./sdrpp/sdrpp.nix
     ./hackernews-tui/hackernews-tui.nix
+    ./television/television.nix
+    ./sourcegit/sourcegit.nix
   ];
 }

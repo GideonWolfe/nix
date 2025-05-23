@@ -10,7 +10,7 @@ in {
     pkgs.jmol # Java Molecular viewer
     pkgs.seaview # DNA alignment and phylogeny gui
     pkgs.gatk # lots of biology utilities
-    asciiMol
+        #asciiMol
 
   ];
 }

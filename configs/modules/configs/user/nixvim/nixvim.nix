@@ -23,7 +23,7 @@ with config.lib.stylix.colors.withHashtag;
     ./plugins/ui/lspkind.nix
     ./plugins/ui/lualine.nix
     ./plugins/ui/noice.nix
-    ./plugins/ui/nvim-colorizer.nix
+    ./plugins/ui/colorizer.nix
     ./plugins/ui/nvim-tree.nix
     ./plugins/ui/nvim-ufo.nix
     ./plugins/ui/rainbow-delimiters.nix
