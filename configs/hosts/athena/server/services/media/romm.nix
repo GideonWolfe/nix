@@ -27,7 +27,8 @@
       # This was needed to make the port bind correctly when exposing to WAN
       "traefik.http.services.romm.loadbalancer.server.port" = "8080";
     };
-    environmentFiles = [ config.age.secrets.romm_env.path ];
+    #environmentFiles = [ config.age.secrets.romm_env.path ];
+    environmentFiles = [ config.sops.secrets."romm/env".path ];
   };
 
   virtualisation.oci-containers.containers.romm-db = {

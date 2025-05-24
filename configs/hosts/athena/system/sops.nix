@@ -7,6 +7,7 @@
 
     # importing the definitions for which secrets we want to deploy
     ../../../secrets/overseer_secrets.nix
+    ../../../secrets/athena_secrets.nix
   ];
 
   #INFO: if the host has host-specific secrets, it should be set to that file

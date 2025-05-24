@@ -2,7 +2,8 @@
   networking.firewall = { allowedTCPPorts = [ 4232 ]; };
   services.paperless = {
     enable = true;
-    passwordFile = config.age.secrets.paperless_admin_pass.path;
+    #passwordFile = config.age.secrets.paperless_admin_pass.path;
+    passwordFile = config.sops.secrets."paperless/admin_pass".path;
     mediaDir = "/pool/data/media/documents/";
     port = 4234;
     #address = "pngx.gideonwolfe.xyz"; # to access over lan

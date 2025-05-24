@@ -9,8 +9,8 @@
 
     group = "docker";
 
-    #environmentFiles = [ /secrets/services/traefik/.env ];
-    environmentFiles = [ config.age.secrets.traefik_env.path ];
+    #environmentFiles = [ config.age.secrets.traefik_env.path ];
+    environmentFiles = [ config.sops.secrets."traefik/env".path ];
 
     # Traefik static configuration
     staticConfigOptions = {
@@ -89,7 +89,8 @@
                 enabled = "true";
                 logLevel = "DEBUG";
                 crowdsecLapiKeyFile =
-                  "${config.age.secrets.crowdsec_api_key.path}";
+                  #"${config.age.secrets.crowdsec_api_key.path}";
+                  "${config.sops.secrets."crowdsec/api_key".path}";
                 crowdsecMode = "live";
                 crowdsecLapiHost = "192.168.0.158:4223";
               };
