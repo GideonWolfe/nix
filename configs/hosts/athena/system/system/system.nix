@@ -2,22 +2,22 @@
 
 {
   #TODO: template this out, possibly reference variable?
-  networking.hostName = "athena"; # Define your hostname.
+    #networking.hostName = "athena"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   #networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "America/New_York";
+    #time.timeZone = "America/New_York";
   #services.automatic-timezoned.enable = true;
 
   # Enable fish shell
   #programs.fish.enable = true;
 
   # Configure system level fonts
-  fonts.fontconfig = {
-    defaultFonts = { emoji = [ "Noto Emoji" "Symbola" ]; };
-  };
+  # fonts.fontconfig = {
+  #   defaultFonts = { emoji = [ "Noto Emoji" "Symbola" ]; };
+  # };
 
   # Option for enabling CKB next
   # TODO build a conditional to only run if corsair detected

@@ -32,6 +32,7 @@
     ./services/hardware/rtl-sdr.nix
     ./services/hardware/printing.nix
     ./services/hardware/ddccontrol.nix
+    ./services/storage/udisks2.nix
 
     # Virtualization and Docker
     ./services/virtualization/virtualization.nix

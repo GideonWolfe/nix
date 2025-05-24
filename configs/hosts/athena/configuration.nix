@@ -13,24 +13,33 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
+    # Common system configs
+    ../../modules/configs/system/common.nix
+
+    # Secrets
+    ./system/sops.nix
+
     # Enable restic for backups
     ../../modules/configs/system/services/restic.nix
 
+    # System Wide Theming
+    ./system/stylix.nix
+
     # General System Settings
-    ./system/system/system.nix
+    #./system/system/system.nix
 
     # Secrets
     #./secrets/secret_defs.nix
     ../../secrets/system_secrets.nix
 
     # SOPS
-    ../../modules/configs/system/services/sops.nix
+    #../../modules/configs/system/services/sops.nix
 
     # Yubikey support
-    ../../modules/configs/system/services/yubikey.nix
+    #../../modules/configs/system/services/yubikey.nix
 
     # Enable GPG
-    ../../modules/configs/system/services/gnupg.nix
+    #../../modules/configs/system/services/gnupg.nix
 
     # Enable snapraid for drives
     ./system/system/snapraid.nix
@@ -40,52 +49,52 @@
 
     # Login manager/greeter
     #./system/services/greeter.nix
-    ../../modules/configs/system/services/login/greeter.nix
+    #../../modules/configs/system/services/login/greeter.nix
 
     # GNOME Keyring
     #./system/services/gnome-keyring.nix
-    ../../modules/configs/system/services/gnome-keyring.nix
+    #../../modules/configs/system/services/gnome-keyring.nix
 
     #smartd hdd health
     ./system/services/smartd.nix
     ./system/services/scrutiny.nix
 
     # System level theming
-    ./system/graphics/stylix.nix
+    #./system/graphics/stylix.nix
 
     # Networking and Bluetooth
     #./system/services/networks/networking.nix
-    ../../modules/configs/system/services/networks/network-manager.nix
+    #../../modules/configs/system/services/networks/network-manager.nix
     #./system/services/networks/bluetooth.nix
-    ../../modules/configs/system/services/networks/bluetooth.nix
+    #../../modules/configs/system/services/networks/bluetooth.nix
 
     ./system/services/networks/ssh.nix
     ./system/services/networks/firewall.nix
 
     # automatically mount external disks
     #./system/services/udisks2.nix
-    ../../modules/configs/system/services/storage/udisks2.nix
+    #../../modules/configs/system/services/storage/udisks2.nix
 
     # Docker
     #./system/services/docker.nix
-    ../../modules/configs/system/services/docker.nix
+    #../../modules/configs/system/services/docker.nix
 
     # Printer support
     #./system/services/printing.nix
-    ../../modules/configs/system/services/printing.nix
+    #../../modules/configs/system/services/printing.nix
 
     # Virtual FS (used to cache album art)
     #./system/services/gvfs.nix
 
     # UI
     #./system/graphics/hyprland.nix
-    ../../modules/configs/system/services/graphics/hyprland.nix
+    #../../modules/configs/system/services/graphics/hyprland.nix
     #./system/graphics/wayland.nix
-    ../../modules/configs/system/services/graphics/wayland.nix
+    #../../modules/configs/system/services/graphics/wayland.nix
 
     # Audio
     #./system/services/audio/pipewire.nix
-    ../../modules/configs/system/services/audio/pipewire.nix
+    #../../modules/configs/system/services/audio/pipewire.nix
 
     ############
     # PACKAGES #
@@ -170,36 +179,31 @@
   #networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  #time.timeZone = "America/New_York";
+  time.timeZone = "America/New_York";
 
-  programs.fish.enable = true;
+  boot.plymouth = {
+    # Enable plymouth on the system
+    enable = true;
+    # Pass in the package of themes we also downloaded
+    themePackages = [ pkgs.adi1090x-plymouth-themes ];
+    # Choose the theme
+    # default is "stylix" but idk how to change it from stylix config
+    # https://github.com/adi1090x/plymouth-themes
+    theme = "motion";
+  };
+
+  #programs.fish.enable = true;
 
   # required for sway according to docs
-  security.polkit.enable = true;
+  #security.polkit.enable = true;
 
   # Required for swaylock to work
   #security.pam.services.swaylock = { text = "	auth include login\n"; };
 
   # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.config.allowUnfree = true;
-
-  # list of programs I want to execute WITHOUT passwd (ie from waybar)
-  security.sudo = {
-    enable = true;
-    extraConfig = ''
-      %wheel	ALL=(root)	NOPASSWD: /run/current-system/sw/bin/light
-    '';
-    # extraRules = [{
-    #
-    #   groups = [ "wheel" ];
-    #   commands = [{
-    #     command = "/run/current-system/sw/bin/iotop";
-    #     options = [ "NOPASSWD" ];
-    #   }];
-    # }];
-  };
+  #nixpkgs.config.allowUnfree = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.overseer = {
@@ -223,14 +227,6 @@
   system.activationScripts.makeTraefikProxyNetwork = ''
     ${pkgs.docker}/bin/docker network create traefik_proxy || true
   '';
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   system.stateVersion = "24.05";
 
