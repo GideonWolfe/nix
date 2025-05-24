@@ -11,7 +11,6 @@
 
   # TODO: optimize and generalize this setup
   users.users.gideon.openssh.authorizedKeys.keys = [
-    "${builtins.readFile
-    ../../../../../users/gideon/configs/ssh/gideon_ssh_sk.pub}"
+    "${builtins.readFile ../../../users/gideon/configs/ssh/gideon_ssh_sk.pub}"
   ];
 }

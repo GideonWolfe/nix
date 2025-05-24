@@ -6,7 +6,7 @@
 
     enable = true;
 
-    image = ../../../../../wallpapers/FzrFRrt.jpg;
+    image = ../../../../wallpapers/FzrFRrt.jpg;
 
     base16Scheme =
       "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";

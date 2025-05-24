@@ -9,23 +9,21 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    # General System Settings
-    #./system/system/system.nix
-
+    # Common system configs
     ../../modules/configs/system/common.nix
 
     # System Wide Theming
-    ./system/graphics/stylix.nix
+    ./system/stylix.nix
 
     # Networking
-    ./system/services/networks/ssh.nix
-    ./system/services/networks/wireguard.nix
+    ./system/ssh.nix
+    ./system/wireguard.nix
+
+    # Secrets
+    ./system/sops.nix
 
     # Local plantuml server
     ../../modules/configs/system/services/plantuml.nix
-
-    # TESTING SOPS
-    ./system/system/sops.nix
 
     ############
     # PACKAGES #
