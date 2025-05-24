@@ -14,7 +14,7 @@
     adi1090x-plymouth-themes
 
     # Agenix client for secret management
-    inputs.agenix.packages."${system}".default
+    #inputs.agenix.packages."${system}".default
     sops
 
     # Yubikey stuff
@@ -180,7 +180,7 @@
     gdu # disk usage analyzer TUI
     baobab # disk usage analyzer GUI
     dysk # better df
-        #ventoy # create bootable USBs #INFO: MARKED INSECURE
+    #ventoy # create bootable USBs #INFO: MARKED INSECURE
     impression # GNOME util to quickly burn ISOs
     simple-mtpfs # mount cell phone filesystems
     dosfstools # drivers for DOS filesystems

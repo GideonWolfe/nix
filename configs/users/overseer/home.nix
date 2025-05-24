@@ -7,7 +7,7 @@
         #inputs.sops-nix.homeManagerModules.sops
 
     # grab gideon's secret defs
-    ../gideon/configs/secrets/sops.nix
+        #../gideon/configs/secrets/sops.nix
     ../gideon/configs/gpg/gpg.nix
 
     ############

@@ -6,14 +6,14 @@
     ###########
     # Modules #
     ###########
-    inputs.agenix.homeManagerModules.age
+    #inputs.agenix.homeManagerModules.age
     inputs.nixvim.homeManagerModules.nixvim
     inputs.spicetify-nix.homeManagerModules.default
     inputs.hyprpanel.homeManagerModules.hyprpanel
-    inputs.sops-nix.homeManagerModules.sops
+    #inputs.sops-nix.homeManagerModules.sops
 
     # TODO remove we just need waybar to build cuz it uses the secret
-        #../../../secrets/user_secrets.nix
+    #../../../secrets/user_secrets.nix
 
     ###############
     # Shell Stuff #

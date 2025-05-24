@@ -24,7 +24,7 @@
     #adi1090x-plymouth-themes
 
     # Agenix client for secret management
-    inputs.agenix.packages."${system}".default
+        #inputs.agenix.packages."${system}".default
 
     # Nix tools
     nix-tree # browse dependencies of nix store
