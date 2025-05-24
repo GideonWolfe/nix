@@ -8,20 +8,13 @@
   #networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "America/New_York";
+    #time.timeZone = "America/New_York";
   #services.automatic-timezoned.enable = true;
 
-  # Enable fish shell
-  #programs.fish.enable = true;
-
   # Configure system level fonts
-  fonts.fontconfig = {
-    defaultFonts = { emoji = [ "Noto Emoji" "Symbola" ]; };
-  };
-
-  # Option for enabling CKB next
-  # TODO build a conditional to only run if corsair detected
-  #hardware.ckb-next.enable = true;
+  # fonts.fontconfig = {
+  #   defaultFonts = { emoji = [ "Noto Emoji" "Symbola" ]; };
+  # };
 
   boot.plymouth = {
     # Enable plymouth on the system

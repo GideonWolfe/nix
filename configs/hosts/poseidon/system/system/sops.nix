@@ -2,9 +2,8 @@
 
 {
   imports = [
-
     # sets up basic stuff like autogenerating key, etc
-    ../../../../modules/configs/system/services/sops.nix
+    ../../../../modules/configs/system/services/security/sops.nix
 
     # importing the definitions for which secrets we want to deploy
     ../../../../secrets/gideon_secrets.nix

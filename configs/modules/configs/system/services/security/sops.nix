@@ -12,6 +12,7 @@
     #defaultSopsFile = ../../../../secrets/secrets.yaml;
     #defaultSopsFile = ../../../../secrets/gideon_secrets.yaml;
 
+    # required to prevent bug from importing wrong keys
     gnupg.sshKeyPaths = [ ];
 
     age = {
