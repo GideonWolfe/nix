@@ -25,8 +25,10 @@
 
     # SOPS
     ../../modules/configs/system/services/sops.nix
+
     # Yubikey support
     ../../modules/configs/system/services/yubikey.nix
+
     # Enable GPG
     ../../modules/configs/system/services/gnupg.nix
 
@@ -37,10 +39,12 @@
     #./system/system/fancontrol.nix
 
     # Login manager/greeter
-    ./system/services/greeter.nix
+    #./system/services/greeter.nix
+    ../../modules/configs/system/services/login/greeter.nix
 
     # GNOME Keyring
-    ./system/services/gnome-keyring.nix
+    #./system/services/gnome-keyring.nix
+    ../../modules/configs/system/services/gnome-keyring.nix
 
     #smartd hdd health
     ./system/services/smartd.nix
@@ -50,29 +54,38 @@
     ./system/graphics/stylix.nix
 
     # Networking and Bluetooth
-    ./system/services/networks/networking.nix
-    ./system/services/networks/bluetooth.nix
+    #./system/services/networks/networking.nix
+    ../../modules/configs/system/services/networks/network-manager.nix
+    #./system/services/networks/bluetooth.nix
+    ../../modules/configs/system/services/networks/bluetooth.nix
+
     ./system/services/networks/ssh.nix
     ./system/services/networks/firewall.nix
 
     # automatically mount external disks
-    ./system/services/udisks2.nix
+    #./system/services/udisks2.nix
+    ../../modules/configs/system/services/storage/udisks2.nix
 
     # Docker
-    ./system/services/docker.nix
+    #./system/services/docker.nix
+    ../../modules/configs/system/services/docker.nix
 
     # Printer support
-    ./system/services/printing.nix
+    #./system/services/printing.nix
+    ../../modules/configs/system/services/printing.nix
 
     # Virtual FS (used to cache album art)
     #./system/services/gvfs.nix
 
     # UI
-    ./system/graphics/hyprland.nix
-    ./system/graphics/wayland.nix
+    #./system/graphics/hyprland.nix
+    ../../modules/configs/system/services/graphics/hyprland.nix
+    #./system/graphics/wayland.nix
+    ../../modules/configs/system/services/graphics/wayland.nix
 
     # Audio
-    ./system/services/audio/pipewire.nix
+    #./system/services/audio/pipewire.nix
+    ../../modules/configs/system/services/audio/pipewire.nix
 
     ############
     # PACKAGES #
