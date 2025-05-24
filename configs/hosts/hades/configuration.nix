@@ -10,73 +10,76 @@
     # CONFIGS #
     ###########
 
-    ../../modules/icons.nix
+    #../../modules/icons.nix
 
     #../../secrets/system_secrets.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
+    # Common system configs
+    ../../modules/configs/system/common.nix
+
     # General System Settings
-    ./system/system/system.nix
+    #./system/system/system.nix
 
     # Login manager/greeter
-    ../../modules/configs/system/services/login/greeter.nix
+    #../../modules/configs/system/services/login/greeter.nix
     #./system/services/greeter.nix
 
     # GNOME Keyring
-    ../../modules/configs/system/services/gnome-keyring.nix
+    #../../modules/configs/system/services/gnome-keyring.nix
     #./system/services/gnome-keyring.nix
 
     # Yubikey support
-    ../../modules/configs/system/services/yubikey.nix
+    #../../modules/configs/system/services/yubikey.nix
     # Enable GPG
-    ../../modules/configs/system/services/gnupg.nix
+    #../../modules/configs/system/services/gnupg.nix
 
     # Virtualization 
-    ../../modules/configs/system/services/virtualization.nix
+    #../../modules/configs/system/services/virtualization.nix
     #./system/services/virtualization.nix
 
     # System level theming
     ./system/graphics/stylix.nix
 
     # Networking and Bluetooth
-    ../../modules/configs/system/services/networks/network-manager.nix
-    ../../modules/configs/system/services/networks/bluetooth.nix
+    #../../modules/configs/system/services/networks/network-manager.nix
+    #../../modules/configs/system/services/networks/bluetooth.nix
     #./system/services/networks/networking.nix
     # ./system/services/networks/bluetooth.nix
     # ./system/services/networks/ssh.nix
     # ./system/services/networks/wireguard.nix
     # ./system/services/networks/firewall.nix
-    ../../modules/configs/system/services/kdeconnect.nix
+    #../../modules/configs/system/services/kdeconnect.nix
     ../../modules/configs/system/services/networks/ssh.nix
 
     # Local Send
-    ../../modules/configs/system/services/localsend.nix
+    #../../modules/configs/system/services/localsend.nix
 
     # Docker
-    ../../modules/configs/system/services/docker.nix
+    #../../modules/configs/system/services/docker.nix
     #./system/services/docker.nix
 
     # Printer support
-    ../../modules/configs/system/services/printing.nix
+    #../../modules/configs/system/services/printing.nix
     #./system/services/printing.nix
 
     # Virtual FS (used to cache album art)
-    ../../modules/configs/system/services/gvfs.nix
+    #../../modules/configs/system/services/gvfs.nix
     #./system/services/gvfs.nix
 
     # Appimage support
-    ../../modules/configs/system/services/appimage.nix
+    #../../modules/configs/system/services/appimage.nix
 
     # UI
-    ../../modules/configs/system/services/graphics/wayland.nix
-    ../../modules/configs/system/services/graphics/hyprland.nix
+    #../../modules/configs/system/services/graphics/wayland.nix
+    #../../modules/configs/system/services/graphics/hyprland.nix
     # ./system/graphics/hyprland.nix
     # ./system/graphics/wayland.nix
 
     # Audio
-    ../../modules/configs/system/services/audio/pipewire.nix
+    #../../modules/configs/system/services/audio/pipewire.nix
     #./system/services/audio/pipewire.nix
 
     # Local plantuml server
@@ -84,23 +87,23 @@
     # ./system/services/plantuml.nix
 
     # Config firewall, etc. for steam
-    ../../modules/configs/system/services/steam.nix
+    #../../modules/configs/system/services/steam.nix
     # ./system/services/steam.nix
 
     # service for configuring gaming mice
-    ../../modules/configs/system/services/ratbagd.nix
+    #../../modules/configs/system/services/ratbagd.nix
     # ./system/services/ratbagd.nix
 
     # adding extensions for nautilus
-    ../../modules/configs/system/nautilus.nix
+    #../../modules/configs/system/nautilus.nix
 
     # service for configuring external display brightness and other settings
-    ../../modules/configs/system/services/ddccontrol.nix
+    #../../modules/configs/system/services/ddccontrol.nix
     # Needed for above to work, but also needed for any i2c dev stuff
-    ../../modules/configs/system/services/i2c.nix
+    #../../modules/configs/system/services/i2c.nix
 
     # Needed for above to work, but also needed for any i2c dev stuff
-    ../../modules/configs/system/services/rtl-sdr.nix
+    #../../modules/configs/system/services/rtl-sdr.nix
 
     # AI stuff
     ../../modules/configs/system/services/ai/sillytavern.nix
@@ -109,7 +112,8 @@
     #../../modules/configs/system/services/restic.nix
 
     # TESTING SOPS
-    ../../modules/configs/system/services/sops.nix
+    #../../modules/configs/system/services/sops.nix
+    ./system/sops.nix
 
     ############
     # PACKAGES #
@@ -152,38 +156,40 @@
 
   networking.hostName = "hades"; # Define your hostname.
 
+  time.timeZone = "America/New_York";
+
   # Enable Fish shell
-  programs.fish.enable = true;
+  #programs.fish.enable = true;
 
   # Give seahorse access to GNOME Keyring
-  programs.seahorse.enable = true;
+  #programs.seahorse.enable = true;
 
   # required for sway according to docs
-  security.polkit.enable = true;
+  #security.polkit.enable = true;
 
   # Required for swaylock to work
-  security.pam.services.swaylock = { text = "	auth include login\n"; };
+  #security.pam.services.swaylock = { text = "	auth include login\n"; };
 
   #hardware.opengl.enable = true;
 
   # enable CKB Next for my corsair keyboard
   hardware.ckb-next.enable = true;
 
-  services.weechat.enable = false;
+  #services.weechat.enable = false;
 
   # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.config.allowUnfree = true;
+  #nixpkgs.config.allowUnfree = true;
 
   # list of programs I want to execute WITHOUT passwd (ie from waybar)
-  security.sudo = {
-    enable = true;
-    # HACK: I wanted to use extrarules but it just refuses to work...
-    extraConfig = ''
-      %wheel	ALL=(root)	NOPASSWD: /run/current-system/sw/bin/light
-    '';
-  };
+  # security.sudo = {
+  #   enable = true;
+  #   # HACK: I wanted to use extrarules but it just refuses to work...
+  #   extraConfig = ''
+  #     %wheel	ALL=(root)	NOPASSWD: /run/current-system/sw/bin/light
+  #   '';
+  # };
 
   # TODO: extract this out so I don't have to update groups on every machine
   # Define a user account. Don't forget to set a password with ‘passwd’.
