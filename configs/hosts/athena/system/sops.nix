@@ -4,10 +4,9 @@
   imports = [
     # sets up basic stuff like autogenerating key, etc
     ../../../modules/configs/system/services/security/sops.nix
-    
 
     # importing the definitions for which secrets we want to deploy
-    ../../../secrets/gideon_secrets.nix
+    ../../../secrets/overseer_secrets.nix
   ];
 
   #INFO: if the host has host-specific secrets, it should be set to that file

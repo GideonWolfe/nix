@@ -10,13 +10,14 @@
 
     enable = true;
     # Increment to upgrade
-    package = pkgs.nextcloud30;
+    #package = pkgs.nextcloud30;
+    package = pkgs.nextcloud31;
 
     # Must match hostname in traefik config
     hostName = "nc.gideonwolfe.xyz";
     config = {
       #adminpassFile = "/home/overseer/.secrets/services/nextcloud/nc_mysql_admin_pass"; 
-      #dbtype = "mysql";
+      dbtype = "sqlite";
       adminpassFile = "/etc/nextcloud-admin-pass";
     };
 
