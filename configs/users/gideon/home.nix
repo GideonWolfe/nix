@@ -9,10 +9,6 @@ in {
 
   imports = [
 
-    # Imports a list of all user based secrets
-    # only the ones readable by this user will be generated
-    #../../secrets/user_secrets.nix
-
     ############
     # PACKAGES #
     ############
@@ -69,7 +65,7 @@ in {
     ../../modules/configs/user/common.nix
 
     # Sops secret definitions
-        #./configs/secrets/sops.nix
+    #./configs/secrets/sops.nix
 
     # Personal SSH config
     ./configs/ssh/ssh.nix

@@ -13,7 +13,7 @@
     inputs.sops-nix.homeManagerModules.sops
 
     # TODO remove we just need waybar to build cuz it uses the secret
-    ../../../secrets/user_secrets.nix
+        #../../../secrets/user_secrets.nix
 
     ###############
     # Shell Stuff #

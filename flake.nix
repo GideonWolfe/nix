@@ -14,11 +14,6 @@
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs = { nixpkgs.follows = "nixpkgs"; };
-    };
-
     # Hyprpanel
     # Adding as flake until an official HM module is merged
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
@@ -54,7 +49,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, agenix, stylix, spicetify-nix, nixvim
+  outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim
     , hyprpanel, sops-nix, ... }@inputs:
     let
       lib = nixpkgs.lib;
@@ -71,7 +66,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             stylix.nixosModules.stylix
-            agenix.nixosModules.default
             ./configs/hosts/hermes/configuration.nix
           ];
         };
@@ -82,7 +76,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             stylix.nixosModules.stylix
-            agenix.nixosModules.default
             ./configs/hosts/poseidon/configuration.nix
 
             # TESTING HM MODULE
@@ -104,7 +97,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             stylix.nixosModules.stylix
-            agenix.nixosModules.default
             sops-nix.nixosModules.sops
             ./configs/hosts/hades/configuration.nix
 
@@ -129,7 +121,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             stylix.nixosModules.stylix
-            #agenix.nixosModules.default
             sops-nix.nixosModules.sops
             ./configs/hosts/athena/configuration.nix
 
@@ -155,7 +146,7 @@
           };
           modules = [
             stylix.homeManagerModules.stylix
-            agenix.homeManagerModules.age
+            #agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
             spicetify-nix.homeManagerModules.default
             hyprpanel.homeManagerModules.hyprpanel
