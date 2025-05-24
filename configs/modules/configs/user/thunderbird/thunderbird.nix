@@ -164,6 +164,17 @@ with config.lib.stylix.colors.withHashtag;
             --viewTimeBoxColor: ${base0B} !important;
           }
 
+
+
+          /* force email reader to be right color */
+	  @media (prefers-color-scheme: dark) and -moz-pref("mail.dark-reader.enabled") {
+	    html {
+	      background-color: ${base00} !important;
+	      color: ${base05} !important;
+	    }
+	  }
+
+
           /* indicator of current time of day on cal */
           .multiday-timebar-now-indicator {
               border: 2px solid ${base08} !important;
@@ -196,6 +207,16 @@ with config.lib.stylix.colors.withHashtag;
               }
             }
           }
+
+
+          /* color of replied arrow card */
+   	 & :is(.subject-line img, .replied) {
+	   	 visibility: initial;
+		 content: var(--icon-reply-col);
+		 fill: ${base0E} !important;
+	 }
+
+
 
           /* color of card text */
           #threadTree[rows="thread-card"] {
