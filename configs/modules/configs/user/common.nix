@@ -83,7 +83,7 @@
     # Sway #
     ########
     ./sway/sway.nix
-    ./sway/swaylock.nix
+    ./sway/swaylock.nix # this was causing a build bug
     ./sway/swayidle.nix
     ./waybar/waybar.nix
 

@@ -10,141 +10,50 @@
     # CONFIGS #
     ###########
 
-    #../../modules/icons.nix
-
-    #../../secrets/system_secrets.nix
-
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
     # Common system configs
     ../../modules/configs/system/common.nix
 
-    # General System Settings
-    #./system/system/system.nix
+    # Secrets
+    ./system/sops.nix
 
-    # Login manager/greeter
-    #../../modules/configs/system/services/login/greeter.nix
-    #./system/services/greeter.nix
+    # System Wide Theming
+    ./system/stylix.nix
 
-    # GNOME Keyring
-    #../../modules/configs/system/services/gnome-keyring.nix
-    #./system/services/gnome-keyring.nix
-
-    # Yubikey support
-    #../../modules/configs/system/services/yubikey.nix
-    # Enable GPG
-    #../../modules/configs/system/services/gnupg.nix
-
-    # Virtualization 
-    #../../modules/configs/system/services/virtualization.nix
-    #./system/services/virtualization.nix
-
-    # System level theming
-    ./system/graphics/stylix.nix
-
-    # Networking and Bluetooth
-    #../../modules/configs/system/services/networks/network-manager.nix
-    #../../modules/configs/system/services/networks/bluetooth.nix
-    #./system/services/networks/networking.nix
-    # ./system/services/networks/bluetooth.nix
-    # ./system/services/networks/ssh.nix
-    # ./system/services/networks/wireguard.nix
-    # ./system/services/networks/firewall.nix
-    #../../modules/configs/system/services/kdeconnect.nix
+    # SSH
     ../../modules/configs/system/services/networks/ssh.nix
-
-    # Local Send
-    #../../modules/configs/system/services/localsend.nix
-
-    # Docker
-    #../../modules/configs/system/services/docker.nix
-    #./system/services/docker.nix
-
-    # Printer support
-    #../../modules/configs/system/services/printing.nix
-    #./system/services/printing.nix
-
-    # Virtual FS (used to cache album art)
-    #../../modules/configs/system/services/gvfs.nix
-    #./system/services/gvfs.nix
-
-    # Appimage support
-    #../../modules/configs/system/services/appimage.nix
-
-    # UI
-    #../../modules/configs/system/services/graphics/wayland.nix
-    #../../modules/configs/system/services/graphics/hyprland.nix
-    # ./system/graphics/hyprland.nix
-    # ./system/graphics/wayland.nix
-
-    # Audio
-    #../../modules/configs/system/services/audio/pipewire.nix
-    #./system/services/audio/pipewire.nix
 
     # Local plantuml server
     ../../modules/configs/system/services/plantuml.nix
-    # ./system/services/plantuml.nix
-
-    # Config firewall, etc. for steam
-    #../../modules/configs/system/services/steam.nix
-    # ./system/services/steam.nix
-
-    # service for configuring gaming mice
-    #../../modules/configs/system/services/ratbagd.nix
-    # ./system/services/ratbagd.nix
-
-    # adding extensions for nautilus
-    #../../modules/configs/system/nautilus.nix
-
-    # service for configuring external display brightness and other settings
-    #../../modules/configs/system/services/ddccontrol.nix
-    # Needed for above to work, but also needed for any i2c dev stuff
-    #../../modules/configs/system/services/i2c.nix
-
-    # Needed for above to work, but also needed for any i2c dev stuff
-    #../../modules/configs/system/services/rtl-sdr.nix
 
     # AI stuff
     ../../modules/configs/system/services/ai/sillytavern.nix
-
-    ##TESTING RESTIC
-    #../../modules/configs/system/services/restic.nix
-
-    # TESTING SOPS
-    #../../modules/configs/system/services/sops.nix
-    ./system/sops.nix
 
     ############
     # PACKAGES #
     ############
 
     # Flatpak
-    #./system/packages/flatpak.nix
     ../../modules/packages/system/flatpak.nix
 
     # Audio
-    #./system/packages/audio.nix
     ../../modules/packages/system/audio.nix
 
     # Video
-    #./system/packages/video.nix
     ../../modules/packages/system/video.nix
 
     # Development
-    #./system/packages/development.nix
     ../../modules/packages/system/development.nix
 
     # Networking
-    #./system/packages/networking.nix
     ../../modules/packages/system/networking.nix
 
     # Graphics
-    #./system/packages/ui.nix
     ../../modules/packages/system/ui.nix
 
     # System
-    #./system/packages/system.nix
     ../../modules/packages/system/system.nix
 
   ];
@@ -158,38 +67,20 @@
 
   time.timeZone = "America/New_York";
 
-  # Enable Fish shell
-  #programs.fish.enable = true;
-
-  # Give seahorse access to GNOME Keyring
-  #programs.seahorse.enable = true;
-
-  # required for sway according to docs
-  #security.polkit.enable = true;
-
-  # Required for swaylock to work
-  #security.pam.services.swaylock = { text = "	auth include login\n"; };
-
-  #hardware.opengl.enable = true;
+  # put in its own file
+  boot.plymouth = {
+    # Enable plymouth on the system
+    enable = true;
+    # Pass in the package of themes we also downloaded
+    themePackages = [ pkgs.adi1090x-plymouth-themes ];
+    # Choose the theme
+    # default is "stylix" but idk how to change it from stylix config
+    # https://github.com/adi1090x/plymouth-themes
+    theme = "motion";
+  };
 
   # enable CKB Next for my corsair keyboard
   hardware.ckb-next.enable = true;
-
-  #services.weechat.enable = false;
-
-  # Enable Flakes
-  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  #nixpkgs.config.allowUnfree = true;
-
-  # list of programs I want to execute WITHOUT passwd (ie from waybar)
-  # security.sudo = {
-  #   enable = true;
-  #   # HACK: I wanted to use extrarules but it just refuses to work...
-  #   extraConfig = ''
-  #     %wheel	ALL=(root)	NOPASSWD: /run/current-system/sw/bin/light
-  #   '';
-  # };
 
   # TODO: extract this out so I don't have to update groups on every machine
   # Define a user account. Don't forget to set a password with ‘passwd’.

@@ -60,30 +60,35 @@ in {
     settings = {
 
       sections = {
-        lualine_a = [{
-          name.__raw = ''
-            function()
-                local mode = vim.api.nvim_get_mode()["mode"]
-                if mode == "n" then
-                    return ''
-                elseif mode == "i" then
-                    return ''
-                elseif mode == "v" then
-                    return ''
-                elseif mode == "V" then
-                    return ''
-                elseif mode == "\22" then -- wierd encodings for ctrl + v
-                    return ''
-                elseif mode == "c" then
-                    return ''
-                elseif mode == "R" then
-                    return ''
-                -- else
-                --  return '?'
+        lualine_a = [
+          "name"
+          {
+            __unkeyed-1 = {
+              __raw = ''
+                function()
+                    local mode = vim.api.nvim_get_mode()["mode"]
+                    if mode == "n" then
+                        return ''
+                    elseif mode == "i" then
+                        return ''
+                    elseif mode == "v" then
+                        return ''
+                    elseif mode == "V" then
+                        return ''
+                    elseif mode == "\22" then -- wierd encodings for ctrl + v
+                        return ''
+                    elseif mode == "c" then
+                        return ''
+                    elseif mode == "R" then
+                        return ''
+                    -- else
+                    --  return '?'
+                    end
                 end
-            end
-          '';
-        }];
+              '';
+            };
+          }
+        ];
       };
       options = {
 

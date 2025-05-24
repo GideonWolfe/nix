@@ -12,15 +12,15 @@
     # Common system configs
     ../../modules/configs/system/common.nix
 
+    # Secrets
+    ./system/sops.nix
+
     # System Wide Theming
     ./system/stylix.nix
 
     # Networking
     ./system/ssh.nix
     ./system/wireguard.nix
-
-    # Secrets
-    ./system/sops.nix
 
     # Local plantuml server
     ../../modules/configs/system/services/plantuml.nix

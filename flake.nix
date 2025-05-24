@@ -3,13 +3,13 @@
 
   inputs = {
 
-    nixpkgs = { 
-            #url = "github:NixOS/nixpkgs/nixos-24.11"; 
-            url = "github:NixOS/nixpkgs/nixos-25.05"; 
-        };
+    nixpkgs = {
+      #url = "github:NixOS/nixpkgs/nixos-24.11"; 
+      url = "github:NixOS/nixpkgs/nixos-25.05";
+    };
 
     home-manager = {
-            #url = "github:nix-community/home-manager/release-24.11";
+      #url = "github:nix-community/home-manager/release-24.11";
       url = "github:nix-community/home-manager/release-25.05";
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
@@ -25,7 +25,7 @@
 
     # Theming engine
     stylix = {
-            #url = "github:danth/stylix/release-24.11";
+      #url = "github:danth/stylix/release-24.11";
       url = "github:nix-community/stylix/release-25.05";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -41,7 +41,7 @@
 
     # Configure neovim with Nix!
     nixvim = {
-            #url = "github:nix-community/nixvim/nixos-24.11";
+      #url = "github:nix-community/nixvim/nixos-24.11";
       url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -116,8 +116,8 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [
                 ./configs/users/gideon/home.nix
-                ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
-                ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
+                ./configs/hosts/hades/system/hades-hyprland-monitors.nix
+                ./configs/hosts/hades/system/hades-hyprpanel-layout.nix
               ];
             }
           ];
@@ -162,67 +162,6 @@
             ./configs/users/gideon/home.nix
           ];
         };
-
-        # Specific HM config for my desktop
-        # the exact same home.nix, but i'm adding my desktop hyprland monitor config
-        # "gideon@hades" = home-manager.lib.homeManagerConfiguration {
-        #   inherit pkgs;
-        #   extraSpecialArgs = {
-        #     inherit spicetify-nix;
-        #     inherit inputs;
-        #   };
-        #   modules = [
-        #     stylix.homeManagerModules.stylix
-        #     agenix.homeManagerModules.age
-        #     nixvim.homeManagerModules.nixvim
-        #     spicetify-nix.homeManagerModules.default
-        #     hyprpanel.homeManagerModules.hyprpanel
-        #     ./configs/users/gideon/home.nix
-        #     ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
-        #     ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
-        #   ];
-        #   # TODO: figure this out
-        #   # modules = baseUserModules + [
-        #   #   ./configs/users/gideon/home.nix
-        #   #   ./configs/hosts/hades/system/graphics/hades-hyprland-monitors.nix
-        #   #   ./configs/hosts/hades/system/graphics/hades-hyprpanel-layout.nix
-        #   # ];
-        # };
-
-        # Specific HM config for my laptop
-        # the exact same home.nix, but i'm adding my desktop hyprland monitor config
-        # "gideon@poseidon" = home-manager.lib.homeManagerConfiguration {
-        #   inherit pkgs;
-        #   extraSpecialArgs = {
-        #     inherit spicetify-nix;
-        #     inherit inputs;
-        #   };
-        #   modules = [
-        #     stylix.homeManagerModules.stylix
-        #     agenix.homeManagerModules.age
-        #     nixvim.homeManagerModules.nixvim
-        #     spicetify-nix.homeManagerModules.default
-        #     hyprpanel.homeManagerModules.hyprpanel
-        #     ./configs/users/gideon/home.nix
-        #     ./configs/modules/configs/user/laptop-hyprpanel-layout.nix
-        #   ];
-        # };
-
-
-        # overseer = home-manager.lib.homeManagerConfiguration {
-        #   inherit pkgs;
-        #   extraSpecialArgs = {
-        #     inherit spicetify-nix;
-        #     inherit inputs;
-        #   };
-        #   modules = [
-        #     stylix.homeManagerModules.stylix
-        #     agenix.homeManagerModules.age
-        #     nixvim.homeManagerModules.nixvim
-        #     spicetify-nix.homeManagerModules.default
-        #     ./configs/users/overseer/home.nix
-        #   ];
-        # };
       };
     };
 

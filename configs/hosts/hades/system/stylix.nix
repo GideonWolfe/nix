@@ -6,7 +6,7 @@
 
     enable = true;
 
-    image = ../../../../../wallpapers/topo.jpg;
+    image = ../../../../wallpapers/topo.jpg;
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
@@ -14,8 +14,8 @@
 
     fonts = {
       serif = {
-      	package = pkgs.nerd-fonts.hack;
-      	name = "Hack Nerd Font";
+        package = pkgs.nerd-fonts.hack;
+        name = "Hack Nerd Font";
       };
 
       sansSerif = {
