@@ -90,7 +90,7 @@
     #############################
     # Essential Program Configs #
     #############################
-        #./nixvim/nixvim.nix
+    ./nixvim/nixvim.nix
 
     ################################
     # NonEssential Program Configs #

@@ -6,7 +6,7 @@
 
     enable = true;
 
-    image = ../../../../../wallpapers/FzrFRrt.jpg;
+    image = ../../../../wallpapers/FzrFRrt.jpg;
 
     base16Scheme =
       "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
@@ -15,17 +15,17 @@
 
     fonts = {
       serif = {
-        package = pkgs.nerdfonts;
+        package = pkgs.nerd-fonts.hack;
         name = "Hack Nerd Font";
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts;
+        package = pkgs.nerd-fonts.hack;
         name = "Hack Nerd Font";
       };
 
       monospace = {
-        package = pkgs.nerdfonts;
+        package = pkgs.nerd-fonts.hack;
         name = "Hack Nerd Font Mono";
       };
 

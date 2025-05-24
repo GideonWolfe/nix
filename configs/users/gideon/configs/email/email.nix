@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, osConfig, ... }: {
   accounts.email = {
     maildirBasePath = "${config.home.homeDirectory}/mail";
     accounts = {
@@ -11,7 +11,7 @@
         userName = "wolfegideon";
         passwordCommand =
           #"cat ${config.age.secrets.mbsync_google_wolfegideon_app_password.path}";
-          "cat ${config.sops.secrets."wolfegideongmail/mbsync_password".path}";
+          "cat ${osConfig.sops.secrets."wolfegideongmail/mbsync_password".path}";
 
         folders = {
           # Prepended by the configured maildirBasePath
@@ -51,7 +51,7 @@
               PassCmd =
                 #"cat ${config.age.secrets.mbsync_google_wolfegideon_app_password.path}";
                 "cat ${
-                  config.sops.secrets."wolfegideongmail/mbsync_password".path
+                  osConfig.sops.secrets."wolfegideongmail/mbsync_password".path
                 }";
             };
             local = {
@@ -160,7 +160,7 @@
         userName = "gideon@gideonwolfe.xyz";
         passwordCommand =
           #"cat ${config.age.secrets.mbsync_gideonwolfexyz_password.path}";
-          "cat ${config.sops.secrets."gideonwolfexyz/mbsync_password".path}";
+          "cat ${osConfig.sops.secrets."gideonwolfexyz/mbsync_password".path}";
 
         smtp = {
           host = "mail.privateemail.com";
@@ -211,7 +211,7 @@
               PassCmd =
                 #"cat ${config.age.secrets.mbsync_gideonwolfexyz_password.path}";
                 "cat ${
-                  config.sops.secrets."gideonwolfexyz/mbsync_password".path
+                  osConfig.sops.secrets."gideonwolfexyz/mbsync_password".path
                 }";
             };
             local = {
@@ -292,7 +292,7 @@
         userName = "gideon@gideonwolfe.com";
         passwordCommand =
           #"cat ${config.age.secrets.mbsync_gideonwolfecom_password.path}";
-          "cat ${config.sops.secrets."gideonwolfecom/mbsync_password".path}";
+          "cat ${osConfig.sops.secrets."gideonwolfecom/mbsync_password".path}";
 
         gpg = {
           #key = builtins.readFile ../gideon_pub.asc;
@@ -353,7 +353,7 @@
               PassCmd =
                 #"cat ${config.age.secrets.mbsync_gideonwolfecom_password.path}";
                 "cat ${
-                  config.sops.secrets."gideonwolfecom/mbsync_password".path
+                  osConfig.sops.secrets."gideonwolfecom/mbsync_password".path
                 }";
             };
             local = {

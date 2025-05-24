@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -15,7 +15,7 @@ with config.lib.stylix.colors.withHashtag;
       nickname = "demoncore"
       username = "demoncore"
       realname = "demoncore"
-      nick_password_file = "${config.sops.secrets."irc/libera/password".path}"
+      nick_password_file = "${osConfig.sops.secrets."irc/libera/password".path}"
       server = "irc.libera.chat"
       port = 6697
       channels = [

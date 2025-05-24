@@ -240,6 +240,19 @@ with config.lib.stylix.colors;
 
       # Window rules for scratchpads and other programs
       windowrulev2 = [
+      ];
+
+      # legacy windowrule to make Kando work
+      # TODO look into updating to windowrulev2
+      windowrule = [
+        "noblur, class:kando"
+        "opaque, class:kando"
+        "size 100% 100%, class:kando"
+        "noborder, class:kando"
+        "noanim, class:kando"
+        "float, class:kando"
+        "pin, class:kando"
+
         # Calculator Scratchpad
         "float,class:(kitty-calculator)"
         "size 500 500,class:(kitty-calculator)"
@@ -280,18 +293,6 @@ with config.lib.stylix.colors;
         "workspace 6 silent,class:(obsidian)"
         # Comms Workspace
         "workspace 9 silent,class:(vesktop)"
-      ];
-
-      # legacy windowrule to make Kando work
-      # TODO look into updating to windowrulev2
-      windowrule = [
-        "noblur, kando"
-        "opaque, kando"
-        "size 100% 100%, kando"
-        "noborder, kando"
-        "noanim, kando"
-        "float, kando"
-        "pin, kando"
       ];
 
       # Needed to fix scaling bug

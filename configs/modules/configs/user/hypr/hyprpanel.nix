@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -163,7 +163,7 @@ with config.lib.stylix.colors.withHashtag;
 
         clock = {
           weather = {
-            key = "${config.sops.secrets."weatherapi/apikey.json".path}";
+            key = "${osConfig.sops.secrets."weatherapi/apikey.json".path}";
             location = "New York";
           };
         };
@@ -171,8 +171,13 @@ with config.lib.stylix.colors.withHashtag;
       };
     };
 
-    # BUG: putting theme here for now
     override = {
+      # BUG: putting systray icons here for now
+      # This isn't working anyways...
+      "bar.systray.customIcons.spotify-client.icon" = "󰓇";
+      "bar.systray.customIcons.spotify-client.color" = "${green}";
+
+      # BUG: putting theme here for now
       "theme.bar.menus.menu.notifications.scrollbar.color" = "${base07}";
       "theme.bar.menus.menu.notifications.pager.label" = "${base04}";
       "theme.bar.menus.menu.notifications.pager.button" = "${base0E}";
