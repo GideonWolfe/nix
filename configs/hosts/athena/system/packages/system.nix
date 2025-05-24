@@ -30,7 +30,7 @@
     nix-tree # browse dependencies of nix store
 
     # make secrets available to apps
-    gnome.gnome-keyring
+    gnome-keyring
 
     # Terminals
     alacritty
@@ -50,7 +50,7 @@
     unrar
     unzip
     libsForQt5.ark # advanced archive manager, haven't figured out KDE theming yet
-    gnome.file-roller # archive utility
+    file-roller # archive utility
     zip
     p7zip
     czkawka # duplicate file finding GUI
@@ -82,7 +82,7 @@
     hddtemp # display hard disk temps
     pkgtop # TUI package monitor
     cpupower-gui # GUI for tweaking CPU
-    hardinfo # GUI for devices/hardware
+    hardinfo2 # GUI for devices/hardware
     hwinfo # get info about hardware
     resources # hardware monitoring GUI
     zenith # another TUI system monitor
@@ -110,8 +110,8 @@
     xdg-user-dirs # change default user directoryies
     xdg-utils
     fzf
-    gnome.gucharmap # Unicode character viewer
-    gnome.gnome-font-viewer
+    gucharmap # Unicode character viewer
+    gnome-font-viewer
     tldr # better man pages with examples
     espeak
     libsForQt5.qt5.qttools # toolset that includes qdbusviewer
@@ -150,10 +150,8 @@
     # Filesystem Utilities
     ntfs3g # NTFS driver
     gparted
-    gnome.gnome-disk-utility
-    diskonaut # disk usage analyzer TUI
+    gnome-disk-utility
     baobab # disk usage analyzer GUI
-    ventoy # create bootable USBs
     simple-mtpfs # mount cell phone filesystems
     dosfstools # drivers for DOS filesystems
     smartmontools # SMART disk monitoring
@@ -193,7 +191,6 @@
 
   fonts.packages = with pkgs; [
     # collection of patched fonts
-    nerdfonts
     noto-fonts
     # symbols and emoji (outlined)
     symbola

@@ -60,6 +60,7 @@
 
     # System
     ../../modules/packages/system/system.nix
+    ./system/packages/system.nix # need to merge
 
     # Services
     ./server/services/productivity/monica/monica.nix
