@@ -2,11 +2,11 @@
   # Main Treesitter plugin
   programs.nixvim.plugins.treesitter = {
     enable = true;
-    #ensureInstalled = "all";
     folding = false;
     #indent.enable = true;
     settings = {
-      ensure_installed = "all";
+      # BUG: this causes INSANE startup times
+      #ensure_installed = "all";
       indent.enable = true;
     };
   };

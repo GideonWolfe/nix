@@ -7,6 +7,40 @@ with config.lib.stylix.colors.withHashtag;
 
     #TODO: Use "link" option for the highlight defs that allows me to link HL groups to pre-existing ones to minimize overhead
 
+    # some custom groups just to access foreground colors 
+    Red = {
+      fg = "${base08}";
+      bg = "${base00}";
+    };
+    Orange = {
+      fg = "${base09}";
+      bg = "${base00}";
+    };
+    Yellow = {
+      fg = "${base0A}";
+      bg = "${base00}";
+    };
+    Green = {
+      fg = "${base0B}";
+      bg = "${base00}";
+    };
+    Cyan = {
+      fg = "${base0C}";
+      bg = "${base00}";
+    };
+    Blue = {
+      fg = "${base0D}";
+      bg = "${base00}";
+    };
+    Magenta = {
+      fg = "${base0E}";
+      bg = "${base00}";
+    };
+    Brown = {
+      fg = "${base0E}";
+      bg = "${base00}";
+    };
+
     #Pmenu = {
     #    ctermfg = "${base05}";
     #    ctermbg = "${base00}";

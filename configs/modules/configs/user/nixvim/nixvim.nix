@@ -16,14 +16,14 @@ with config.lib.stylix.colors.withHashtag;
 
     # UI Plugins
     ./plugins/ui/bufferline.nix
-    ./plugins/ui/dashboard.nix
-    ./plugins/ui/fidget.nix
+    # ./plugins/ui/dashboard.nix
+    # ./plugins/ui/fidget.nix
     ./plugins/ui/helpview.nix
     ./plugins/ui/indent-blankline.nix
     ./plugins/ui/lspkind.nix
     ./plugins/ui/lualine.nix
     ./plugins/ui/noice.nix
-    ./plugins/ui/colorizer.nix
+    ./plugins/ui/colorizer.nix # this has a high startuptime
     ./plugins/ui/nvim-tree.nix
     ./plugins/ui/nvim-ufo.nix
     ./plugins/ui/rainbow-delimiters.nix
@@ -32,41 +32,43 @@ with config.lib.stylix.colors.withHashtag;
     ./plugins/ui/telescope.nix
     ./plugins/ui/trouble.nix
     ./plugins/ui/which-key.nix
+    ./plugins/ui/smear-cursor.nix
 
     # Editing plugins
     ./plugins/editing/nvim-autopairs.nix
     ./plugins/editing/better-escape.nix
     ./plugins/editing/comment.nix
-    #TODO: surround and sandwich may do the same thing
+    # #TODO: surround and sandwich may do the same thing
     ./plugins/editing/surround.nix
-    #./plugins/editing/sandwich.nix
-    ./plugins/editing/cmp.nix
+    # #./plugins/editing/sandwich.nix
+    # ./plugins/editing/cmp.nix
+    ./plugins/editing/blink-cmp.nix
     ./plugins/editing/lsp-format.nix
 
     # Version Control Plugins
-    ./plugins/git/gitsigns.nix
+    #./plugins/git/gitsigns.nix
     ./plugins/git/fugitive.nix
     ./plugins/git/diffview.nix
 
     # Utils
-    ./plugins/utils/dap.nix
+    # ./plugins/utils/dap.nix
     ./plugins/utils/friendly-snippets.nix
     ./plugins/utils/hop.nix
     ./plugins/utils/lspsaga.nix
     ./plugins/utils/luasnip.nix
-    ./plugins/utils/markdown-preview.nix
-    ./plugins/utils/markdown-preview-css.nix
+    # ./plugins/utils/markdown-preview.nix
+    # ./plugins/utils/markdown-preview-css.nix
     ./plugins/utils/none-ls.nix
-    ./plugins/utils/project-nvim.nix
-    ./plugins/utils/treesitter.nix
+    # ./plugins/utils/project-nvim.nix
+    #./plugins/utils/treesitter.nix # BUG: raises startup time
     ./plugins/utils/todo-comments.nix
     ./plugins/utils/vimtex.nix
     ./plugins/utils/snacks.nix
-    ./plugins/utils/hmts.nix
-    ./plugins/utils/image.nix
+    # ./plugins/utils/hmts.nix
+    # ./plugins/utils/image.nix
 
     # Development plugins for specific frameworks/langs
-    ./plugins/dev/godot.nix
+    #./plugins/dev/godot.nix
 
   ];
   programs.nixvim = {
@@ -88,8 +90,8 @@ with config.lib.stylix.colors.withHashtag;
       yuck-vim
     ];
 
-    #HACK: Running these sign define commands as raw lua because nixvim doesn't have a setting
     extraConfigLuaPre = ''
+      -- HACK: Running these sign define commands as raw lua because nixvim doesn't have a setting
       -- Define Diagnostic Signs
       local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
       for type, icon in pairs(signs) do
@@ -99,7 +101,27 @@ with config.lib.stylix.colors.withHashtag;
 
       -- Define breakpoint symbol
       vim.fn.sign_define('DapBreakpoint', {text="•", texthl="BreakpointLineNr", linehl="", numhl="BreakpointLineNr"})
+
+
+      -- Setup profiler
+      if vim.env.PROF then
+          local snacks = vim.fn.stdpath("data") .. "/lazy/snacks.nvim"
+          vim.opt.rtp:append(snacks)
+          require("snacks.profiler").startup({
+            startup = {
+              event = "VimEnter", -- stop profiler on this event. Defaults to `VimEnter`
+          },
+        })
+      end
     '';
+
+    # Performance tweaks
+    performance.byteCompileLua.enable = true;
+    #performance.byteCompileLua.configs = true;
+    #performance.byteCompileLua.initLua = true;
+    #performance.byteCompileLua.nvimRuntime = true;
+    #performance.byteCompileLua.plugins = true;
+    #performance.combinePlugins.enable = true;
 
   };
 }

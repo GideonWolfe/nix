@@ -1,6 +1,7 @@
 {
   programs.nixvim.plugins.image = {
-    enable = true;
+    # INFO: this was a startup hog, lazyload?
+    enable = false;
     settings.backend = "kitty";
   };
 }

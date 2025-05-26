@@ -40,7 +40,7 @@ in {
     #pkgs.zanshin
     pkgs.dijo
     pkgs.gtg # Getting Things GNOME (offline task manager)
-        #pkgs.planify # GTK task manager with nextcloud and todoist support
+    #pkgs.planify # GTK task manager with nextcloud and todoist support
     pkgs.errands # official GNOME task manager with nextcloud and ics support
 
     ############
@@ -65,6 +65,7 @@ in {
 
     pkgs.lock # perform arbitrary encrypt/decrypt/signing with PGP keys
     pkgs.gpg-tui # manage GnuPG through the terminal
+    pkgs.kdePackages.kgpg # GUI for GPG
     pkgs.sshs # TUI for opening SSH connections
     pkgs.kdePackages.kleopatra # general certificate/encryption suite
 
@@ -101,6 +102,7 @@ in {
     pkgs.goldendict-ng # GUI dictionary with support for web and local files
     pkgs.artha # offline GKT1 thesaurus
     pkgs.wordbook # GNOME dictionary
+    pkgs.kdePackages.kruler # Measure pixels on the screen
 
     # nix tools
     # couple things to access dconf settings and convert them to nix
@@ -114,7 +116,7 @@ in {
     #########
     pkgs.exif # manipulate photo metadata
     pkgs.exiftool # manipulate photo metadata
-        #pkgs.kgeotag # standalone geotag editor/viewer #BUG: fails bc marble wont buld
+    #pkgs.kgeotag # standalone geotag editor/viewer #BUG: fails bc marble wont buld
     pkgs.photini # GUI for viewing/editing photo metadata
     pkgs.gifsicle # manipulate gif metadata
     pkgs.gnome-frog # OCR tool

@@ -164,6 +164,7 @@
     #libvirt
     #virt-manager
     qemu
+    nemu # TUI for qemu
     bottles # Wine prefix manager GUI
 
     # Alternate shells

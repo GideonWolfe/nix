@@ -17,6 +17,7 @@ in {
     #pkgs.cura
     pkgs.candle # GRBLE/Gcode visualizer (for Cnc I think)
     pkgs.mujoco # general purpose physics sim/modeler
+    pkgs.kdePackages.step # physics simulator
     pkgs.openrocket # 3D rocket simulator/modeler
     pkgs.leocad # 3D CAD modeler for legos
     #pkgs.orca-slicer # Slicer for 3D printing and Bambu printers

@@ -16,6 +16,7 @@
     #pkgs.grass # geospatial data management and analysis
     pkgs.survex # cave mapping software
     pkgs.satellite # view data from GPS
+    pkgs.kdePackages.kgeography # KDE Geography trainer
 
   ];
 }

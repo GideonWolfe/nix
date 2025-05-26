@@ -8,91 +8,116 @@ in {
     enable = true;
 
     #BUG: how to get this to apply??
-    luaConfig = {
-      pre = ''
-        local colors = {
-          black        = '${base00}',
-          white        = '${base05}',
-          red          = '${base08}',
-          green        = '${base0B}',
-          blue         = '${base0D}',
-          yellow       = '${base0A}',
-          gray         = '${base04}',
-          darkgray     = '${base01}',
-          lightgray    = '${base05}',
-          inactivegray = '${base04}',
-        }
-        local lualine_stylix_theme =  {
-          normal = {
-            a = {bg = colors.gray, fg = colors.black, gui = 'bold'},
-            b = {bg = colors.lightgray, fg = colors.white},
-            c = {bg = colors.darkgray, fg = colors.gray}
-          },
-          insert = {
-            a = {bg = colors.blue, fg = colors.black, gui = 'bold'},
-            b = {bg = colors.lightgray, fg = colors.white},
-            c = {bg = colors.lightgray, fg = colors.white}
-          },
-          visual = {
-            a = {bg = colors.yellow, fg = colors.black, gui = 'bold'},
-            b = {bg = colors.lightgray, fg = colors.white},
-            c = {bg = colors.inactivegray, fg = colors.black}
-          },
-          replace = {
-            a = {bg = colors.red, fg = colors.black, gui = 'bold'},
-            b = {bg = colors.lightgray, fg = colors.white},
-            c = {bg = colors.black, fg = colors.white}
-          },
-          command = {
-            a = {bg = colors.green, fg = colors.black, gui = 'bold'},
-            b = {bg = colors.lightgray, fg = colors.white},
-            c = {bg = colors.inactivegray, fg = colors.black}
-          },
-          inactive = {
-            a = {bg = colors.darkgray, fg = colors.gray, gui = 'bold'},
-            b = {bg = colors.darkgray, fg = colors.gray},
-            c = {bg = colors.darkgray, fg = colors.gray}
-          }
-        }
-      '';
-    };
+    #luaConfig = { pre = ; };
 
     settings = {
 
       sections = {
-        lualine_a = [
-          "name"
+        # Vim Mode
+        lualine_a = [{
+          __unkeyed-1 = {
+            __raw = ''
+              function()
+                  local mode = vim.api.nvim_get_mode()["mode"]
+                  if mode == "n" then
+                      return '%#Blue#'
+                  elseif mode == "i" then
+                      return '%#Green#'
+                  elseif mode == "v" then
+                      return '%#Yellow#'
+                  elseif mode == "V" then
+                      return '%#Orange#'
+                  elseif mode == "\22" then -- wierd encodings for ctrl + v
+                      return '%#Cyan#'
+                  elseif mode == "c" then
+                      return '%#Magenta#'
+                  elseif mode == "R" then
+                      return '#Brown#'
+                  -- else
+                  --  return '?'
+                  end
+              end
+            '';
+          };
+        }];
+        lualine_b = [
+          # Current branch
           {
-            __unkeyed-1 = {
-              __raw = ''
-                function()
-                    local mode = vim.api.nvim_get_mode()["mode"]
-                    if mode == "n" then
-                        return ''
-                    elseif mode == "i" then
-                        return ''
-                    elseif mode == "v" then
-                        return ''
-                    elseif mode == "V" then
-                        return ''
-                    elseif mode == "\22" then -- wierd encodings for ctrl + v
-                        return ''
-                    elseif mode == "c" then
-                        return ''
-                    elseif mode == "R" then
-                        return ''
-                    -- else
-                    --  return '?'
-                    end
-                end
-              '';
+            __unkeyed = "branch";
+            icon = {
+              __unkeyed = "";
+              color = { fg = "${green}"; };
             };
           }
+          # Set custom diff options
+          {
+            __unkeyed = "diff";
+            symbols = {
+              added = " ";
+              modified = " ";
+              removed = " ";
+            };
+          }
+          "diagnostics"
         ];
+        lualine_c = [
+          # Set custom filename options
+          {
+            __unkeyed = "filename";
+            file_status = true;
+            newfile_status = true;
+            path = 1;
+            symbols = {
+              modified = "%#Orange# ";
+              readonly = "%#Red# ";
+              unnamed = "%#Yellow#"; # BUG: this specific one doesn't work
+              newfile = "%#Blue# ";
+            };
+
+          }
+        ];
+
+        lualine_x = [
+          "encoding"
+          # Set custom filename options
+          {
+            __unkeyed = "fileformat";
+            symbols = {
+              unix = "%#Orange#";
+              dos = "%#Blue#";
+              mac = "%#Red#";
+            };
+          }
+          {
+            __unkeyed = "filetype";
+            icon_only = true;
+            icon = { align = "right"; };
+          }
+        ];
+        lualine_y = [ "" ];
+        lualine_z = [ "" ];
       };
       options = {
 
         #theme = "lualine_stylix_theme";
+        #theme = { normal.a.bg = "${base00}"; };
+        theme = {
+          normal = {
+            a = {
+              bg = "${base00}";
+              # no foreground because symbol changes color
+            };
+            b = {
+              bg = "${base00}";
+              fg = "${base05}";
+            };
+            c = {
+              bg = "${base00}";
+              # no foreground bc symbols/numbers change color
+            };
+          };
+
+        };
 
         disabled_filetypes = {
           winbar = [
@@ -113,15 +138,17 @@ in {
         component_separators = {
           #left = "╲";
           #right = "╱";
-          left = "";
-          right = "";
+          left = "%#Blue#";
+          right = "%#Blue#";
         };
 
         section_separators = {
-          left = "";
-          right = "";
+          #left = "";
+          #right = "";
           #left = "";
           #right = "";
+          left = "%#Orange#";
+          right = "%#Orange#";
         };
       };
       extensions = [

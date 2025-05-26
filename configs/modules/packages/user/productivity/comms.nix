@@ -32,6 +32,7 @@
     pkgs.newsboat
     #pkgs.akregator #Qt RSS reader
     pkgs.newsflash # GTK RSS reader
+    pkgs.rssguard # KDE RSS reader
 
     # TUI Podcast client
     pkgs.castero # Only in unstable
