@@ -233,6 +233,9 @@
 
     weechat
 
+    # List open files
+    lsof
+
   ];
 
   fonts.packages = with pkgs; [

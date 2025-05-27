@@ -29,7 +29,13 @@
     settings = {
       window = {
         documentation = { border = [ "┌" "─" "┐" "│" "┘" "─" "└" "│" ]; };
-        completion = { border = [ "┌" "─" "┐" "│" "┘" "─" "└" "│" ]; };
+        winhighlight =
+          "Normal:Pmenu,FloatBorder:Magenta,CursorLine:PmenuSel,Search:None";
+        completion = {
+          border = [ "┌" "─" "┐" "│" "┘" "─" "└" "│" ];
+          winhighlight =
+            "Normal:Pmenu,FloatBorder:Blue,CursorLine:PmenuSel,Search:None";
+        };
       };
       mapping = {
         __raw = ''

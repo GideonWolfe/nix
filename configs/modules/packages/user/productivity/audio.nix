@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   home.packages = [
@@ -15,10 +15,11 @@
     #pkgs.cava # TUI music visualizer
     pkgs.cavalier # cava based visualizers
     pkgs.scope-tui # TUI oscilloscope/vectorscope.spectroscope also a music visualizer
+    inputs.xyosc.packages.${pkgs.system}.default # another visualizer
     pkgs.catnip # more visualizers
     pkgs.cli-visualizer # another visualizer
     pkgs.projectm-sdl-cpp # more visualizers
-        #pkgs.libprojectm might not be needed
+    #pkgs.libprojectm might not be needed
     pkgs.glava
     pkgs.blanket # ambient noise player
     pkgs.piper-tts # Advanced text to speech

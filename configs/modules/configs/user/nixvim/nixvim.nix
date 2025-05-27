@@ -36,17 +36,17 @@ with config.lib.stylix.colors.withHashtag;
 
     # Editing plugins
     ./plugins/editing/nvim-autopairs.nix
-    ./plugins/editing/better-escape.nix
+    #./plugins/editing/better-escape.nix
     ./plugins/editing/comment.nix
     # #TODO: surround and sandwich may do the same thing
     ./plugins/editing/surround.nix
     # #./plugins/editing/sandwich.nix
-    # ./plugins/editing/cmp.nix
-    ./plugins/editing/blink-cmp.nix
+    ./plugins/editing/cmp.nix
+    #./plugins/editing/blink-cmp.nix
     ./plugins/editing/lsp-format.nix
 
     # Version Control Plugins
-    #./plugins/git/gitsigns.nix
+    ./plugins/git/gitsigns.nix
     ./plugins/git/fugitive.nix
     ./plugins/git/diffview.nix
 
@@ -91,16 +91,9 @@ with config.lib.stylix.colors.withHashtag;
     ];
 
     extraConfigLuaPre = ''
-      -- HACK: Running these sign define commands as raw lua because nixvim doesn't have a setting
-      -- Define Diagnostic Signs
-      local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
 
       -- Define breakpoint symbol
-      vim.fn.sign_define('DapBreakpoint', {text="•", texthl="BreakpointLineNr", linehl="", numhl="BreakpointLineNr"})
+      --vim.fn.sign_define('DapBreakpoint', {text="•", texthl="BreakpointLineNr", linehl="", numhl="BreakpointLineNr"})
 
 
       -- Setup profiler
@@ -122,6 +115,17 @@ with config.lib.stylix.colors.withHashtag;
     #performance.byteCompileLua.nvimRuntime = true;
     #performance.byteCompileLua.plugins = true;
     #performance.combinePlugins.enable = true;
+
+    diagnostic.settings = {
+      signs = {
+        text = {
+          "[vim.diagnostic.severity.ERROR]" = "󰅚 ";
+          "[vim.diagnostic.severity.WARN]" = "󰀪 ";
+          "[vim.diagnostic.severity.INFO]" = " ";
+          "[vim.diagnostic.severity.HINT]" = "󰌶 ";
+        };
+      };
+    };
 
   };
 }

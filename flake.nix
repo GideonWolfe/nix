@@ -47,10 +47,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # cool visualizer
+    xyosc = { url = "github:make-42/xyosc"; };
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim
-    , hyprpanel, sops-nix, ... }@inputs:
+    , hyprpanel, sops-nix, xyosc, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";

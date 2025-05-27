@@ -123,5 +123,6 @@
     ./hackernews-tui/hackernews-tui.nix
     ./television/television.nix
     ./sourcegit/sourcegit.nix
+    ./xyosc/xyosc.nix
   ];
 }

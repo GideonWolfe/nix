@@ -1,4 +1,6 @@
-{
+{ pkgs, lib, config, ... }:
+
+with config.lib.stylix.colors.withHashtag; {
   programs.nixvim.plugins.bufferline = {
     enable = true;
 
@@ -6,9 +8,10 @@
       options = {
         buffer_close_icon = "";
         close_icon = "";
-        modified_icon = "";
+        modified_icon = "%#Orange#";
         right_trunc_marker = "";
         separator_style = "thin";
+        #indicator.style = "underline";
         diagnostics = "nvim_lsp";
 
         diagnostics_indicator = ''
@@ -23,6 +26,11 @@
           end
         '';
       };
+      # highlights = {
+      #   background = { bg = "${base01}"; };
+      #   #diagnostic = { bg = "${base01}"; };
+      #   fill = { bg = "${base01}"; };
+      # };
     };
   };
 }

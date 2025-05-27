@@ -1,3 +1,7 @@
+{ config, ... }:
+
+with config.lib.stylix.colors.withHashtag;
+
 {
   programs.nixvim.plugins.gitsigns = {
 
@@ -27,5 +31,24 @@
       };
     };
 
+  };
+
+  programs.nixvim.highlightOverride = {
+    GitSignsAdd = {
+      bg = "${base00}";
+      fg = "${green}";
+    };
+    GitSignsChange = {
+      bg = "${base00}";
+      fg = "${magenta}";
+    };
+    GitSignsDelete = {
+      bg = "${base00}";
+      fg = "${red}";
+    };
+    GitSignsUntracked = {
+      bg = "${base00}";
+      fg = "${blue}";
+    };
   };
 }
