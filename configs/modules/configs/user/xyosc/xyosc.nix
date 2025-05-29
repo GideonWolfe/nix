@@ -44,6 +44,7 @@ with config.lib.stylix.colors.withHashtag;
       accentcolor = "${base0D}";
       firstcolor = "${base0E}";
       thirdcolor = "${base0B}";
+      particlecolor = "${base0E}";
       copypreviousframe = true;
       copypreviousframealpha = 0.1;
     };
