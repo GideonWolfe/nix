@@ -16,7 +16,8 @@ with config.lib.stylix.colors.withHashtag;
     hyprland.enable = true;
 
     #allow HM generated file to be deleted for testing with GUI
-    overwrite.enable = true;
+    # INFO: disabled because it was getting overwritten with every launch!!
+    overwrite.enable = false;
 
     overlay.enable = true;
 

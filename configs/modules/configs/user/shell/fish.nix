@@ -1,4 +1,6 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, osConfig, ... }:
+
+with config.lib.stylix.colors.withHashtag;
 
 {
   # Allow HM to manage fish config
@@ -191,6 +193,20 @@
             #end
           '';
       };
+
+      iplot = ''
+        printf "\
+        set terminal pngcairo enhanced font '${osConfig.stylix.fonts.monospace.name},${
+          builtins.toString osConfig.stylix.fonts.sizes.desktop
+        }'
+        set autoscale
+        set samples 1000
+        set output '|kitten icat --stdin yes'
+        set object 1 rectangle from screen 0,0 to screen 1,1 fillcolor rgb '${base00}' behind
+        plot $argv
+        set output '/dev/null'
+        " | gnuplot
+      '';
 
     };
 
