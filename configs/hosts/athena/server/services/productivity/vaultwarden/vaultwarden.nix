@@ -14,4 +14,19 @@
       ROCKET_LOG = "critical";
     };
   };
+
+  services.restic.backups.vaultwarden = {
+    initialize = true;
+    repository = "/run/media/overseer/mnemosyne/backups/passwords/vaultwarden/";
+    paths = [ "/backups/passwords" ];
+    passwordFile =
+      "/run/media/overseer/mnemosyne/backuppass.txt"; # TODO:  replace this with secret
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = true; # remembers last run, runs if missed
+    };
+    runCheck = true;
+    checkOpts = [ "--read-data" ];
+  };
+
 }
