@@ -60,7 +60,7 @@ with config.lib.stylix.colors.withHashtag;
     # ./plugins/utils/markdown-preview-css.nix
     ./plugins/utils/none-ls.nix
     # ./plugins/utils/project-nvim.nix
-    #./plugins/utils/treesitter.nix # BUG: raises startup time
+    ./plugins/utils/treesitter.nix # BUG: raises startup time
     ./plugins/utils/todo-comments.nix
     ./plugins/utils/vimtex.nix
     ./plugins/utils/snacks.nix

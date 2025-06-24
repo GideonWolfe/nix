@@ -49,10 +49,12 @@
 
     # cool visualizer
     xyosc = { url = "github:make-42/xyosc"; };
+
+    dsd-fme = { url = "github:lwvmobile/dsd-fme"; };
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim
-    , hyprpanel, sops-nix, xyosc, ... }@inputs:
+    , hyprpanel, sops-nix, xyosc, dsd-fme, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";

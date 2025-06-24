@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, inputs, pkgs, ... }:
 
 let adsb_deku = pkgs.python312Packages.callPackage ./adsb_deku.nix { };
 in {
@@ -54,5 +54,6 @@ in {
     pkgs.welle-io # DAB/DAB+ decoding (internet radio)
     adsb_deku
     pkgs.unixcw # play a text file as morse code
+    inputs.dsd-fme.packages.${pkgs.system}.default
   ];
 }

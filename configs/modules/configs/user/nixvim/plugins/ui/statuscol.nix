@@ -15,7 +15,7 @@
 
       # display errors from a closed fold on the first line
       #BUG: not working on columns?
-     # https://github.com/luukvbaal/statuscol.nvim/blob/1022f922b77b44c36f8057ac29adbfd89ce86958/README.md?plain=1#L118
+      # https://github.com/luukvbaal/statuscol.nvim/blob/1022f922b77b44c36f8057ac29adbfd89ce86958/README.md?plain=1#L118
       #foldclosed = true;
 
       segments = [
@@ -37,7 +37,8 @@
         {
           sign = {
             #name = [ "Diagnostic" ];
-            namespace = [ "diagnostic/signs" ];
+            #namespace = [ "diagnostic/signs" ];
+            namespace = [ "diagnostic" ];
             maxwidth = 1;
             auto = true;
           };

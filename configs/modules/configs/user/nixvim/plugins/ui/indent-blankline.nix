@@ -1,36 +1,31 @@
 {
   programs.nixvim.plugins.indent-blankline = {
-        enable = true;
-        settings = {
+    enable = true;
+    settings = {
 
-            indent = {
-                char = "▏";
-            };
+      indent = { char = "▏"; };
 
-            exclude = {
-                filetypes = [
-                    "help"
-                    "defx"
-                    "vimwiki"
-                    "man"
-                    "gitmessengerpopup"
-                    "gitcommit"
-                    "diagnosticpopup"
-                    "lspinfo"
-                    "packer"
-                    "text"
-                    "markdown"
-                    "yaml"
-                    "dashboard"
-                    "TelescopePrompt"
-                    "NvimTree"
-                    ""
-                ];
-                buftypes = [
-                    "terminal"
-                    "nofile"
-                ];
-            };
-        };
+      exclude = {
+        filetypes = [
+          "help"
+          "defx"
+          "vimwiki"
+          "man"
+          "gitmessengerpopup"
+          "gitcommit"
+          "diagnosticpopup"
+          "lspinfo"
+          "packer"
+          "text"
+          "markdown"
+          "yaml"
+          "dashboard"
+          "TelescopePrompt"
+          "NvimTree"
+          ""
+        ];
+        buftypes = [ "terminal" "nofile" ];
+      };
     };
+  };
 }

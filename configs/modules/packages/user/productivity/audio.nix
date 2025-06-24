@@ -68,5 +68,7 @@
     #pkgs.infamousPlugins # more LV2 plugins
     #pkgs.mixxx # DJ software
     #pkgs.zrythm # DAW
+    pkgs.piano-rs # TUI piano
+    pkgs.vmpk # Virtual MIDI Piano Keyboard
   ];
 }

@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
-let hackernews-tui = pkgs.callPackage ./hackernews-tui.nix { };
-
+let
+  hackernews-tui = pkgs.callPackage ./hackernews-tui.nix { };
+  basalt-tui = pkgs.callPackage ./basalt-tui.nix { };
 in {
   home.packages = [
 
@@ -150,6 +151,7 @@ in {
     pkgs.sampler
 
     hackernews-tui
+    basalt-tui
 
   ];
 }

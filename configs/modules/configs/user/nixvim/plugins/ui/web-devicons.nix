@@ -23,5 +23,9 @@ with config.lib.stylix.colors.withHashtag; {
         "${base0F}"
       ];
     };
+    # BUG: Uncommenting this breaks nix build?? fails to connect to daemon
+    # luaConfig.post = ''
+    #   require("tiny-devicons-auto-colors").apply(colors_table)
+    # '';
   };
 }

@@ -14,5 +14,6 @@
 		# Java
 		jdk
 		git
+        distrobox
 	];
 }

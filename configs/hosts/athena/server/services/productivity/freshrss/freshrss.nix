@@ -10,12 +10,9 @@
       PGID = "100";
       TZ = "America/New_York";
     };
-    volumes = [
-      "/home/overseer/server/services/productivity/freshrss/data/:/config"
-    ];
-    extraOptions = [
-      "--network=traefik_proxy"
-    ];
+    volumes =
+      [ "/home/overseer/server/services/productivity/freshrss/data/:/config" ];
+    extraOptions = [ "--network=traefik_proxy" ];
     labels = {
       "traefik.enable" = "true";
       "traefik.docker.network" = "traefik_proxy";

@@ -59,7 +59,8 @@
 
   networking.hostName = "poseidon"; # Define your hostname.
 
-  time.timeZone = "America/New_York";
+  #time.timeZone = "America/New_York";
+  services.automatic-timezoned.enable = true;
 
   # put in its own file
   boot.plymouth = {

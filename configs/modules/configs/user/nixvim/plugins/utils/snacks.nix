@@ -16,15 +16,13 @@
         exclude = [ "latex" ];
       };
       statuscolumn = { enabled = false; };
-      dashboard = { enabled = true; };
+      #dashboard = { enabled = true; };
       words = {
         debounce = 100;
         enabled = true;
       };
       #BUG: Snacks.picker.*() not found
-      picker = {
-        enabled = true;
-      };
+      picker = { enabled = true; };
     };
   };
 }

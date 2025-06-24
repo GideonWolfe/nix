@@ -318,6 +318,10 @@ with config.lib.stylix.colors.withHashtag;
 
                                /* outline around search bars n stuff*/
                                --theme-focus-outline-color: ${base0D} !important;
+
+                               /* notif bar that appears under URL bar*/
+                               --info-bar-background-color: ${base02} !important;
+                               --info-bar-text-color: ${base0A} !important;
                        }
                        /* current page number in PDF*/
                        .toolbarField {

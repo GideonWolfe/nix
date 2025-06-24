@@ -220,6 +220,7 @@ with config.lib.stylix.colors;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
         enable_swallow = true;
+        enable_anr_dialog = false;
       };
 
       # This is where the actual plugin config happens
@@ -239,8 +240,7 @@ with config.lib.stylix.colors;
       };
 
       # Window rules for scratchpads and other programs
-      windowrulev2 = [
-      ];
+      windowrulev2 = [ ];
 
       # legacy windowrule to make Kando work
       # TODO look into updating to windowrulev2
