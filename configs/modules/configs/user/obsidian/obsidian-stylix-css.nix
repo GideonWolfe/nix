@@ -968,6 +968,11 @@ with config.lib.stylix.colors;
             color: var(--text-normal);
         }
 
+        /* make math text green */
+        mjx-math.MJX-TEX {
+            color: var(--neutral-green) !important;
+        }
+
     '';
 
   };
