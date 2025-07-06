@@ -55,5 +55,7 @@ in {
     adsb_deku
     pkgs.unixcw # play a text file as morse code
     inputs.dsd-fme.packages.${pkgs.system}.default
+    pkgs.fldigi
+    pkgs.js8call
   ];
 }

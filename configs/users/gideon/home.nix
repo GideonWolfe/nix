@@ -114,6 +114,8 @@ in {
     # TODO abstract to common, maybe rename profile?
     ../../modules/configs/user/thunderbird/thunderbird.nix
 
+    ../../modules/configs/user/gpredict/gpredict.nix
+
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
