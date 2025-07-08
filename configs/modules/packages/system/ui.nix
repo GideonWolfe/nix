@@ -10,7 +10,7 @@
     xdg-desktop-portal-gnome # required for GNOME apps like eyedropper to work
     xdg-desktop-portal-gtk
     lxqt.xdg-desktop-portal-lxqt
-        #xdg-desktop-portal-kde
+    #xdg-desktop-portal-kde
 
     # xprop replacement
     wlprop
@@ -37,8 +37,8 @@
     # TODO: this is a hack to account for the antipattern in the docs
     # https://github.com/Jas-SinghFSU/HyprPanel?tab=readme-ov-file#nixos--home-manager
     # instead of using an overlay, I pass hyprpanel as an output and reference it like this
-    inputs.hyprpanel.packages.${pkgs.system}.default
-
+    #inputs.hyprpanel.packages.${pkgs.system}.default
+    hyprpanel
 
     # Display configuration service
     kanshi
@@ -50,7 +50,6 @@
     wf-recorder # screen recorder util
     hyprpicker # wayland color picker
     grimblast # hyprland screenshot helper
-
 
   ];
 }

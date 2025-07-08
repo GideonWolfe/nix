@@ -16,7 +16,7 @@
 
     # Hyprpanel
     # Adding as flake until an official HM module is merged
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    #hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     # Theming engine
     stylix = {
@@ -54,7 +54,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim
-    , hyprpanel, sops-nix, xyosc, dsd-fme, ... }@inputs:
+    , sops-nix, xyosc, dsd-fme, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -154,7 +154,7 @@
             #agenix.homeManagerModules.age
             nixvim.homeManagerModules.nixvim
             spicetify-nix.homeManagerModules.default
-            hyprpanel.homeManagerModules.hyprpanel
+            #hyprpanel.homeManagerModules.hyprpanel
             ./configs/users/gideon/home.nix
           ];
         };

@@ -28,6 +28,7 @@ let
 
 in {
   # Example usage:
+  xdg.configFile."Gpredict/gpredict.cfg".force = true; #TEST: try and force replacing the config file
   xdg.configFile."Gpredict/gpredict.cfg".text = ''
 
     [MODULES]
@@ -63,7 +64,7 @@ in {
     }
     POLAR_TRACK_COLOUR=${
       toString
-      (conversionFunc "${base0E-hex-r}${base0E-hex-g}${base0E-hex-b}FF")
+      (conversionFunc "${base0A-hex-r}${base0A-hex-g}${base0A-hex-b}FF")
     }
     POLAR_SHOW_TRACK_AUTO=true
 
