@@ -148,8 +148,12 @@ with config.lib.stylix.colors.withHashtag;
               };
               # Spotify
               shortcut2 = { command = "spotify"; };
-              # Discord
-              shortcut3 = { command = "vesktop"; };
+              # Timer
+              shortcut3 = {
+                command = "gnome-clocks";
+                tooltip = "Timer";
+                icon = "";
+              };
               # App Launcher
               shortcut4 = { command = "wofi --show drun"; };
             };
