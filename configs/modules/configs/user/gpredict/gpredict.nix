@@ -80,7 +80,7 @@ in {
     }
     MAP_GRID_COLOUR=${
       toString
-      (conversionFunc "${base04-hex-r}${base04-hex-g}${base04-hex-b}22")
+      (conversionFunc "${base09-hex-r}${base09-hex-g}${base09-hex-b}44")
     }
     MAP_TICK_COLOUR=${
       toString

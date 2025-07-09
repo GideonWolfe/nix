@@ -57,5 +57,7 @@ in {
     inputs.dsd-fme.packages.${pkgs.system}.default
     pkgs.fldigi
     pkgs.js8call
+    pkgs.freedv # digital voice for HF radio
+    pkgs.qlog # radio logging software
   ];
 }

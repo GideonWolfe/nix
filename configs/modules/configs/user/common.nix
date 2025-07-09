@@ -124,5 +124,6 @@
     ./television/television.nix
     ./sourcegit/sourcegit.nix
     ./xyosc/xyosc.nix
+    ./vesktop/vesktop.nix
   ];
 }
