@@ -59,5 +59,7 @@ in {
     pkgs.js8call
     pkgs.freedv # digital voice for HF radio
     pkgs.qlog # radio logging software
+    pkgs.sdr-j-fm
+    pkgs.inspectrum # GUI for analyzing captured signals
   ];
 }

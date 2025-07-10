@@ -66,7 +66,7 @@ in {
 
     pkgs.lock # perform arbitrary encrypt/decrypt/signing with PGP keys
     pkgs.gpg-tui # manage GnuPG through the terminal
-    pkgs.kdePackages.kgpg # GUI for GPG
+        #pkgs.kdePackages.kgpg # GUI for GPG # #BUG: this was autostarting
     pkgs.sshs # TUI for opening SSH connections
     pkgs.kdePackages.kleopatra # general certificate/encryption suite
 
