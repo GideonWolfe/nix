@@ -31,6 +31,9 @@
     # AI stuff
     ../../modules/configs/system/services/ai/sillytavern.nix
 
+    # Testing Hamclock
+    ../../modules/configs/system/services/hamclock.nix
+
     ############
     # PACKAGES #
     ############

@@ -1061,6 +1061,11 @@ with config.lib.stylix.colors.withHashtag;
               icon = "";
               #size = "1.4em";
             };
+            "steam" = {
+              color = "${base05}";
+              icon = "";
+              #size = "1.4em";
+            };
           };
         };
 
