@@ -61,5 +61,6 @@ in {
     pkgs.qlog # radio logging software
     pkgs.sdr-j-fm
     pkgs.inspectrum # GUI for analyzing captured signals
+    pkgs.dump1090-fa
   ];
 }
