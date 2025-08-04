@@ -119,7 +119,6 @@ in {
 
     ## testing script to prepare portapack sd
     ../../modules/scripts/user/portapack/portapack_prep.nix
-
   ];
 
   # enable unfree package use with home manager (ie stylix referencing symbola font which is unfree)
