@@ -22,7 +22,7 @@ in {
   xdg.configFile.kicad-theme = {
     enable = true;
     #INFO: version number needs to be updated
-    target = "kicad/8.0/colors/stylix.json";
+    target = "kicad/9.0/colors/stylix.json";
 
     text = ''
       {
