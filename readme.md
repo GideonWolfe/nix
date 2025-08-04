@@ -182,6 +182,4 @@ maybe adapt https://github.com/vkraven/swankybar to toggle notifications instead
 * https://github.com/darrenburns/elia - TUI for LLMs
 * https://github.com/nadrad/h-m-m - TUI for making mind maps
 * https://github.com/Chleba/netscanner - TUI for scanning networks
-
-
 </details>
