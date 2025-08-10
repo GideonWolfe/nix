@@ -50,6 +50,33 @@
         # Clean up the zip file
         rm "$ZIP_FILE"
 
+        # Download the FlipperZero-Subghz-DB repository for additional subghz files
+        echo "Downloading FlipperZero-Subghz-DB repository..."
+        SUBGHZ_REPO_URL="https://github.com/Zero-Sploit/FlipperZero-Subghz-DB/archive/refs/heads/main.zip"
+        SUBGHZ_ZIP="FlipperZero-Subghz-DB-main.zip"
+
+        ${pkgs.curl}/bin/curl -L -o "$SUBGHZ_ZIP" "$SUBGHZ_REPO_URL"
+
+        if [ ! -f "$SUBGHZ_ZIP" ]; then
+          echo "Warning: Failed to download FlipperZero-Subghz-DB repository"
+        else
+          echo "Extracting FlipperZero-Subghz-DB..."
+          ${pkgs.unzip}/bin/unzip -o "$SUBGHZ_ZIP"
+
+          # Copy subghz directory contents to SUBGHZ directory in firmware
+          if [ -d "FlipperZero-Subghz-DB-main/subghz" ] && [ -d "SUBGHZ" ]; then
+            echo "Copying subghz files to SUBGHZ directory..."
+            cp -r FlipperZero-Subghz-DB-main/subghz/* SUBGHZ/
+            echo "Successfully copied subghz files"
+          else
+            echo "Warning: Could not find source subghz directory or target SUBGHZ directory"
+          fi
+
+          # Clean up the subghz repo files
+          rm -rf FlipperZero-Subghz-DB-main
+          rm "$SUBGHZ_ZIP"
+        fi
+
         echo "Portapack SD card contents ready in ./portapack/"
         echo "Copy the contents of this folder to your SD card root directory."
       '';
