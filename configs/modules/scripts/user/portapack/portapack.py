@@ -12,6 +12,7 @@ import urllib.error
 import zipfile
 import shutil
 import time
+import subprocess
 from pathlib import Path
 
 
@@ -121,6 +122,37 @@ def copy_directory_contents(source_dir, target_dir):
         return False
 
 
+def extract_radio_frequencies():
+    """Extract radio frequencies using radioref command and organize into FREQMAN directory."""
+    print("Extracting local radio frequencies...")
+    
+    # Create temporary directory and run radioref
+    temp_dir = Path("temp_radioref")
+    temp_dir.mkdir(exist_ok=True)
+    original_cwd = Path.cwd()
+    
+    try:
+        os.chdir(temp_dir)
+        subprocess.run(["radioref"], check=False)
+        os.chdir(original_cwd)
+        
+        # Move any output directories to FREQMAN
+        freqman_dir = Path("FREQMAN")
+        freqman_dir.mkdir(exist_ok=True)
+        
+        for output_dir in temp_dir.iterdir():
+            if output_dir.is_dir():
+                target_path = freqman_dir / output_dir.name
+                if target_path.exists():
+                    shutil.rmtree(target_path)
+                shutil.move(str(output_dir), str(target_path))
+                print(f"  Moved frequency files: {output_dir.name}")
+        
+    finally:
+        if temp_dir.exists():
+            shutil.rmtree(temp_dir)
+
+
 def cleanup_files(*files_and_dirs):
     """Remove files and directories."""
     for item in files_and_dirs:
@@ -188,6 +220,9 @@ def main():
         cleanup_files("FlipperZero-Subghz-DB-main", subghz_zip)
     else:
         print("Warning: Failed to download FlipperZero-Subghz-DB repository")
+    
+    # Extract radio frequencies and organize into FREQMAN directory
+    extract_radio_frequencies()
     
     print("Portapack SD card contents ready in ./portapack/")
     print("Copy the contents of this folder to your SD card root directory.")

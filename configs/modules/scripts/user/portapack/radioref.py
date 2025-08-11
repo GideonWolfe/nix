@@ -446,9 +446,13 @@ def main():
     # Parse command line arguments
     county_id = "1855"  # Default to NYC area
     include_p25e = False
+    output_dir = None  # Will be auto-generated if not specified
     
-    if len(sys.argv) > 1:
-        if sys.argv[1] in ["--help", "-h"]:
+    i = 1
+    while i < len(sys.argv):
+        arg = sys.argv[i]
+        
+        if arg in ["--help", "-h"]:
             print("RadioReference.com Frequency Extractor")
             print("Usage:")
             print("  python3 radioref.py [options] [county_id]")
@@ -458,18 +462,31 @@ def main():
             print("")
             print("Options:")
             print("  --include-p25e   Include P25E mode entries in output (excluded by default)")
+            print("  --output-dir DIR Specify output directory name (default: auto-generated from county name)")
             print("  --help, -h       Show this help message")
             print("")
             print("Examples:")
-            print("  python3 radioref.py 1855                    # NYC area frequencies (no P25E)")
-            print("  python3 radioref.py 2675                    # Los Angeles County frequencies (no P25E)") 
-            print("  python3 radioref.py --include-p25e 1855     # NYC area, include P25E entries")
+            print("  python3 radioref.py 1855                          # NYC area frequencies (no P25E)")
+            print("  python3 radioref.py 2675                          # Los Angeles County frequencies (no P25E)") 
+            print("  python3 radioref.py --include-p25e 1855           # NYC area, include P25E entries")
+            print("  python3 radioref.py --output-dir NYC_FREQS 1855   # NYC area, custom output directory")
             return
-        elif sys.argv[1] == "--include-p25e":
+        elif arg == "--include-p25e":
             include_p25e = True
-            county_id = sys.argv[2] if len(sys.argv) > 2 else county_id
+        elif arg == "--output-dir":
+            if i + 1 < len(sys.argv):
+                output_dir = sys.argv[i + 1]
+                i += 1  # Skip the next argument since it's the directory name
+            else:
+                print("Error: --output-dir requires a directory name")
+                sys.exit(1)
+        elif not arg.startswith("--"):
+            county_id = arg
         else:
-            county_id = sys.argv[1]
+            print(f"Error: Unknown option {arg}")
+            sys.exit(1)
+        
+        i += 1
     
     # Build URL and prepare
     url = f"https://www.radioreference.com/db/browse/ctid/{county_id}"
@@ -479,6 +496,10 @@ def main():
     print(f"County ID: {county_id}")
     print(f"URL: {url}")
     print(f"Mode: {'Including' if include_p25e else 'Excluding'} P25E entries{' (use --include-p25e to include)' if not include_p25e else ''}")
+    if output_dir:
+        print(f"Output directory: {output_dir} (custom)")
+    else:
+        print(f"Output directory: Auto-generated from county name")
     print("-" * 50)
     
     # Extract frequencies
@@ -487,10 +508,13 @@ def main():
     if data:
         print("\nExtraction completed successfully!")
         
-        # Create output directory name based on county name
+        # Create output directory name based on county name or use custom name
         county_name = data.get("county_name")
-        freqman_dir = (format_county_folder_name(county_name) if county_name 
-                      else f"COUNTY_{county_id}") or f"COUNTY_{county_id}"
+        if output_dir:
+            freqman_dir = output_dir
+        else:
+            freqman_dir = (format_county_folder_name(county_name) if county_name 
+                          else f"COUNTY_{county_id}") or f"COUNTY_{county_id}"
         
         # Export to separate Freqman files for each table
         print(f"\nExporting to Freqman format...")
