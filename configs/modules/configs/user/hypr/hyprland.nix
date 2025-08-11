@@ -94,7 +94,18 @@ with config.lib.stylix.colors;
       ];
 
       # Key bindings
-      bind = [
+      bind = let
+        #TODO: taken from https://github.com/xendak/nixos-config/blob/da5046a434225c9dc7217d230b1226e015e1f6b7/home/common/wayland/hyprland/plugins/hyprbars.nix
+        # Maybe separate cleanly into hyprbars.nix like that
+        barsEnabled = "hyprctl -j getoption plugin:hyprbars:bar_height | ${
+            lib.getExe pkgs.jq
+          } -re '.int != 0'";
+        setBarHeight = height:
+          "hyprctl keyword plugin:hyprbars:bar_height ${toString height}";
+        toggleOn = setBarHeight
+          config.wayland.windowManager.hyprland.settings.plugin.hyprbars.bar_height;
+        toggleOff = setBarHeight 0;
+      in [
 
         # Open terminal
         "$mod, RETURN, exec, kitty"
@@ -104,6 +115,8 @@ with config.lib.stylix.colors;
         "$mod SHIFT, F, fullscreen, 2"
         # Toggle floating on active window
         "$mod, V, togglefloating,"
+        # Toggle bars on all windows
+        "$mod, B, exec,${barsEnabled} && ${toggleOff} || ${toggleOn}"
 
         # Toggle group for the window
         "$mod SHIFT, G, togglegroup,"
@@ -237,10 +250,29 @@ with config.lib.stylix.colors;
           gesture_distance = 150; # how far is the "max"
           gesture_positive = true; # positive = swipe down. Negative = swipe up.
         };
+        hyprbars = {
+          enabled = true;
+          bar_height = 20;
+          bar_color = "rgba(${base01}ff)";
+          "col.text" = "rgb(${base05})";
+          bar_text_size = 12;
+          bar_precedence_over_border = false;
+          bar_part_of_window = false;
+          buttons = {
+            hyprbars-button = lib.mkForce [
+              # close
+              "rgb(${base01}), 18, 󰅖, hyprctl dispatch killactive, rgb(${base08})"
+              # maximize
+              "rgb(${base01}), 15, , hyprctl dispatch fullscreen 1, rgb(${base0E})"
+              # toggle floating
+              "rgb(${base01}), 15, , hyprctl dispatch togglefloating, rgb(${base0B})"
+            ];
+          };
+        };
       };
 
       # Window rules for scratchpads and other programs
-      windowrulev2 = [ ];
+      #windowrulev2 = [ ];
 
       # legacy windowrule to make Kando work
       # TODO look into updating to windowrulev2
@@ -330,6 +362,7 @@ with config.lib.stylix.colors;
       # can be disabled but might as well keep only one around
       pkgs.hyprlandPlugins.hyprexpo
       #pkgs.hyprlandPlugins.hyprspace
+      pkgs.hyprlandPlugins.hyprbars
     ];
 
   };

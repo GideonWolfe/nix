@@ -268,8 +268,8 @@ def frequency_to_freqman_format(freq_entry, include_p25e=False):
     modulation = "NFM" if mode == "FMN" else mode if mode in ["FM", "AM", "NFM", "WFM"] else "FM"
     bandwidth = {"NFM": "12k5", "WFM": "200k", "AM": "12k5"}.get(modulation, "25k")
     
-    # Build Freqman entry
-    return f"f={freq_hz}\nm={modulation}\nbw={bandwidth}\ns=12k5\nd={description}\n"
+    # Build Freqman entry as single line with comma-separated values
+    return f"f={freq_hz},m={modulation},bw={bandwidth},s=12k5,d={description}"
 
 
 def sanitize_filename(text):
@@ -326,8 +326,8 @@ def export_table_to_freqman(frequencies, section, table_name, output_dir=".", ma
     # Limit to max entries after filtering
     if successful_conversions > max_entries:
         print(f"  Warning: Limiting {section} - {table_name} to {max_entries} entries (found {successful_conversions})")
-        header_lines = 5  # Number of header comment lines
-        total_lines_to_keep = header_lines + (max_entries * 6)  # 6 lines per entry
+        # Keep header lines plus max_entries frequency lines
+        total_lines_to_keep = 5 + max_entries  # 5 header lines + frequency entries
         freqman_entries = freqman_entries[:total_lines_to_keep]
         successful_conversions = max_entries
     
