@@ -97,14 +97,24 @@ with config.lib.stylix.colors;
       bind = let
         #TODO: taken from https://github.com/xendak/nixos-config/blob/da5046a434225c9dc7217d230b1226e015e1f6b7/home/common/wayland/hyprland/plugins/hyprbars.nix
         # Maybe separate cleanly into hyprbars.nix like that
-        barsEnabled = "hyprctl -j getoption plugin:hyprbars:bar_height | ${
-            lib.getExe pkgs.jq
-          } -re '.int != 0'";
-        setBarHeight = height:
-          "hyprctl keyword plugin:hyprbars:bar_height ${toString height}";
-        toggleOn = setBarHeight
-          config.wayland.windowManager.hyprland.settings.plugin.hyprbars.bar_height;
-        toggleOff = setBarHeight 0;
+        # barsEnabled = "hyprctl -j getoption plugin:hyprbars:bar_height | ${
+        #     lib.getExe pkgs.jq
+        #   } -re '.int != 0'";
+        # setBarHeight = height:
+        #   "hyprctl keyword plugin:hyprbars:bar_height ${toString height}";
+        # toggleOn = setBarHeight
+        #   config.wayland.windowManager.hyprland.settings.plugin.hyprbars.bar_height;
+        # toggleOff = setBarHeight 0;
+
+        # Nore elegant. Can possibly switch to disabling instead of unloading when this gets updated in
+        # https://github.com/hyprwm/hyprland-plugins/issues/372
+        # hyprctl -q keyword plugin:hyprbars:enabled true
+        # hyprctl -q keyword plugin:hyprbars:enabled false
+        barsEnabled = "hyprctl -j plugins list | grep 'hyprbars'";
+        toggleOn =
+          "hyprctl plugins load ${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
+        toggleOff =
+          "hyprctl plugins unload ${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
       in [
 
         # Open terminal

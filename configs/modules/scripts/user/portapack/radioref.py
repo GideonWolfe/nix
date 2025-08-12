@@ -269,7 +269,7 @@ def frequency_to_freqman_format(freq_entry, include_p25e=False):
     bandwidth = {"NFM": "12k5", "WFM": "200k", "AM": "12k5"}.get(modulation, "25k")
     
     # Build Freqman entry as single line with comma-separated values
-    return f"f={freq_hz},m={modulation},bw={bandwidth},s=12k5,d={description}"
+    return f"f={freq_hz},m={modulation},bw={bandwidth},d={description}"
 
 
 def sanitize_filename(text):
