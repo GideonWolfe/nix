@@ -7,5 +7,6 @@
     pkgs.qutebrowser
     pkgs.miniserve # serve startpage and other apps easily
     pkgs.amfora # TUI gemini browser
+    pkgs.tor-browser
   ];
 }

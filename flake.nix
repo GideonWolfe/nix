@@ -51,10 +51,14 @@
     xyosc = { url = "github:make-42/xyosc"; };
 
     dsd-fme = { url = "github:lwvmobile/dsd-fme"; };
+
+    # provides some AI tools like crush (maybe redundant later)
+    nix-ai-tools.url = "github:numtide/nix-ai-tools";
+
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim
-    , sops-nix, xyosc, dsd-fme, ... }@inputs:
+    , sops-nix, xyosc, dsd-fme, nix-ai-tools, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";

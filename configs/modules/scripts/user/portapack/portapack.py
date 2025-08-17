@@ -136,17 +136,18 @@ def extract_radio_frequencies():
         subprocess.run(["radioref"], check=False)
         os.chdir(original_cwd)
         
-        # Move any output directories to FREQMAN
+        # Move any output files to FREQMAN with RR prefix
         freqman_dir = Path("FREQMAN")
         freqman_dir.mkdir(exist_ok=True)
         
         for output_dir in temp_dir.iterdir():
             if output_dir.is_dir():
-                target_path = freqman_dir / output_dir.name
-                if target_path.exists():
-                    shutil.rmtree(target_path)
-                shutil.move(str(output_dir), str(target_path))
-                print(f"  Moved frequency files: {output_dir.name}")
+                # Copy individual files from each directory
+                for file_path in output_dir.iterdir():
+                    if file_path.is_file():
+                        target_file = freqman_dir / f"RR_{file_path.name}"
+                        shutil.copy2(str(file_path), str(target_file))
+                        print(f"  Copied: {file_path.name} -> RR_{file_path.name}")
         
     finally:
         if temp_dir.exists():

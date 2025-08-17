@@ -323,6 +323,10 @@ with config.lib.stylix.colors;
         # To make KDE connect message reply window not be tiny
         "minsize 400 400, title:(Messages — KDE Connect Daemon)"
 
+        # To make KDE connect message reply window not be tiny
+        "float,class:(org.kde.kruler)"
+        "size 1000 150,class:(org.kde.kruler)"
+
         # Bind programs to specific worskspaces for autostart purposes
         # Music Workspace
         "workspace 1 silent, class:^(spotify)$"

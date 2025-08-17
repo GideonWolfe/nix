@@ -30,6 +30,7 @@
     ./services/hardware/i2c.nix
     ./services/hardware/ratbagd.nix
     ./services/hardware/rtl-sdr.nix
+    ./services/hardware/hackrf.nix
     ./services/hardware/printing.nix
     ./services/hardware/ddccontrol.nix
     ./services/storage/udisks2.nix

@@ -1,0 +1,5 @@
+{
+  hardware.hackrf= {
+    enable = true;
+  };
+}

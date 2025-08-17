@@ -250,6 +250,19 @@ def frequency_to_freqman_format(freq_entry, include_p25e=False):
     if not include_p25e and mode == "P25E":
         return None
     
+    # Determine modulation and bandwidth - ensure we always have a mode
+    if mode == "FMN":
+        modulation = "NFM"
+    elif mode == "FM":
+        modulation = "WFM"
+    elif mode in ["AM", "NFM", "WFM"]:
+        modulation = mode
+    else:
+        # Default to NFM for empty or unrecognized modes
+        modulation = "NFM"
+    
+    bandwidth = {"NFM": "16k", "WFM": "200k", "AM": "DSB 9k"}.get(modulation, "25k")
+    
     # Build description (max 30 chars) from available fields
     description_parts = [part for part in [
         freq_entry.get("type", "").strip(),
@@ -263,10 +276,6 @@ def frequency_to_freqman_format(freq_entry, include_p25e=False):
     ] if part]
     
     description = " ".join(description_parts)[:30] if description_parts else "Unknown"
-    
-    # Determine modulation and bandwidth
-    modulation = "NFM" if mode == "FMN" else mode if mode in ["FM", "AM", "NFM", "WFM"] else "FM"
-    bandwidth = {"NFM": "12k5", "WFM": "200k", "AM": "12k5"}.get(modulation, "25k")
     
     # Build Freqman entry as single line with comma-separated values
     return f"f={freq_hz},m={modulation},bw={bandwidth},d={description}"

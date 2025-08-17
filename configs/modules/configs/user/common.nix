@@ -125,5 +125,6 @@
     ./sourcegit/sourcegit.nix
     ./xyosc/xyosc.nix
     ./vesktop/vesktop.nix
+    ./freetube/freetube.nix
   ];
 }

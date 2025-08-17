@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
   hackernews-tui = pkgs.callPackage ./hackernews-tui.nix { };
   basalt-tui = pkgs.callPackage ./basalt-tui.nix { };
@@ -66,7 +66,7 @@ in {
 
     pkgs.lock # perform arbitrary encrypt/decrypt/signing with PGP keys
     pkgs.gpg-tui # manage GnuPG through the terminal
-        #pkgs.kdePackages.kgpg # GUI for GPG # #BUG: this was autostarting
+    #pkgs.kdePackages.kgpg # GUI for GPG # #BUG: this was autostarting
     pkgs.sshs # TUI for opening SSH connections
     pkgs.kdePackages.kleopatra # general certificate/encryption suite
 
@@ -145,6 +145,7 @@ in {
     pkgs.llm # LLM CLI
     pkgs.tgpt # LLM CLI
     pkgs.lmstudio # LLM GUI
+    inputs.nix-ai-tools.packages.crush
 
     # Dashboards
     pkgs.wtfutil
