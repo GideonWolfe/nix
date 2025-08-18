@@ -82,6 +82,9 @@ in {
     # web dev
     pkgs.sassc
 
+    # nix LSP
+    pkgs.nil
+
     dedoc
   ];
 }

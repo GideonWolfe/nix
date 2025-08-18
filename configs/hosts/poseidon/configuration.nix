@@ -25,6 +25,9 @@
     # Local plantuml server
     ../../modules/configs/system/services/plantuml.nix
 
+    #TEST: localAI
+    ../../modules/configs/system/services/ai/localai.nix
+
     ############
     # PACKAGES #
     ############

@@ -145,7 +145,11 @@ in {
     pkgs.llm # LLM CLI
     pkgs.tgpt # LLM CLI
     pkgs.lmstudio # LLM GUI
-    inputs.nix-ai-tools.packages.crush
+    inputs.nix-ai-tools.packages.${pkgs.system}.crush
+    pkgs.open-interpreter #BUG: crashing
+    pkgs.cherry-studio
+    pkgs.open-webui
+    pkgs.aichat
 
     # Dashboards
     pkgs.wtfutil
