@@ -1,16 +1,16 @@
 { config, lib, pkgs, ... }:
 
 {
-	home.packages = [
+  home.packages = [
 
-		#############
-		# ASTRONOMY #
-		#############
-		pkgs.celestia
-		pkgs.kstars
-        #pkgs.gpredict
-		pkgs.gpredict-unstable
-        
+    #############
+    # ASTRONOMY #
+    #############
+    pkgs.celestia
+    pkgs.kstars
+    #pkgs.gpredict
+    pkgs.gpredict-unstable
+    pkgs.astroterm
 
-	];
+  ];
 }

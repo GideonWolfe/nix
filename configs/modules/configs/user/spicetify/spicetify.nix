@@ -15,6 +15,9 @@ with config.lib.stylix.colors;
         shuffle # shuffle+ (special characters are sanitized out of extension names)
         songStats
       ];
+      enabledCustomApps = [
+        spicePkgs.apps.ncsVisualizer #BUG: this just loads forever
+      ];
       #theme = spicePkgs.themes.catppuccin;
       #colorScheme = "mocha";
       theme = spicePkgs.themes.sleek;

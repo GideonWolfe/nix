@@ -36,6 +36,7 @@ in {
     pkgs.bitwise # TUI and CLI bitwise operation calc
     pkgs.binary # GTK app to do binary calculations
     pkgs.atac # Postman like API tester (TUI)
+    pkgs.posting # Postman like API tester (TUI)
     pkgs.dblab # TUI client for local and remote databases
     pkgs.sttr # TUI for string transformation
     pkgs.textpieces # GUI for string transformation

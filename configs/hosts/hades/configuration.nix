@@ -30,6 +30,8 @@
 
     # AI stuff
     ../../modules/configs/system/services/ai/sillytavern.nix
+    #TEST: localAI
+    ../../modules/configs/system/services/ai/localai.nix
 
     # Testing Hamclock
     ../../modules/configs/system/services/hamclock.nix

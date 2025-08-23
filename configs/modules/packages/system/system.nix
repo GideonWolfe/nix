@@ -127,9 +127,10 @@
     flameshot # screenshot GUI
     swappy # screenshot GUI
     hyprshot # screenshot tool
-    speedtest-cli
+    #speedtest-cli #BUG: this 403s?
+    speedtest-rs
     #BUG: conflicts with "speedtest" command offered by speedtest-cli
-    #speedtest # GTK frontend for librespeed
+    speedtest # GTK frontend for librespeed
     xdg-user-dirs # change default user directoryies
     xdg-utils
     fzf

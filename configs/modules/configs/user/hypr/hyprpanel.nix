@@ -1064,6 +1064,11 @@ with config.lib.stylix.colors.withHashtag;
             "steam" = {
               color = "${base05}";
               icon = "";
+              size = "1.2em";
+            };
+            "Zeal" = {
+              color = "${base0A}";
+              icon = "";
               #size = "1.4em";
             };
           };
