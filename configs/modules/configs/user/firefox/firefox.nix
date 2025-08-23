@@ -1123,6 +1123,7 @@ with config.lib.stylix.colors.withHashtag;
           					/* Downloads button coloring */
           					#downloads-button{
           						color: ${base0E} !important;
+          						accent-color: ${base0E} !important;
           					}	
           					/* Downloads progress inner circle coloring */
           					#downloads-indicator-progress-inner{
