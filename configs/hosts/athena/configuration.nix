@@ -31,6 +31,12 @@
     # Fan control #BUG:
     #./system/system/fancontrol.nix
 
+    # Enable backups of music library
+    ./system/music_backup.nix
+    
+    # Enable backups of personal archive
+    ./system/archive_backup.nix
+
     #smartd hdd health
     ./system/services/smartd.nix
     ./system/services/scrutiny.nix

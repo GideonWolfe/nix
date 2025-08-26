@@ -5,7 +5,7 @@
     image = "slskd/slskd";
     ports = [ "5030:5030" "5031:5031" "50300:50300" ];
     autoStart = true;
-    #user = "1000:100";
+    user = "1000:100";
     environment = {
       PUID = "1000";
       PGID = "100";
@@ -21,7 +21,8 @@
       #"/pool/data/media/downloads:/app/downloads"
       #"/pool/data/media/downloads:/downloads"
       # "/pool/data/media/downloads:/downloads"
-      "/pool/data/media/downloads/completed/music:/downloads"
+      #"/pool/data/media/downloads/completed/music:/downloads"
+      "/home/overseer/test/slskd:/downloads"
     ];
     extraOptions = [ "--network=traefik_proxy" ];
   };

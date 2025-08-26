@@ -2,7 +2,7 @@
 
 {
   virtualisation.oci-containers.containers.romm = {
-    image = "rommapp/romm:v3.10.0";
+    image = "rommapp/romm:3.10.0";
     ports = [ "4240:8080" ];
     autoStart = true;
     environment = {
@@ -34,21 +34,22 @@
   virtualisation.oci-containers.containers.romm-db = {
     # using the linuxserver version
     # https://github.com/rommapp/romm/issues/928
-    image = "lscr.io/linuxserver/mariadb";
+    #image = "lscr.io/linuxserver/mariadb";
+    image = "mariadb:latest";
     autoStart = true;
     environment = {
       PUID = "1000";
       PGID = "100";
       DB_HOST = "romm-db";
       # Had to be changed when switching to Linuxserver
-      # MARIADB_DATABASE = "romm";
-      # MARIADB_USER = "romm-user";
-      # MARIADB_PASSWORD = "spunglebrains";
-      # MARIADB_ROOT_PASSWORD = "spunglebrains";
-      MYSQL_DATABASE = "romm";
-      MYSQL_USER = "romm-user";
-      MYSQL_PASSWORD = "spunglebrains";
-      MYSQL_ROOT_PASSWORD = "spunglebrains";
+      MARIADB_DATABASE = "romm";
+      MARIADB_USER = "romm-user";
+      MARIADB_PASSWORD = "spunglebrains";
+      MARIADB_ROOT_PASSWORD = "spunglebrains";
+      #MYSQL_DATABASE = "romm";
+      #MYSQL_USER = "romm-user";
+      #MYSQL_PASSWORD = "spunglebrains";
+      #MYSQL_ROOT_PASSWORD = "spunglebrains";
     };
     volumes = [
       "/home/overseer/server/services/media/romm/romm_database:/var/lib/mysql"

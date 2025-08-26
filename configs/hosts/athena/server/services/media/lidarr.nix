@@ -2,7 +2,7 @@
 
 {
   virtualisation.oci-containers.containers.lidarr = {
-    image = "linuxserver/lidarr:latest";
+    image = "linuxserver/lidarr:2.11.2.4629-ls43";
     ports = [ "4208:8686" ];
     autoStart = true;
     environment = {
