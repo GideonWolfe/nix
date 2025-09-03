@@ -45,6 +45,7 @@
     pkgs.fum # MPRIS TUI client
     #pkgs.sublime-music #GUI Subsonic music server client #BUG: this one slow as fuck
     #pkgs.feishin # GUI Subsonic music server client #TODO: rewritten into audioling, not a package yet
+    #pkgs.finamp # Jellyfin music player
     #pkgs.supersonic # subsonic client https://github.com/dweymouth/supersonic/blob/main/res/themes/default.toml
     #pkgs.amarok # KDE GUI music player
     #pkgs.deadbeef-with-plugins # GUI music player unmaintained, might need to just use deadbeef
@@ -71,5 +72,6 @@
     #pkgs.zrythm # DAW
     pkgs.piano-rs # TUI piano
     pkgs.vmpk # Virtual MIDI Piano Keyboard
+    pkgs.drum-machine # GTK drum machine
   ];
 }

@@ -41,6 +41,7 @@ in {
     pkgs.sttr # TUI for string transformation
     pkgs.textpieces # GUI for string transformation
     pkgs.gtkhash # GUI for getting hashes of files
+    pkgs.devtoolbox # Common dev tools in GTK GUI (mostly str conversions)
 
     # IDEs
     pkgs.vscode

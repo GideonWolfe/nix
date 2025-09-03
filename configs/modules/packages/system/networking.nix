@@ -16,5 +16,6 @@
     #tightvnc #VNC service
     linux-wifi-hotspot # create wifi/VPN hotspots
     macchanger # manipulate and view network interface MAC addresses
+    wtfis # more informative whois CLI
   ];
 }

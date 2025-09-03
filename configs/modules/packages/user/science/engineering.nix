@@ -66,5 +66,6 @@ in {
     pkgs.dump1090-fa
     pkgs.ax25-apps
     pkgs.hackrf
+    pkgs.telegraph # morse code GUI
   ];
 }

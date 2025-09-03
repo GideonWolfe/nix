@@ -17,6 +17,7 @@
     pkgs.survex # cave mapping software
     pkgs.satellite # view data from GPS
     pkgs.kdePackages.kgeography # KDE Geography trainer
+        #pkgs.zombietrackergps #BUG tries to build marble
 
   ];
 }
