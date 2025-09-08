@@ -29,6 +29,8 @@
     nix-tree # browse dependencies of nix store
     nix-output-monitor # adds visuals to build outputs
 
+    nixos-anywhere # install Nix on fresh machines
+
     # backup CLI
     restic
 

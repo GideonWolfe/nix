@@ -14,6 +14,11 @@
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
 
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs = { nixpkgs.follows = "nixpkgs"; };
+    };
+
     # Hyprpanel
     # Adding as flake until an official HM module is merged
     #hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
@@ -58,7 +63,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim
-    , sops-nix, xyosc, dsd-fme, nix-ai-tools, ... }@inputs:
+    , sops-nix, xyosc, dsd-fme, nix-ai-tools, disko, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -67,6 +72,15 @@
 
       # Definitions for individual hosts
       nixosConfigurations = {
+
+        do-vps-test = {
+          #inherit system;
+          system = "x86_64-linux";
+          modules = [
+            disko.nixosModules.disko
+            ./configs/hosts/do-vps-test/configuration.nix
+          ];
+        };
 
         # Original testing VM
         hermes = lib.nixosSystem {
