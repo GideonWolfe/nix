@@ -36,6 +36,9 @@
     # Testing Hamclock
     ../../modules/configs/system/services/hamclock.nix
 
+    # Testing NetBox
+    ../../modules/configs/system/services/networks/netbox/netbox.nix
+
     ############
     # PACKAGES #
     ############
@@ -109,6 +112,7 @@
   services.gnome.gnome-online-accounts.enable = true;
   services.accounts-daemon.enable = true;
   services.gnome.evolution-data-server.enable = true;
+
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
