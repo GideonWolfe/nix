@@ -7,13 +7,18 @@
       monitor = {
         # The IP of the server
         # Used for remote installation and updates
-        ip = "xx.xxx.xx.xx";
+        ip = "165.227.70.3";
         # The domain that Grafana will run at
         grafana = {
-          domain = "grafana.somedomain.tld";
-          port = 8080;
+          domain = "cromulus.gideonwolfe.xyz";
+          protocol = "http";
+          port = 3000;
+          dataDir = "/var/lib/grafana";
         };
       };
+    };
+    email = {
+      gmail.address = "someaddress";
     };
   };
 }
