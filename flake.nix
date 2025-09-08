@@ -78,6 +78,7 @@
           system = "x86_64-linux";
           modules = [
             disko.nixosModules.disko
+            ./configs/hosts/do-vps-test/disko.nix
             ./configs/hosts/do-vps-test/configuration.nix
           ];
         };
