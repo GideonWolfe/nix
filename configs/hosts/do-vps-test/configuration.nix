@@ -100,8 +100,9 @@
 
   services.cloud-init = {
     enable = true;
+    network.enable = true;
     settings = {
-      networking.enable = true;
+      #networking.enable = true;
       datasource_list = [ "ConfigDrive" "Digitalocean" ];
       datasource.ConfigDrive = { };
       datasource.Digitalocean = { };
@@ -165,7 +166,6 @@
     initialPassword = "pw123";
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
-      "docker" # Let the user run docker commands
     ];
     packages = with pkgs; [ neovim tree ];
     openssh = {
