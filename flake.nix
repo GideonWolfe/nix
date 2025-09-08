@@ -73,7 +73,7 @@
       # Definitions for individual hosts
       nixosConfigurations = {
 
-        do-vps-test = {
+        do-vps-test = lib.nixosSystem {
           #inherit system;
           system = "x86_64-linux";
           modules = [

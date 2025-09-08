@@ -1,7 +1,10 @@
-{ lib, modulesPath, pkgs, disko, ... }: {
+{ lib, modulesPath, pkgs, disko, config, ... }: {
 
   # grabbing the official nixpkgs module for digital ocean
-  imports = [ "${modulesPath}/virtualisation/digital-ocean-config.nix" ];
+  imports = [
+    "${modulesPath}/virtualisation/digital-ocean-config.nix"
+    ../../modules/keys/ssh.nix # access to my keys
+  ];
 
   # virtualisation.digitalOcean = {
   #       # Allow setting SSH keys from DigitalOcean metadata
@@ -10,7 +13,33 @@
   #   };
   services.cloud-init = {
     enable = true;
-    networking.enable = true;
+    settings.networking.enable = true;
+    #settings.ext4.enable = true;
+  };
+
+  boot.loader.grub.devices =
+    lib.mkForce [ config.disko.devices.disk.disk0.device ];
+
+  nix = {
+    settings = {
+      tarball-ttl = 300;
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [ "root" "@wheel" ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+    };
   };
 
   disko.devices.disk = {
@@ -20,17 +49,8 @@
       content = {
         type = "gpt";
         partitions = {
-          ESP = {
-            type = "efi";
-            size = "512M";
-            content = {
-              type = "filesystem";
-              format = "fat32";
-              mountpoint = "/boot";
-            };
-          };
           root = {
-            type = "linux";
+            type = "8300"; # Linux filesystem partition type (GPT)
             size = "100%";
             content = {
               type = "filesystem";
@@ -43,7 +63,7 @@
     };
   };
 
-  #networking.useDHCP = lib.mkForce false;
+  networking.useDHCP = lib.mkForce false;
 
   # Digitalocean stuff
   # https://github.com/nix-community/nixos-anywhere-examples/blob/main/digitalocean.nix
@@ -106,9 +126,6 @@
   # };
   #
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "wumpus"; # Define your hostname.
 
   users.users.gideon = {
@@ -120,13 +137,13 @@
       "docker" # Let the user run docker commands
     ];
     packages = with pkgs; [ neovim tree ];
+    openssh = {
+      authorizedKeys.keys = [ config.local.ssh.keys.gideon_ssh_sk ];
+    };
   };
 
   # enable fish systemwide
   programs.fish.enable = true;
-
-  # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   system.stateVersion = "25.05";
 }
