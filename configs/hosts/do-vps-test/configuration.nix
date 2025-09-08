@@ -116,7 +116,7 @@
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
     ];
-    packages = with pkgs; [ neovim tree cowsay];
+    packages = with pkgs; [ neovim tree cowsay ];
     openssh = {
       authorizedKeys.keys = [ config.local.ssh.keys.gideon_ssh_sk ];
     };
