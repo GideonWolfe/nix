@@ -3,7 +3,7 @@
   services.grafana = { 
     enable = true;
 
-    openFirewall = true;
+    # openFirewall = true; # Temporarily disabled - manually opening port below
 
     dataDir = config.local.world.hosts.monitor.grafana.dataDir;
 

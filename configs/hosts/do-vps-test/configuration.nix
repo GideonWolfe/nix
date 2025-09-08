@@ -1,4 +1,4 @@
-{ lib, modulesPath, pkgs, config, ... }: {
+{ lib, modulesPath, pkgs, config, inputs, ... }: {
 
   # grabbing the official nixpkgs module for digital ocean
   imports = [
@@ -13,18 +13,16 @@
     # config for this specific system
 
     # Secrets
-    #./vps_sops.nix # imports other modules and sets secret file
+    ./vps_sops.nix # imports other modules and sets secret file
 
     # Applications
     ./grafana.nix # Run Grafana on this system
   ];
 
-  # virtualisation.digitalOcean = {
-  #       # Allow setting SSH keys from DigitalOcean metadata
-  #       #TEST: does this take from the key we selected during droplet creation?
-  #       setSshKeys = true;
-  #   };
 
+  #sops = {
+
+  #};
 
   # services.traefik = {
   #   enable = true;
@@ -50,7 +48,7 @@
   # };
 
   # maybe this makes SSH work?
-  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 22 80 443 3000 ]; # 3000 for Grafana
 
   boot.loader.grub = {
     efiSupport = true;
