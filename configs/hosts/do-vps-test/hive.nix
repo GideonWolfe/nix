@@ -6,10 +6,8 @@
   do-vps-test = { name, nodes, pkgs, config, ... }: {
     # Import your existing configuration (disko is optional now)
     imports = [
-      ../../modules/keys/ssh.nix
-      ../../modules/world.nix
+      # config for this specific system
       ./configuration.nix
-      ./grafana.nix
     ];
 
     # Deployment settings for colmena

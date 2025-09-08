@@ -2,8 +2,21 @@
 
   # grabbing the official nixpkgs module for digital ocean
   imports = [
+
+    # Nix Maintained DigitalOcean configs
     "${modulesPath}/virtualisation/digital-ocean-config.nix"
-    ../../modules/keys/ssh.nix # access to my keys
+    
+    # my public keys
+    ../../modules/keys/ssh.nix
+    # infra variables
+    ../../modules/world.nix
+    # config for this specific system
+
+    # Secrets
+    #./vps_sops.nix # imports other modules and sets secret file
+
+    # Applications
+    ./grafana.nix # Run Grafana on this system
   ];
 
   # virtualisation.digitalOcean = {
@@ -11,6 +24,30 @@
   #       #TEST: does this take from the key we selected during droplet creation?
   #       setSshKeys = true;
   #   };
+
+
+  # services.traefik = {
+  #   enable = true;
+
+  #   staticConfigOptions = {
+
+  #     log = {
+  #       #level = "ERROR";
+  #       level = "DEBUG";
+  #     };
+
+  #     api = {
+  #       dashboard = true;
+  #       insecure = true;
+  #     };
+  #     certificatesResolvers.myresolver.acme = {
+  #       email = config.local.world.email.infra_email.address;
+  #       storage = "/var/lib/traefik/gideonwolfe.json";
+  #       tlsChallenge = true;
+  #       dnsChallenge = { provider = "digitalocean"; };
+  #     };
+  #   };
+  # };
 
   # maybe this makes SSH work?
   networking.firewall.allowedTCPPorts = [ 22 80 443 ];

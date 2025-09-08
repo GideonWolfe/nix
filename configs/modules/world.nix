@@ -18,7 +18,10 @@
       };
     };
     email = {
-      gmail.address = "someaddress";
+      gmail = { address = "someaddress"; };
+      gideonwolfe_xyz = { address = "gideon@gideonwolfe.xyz"; };
+      # The email currently assigned as my infra email - just specify directly
+      infra_email = { address = "gideon@gideonwolfe.xyz"; };
     };
   };
 }

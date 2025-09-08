@@ -68,11 +68,14 @@
         do-vps-test = lib.nixosSystem {
           #inherit system;
           system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [
             disko.nixosModules.disko
+            #sops-nix.nixosModules.sops
             ./configs/modules/world.nix
             ./configs/hosts/do-vps-test/disko.nix
-            ./configs/hosts/do-vps-test/configuration.nix
+            # Changes through here will be applied during install AND colmena apply
+            ./configs/hosts/do-vps-test/configuration.nix 
           ];
         };
 

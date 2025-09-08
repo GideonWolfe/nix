@@ -26,12 +26,22 @@
     users = {
       password_hint = "its working hehe";
       login_hint = "hello world";
+      default_theme = "light";
     };
 
     #security = {
     #  x_xss_protection = true;
     #};
 
+    # Reverse Proxy settings
+
   }; };
 
+    # services.traefik.dynamicConfigOptions.http.routers.grafana = {
+    #   entryPoints = [ "http" "https" ];
+    #   rule = "Host(`${config.local.world.hosts.monitor.grafana.domain}`)";
+    #   service = "grafana";
+    #   tls.domains = [{ main = "*.gideonwolfe.xyz"; }];
+    #   tls.certResolver = "myresolver";
+    # };
 }
