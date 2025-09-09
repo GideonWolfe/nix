@@ -33,6 +33,17 @@
 
     staticConfigOptions = {
 
+      # TEST
+      metrics = {
+        prometheus = {
+          entryPoint = "metrics";
+          addEntryPointsLabels = true;
+          addRoutersLabels = true;
+          addServicesLabels = true;
+          #buckets = [0.1 0.3 1.2 5.0];
+        };
+      };
+
       log = {
         #level = "ERROR";
         level = "DEBUG";
@@ -49,6 +60,8 @@
         dnsChallenge = { provider = "digitalocean"; };
       };
 
+      # TODO turn these port numbersinto global vars
+      # that way I can reference them in other places ie. prometheus targets
       entryPoints = {
         http = {
           address = ":80";
@@ -62,12 +75,28 @@
           address = ":443";
           forwardedHeaders.insecure = true;
         };
+        metrics = {
+          address = ":8082";
+        };
+        # special dashboard access
+        traefik = {
+          address = ":9093";
+        };
       };
+    };
+    
+    # You can go to http://sub.domain.com:9093 and it routes to dashboard
+    dynamicConfigOptions.routers.traefik = {
+      entryPoints = [ "traefik" ];
+      rule = "Host(`127.0.0.1`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))";
+      service = "api@internal";
+      #tls.domains = [{ main = "*.gideonwolfe.xyz"; }];
+      #tls.certResolver = "myresolver";
     };
   };
 
   # maybe this makes SSH work?
-  networking.firewall.allowedTCPPorts = [ 22 80 443 ]; # 3000 for Grafana
+  networking.firewall.allowedTCPPorts = [ 22 80 443 8082 9093 ];
 
   boot.loader.grub = {
     efiSupport = true;

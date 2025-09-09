@@ -39,6 +39,9 @@
     # Testing NetBox
     ../../modules/configs/system/services/networks/netbox/netbox.nix
 
+    # Testing Prometheus Agent
+    #./system/prometheus.nix
+
     ############
     # PACKAGES #
     ############

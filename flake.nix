@@ -18,9 +18,7 @@
     # Theming engine
     stylix = {
       url = "github:nix-community/stylix/release-25.05";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs = { nixpkgs.follows = "nixpkgs"; };
     };
 
     # Spotify theme
@@ -63,7 +61,7 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      
+
       # Import world configuration data for use in flake
       worldData = import ./configs/modules/world-data.nix;
     in {
@@ -124,6 +122,7 @@
           modules = [
             stylix.nixosModules.stylix
             sops-nix.nixosModules.sops
+            ./configs/modules/world.nix
             ./configs/hosts/hades/configuration.nix
 
             # TESTING HM MODULE
