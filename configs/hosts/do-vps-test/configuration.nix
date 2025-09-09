@@ -24,31 +24,49 @@
 
   #};
 
-  # services.traefik = {
-  #   enable = true;
+  services.traefik = {
+    enable = true;
 
-  #   staticConfigOptions = {
+    # Give traefik access to digitalocean api key
+    environmentFiles = [ config.sops.secrets."traefik/env".path ];
 
-  #     log = {
-  #       #level = "ERROR";
-  #       level = "DEBUG";
-  #     };
+    staticConfigOptions = {
 
-  #     api = {
-  #       dashboard = true;
-  #       insecure = true;
-  #     };
-  #     certificatesResolvers.myresolver.acme = {
-  #       email = config.local.world.email.infra_email.address;
-  #       storage = "/var/lib/traefik/gideonwolfe.json";
-  #       tlsChallenge = true;
-  #       dnsChallenge = { provider = "digitalocean"; };
-  #     };
-  #   };
-  # };
+      log = {
+        #level = "ERROR";
+        level = "DEBUG";
+      };
+
+      api = {
+        dashboard = true;
+        insecure = true;
+      };
+      certificatesResolvers.myresolver.acme = {
+        email = config.local.world.email.infra_email.address;
+        storage = "/var/lib/traefik/gideonwolfe.json";
+        tlsChallenge = true;
+        dnsChallenge = { provider = "digitalocean"; };
+      };
+
+      entryPoints = {
+        http = {
+          address = ":80";
+          forwardedHeaders.insecure = true;
+          http.redirections.entryPoint = {
+            to = "https";
+            scheme = "https";
+          };
+        };
+        https = {
+          address = ":443";
+          forwardedHeaders.insecure = true;
+        };
+      };
+    };
+  };
 
   # maybe this makes SSH work?
-  networking.firewall.allowedTCPPorts = [ 22 80 443 3000 ]; # 3000 for Grafana
+  networking.firewall.allowedTCPPorts = [ 22 80 443 ]; # 3000 for Grafana
 
   boot.loader.grub = {
     efiSupport = true;
@@ -61,6 +79,7 @@
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "@wheel" ];
+      warn-dirty = false;
     };
     gc = {
       automatic = true;
