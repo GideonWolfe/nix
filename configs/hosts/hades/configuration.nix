@@ -41,6 +41,7 @@
 
     # Testing Prometheus Agent
     #./system/prometheus.nix
+    ./system/alloy.nix
 
     ############
     # PACKAGES #

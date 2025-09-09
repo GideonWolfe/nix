@@ -5,7 +5,10 @@
     enable = true;
     webExternalUrl = "${config.local.world.hosts.monitor.prometheus.protocol}://${config.local.world.hosts.monitor.prometheus.domain}";
     port = config.local.world.hosts.monitor.prometheus.port or 9090;
-
+    extraFlags = [ 
+      #"--enable-feature=web.remote-write-receiver" 
+      "--web.enable-remote-write-receiver" 
+      ];
     # Exporter Settings
     exporters.node = {
       enable = true;
