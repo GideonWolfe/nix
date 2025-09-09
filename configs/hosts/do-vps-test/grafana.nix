@@ -24,7 +24,8 @@
     };
 
     users = {
-      password_hint = "its working hehe";
+      #password_hint = "its working hehe";
+      password_hint = "$__file{${config.sops.secrets."grafana/hint".path}}";
       login_hint = "hello world";
       default_theme = "light";
     };
