@@ -64,6 +64,9 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      
+      # Import world configuration data for use in flake
+      worldData = import ./configs/modules/world-data.nix;
     in {
 
       # Definitions for individual hosts
@@ -182,7 +185,7 @@
 
       # Deploy-rs configuration
       deploy.nodes.do-vps-test = {
-        hostname = "165.227.70.3";
+        hostname = worldData.hosts.monitor.ip;
         fastConnection = false;
         profiles.system = {
           sshUser = "root";
