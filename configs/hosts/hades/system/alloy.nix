@@ -14,6 +14,13 @@
         }
       }
 
+      // Loki remote write endpoint
+      loki.write "default" {
+        endpoint {
+          url = "http://${config.local.world.hosts.monitor.loki.domain}/loki/api/v1/push"
+        }
+      }
+
       // Scrape node metrics from node_exporter
       prometheus.scrape "node_exporter" {
         targets = [
@@ -30,6 +37,25 @@
         ]
         scrape_interval = "15s"
         forward_to = [prometheus.remote_write.default.receiver]
+      }
+
+      // Collect systemd journal logs
+      loki.source.journal "journal" {
+        max_age = "12h"
+        labels = {
+          job = "systemd-journal",
+          host = "${config.networking.hostName}",
+        }
+        forward_to = [loki.write.default.receiver]
+      }
+
+      // Collect boot logs
+      // BUG: needs root access for this
+      loki.source.file "boot_logs" {
+        targets = [
+          {"__path__" = "/var/log/boot.log", job = "boot", host = "${config.networking.hostName}"},
+        ]
+        forward_to = [loki.write.default.receiver]
       }
     '';
   };
