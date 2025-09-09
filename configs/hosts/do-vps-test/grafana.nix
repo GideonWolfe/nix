@@ -60,6 +60,11 @@
               type = "prometheus";
               url = "${config.local.world.hosts.monitor.prometheus.protocol}://localhost:${toString config.local.world.hosts.monitor.prometheus.port}";
             }
+            {
+              name = "Loki";
+              type = "loki";
+              url = "${config.local.world.hosts.monitor.loki.protocol}://localhost:${toString config.local.world.hosts.monitor.loki.port}";
+            }
           ];
         };
       };

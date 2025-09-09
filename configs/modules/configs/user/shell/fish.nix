@@ -119,6 +119,11 @@ with config.lib.stylix.colors.withHashtag;
 
       bldpush = { body = "	git -C /home/${config.home.username}/nix/ push\n"; };
 
+      vps-deploy = {
+        body =
+          "deploy -- /home/${config.home.username}/nix/.#do-vps-test --log-format internal-json -v 2>&1 | nom --json";
+      };
+
       # Better Youtube-dl opts
       ytdl = {
         body = ''

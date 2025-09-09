@@ -19,6 +19,11 @@
         domain = "prom.gideonwolfe.xyz";
         port = 9090;
       };
+      loki = {
+        protocol = "http";
+        domain = "loki.gideonwolfe.xyz";
+        port = 3100;
+      };
     };
   };
   email = {

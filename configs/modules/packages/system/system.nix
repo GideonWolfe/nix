@@ -31,6 +31,7 @@
 
     nixos-anywhere # install Nix on fresh machines
     colmena
+    deploy-rs # just to make the binary available, can still use nix run and the flake URL
 
     # backup CLI
     restic
