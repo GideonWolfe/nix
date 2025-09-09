@@ -13,6 +13,12 @@
         port = 3000;
         dataDir = "/var/lib/grafana";
       };
+      prometheus = {
+        #dataDir = "/var/lib/prometheus";
+        protocol = "http";
+        domain = "prom.gideonwolfe.xyz";
+        port = 9090;
+      };
     };
   };
   email = {

@@ -20,6 +20,13 @@
 
     settings = {
 
+      smtp = {
+        user = config.local.world.email.infra_email.address;
+        # TODO consolidate so it references the password for this email directly
+        password = "$__file{${config.sops.secrets."grafana/smtp/password".path}}";
+        host = "$__file{${config.sops.secrets."grafana/smtp/host".path}}";
+      };
+
       server = {
         domain = config.local.world.hosts.monitor.grafana.domain;
         http_port = config.local.world.hosts.monitor.grafana.port;
@@ -34,12 +41,28 @@
         default_theme = "light";
       };
 
-      #security = {
-      #  x_xss_protection = true;
-      #};
+      security = {
+        admin_user = "$__file{${config.sops.secrets."grafana/users/admin/username".path}}";
+        admin_password = "$__file{${config.sops.secrets."grafana/users/admin/password".path}}";
+        admin_email = "${config.local.world.email.infra_email.address}";
+      };
 
       # Reverse Proxy settings
+    };
 
+
+    provision = {
+      datasources = {
+        settings = {
+          datasources = [
+            {
+              name = "Prometheus";
+              type = "prometheus";
+              url = "${config.local.world.hosts.monitor.prometheus.protocol}://localhost:${toString config.local.world.hosts.monitor.prometheus.port}";
+            }
+          ];
+        };
+      };
     };
   };
 
