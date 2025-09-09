@@ -3,9 +3,7 @@
 
   inputs = {
 
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-25.05";
-    };
+    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-25.05"; };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -44,6 +42,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Deployment tool
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # cool visualizer
     xyosc = { url = "github:make-42/xyosc"; };
 
@@ -55,7 +59,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim
-    , sops-nix, xyosc, dsd-fme, nix-ai-tools, disko, ... }@inputs:
+    , sops-nix, deploy-rs, xyosc, dsd-fme, nix-ai-tools, disko, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -75,19 +79,19 @@
             ./configs/modules/world.nix
             ./configs/hosts/do-vps-test/disko.nix
             # Changes through here will be applied during install AND colmena apply
-            ./configs/hosts/do-vps-test/configuration.nix 
+            ./configs/hosts/do-vps-test/configuration.nix
           ];
         };
 
         # Original testing VM
-        hermes = lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            stylix.nixosModules.stylix
-            ./configs/hosts/hermes/configuration.nix
-          ];
-        };
+        # hermes = lib.nixosSystem {
+        #   inherit system;
+        #   specialArgs = { inherit inputs; };
+        #   modules = [
+        #     stylix.nixosModules.stylix
+        #     ./configs/hosts/hermes/configuration.nix
+        #   ];
+        # };
 
         # Thinkpad T490
         poseidon = lib.nixosSystem {
@@ -175,6 +179,23 @@
           ];
         };
       };
+
+      # Deploy-rs configuration
+      deploy.nodes.do-vps-test = {
+        hostname = "165.227.70.3";
+        fastConnection = false;
+        profiles.system = {
+          sshUser = "root";
+          sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" ];
+          path = deploy-rs.lib.x86_64-linux.activate.nixos
+            self.nixosConfigurations.do-vps-test;
+          user = "root";
+        };
+      };
+
+      # This is highly advised, and will prevent many possible mistakes
+      checks = builtins.mapAttrs
+        (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 
 }
