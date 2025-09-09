@@ -40,7 +40,7 @@
     ../../modules/configs/system/services/networks/netbox/netbox.nix
 
     # Testing Prometheus Agent
-    #./system/prometheus.nix
+    ./system/prometheus.nix
     ./system/alloy.nix
 
     ############

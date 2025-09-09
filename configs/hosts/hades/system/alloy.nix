@@ -23,7 +23,7 @@
       // Scrape node metrics from node_exporter
       prometheus.scrape "node_exporter" {
         targets = [
-          {"__address__" = "localhost:9100", "job" = "node", "instance" = "${config.networking.hostName}"},
+          {"__address__" = "localhost:9100", "job" = "node", "instance" = "${config.networking.hostName}:9100"},
         ]
         scrape_interval = "15s"
         forward_to = [prometheus.remote_write.default.receiver]
