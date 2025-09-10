@@ -162,7 +162,7 @@
         defaults = {
           metrics_generator = {
             # Temporarily disable local-blocks to test service-graphs only
-            processors = [ "service-graphs" ];
+            processors = [ "service-graphs" "local-blocks"];
           };
         };
       };
