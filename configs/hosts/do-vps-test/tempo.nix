@@ -56,8 +56,41 @@
           };
         };
       };
-      # Simple metrics generator configuration
+      # Metrics generator configuration with service graphs enabled
       metrics_generator = {
+        # Processor configuration - enables service graphs for service map visualization
+        processor = {
+          service_graphs = {
+            # How long to wait for an edge to be completed (default: 10s)
+            wait = "10s";
+            
+            # Maximum number of edges stored in memory (default: 10000)
+            max_items = 10000;
+            
+            # Number of workers processing edges (default: 10)
+            workers = 10;
+            
+            # Histogram buckets for latency measurements in seconds
+            histogram_buckets = [ 0.1 0.2 0.4 0.8 1.6 3.2 6.4 12.8 ];
+            
+            # Additional dimensions to include in metrics (from span/resource attributes)
+            dimensions = [ ];
+            
+            # Enable client/server prefix for additional dimensions
+            enable_client_server_prefix = false;
+            
+            # Enable messaging system latency histogram for pub/sub patterns
+            enable_messaging_system_latency_histogram = false;
+            
+            # Attributes used to create peer edges (external services)
+            # Order matters - first match is used as the node name
+            peer_attributes = [ "peer.service" "db.name" "db.system" ];
+            
+            # Enable virtual node labels to distinguish uninstrumented services
+            enable_virtual_node_label = true;
+          };
+        };
+        
         storage = {
           path = "./generator/wal";
           remote_write = [
@@ -65,6 +98,16 @@
               url = "${config.local.world.hosts.monitor.prometheus.protocol}://localhost:${toString config.local.world.hosts.monitor.prometheus.port}/api/v1/write";
             }
           ];
+        };
+      };
+
+      # Overrides to enable metrics generator processors
+      overrides = {
+        defaults = {
+          metrics_generator = {
+            # Enable the service-graphs processor for all tenants
+            processors = [ "service-graphs" ];
+          };
         };
       };
     };
