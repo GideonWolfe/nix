@@ -56,43 +56,17 @@
           };
         };
       };
-
-      # Removing query_frontend section as these are defaults:
-      # - search.duration_slo = "5s" (default)
-      # - search.throughput_bytes_slo = 1073741824 (default)
-      # - trace_by_id.duration_slo = "5s" (default)
-
-      # metrics_generator = {
-      #   ring = {
-      #     kvstore = {
-      #       store = "inmemory";
-      #     };
-      #   };
-      #   registry = {
-      #     external_labels = {
-      #       source = "tempo";
-      #       cluster = "${config.networking.hostName}"; # More meaningful than "docker-compose"
-      #     };
-      #   };
-      #   storage = {
-      #     path = "./generator/wal"; # Using relative path
-      #     remote_write = [
-      #       {
-      #         url = "${config.local.world.hosts.monitor.prometheus.protocol}://localhost:${toString config.local.world.hosts.monitor.prometheus.port}/api/v1/write";
-      #         send_exemplars = true;
-      #       }
-      #     ];
-      #   };
-      #   # Explicitly enable the metrics generator processors
-      #   processor = {
-      #     span_metrics = {
-      #       enable = true;
-      #     };
-      #     service_graphs = {
-      #       enable = true;
-      #     };
-      #   };
-      # };
+      # Simple metrics generator configuration
+      metrics_generator = {
+        storage = {
+          path = "./generator/wal";
+          remote_write = [
+            {
+              url = "${config.local.world.hosts.monitor.prometheus.protocol}://localhost:${toString config.local.world.hosts.monitor.prometheus.port}/api/v1/write";
+            }
+          ];
+        };
+      };
     };
   };
 
