@@ -161,8 +161,8 @@
       overrides = {
         defaults = {
           metrics_generator = {
-            # Enable both service-graphs and local-blocks processors for all tenants
-            processors = [ "service-graphs" "local-blocks" ];
+            # Temporarily disable local-blocks to test service-graphs only
+            processors = [ "service-graphs" ];
           };
         };
       };
