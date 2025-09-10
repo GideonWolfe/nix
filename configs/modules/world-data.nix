@@ -24,6 +24,11 @@
         domain = "loki.gideonwolfe.xyz";
         port = 3100;
       };
+      tempo = {
+        protocol = "http";
+        domain = "tempo.gideonwolfe.xyz";
+        port = 3200;
+      };
     };
   };
   email = {

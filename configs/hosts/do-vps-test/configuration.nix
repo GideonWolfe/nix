@@ -19,6 +19,7 @@
     ./grafana.nix # Run Grafana on this system
     ./prometheus.nix
     ./loki.nix
+    ./tempo.nix
   ];
 
 
