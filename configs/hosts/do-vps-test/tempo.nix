@@ -89,6 +89,36 @@
             # Enable virtual node labels to distinguish uninstrumented services
             enable_virtual_node_label = true;
           };
+          
+          # Local blocks processor - required for TraceQL metrics and Grafana Traces Drilldown
+          local_blocks = {
+            # How often to flush completed traces and blocks
+            flush_check_period = "10s";
+            
+            # A trace is considered complete after this period of inactivity
+            trace_idle_period = "10s";
+            
+            # Maximum duration before cutting a block
+            max_block_duration = "1m";
+            
+            # Maximum size of a block before cutting it
+            max_block_bytes = 500000000; # 500MB
+            
+            # Duration to keep blocks after flushing
+            complete_block_timeout = "1h";
+            
+            # Maximum number of live traces (0 = unlimited)
+            max_live_traces = 0;
+            
+            # Filter to only include server spans (reduces storage)
+            filter_server_spans = true;
+            
+            # Flush blocks to storage for historical TraceQL queries
+            flush_to_storage = true;
+            
+            # Number of blocks processed concurrently
+            concurrent_blocks = 10;
+          };
         };
         
         storage = {
@@ -105,8 +135,8 @@
       overrides = {
         defaults = {
           metrics_generator = {
-            # Enable the service-graphs processor for all tenants
-            processors = [ "service-graphs" ];
+            # Enable both service-graphs and local-blocks processors for all tenants
+            processors = [ "service-graphs" "local-blocks" ];
           };
         };
       };
