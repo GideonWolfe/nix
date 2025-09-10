@@ -58,18 +58,21 @@
             {
               name = "Prometheus";
               type = "prometheus";
+              uid = "prometheus";
               url = "${config.local.world.hosts.monitor.prometheus.protocol}://localhost:${toString config.local.world.hosts.monitor.prometheus.port}";
             }
             {
               name = "Loki";
               type = "loki";
+              uid = "loki";
               url = "${config.local.world.hosts.monitor.loki.protocol}://localhost:${toString config.local.world.hosts.monitor.loki.port}";
             }
             {
               name = "Tempo";
               type = "tempo";
+              uid = "tempo";
               url = "${config.local.world.hosts.monitor.tempo.protocol}://localhost:${toString config.local.world.hosts.monitor.tempo.port}";
-              jsonData.streamingEnabled.search = true;
+              #jsonData.streamingEnabled.search = true;
               # jsonData = {
               #   tracesToLogs = {
               #     datasourceUid = "loki";
@@ -96,6 +99,24 @@
           ];
         };
       };
+      # dashboards = {
+      #   settings = {
+      #     providers = [
+      #       {
+      #         name = "Node Exporter";
+      #         org_id = 1;
+      #         folder = "";
+      #         type = "file";
+      #         disableDeletion = true;
+      #         updateIntervalSeconds = 10; # how often Grafana will scan for changed dashboards
+      #         options = {
+      #           # TODO use this method: https://github.com/meenzen/nixos/blob/3ce7ed0824a282812350a20c1a3ea80fa539bb93/modules/grafana/node-exporter.nix
+      #           path = "/home/gideon/nix/configs/hosts/do-vps-test/dashboards/node-exporter.json";
+      #         };
+      #       }
+      #     ];
+      #   };
+      # };
     };
   };
 

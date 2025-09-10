@@ -17,6 +17,7 @@
 
     # Applications
     ./grafana.nix # Run Grafana on this system
+    ./dashboards/node-exporter.nix
     ./prometheus.nix
     ./loki.nix
     ./tempo.nix
