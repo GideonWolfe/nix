@@ -72,6 +72,7 @@
               type = "tempo";
               uid = "tempo";
               url = "${config.local.world.hosts.monitor.tempo.protocol}://localhost:${toString config.local.world.hosts.monitor.tempo.port}";
+              #jsonData.streamingEnabled.search = true;
               jsonData = {
                 tracesToLogs = {
                   datasourceUid = "loki";
@@ -90,9 +91,9 @@
                     }
                   ];
                 };
-                serviceMap = { datasourceUid = "prometheus"; };
-                nodeGraph.enabled = true;
-                search = { hide = false; };
+                # serviceMap = {
+                #   datasourceUid = "prometheus";
+                # };
               };
             }
           ];

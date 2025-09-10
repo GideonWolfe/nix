@@ -56,32 +56,6 @@
           };
         };
       };
-
-      # Query frontend configuration - enables search functionality
-      query_frontend = {
-        search = {
-          # The number of concurrent jobs to execute when searching the backend (default: 1000)
-          concurrent_jobs = 1000;
-          
-          # The target number of bytes for each job to handle when performing a backend search (default: 100MB)
-          target_bytes_per_job = 104857600; # 100MB
-          
-          # Limit used for search requests if none is set by the caller (default: 20)
-          default_result_limit = 20;
-          
-          # The maximum allowed value of the limit parameter on search requests (default: 0 = disabled)
-          max_result_limit = 0;
-          
-          # The maximum allowed time range for a search (default: 168h = 7 days)
-          max_duration = "168h";
-          
-          # Time ranges before this will be searched in ingesters only (default: 15m)
-          query_backend_after = "15m";
-          
-          # Time ranges after this will be searched in backend only (default: 30m)
-          query_ingesters_until = "30m";
-        };
-      };
       # Metrics generator configuration with service graphs enabled
       metrics_generator = {
         # Processor configuration - enables service graphs for service map visualization
