@@ -36,14 +36,21 @@
 
     staticConfigOptions = {
 
-      # TEST
       metrics = {
         prometheus = {
           entryPoint = "metrics";
           addEntryPointsLabels = true;
           addRoutersLabels = true;
           addServicesLabels = true;
-          #buckets = [0.1 0.3 1.2 5.0];
+        };
+      };
+
+      tracing = {
+        otlp = {
+          http = {
+            # Matches tempos HTTP OLTP receiver, make into variable
+            endpoint = "http://localhost:4318/v1/traces";
+          };
         };
       };
 
