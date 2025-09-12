@@ -57,8 +57,12 @@
       };
 
       log = {
-        #level = "ERROR";
-        level = "DEBUG";
+        level = "INFO"; # or ERROR or DEBUG
+        filePath = "/var/lib/traefik/traefik.log";
+      };
+      accessLog = {
+        filePath = "/var/lib/traefik/access.log";
+        format = "json";
       };
 
       api = {
