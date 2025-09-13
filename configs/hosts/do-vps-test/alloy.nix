@@ -40,6 +40,7 @@
         format_as_json = true
       }
 
+      // Collect SSH logs from systemd journal
       loki.source.journal "sshd" {
         max_age = "12h"
         labels = {
@@ -52,7 +53,7 @@
       }
 
 
-      // TESTING
+      // TESTING - Collect SSH logs for processing
       loki.source.journal "sshd_failed" {
         max_age = "12h"
         labels = {
@@ -70,17 +71,22 @@
       loki.process "sshd_failed" {
         stage.match {
           selector = "{job=\"ssh-failed-auth\"}"
+          selector = "{line =~ `Invalid user`}"
+          
           stage.regex {
-            expression = "Failed password for (invalid user )?(?P<user>\\S+) from (?P<src_ip>[0-9.]+) port (?P<port>[0-9]+)"
+            //expression = `/^Invalid user (?P<user>\S+) from (?P<ip>[0-9.]+) port (?P<port>[0-9]+)$/gm`
+            expression = `^Invalid user (?P<user>\S+) from (?P<ip>[0-9.]+) port (?P<port>[0-9]+)`
           }
+          
           stage.labels {
             values = {
-              user   = "user",
-              src_ip = "src_ip",
-              port   = "port",
+              user = "user",
+              ip = "ip",
+              port = "port",
             }
           }
         }
+
         forward_to = [loki.write.default.receiver]
       }
 
