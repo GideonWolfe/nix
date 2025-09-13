@@ -1,5 +1,16 @@
 { config, lib, pkgs, inputs, ... }:
-
+let
+  # geoipDBs = pkgs.fetchFromGitHub {
+  #   owner = "P3TERX";
+  #   repo = "GeoLite.mmdb";
+  #   rev = "2025.09.13";
+  #   sha256 = "sha256-OQ86XatihhBn4vmPgCW9LU1/4GD3563sfbn7IP+RAEw=";
+  # };
+  geoipDB = pkgs.fetchurl {
+    url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.09.13/GeoLite2-City.mmdb";
+    sha256 = "sha256-b9IhwKmT2kRy7YhD18LtzKc2okuv5YYsPvqJoLfA03M=";
+  };
+in
 {
   services.alloy = { enable = true; };
 
@@ -71,10 +82,8 @@
       loki.process "sshd_failed" {
         stage.match {
           selector = "{job=\"ssh-failed-auth\"}"
-          selector = "{line =~ `Invalid user`}"
           
           stage.regex {
-            //expression = `/^Invalid user (?P<user>\S+) from (?P<ip>[0-9.]+) port (?P<port>[0-9]+)$/gm`
             expression = `^Invalid user (?P<user>\S+) from (?P<ip>[0-9.]+) port (?P<port>[0-9]+)`
           }
           
@@ -87,7 +96,8 @@
           }
         }
 
-        forward_to = [loki.write.default.receiver]
+        //forward_to = [loki.write.default.receiver]
+        forward_to = [loki.process.sshd_geoip.receiver]
       }
 
       // Collect Traefik application logs
@@ -113,6 +123,33 @@
             host = "${config.networking.hostName}",
           },
         ]
+        forward_to = [loki.write.default.receiver]
+      }
+
+      // GEO IP
+      loki.process "sshd_geoip" {
+
+        stage.geoip {
+          source  = "ip"
+          db      = "${geoipDB}"
+          db_type = "city"
+        }
+
+        stage.labels {
+          values = {
+              geoip_city_name          = "",
+              geoip_country_name       = "",
+              geoip_country_code       = "",
+              geoip_continent_name     = "",
+              geoip_continent_code     = "",
+              geoip_location_latitude  = "",
+              geoip_location_longitude = "",
+              geoip_postal_code        = "",
+              geoip_timezone           = "",
+              geoip_subdivision_name   = "",
+              geoip_subdivision_code   = "",
+          }
+        }
         forward_to = [loki.write.default.receiver]
       }
     '';
