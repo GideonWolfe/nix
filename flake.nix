@@ -93,6 +93,13 @@
         #   ];
         # };
 
+        uconsole = lib.nixosSystem {
+          system = "aarch64-linux";
+          modules = [
+            ./configs/hosts/uconsole/configuration.nix
+          ];
+        };
+
         # Thinkpad T490
         poseidon = lib.nixosSystem {
           inherit system;
