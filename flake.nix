@@ -15,6 +15,9 @@
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
 
+    # NixOS hardware support for third party hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # Theming engine
     stylix = {
       url = "github:nix-community/stylix/release-25.05";
@@ -55,8 +58,9 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim
-    , sops-nix, deploy-rs, xyosc, dsd-fme, nix-ai-tools, disko, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, stylix, spicetify-nix
+    , nixvim, sops-nix, deploy-rs, xyosc, dsd-fme, nix-ai-tools, disko, ...
+    }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -96,8 +100,13 @@
         uconsole = lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
+            nixos-hardware.nixosModules.raspberry-pi-4
             ./configs/hosts/uconsole/configuration.nix
+            ./configs/hosts/uconsole/hardware-configuration.nix
           ];
+          # Convenience attribute to build the SD image
+          images.uconsole =
+            self.nixosConfigurations.uconsole.config.system.build.sdImage;
         };
 
         # Thinkpad T490
