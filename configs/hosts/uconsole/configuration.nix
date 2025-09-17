@@ -57,6 +57,11 @@ in {
     wget
     curl
     screen
+    tmux
+    # Display and framebuffer tools
+    fbset
+    # Hardware debugging
+    lshw
     # Hardware tools
     rpi-imager
     gptfdisk
@@ -71,24 +76,28 @@ in {
       timeout = 5;
     };
 
-    # Kernel modules needed for uConsole hardware
-    kernelModules = [ "i2c-dev" "spi-bcm2835" "i2c-bcm2835" "bcm2835_dma" ];
+    # Kernel modules needed for uConsole hardware and display
+    kernelModules = [ 
+      "i2c-dev" "spi-bcm2835" "i2c-bcm2835" "bcm2835_dma"
+      # Display and framebuffer modules
+      "vc4" "v3d" "bcm2835_fb" "fb_sys_fops"
+    ];
 
     # Use the latest Raspberry Pi kernel
     kernelPackages = pkgs.linuxPackages_rpi4;
 
-    # Kernel parameters for CM4 support with debugging
+    # Kernel parameters for CM4 support with uConsole-specific settings
     kernelParams = [
-      "console=tty1"  # Only use the main display console
+      "console=tty1"  # Use the main display console
+      "console=serial0,115200"  # Also enable serial for debugging
       "8250.nr_uarts=1"
-      "cma=128M"
+      "cma=384M"  # Increased CMA for better graphics performance
       "elevator=deadline"
       "fsck.repair=yes"
       "net.ifnames=0"
-      # Debug options (these will show on the main display)
-      "loglevel=7"
-      "systemd.log_level=debug"
-      "systemd.log_target=console"
+      # Reduce log noise for cleaner display
+      "loglevel=4"
+      "quiet"
     ];
 
     # Enable required kernel features
@@ -114,11 +123,13 @@ in {
   hardware = {
     enableRedistributableFirmware = true;
 
-    # Enable Raspberry Pi specific hardware
+    # Enable Raspberry Pi specific hardware with uConsole optimizations
     raspberry-pi."4" = {
       apply-overlays-dtmerge.enable = true;
       fkms-3d.enable = true;
-      #audio.enable = true;
+      dwc2.enable = true;
+      dwc2.dr_mode = "host";
+      #audio.enable = true;  # Enable later when working
     };
 
     # Enable I2C for various uConsole components
@@ -131,20 +142,79 @@ in {
     };
   };
 
-  # SD card image configuration
+  # Enable console and framebuffer for visual output
+  console = {
+    enable = true;
+    font = "Lat2-Terminus16";
+    useXkbConfig = true;
+  };
+
+  # Enable basic framebuffer console
+  services.kmscon = {
+    enable = true;
+    hwRender = true;
+    extraConfig = ''
+      font-size=12
+      xkb-layout=us
+    '';
+  };
+
+  # SD card image configuration with uConsole-specific boot config
   sdImage = {
-    # Use a reasonable image size (8GB)
+    # Use a reasonable image size
     imageName =
       "nixos-uconsole-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.img";
-    compressImage = false; # Set to true if you want compressed images
+    compressImage = false;
 
     # Partition sizes
     firmwareSize = 128; # MiB for firmware partition
 
-    # Include firmware files
-    populateFirmwareCommands = ''
-      ${config.system.build.installBootLoader} ${config.system.build.toplevel} -d ./firmware
-    '';
+    # Include firmware files and uConsole-specific config.txt
+    populateFirmwareCommands = 
+      let
+        configTxt = pkgs.writeText "config.txt" ''
+          [pi4]
+          kernel=u-boot-rpi4.bin
+          enable_gic=1
+          armstub=armstub8-gic.bin
+          disable_overscan=1
+          arm_boost=1
+
+          [cm4]
+          # Enable host mode on the 2711 built-in XHCI USB controller
+          otg_mode=1
+          arm_boost=1
+          max_framebuffers=2
+
+          # uConsole display configuration
+          dtoverlay=vc4-kms-v3d-pi4,cma-384
+
+          [all]
+          # Boot in 64-bit mode
+          arm_64bit=1
+          enable_uart=1
+          avoid_warnings=1
+
+          # uConsole specific settings
+          ignore_lcd=1
+          disable_fw_kms_setup=1
+          disable_audio_dither
+          pwm_sample_bits=20
+
+          # Setup headphone detect pin
+          gpio=10=ip,np
+
+          # Enable required interfaces
+          dtparam=audio=on
+          dtparam=ant2
+        '';
+      in ''
+        ${config.system.build.installBootLoader} ${config.system.build.toplevel} -d ./firmware
+        
+        # Add the uConsole-specific config
+        rm -f firmware/config.txt
+        cp ${configTxt} firmware/config.txt
+      '';
 
     # Root partition configuration
     populateRootCommands = ''
@@ -211,6 +281,10 @@ in {
       PasswordAuthentication = true; # Consider disabling after adding keys
     };
   };
+
+  # Ensure getty services are enabled for TTY access
+  systemd.services."getty@tty1".enable = true;
+  systemd.services."getty@tty2".enable = true;
 
   # User configuration
   users.users.uconsole = {
