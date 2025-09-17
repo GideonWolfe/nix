@@ -6,6 +6,43 @@ This directory contains a modular NixOS configuration for the ClockworkPi uConso
 
 The configuration is split into focused modules to separate concerns and improve maintainability. Each module handles a specific aspect of the uConsole hardware or system configuration.
 
+### `patches/` - Kernel Patches Directory
+
+Contains the kernel patches required to enable uConsole-specific hardware. These patches add drivers and modify existing drivers to work with the uConsole's custom components.
+
+**Patch Files:**
+
+1. **`0001-video-backlight-Add-OCP8178-backlight-driver.patch`**
+   - Adds kernel driver for the OCP8178 backlight controller
+   - Enables brightness control for the 5-inch display
+
+2. **`0002-drm-panel-add-clockwork-cwu50.patch`**
+   - Adds DRM panel driver for the Clockwork CWU50 display
+   - Handles DSI communication and panel initialization
+
+3. **`0003-driver-staging-add-uconsole-simple-amplifier-switch.patch`**
+   - Adds audio amplifier switching driver
+   - Controls audio routing between internal speaker and headphone jack
+
+4. **`0005-drivers-power-axp20x-customize-PMU.patch`**
+   - Customizes the AXP20x power management driver for uConsole
+   - Improves power management and battery handling
+
+5. **`0006-power-axp20x_battery-implement-calibration.patch`**
+   - Implements battery calibration for more accurate charge reporting
+   - Essential for proper battery monitoring
+
+6. **`0007-drm-panel-cwu50-expose-dsi-error-status-to-userspace.patch`**
+   - Exposes DSI error status to userspace for debugging
+   - Helps diagnose display communication issues
+
+**Sources:**
+- All patches sourced from [PotatoMania's uConsole CM3 project](https://github.com/PotatoMania/uconsole-cm3)
+- Originally integrated in [nixos-uconsole](https://github.com/voidcontext/nixos-uconsole)
+- Patches are applied automatically by the kernel module configuration
+
+**Note:** Patch `0004-arm-dts-overlays-add-uconsole.patch` is not used as we implement device tree overlays through NixOS's `hardware.deviceTree` configuration instead.
+
 ## Configuration Modules
 
 ### `configuration.nix` - Main Configuration Entry Point
@@ -24,30 +61,47 @@ The main configuration file that imports all other modules and sets up the basic
 
 ### `kernel.nix` - Kernel Configuration
 
-Contains all kernel-related configuration for the uConsole's Raspberry Pi CM4.
+Contains the uConsole-specific kernel configuration with hardware-enabling patches.
 
-**Key Settings:**
+**Key Features:**
 
-- **Kernel Package**: Uses `linuxPackages_rpi4` for optimal Raspberry Pi 4/CM4 support
-- **Kernel Modules**: 
-  - `i2c-dev`, `i2c-bcm2835` - I2C support for PMU and sensors
-  - `spi-bcm2835` - SPI support for various peripherals
-  - `vc4`, `v3d` - GPU and 3D acceleration support
-  - `bcm2835_fb`, `fb_sys_fops` - Framebuffer support for display
+- **Custom Kernel Package**: Uses the same 6.1.63 kernel source from the `nixos-uconsole` project
+  - Based on Raspberry Pi's `stable_20231123` kernel tree
+  - Specifically tested to work with uConsole CM4 hardware
+  
+- **Hardware-Enabling Patches**: Applies essential patches for uConsole functionality:
+  - **OCP8178 Backlight Driver**: Controls the display backlight
+  - **Clockwork CWU50 Panel Driver**: Enables the 5-inch display panel
+  - **Simple Amplifier Switch**: Controls audio amplifier switching
+  - **AXP20x PMU Customization**: Power management improvements
+  - **AXP20x Battery Calibration**: Better battery reporting
+  - **CWU50 DSI Error Status**: Display debugging capabilities
 
-- **Kernel Parameters**:
-  - `console=tty1` - Primary console on main display
-  - `console=serial0,115200` - Serial console for debugging
-  - `cma=128M` - Contiguous Memory Allocator for GPU (reduced for testing)
-  - `loglevel=7`, `initcall_debug`, `debug` - Verbose logging for troubleshooting
+- **Kernel Configuration**: Enables all required kernel options for:
+  - Power management (AXP20x drivers, regulators)
+  - Display support (DRM panel drivers)
+  - I2C and SPI communication
+  - Audio amplifier control
+  - ADC support for sensors
 
-- **System Control (sysctl)**:
-  - Low swappiness (10) - Prefer RAM over swap for better performance
-  - Reduced dirty ratios (5%/10%) - More frequent writes to storage
+- **Boot Modules**: Automatically loads uConsole-specific drivers:
+  - `ocp8178-bl` - Backlight control
+  - `panel-clockwork-cwu50` - Display panel
+  - `simple-amplifier-switch` - Audio switching
+
+**Why This Approach:**
+
+The uConsole requires specific kernel patches that aren't available in mainline Linux. The `nixos-uconsole` project identified a working combination of:
+1. A specific Raspberry Pi kernel version (6.1.63 from late 2023)
+2. Hardware driver patches from the PotatoMania uConsole project
+3. Kernel configuration tailored for the uConsole's custom hardware
+
+This module implements the same proven approach but in a clean, modular fashion.
 
 **Sources:**
-- Kernel parameters derived from [nixos-uconsole](https://github.com/voidcontext/nixos-uconsole)
-- Raspberry Pi kernel modules from standard RPi NixOS configurations
+- Kernel version and source from [nixos-uconsole 6.1-potatomania](https://github.com/voidcontext/nixos-uconsole/tree/main/kernels/6.1-potatomania)
+- Hardware patches from [PotatoMania's uConsole CM3 project](https://github.com/PotatoMania/uconsole-cm3)
+- Kernel configuration options from [jhewitt.net/uconsole](https://jhewitt.net/uconsole)
 - Performance tuning based on embedded Linux best practices
 
 ### `boot.nix` - Boot and SD Card Configuration
@@ -221,12 +275,22 @@ Simplified to contain only filesystem and swap configuration after modularizatio
 ### Building the Configuration
 
 ```bash
-# Build the SD image
+# Build the SD image with custom kernel
 nix build .#nixosConfigurations.uconsole.config.system.build.sdImage
 
 # Build just the system
 nix build .#nixosConfigurations.uconsole.config.system.build.toplevel
+
+# Build only the custom kernel (for testing)
+nix build .#nixosConfigurations.uconsole.config.boot.kernelPackages.kernel
 ```
+
+**Important Notes:**
+
+- **Build Time**: The custom kernel with patches will take significantly longer to build than standard kernels
+- **Cross Compilation**: Consider using a powerful x86_64 machine for kernel compilation
+- **Binary Cache**: The custom kernel likely won't be available in binary caches and must be built from source
+- **Patches**: Ensure all patch files are present in the `patches/` directory before building
 
 ### Customization
 
@@ -246,14 +310,21 @@ Each module can be independently modified:
 
 ## Hardware Support Status
 
-- ✅ **Basic Boot**: Kernel loads and system starts
+- ✅ **Custom Kernel**: 6.1.63-potatomania with uConsole patches applied
+- ✅ **Basic Boot**: Kernel loads and system starts with hardware drivers
 - ✅ **Serial Console**: UART debugging available
 - ✅ **Networking**: WiFi via NetworkManager
 - ✅ **SSH**: Remote access enabled
-- 🚧 **Display**: Device tree configured, testing needed
-- 🚧 **Battery**: PMU configured, monitoring available
-- ⏳ **Audio**: Hardware configured, software setup pending
-- ⏳ **Keyboard**: Hardware should work, key mapping may need adjustment
+- ✅ **Display Drivers**: CWU50 panel driver compiled and available
+- ✅ **Backlight Control**: OCP8178 driver compiled and available
+- ✅ **Power Management**: AXP20x drivers with uConsole customizations
+- ✅ **Battery Monitoring**: Enhanced battery calibration support
+- ✅ **Audio Drivers**: Simple amplifier switch driver available
+- 🚧 **Display Output**: Hardware configured, testing display activation needed
+- 🚧 **Backlight**: Driver available, testing brightness control needed
+- 🚧 **Battery**: PMU configured, verifying charge reporting needed
+- ⏳ **Audio Output**: Hardware drivers ready, audio stack configuration pending
+- ⏳ **Keyboard**: Input device configuration pending
 - ⏳ **Trackball**: Input device configuration pending
 
 ## Troubleshooting

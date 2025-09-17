@@ -32,4 +32,3 @@ in {
   # HACK: fix the bug with missing firmware
   nixpkgs.overlays = [ overlay ];
 }
-}
