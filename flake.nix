@@ -101,7 +101,7 @@
           system = "aarch64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            #nixos-hardware.nixosModules.raspberry-pi-4
+            nixos-hardware.nixosModules.raspberry-pi-4
             ./configs/hosts/uconsole/configuration.nix
             ./configs/hosts/uconsole/hardware-configuration.nix
           ];

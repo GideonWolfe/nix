@@ -4,10 +4,10 @@
   # Device tree overlays for uConsole hardware
   hardware.deviceTree = {
     enable = true;
-
-    filter = lib.mkForce "*rpi-*.dtb";
-    # Remove the overlays for now - they're causing conflicts
+    # Let nixos-hardware handle the filter (bcm2711-rpi-4*.dtb)
+    # Keep overlays minimal for initial boot testing
     overlays = [ ];
+  };
 
     # filter = lib.mkForce "bcm2711-rpi-cm4.dtb";
     # overlays = [
@@ -86,7 +86,7 @@
     #     '';
     #   }
     #];
-  };
+  #};
 
   # Battery monitoring service
   services.upower = {
@@ -117,7 +117,30 @@
     ];
 
   # Firmware files specific to CM4
-  # BUG: this was causing build failure?
-  #hardware.firmware = with pkgs; [ linux-firmware raspberrypifw ];
-  hardware.firmware = with pkgs; [ linux-firmware ];
+  hardware.firmware = with pkgs; [ 
+    linux-firmware 
+    # raspberrypifw - removed due to build issues, nixos-hardware should provide this
+  ];
+
+  # File systems configuration for SD card
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/NIXOS_SD";
+      fsType = "ext4";
+      options = [ "noatime" ];
+    };
+    "/boot/firmware" = {
+      device = "/dev/disk/by-label/FIRMWARE";
+      fsType = "vfat";
+      options = [ "nofail" "noauto" ];
+    };
+  };
+
+  # Swap configuration (optional, but helpful for limited RAM)
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 1024; # 1GB swap
+    }
+  ];
 }
