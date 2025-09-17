@@ -86,18 +86,19 @@ in {
     # Use the latest Raspberry Pi kernel
     kernelPackages = pkgs.linuxPackages_rpi4;
 
-    # Kernel parameters for CM4 support with uConsole-specific settings
+    # Kernel parameters for CM4 support - simplified for basic boot testing
     kernelParams = [
       "console=tty1"  # Use the main display console
       "console=serial0,115200"  # Also enable serial for debugging
       "8250.nr_uarts=1"
-      "cma=384M"  # Increased CMA for better graphics performance
+      "cma=128M"  # Reduced CMA for initial testing
       "elevator=deadline"
       "fsck.repair=yes"
       "net.ifnames=0"
-      # Reduce log noise for cleaner display
-      "loglevel=4"
-      "quiet"
+      # Enable verbose output to see what's happening
+      "loglevel=7"
+      "initcall_debug"
+      "debug"
     ];
 
     # Enable required kernel features
@@ -169,49 +170,61 @@ in {
     # Partition sizes
     firmwareSize = 128; # MiB for firmware partition
 
-    # Include firmware files and uConsole-specific config.txt
+    # Include firmware files with basic config.txt (uConsole-specific parts commented)
     populateFirmwareCommands = 
       let
         configTxt = pkgs.writeText "config.txt" ''
-          [pi4]
-          kernel=u-boot-rpi4.bin
-          enable_gic=1
-          armstub=armstub8-gic.bin
-          disable_overscan=1
-          arm_boost=1
-
-          [cm4]
-          # Enable host mode on the 2711 built-in XHCI USB controller
-          otg_mode=1
-          arm_boost=1
-          max_framebuffers=2
-
-          # uConsole display configuration
-          dtoverlay=vc4-kms-v3d-pi4,cma-384
-
+          # Basic Raspberry Pi CM4 configuration
           [all]
           # Boot in 64-bit mode
           arm_64bit=1
           enable_uart=1
-          avoid_warnings=1
-
-          # uConsole specific settings
-          ignore_lcd=1
-          disable_fw_kms_setup=1
-          disable_audio_dither
-          pwm_sample_bits=20
-
-          # Setup headphone detect pin
-          gpio=10=ip,np
-
-          # Enable required interfaces
-          dtparam=audio=on
-          dtparam=ant2
+          
+          # Basic display - HDMI for debugging
+          hdmi_force_hotplug=1
+          hdmi_drive=2
+          
+          # Simple framebuffer
+          framebuffer_width=1280
+          framebuffer_height=720
+          
+          # Enable some debugging
+          uart_2ndstage=1
+          
+          # Basic GPU support
+          gpu_mem=128
+          
+          # ---- uConsole-specific settings (commented for basic boot testing) ----
+          # [pi4]
+          # kernel=u-boot-rpi4.bin
+          # enable_gic=1
+          # armstub=armstub8-gic.bin
+          # disable_overscan=1
+          # arm_boost=1
+          
+          # [cm4]
+          # # Enable host mode on the 2711 built-in XHCI USB controller
+          # otg_mode=1
+          # arm_boost=1
+          # max_framebuffers=2
+          # # uConsole display configuration
+          # dtoverlay=vc4-kms-v3d-pi4,cma-384
+          
+          # # uConsole specific display settings
+          # ignore_lcd=1
+          # disable_fw_kms_setup=1
+          # disable_audio_dither
+          # pwm_sample_bits=20
+          # # Setup headphone detect pin
+          # gpio=10=ip,np
+          # # Enable required interfaces
+          # dtparam=audio=on
+          # dtparam=ant2
         '';
       in ''
         ${config.system.build.installBootLoader} ${config.system.build.toplevel} -d ./firmware
         
-        # Add the uConsole-specific config
+        # Add the config
         rm -f firmware/config.txt
         cp ${configTxt} firmware/config.txt
       '';
