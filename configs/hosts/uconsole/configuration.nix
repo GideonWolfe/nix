@@ -1,13 +1,23 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, inputs, ... }:
+let
 
-{
+  overlay = final: super: {
+    makeModulesClosure = x:
+      super.makeModulesClosure (x // { allowMissing = true; });
+  };
+
+in {
   imports = [
     # Import the SD image generator
     "${modulesPath}/installer/sd-card/sd-image-aarch64.nix"
 
     # Hardware configuration for Raspberry Pi
     "${modulesPath}/profiles/base.nix"
+
+    inputs.nixos-hardware.nixosModules.raspberry-pi-4
   ];
+
+  nixpkgs.overlays = [ overlay ];
 
   # Basic system configuration
   networking.hostName = "uconsole";
@@ -55,11 +65,11 @@
     enableRedistributableFirmware = true;
 
     # Enable Raspberry Pi specific hardware
-    raspberry-pi."4" = {
-      enable = true;
-      fkms-3d.enable = true;
-      audio.enable = true;
-    };
+    # raspberry-pi."4" = {
+    #   #enable = true;
+    #   fkms-3d.enable = true;
+    #   audio.enable = true;
+    # };
 
     # Enable I2C for various uConsole components
     i2c.enable = true;
@@ -127,8 +137,8 @@
   };
 
   # Audio configuration
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  #sound.enable = true;
+  #hardware.pipewire.enable = true;
 
   # Power management for battery operation
   services.tlp = {
@@ -162,5 +172,5 @@
   security.sudo.wheelNeedsPassword = false; # Set to true for production
 
   # System state version (don't change this after installation)
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }
