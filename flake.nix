@@ -103,7 +103,6 @@
           modules = [
             nixos-hardware.nixosModules.raspberry-pi-4
             ./configs/hosts/uconsole/configuration.nix
-            ./configs/hosts/uconsole/hardware-configuration.nix
           ];
         };
         # Convenience attribute to build the SD image

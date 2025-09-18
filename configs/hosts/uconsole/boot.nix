@@ -1,6 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
+  imports = [
+    # Import the SD image generator
+    "${modulesPath}/installer/sd-card/sd-image-aarch64.nix"
+  ];
+
   # Boot configuration for Raspberry Pi CM4
   boot.loader = {
     # Use the extlinux boot loader for ARM
@@ -41,17 +46,22 @@
     # Partition sizes
     firmwareSize = 128; # MiB for firmware partition
 
-    # Include firmware files with basic config.txt (uConsole-specific parts commented)
-    populateFirmwareCommands = 
-      let
+    # Include firmware files with config.txt
+    populateFirmwareCommands = let
         configTxt = pkgs.writeText "config.txt" ''
           # Basic Raspberry Pi CM4 configuration
           [all]
           # Boot in 64-bit mode
           arm_64bit=1
+          
+          # U-Boot needs this to work, regardless of whether UART is actually used or not
           enable_uart=1
           
-          # Basic display - HDMI for debugging
+          # Prevent the firmware from smashing the framebuffer setup done by the mainline kernel
+          # when attempting to show low-voltage or overtemperature warnings
+          avoid_warnings=1
+          
+          # Basic display - HDMI for debugging  
           hdmi_force_hotplug=1
           hdmi_drive=2
           
@@ -59,13 +69,13 @@
           framebuffer_width=1280
           framebuffer_height=720
           
-          # Enable some debugging
-          uart_2ndstage=1
-          
           # Basic GPU support
           gpu_mem=128
           
           # ---- uConsole-specific settings (commented for basic boot testing) ----
+          # [pi3]
+          # kernel=u-boot-rpi3.bin
+          
           # [pi4]
           # kernel=u-boot-rpi4.bin
           # enable_gic=1
@@ -74,21 +84,16 @@
           # arm_boost=1
           
           # [cm4]
-          # # Enable host mode on the 2711 built-in XHCI USB controller
-          # otg_mode=1
           # arm_boost=1
           # max_framebuffers=2
-          # # uConsole display configuration
           # dtoverlay=vc4-kms-v3d-pi4,cma-384
-          
-          # # uConsole specific display settings
           # ignore_lcd=1
           # disable_fw_kms_setup=1
           # disable_audio_dither
           # pwm_sample_bits=20
-          # # Setup headphone detect pin
           # gpio=10=ip,np
-          # # Enable required interfaces
+          # dtoverlay=dwc2,dr_mode=host
+          # dtoverlay=audremap,pins_12_13
           # dtparam=audio=on
           # dtparam=ant2
         '';

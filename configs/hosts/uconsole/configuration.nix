@@ -8,9 +8,6 @@ let
 
 in {
   imports = [
-    # Import the SD image generator
-    "${modulesPath}/installer/sd-card/sd-image-aarch64.nix"
-
     # Hardware configuration for Raspberry Pi
     "${modulesPath}/profiles/base.nix"
 
