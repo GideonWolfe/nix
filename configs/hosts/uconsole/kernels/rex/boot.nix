@@ -47,31 +47,10 @@
     # Include firmware files with config.txt
     populateFirmwareCommands = let
       configTxt = pkgs.writeText "config.txt" ''
-        [pi3]
-        #dtoverlay=clockworkpi-devterm-cm3
-        dtoverlay=clockworkpi-uconsole-cm3
-        dtoverlay=vc4-kms-v3d
-        dtparam=spi=on
-        dtoverlay=spi-gpio35-39
-        gpio=11=op,dh
-        enable_uart=1
-
-
         [pi4]
-        #dtoverlay=clockworkpi-devterm
         dtoverlay=clockworkpi-uconsole
         dtoverlay=vc4-kms-v3d-pi4,cma-384
-        dtparam=spi=on
         enable_uart=1
-
-
-        [pi5]
-        #dtoverlay=clockworkpi-devterm-cm5
-        dtoverlay=clockworkpi-uconsole-cm5
-        dtoverlay=vc4-kms-v3d-pi5,cma-384
-        dtparam=uart0
-        dtparam=pciex1
-        dtparam=pciex1_gen=3
 
         [all]
         ignore_lcd=1
@@ -81,10 +60,6 @@
         dtoverlay=audremap,pins_12_13
         dtoverlay=dwc2,dr_mode=host
         dtparam=ant2
-
-
-        ##only edit the section of the pi you have, other section will be ignored.
-        ##if you have a devterm uncomment devterm and comment out entries with uconsole
       '';
     in ''
       ${config.system.build.installBootLoader} ${config.system.build.toplevel} -d ./firmware
