@@ -23,9 +23,13 @@
     });
 
     kernelPatches = [
+      # {
+      #   name = "clockworkpi-kernel";
+      #   patch = ./patches/clockworkpi-kernel.patch;
+      # }
       {
         name = "clockworkpi-kernel";
-        patch = ./patches/clockworkpi-kernel.patch;
+        patch = ./patches/clockworkpi-kernel-min.patch;
       }
     ];
 
