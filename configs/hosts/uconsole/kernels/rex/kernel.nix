@@ -11,8 +11,6 @@
         # Version for commit 99972b2fa5395542e7c24e4d894be5ede383055f
         version = "6.12.48";
         modDirVersion = "6.12.48";
-
-        # Use the same Raspberry Pi kernel source as nixos-uconsole
         src = pkgs.fetchFromGitHub {
           owner = "raspberrypi";
           repo = "linux";
