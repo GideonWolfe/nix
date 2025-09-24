@@ -33,6 +33,9 @@
     # Hardware tools
     rpi-imager
     gptfdisk
+    # U-Boot tools and binaries
+    ubootRaspberryPi3_64bit
+    ubootRaspberryPi4_64bit
   ];
 
   # Enable console and framebuffer for visual output

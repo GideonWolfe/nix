@@ -15,7 +15,8 @@ in {
     # inputs.nixos-hardware.nixosModules.raspberry-pi-4
 
     # uConsole modular configuration
-    ./kernel.nix
+    #./kernels/potato/kernel.nix
+    ./kernels/rex/kernel.nix
     ./boot.nix
     ./system.nix
     ./hardware.nix
