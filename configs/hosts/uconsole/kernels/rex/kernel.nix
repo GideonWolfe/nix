@@ -72,7 +72,6 @@
       kernelModules = [
         "ocp8178-bl" # Backlight driver
         "panel-clockwork-cwu50" # Display panel driver
-        "simple-amplifier-switch" # Audio amplifier switch
       ];
     };
 
