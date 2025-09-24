@@ -13,6 +13,9 @@
     # Include the results of the hardware scan.
     #./hardware-configuration.nix
 
+    # my public keys
+    ../../../modules/keys/ssh.nix
+
     # Common system configs
     ../../../modules/configs/system/common.nix
 
@@ -78,6 +81,7 @@
   users.users.gideon = {
     home = "/home/gideon";
     isNormalUser = true;
+    initialPassword = "pw123";
     shell = pkgs.fish;
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
@@ -89,6 +93,9 @@
       "storage" # needed for udisks/udiskie
     ];
     packages = with pkgs; [ firefox tree ];
+    openssh = {
+      authorizedKeys.keys = [ config.local.ssh.keys.gideon_ssh_sk ];
+    };
   };
 
   system.stateVersion = "25.05"; # Did you read the comment?

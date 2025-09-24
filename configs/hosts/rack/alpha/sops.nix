@@ -12,7 +12,7 @@
 
   #INFO: if the host has host-specific secrets, it should be set to that file
   # gideon_secrets already explicitly declares which sops file to use
-  sops.defaultSopsFile = ../../../../secrets/gideon_secrets.yaml;
+  sops.defaultSopsFile = ../../../secrets/gideon_secrets.yaml;
   # sops.defaultSopsFile = ./poseidon-secrets.yaml;
   # sops.secrets.someHostSpecificSecret = { };
 }

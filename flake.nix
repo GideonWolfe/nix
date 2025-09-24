@@ -73,6 +73,33 @@
       # Definitions for individual hosts
       nixosConfigurations = {
 
+
+        alpha = lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./configs/hosts/rack/alpha/configuration.nix
+            ./configs/hosts/rack/alpha/disko.nix
+
+            stylix.nixosModules.stylix
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-backup";
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.gideon.imports = [
+                ./configs/users/gideon/light-home.nix
+                ./configs/modules/configs/user/laptop-hyprpanel-layout/laptop-hyprpanel-layout.nix
+              ];
+            }
+          ];
+        };
+
+
+
+
         do-vps-test = lib.nixosSystem {
           #inherit system;
           system = "x86_64-linux";
@@ -206,6 +233,18 @@
           sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" ];
           path = deploy-rs.lib.x86_64-linux.activate.nixos
             self.nixosConfigurations.do-vps-test;
+          user = "root";
+        };
+      };
+
+      deploy.nodes.alpha = {
+        hostname = "192.168.0.163";
+        fastConnection = true;
+        profiles.system = {
+          sshUser = "gideon";
+          sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" "-p" "2736" ];
+          path = deploy-rs.lib.x86_64-linux.activate.nixos
+            self.nixosConfigurations.alpha;
           user = "root";
         };
       };
