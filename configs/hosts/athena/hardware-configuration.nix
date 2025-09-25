@@ -43,10 +43,10 @@
     device = "/dev/disk/by-label/data2";
     fsType = "xfs";
   };
-  fileSystems."/drives/data/data3" = {
-    device = "/dev/disk/by-label/data3";
-    fsType = "xfs";
-  };
+  # fileSystems."/drives/data/data3" = {
+  #   device = "/dev/disk/by-label/data3";
+  #   fsType = "xfs";
+  # };
   fileSystems."/drives/data/data4" = {
     device = "/dev/disk/by-label/data4";
     fsType = "xfs";

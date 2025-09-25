@@ -17,6 +17,9 @@
     #Theming
     ./packages/theming.nix
 
+    # Productivity packages (for obsidian)
+    ../../modules/packages/user/productivity/productivity.nix
+
     ###########
     # CONFIGS #
     ###########

@@ -37,6 +37,9 @@
     # Enable backups of personal archive
     ./system/archive_backup.nix
 
+    # Enable backups of notesarchive_backup.nix
+    ./system/obsidian_backup.nix
+
     #smartd hdd health
     ./system/services/smartd.nix
     ./system/services/scrutiny.nix
@@ -122,7 +125,7 @@
 
   boot.plymouth = {
     # Enable plymouth on the system
-    enable = true;
+    enable = false;
     # Pass in the package of themes we also downloaded
     themePackages = [ pkgs.adi1090x-plymouth-themes ];
     # Choose the theme

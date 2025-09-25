@@ -4,12 +4,13 @@
   # Enable docker daemon
   services.snapraid = {
 
-    enable = true;
+    enable = false;
 
     dataDisks = {
       d1 = "/drives/data/data1/";
       d2 = "/drives/data/data2/";
-      d3 = "/drives/data/data3/";
+      #d3 = "/drives/data/data3/";
+      d3 = "/drives/data/data2/empty";
       d4 = "/drives/data/data4/";
     };
 
