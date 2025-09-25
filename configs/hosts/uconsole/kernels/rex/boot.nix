@@ -95,7 +95,7 @@
       
       # Remove any existing config.txt and copy our custom one
       # possibly not needed
-      #rm -f firmware/config.txt || true
+      rm -f firmware/config.txt || true
 
       # Copy our config.txt (overwriting any existing one)
       cp ${configTxt} firmware/config.txt
