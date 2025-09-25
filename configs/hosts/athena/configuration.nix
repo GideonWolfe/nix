@@ -45,6 +45,10 @@
     ./system/services/networks/ssh.nix
     ./system/services/networks/firewall.nix
 
+    # TEST: adding prometheus
+    ./configuration.nix
+    ./alloy.nix
+
     ############
     # PACKAGES #
     ############

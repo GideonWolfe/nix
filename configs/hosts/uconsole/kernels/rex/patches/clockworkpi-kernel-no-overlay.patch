@@ -1,91 +1,6 @@
-diff --git a/linux/.git/config b/ClockworkPi-linux/.git/config
-index ad1433f..abd7c3c 100644
---- a/linux/.git/config
-+++ b/ClockworkPi-linux/.git/config
-@@ -4,7 +4,7 @@
- 	bare = false
- 	logallrefupdates = true
- [remote "origin"]
--	url = https://github.com/raspberrypi/linux
-+	url = https://github.com/ak-rex/ClockworkPi-linux
- 	fetch = +refs/heads/rpi-6.12.y:refs/remotes/origin/rpi-6.12.y
- [branch "rpi-6.12.y"]
- 	remote = origin
-diff --git a/linux/.git/index b/ClockworkPi-linux/.git/index
-index 613c4c7..ca8852a 100644
-Binary files a/linux/.git/index and b/ClockworkPi-linux/.git/index differ
-diff --git a/linux/.git/logs/HEAD b/ClockworkPi-linux/.git/logs/HEAD
-index 5ac7420..535b725 100644
---- a/linux/.git/logs/HEAD
-+++ b/ClockworkPi-linux/.git/logs/HEAD
-@@ -1 +1 @@
--0000000000000000000000000000000000000000 99972b2fa5395542e7c24e4d894be5ede383055f Rex <rex@linux.com> 1758677034 -0400	clone: from https://github.com/raspberrypi/linux
-+0000000000000000000000000000000000000000 2ae782b21ddd477b4d77fa7710cf44928157d504 Rex <rex@linux.com> 1758676975 -0400	clone: from https://github.com/ak-rex/ClockworkPi-linux
-diff --git a/linux/.git/logs/refs/heads/rpi-6.12.y b/ClockworkPi-linux/.git/logs/refs/heads/rpi-6.12.y
-index 5ac7420..535b725 100644
---- a/linux/.git/logs/refs/heads/rpi-6.12.y
-+++ b/ClockworkPi-linux/.git/logs/refs/heads/rpi-6.12.y
-@@ -1 +1 @@
--0000000000000000000000000000000000000000 99972b2fa5395542e7c24e4d894be5ede383055f Rex <rex@linux.com> 1758677034 -0400	clone: from https://github.com/raspberrypi/linux
-+0000000000000000000000000000000000000000 2ae782b21ddd477b4d77fa7710cf44928157d504 Rex <rex@linux.com> 1758676975 -0400	clone: from https://github.com/ak-rex/ClockworkPi-linux
-diff --git a/linux/.git/logs/refs/remotes/origin/HEAD b/ClockworkPi-linux/.git/logs/refs/remotes/origin/HEAD
-index 5ac7420..535b725 100644
---- a/linux/.git/logs/refs/remotes/origin/HEAD
-+++ b/ClockworkPi-linux/.git/logs/refs/remotes/origin/HEAD
-@@ -1 +1 @@
--0000000000000000000000000000000000000000 99972b2fa5395542e7c24e4d894be5ede383055f Rex <rex@linux.com> 1758677034 -0400	clone: from https://github.com/raspberrypi/linux
-+0000000000000000000000000000000000000000 2ae782b21ddd477b4d77fa7710cf44928157d504 Rex <rex@linux.com> 1758676975 -0400	clone: from https://github.com/ak-rex/ClockworkPi-linux
-diff --git a/linux/.git/objects/pack/pack-b9cd703e3653feef0b72ff467c5a0f2b86051aba.idx b/ClockworkPi-linux/.git/objects/pack/pack-d742c84db48eb89123da60633ba408ebc3bdc6df.idx
-similarity index 81%
-rename from linux/.git/objects/pack/pack-b9cd703e3653feef0b72ff467c5a0f2b86051aba.idx
-rename to ClockworkPi-linux/.git/objects/pack/pack-d742c84db48eb89123da60633ba408ebc3bdc6df.idx
-index 781863a..3c46d0b 100644
-Binary files a/linux/.git/objects/pack/pack-b9cd703e3653feef0b72ff467c5a0f2b86051aba.idx and b/ClockworkPi-linux/.git/objects/pack/pack-d742c84db48eb89123da60633ba408ebc3bdc6df.idx differ
-diff --git a/linux/.git/objects/pack/pack-b9cd703e3653feef0b72ff467c5a0f2b86051aba.pack b/ClockworkPi-linux/.git/objects/pack/pack-d742c84db48eb89123da60633ba408ebc3bdc6df.pack
-similarity index 99%
-rename from linux/.git/objects/pack/pack-b9cd703e3653feef0b72ff467c5a0f2b86051aba.pack
-rename to ClockworkPi-linux/.git/objects/pack/pack-d742c84db48eb89123da60633ba408ebc3bdc6df.pack
-index 5e44147..afac6d1 100644
-Binary files a/linux/.git/objects/pack/pack-b9cd703e3653feef0b72ff467c5a0f2b86051aba.pack and b/ClockworkPi-linux/.git/objects/pack/pack-d742c84db48eb89123da60633ba408ebc3bdc6df.pack differ
-diff --git a/linux/.git/packed-refs b/ClockworkPi-linux/.git/packed-refs
-index 7f4fdbc..f5c1ef9 100644
---- a/linux/.git/packed-refs
-+++ b/ClockworkPi-linux/.git/packed-refs
-@@ -1,2 +1,2 @@
- # pack-refs with: peeled fully-peeled sorted 
--99972b2fa5395542e7c24e4d894be5ede383055f refs/remotes/origin/rpi-6.12.y
-+2ae782b21ddd477b4d77fa7710cf44928157d504 refs/remotes/origin/rpi-6.12.y
-diff --git a/linux/.git/refs/heads/rpi-6.12.y b/ClockworkPi-linux/.git/refs/heads/rpi-6.12.y
-index f3cf98a..ebd690b 100644
---- a/linux/.git/refs/heads/rpi-6.12.y
-+++ b/ClockworkPi-linux/.git/refs/heads/rpi-6.12.y
-@@ -1 +1 @@
--99972b2fa5395542e7c24e4d894be5ede383055f
-+2ae782b21ddd477b4d77fa7710cf44928157d504
-diff --git a/linux/.git/shallow b/ClockworkPi-linux/.git/shallow
-index f3cf98a..ebd690b 100644
---- a/linux/.git/shallow
-+++ b/ClockworkPi-linux/.git/shallow
-@@ -1 +1 @@
--99972b2fa5395542e7c24e4d894be5ede383055f
-+2ae782b21ddd477b4d77fa7710cf44928157d504
-diff --git a/linux/arch/arm/boot/dts/overlays/Makefile b/ClockworkPi-linux/arch/arm/boot/dts/overlays/Makefile
-index 77f3ecb..6073d54 100644
---- a/linux/arch/arm/boot/dts/overlays/Makefile
-+++ b/ClockworkPi-linux/arch/arm/boot/dts/overlays/Makefile
-@@ -42,6 +42,7 @@ dtbo-$(CONFIG_ARCH_BCM2835) += \
- 	chipcap2.dtbo \
- 	chipdip-dac.dtbo \
- 	cirrus-wm5102.dtbo \
-+	clockworkpi-uconsole.dtbo \
- 	cm-swap-i2c0.dtbo \
- 	cma.dtbo \
- 	crystalfontz-cfa050_pi_m.dtbo \
-diff --git a/ClockworkPi-linux/arch/arm/boot/dts/overlays/clockworkpi-uconsole-overlay.dts b/ClockworkPi-linux/arch/arm/boot/dts/overlays/clockworkpi-uconsole-overlay.dts
-new file mode 100644
-index 0000000..4a1e978
---- /dev/null
-+++ b/ClockworkPi-linux/arch/arm/boot/dts/overlays/clockworkpi-uconsole-overlay.dts
+diff -rupN linux/arch/arm/boot/dts/overlays/clockworkpi-uconsole-overlay.dts ClockworkPi-linux/arch/arm/boot/dts/overlays/clockworkpi-uconsole-overlay.dts
+--- linux/arch/arm/boot/dts/overlays/clockworkpi-uconsole-overlay.dts	1969-12-31 19:00:00.000000000 -0500
++++ ClockworkPi-linux/arch/arm/boot/dts/overlays/clockworkpi-uconsole-overlay.dts	2025-09-23 21:22:56.050437157 -0400
 @@ -0,0 +1,232 @@
 +/dts-v1/;
 +/plugin/;
@@ -319,10 +234,267 @@ index 0000000..4a1e978
 +
 +};
 +
-diff --git a/linux/arch/arm64/configs/bcm2711_defconfig b/ClockworkPi-linux/arch/arm64/configs/bcm2711_defconfig
-index cf70c56..d151c75 100644
---- a/linux/arch/arm64/configs/bcm2711_defconfig
-+++ b/ClockworkPi-linux/arch/arm64/configs/bcm2711_defconfig
+diff -rupN linux/arch/arm/boot/dts/overlays/Makefile ClockworkPi-linux/arch/arm/boot/dts/overlays/Makefile
+--- linux/arch/arm/boot/dts/overlays/Makefile	2025-09-23 21:23:55.546085878 -0400
++++ ClockworkPi-linux/arch/arm/boot/dts/overlays/Makefile	2025-09-23 22:27:40.336789580 -0400
+@@ -42,6 +42,7 @@ dtbo-$(CONFIG_ARCH_BCM2835) += \
+ 	chipcap2.dtbo \
+ 	chipdip-dac.dtbo \
+ 	cirrus-wm5102.dtbo \
++	clockworkpi-uconsole.dtbo \
+ 	cm-swap-i2c0.dtbo \
+ 	cma.dtbo \
+ 	crystalfontz-cfa050_pi_m.dtbo \
+diff -rupN linux/arch/arm64/boot/dts/overlays/clockworkpi-uconsole-overlay.dts ClockworkPi-linux/arch/arm64/boot/dts/overlays/clockworkpi-uconsole-overlay.dts
+--- linux/arch/arm64/boot/dts/overlays/clockworkpi-uconsole-overlay.dts	1969-12-31 19:00:00.000000000 -0500
++++ ClockworkPi-linux/arch/arm64/boot/dts/overlays/clockworkpi-uconsole-overlay.dts	2025-09-23 21:22:56.050437157 -0400
+@@ -0,0 +1,232 @@
++/dts-v1/;
++/plugin/;
++
++/{
++	compatible = "brcm,bcm2835";
++
++	fragment@0 {
++		target = <&i2c1>;
++		__overlay__ {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&i2c1_pins>;
++			status = "okay";
++
++			adc101c: adc@54 {
++				reg = <0x54>;
++				compatible = "ti,adc101c";
++				status = "okay";
++			};
++		};
++	};
++
++	fragment@1 {
++		target = <&spi4>;
++		__overlay__ {
++			pinctrl-names = "default";
++			pinctrl-0 = <&spi4_pins &spi4_cs_pins>;
++			cs-gpios = <&gpio 4 1>;
++			status = "okay";
++
++			spidev4_0: spidev@0 {
++				compatible = "spidev";
++				reg = <0>;      /* CE0 */
++				#address-cells = <1>;
++				#size-cells = <0>;
++				spi-max-frequency = <125000000>;
++				status = "okay";
++			};
++		};
++	};
++
++	fragment@2 {
++		target = <&uart1>;
++		__overlay__ {
++			pinctrl-names = "default";
++			pinctrl-0 = <&uart1_pins>;
++			status = "okay";
++		};
++	};
++
++	fragment@3 {
++		target = <&gpio>;
++		__overlay__ {
++
++			i2c1_pins: i2c1 {
++				brcm,pins = <44 45>;
++				brcm,function = <6>;
++			};
++
++			spi4_pins: spi4_pins {
++				brcm,pins = <6 7>;
++				brcm,function = <7>;
++			};
++
++			spi4_cs_pins: spi0_cs_pins {
++				brcm,pins = <4>;
++				brcm,function = <1>;
++			};
++
++			uart1_pins: uart1_pins {
++				brcm,pins = <14 15>;
++				brcm,function = <2>;
++				brcm,pull = <0 2>;
++			};
++
++		};
++	};
++
++	fragment@4 {
++		target-path = "/chosen";
++		__overlay__ {
++			bootargs = "8250.nr_uarts=1";
++		};
++	};
++
++	fragment@5 {
++		target = <&i2c0if>;
++		__overlay__ {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			pinctrl-0 = <&i2c0_pins>;
++			pinctrl-names = "default";
++			status = "okay";
++
++			axp22x: pmic@34 {
++				interrupt-controller;
++				#interrupt-cells = <1>;
++				compatible = "x-powers,axp221";
++				reg = <0x34>; /* i2c address */
++				interrupt-parent = <&gpio>;
++				interrupts = <2 8>;  /* IRQ_TYPE_EDGE_FALLING */
++				irq-gpios = <&gpio 2 0>;
++
++				regulators {
++
++					x-powers,dcdc-freq = <3000>;
++
++					reg_aldo1: aldo1 {
++						regulator-always-on;
++						regulator-min-microvolt = <3300000>;
++						regulator-max-microvolt = <3300000>;
++						regulator-name = "audio-vdd";
++					};
++
++					reg_aldo2: aldo2 {
++						regulator-always-on;
++						regulator-min-microvolt = <3300000>;
++						regulator-max-microvolt = <3300000>;
++						regulator-name = "display-vcc";
++					};
++
++					reg_dldo2: dldo2 {
++						regulator-always-on;
++						regulator-min-microvolt = <3300000>;
++						regulator-max-microvolt = <3300000>;
++						regulator-name = "dldo2";
++					};
++
++					reg_dldo3: dldo3 {
++						regulator-always-on;
++						regulator-min-microvolt = <3300000>;
++						regulator-max-microvolt = <3300000>;
++						regulator-name = "dldo3";
++					};
++
++					reg_dldo4: dldo4 {
++						regulator-always-on;
++						regulator-min-microvolt = <3300000>;
++						regulator-max-microvolt = <3300000>;
++						regulator-name = "dldo4";
++					};
++
++				};
++
++				battery_power_supply: battery-power-supply {
++					compatible = "x-powers,axp221-battery-power-supply";
++					monitored-battery = <&battery>;
++				};
++
++				ac_power_supply: ac_power_supply {
++					compatible = "x-powers,axp221-ac-power-supply";
++				};
++
++			};
++		};
++	};
++
++	fragment@6 {
++		target = <&i2c0if>;
++		__overlay__ {
++			compatible = "brcm,bcm2708-i2c";
++		};
++	};
++
++	fragment@7 {
++		target-path = "/aliases";
++		__overlay__ {
++			i2c0 = "/soc/i2c@7e205000";
++		};
++	};
++
++	fragment@8 {
++		target-path = "/";
++		__overlay__  {
++			battery: battery@0 {
++				compatible = "simple-battery";
++				device-chemistry = "lithium-ion";
++				constant-charge-current-max-microamp = <2100000>;
++				voltage-max-design-microvolt = <4200000>;
++				re-charge-voltage-microvolt = <4000000>;
++				// adjust the following params according to your battery specs
++				voltage-min-design-microvolt = <3300000>;
++				energy-full-design-microwatt-hours = <24790000>; // 2x3350mAh * 3.7v
++				charge-full-design-microamp-hours = <6700000>; // 2x3350mAh
++			};
++		};
++	};
++
++	fragment@9 {
++		target=<&dsi1>;
++		__overlay__ {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "okay";
++
++			port {
++				dsi_out_port: endpoint {
++					remote-endpoint = <&panel_dsi_port>;
++				};
++			};
++
++			panel_cwu50: panel@0 {
++				compatible = "cw,cwu50";
++				reg = <0>;
++				reset-gpio = <&gpio 8 1>;
++				backlight = <&ocp8178_backlight>;
++				rotation = <90>;
++				iovcc-supply = <&reg_aldo2>;
++
++				port {
++					panel_dsi_port: endpoint {
++						remote-endpoint = <&dsi_out_port>;
++					};
++				};
++			};
++		};
++	};
++
++	fragment@10 {
++		target-path = "/";
++		__overlay__  {
++			ocp8178_backlight: backlight@0 {
++				compatible = "ocp8178-backlight";
++				backlight-control-gpios = <&gpio 9 0>;
++				default-brightness = <5>;
++			};
++		};
++	};
++
++};
++
+diff -rupN linux/arch/arm64/boot/dts/overlays/Makefile ClockworkPi-linux/arch/arm64/boot/dts/overlays/Makefile
+--- linux/arch/arm64/boot/dts/overlays/Makefile	2025-09-23 21:23:55.546085878 -0400
++++ ClockworkPi-linux/arch/arm64/boot/dts/overlays/Makefile	2025-09-23 22:27:40.336789580 -0400
+@@ -42,6 +42,7 @@ dtbo-$(CONFIG_ARCH_BCM2835) += \
+ 	chipcap2.dtbo \
+ 	chipdip-dac.dtbo \
+ 	cirrus-wm5102.dtbo \
++	clockworkpi-uconsole.dtbo \
+ 	cm-swap-i2c0.dtbo \
+ 	cma.dtbo \
+ 	crystalfontz-cfa050_pi_m.dtbo \
+diff -rupN linux/arch/arm64/configs/bcm2711_defconfig ClockworkPi-linux/arch/arm64/configs/bcm2711_defconfig
+--- linux/arch/arm64/configs/bcm2711_defconfig	2025-09-23 21:23:55.786084461 -0400
++++ ClockworkPi-linux/arch/arm64/configs/bcm2711_defconfig	2025-09-23 21:22:56.290435740 -0400
 @@ -1770,5 +1770,22 @@ CONFIG_STACK_TRACER=y
  CONFIG_SCHED_TRACER=y
  CONFIG_FTRACE_SYSCALLS=y
@@ -346,10 +518,9 @@ index cf70c56..d151c75 100644
 +CONFIG_CRC_CCITT=y
  # CONFIG_UPROBE_EVENTS is not set
  # CONFIG_STRICT_DEVMEM is not set
-diff --git a/linux/arch/arm64/configs/bcm2712_defconfig b/ClockworkPi-linux/arch/arm64/configs/bcm2712_defconfig
-index dec08de..8729d12 100644
---- a/linux/arch/arm64/configs/bcm2712_defconfig
-+++ b/ClockworkPi-linux/arch/arm64/configs/bcm2712_defconfig
+diff -rupN linux/arch/arm64/configs/bcm2712_defconfig ClockworkPi-linux/arch/arm64/configs/bcm2712_defconfig
+--- linux/arch/arm64/configs/bcm2712_defconfig	2025-09-23 21:23:55.786084461 -0400
++++ ClockworkPi-linux/arch/arm64/configs/bcm2712_defconfig	2025-09-23 21:22:56.290435740 -0400
 @@ -1772,5 +1772,20 @@ CONFIG_STACK_TRACER=y
  CONFIG_SCHED_TRACER=y
  CONFIG_FTRACE_SYSCALLS=y
@@ -371,10 +542,9 @@ index dec08de..8729d12 100644
 +CONFIG_CRC_CCITT=y
  # CONFIG_UPROBE_EVENTS is not set
  # CONFIG_STRICT_DEVMEM is not set
-diff --git a/linux/drivers/gpu/drm/panel/Kconfig b/ClockworkPi-linux/drivers/gpu/drm/panel/Kconfig
-index 928b9f1..e4adfde 100644
---- a/linux/drivers/gpu/drm/panel/Kconfig
-+++ b/ClockworkPi-linux/drivers/gpu/drm/panel/Kconfig
+diff -rupN linux/drivers/gpu/drm/panel/Kconfig ClockworkPi-linux/drivers/gpu/drm/panel/Kconfig
+--- linux/drivers/gpu/drm/panel/Kconfig	2025-09-23 21:23:58.642067599 -0400
++++ ClockworkPi-linux/drivers/gpu/drm/panel/Kconfig	2025-09-23 21:22:59.338417744 -0400
 @@ -96,6 +96,50 @@ config DRM_PANEL_BOE_TV101WUM_LL2
  	  Say Y here if you want to support for BOE TV101WUM-LL2
  	  WUXGA PANEL DSI Video Mode panel
@@ -426,11 +596,10 @@ index 928b9f1..e4adfde 100644
  config DRM_PANEL_EBBG_FT8719
  	tristate "EBBG FT8719 panel driver"
  	depends on OF
-diff --git a/linux/drivers/gpu/drm/panel/Makefile b/ClockworkPi-linux/drivers/gpu/drm/panel/Makefile
-index c13a081..f5ab2ca 100644
---- a/linux/drivers/gpu/drm/panel/Makefile
-+++ b/ClockworkPi-linux/drivers/gpu/drm/panel/Makefile
-@@ -104,3 +104,7 @@ obj-$(CONFIG_DRM_PANEL_WAVESHARE_TOUCHSCREEN) += panel-waveshare-dsi.o
+diff -rupN linux/drivers/gpu/drm/panel/Makefile ClockworkPi-linux/drivers/gpu/drm/panel/Makefile
+--- linux/drivers/gpu/drm/panel/Makefile	2025-09-23 21:23:58.642067599 -0400
++++ ClockworkPi-linux/drivers/gpu/drm/panel/Makefile	2025-09-23 21:22:59.338417744 -0400
+@@ -104,3 +104,7 @@ obj-$(CONFIG_DRM_PANEL_WAVESHARE_TOUCHSC
  obj-$(CONFIG_DRM_PANEL_WAVESHARE_TOUCHSCREEN_V2) += panel-waveshare-dsi-v2.o
  obj-$(CONFIG_DRM_PANEL_WIDECHIPS_WS2401) += panel-widechips-ws2401.o
  obj-$(CONFIG_DRM_PANEL_XINPENG_XPP055C272) += panel-xinpeng-xpp055c272.o
@@ -438,304 +607,9 @@ index c13a081..f5ab2ca 100644
 +obj-$(CONFIG_DRM_PANEL_CWD686) += panel-cwd686-cm3.o
 +obj-$(CONFIG_DRM_PANEL_CWU50) += panel-cwu50.o
 +obj-$(CONFIG_DRM_PANEL_CWU50) += panel-cwu50-cm3.o
-diff --git a/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686-cm3.c b/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686-cm3.c
-new file mode 100644
-index 0000000..fe83b34
---- /dev/null
-+++ b/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686-cm3.c
-@@ -0,0 +1,287 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <drm/drm_modes.h>
-+#include <drm/drm_mipi_dsi.h>
-+#include <drm/drm_panel.h>
-+#include <linux/backlight.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/delay.h>
-+#include <linux/of_device.h>
-+#include <linux/module.h>
-+#include <video/mipi_display.h>
-+
-+struct cwd686 {
-+	struct device *dev;
-+	struct drm_panel panel;
-+	struct gpio_desc *reset_gpio;
-+	struct regulator *supply;
-+	struct backlight_device *backlight;
-+	bool prepared;
-+	bool enabled;
-+};
-+
-+static const struct drm_display_mode default_mode = {
-+	.clock = 54465,
-+	.hdisplay = 480,
-+	.hsync_start = 480 + 150,
-+	.hsync_end = 480 + 150 + 24,
-+	.htotal = 480 + 150 + 24 + 40,
-+	.vdisplay = 1280,
-+	.vsync_start = 1280 + 12,
-+	.vsync_end = 1280 + 12+ 6,
-+	.vtotal = 1280 + 12 + 6 + 10,
-+	.flags = 0,
-+};
-+
-+static inline struct cwd686 *panel_to_cwd686(struct drm_panel *panel)
-+{
-+	return container_of(panel, struct cwd686, panel);
-+}
-+
-+#define dcs_write_seq(seq...)                              \
-+({                                                              \
-+	static const u8 d[] = { seq };                          \
-+	mipi_dsi_dcs_write_buffer(dsi, d, ARRAY_SIZE(d));	 \
-+})
-+
-+static void cwd686_init_sequence(struct cwd686 *ctx)
-+{
-+	struct mipi_dsi_device *dsi = to_mipi_dsi_device(ctx->dev);
-+
-+	dcs_write_seq(0xF0,0x5A,0x5A);
-+	dcs_write_seq(0xF1,0xA5,0xA5);
-+	dcs_write_seq(0xB6,0x0D,0x0D);
-+	dcs_write_seq(0xB4,0x0A,0x08,0x12,0x10,0x0E,0x0C,0x00,0x00,0x00,0x03,0x00,0x03,0x03,0x03,0x03,0x03,0x03,0x03,0x04,0x06);
-+	dcs_write_seq(0xB3,0x0B,0x09,0x13,0x11,0x0F,0x0D,0x00,0x00,0x00,0x03,0x00,0x03,0x03,0x03,0x03,0x03,0x03,0x03,0x05,0x07);
-+	dcs_write_seq(0xB0,0x54,0x32,0x23,0x45,0x44,0x44,0x44,0x44,0x90,0x01,0x90,0x01);
-+	dcs_write_seq(0xB1,0x32,0x84,0x02,0x83,0x30,0x01,0x6B,0x01);
-+	dcs_write_seq(0xB2,0x73);
-+	dcs_write_seq(0xBD,0x4E,0x0E,0x50,0x50,0x26,0x1D,0x00,0x14,0x42,0x03);
-+	dcs_write_seq(0xB7,0x01,0x01,0x09,0x11,0x0D,0x55,0x19,0x19,0x21,0x1D,0x00,0x00,0x00,0x00,0x02,0xFF,0x3C);
-+	dcs_write_seq(0xB8,0x23,0x01,0x30,0x34,0x63);
-+	dcs_write_seq(0xB9,0xA0,0x22,0x00,0x44);
-+	dcs_write_seq(0xBA,0x12,0x63);
-+	dcs_write_seq(0xC1,0x0C,0x16,0x04,0x0C,0x10,0x04);
-+	dcs_write_seq(0xC2,0x11,0x41);
-+	dcs_write_seq(0xC3,0x22,0x31,0x04);
-+	dcs_write_seq(0xC7,0x05,0x23,0x6B,0x49,0x00);
-+	dcs_write_seq(0xC5,0x00);
-+	dcs_write_seq(0xD0,0x37,0xFF,0xFF);
-+	dcs_write_seq(0xD2,0x63,0x0B,0x08,0x88);
-+	dcs_write_seq(0xD3,0x01,0x00,0x00,0x01,0x01,0x37,0x25,0x38,0x31,0x06,0x07);
-+	dcs_write_seq(0xC8,0x7C,0x6A,0x5D,0x53,0x53,0x45,0x4B,0x35,0x4D,0x4A,0x49,0x66,0x53,0x57,0x4A,0x48,0x3B,0x2A,0x06,0x7C,0x6A,0x5D,0x53,0x53,0x45,0x4B,0x35,0x4D,0x4A,0x49,0x66,0x53,0x57,0x4A,0x48,0x3B,0x2A,0x06);//GAMMA2.2
-+	dcs_write_seq(0xC6,0x00,0x00,0xFF,0x00,0x00,0xFF,0x00,0x00);
-+	dcs_write_seq(0xF4,0x08,0x77);
-+	dcs_write_seq(0x36,0x14);
-+	dcs_write_seq(0x35,0x00);
-+	dcs_write_seq(0xF1,0x5A,0x5A);
-+	dcs_write_seq(0xF0,0xA5,0xA5);
-+}
-+
-+static int cwd686_disable(struct drm_panel *panel)
-+{
-+	struct cwd686 *ctx = panel_to_cwd686(panel);
-+
-+	if (!ctx->enabled)
-+		return 0;
-+
-+	backlight_disable(ctx->backlight);
-+
-+	ctx->enabled = false;
-+
-+	return 0;
-+}
-+
-+static int cwd686_unprepare(struct drm_panel *panel)
-+{
-+	struct cwd686 *ctx = panel_to_cwd686(panel);
-+	struct mipi_dsi_device *dsi = to_mipi_dsi_device(ctx->dev);
-+	int ret;
-+
-+#if 0
-+	if (!ctx->prepared)
-+		return 0;
-+
-+	ret = mipi_dsi_dcs_set_display_off(dsi);
-+	if (ret)
-+		DRM_WARN("failed to set display off: %d\n", ret);
-+
-+	ret = mipi_dsi_dcs_enter_sleep_mode(dsi);
-+	if (ret)
-+		DRM_WARN("failed to enter sleep mode: %d\n", ret);
-+
-+	msleep(120);
-+
-+	if (ctx->reset_gpio) {
-+		gpiod_set_value_cansleep(ctx->reset_gpio, 1);
-+		msleep(20);
-+	}
-+
-+	regulator_disable(ctx->supply);
-+
-+	ctx->prepared = false;
-+#endif
-+
-+	return 0;
-+}
-+
-+static int cwd686_prepare(struct drm_panel *panel)
-+{
-+	struct cwd686 *ctx = panel_to_cwd686(panel);
-+	struct mipi_dsi_device *dsi = to_mipi_dsi_device(ctx->dev);
-+	int ret;
-+
-+	if (ctx->prepared)
-+		return 0;
-+
-+	ret = regulator_enable(ctx->supply);
-+	if (ret < 0) {
-+		return ret;
-+	}
-+
-+	if (ctx->reset_gpio) {
-+		gpiod_set_value_cansleep(ctx->reset_gpio, 1);
-+		msleep(10);
-+		gpiod_set_value_cansleep(ctx->reset_gpio, 0);
-+		msleep(100);
-+	}
-+
-+	cwd686_init_sequence(ctx);
-+
-+	ret = mipi_dsi_dcs_exit_sleep_mode(dsi);
-+	if (ret)
-+		return ret;
-+
-+	msleep(120);
-+
-+	ret = mipi_dsi_dcs_set_display_on(dsi);
-+	if (ret)
-+		return ret;
-+
-+	msleep(20);
-+
-+	ctx->prepared = true;
-+
-+	return 0;
-+}
-+
-+static int cwd686_enable(struct drm_panel *panel)
-+{
-+	struct cwd686 *ctx = panel_to_cwd686(panel);
-+
-+	if (ctx->enabled)
-+		return 0;
-+
-+	backlight_enable(ctx->backlight);
-+
-+	ctx->enabled = true;
-+
-+	return 0;
-+}
-+
-+static int cwd686_get_modes(struct drm_panel *panel, struct drm_connector *connector)
-+{
-+	struct drm_display_mode *mode;
-+
-+	mode = drm_mode_duplicate(connector->dev, &default_mode);
-+	if (!mode) {
-+		dev_err(panel->dev, "bad mode or failed to add mode\n");
-+		return -EINVAL;
-+	}
-+
-+	drm_mode_set_name(mode);
-+	mode->type = DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED;
-+
-+	connector->display_info.width_mm = mode->width_mm;
-+	connector->display_info.height_mm = mode->height_mm;
-+
-+	drm_mode_probed_add(connector, mode);
-+
-+	return 1; /* Number of modes */
-+}
-+
-+static const struct drm_panel_funcs cwd686_drm_funcs = {
-+	.disable = cwd686_disable,
-+	.unprepare = cwd686_unprepare,
-+	.prepare = cwd686_prepare,
-+	.enable = cwd686_enable,
-+	.get_modes = cwd686_get_modes,
-+};
-+
-+static int cwd686_probe(struct mipi_dsi_device *dsi)
-+{
-+	struct device *dev = &dsi->dev;
-+	struct cwd686 *ctx;
-+	int ret;
-+
-+	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
-+	if (!ctx)
-+		return -ENOMEM;
-+
-+	ctx->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
-+	if (IS_ERR(ctx->reset_gpio)) {
-+		ret = PTR_ERR(ctx->reset_gpio);
-+		dev_err(dev, "cannot get reset GPIO: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ctx->supply = devm_regulator_get(dev, "display-vcc");
-+	if (IS_ERR(ctx->supply)) {
-+		ret = PTR_ERR(ctx->supply);
-+		dev_err(dev, "cannot get regulator: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ctx->backlight = devm_of_find_backlight(dev);
-+	if (IS_ERR(ctx->backlight))
-+		return PTR_ERR(ctx->backlight);
-+
-+	mipi_dsi_set_drvdata(dsi, ctx);
-+
-+	ctx->dev = dev;
-+
-+	dsi->lanes = 4;
-+	dsi->format = MIPI_DSI_FMT_RGB888;
-+	dsi->mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_SYNC_PULSE | MIPI_DSI_MODE_LPM;
-+
-+	drm_panel_init(&ctx->panel, dev, &cwd686_drm_funcs, DRM_MODE_CONNECTOR_DSI);
-+
-+	drm_panel_add(&ctx->panel);
-+
-+	ret = mipi_dsi_attach(dsi);
-+	if (ret < 0) {
-+		dev_err(dev, "mipi_dsi_attach() failed: %d\n", ret);
-+		drm_panel_remove(&ctx->panel);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void cwd686_remove(struct mipi_dsi_device *dsi)
-+{
-+	struct cwd686 *ctx = mipi_dsi_get_drvdata(dsi);
-+
-+	mipi_dsi_detach(dsi);
-+	drm_panel_remove(&ctx->panel);
-+}
-+
-+static const struct of_device_id cwd686_of_match[] = {
-+	{ .compatible = "cw,cwd686-cm3" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, cwd686_of_match);
-+
-+static struct mipi_dsi_driver cwd686_driver = {
-+	.probe = cwd686_probe,
-+	.remove = cwd686_remove,
-+	.driver = {
-+		.name = "panel-cwd686-cm3",
-+		.of_match_table = cwd686_of_match,
-+	},
-+};
-+module_mipi_dsi_driver(cwd686_driver);
-+
-+MODULE_DESCRIPTION("DRM Driver for cwd686-cm3 MIPI DSI panel");
-+MODULE_LICENSE("GPL v2");
-diff --git a/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686.c b/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686.c
-new file mode 100644
-index 0000000..e429e8d
---- /dev/null
-+++ b/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686.c
+diff -rupN linux/drivers/gpu/drm/panel/panel-cwd686.c ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686.c
+--- linux/drivers/gpu/drm/panel/panel-cwd686.c	1969-12-31 19:00:00.000000000 -0500
++++ ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686.c	2025-09-23 21:22:59.338417744 -0400
 @@ -0,0 +1,296 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +
@@ -1033,18 +907,11 @@ index 0000000..e429e8d
 +
 +MODULE_DESCRIPTION("DRM Driver for cwd686 MIPI DSI panel");
 +MODULE_LICENSE("GPL v2");
-diff --git a/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50-cm3.c b/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50-cm3.c
-new file mode 100644
-index 0000000..5a8eaf8
---- /dev/null
-+++ b/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50-cm3.c
-@@ -0,0 +1,598 @@
-+/*
-+ * SPDX-License-Identifier: GPL-2.0+
-+ * Copyright (c) 2021 Clockwork Tech LLC
-+ * Copyright (c) 2021 Max Fierke <max@maxfierke.com>
-+ *
-+ */
+diff -rupN linux/drivers/gpu/drm/panel/panel-cwd686-cm3.c ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686-cm3.c
+--- linux/drivers/gpu/drm/panel/panel-cwd686-cm3.c	1969-12-31 19:00:00.000000000 -0500
++++ ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwd686-cm3.c	2025-09-23 21:22:59.338417744 -0400
+@@ -0,0 +1,287 @@
++// SPDX-License-Identifier: GPL-2.0
 +
 +#include <drm/drm_modes.h>
 +#include <drm/drm_mipi_dsi.h>
@@ -1057,450 +924,177 @@ index 0000000..5a8eaf8
 +#include <linux/module.h>
 +#include <video/mipi_display.h>
 +
-+static int power_off_case = 1;
-+module_param(power_off_case,int,0660);
-+
-+struct cwu50 {
++struct cwd686 {
 +	struct device *dev;
 +	struct drm_panel panel;
-+	struct regulator *vci;
-+	struct regulator *iovcc;
 +	struct gpio_desc *reset_gpio;
-+	enum drm_panel_orientation orientation;
-+	int dsi_status; // 0: ok, 1: error
-+	bool sysfs_node_created;
-+};
-+
-+static ssize_t dsi_state_show(struct device *dev,
-+		struct device_attribute *attr, char *buf)
-+{
-+	struct mipi_dsi_device *dsi = to_mipi_dsi_device(dev);
-+	struct cwu50 *ctx = mipi_dsi_get_drvdata(dsi);
-+
-+	if (!ctx->dsi_status)
-+		return scnprintf(buf, PAGE_SIZE, "ok\n");
-+	else
-+		return scnprintf(buf, PAGE_SIZE, "error\n");
-+}
-+
-+static DEVICE_ATTR(dsi_state, 0444, dsi_state_show, NULL);
-+
-+static struct attribute *dsi_state_attrs[] = {
-+	&dev_attr_dsi_state.attr,
-+	NULL
-+};
-+
-+static const struct attribute_group dsi_attr_group = {
-+	.attrs = dsi_state_attrs,
++	struct regulator *supply;
++	struct backlight_device *backlight;
++	bool prepared;
++	bool enabled;
 +};
 +
 +static const struct drm_display_mode default_mode = {
-+	.clock			= 61020,
-+
-+	.hdisplay		= 720,
-+	.hsync_start	= 720    + 30,
-+	.hsync_end		= 720    + 30  + 15,
-+	.htotal			= 720    + 30  + 15  + 15,
-+
-+	.vdisplay		= 1280,
-+	.vsync_start	= 1280   + 8,
-+	.vsync_end		= 1280   + 8   + 2,
-+	.vtotal			= 1280   + 8   + 2   + 16,
-+
-+	.width_mm		= 62,
-+	.height_mm		= 110,
-+	.type			= DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED,
++	.clock = 54465,
++	.hdisplay = 480,
++	.hsync_start = 480 + 150,
++	.hsync_end = 480 + 150 + 24,
++	.htotal = 480 + 150 + 24 + 40,
++	.vdisplay = 1280,
++	.vsync_start = 1280 + 12,
++	.vsync_end = 1280 + 12+ 6,
++	.vtotal = 1280 + 12 + 6 + 10,
++	.flags = 0,
 +};
 +
-+static inline struct cwu50 *panel_to_cwu50(struct drm_panel *panel)
++static inline struct cwd686 *panel_to_cwd686(struct drm_panel *panel)
 +{
-+	return container_of(panel, struct cwu50, panel);
++	return container_of(panel, struct cwd686, panel);
 +}
 +
-+#define dcs_write_seq(seq...)                                       \
-+({                                                                  \
-+	static const u8 d[] = { seq };                                  \
-+	err = mipi_dsi_dcs_write_buffer(dsi, d, ARRAY_SIZE(d));         \
-+	if (err < 0)                                                    \
-+		return err;                                                 \
++#define dcs_write_seq(seq...)                              \
++({                                                              \
++	static const u8 d[] = { seq };                          \
++	mipi_dsi_dcs_write_buffer(dsi, d, ARRAY_SIZE(d));	 \
 +})
 +
-+static int cwu50_init_sequence(struct cwu50 *ctx)
++static void cwd686_init_sequence(struct cwd686 *ctx)
 +{
 +	struct mipi_dsi_device *dsi = to_mipi_dsi_device(ctx->dev);
-+	int err;
 +
-+	dcs_write_seq(0xE1,0x93);
-+	dcs_write_seq(0xE2,0x65);
-+	dcs_write_seq(0xE3,0xF8);
-+	dcs_write_seq(0x70,0x20);
-+	dcs_write_seq(0x71,0x13);
-+	dcs_write_seq(0x72,0x06);
-+	dcs_write_seq(0x75,0x03);
-+	dcs_write_seq(0xE0,0x01);
-+	dcs_write_seq(0x00,0x00);
-+	dcs_write_seq(0x01,0x47);//VCOM0x47
-+	dcs_write_seq(0x03,0x00);
-+	dcs_write_seq(0x04,0x4D);
-+	dcs_write_seq(0x0C,0x64);
-+	dcs_write_seq(0x17,0x00);
-+	dcs_write_seq(0x18,0xBF);
-+	dcs_write_seq(0x19,0x00);
-+	dcs_write_seq(0x1A,0x00);
-+	dcs_write_seq(0x1B,0xBF);
-+	dcs_write_seq(0x1C,0x00);
-+	dcs_write_seq(0x1F,0x7E);
-+	dcs_write_seq(0x20,0x24);
-+	dcs_write_seq(0x21,0x24);
-+	dcs_write_seq(0x22,0x4E);
-+	dcs_write_seq(0x24,0xFE);
-+	dcs_write_seq(0x37,0x09);
-+	dcs_write_seq(0x38,0x04);
-+	dcs_write_seq(0x3C,0x76);
-+	dcs_write_seq(0x3D,0xFF);
-+	dcs_write_seq(0x3E,0xFF);
-+	dcs_write_seq(0x3F,0x7F);
-+	dcs_write_seq(0x40,0x04);//Dot inversion type
-+	dcs_write_seq(0x41,0xA0);
-+	dcs_write_seq(0x44,0x11);
-+	dcs_write_seq(0x55,0x02);
-+	dcs_write_seq(0x56,0x01);
-+	dcs_write_seq(0x57,0x49);
-+	dcs_write_seq(0x58,0x09);
-+	dcs_write_seq(0x59,0x2A);
-+	dcs_write_seq(0x5A,0x1A);
-+	dcs_write_seq(0x5B,0x1A);
-+	dcs_write_seq(0x5D,0x78);
-+	dcs_write_seq(0x5E,0x6E);
-+	dcs_write_seq(0x5F,0x66);
-+	dcs_write_seq(0x60,0x5E);
-+	dcs_write_seq(0x61,0x60);
-+	dcs_write_seq(0x62,0x54);
-+	dcs_write_seq(0x63,0x5C);
-+	dcs_write_seq(0x64,0x47);
-+	dcs_write_seq(0x65,0x5F);
-+	dcs_write_seq(0x66,0x5D);
-+	dcs_write_seq(0x67,0x5B);
-+	dcs_write_seq(0x68,0x76);
-+	dcs_write_seq(0x69,0x61);
-+	dcs_write_seq(0x6A,0x63);
-+	dcs_write_seq(0x6B,0x50);
-+	dcs_write_seq(0x6C,0x45);
-+	dcs_write_seq(0x6D,0x34);
-+	dcs_write_seq(0x6E,0x1C);
-+	dcs_write_seq(0x6F,0x07);
-+	dcs_write_seq(0x70,0x78);
-+	dcs_write_seq(0x71,0x6E);
-+	dcs_write_seq(0x72,0x66);
-+	dcs_write_seq(0x73,0x5E);
-+	dcs_write_seq(0x74,0x60);
-+	dcs_write_seq(0x75,0x54);
-+	dcs_write_seq(0x76,0x5C);
-+	dcs_write_seq(0x77,0x47);
-+	dcs_write_seq(0x78,0x5F);
-+	dcs_write_seq(0x79,0x5D);
-+	dcs_write_seq(0x7A,0x5B);
-+	dcs_write_seq(0x7B,0x76);
-+	dcs_write_seq(0x7C,0x61);
-+	dcs_write_seq(0x7D,0x63);
-+	dcs_write_seq(0x7E,0x50);
-+	dcs_write_seq(0x7F,0x45);
-+	dcs_write_seq(0x80,0x34);
-+	dcs_write_seq(0x81,0x1C);
-+	dcs_write_seq(0x82,0x07);
-+	dcs_write_seq(0xE0,0x02);
-+	dcs_write_seq(0x00,0x44);
-+	dcs_write_seq(0x01,0x46);
-+	dcs_write_seq(0x02,0x48);
-+	dcs_write_seq(0x03,0x4A);
-+	dcs_write_seq(0x04,0x40);
-+	dcs_write_seq(0x05,0x42);
-+	dcs_write_seq(0x06,0x1F);
-+	dcs_write_seq(0x07,0x1F);
-+	dcs_write_seq(0x08,0x1F);
-+	dcs_write_seq(0x09,0x1F);
-+	dcs_write_seq(0x0A,0x1F);
-+	dcs_write_seq(0x0B,0x1F);
-+	dcs_write_seq(0x0C,0x1F);
-+	dcs_write_seq(0x0D,0x1F);
-+	dcs_write_seq(0x0E,0x1F);
-+	dcs_write_seq(0x0F,0x1F);
-+	dcs_write_seq(0x10,0x1F);
-+	dcs_write_seq(0x11,0x1F);
-+	dcs_write_seq(0x12,0x1F);
-+	dcs_write_seq(0x13,0x1F);
-+	dcs_write_seq(0x14,0x1E);
-+	dcs_write_seq(0x15,0x1F);
-+	dcs_write_seq(0x16,0x45);
-+	dcs_write_seq(0x17,0x47);
-+	dcs_write_seq(0x18,0x49);
-+	dcs_write_seq(0x19,0x4B);
-+	dcs_write_seq(0x1A,0x41);
-+	dcs_write_seq(0x1B,0x43);
-+	dcs_write_seq(0x1C,0x1F);
-+	dcs_write_seq(0x1D,0x1F);
-+	dcs_write_seq(0x1E,0x1F);
-+	dcs_write_seq(0x1F,0x1F);
-+	dcs_write_seq(0x20,0x1F);
-+	dcs_write_seq(0x21,0x1F);
-+	dcs_write_seq(0x22,0x1F);
-+	dcs_write_seq(0x23,0x1F);
-+	dcs_write_seq(0x24,0x1F);
-+	dcs_write_seq(0x25,0x1F);
-+	dcs_write_seq(0x26,0x1F);
-+	dcs_write_seq(0x27,0x1F);
-+	dcs_write_seq(0x28,0x1F);
-+	dcs_write_seq(0x29,0x1F);
-+	dcs_write_seq(0x2A,0x1E);
-+	dcs_write_seq(0x2B,0x1F);
-+	dcs_write_seq(0x2C,0x0B);
-+	dcs_write_seq(0x2D,0x09);
-+	dcs_write_seq(0x2E,0x07);
-+	dcs_write_seq(0x2F,0x05);
-+	dcs_write_seq(0x30,0x03);
-+	dcs_write_seq(0x31,0x01);
-+	dcs_write_seq(0x32,0x1F);
-+	dcs_write_seq(0x33,0x1F);
-+	dcs_write_seq(0x34,0x1F);
-+	dcs_write_seq(0x35,0x1F);
-+	dcs_write_seq(0x36,0x1F);
-+	dcs_write_seq(0x37,0x1F);
-+	dcs_write_seq(0x38,0x1F);
-+	dcs_write_seq(0x39,0x1F);
-+	dcs_write_seq(0x3A,0x1F);
-+	dcs_write_seq(0x3B,0x1F);
-+	dcs_write_seq(0x3C,0x1F);
-+	dcs_write_seq(0x3D,0x1F);
-+	dcs_write_seq(0x3E,0x1F);
-+	dcs_write_seq(0x3F,0x1F);
-+	dcs_write_seq(0x40,0x1F);
-+	dcs_write_seq(0x41,0x1E);
-+	dcs_write_seq(0x42,0x0A);
-+	dcs_write_seq(0x43,0x08);
-+	dcs_write_seq(0x44,0x06);
-+	dcs_write_seq(0x45,0x04);
-+	dcs_write_seq(0x46,0x02);
-+	dcs_write_seq(0x47,0x00);
-+	dcs_write_seq(0x48,0x1F);
-+	dcs_write_seq(0x49,0x1F);
-+	dcs_write_seq(0x4A,0x1F);
-+	dcs_write_seq(0x4B,0x1F);
-+	dcs_write_seq(0x4C,0x1F);
-+	dcs_write_seq(0x4D,0x1F);
-+	dcs_write_seq(0x4E,0x1F);
-+	dcs_write_seq(0x4F,0x1F);
-+	dcs_write_seq(0x50,0x1F);
-+	dcs_write_seq(0x51,0x1F);
-+	dcs_write_seq(0x52,0x1F);
-+	dcs_write_seq(0x53,0x1F);
-+	dcs_write_seq(0x54,0x1F);
-+	dcs_write_seq(0x55,0x1F);
-+	dcs_write_seq(0x56,0x1F);
-+	dcs_write_seq(0x57,0x1E);
-+	dcs_write_seq(0x58,0x40);
-+	dcs_write_seq(0x59,0x00);
-+	dcs_write_seq(0x5A,0x00);
-+	dcs_write_seq(0x5B,0x30);
-+	dcs_write_seq(0x5C,0x02);
-+	dcs_write_seq(0x5D,0x40);
-+	dcs_write_seq(0x5E,0x01);
-+	dcs_write_seq(0x5F,0x02);
-+	dcs_write_seq(0x60,0x00);
-+	dcs_write_seq(0x61,0x01);
-+	dcs_write_seq(0x62,0x02);
-+	dcs_write_seq(0x63,0x65);
-+	dcs_write_seq(0x64,0x66);
-+	dcs_write_seq(0x65,0x00);
-+	dcs_write_seq(0x66,0x00);
-+	dcs_write_seq(0x67,0x74);
-+	dcs_write_seq(0x68,0x06);
-+	dcs_write_seq(0x69,0x65);
-+	dcs_write_seq(0x6A,0x66);
-+	dcs_write_seq(0x6B,0x10);
-+	dcs_write_seq(0x6C,0x00);
-+	dcs_write_seq(0x6D,0x04);
-+	dcs_write_seq(0x6E,0x04);
-+	dcs_write_seq(0x6F,0x88);
-+	dcs_write_seq(0x70,0x00);
-+	dcs_write_seq(0x71,0x00);
-+	dcs_write_seq(0x72,0x06);
-+	dcs_write_seq(0x73,0x7B);
-+	dcs_write_seq(0x74,0x00);
-+	dcs_write_seq(0x75,0x87);
-+	dcs_write_seq(0x76,0x00);
-+	dcs_write_seq(0x77,0x5D);
-+	dcs_write_seq(0x78,0x17);
-+	dcs_write_seq(0x79,0x1F);
-+	dcs_write_seq(0x7A,0x00);
-+	dcs_write_seq(0x7B,0x00);
-+	dcs_write_seq(0x7C,0x00);
-+	dcs_write_seq(0x7D,0x03);
-+	dcs_write_seq(0x7E,0x7B);
-+	dcs_write_seq(0xE0,0x04);
-+	dcs_write_seq(0x09,0x10);
-+	dcs_write_seq(0xE0,0x00);
-+	dcs_write_seq(0xE6,0x02);
-+	dcs_write_seq(0xE7,0x02);
-+	// dcs_write_seq(0x11);// SLPOUT
-+	// msleep (120);
-+	// dcs_write_seq(0x29);// DSPON
-+	// msleep (20);
-+	// dcs_write_seq(0x35,0x00);// TE
++	dcs_write_seq(0xF0,0x5A,0x5A);
++	dcs_write_seq(0xF1,0xA5,0xA5);
++	dcs_write_seq(0xB6,0x0D,0x0D);
++	dcs_write_seq(0xB4,0x0A,0x08,0x12,0x10,0x0E,0x0C,0x00,0x00,0x00,0x03,0x00,0x03,0x03,0x03,0x03,0x03,0x03,0x03,0x04,0x06);
++	dcs_write_seq(0xB3,0x0B,0x09,0x13,0x11,0x0F,0x0D,0x00,0x00,0x00,0x03,0x00,0x03,0x03,0x03,0x03,0x03,0x03,0x03,0x05,0x07);
++	dcs_write_seq(0xB0,0x54,0x32,0x23,0x45,0x44,0x44,0x44,0x44,0x90,0x01,0x90,0x01);
++	dcs_write_seq(0xB1,0x32,0x84,0x02,0x83,0x30,0x01,0x6B,0x01);
++	dcs_write_seq(0xB2,0x73);
++	dcs_write_seq(0xBD,0x4E,0x0E,0x50,0x50,0x26,0x1D,0x00,0x14,0x42,0x03);
++	dcs_write_seq(0xB7,0x01,0x01,0x09,0x11,0x0D,0x55,0x19,0x19,0x21,0x1D,0x00,0x00,0x00,0x00,0x02,0xFF,0x3C);
++	dcs_write_seq(0xB8,0x23,0x01,0x30,0x34,0x63);
++	dcs_write_seq(0xB9,0xA0,0x22,0x00,0x44);
++	dcs_write_seq(0xBA,0x12,0x63);
++	dcs_write_seq(0xC1,0x0C,0x16,0x04,0x0C,0x10,0x04);
++	dcs_write_seq(0xC2,0x11,0x41);
++	dcs_write_seq(0xC3,0x22,0x31,0x04);
++	dcs_write_seq(0xC7,0x05,0x23,0x6B,0x49,0x00);
++	dcs_write_seq(0xC5,0x00);
++	dcs_write_seq(0xD0,0x37,0xFF,0xFF);
++	dcs_write_seq(0xD2,0x63,0x0B,0x08,0x88);
++	dcs_write_seq(0xD3,0x01,0x00,0x00,0x01,0x01,0x37,0x25,0x38,0x31,0x06,0x07);
++	dcs_write_seq(0xC8,0x7C,0x6A,0x5D,0x53,0x53,0x45,0x4B,0x35,0x4D,0x4A,0x49,0x66,0x53,0x57,0x4A,0x48,0x3B,0x2A,0x06,0x7C,0x6A,0x5D,0x53,0x53,0x45,0x4B,0x35,0x4D,0x4A,0x49,0x66,0x53,0x57,0x4A,0x48,0x3B,0x2A,0x06);//GAMMA2.2
++	dcs_write_seq(0xC6,0x00,0x00,0xFF,0x00,0x00,0xFF,0x00,0x00);
++	dcs_write_seq(0xF4,0x08,0x77);
++	dcs_write_seq(0x36,0x14);
++	dcs_write_seq(0x35,0x00);
++	dcs_write_seq(0xF1,0x5A,0x5A);
++	dcs_write_seq(0xF0,0xA5,0xA5);
++}
++
++static int cwd686_disable(struct drm_panel *panel)
++{
++	struct cwd686 *ctx = panel_to_cwd686(panel);
++
++	if (!ctx->enabled)
++		return 0;
++
++	backlight_disable(ctx->backlight);
++
++	ctx->enabled = false;
 +
 +	return 0;
 +}
 +
-+static int cwu50_unprepare(struct drm_panel *panel)
++static int cwd686_unprepare(struct drm_panel *panel)
 +{
-+	struct cwu50 *ctx = panel_to_cwu50(panel);
++	struct cwd686 *ctx = panel_to_cwd686(panel);
 +	struct mipi_dsi_device *dsi = to_mipi_dsi_device(ctx->dev);
-+	int err;
++	int ret;
 +
-+	/* Power off the display using case 1 described in JD9365D.pdf chapter 9.5.3.
-+	 * module's default behaviour
-+	 */
-+	if (1 == power_off_case) {
-+		goto power_off_case1;
-+	}
++#if 0
++	if (!ctx->prepared)
++		return 0;
 +
-+	/* Power off the display using case 2 described in JD9365D.pdf chapter 9.5.3. */
++	ret = mipi_dsi_dcs_set_display_off(dsi);
++	if (ret)
++		DRM_WARN("failed to set display off: %d\n", ret);
 +
-+	/* tCMD_OFF >= 1ms */
-+	msleep(1);
++	ret = mipi_dsi_dcs_enter_sleep_mode(dsi);
++	if (ret)
++		DRM_WARN("failed to enter sleep mode: %d\n", ret);
 +
-+	err = mipi_dsi_dcs_set_display_off(dsi);
-+	if (err) {
-+		dev_warn(ctx->dev, "failed to send display off command (%d)\n", err);
-+		goto fallback_case1;
-+	}
-+
-+	/* tDISOFF >= 50ms */
-+	msleep(50);
-+
-+
-+	err = mipi_dsi_dcs_enter_sleep_mode(dsi);
-+	if (err) {
-+		dev_warn(ctx->dev, "failed to enter sleep mode (%d)\n", err);
-+		goto fallback_case1;
-+	}
-+
-+	/* tSLPIN >= 100ms */
-+	msleep(100);
-+
-+
-+	gpiod_set_value_cansleep(ctx->reset_gpio, 1); /* assert reset */
-+
-+	goto disable_regulators;
-+
-+fallback_case1:
-+	/* in case of error, fall back to case 1 */
-+	dev_warn(ctx->dev, "falling back to power off case 1 using HW reset line");
-+power_off_case1:
-+	gpiod_set_value_cansleep(ctx->reset_gpio, 1); /* assert reset */
-+	/* tRSTOFF1 >= 120ms */
 +	msleep(120);
 +
-+disable_regulators:
-+	regulator_disable(ctx->vci);
-+	regulator_disable(ctx->iovcc);
++	if (ctx->reset_gpio) {
++		gpiod_set_value_cansleep(ctx->reset_gpio, 1);
++		msleep(20);
++	}
++
++	regulator_disable(ctx->supply);
++
++	ctx->prepared = false;
++#endif
 +
 +	return 0;
 +}
 +
-+static int cwu50_prepare(struct drm_panel *panel)
++static int cwd686_prepare(struct drm_panel *panel)
 +{
-+	struct cwu50 *ctx = panel_to_cwu50(panel);
++	struct cwd686 *ctx = panel_to_cwd686(panel);
 +	struct mipi_dsi_device *dsi = to_mipi_dsi_device(ctx->dev);
-+	int err;
-+	u8 response;
++	int ret;
 +
-+	gpiod_set_value_cansleep(ctx->reset_gpio, 1); /* ensure asserted state */
++	if (ctx->prepared)
++		return 0;
 +
-+	/* IOVCC first, then VCI */
-+	err = regulator_enable(ctx->iovcc);
-+	if (err) {
-+		dev_err(ctx->dev, "failed to enable iovcc (%d)\n", err);
-+		goto error_finialize;
++	ret = regulator_enable(ctx->supply);
++	if (ret < 0) {
++		return ret;
 +	}
 +
-+	/* tPWON>= 0ms */
-+
-+	/* MIPI should change to LP-11 after turning on vci according to JD9365D.pdf */
-+	err = regulator_enable(ctx->vci);
-+	if (err) {
-+		dev_err(ctx->dev, "failed to enable vci (%d)\n", err);
-+		goto disable_iovcc;
++	if (ctx->reset_gpio) {
++		gpiod_set_value_cansleep(ctx->reset_gpio, 1);
++		msleep(10);
++		gpiod_set_value_cansleep(ctx->reset_gpio, 0);
++		msleep(100);
 +	}
 +
-+	/* Wait for MIPI to initialize
-+	 * tRPWIRES >= 5ms
-+	 * 0 <= tMIPI_ON <= tRPWIRES
-+	 */
-+	msleep(30);
++	cwd686_init_sequence(ctx);
 +
-+	/* MIPI should be LP-11 now */
++	ret = mipi_dsi_dcs_exit_sleep_mode(dsi);
++	if (ret)
++		return ret;
 +
-+	/* tRESETL=10us */
-+	/* tRESETH >= 5ms */
-+	gpiod_set_value_cansleep(ctx->reset_gpio, 0); /* deassert */
-+	msleep(5);
-+
-+	/* Exit sleep mode and power on */
-+
-+	err = cwu50_init_sequence(ctx);
-+	if (err) {
-+		dev_err(ctx->dev, "failed to send initialize sequence (%d)\n", err);
-+		goto disable_vci;
-+	}
-+
-+	/* slpout */
-+	err = mipi_dsi_dcs_exit_sleep_mode(dsi);
-+	if (err) {
-+		dev_err(ctx->dev, "failed to exit sleep mode (%d)\n", err);
-+		goto disable_vci;
-+	}
-+
-+	/* tSLPOUT 120ms */
 +	msleep(120);
 +
-+	err = mipi_dsi_dcs_set_display_on(dsi);
-+	if (err) {
-+		dev_err(ctx->dev, "failed to turn display on (%d)\n", err);
-+		goto disable_vci;
-+	}
++	ret = mipi_dsi_dcs_set_display_on(dsi);
++	if (ret)
++		return ret;
++
 +	msleep(20);
 +
-+	/* Enabe tearing mode: send TE (tearing effect) at VBLANK */
-+	/* JD9365D seems need a parameter for this command */
-+	err = mipi_dsi_dcs_write_buffer(dsi, (u8[]){ 0x35, 0x00 }, 2);
-+	// err = mipi_dsi_dcs_set_tear_on(dsi, MIPI_DSI_DCS_TEAR_MODE_VBLANK);
-+	if (err < 0) {
-+		dev_err(ctx->dev, "failed to enable vblank TE (%d)\n", err);
-+		goto disable_vci;
-+	}
-+
-+	err = mipi_dsi_dcs_get_power_mode(dsi, &response);
-+	if (!err) {
-+		/* debug, normally the command will fail */
-+		dev_info(ctx->dev, "Read display power mode got: %d", response);
-+	}
-+
-+	ctx->dsi_status = 0;  // ok
++	ctx->prepared = true;
 +
 +	return 0;
-+disable_vci:
-+	regulator_disable(ctx->vci);
-+disable_iovcc:
-+	regulator_disable(ctx->iovcc);
-+error_finialize:
-+	gpiod_set_value_cansleep(ctx->reset_gpio, 1);
-+	ctx->dsi_status = 1;
-+	return err;
 +}
 +
-+static int cwu50_get_modes(struct drm_panel *panel, struct drm_connector *connector)
++static int cwd686_enable(struct drm_panel *panel)
 +{
-+	struct cwu50 *ctx = panel_to_cwu50(panel);
++	struct cwd686 *ctx = panel_to_cwd686(panel);
++
++	if (ctx->enabled)
++		return 0;
++
++	backlight_enable(ctx->backlight);
++
++	ctx->enabled = true;
++
++	return 0;
++}
++
++static int cwd686_get_modes(struct drm_panel *panel, struct drm_connector *connector)
++{
 +	struct drm_display_mode *mode;
 +
 +	mode = drm_mode_duplicate(connector->dev, &default_mode);
@@ -1508,140 +1102,105 @@ index 0000000..5a8eaf8
 +		dev_err(panel->dev, "bad mode or failed to add mode\n");
 +		return -EINVAL;
 +	}
++
 +	drm_mode_set_name(mode);
 +	mode->type = DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED;
 +
-+	/* set up connector's "panel orientation" property */
-+	/*
-+	 * TODO: Remove once all drm drivers call
-+	 * drm_connector_set_orientation_from_panel()
-+	 */
-+	drm_connector_set_panel_orientation(connector, ctx->orientation);
++	connector->display_info.width_mm = mode->width_mm;
++	connector->display_info.height_mm = mode->height_mm;
 +
 +	drm_mode_probed_add(connector, mode);
 +
 +	return 1; /* Number of modes */
 +}
 +
-+static enum drm_panel_orientation cwu50_get_orientation(struct drm_panel *panel)
-+{
-+	struct cwu50 *ctx = panel_to_cwu50(panel);
-+
-+	return ctx->orientation;
-+}
-+
-+static const struct drm_panel_funcs cwu50_drm_funcs = {
-+	.unprepare = cwu50_unprepare,
-+	.prepare = cwu50_prepare,
-+	.get_modes = cwu50_get_modes,
-+	.get_orientation = cwu50_get_orientation,
++static const struct drm_panel_funcs cwd686_drm_funcs = {
++	.disable = cwd686_disable,
++	.unprepare = cwd686_unprepare,
++	.prepare = cwd686_prepare,
++	.enable = cwd686_enable,
++	.get_modes = cwd686_get_modes,
 +};
 +
-+static int cwu50_probe(struct mipi_dsi_device *dsi)
++static int cwd686_probe(struct mipi_dsi_device *dsi)
 +{
 +	struct device *dev = &dsi->dev;
-+	struct cwu50 *ctx;
-+	int err;
++	struct cwd686 *ctx;
++	int ret;
 +
 +	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
 +	if (!ctx)
 +		return -ENOMEM;
 +
++	ctx->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
++	if (IS_ERR(ctx->reset_gpio)) {
++		ret = PTR_ERR(ctx->reset_gpio);
++		dev_err(dev, "cannot get reset GPIO: %d\n", ret);
++		return ret;
++	}
++
++	ctx->supply = devm_regulator_get(dev, "display-vcc");
++	if (IS_ERR(ctx->supply)) {
++		ret = PTR_ERR(ctx->supply);
++		dev_err(dev, "cannot get regulator: %d\n", ret);
++		return ret;
++	}
++
++	ctx->backlight = devm_of_find_backlight(dev);
++	if (IS_ERR(ctx->backlight))
++		return PTR_ERR(ctx->backlight);
++
 +	mipi_dsi_set_drvdata(dsi, ctx);
++
 +	ctx->dev = dev;
 +
 +	dsi->lanes = 4;
 +	dsi->format = MIPI_DSI_FMT_RGB888;
-+	dsi->mode_flags = MIPI_DSI_MODE_VIDEO |
-+					  MIPI_DSI_MODE_VIDEO_BURST |
-+					  MIPI_DSI_MODE_VIDEO_SYNC_PULSE;
++	dsi->mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_SYNC_PULSE | MIPI_DSI_MODE_LPM;
 +
-+	ctx->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
-+	if (IS_ERR(ctx->reset_gpio)) {
-+		err = PTR_ERR(ctx->reset_gpio);
-+		return dev_err_probe(dev, err, "Failed to request GPIO (%d)\n", err);
-+	}
-+
-+	ctx->vci = devm_regulator_get(dev, "vci");
-+	if (IS_ERR(ctx->vci)) {
-+		err = PTR_ERR(ctx->vci);
-+		return dev_err_probe(dev, err, "Failed to request vci regulator: %d\n", err);
-+	}
-+
-+	ctx->iovcc = devm_regulator_get(dev, "iovcc");
-+	if (IS_ERR(ctx->iovcc)) {
-+		err = PTR_ERR(ctx->iovcc);
-+		return dev_err_probe(dev, err, "Failed to request iovcc regulator: %d\n", err);
-+	}
-+
-+	err = of_drm_get_panel_orientation(dev->of_node, &ctx->orientation);
-+	if (err) {
-+		dev_err(dev, "%pOF: failed to get orientation %d\n", dev->of_node, err);
-+		return err;
-+	}
-+
-+	ctx->panel.prepare_prev_first = true;
-+
-+	drm_panel_init(&ctx->panel, dev, &cwu50_drm_funcs, DRM_MODE_CONNECTOR_DSI);
-+
-+	err = drm_panel_of_backlight(&ctx->panel);
-+	if (err)
-+		return dev_err_probe(dev, err, "Failed to get backlight\n");
++	drm_panel_init(&ctx->panel, dev, &cwd686_drm_funcs, DRM_MODE_CONNECTOR_DSI);
 +
 +	drm_panel_add(&ctx->panel);
 +
-+	err = mipi_dsi_attach(dsi);
-+	if (err < 0) {
-+		dev_err(dev, "mipi_dsi_attach() failed: %d\n", err);
++	ret = mipi_dsi_attach(dsi);
++	if (ret < 0) {
++		dev_err(dev, "mipi_dsi_attach() failed: %d\n", ret);
 +		drm_panel_remove(&ctx->panel);
-+		return err;
-+	}
-+
-+	err = sysfs_create_group(&dsi->dev.kobj, &dsi_attr_group);
-+	if (err < 0) {
-+		dev_warn(dev, "Cannot create optional sysfs nodes: %d\n", err);
-+	} else {
-+		ctx->sysfs_node_created = true;
++		return ret;
 +	}
 +
 +	return 0;
 +}
 +
-+static void cwu50_remove(struct mipi_dsi_device *dsi)
++static void cwd686_remove(struct mipi_dsi_device *dsi)
 +{
-+	struct cwu50 *ctx = mipi_dsi_get_drvdata(dsi);
-+
-+	if (ctx->sysfs_node_created) {
-+		sysfs_remove_group(&dsi->dev.kobj, &dsi_attr_group);
-+	}
++	struct cwd686 *ctx = mipi_dsi_get_drvdata(dsi);
 +
 +	mipi_dsi_detach(dsi);
 +	drm_panel_remove(&ctx->panel);
 +}
 +
-+static const struct of_device_id cwu50_of_match[] = {
-+	{ .compatible = "clockwork,cwu50-cm3" },
-+	{ /* sentinel */ }
++static const struct of_device_id cwd686_of_match[] = {
++	{ .compatible = "cw,cwd686-cm3" },
++	{ }
 +};
-+MODULE_DEVICE_TABLE(of, cwu50_of_match);
++MODULE_DEVICE_TABLE(of, cwd686_of_match);
 +
-+static struct mipi_dsi_driver cwu50_driver = {
-+	.probe = cwu50_probe,
-+	.remove = cwu50_remove,
++static struct mipi_dsi_driver cwd686_driver = {
++	.probe = cwd686_probe,
++	.remove = cwd686_remove,
 +	.driver = {
-+		.name = "panel-clockwork-cwu50-cm3",
-+		.of_match_table = cwu50_of_match,
++		.name = "panel-cwd686-cm3",
++		.of_match_table = cwd686_of_match,
 +	},
 +};
-+module_mipi_dsi_driver(cwu50_driver);
++module_mipi_dsi_driver(cwd686_driver);
 +
-+MODULE_DESCRIPTION("ClockworkPi CWU50-CM3 panel driver");
++MODULE_DESCRIPTION("DRM Driver for cwd686-cm3 MIPI DSI panel");
 +MODULE_LICENSE("GPL v2");
-diff --git a/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50.c b/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50.c
-new file mode 100644
-index 0000000..071ec23
---- /dev/null
-+++ b/ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50.c
+diff -rupN linux/drivers/gpu/drm/panel/panel-cwu50.c ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50.c
+--- linux/drivers/gpu/drm/panel/panel-cwu50.c	1969-12-31 19:00:00.000000000 -0500
++++ ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50.c	2025-09-23 21:22:59.338417744 -0400
 @@ -0,0 +1,838 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +
@@ -2481,11 +2040,612 @@ index 0000000..071ec23
 +
 +MODULE_DESCRIPTION("DRM Driver for cwu50 MIPI DSI panel");
 +MODULE_LICENSE("GPL v2");
-diff --git a/linux/drivers/power/supply/axp20x_ac_power.c b/ClockworkPi-linux/drivers/power/supply/axp20x_ac_power.c
-index e5733cb..5be12e6 100644
---- a/linux/drivers/power/supply/axp20x_ac_power.c
-+++ b/ClockworkPi-linux/drivers/power/supply/axp20x_ac_power.c
-@@ -52,6 +52,9 @@ static irqreturn_t axp20x_ac_power_irq(int irq, void *devid)
+diff -rupN linux/drivers/gpu/drm/panel/panel-cwu50-cm3.c ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50-cm3.c
+--- linux/drivers/gpu/drm/panel/panel-cwu50-cm3.c	1969-12-31 19:00:00.000000000 -0500
++++ ClockworkPi-linux/drivers/gpu/drm/panel/panel-cwu50-cm3.c	2025-09-23 21:22:59.338417744 -0400
+@@ -0,0 +1,598 @@
++/*
++ * SPDX-License-Identifier: GPL-2.0+
++ * Copyright (c) 2021 Clockwork Tech LLC
++ * Copyright (c) 2021 Max Fierke <max@maxfierke.com>
++ *
++ */
++
++#include <drm/drm_modes.h>
++#include <drm/drm_mipi_dsi.h>
++#include <drm/drm_panel.h>
++#include <linux/backlight.h>
++#include <linux/gpio/consumer.h>
++#include <linux/regulator/consumer.h>
++#include <linux/delay.h>
++#include <linux/of_device.h>
++#include <linux/module.h>
++#include <video/mipi_display.h>
++
++static int power_off_case = 1;
++module_param(power_off_case,int,0660);
++
++struct cwu50 {
++	struct device *dev;
++	struct drm_panel panel;
++	struct regulator *vci;
++	struct regulator *iovcc;
++	struct gpio_desc *reset_gpio;
++	enum drm_panel_orientation orientation;
++	int dsi_status; // 0: ok, 1: error
++	bool sysfs_node_created;
++};
++
++static ssize_t dsi_state_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
++	struct mipi_dsi_device *dsi = to_mipi_dsi_device(dev);
++	struct cwu50 *ctx = mipi_dsi_get_drvdata(dsi);
++
++	if (!ctx->dsi_status)
++		return scnprintf(buf, PAGE_SIZE, "ok\n");
++	else
++		return scnprintf(buf, PAGE_SIZE, "error\n");
++}
++
++static DEVICE_ATTR(dsi_state, 0444, dsi_state_show, NULL);
++
++static struct attribute *dsi_state_attrs[] = {
++	&dev_attr_dsi_state.attr,
++	NULL
++};
++
++static const struct attribute_group dsi_attr_group = {
++	.attrs = dsi_state_attrs,
++};
++
++static const struct drm_display_mode default_mode = {
++	.clock			= 61020,
++
++	.hdisplay		= 720,
++	.hsync_start	= 720    + 30,
++	.hsync_end		= 720    + 30  + 15,
++	.htotal			= 720    + 30  + 15  + 15,
++
++	.vdisplay		= 1280,
++	.vsync_start	= 1280   + 8,
++	.vsync_end		= 1280   + 8   + 2,
++	.vtotal			= 1280   + 8   + 2   + 16,
++
++	.width_mm		= 62,
++	.height_mm		= 110,
++	.type			= DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED,
++};
++
++static inline struct cwu50 *panel_to_cwu50(struct drm_panel *panel)
++{
++	return container_of(panel, struct cwu50, panel);
++}
++
++#define dcs_write_seq(seq...)                                       \
++({                                                                  \
++	static const u8 d[] = { seq };                                  \
++	err = mipi_dsi_dcs_write_buffer(dsi, d, ARRAY_SIZE(d));         \
++	if (err < 0)                                                    \
++		return err;                                                 \
++})
++
++static int cwu50_init_sequence(struct cwu50 *ctx)
++{
++	struct mipi_dsi_device *dsi = to_mipi_dsi_device(ctx->dev);
++	int err;
++
++	dcs_write_seq(0xE1,0x93);
++	dcs_write_seq(0xE2,0x65);
++	dcs_write_seq(0xE3,0xF8);
++	dcs_write_seq(0x70,0x20);
++	dcs_write_seq(0x71,0x13);
++	dcs_write_seq(0x72,0x06);
++	dcs_write_seq(0x75,0x03);
++	dcs_write_seq(0xE0,0x01);
++	dcs_write_seq(0x00,0x00);
++	dcs_write_seq(0x01,0x47);//VCOM0x47
++	dcs_write_seq(0x03,0x00);
++	dcs_write_seq(0x04,0x4D);
++	dcs_write_seq(0x0C,0x64);
++	dcs_write_seq(0x17,0x00);
++	dcs_write_seq(0x18,0xBF);
++	dcs_write_seq(0x19,0x00);
++	dcs_write_seq(0x1A,0x00);
++	dcs_write_seq(0x1B,0xBF);
++	dcs_write_seq(0x1C,0x00);
++	dcs_write_seq(0x1F,0x7E);
++	dcs_write_seq(0x20,0x24);
++	dcs_write_seq(0x21,0x24);
++	dcs_write_seq(0x22,0x4E);
++	dcs_write_seq(0x24,0xFE);
++	dcs_write_seq(0x37,0x09);
++	dcs_write_seq(0x38,0x04);
++	dcs_write_seq(0x3C,0x76);
++	dcs_write_seq(0x3D,0xFF);
++	dcs_write_seq(0x3E,0xFF);
++	dcs_write_seq(0x3F,0x7F);
++	dcs_write_seq(0x40,0x04);//Dot inversion type
++	dcs_write_seq(0x41,0xA0);
++	dcs_write_seq(0x44,0x11);
++	dcs_write_seq(0x55,0x02);
++	dcs_write_seq(0x56,0x01);
++	dcs_write_seq(0x57,0x49);
++	dcs_write_seq(0x58,0x09);
++	dcs_write_seq(0x59,0x2A);
++	dcs_write_seq(0x5A,0x1A);
++	dcs_write_seq(0x5B,0x1A);
++	dcs_write_seq(0x5D,0x78);
++	dcs_write_seq(0x5E,0x6E);
++	dcs_write_seq(0x5F,0x66);
++	dcs_write_seq(0x60,0x5E);
++	dcs_write_seq(0x61,0x60);
++	dcs_write_seq(0x62,0x54);
++	dcs_write_seq(0x63,0x5C);
++	dcs_write_seq(0x64,0x47);
++	dcs_write_seq(0x65,0x5F);
++	dcs_write_seq(0x66,0x5D);
++	dcs_write_seq(0x67,0x5B);
++	dcs_write_seq(0x68,0x76);
++	dcs_write_seq(0x69,0x61);
++	dcs_write_seq(0x6A,0x63);
++	dcs_write_seq(0x6B,0x50);
++	dcs_write_seq(0x6C,0x45);
++	dcs_write_seq(0x6D,0x34);
++	dcs_write_seq(0x6E,0x1C);
++	dcs_write_seq(0x6F,0x07);
++	dcs_write_seq(0x70,0x78);
++	dcs_write_seq(0x71,0x6E);
++	dcs_write_seq(0x72,0x66);
++	dcs_write_seq(0x73,0x5E);
++	dcs_write_seq(0x74,0x60);
++	dcs_write_seq(0x75,0x54);
++	dcs_write_seq(0x76,0x5C);
++	dcs_write_seq(0x77,0x47);
++	dcs_write_seq(0x78,0x5F);
++	dcs_write_seq(0x79,0x5D);
++	dcs_write_seq(0x7A,0x5B);
++	dcs_write_seq(0x7B,0x76);
++	dcs_write_seq(0x7C,0x61);
++	dcs_write_seq(0x7D,0x63);
++	dcs_write_seq(0x7E,0x50);
++	dcs_write_seq(0x7F,0x45);
++	dcs_write_seq(0x80,0x34);
++	dcs_write_seq(0x81,0x1C);
++	dcs_write_seq(0x82,0x07);
++	dcs_write_seq(0xE0,0x02);
++	dcs_write_seq(0x00,0x44);
++	dcs_write_seq(0x01,0x46);
++	dcs_write_seq(0x02,0x48);
++	dcs_write_seq(0x03,0x4A);
++	dcs_write_seq(0x04,0x40);
++	dcs_write_seq(0x05,0x42);
++	dcs_write_seq(0x06,0x1F);
++	dcs_write_seq(0x07,0x1F);
++	dcs_write_seq(0x08,0x1F);
++	dcs_write_seq(0x09,0x1F);
++	dcs_write_seq(0x0A,0x1F);
++	dcs_write_seq(0x0B,0x1F);
++	dcs_write_seq(0x0C,0x1F);
++	dcs_write_seq(0x0D,0x1F);
++	dcs_write_seq(0x0E,0x1F);
++	dcs_write_seq(0x0F,0x1F);
++	dcs_write_seq(0x10,0x1F);
++	dcs_write_seq(0x11,0x1F);
++	dcs_write_seq(0x12,0x1F);
++	dcs_write_seq(0x13,0x1F);
++	dcs_write_seq(0x14,0x1E);
++	dcs_write_seq(0x15,0x1F);
++	dcs_write_seq(0x16,0x45);
++	dcs_write_seq(0x17,0x47);
++	dcs_write_seq(0x18,0x49);
++	dcs_write_seq(0x19,0x4B);
++	dcs_write_seq(0x1A,0x41);
++	dcs_write_seq(0x1B,0x43);
++	dcs_write_seq(0x1C,0x1F);
++	dcs_write_seq(0x1D,0x1F);
++	dcs_write_seq(0x1E,0x1F);
++	dcs_write_seq(0x1F,0x1F);
++	dcs_write_seq(0x20,0x1F);
++	dcs_write_seq(0x21,0x1F);
++	dcs_write_seq(0x22,0x1F);
++	dcs_write_seq(0x23,0x1F);
++	dcs_write_seq(0x24,0x1F);
++	dcs_write_seq(0x25,0x1F);
++	dcs_write_seq(0x26,0x1F);
++	dcs_write_seq(0x27,0x1F);
++	dcs_write_seq(0x28,0x1F);
++	dcs_write_seq(0x29,0x1F);
++	dcs_write_seq(0x2A,0x1E);
++	dcs_write_seq(0x2B,0x1F);
++	dcs_write_seq(0x2C,0x0B);
++	dcs_write_seq(0x2D,0x09);
++	dcs_write_seq(0x2E,0x07);
++	dcs_write_seq(0x2F,0x05);
++	dcs_write_seq(0x30,0x03);
++	dcs_write_seq(0x31,0x01);
++	dcs_write_seq(0x32,0x1F);
++	dcs_write_seq(0x33,0x1F);
++	dcs_write_seq(0x34,0x1F);
++	dcs_write_seq(0x35,0x1F);
++	dcs_write_seq(0x36,0x1F);
++	dcs_write_seq(0x37,0x1F);
++	dcs_write_seq(0x38,0x1F);
++	dcs_write_seq(0x39,0x1F);
++	dcs_write_seq(0x3A,0x1F);
++	dcs_write_seq(0x3B,0x1F);
++	dcs_write_seq(0x3C,0x1F);
++	dcs_write_seq(0x3D,0x1F);
++	dcs_write_seq(0x3E,0x1F);
++	dcs_write_seq(0x3F,0x1F);
++	dcs_write_seq(0x40,0x1F);
++	dcs_write_seq(0x41,0x1E);
++	dcs_write_seq(0x42,0x0A);
++	dcs_write_seq(0x43,0x08);
++	dcs_write_seq(0x44,0x06);
++	dcs_write_seq(0x45,0x04);
++	dcs_write_seq(0x46,0x02);
++	dcs_write_seq(0x47,0x00);
++	dcs_write_seq(0x48,0x1F);
++	dcs_write_seq(0x49,0x1F);
++	dcs_write_seq(0x4A,0x1F);
++	dcs_write_seq(0x4B,0x1F);
++	dcs_write_seq(0x4C,0x1F);
++	dcs_write_seq(0x4D,0x1F);
++	dcs_write_seq(0x4E,0x1F);
++	dcs_write_seq(0x4F,0x1F);
++	dcs_write_seq(0x50,0x1F);
++	dcs_write_seq(0x51,0x1F);
++	dcs_write_seq(0x52,0x1F);
++	dcs_write_seq(0x53,0x1F);
++	dcs_write_seq(0x54,0x1F);
++	dcs_write_seq(0x55,0x1F);
++	dcs_write_seq(0x56,0x1F);
++	dcs_write_seq(0x57,0x1E);
++	dcs_write_seq(0x58,0x40);
++	dcs_write_seq(0x59,0x00);
++	dcs_write_seq(0x5A,0x00);
++	dcs_write_seq(0x5B,0x30);
++	dcs_write_seq(0x5C,0x02);
++	dcs_write_seq(0x5D,0x40);
++	dcs_write_seq(0x5E,0x01);
++	dcs_write_seq(0x5F,0x02);
++	dcs_write_seq(0x60,0x00);
++	dcs_write_seq(0x61,0x01);
++	dcs_write_seq(0x62,0x02);
++	dcs_write_seq(0x63,0x65);
++	dcs_write_seq(0x64,0x66);
++	dcs_write_seq(0x65,0x00);
++	dcs_write_seq(0x66,0x00);
++	dcs_write_seq(0x67,0x74);
++	dcs_write_seq(0x68,0x06);
++	dcs_write_seq(0x69,0x65);
++	dcs_write_seq(0x6A,0x66);
++	dcs_write_seq(0x6B,0x10);
++	dcs_write_seq(0x6C,0x00);
++	dcs_write_seq(0x6D,0x04);
++	dcs_write_seq(0x6E,0x04);
++	dcs_write_seq(0x6F,0x88);
++	dcs_write_seq(0x70,0x00);
++	dcs_write_seq(0x71,0x00);
++	dcs_write_seq(0x72,0x06);
++	dcs_write_seq(0x73,0x7B);
++	dcs_write_seq(0x74,0x00);
++	dcs_write_seq(0x75,0x87);
++	dcs_write_seq(0x76,0x00);
++	dcs_write_seq(0x77,0x5D);
++	dcs_write_seq(0x78,0x17);
++	dcs_write_seq(0x79,0x1F);
++	dcs_write_seq(0x7A,0x00);
++	dcs_write_seq(0x7B,0x00);
++	dcs_write_seq(0x7C,0x00);
++	dcs_write_seq(0x7D,0x03);
++	dcs_write_seq(0x7E,0x7B);
++	dcs_write_seq(0xE0,0x04);
++	dcs_write_seq(0x09,0x10);
++	dcs_write_seq(0xE0,0x00);
++	dcs_write_seq(0xE6,0x02);
++	dcs_write_seq(0xE7,0x02);
++	// dcs_write_seq(0x11);// SLPOUT
++	// msleep (120);
++	// dcs_write_seq(0x29);// DSPON
++	// msleep (20);
++	// dcs_write_seq(0x35,0x00);// TE
++
++	return 0;
++}
++
++static int cwu50_unprepare(struct drm_panel *panel)
++{
++	struct cwu50 *ctx = panel_to_cwu50(panel);
++	struct mipi_dsi_device *dsi = to_mipi_dsi_device(ctx->dev);
++	int err;
++
++	/* Power off the display using case 1 described in JD9365D.pdf chapter 9.5.3.
++	 * module's default behaviour
++	 */
++	if (1 == power_off_case) {
++		goto power_off_case1;
++	}
++
++	/* Power off the display using case 2 described in JD9365D.pdf chapter 9.5.3. */
++
++	/* tCMD_OFF >= 1ms */
++	msleep(1);
++
++	err = mipi_dsi_dcs_set_display_off(dsi);
++	if (err) {
++		dev_warn(ctx->dev, "failed to send display off command (%d)\n", err);
++		goto fallback_case1;
++	}
++
++	/* tDISOFF >= 50ms */
++	msleep(50);
++
++
++	err = mipi_dsi_dcs_enter_sleep_mode(dsi);
++	if (err) {
++		dev_warn(ctx->dev, "failed to enter sleep mode (%d)\n", err);
++		goto fallback_case1;
++	}
++
++	/* tSLPIN >= 100ms */
++	msleep(100);
++
++
++	gpiod_set_value_cansleep(ctx->reset_gpio, 1); /* assert reset */
++
++	goto disable_regulators;
++
++fallback_case1:
++	/* in case of error, fall back to case 1 */
++	dev_warn(ctx->dev, "falling back to power off case 1 using HW reset line");
++power_off_case1:
++	gpiod_set_value_cansleep(ctx->reset_gpio, 1); /* assert reset */
++	/* tRSTOFF1 >= 120ms */
++	msleep(120);
++
++disable_regulators:
++	regulator_disable(ctx->vci);
++	regulator_disable(ctx->iovcc);
++
++	return 0;
++}
++
++static int cwu50_prepare(struct drm_panel *panel)
++{
++	struct cwu50 *ctx = panel_to_cwu50(panel);
++	struct mipi_dsi_device *dsi = to_mipi_dsi_device(ctx->dev);
++	int err;
++	u8 response;
++
++	gpiod_set_value_cansleep(ctx->reset_gpio, 1); /* ensure asserted state */
++
++	/* IOVCC first, then VCI */
++	err = regulator_enable(ctx->iovcc);
++	if (err) {
++		dev_err(ctx->dev, "failed to enable iovcc (%d)\n", err);
++		goto error_finialize;
++	}
++
++	/* tPWON>= 0ms */
++
++	/* MIPI should change to LP-11 after turning on vci according to JD9365D.pdf */
++	err = regulator_enable(ctx->vci);
++	if (err) {
++		dev_err(ctx->dev, "failed to enable vci (%d)\n", err);
++		goto disable_iovcc;
++	}
++
++	/* Wait for MIPI to initialize
++	 * tRPWIRES >= 5ms
++	 * 0 <= tMIPI_ON <= tRPWIRES
++	 */
++	msleep(30);
++
++	/* MIPI should be LP-11 now */
++
++	/* tRESETL=10us */
++	/* tRESETH >= 5ms */
++	gpiod_set_value_cansleep(ctx->reset_gpio, 0); /* deassert */
++	msleep(5);
++
++	/* Exit sleep mode and power on */
++
++	err = cwu50_init_sequence(ctx);
++	if (err) {
++		dev_err(ctx->dev, "failed to send initialize sequence (%d)\n", err);
++		goto disable_vci;
++	}
++
++	/* slpout */
++	err = mipi_dsi_dcs_exit_sleep_mode(dsi);
++	if (err) {
++		dev_err(ctx->dev, "failed to exit sleep mode (%d)\n", err);
++		goto disable_vci;
++	}
++
++	/* tSLPOUT 120ms */
++	msleep(120);
++
++	err = mipi_dsi_dcs_set_display_on(dsi);
++	if (err) {
++		dev_err(ctx->dev, "failed to turn display on (%d)\n", err);
++		goto disable_vci;
++	}
++	msleep(20);
++
++	/* Enabe tearing mode: send TE (tearing effect) at VBLANK */
++	/* JD9365D seems need a parameter for this command */
++	err = mipi_dsi_dcs_write_buffer(dsi, (u8[]){ 0x35, 0x00 }, 2);
++	// err = mipi_dsi_dcs_set_tear_on(dsi, MIPI_DSI_DCS_TEAR_MODE_VBLANK);
++	if (err < 0) {
++		dev_err(ctx->dev, "failed to enable vblank TE (%d)\n", err);
++		goto disable_vci;
++	}
++
++	err = mipi_dsi_dcs_get_power_mode(dsi, &response);
++	if (!err) {
++		/* debug, normally the command will fail */
++		dev_info(ctx->dev, "Read display power mode got: %d", response);
++	}
++
++	ctx->dsi_status = 0;  // ok
++
++	return 0;
++disable_vci:
++	regulator_disable(ctx->vci);
++disable_iovcc:
++	regulator_disable(ctx->iovcc);
++error_finialize:
++	gpiod_set_value_cansleep(ctx->reset_gpio, 1);
++	ctx->dsi_status = 1;
++	return err;
++}
++
++static int cwu50_get_modes(struct drm_panel *panel, struct drm_connector *connector)
++{
++	struct cwu50 *ctx = panel_to_cwu50(panel);
++	struct drm_display_mode *mode;
++
++	mode = drm_mode_duplicate(connector->dev, &default_mode);
++	if (!mode) {
++		dev_err(panel->dev, "bad mode or failed to add mode\n");
++		return -EINVAL;
++	}
++	drm_mode_set_name(mode);
++	mode->type = DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED;
++
++	/* set up connector's "panel orientation" property */
++	/*
++	 * TODO: Remove once all drm drivers call
++	 * drm_connector_set_orientation_from_panel()
++	 */
++	drm_connector_set_panel_orientation(connector, ctx->orientation);
++
++	drm_mode_probed_add(connector, mode);
++
++	return 1; /* Number of modes */
++}
++
++static enum drm_panel_orientation cwu50_get_orientation(struct drm_panel *panel)
++{
++	struct cwu50 *ctx = panel_to_cwu50(panel);
++
++	return ctx->orientation;
++}
++
++static const struct drm_panel_funcs cwu50_drm_funcs = {
++	.unprepare = cwu50_unprepare,
++	.prepare = cwu50_prepare,
++	.get_modes = cwu50_get_modes,
++	.get_orientation = cwu50_get_orientation,
++};
++
++static int cwu50_probe(struct mipi_dsi_device *dsi)
++{
++	struct device *dev = &dsi->dev;
++	struct cwu50 *ctx;
++	int err;
++
++	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
++	if (!ctx)
++		return -ENOMEM;
++
++	mipi_dsi_set_drvdata(dsi, ctx);
++	ctx->dev = dev;
++
++	dsi->lanes = 4;
++	dsi->format = MIPI_DSI_FMT_RGB888;
++	dsi->mode_flags = MIPI_DSI_MODE_VIDEO |
++					  MIPI_DSI_MODE_VIDEO_BURST |
++					  MIPI_DSI_MODE_VIDEO_SYNC_PULSE;
++
++	ctx->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
++	if (IS_ERR(ctx->reset_gpio)) {
++		err = PTR_ERR(ctx->reset_gpio);
++		return dev_err_probe(dev, err, "Failed to request GPIO (%d)\n", err);
++	}
++
++	ctx->vci = devm_regulator_get(dev, "vci");
++	if (IS_ERR(ctx->vci)) {
++		err = PTR_ERR(ctx->vci);
++		return dev_err_probe(dev, err, "Failed to request vci regulator: %d\n", err);
++	}
++
++	ctx->iovcc = devm_regulator_get(dev, "iovcc");
++	if (IS_ERR(ctx->iovcc)) {
++		err = PTR_ERR(ctx->iovcc);
++		return dev_err_probe(dev, err, "Failed to request iovcc regulator: %d\n", err);
++	}
++
++	err = of_drm_get_panel_orientation(dev->of_node, &ctx->orientation);
++	if (err) {
++		dev_err(dev, "%pOF: failed to get orientation %d\n", dev->of_node, err);
++		return err;
++	}
++
++	ctx->panel.prepare_prev_first = true;
++
++	drm_panel_init(&ctx->panel, dev, &cwu50_drm_funcs, DRM_MODE_CONNECTOR_DSI);
++
++	err = drm_panel_of_backlight(&ctx->panel);
++	if (err)
++		return dev_err_probe(dev, err, "Failed to get backlight\n");
++
++	drm_panel_add(&ctx->panel);
++
++	err = mipi_dsi_attach(dsi);
++	if (err < 0) {
++		dev_err(dev, "mipi_dsi_attach() failed: %d\n", err);
++		drm_panel_remove(&ctx->panel);
++		return err;
++	}
++
++	err = sysfs_create_group(&dsi->dev.kobj, &dsi_attr_group);
++	if (err < 0) {
++		dev_warn(dev, "Cannot create optional sysfs nodes: %d\n", err);
++	} else {
++		ctx->sysfs_node_created = true;
++	}
++
++	return 0;
++}
++
++static void cwu50_remove(struct mipi_dsi_device *dsi)
++{
++	struct cwu50 *ctx = mipi_dsi_get_drvdata(dsi);
++
++	if (ctx->sysfs_node_created) {
++		sysfs_remove_group(&dsi->dev.kobj, &dsi_attr_group);
++	}
++
++	mipi_dsi_detach(dsi);
++	drm_panel_remove(&ctx->panel);
++}
++
++static const struct of_device_id cwu50_of_match[] = {
++	{ .compatible = "clockwork,cwu50-cm3" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, cwu50_of_match);
++
++static struct mipi_dsi_driver cwu50_driver = {
++	.probe = cwu50_probe,
++	.remove = cwu50_remove,
++	.driver = {
++		.name = "panel-clockwork-cwu50-cm3",
++		.of_match_table = cwu50_of_match,
++	},
++};
++module_mipi_dsi_driver(cwu50_driver);
++
++MODULE_DESCRIPTION("ClockworkPi CWU50-CM3 panel driver");
++MODULE_LICENSE("GPL v2");
+diff -rupN linux/drivers/power/supply/axp20x_ac_power.c ClockworkPi-linux/drivers/power/supply/axp20x_ac_power.c
+--- linux/drivers/power/supply/axp20x_ac_power.c	2025-09-23 21:24:00.430057042 -0400
++++ ClockworkPi-linux/drivers/power/supply/axp20x_ac_power.c	2025-09-23 21:23:00.922408392 -0400
+@@ -52,6 +52,9 @@ static irqreturn_t axp20x_ac_power_irq(i
  {
  	struct axp20x_ac_power *power = devid;
  
@@ -2495,10 +2655,9 @@ index e5733cb..5be12e6 100644
  	power_supply_changed(power->supply);
  
  	return IRQ_HANDLED;
-diff --git a/linux/drivers/power/supply/axp20x_battery.c b/ClockworkPi-linux/drivers/power/supply/axp20x_battery.c
-index 88fbae6..a9437d8 100644
---- a/linux/drivers/power/supply/axp20x_battery.c
-+++ b/ClockworkPi-linux/drivers/power/supply/axp20x_battery.c
+diff -rupN linux/drivers/power/supply/axp20x_battery.c ClockworkPi-linux/drivers/power/supply/axp20x_battery.c
+--- linux/drivers/power/supply/axp20x_battery.c	2025-09-23 21:24:00.430057042 -0400
++++ ClockworkPi-linux/drivers/power/supply/axp20x_battery.c	2025-09-23 21:23:00.922408392 -0400
 @@ -32,81 +32,83 @@
  #include <linux/iio/consumer.h>
  #include <linux/mfd/axp20x.h>
@@ -2587,14 +2746,10 @@ index 88fbae6..a9437d8 100644
  
 -#define AXP717_ITERM_CHG_LIM_MASK	GENMASK(3, 0)
 -#define AXP717_ITERM_CC_STEP		64000
-+#define AXP717_ITERM_CHG_LIM_MASK GENMASK(3, 0)
-+#define AXP717_ITERM_CC_STEP 64000
- 
+-
 -#define AXP20X_V_OFF_MASK		GENMASK(2, 0)
 -#define AXP717_V_OFF_MASK		GENMASK(6, 4)
-+#define AXP20X_V_OFF_MASK GENMASK(2, 0)
-+#define AXP717_V_OFF_MASK GENMASK(6, 4)
- 
+-
 -#define AXP717_BAT_VMIN_MIN_UV		2600000
 -#define AXP717_BAT_VMIN_MAX_UV		3300000
 -#define AXP717_BAT_VMIN_STEP		100000
@@ -2602,11 +2757,18 @@ index 88fbae6..a9437d8 100644
 -#define AXP717_BAT_CV_MAX_UV		5000000
 -#define AXP717_BAT_CC_MIN_UA		0
 -#define AXP717_BAT_CC_MAX_UA		3008000
+-
+-#define AXP717_TS_PIN_DISABLE		BIT(4)
++#define AXP717_ITERM_CHG_LIM_MASK GENMASK(3, 0)
++#define AXP717_ITERM_CC_STEP 64000
++
++#define AXP20X_V_OFF_MASK GENMASK(2, 0)
++#define AXP717_V_OFF_MASK GENMASK(6, 4)
++
 +#define AXP228_FULL_CAPACITY_CALIBRATE_EN BIT(5)
 +#define AXP228_CAPACITY_CALIBRATE BIT(4)
 +#define AXP228_CALIBRATE_MASK (BIT(4) | BIT(5))
- 
--#define AXP717_TS_PIN_DISABLE		BIT(4)
++
 +#define AXP717_BAT_VMIN_MIN_UV 2600000
 +#define AXP717_BAT_VMIN_MAX_UV 3300000
 +#define AXP717_BAT_VMIN_STEP 100000
@@ -2660,7 +2822,7 @@ index 88fbae6..a9437d8 100644
  };
  
  static int axp20x_battery_get_max_voltage(struct axp20x_batt_ps *axp20x_batt,
-@@ -268,7 +272,7 @@ static int axp717_get_constant_charge_current(struct axp20x_batt_ps *axp,
+@@ -268,7 +272,7 @@ static int axp717_get_constant_charge_cu
  		return ret;
  
  	*val = FIELD_GET(AXP717_ICC_CHARGER_LIM_MASK, *val) *
@@ -2669,7 +2831,7 @@ index 88fbae6..a9437d8 100644
  
  	return 0;
  }
-@@ -358,9 +362,11 @@ static int axp20x_battery_get_prop(struct power_supply *psy,
+@@ -358,9 +362,11 @@ static int axp20x_battery_get_prop(struc
  			return ret;
  
  		if (reg & AXP20X_PWR_STATUS_BAT_CHARGING) {
@@ -2683,7 +2845,7 @@ index 88fbae6..a9437d8 100644
  			val->intval = -val1;
  		}
  		if (ret)
-@@ -368,6 +374,8 @@ static int axp20x_battery_get_prop(struct power_supply *psy,
+@@ -368,6 +374,8 @@ static int axp20x_battery_get_prop(struc
  
  		/* IIO framework gives mA but Power Supply framework gives uA */
  		val->intval *= 1000;
@@ -2692,7 +2854,7 @@ index 88fbae6..a9437d8 100644
  		break;
  
  	case POWER_SUPPLY_PROP_CAPACITY:
-@@ -416,6 +424,63 @@ static int axp20x_battery_get_prop(struct power_supply *psy,
+@@ -416,6 +424,63 @@ static int axp20x_battery_get_prop(struc
  
  		/* IIO framework gives mV but Power Supply framework gives uV */
  		val->intval *= 1000;
@@ -2756,7 +2918,7 @@ index 88fbae6..a9437d8 100644
  		break;
  
  	default:
-@@ -474,8 +539,7 @@ static int axp717_battery_get_prop(struct power_supply *psy,
+@@ -474,8 +539,7 @@ static int axp717_battery_get_prop(struc
  	 * listed as POR.
  	 */
  	case POWER_SUPPLY_PROP_HEALTH:
@@ -2766,7 +2928,7 @@ index 88fbae6..a9437d8 100644
  		if (ret)
  			return ret;
  
-@@ -523,7 +587,8 @@ static int axp717_battery_get_prop(struct power_supply *psy,
+@@ -523,7 +587,8 @@ static int axp717_battery_get_prop(struc
  		 * observation it's assumed to be somewhere around
  		 * 450ma. I will leave the value raw for now.
  		 */
@@ -2776,7 +2938,7 @@ index 88fbae6..a9437d8 100644
  		if (ret)
  			return ret;
  		/* IIO framework gives mA but Power Supply framework gives uA */
-@@ -539,8 +604,8 @@ static int axp717_battery_get_prop(struct power_supply *psy,
+@@ -539,8 +604,8 @@ static int axp717_battery_get_prop(struc
  		if (!FIELD_GET(AXP717_PWR_OP_BATT_PRESENT, reg))
  			return -ENODEV;
  
@@ -2787,7 +2949,7 @@ index 88fbae6..a9437d8 100644
  		if (ret)
  			return ret;
  
-@@ -556,13 +621,13 @@ static int axp717_battery_get_prop(struct power_supply *psy,
+@@ -556,13 +621,13 @@ static int axp717_battery_get_prop(struc
  							  &val->intval);
  
  	case POWER_SUPPLY_PROP_VOLTAGE_MIN:
@@ -2805,7 +2967,7 @@ index 88fbae6..a9437d8 100644
  		return 0;
  
  	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
-@@ -576,12 +641,13 @@ static int axp717_battery_get_prop(struct power_supply *psy,
+@@ -576,12 +641,13 @@ static int axp717_battery_get_prop(struc
  		return 0;
  
  	case POWER_SUPPLY_PROP_CHARGE_TERM_CURRENT:
@@ -2822,7 +2984,7 @@ index 88fbae6..a9437d8 100644
  		return 0;
  
  	default:
-@@ -669,8 +735,7 @@ static int axp717_battery_set_max_voltage(struct axp20x_batt_ps *axp20x_batt,
+@@ -669,8 +735,7 @@ static int axp717_battery_set_max_voltag
  		return -EINVAL;
  	}
  
@@ -2832,7 +2994,7 @@ index 88fbae6..a9437d8 100644
  				  AXP717_CHRG_CV_VOLT_MASK, val);
  }
  
-@@ -681,7 +746,7 @@ static int axp20x_set_constant_charge_current(struct axp20x_batt_ps *axp_batt,
+@@ -681,7 +746,7 @@ static int axp20x_set_constant_charge_cu
  		return -EINVAL;
  
  	charge_current = (charge_current - axp_batt->data->ccc_offset) /
@@ -2841,7 +3003,7 @@ index 88fbae6..a9437d8 100644
  
  	if (charge_current > AXP20X_CHRG_CTRL1_TGT_CURR || charge_current < 0)
  		return -EINVAL;
-@@ -701,8 +766,7 @@ static int axp717_set_constant_charge_current(struct axp20x_batt_ps *axp,
+@@ -701,8 +766,7 @@ static int axp717_set_constant_charge_cu
  	if (charge_current > AXP717_BAT_CC_MAX_UA || charge_current < 0)
  		return -EINVAL;
  
@@ -2851,7 +3013,7 @@ index 88fbae6..a9437d8 100644
  
  	return regmap_update_bits(axp->regmap, AXP717_ICC_CHG_SET,
  				  AXP717_ICC_CHARGER_LIM_MASK, val);
-@@ -713,18 +777,19 @@ static int axp20x_set_max_constant_charge_current(struct axp20x_batt_ps *axp,
+@@ -713,18 +777,19 @@ static int axp20x_set_max_constant_charg
  {
  	bool lower_max = false;
  
@@ -2877,7 +3039,7 @@ index 88fbae6..a9437d8 100644
  	else
  		lower_max = true;
  
-@@ -755,13 +820,13 @@ static int axp20x_set_voltage_min_design(struct axp20x_batt_ps *axp_batt,
+@@ -755,13 +820,13 @@ static int axp20x_set_voltage_min_design
  static int axp717_set_voltage_min_design(struct axp20x_batt_ps *axp_batt,
  					 int min_voltage)
  {
@@ -2894,7 +3056,7 @@ index 88fbae6..a9437d8 100644
  				  AXP717_V_OFF_MASK, val1);
  }
  
-@@ -770,14 +835,26 @@ static int axp20x_battery_set_prop(struct power_supply *psy,
+@@ -770,14 +835,26 @@ static int axp20x_battery_set_prop(struc
  				   const union power_supply_propval *val)
  {
  	struct axp20x_batt_ps *axp20x_batt = power_supply_get_drvdata(psy);
@@ -2923,7 +3085,7 @@ index 88fbae6..a9437d8 100644
  	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT:
  		return axp20x_set_constant_charge_current(axp20x_batt,
  							  val->intval);
-@@ -787,13 +864,16 @@ static int axp20x_battery_set_prop(struct power_supply *psy,
+@@ -787,13 +864,16 @@ static int axp20x_battery_set_prop(struc
  	case POWER_SUPPLY_PROP_STATUS:
  		switch (val->intval) {
  		case POWER_SUPPLY_STATUS_CHARGING:
@@ -2944,7 +3106,7 @@ index 88fbae6..a9437d8 100644
  		}
  		fallthrough;
  	default:
-@@ -812,7 +892,8 @@ static int axp717_battery_set_prop(struct power_supply *psy,
+@@ -812,7 +892,8 @@ static int axp717_battery_set_prop(struc
  		return axp717_set_voltage_min_design(axp20x_batt, val->intval);
  
  	case POWER_SUPPLY_PROP_VOLTAGE_MAX:
@@ -2954,7 +3116,7 @@ index 88fbae6..a9437d8 100644
  
  	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT_MAX:
  		return axp717_set_constant_charge_current(axp20x_batt,
-@@ -849,6 +930,11 @@ static enum power_supply_property axp20x_battery_props[] = {
+@@ -849,6 +930,11 @@ static enum power_supply_property axp20x
  	POWER_SUPPLY_PROP_VOLTAGE_MAX,
  	POWER_SUPPLY_PROP_VOLTAGE_MIN,
  	POWER_SUPPLY_PROP_CAPACITY,
@@ -2966,7 +3128,7 @@ index 88fbae6..a9437d8 100644
  };
  
  static enum power_supply_property axp717_battery_props[] = {
-@@ -872,7 +958,8 @@ static int axp20x_battery_prop_writeable(struct power_supply *psy,
+@@ -872,7 +958,8 @@ static int axp20x_battery_prop_writeable
  	       psp == POWER_SUPPLY_PROP_VOLTAGE_MIN ||
  	       psp == POWER_SUPPLY_PROP_VOLTAGE_MAX ||
  	       psp == POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT ||
@@ -2976,7 +3138,7 @@ index 88fbae6..a9437d8 100644
  }
  
  static int axp717_battery_prop_writeable(struct power_supply *psy,
-@@ -914,16 +1001,15 @@ static int axp209_bat_cfg_iio_channels(struct platform_device *pdev,
+@@ -914,16 +1001,15 @@ static int axp209_bat_cfg_iio_channels(s
  		return PTR_ERR(axp_batt->batt_v);
  	}
  
@@ -2996,7 +3158,7 @@ index 88fbae6..a9437d8 100644
  	if (IS_ERR(axp_batt->batt_dischrg_i)) {
  		if (PTR_ERR(axp_batt->batt_dischrg_i) == -ENODEV)
  			return -EPROBE_DEFER;
-@@ -943,8 +1029,7 @@ static int axp717_bat_cfg_iio_channels(struct platform_device *pdev,
+@@ -943,8 +1029,7 @@ static int axp717_bat_cfg_iio_channels(s
  		return PTR_ERR(axp_batt->batt_v);
  	}
  
@@ -3006,7 +3168,7 @@ index 88fbae6..a9437d8 100644
  	if (IS_ERR(axp_batt->batt_chrg_i)) {
  		if (PTR_ERR(axp_batt->batt_chrg_i) == -ENODEV)
  			return -EPROBE_DEFER;
-@@ -962,8 +1047,7 @@ static void axp209_set_battery_info(struct platform_device *pdev,
+@@ -962,8 +1047,7 @@ static void axp209_set_battery_info(stru
  	int ccc = info->constant_charge_current_max_ua;
  
  	if (vmin > 0 && axp20x_set_voltage_min_design(axp_batt, vmin))
@@ -3016,7 +3178,7 @@ index 88fbae6..a9437d8 100644
  
  	/* Set max to unverified value to be able to set CCC */
  	axp_batt->max_ccc = ccc;
-@@ -986,38 +1070,17 @@ static void axp717_set_battery_info(struct platform_device *pdev,
+@@ -986,38 +1070,17 @@ static void axp717_set_battery_info(stru
  	int ccc = info->constant_charge_current_max_ua;
  	int val;
  
@@ -3058,7 +3220,7 @@ index 88fbae6..a9437d8 100644
  	}
  }
  
-@@ -1075,16 +1138,20 @@ static const struct of_device_id axp20x_battery_ps_id[] = {
+@@ -1075,16 +1138,20 @@ static const struct of_device_id axp20x_
  	{
  		.compatible = "x-powers,axp209-battery-power-supply",
  		.data = (void *)&axp209_data,
@@ -3083,7 +3245,7 @@ index 88fbae6..a9437d8 100644
  };
  MODULE_DEVICE_TABLE(of, axp20x_battery_ps_id);
  
-@@ -1099,8 +1166,8 @@ static int axp20x_power_probe(struct platform_device *pdev)
+@@ -1099,8 +1166,8 @@ static int axp20x_power_probe(struct pla
  	if (!of_device_is_available(pdev->dev.of_node))
  		return -ENODEV;
  
@@ -3094,7 +3256,7 @@ index 88fbae6..a9437d8 100644
  	if (!axp20x_batt)
  		return -ENOMEM;
  
-@@ -1118,9 +1185,8 @@ static int axp20x_power_probe(struct platform_device *pdev)
+@@ -1118,9 +1185,8 @@ static int axp20x_power_probe(struct pla
  	if (ret)
  		return ret;
  
@@ -3106,7 +3268,7 @@ index 88fbae6..a9437d8 100644
  	if (IS_ERR(axp20x_batt->batt)) {
  		dev_err(&pdev->dev, "failed to register power supply: %ld\n",
  			PTR_ERR(axp20x_batt->batt));
-@@ -1130,6 +1196,29 @@ static int axp20x_power_probe(struct platform_device *pdev)
+@@ -1130,6 +1196,29 @@ static int axp20x_power_probe(struct pla
  	if (!power_supply_get_battery_info(axp20x_batt->batt, &info)) {
  		axp20x_batt->data->set_bat_info(pdev, axp20x_batt, info);
  		power_supply_put_battery_info(axp20x_batt->batt, info);
@@ -3136,7 +3298,7 @@ index 88fbae6..a9437d8 100644
  	}
  
  	/*
-@@ -1138,6 +1227,12 @@ static int axp20x_power_probe(struct platform_device *pdev)
+@@ -1138,6 +1227,12 @@ static int axp20x_power_probe(struct pla
  	 */
  	axp20x_get_constant_charge_current(axp20x_batt, &axp20x_batt->max_ccc);
  
@@ -3149,10 +3311,9 @@ index 88fbae6..a9437d8 100644
  	return 0;
  }
  
-diff --git a/linux/drivers/video/backlight/Kconfig b/ClockworkPi-linux/drivers/video/backlight/Kconfig
-index d0951c7..35a7870 100644
---- a/linux/drivers/video/backlight/Kconfig
-+++ b/ClockworkPi-linux/drivers/video/backlight/Kconfig
+diff -rupN linux/drivers/video/backlight/Kconfig ClockworkPi-linux/drivers/video/backlight/Kconfig
+--- linux/drivers/video/backlight/Kconfig	2025-09-23 21:24:01.010053617 -0400
++++ ClockworkPi-linux/drivers/video/backlight/Kconfig	2025-09-23 21:23:01.410405511 -0400
 @@ -497,6 +497,12 @@ config BACKLIGHT_LED
  	  If you have a LCD backlight adjustable by LED class driver, say Y
  	  to enable this driver.
@@ -3166,20 +3327,17 @@ index d0951c7..35a7870 100644
  endif # BACKLIGHT_CLASS_DEVICE
  
  endmenu
-diff --git a/linux/drivers/video/backlight/Makefile b/ClockworkPi-linux/drivers/video/backlight/Makefile
-index 631227d..cf92b73 100644
---- a/linux/drivers/video/backlight/Makefile
-+++ b/ClockworkPi-linux/drivers/video/backlight/Makefile
-@@ -61,3 +61,4 @@ obj-$(CONFIG_BACKLIGHT_WM831X)		+= wm831x_bl.o
+diff -rupN linux/drivers/video/backlight/Makefile ClockworkPi-linux/drivers/video/backlight/Makefile
+--- linux/drivers/video/backlight/Makefile	2025-09-23 21:24:01.010053617 -0400
++++ ClockworkPi-linux/drivers/video/backlight/Makefile	2025-09-23 21:23:01.410405511 -0400
+@@ -61,3 +61,4 @@ obj-$(CONFIG_BACKLIGHT_WM831X)		+= wm831
  obj-$(CONFIG_BACKLIGHT_ARCXCNN) 	+= arcxcnn_bl.o
  obj-$(CONFIG_BACKLIGHT_RAVE_SP)		+= rave-sp-backlight.o
  obj-$(CONFIG_BACKLIGHT_LED)		+= led_bl.o
 +obj-$(CONFIG_BACKLIGHT_OCP8178)		+= ocp8178_bl.o
-diff --git a/ClockworkPi-linux/drivers/video/backlight/ocp8178_bl.c b/ClockworkPi-linux/drivers/video/backlight/ocp8178_bl.c
-new file mode 100644
-index 0000000..a9fb968
---- /dev/null
-+++ b/ClockworkPi-linux/drivers/video/backlight/ocp8178_bl.c
+diff -rupN linux/drivers/video/backlight/ocp8178_bl.c ClockworkPi-linux/drivers/video/backlight/ocp8178_bl.c
+--- linux/drivers/video/backlight/ocp8178_bl.c	1969-12-31 19:00:00.000000000 -0500
++++ ClockworkPi-linux/drivers/video/backlight/ocp8178_bl.c	2025-09-23 21:23:01.414405487 -0400
 @@ -0,0 +1,275 @@
 +/*
 + * ocp8178_bl.c - ocp8178 backlight driver
