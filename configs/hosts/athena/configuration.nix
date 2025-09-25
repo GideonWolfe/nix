@@ -49,7 +49,7 @@
     ./system/services/networks/firewall.nix
 
     # TEST: adding prometheus
-    ./configuration.nix
+    ./prometheus.nix
     ./alloy.nix
 
     ############
