@@ -23,6 +23,18 @@
         port = 9101;
       };
 
+      # BUG: we can only run one instance like this, maybe we can configure multiple docker containers?
+      restic = {
+        enable = true;
+        port = 9102;
+        passwordFile = config.services.restic.backups.archives.passwordFile;
+        repository = config.services.restic.backups.archives.repository;
+        user = config.services.restic.backups.archives.user;
+      };
+
     };
   };
+  # hack to get smartcl permissions working
+  systemd.services."prometheus-smartctl-exporter".serviceConfig.DeviceAllow =
+    lib.mkOverride 10 [ "block-blkext rw" "block-sd rw" "char-nvme rw" ];
 }

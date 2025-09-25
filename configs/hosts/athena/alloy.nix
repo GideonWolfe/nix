@@ -39,8 +39,21 @@
         targets = [
           {"__address__" = "localhost:${
             toString config.services.prometheus.exporters.smartctl.port
-          }", "job" = "node", "instance" = "${config.networking.hostName}:${
+          }", "job" = "smartctl", "instance" = "${config.networking.hostName}:${
             toString config.services.prometheus.exporters.smartctl.port
+          }"},
+        ]
+        scrape_interval = "15s"
+        forward_to = [prometheus.remote_write.default.receiver]
+      }
+
+      // Scrape metrics from restic repo
+      prometheus.scrape "restic_exporter" {
+        targets = [
+          {"__address__" = "localhost:${
+            toString config.services.prometheus.exporters.restic.port
+          }", "job" = "restic", "instance" = "${config.networking.hostName}:${
+            toString config.services.prometheus.exporters.restic.port
           }"},
         ]
         scrape_interval = "15s"
@@ -63,15 +76,6 @@
           job = "systemd-journal",
           host = "${config.networking.hostName}",
         }
-        forward_to = [loki.write.default.receiver]
-      }
-
-      // Collect boot logs
-      // BUG: needs root access for this
-      loki.source.file "boot_logs" {
-        targets = [
-          {"__path__" = "/var/log/boot.log", job = "boot", host = "${config.networking.hostName}"},
-        ]
         forward_to = [loki.write.default.receiver]
       }
     '';
