@@ -245,7 +245,7 @@
           sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" "-p" "2736" ];
           path = deploy-rs.lib.x86_64-linux.activate.nixos
             self.nixosConfigurations.alpha;
-          user = "root";
+          user = "gideon";
         };
       };
 

@@ -62,6 +62,8 @@
 
   networking.hostName = "alpha"; # Define your hostname.
 
+  nix.settings.trusted-users = [ "root" "gideon" ];
+
   time.timeZone = "America/New_York";
 
   # put in its own file
@@ -92,7 +94,7 @@
       "plugdev" # needed for RTL-SDR
       "storage" # needed for udisks/udiskie
     ];
-    packages = with pkgs; [ firefox tree ];
+    packages = with pkgs; [ firefox tree cowsay ];
     openssh = {
       authorizedKeys.keys = [ config.local.ssh.keys.gideon_ssh_sk ];
     };

@@ -25,9 +25,13 @@
       #   name = "clockworkpi-kernel";
       #   patch = ./patches/clockworkpi-kernel.patch;
       # }
+      # {
+      #   name = "clockworkpi-kernel";
+      #   patch = ./patches/clockworkpi-kernel-no-overlay.patch;
+      # }
       {
         name = "clockworkpi-kernel";
-        patch = ./patches/clockworkpi-kernel-min.patch;
+        patch = ./patches/clockworkpi-kernel-renamed-overlay.patch;
       }
     ];
 
