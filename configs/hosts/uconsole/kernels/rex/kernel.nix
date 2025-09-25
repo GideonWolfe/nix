@@ -83,6 +83,6 @@
     plymouth.enable = false;
   };
 
-  # Firmware files specific to CM4
-  hardware.firmware = with pkgs; [ linux-firmware ];
+  # Firmware is handled by nixos-hardware raspberry-pi-4 module
+  # which sets hardware.enableRedistributableFirmware = true
 }
