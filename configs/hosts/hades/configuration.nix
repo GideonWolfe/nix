@@ -36,6 +36,13 @@
     # Testing Hamclock
     ../../modules/configs/system/services/hamclock.nix
 
+    # Testing NetBox
+    ../../modules/configs/system/services/networks/netbox/netbox.nix
+
+    # Testing Prometheus Agent
+    ./system/prometheus.nix
+    ./system/alloy.nix
+
     ############
     # PACKAGES #
     ############
@@ -61,6 +68,12 @@
     # System
     ../../modules/packages/system/system.nix
 
+  ];
+
+  # TEST to allow cross compilation for ARM
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+    # ....
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -109,6 +122,7 @@
   services.gnome.gnome-online-accounts.enable = true;
   services.accounts-daemon.enable = true;
   services.gnome.evolution-data-server.enable = true;
+
 
   system.stateVersion = "24.11"; # Did you read the comment?
 

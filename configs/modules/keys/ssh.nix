@@ -13,5 +13,9 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF+cpY8rRgcjRMY8jfgeFsUP42LtIBiijREvGo0dfNLu overseer@athena";
     root_athena =
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEHbN0uqCdvtM2g3yB7JzXrylXRvjcNwVbZoOlDLnc/v root@athena";
+
+    gideon_ssh_sk =
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIKZGmiV6gXdzztdYoqrZDbFqAHpM+5rMgmQZ+6gpR98xAAAACnNzaDpnaWRlb24=";
+
   };
 }

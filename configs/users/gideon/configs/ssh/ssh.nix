@@ -6,6 +6,10 @@
     enable = true;
 
     #addKeysToAgent = "yes";
+    # Should prevent being prompted for yubikey every 5 seconds with nixos-anywhere
+    controlMaster = "auto";
+    controlPersist = "10m";
+    controlPath = "~/.ssh/cm_socket_%r@%h:%p";
 
     matchBlocks = {
       github = {
@@ -34,7 +38,7 @@
         #user = "gideon";
         forwardAgent = true;
         extraOptions = {
-                    #IdentityAgent = "${ builtins.getEnv "XDG_RUNTIME_DIR" }/yubikey-agent/yubikey-agent.sock";
+          #IdentityAgent = "${ builtins.getEnv "XDG_RUNTIME_DIR" }/yubikey-agent/yubikey-agent.sock";
           IdentityAgent = "/run/user/1000/yubikey-agent/yubikey-agent.sock";
         };
       };

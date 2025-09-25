@@ -15,6 +15,7 @@
     #pkgs.qalculate-qt # frontend for qalculate
     pkgs.qalculate-gtk # frontend for qalculate
     pkgs.gnome-graphs # GNOME app for quick plotting
+        #pkgs.kdePackages.kig # Interactive geometry #BUG broken
 
   ];
 }

@@ -24,11 +24,13 @@
     pkgs.gimp
     pkgs.letterpress # create ascii art from images
     pkgs.paleta # extract dominant colors from an image
+    pkgs.pigment # extract dominant colors from an image
 
     #########
     # MUSIC #
     #########
     pkgs.frescobaldi # lillypond GUI for writing scores
+    pkgs.powertabeditor # Tab editor for guitar
     #pkgs.fmit # instrument tuner
     pkgs.lingot # instrument tuner
     pkgs.fretboard # guitar chord identifier

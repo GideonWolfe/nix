@@ -3,29 +3,25 @@
 
   inputs = {
 
-    nixpkgs = {
-      #url = "github:NixOS/nixpkgs/nixos-24.11"; 
-      url = "github:NixOS/nixpkgs/nixos-25.05";
-    };
+    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-25.05"; };
 
     home-manager = {
-      #url = "github:nix-community/home-manager/release-24.11";
       url = "github:nix-community/home-manager/release-25.05";
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
 
-    # Hyprpanel
-    # Adding as flake until an official HM module is merged
-    #hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs = { nixpkgs.follows = "nixpkgs"; };
+    };
+
+    # NixOS hardware support for third party hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Theming engine
     stylix = {
-      #url = "github:danth/stylix/release-24.11";
       url = "github:nix-community/stylix/release-25.05";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
+      inputs = { nixpkgs.follows = "nixpkgs"; };
     };
 
     # Spotify theme
@@ -36,7 +32,6 @@
 
     # Configure neovim with Nix!
     nixvim = {
-      #url = "github:nix-community/nixvim/nixos-24.11";
       url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -44,6 +39,12 @@
     # Secret Management
     sops-nix = {
       url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Deployment tool
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -57,26 +58,83 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, nixvim
-    , sops-nix, xyosc, dsd-fme, nix-ai-tools, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, stylix, spicetify-nix
+    , nixvim, sops-nix, deploy-rs, xyosc, dsd-fme, nix-ai-tools, disko, ...
+    }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+
+      # Import world configuration data for use in flake
+      worldData = import ./configs/modules/world-data.nix;
     in {
 
       # Definitions for individual hosts
       nixosConfigurations = {
 
-        # Original testing VM
-        hermes = lib.nixosSystem {
-          inherit system;
+
+        alpha = lib.nixosSystem {
+          system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
+            ./configs/hosts/rack/alpha/configuration.nix
+            ./configs/hosts/rack/alpha/disko.nix
+
             stylix.nixosModules.stylix
-            ./configs/hosts/hermes/configuration.nix
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-backup";
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.gideon.imports = [
+                ./configs/users/gideon/light-home.nix
+                ./configs/modules/configs/user/laptop-hyprpanel-layout/laptop-hyprpanel-layout.nix
+              ];
+            }
           ];
         };
+
+
+
+
+        do-vps-test = lib.nixosSystem {
+          #inherit system;
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            disko.nixosModules.disko
+            #sops-nix.nixosModules.sops
+            ./configs/modules/world.nix
+            ./configs/hosts/do-vps-test/disko.nix
+            # Changes through here will be applied during install AND colmena apply
+            ./configs/hosts/do-vps-test/configuration.nix
+          ];
+        };
+
+        # Original testing VM
+        # hermes = lib.nixosSystem {
+        #   inherit system;
+        #   specialArgs = { inherit inputs; };
+        #   modules = [
+        #     stylix.nixosModules.stylix
+        #     ./configs/hosts/hermes/configuration.nix
+        #   ];
+        # };
+
+        uconsole = lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            nixos-hardware.nixosModules.raspberry-pi-4
+            ./configs/hosts/uconsole/configuration.nix
+          ];
+        };
+        # Convenience attribute to build the SD image
+        images.uconsole =
+          self.nixosConfigurations.uconsole.config.system.build.sdImage;
 
         # Thinkpad T490
         poseidon = lib.nixosSystem {
@@ -107,6 +165,7 @@
           modules = [
             stylix.nixosModules.stylix
             sops-nix.nixosModules.sops
+            ./configs/modules/world.nix
             ./configs/hosts/hades/configuration.nix
 
             # TESTING HM MODULE
@@ -164,6 +223,35 @@
           ];
         };
       };
+
+      # Deploy-rs configuration
+      deploy.nodes.do-vps-test = {
+        hostname = worldData.hosts.monitor.ip;
+        fastConnection = false;
+        profiles.system = {
+          sshUser = "root";
+          sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" ];
+          path = deploy-rs.lib.x86_64-linux.activate.nixos
+            self.nixosConfigurations.do-vps-test;
+          user = "root";
+        };
+      };
+
+      deploy.nodes.alpha = {
+        hostname = "192.168.0.163";
+        fastConnection = true;
+        profiles.system = {
+          sshUser = "gideon";
+          sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" "-p" "2736" ];
+          path = deploy-rs.lib.x86_64-linux.activate.nixos
+            self.nixosConfigurations.alpha;
+          user = "gideon";
+        };
+      };
+
+      # This is highly advised, and will prevent many possible mistakes
+      checks = builtins.mapAttrs
+        (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 
 }

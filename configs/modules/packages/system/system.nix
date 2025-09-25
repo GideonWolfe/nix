@@ -29,6 +29,10 @@
     nix-tree # browse dependencies of nix store
     nix-output-monitor # adds visuals to build outputs
 
+    nixos-anywhere # install Nix on fresh machines
+    colmena
+    deploy-rs # just to make the binary available, can still use nix run and the flake URL
+
     # backup CLI
     restic
 

@@ -146,10 +146,12 @@ in {
     pkgs.tgpt # LLM CLI
     pkgs.lmstudio # LLM GUI
     inputs.nix-ai-tools.packages.${pkgs.system}.crush
-    pkgs.open-interpreter #BUG: crashing
+    pkgs.open-interpreter # BUG: crashing
     pkgs.cherry-studio
     pkgs.open-webui
     pkgs.aichat
+    #pkgs.alpaca # GTK LLM GUI
+    (pkgs.alpaca.override { ollama = pkgs.ollama-rocm; })
 
     # Dashboards
     pkgs.wtfutil
