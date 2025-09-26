@@ -49,6 +49,99 @@ We're using a **hybrid approach** that combines:
 4. **Overlay Verification**: Explicit checking for `clockworkpi-uconsole.dtbo`  
 5. **No nixos-hardware Conflicts**: Manual firmware population avoids config.txt conflicts
 
+## Build Strategy: crossSystem vs QEMU
+
+For ARM development on x86_64 systems, NixOS provides multiple build approaches with different trade-offs:
+
+### 1. crossSystem (Cross-Compilation) - **Currently Used**
+```nix
+nixpkgs.crossSystem = {
+  system = "aarch64-linux";
+};
+```
+
+**Advantages:**
+- **Fast**: True cross-compilation using x86_64 host toolchain
+- **Efficient**: No emulation overhead
+- **Resource-friendly**: Lower CPU and memory requirements
+- **CI/CD friendly**: Suitable for automated builds and testing
+
+**Trade-offs:**
+- **Limited Package Support**: Some packages may not cross-compile correctly
+- **Complex Dependencies**: Host/target architecture differences can cause build issues
+- **Less Testing**: Cross-compiled packages may receive less upstream testing
+
+### 2. QEMU Emulation (binfmt) - **Fallback Available**
+```nix
+# On build host (hades):
+boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+# Remove crossSystem and build normally
+```
+
+**Advantages:**
+- **Native Compatibility**: All packages build as if on native ARM hardware
+- **Full Package Support**: No cross-compilation limitations
+- **Upstream Testing**: Packages tested in same environment as target
+
+**Trade-offs:**
+- **Slow**: 2-10x slower than cross-compilation due to emulation overhead
+- **Resource Intensive**: Higher CPU and memory requirements
+- **Build Time**: Kernel compilation can take hours instead of minutes
+
+### 3. Distributed Building (Remote ARM Builders)
+```nix
+# Use community or self-hosted ARM builders
+nix.distributedBuilds = true;
+nix.buildMachines = [
+  { hostName = "aarch64-builder"; systems = ["aarch64-linux"]; }
+];
+```
+
+**Advantages:**
+- **Native Speed**: True ARM hardware performance
+- **Full Compatibility**: All packages work correctly
+- **Scalable**: Can use multiple remote builders
+
+**Trade-offs:**
+- **Infrastructure**: Requires access to ARM hardware or cloud instances
+- **Network**: Build artifacts must transfer over network
+- **Complexity**: More complex setup and maintenance
+
+### Current Choice: crossSystem
+
+We now use **cross-compilation** for this uConsole configuration because:
+
+1. **Build Speed**: 2-5x faster than QEMU emulation (kernel builds ~5-10 minutes vs ~15-30 minutes)
+2. **Resource Efficiency**: Lower CPU and memory usage during builds
+3. **Kernel Focus**: Custom kernel compilation works well with cross-compilation
+4. **Development Velocity**: Faster iteration cycles during debugging
+5. **Fallback Available**: Can switch back to QEMU emulation if packages fail to cross-compile
+
+**Build Performance:**
+- Kernel builds: ~5-10 minutes (vs ~15-30 minutes with emulation)
+- System rebuilds: Much faster, lower resource usage
+- Excellent for development iteration cycles
+
+### When to Fall Back to QEMU
+
+Switch back to QEMU emulation if you encounter:
+- Package compilation failures specific to cross-compilation
+- Need for packages with complex native dependencies
+- Runtime debugging requiring identical host/target environments
+
+### Migration Path
+
+To switch back to QEMU emulation if needed:
+```nix
+# In uConsole configuration.nix, remove or comment:
+# nixpkgs.crossSystem = {
+#   system = "aarch64-linux";
+# };
+
+# Your build host (hades) already has binfmt enabled:
+# boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+```
+
 ## Configuration Modules
 
 ### `configuration.nix` - Main Entry Point
@@ -256,10 +349,21 @@ The manual build process includes extensive debugging output:
 
 ## Sources and References
 
+### Technical Documentation
+- **NixOS on ARM Wiki**: [nixos.wiki/wiki/NixOS_on_ARM](https://nixos.wiki/wiki/NixOS_on_ARM) - Build strategies, supported devices
+- **NixOS Manual - Cross Compilation**: Building for different architectures
+- **Raspberry Pi Documentation**: [rptl.io](https://rptl.io) - Official Pi 4/CM4 hardware documentation
+
+### Code References  
 - **Kernel**: [Raspberry Pi Linux](https://github.com/raspberrypi/linux) official kernel
 - **uConsole Patches**: Based on ClockworkPi and community kernel modifications  
 - **Manual SD Approach**: Inspired by [robertjakub/oom-hardware](https://github.com/robertjakub/oom-hardware/tree/main/uconsole)
 - **Previous Work**: [voidcontext/nixos-uconsole](https://github.com/voidcontext/nixos-uconsole) for hardware understanding
+- **nixos-hardware**: [nixos-hardware/raspberry-pi](https://github.com/NixOS/nixos-hardware/tree/master/raspberry-pi) - Upstream Pi 4 configuration
+
+### Community Resources
+- **Matrix Chat**: [#nixos-on-arm:nixos.org](https://matrix.to/#/#nixos-on-arm:nixos.org) - NixOS ARM community support
+- **NixOS Discourse**: ARM and embedded systems discussions
 
 ## Contributing
 

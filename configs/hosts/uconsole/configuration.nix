@@ -21,6 +21,11 @@ in {
     ./hardware-configuration.nix
   ];
 
+  # Cross-compile for ARM64 for faster builds
+  nixpkgs.crossSystem = {
+    system = "aarch64-linux";
+  };
+
   # HACK: fix the bug with missing firmware
   nixpkgs.overlays = [ overlay ];
 }
