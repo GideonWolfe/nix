@@ -10,6 +10,8 @@ in {
   imports = [
     # Hardware configuration for Raspberry Pi
     "${modulesPath}/profiles/base.nix"
+    # Temporarily disabled for manual control
+    # inputs.nixos-hardware.nixosModules.raspberry-pi-4
 
     # Rex Kernel # 
     ./kernels/rex/kernel.nix

@@ -8,14 +8,29 @@
     # Enable device tree support
     deviceTree.enable = true;
 
-    # Enable Raspberry Pi specific hardware with uConsole optimizations
-    raspberry-pi."4" = {
-      apply-overlays-dtmerge.enable = true;
-      fkms-3d.enable = true;
-      dwc2.enable = true;
-      dwc2.dr_mode = "host";
-      #audio.enable = true;  # Enable later when working
-    };
+    # Raspberry Pi hardware configuration temporarily disabled for manual control
+    # raspberry-pi."4" = {
+    #   apply-overlays-dtmerge.enable = true;
+    #   fkms-3d.enable = true;
+    #   dwc2.enable = true;
+    #   dwc2.dr_mode = "host";
+    #   #audio.enable = true;  # Enable later when working
+    #   
+    #   # Add uConsole-specific overlays via nixos-hardware
+    #   # This will be added to config.txt automatically
+    #   config.txt = ''
+    #     # uConsole specific overlays
+    #     dtoverlay=clockworkpi-uconsole
+    #     
+    #     # uConsole hardware config
+    #     ignore_lcd=1
+    #     disable_fw_kms_setup=1
+    #     disable_audio_dither=1
+    #     pwm_sample_bits=20
+    #     gpio=10=ip,np
+    #     dtparam=ant2
+    #   '';
+    # };
 
     # Enable I2C for various uConsole components
     i2c.enable = true;
