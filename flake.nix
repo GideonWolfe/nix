@@ -143,6 +143,16 @@
           ];
         };
 
+        # Role-based configuration test for sisyphus
+        sisyphus-roles = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
+            ./configs/hosts/sisyphus/configuration-roles.nix
+          ];
+        };
+
         # Thinkpad T490
         poseidon = lib.nixosSystem {
           inherit system;
@@ -216,6 +226,8 @@
       packages.x86_64-linux = {
         # buld with nix build .#sisyphus-vm, run with nix run .#sisyphus-vm
         sisyphus-vm = self.nixosConfigurations.sisyphus.config.system.build.vm;
+        # Role-based sisyphus VM for testing
+        sisyphus-roles-vm = self.nixosConfigurations.sisyphus-roles.config.system.build.vm;
         # buld with nix build .#uconsole-image
         uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
       };
