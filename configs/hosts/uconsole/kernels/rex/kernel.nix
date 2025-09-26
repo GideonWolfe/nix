@@ -95,7 +95,5 @@
     # Disable Plymouth for cleaner boot process
     plymouth.enable = false;
   };
-  # Firmware is handled by nixos-hardware raspberry-pi-4 module
-  # which sets hardware.enableRedistributableFirmware = true
   systemd.services."serial-getty@ttyS0".enable = false;
 }

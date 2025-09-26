@@ -4,12 +4,19 @@ This directory contains a NixOS configuration for the ClockworkPi uConsole, a ha
 
 ## Current Status (September 2025)
 
-**⚠️ Work in Progress**: This configuration is actively being developed. We're currently using a **manual SD image generation approach** to debug and resolve overlay loading issues.
+**✅ Active Development**: This configuration now includes **essential Raspberry Pi 4 hardware support** while maintaining **manual SD image generation** for complete control and debugging.
+
+**Current Approach:**
+- **Manual SD image generation** with step-by-step firmware population
+- **Critical Pi 4 hardware support** restored (USB, GPU, PCIe, device tree)
+- **Custom uConsole kernel** with device tree overlays
+- **Full debugging visibility** into build and boot process
 
 **Key Issues Being Resolved:**
-- Device tree overlay loading for custom hardware
-- USB and hardware peripheral functionality  
-- Firmware population and boot partition setup
+- ✅ Essential Pi 4 hardware functionality (USB, GPU, firmware)
+- 🚧 Device tree overlay loading for custom uConsole hardware
+- 🚧 Hardware peripheral detection and functionality
+- 🚧 Display, audio, and power management integration
 
 ## Architecture Overview
 
@@ -28,16 +35,19 @@ configs/hosts/uconsole/
         └── clockworkpi-kernel-renamed-overlay.patch
 ```
 
-## Current Approach: Manual SD Image Generation
+## Current Approach: Hybrid Manual + Essential Hardware Support
 
-We're using a **manual, step-by-step SD image generation approach** (inspired by [robertjakub/oom-hardware](https://github.com/robertjakub/oom-hardware)) rather than relying on nixos-hardware modules. This gives us complete control and visibility into the build process.
+We're using a **hybrid approach** that combines:
+1. **Essential Pi 4 hardware support** from nixos-hardware (USB, GPU, firmware, device tree)
+2. **Manual SD image generation** for complete firmware control and debugging visibility
 
-### Why Manual Control?
+### Why This Hybrid Approach?
 
-1. **Debugging**: Each step is logged and can be inspected
-2. **Overlay Verification**: Explicit checking for `clockworkpi-uconsole.dtbo`  
-3. **Firmware Control**: Manual copying of all firmware components
-4. **No Module Conflicts**: Avoids conflicts between nixos-hardware and custom config
+1. **Critical Hardware Support**: Ensures USB, GPU, PCIe, and other Pi 4 essentials work
+2. **Manual Firmware Control**: Complete visibility and control over SD image generation
+3. **Debugging**: Each step is logged and can be inspected
+4. **Overlay Verification**: Explicit checking for `clockworkpi-uconsole.dtbo`  
+5. **No nixos-hardware Conflicts**: Manual firmware population avoids config.txt conflicts
 
 ## Configuration Modules
 
@@ -45,14 +55,36 @@ We're using a **manual, step-by-step SD image generation approach** (inspired by
 
 **Current State:**
 - Imports Rex kernel configuration (`./kernels/rex/`)
-- nixos-hardware Raspberry Pi module **temporarily disabled** for manual control
+- nixos-hardware Raspberry Pi module **temporarily disabled** for manual SD image control
+- Essential Pi 4 hardware support manually configured in individual modules
 - Includes overlay fix for missing firmware issues
+
+### `hardware.nix` - Hardware Configuration
+
+**Current State:**
+- **Essential Pi 4 Support**: Critical hardware functionality restored
+  - Device tree filtering: `bcm2711-rpi-*.dtb` (ensures correct Pi 4/CM4 device tree)
+  - Redistributable firmware: WiFi/Bluetooth firmware support
+  - I2C and Bluetooth enabled for uConsole peripherals
+- **nixos-hardware raspberry-pi."4" section disabled** to avoid SD image conflicts
+- Power management with upower and battery monitoring
 
 ### `kernels/rex/kernel.nix` - Custom Kernel with uConsole Support
 
 **Kernel Version:** 6.12.48 (Raspberry Pi official kernel)
 - **Source**: `raspberrypi/linux` commit `99972b2fa5395542e7c24e4d894be5ede383055f`  
 - **Key Patch**: `clockworkpi-kernel-renamed-overlay.patch` - Adds device tree overlay support
+
+**Critical Pi 4 Boot Support:**
+```nix
+initrd.availableKernelModules = [
+  "usbhid"             # USB input devices  
+  "usb_storage"        # USB storage
+  "vc4"                # VideoCore GPU driver
+  "pcie_brcmstb"       # PCIe bus (essential for peripherals)
+  "reset-raspberrypi"  # VL805 firmware loading
+];
+```
 
 **Hardware Drivers Enabled:**
 - `DRM_PANEL_CWU50` - Display panel driver
@@ -84,6 +116,15 @@ initrd.kernelModules = [
 5. **Install custom config.txt** with uConsole hardware settings
 6. **Install bootloader configuration** (extlinux.conf)
 7. **Verify all components** with detailed logging
+
+**Critical Pi 4 Boot Configuration:**
+```nix
+boot = {
+  loader.generic-extlinux-compatible.enable = true;
+  # Critical: Disable TPM2 (Pi 4 doesn't have TPM2 hardware)
+  initrd.systemd.tpm2.enable = false;
+};
+```
 
 **Key config.txt Settings:**
 ```ini
@@ -119,12 +160,25 @@ dtparam=ant2=on
 - **raspberry-pi."4" configuration temporarily disabled** for manual control
 - Power management with upower and battery monitoring
 
+### `hardware.nix` - Hardware Configuration
+
+**Current State:**
+- **Essential Pi 4 Support**: Critical hardware functionality restored
+  - Device tree filtering: `bcm2711-rpi-*.dtb` (ensures correct Pi 4/CM4 device tree)
+  - Redistributable firmware: WiFi/Bluetooth firmware support
+  - I2C and Bluetooth enabled for uConsole peripherals
+- **nixos-hardware raspberry-pi."4" section disabled** to avoid SD image conflicts
+- Power management with upower and battery monitoring
+
 **Active Configuration:**
 ```nix
 hardware = {
-  enableRedistributableFirmware = true;
-  deviceTree.enable = true;
-  i2c.enable = true;
+  enableRedistributableFirmware = true;  # WiFi/Bluetooth firmware
+  deviceTree = {
+    enable = true;
+    filter = "bcm2711-rpi-*.dtb";        # Pi 4/CM4 device tree selection
+  };
+  i2c.enable = true;                     # uConsole I2C peripherals
   bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -141,6 +195,22 @@ hardware = {
 
 **User Setup:**
 - Default user: `uconsole` with hardware access groups
+
+## Hardware Support Status
+
+- ✅ **Custom Kernel**: 6.12.48 Raspberry Pi kernel with uConsole patches applied
+- ✅ **Critical Pi 4 Support**: USB, GPU, PCIe, device tree, firmware all configured
+- ✅ **Device Tree Overlay**: `clockworkpi-uconsole.dtbo` builds successfully (6206 bytes)
+- ✅ **Manual SD Image**: Step-by-step firmware population with full control
+- ✅ **Boot Configuration**: TPM2 disabled, extlinux configured for Pi 4
+- ✅ **Serial Console**: UART debugging available
+- ✅ **Networking**: WiFi via NetworkManager with proper firmware support
+- ✅ **Hardware Drivers**: Display, backlight, PMU drivers compiled and available
+- 🚧 **Hardware Detection**: Testing overlay loading and peripheral detection
+- 🚧 **USB Functionality**: Verifying USB host mode and device detection  
+- ⏳ **Display Output**: Pending successful boot and hardware initialization
+- ⏳ **Audio**: Pending overlay loading and hardware setup
+- ⏳ **Power Management**: Pending AXP PMU detection and battery monitoring
 
 ## Current Development Focus
 
