@@ -1,6 +1,10 @@
 configs/users/*/configs/ssh/keys/*
 *.css
 
+# Nix build artifacts
+result
+result-*
+
 #*.png
 #*.jpg
 #*.jpeg
