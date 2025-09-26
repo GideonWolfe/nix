@@ -125,6 +125,18 @@ with config.lib.stylix.colors.withHashtag;
           "deploy -s -- /home/${config.home.username}/nix/.#do-vps-test --log-format internal-json -v 2>&1 | nom --json";
       };
 
+      vm-build = {
+        body =
+          "nix build /home/${config.home.username}/nix/.#sisyphus-vm --log-format internal-json -v 2>&1 | nom --json";
+      };
+      vm-run = {
+        body = "mkdir -p ~/.local/share/nixos-vms/sisyphus && cd ~/.local/share/nixos-vms/sisyphus && nix run /home/${config.home.username}/nix/.#sisyphus-vm";
+      };
+
+      vm-temp-run = {
+        body = "cd (mktemp -d) && nix run /home/${config.home.username}/nix/.#sisyphus-vm";
+      };
+
       # Better Youtube-dl opts
       ytdl = {
         body = ''

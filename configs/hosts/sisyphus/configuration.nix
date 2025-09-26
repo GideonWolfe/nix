@@ -21,6 +21,11 @@
     graphics = true;
     # Disk size for the VM
     diskSize = 8192; # 8GB
+    # Store VM disk in a specific location instead of current directory
+    writableStore = false; # Makes /nix/store read-only
+    # You can also set a specific path for the disk image
+    # Note: The qcow2 file will still be created in the working directory
+    # but you can work around this with the methods above
   };
 
   # Basic system packages for testing
@@ -31,6 +36,7 @@
     wget
     htop
     tree
+    neovim
   ];
 
   # Enable SSH for remote access during testing

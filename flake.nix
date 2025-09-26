@@ -132,9 +132,6 @@
             ./configs/hosts/uconsole/configuration.nix
           ];
         };
-        # Convenience attribute to build the SD image
-        images.uconsole =
-          self.nixosConfigurations.uconsole.config.system.build.sdImage;
 
         # Minimal VM for testing configurations
         sisyphus = lib.nixosSystem {
@@ -145,9 +142,6 @@
             ./configs/hosts/sisyphus/configuration.nix
           ];
         };
-        # Convenience attribute to build the VM image
-        images.sisyphus =
-          self.nixosConfigurations.sisyphus.config.system.build.vm;
 
         # Thinkpad T490
         poseidon = lib.nixosSystem {
@@ -216,6 +210,14 @@
             }
           ];
         };
+      };
+
+      # Packages for easier access
+      packages.x86_64-linux = {
+        # buld with nix build .#sisyphus-vm, run with nix run .#sisyphus-vm
+        sisyphus-vm = self.nixosConfigurations.sisyphus.config.system.build.vm;
+        # buld with nix build .#uconsole-image
+        uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
       };
 
       # Definitions for individual users
