@@ -1,11 +1,19 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  # Import roles directly - much cleaner!
+  # Import the role system and existing modules
   imports = [
-    ../../modules/roles/desktop.nix
+    ../../modules/role-system.nix
     ../../modules/world.nix
+    # Import your existing dedicated modules
+    ../../modules/configs/system/services/audio/pipewire.nix
   ];
+
+  # Enable roles using options - much cleaner and composable!
+  roles = {
+    desktop = true;     # Enable desktop environment
+    development = true; # Enable development tools
+  };
 
   # Basic system settings
   networking.hostName = "sisyphus";
@@ -19,21 +27,22 @@
   # VM-specific settings
   virtualisation = {
     # Allocate reasonable resources for testing
-    memorySize = 4096; # 4GB RAM for monitoring stack
+    memorySize = 4096; # 4GB RAM
     cores = 2;
     # Enable graphics for GUI testing if needed
     graphics = true;
     # Disk size for the VM
-    diskSize = 12288; # 12GB for monitoring data
+    diskSize = 12288; # 12GB
     # Store VM disk in a specific location instead of current directory
     writableStore = false; # Makes /nix/store read-only
   };
 
-  # Create a test user
+  # Create a test user and add to groups based on enabled roles
   users.users.test = {
     isNormalUser = true;
     initialPassword = "test";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" ] 
+      ++ lib.optional config.roles.development "docker";
   };
 
   # Enable sudo without password for convenience during testing
