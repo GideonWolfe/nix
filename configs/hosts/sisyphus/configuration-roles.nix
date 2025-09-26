@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  # Import the role orchestration system
+  # Import the simple role orchestration system
   imports = [
     ../../modules/roles.nix
     ../../modules/world.nix
@@ -43,11 +43,11 @@
     writableStore = false; # Makes /nix/store read-only
   };
 
-  # Create a test user and add to necessary groups
+  # Create a test user
   users.users.test = {
     isNormalUser = true;
     initialPassword = "test";
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" ];
   };
 
   # Enable sudo without password for convenience during testing
@@ -55,17 +55,6 @@
 
   # Set console keymap
   console.keyMap = "us";
-
-  # Configure monitoring services using world data
-  services.grafana.settings.server = {
-    domain = config.local.world.hosts.monitor.grafana.domain;
-    http_port = config.local.world.hosts.monitor.grafana.port;
-  };
-
-  services.prometheus.listenAddress = "0.0.0.0:${toString config.local.world.hosts.monitor.prometheus.port}";
-
-  # Configure Loki
-  services.loki.configuration.server.http_listen_port = config.local.world.hosts.monitor.loki.port;
 
   # System state version
   system.stateVersion = "25.05";
