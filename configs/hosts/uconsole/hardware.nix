@@ -5,8 +5,11 @@
   hardware = {
     enableRedistributableFirmware = true;
 
-    # Enable device tree support
-    deviceTree.enable = true;
+    # Enable device tree support with proper Pi 4 filtering
+    deviceTree = {
+      enable = true;
+      filter = "bcm2711-rpi-*.dtb";  # Critical: Ensure correct device tree is loaded
+    };
 
     # Raspberry Pi hardware configuration temporarily disabled for manual control
     # raspberry-pi."4" = {

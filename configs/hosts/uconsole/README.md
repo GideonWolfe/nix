@@ -1,364 +1,204 @@
 # uConsole NixOS Configuration
 
-This directory contains a modular NixOS configuration for the ClockworkPi uConsole, a handheld Linux computer based on the Raspberry Pi CM4.
+This directory contains a NixOS configuration for the ClockworkPi uConsole, a handheld Linux computer based on the Raspberry Pi CM4.
 
-## Overview
+## Current Status (September 2025)
 
-The configuration is split into focused modules to separate concerns and improve maintainability. Each module handles a specific aspect of the uConsole hardware or system configuration.
+**⚠️ Work in Progress**: This configuration is actively being developed. We're currently using a **manual SD image generation approach** to debug and resolve overlay loading issues.
 
-### `patches/` - Kernel Patches Directory
+**Key Issues Being Resolved:**
+- Device tree overlay loading for custom hardware
+- USB and hardware peripheral functionality  
+- Firmware population and boot partition setup
 
-Contains the kernel patches required to enable uConsole-specific hardware. These patches add drivers and modify existing drivers to work with the uConsole's custom components.
+## Architecture Overview
 
-**Patch Files:**
+The configuration follows a modular approach with separation of concerns:
 
-1. **`0001-video-backlight-Add-OCP8178-backlight-driver.patch`**
-   - Adds kernel driver for the OCP8178 backlight controller
-   - Enables brightness control for the 5-inch display
+```
+configs/hosts/uconsole/
+├── configuration.nix          # Main entry point, imports all modules
+├── hardware.nix              # Hardware-specific settings (I2C, Bluetooth, etc.)
+├── hardware-configuration.nix # Auto-generated hardware config
+├── system.nix                # System packages, users, networking
+└── kernels/rex/              # Rex kernel configuration
+    ├── kernel.nix            # Custom kernel with uConsole patches
+    ├── boot.nix              # Manual SD image generation
+    └── patches/              # Kernel patches directory
+        └── clockworkpi-kernel-renamed-overlay.patch
+```
 
-2. **`0002-drm-panel-add-clockwork-cwu50.patch`**
-   - Adds DRM panel driver for the Clockwork CWU50 display
-   - Handles DSI communication and panel initialization
+## Current Approach: Manual SD Image Generation
 
-3. **`0003-driver-staging-add-uconsole-simple-amplifier-switch.patch`**
-   - Adds audio amplifier switching driver
-   - Controls audio routing between internal speaker and headphone jack
+We're using a **manual, step-by-step SD image generation approach** (inspired by [robertjakub/oom-hardware](https://github.com/robertjakub/oom-hardware)) rather than relying on nixos-hardware modules. This gives us complete control and visibility into the build process.
 
-4. **`0005-drivers-power-axp20x-customize-PMU.patch`**
-   - Customizes the AXP20x power management driver for uConsole
-   - Improves power management and battery handling
+### Why Manual Control?
 
-5. **`0006-power-axp20x_battery-implement-calibration.patch`**
-   - Implements battery calibration for more accurate charge reporting
-   - Essential for proper battery monitoring
-
-6. **`0007-drm-panel-cwu50-expose-dsi-error-status-to-userspace.patch`**
-   - Exposes DSI error status to userspace for debugging
-   - Helps diagnose display communication issues
-
-**Sources:**
-- All patches sourced from [PotatoMania's uConsole CM3 project](https://github.com/PotatoMania/uconsole-cm3)
-- Originally integrated in [nixos-uconsole](https://github.com/voidcontext/nixos-uconsole)
-- Patches are applied automatically by the kernel module configuration
-
-**Note:** Patch `0004-arm-dts-overlays-add-uconsole.patch` is not used as we implement device tree overlays through NixOS's `hardware.deviceTree` configuration instead.
+1. **Debugging**: Each step is logged and can be inspected
+2. **Overlay Verification**: Explicit checking for `clockworkpi-uconsole.dtbo`  
+3. **Firmware Control**: Manual copying of all firmware components
+4. **No Module Conflicts**: Avoids conflicts between nixos-hardware and custom config
 
 ## Configuration Modules
 
-### `configuration.nix` - Main Configuration Entry Point
+### `configuration.nix` - Main Entry Point
 
-The main configuration file that imports all other modules and sets up the basic NixOS structure.
+**Current State:**
+- Imports Rex kernel configuration (`./kernels/rex/`)
+- nixos-hardware Raspberry Pi module **temporarily disabled** for manual control
+- Includes overlay fix for missing firmware issues
 
-**Key Features:**
-- Imports the SD image generator for ARM64
-- Includes the base profile for minimal system requirements
-- Applies a nixpkgs overlay to fix missing firmware issues
-- Coordinates all uConsole-specific modules
+### `kernels/rex/kernel.nix` - Custom Kernel with uConsole Support
 
-**Sources:**
-- Based on standard NixOS ARM64 SD image configuration
-- Overlay hack from various Raspberry Pi NixOS configurations to handle firmware issues
+**Kernel Version:** 6.12.48 (Raspberry Pi official kernel)
+- **Source**: `raspberrypi/linux` commit `99972b2fa5395542e7c24e4d894be5ede383055f`  
+- **Key Patch**: `clockworkpi-kernel-renamed-overlay.patch` - Adds device tree overlay support
 
-### `kernel.nix` - Kernel Configuration
+**Hardware Drivers Enabled:**
+- `DRM_PANEL_CWU50` - Display panel driver
+- `BACKLIGHT_OCP8178` - Backlight controller  
+- Power management (AXP20x PMU, regulators, ADC)
+- I2C and sensor support
 
-Contains the uConsole-specific kernel configuration with hardware-enabling patches.
+**Boot Modules:**
+```nix
+kernelModules = [
+  "i2c-dev"      # I2C device access
+  "spi-dev"      # SPI device access  
+  "gpio-dev"     # GPIO access
+];
 
-**Key Features:**
-
-- **Custom Kernel Package**: Uses the same 6.1.63 kernel source from the `nixos-uconsole` project
-  - Based on Raspberry Pi's `stable_20231123` kernel tree
-  - Specifically tested to work with uConsole CM4 hardware
-  
-- **Hardware-Enabling Patches**: Applies essential patches for uConsole functionality:
-  - **OCP8178 Backlight Driver**: Controls the display backlight
-  - **Clockwork CWU50 Panel Driver**: Enables the 5-inch display panel
-  - **Simple Amplifier Switch**: Controls audio amplifier switching
-  - **AXP20x PMU Customization**: Power management improvements
-  - **AXP20x Battery Calibration**: Better battery reporting
-  - **CWU50 DSI Error Status**: Display debugging capabilities
-
-- **Kernel Configuration**: Enables all required kernel options for:
-  - Power management (AXP20x drivers, regulators)
-  - Display support (DRM panel drivers)
-  - I2C and SPI communication
-  - Audio amplifier control
-  - ADC support for sensors
-
-- **Boot Modules**: Automatically loads uConsole-specific drivers:
-  - `ocp8178-bl` - Backlight control
-  - `panel-clockwork-cwu50` - Display panel
-  - `simple-amplifier-switch` - Audio switching
-
-**Why This Approach:**
-
-The uConsole requires specific kernel patches that aren't available in mainline Linux. The `nixos-uconsole` project identified a working combination of:
-1. A specific Raspberry Pi kernel version (6.1.63 from late 2023)
-2. Hardware driver patches from the PotatoMania uConsole project
-3. Kernel configuration tailored for the uConsole's custom hardware
-
-This module implements the same proven approach but in a clean, modular fashion.
-
-**Sources:**
-- Kernel version and source from [nixos-uconsole 6.1-potatomania](https://github.com/voidcontext/nixos-uconsole/tree/main/kernels/6.1-potatomania)
-- Hardware patches from [PotatoMania's uConsole CM3 project](https://github.com/PotatoMania/uconsole-cm3)
-- Kernel configuration options from [jhewitt.net/uconsole](https://jhewitt.net/uconsole)
-- Performance tuning based on embedded Linux best practices
-
-### `boot.nix` - Boot and SD Card Configuration
-
-Handles the boot process and SD card image generation for the uConsole.
-
-**Key Features:**
-
-- **Boot Loader**: Uses `generic-extlinux-compatible` for ARM devices
-- **Filesystem Layout**:
-  - Root partition labeled `NIXOS_SD` with ext4 and `noatime` for SSD longevity
-  - Firmware partition labeled `FIRMWARE` with FAT32 for boot files
-  - 1GB swap file for memory-constrained environment
-
-- **SD Image Configuration**:
-  - Custom image naming with NixOS version and architecture
-  - 128MB firmware partition size
-  - Custom `config.txt` with uConsole-specific settings (commented out for basic boot)
-
-**Config.txt Settings** (currently commented for basic boot testing):
-- `arm_64bit=1` - Enable 64-bit mode
-- `enable_uart=1` - Enable UART for debugging
-- `hdmi_force_hotplug=1` - Force HDMI detection for external displays
-- `gpu_mem=128` - Allocate 128MB to GPU
-- uConsole-specific settings for display, audio, and GPIO configuration
-
-**Sources:**
-- SD image configuration from NixOS ARM64 examples
-- Config.txt settings adapted from [ClockworkPi uConsole documentation](https://github.com/clockworkpi/uConsole) and [nixos-uconsole](https://github.com/voidcontext/nixos-uconsole)
-
-### `system.nix` - Basic System Configuration
-
-Contains fundamental system settings, networking, users, and packages.
-
-**Key Configuration:**
-
-- **Networking**: Uses NetworkManager for WiFi and connection management
-- **System Packages**: Essential tools for embedded development and debugging:
-  - Hardware tools: `i2c-tools`, `libraspberrypi`, `raspberrypi-eeprom`
-  - Debugging: `htop`, `lsof`, `lshw`, `usbutils`, `pciutils`
-  - Display tools: `fbset` for framebuffer management
-  - Development: `vim`, `git`, `curl`, `wget`
-
-- **Console Configuration**: 
-  - `kmscon` with hardware rendering for better terminal experience
-  - Terminus font for readability on small screen
-
-- **User Setup**:
-  - Default user `uconsole` with access to hardware groups (`i2c`, `gpio`, `spi`)
-  - Temporary password setup (should be changed in production)
-
-- **Build Optimization**:
-  - Raspberry Pi cachix for faster ARM builds
-  - Binary cache to avoid rebuilding ARM packages
-
-**Sources:**
-- Package selection based on common embedded Linux development needs
-- User group assignments from [nixos-uconsole](https://github.com/voidcontext/nixos-uconsole)
-- Cachix configuration for Raspberry Pi from [nixos-hardware](https://github.com/NixOS/nixos-hardware)
-
-### `hardware.nix` - uConsole Hardware Configuration
-
-Configures Raspberry Pi specific hardware features and uConsole peripherals.
-
-**Key Features:**
-
-- **Raspberry Pi Hardware**:
-  - `fkms-3d.enable` - Fake KMS for 3D acceleration
-  - `dwc2` in host mode for USB functionality
-  - Device tree overlay merging enabled
-
-- **Peripheral Support**:
-  - I2C enabled for PMU, sensors, and other components
-  - Bluetooth with power-on-boot for connectivity
-  - Custom udev rules for GPIO, I2C, and SPI access
-
-- **Power Management**:
-  - `upower` for battery monitoring with uConsole-appropriate thresholds
-  - `tlp` for CPU frequency scaling and battery optimization
-  - Conservative charging thresholds (20%-80%) for battery longevity
-
-- **Future Features** (commented out):
-  - X11 configuration with fbdev/modesetting drivers
-  - i3 window manager setup
-  - Audio support with PipeWire
-
-**Sources:**
-- Hardware configuration from [nixos-hardware Raspberry Pi modules](https://github.com/NixOS/nixos-hardware/tree/master/raspberry-pi)
-- Power management settings adapted from laptop configurations and [nixos-uconsole](https://github.com/voidcontext/nixos-uconsole)
-- udev rules for hardware access from embedded Linux practices
-
-### Device Tree Overlays
-
-The device tree overlays configure the uConsole's custom hardware that differs from a standard Raspberry Pi.
-
-#### `dt-misc.nix` - Miscellaneous Hardware
-
-Configures I2C, SPI, UART, and GPIO for various uConsole components.
-
-**Configuration Details:**
-- **I2C1**: Configured on pins 44/45 for ADC (TI ADC101C at address 0x54)
-- **SPI4**: Configured on pins 6/7 with CS on pin 4 for peripheral communication
-- **UART1**: Configured on pins 14/15 for additional serial communication
-- **GPIO Pin Functions**: Sets up pin multiplexing for the above interfaces
-
-**Sources:**
-- Device tree structure from [clockworkpi-uconsole-overlays](https://github.com/voidcontext/nixos-uconsole/blob/main/kernels/clockworkpi-uconsole-overlays.nix)
-- Pin assignments from ClockworkPi uConsole hardware documentation
-
-#### `dt-display.nix` - Display Panel
-
-Configures the uConsole's 5-inch 1280x720 DSI display.
-
-**Configuration Details:**
-- **DSI1 Interface**: Configures the Display Serial Interface
-- **Panel Definition**: Clockwork CWU50 panel with:
-  - Reset GPIO on pin 8
-  - 90-degree rotation for proper orientation
-  - OCP8178 backlight controller on GPIO 9
-  - Default brightness level 5
-
-**Sources:**
-- Display configuration from [nixos-uconsole](https://github.com/voidcontext/nixos-uconsole)
-- Panel specifications from ClockworkPi hardware documentation
-- Backlight controller settings from uConsole schematics
-
-#### `dt-pmu.nix` - Power Management Unit
-
-Configures the AXP223 Power Management IC for battery and power regulation.
-
-**Configuration Details:**
-- **AXP223 PMIC**: Located at I2C address 0x34 with interrupt on GPIO 2
-- **Voltage Regulators**:
-  - `aldo1` (3.3V) - Audio power supply
-  - `aldo2` (3.3V) - Display power supply
-  - `dldo2/3/4` (3.3V) - Additional 3.3V rails
-- **Battery Management**: Integrated battery monitoring and charging control
-- **AC Power Supply**: USB-C power input detection
-
-**Sources:**
-- PMU configuration from [nixos-uconsole](https://github.com/voidcontext/nixos-uconsole)
-- AXP223 register settings from X-Powers AXP223 datasheet
-- Power supply naming from uConsole schematics
-
-#### `dt-overlays.nix` - Additional Overlays
-
-Includes standard Raspberry Pi overlays needed for graphics and audio.
-
-**Overlays:**
-- **vc4-kms-v3d-pi4**: GPU driver with 384MB CMA allocation
-- **audremap**: Audio routing to pins 12/13 for headphone output
-
-**Sources:**
-- Standard overlays from Raspberry Pi kernel tree
-- CMA allocation tuned for uConsole's display requirements
-
-### `hardware-configuration.nix` - Hardware Detection
-
-Simplified to contain only filesystem and swap configuration after modularization.
-
-**Contents:**
-- Root filesystem on NIXOS_SD label with ext4 and noatime
-- Firmware partition configuration for boot files
-- 1GB swap file definition
-
-**Sources:**
-- Generated by `nixos-generate-config` and manually tuned for SD card optimization
-
-## Usage
-
-### Building the Configuration
-
-```bash
-# Build the SD image with custom kernel
-nix build .#nixosConfigurations.uconsole.config.system.build.sdImage
-
-# Build just the system
-nix build .#nixosConfigurations.uconsole.config.system.build.toplevel
-
-# Build only the custom kernel (for testing)
-nix build .#nixosConfigurations.uconsole.config.boot.kernelPackages.kernel
+initrd.kernelModules = [
+  "vc4"          # VideoCore GPU
+  "bcm2835_dma"  # DMA controller
+];
 ```
 
-**Important Notes:**
+### `kernels/rex/boot.nix` - Manual SD Image Generation
 
-- **Build Time**: The custom kernel with patches will take significantly longer to build than standard kernels
-- **Cross Compilation**: Consider using a powerful x86_64 machine for kernel compilation
-- **Binary Cache**: The custom kernel likely won't be available in binary caches and must be built from source
-- **Patches**: Ensure all patch files are present in the `patches/` directory before building
+**Manual Firmware Population Process:**
+1. **Create firmware directory** with proper permissions
+2. **Copy Raspberry Pi firmware** (bootcode.bin, start*.elf, fixup*.dat)
+3. **Copy U-Boot** (`u-boot-rpi4.bin`)  
+4. **Copy device tree overlays** (including `clockworkpi-uconsole.dtbo`)
+5. **Install custom config.txt** with uConsole hardware settings
+6. **Install bootloader configuration** (extlinux.conf)
+7. **Verify all components** with detailed logging
 
-### Customization
+**Key config.txt Settings:**
+```ini
+[pi4]
+kernel=u-boot-rpi4.bin
+enable_gic=1
+armstub=armstub8-gic.bin
 
-Each module can be independently modified:
+[all]  
+arm_64bit=1
+enable_uart=1
+ignore_lcd=1
+disable_fw_kms_setup=1
+disable_audio_dither=1
+pwm_sample_bits=20
+gpio=10=ip,np
 
-- **Disable modules**: Comment out imports in `configuration.nix`
-- **Modify kernel**: Edit kernel parameters in `kernel.nix`
-- **Change display settings**: Modify device tree in `dt-display.nix`
-- **Adjust power management**: Update settings in `hardware.nix`
+# Device tree overlays
+dtoverlay=clockworkpi-uconsole
+dtoverlay=dwc2,dr_mode=host  
+dtoverlay=audremap,pins_12_13
+dtoverlay=vc4-kms-v3d,cma-384
 
-### Development Workflow
+# Parameters
+dtparam=audio=on
+dtparam=ant2=on
+```
 
-1. **Basic Boot Testing**: Current configuration prioritizes successful boot
-2. **Hardware Enablement**: Uncomment device tree overlays as needed
-3. **Display Configuration**: Enable X11 settings in `hardware.nix`
-4. **Audio Setup**: Uncomment audio configuration when ready
+### `hardware.nix` - Hardware Configuration
 
-## Hardware Support Status
+**Current State:**
+- Basic hardware support (device tree, I2C, Bluetooth)
+- **raspberry-pi."4" configuration temporarily disabled** for manual control
+- Power management with upower and battery monitoring
 
-- ✅ **Custom Kernel**: 6.1.63-potatomania with uConsole patches applied
-- ✅ **Basic Boot**: Kernel loads and system starts with hardware drivers
-- ✅ **Serial Console**: UART debugging available
-- ✅ **Networking**: WiFi via NetworkManager
-- ✅ **SSH**: Remote access enabled
-- ✅ **Display Drivers**: CWU50 panel driver compiled and available
-- ✅ **Backlight Control**: OCP8178 driver compiled and available
-- ✅ **Power Management**: AXP20x drivers with uConsole customizations
-- ✅ **Battery Monitoring**: Enhanced battery calibration support
-- ✅ **Audio Drivers**: Simple amplifier switch driver available
-- 🚧 **Display Output**: Hardware configured, testing display activation needed
-- 🚧 **Backlight**: Driver available, testing brightness control needed
-- 🚧 **Battery**: PMU configured, verifying charge reporting needed
-- ⏳ **Audio Output**: Hardware drivers ready, audio stack configuration pending
-- ⏳ **Keyboard**: Input device configuration pending
-- ⏳ **Trackball**: Input device configuration pending
+**Active Configuration:**
+```nix
+hardware = {
+  enableRedistributableFirmware = true;
+  deviceTree.enable = true;
+  i2c.enable = true;
+  bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+};
+```
 
-## Troubleshooting
+### `system.nix` - System Configuration  
 
-### Common Issues
+**Essential uConsole Packages:**
+- **Hardware Tools**: `i2c-tools`, `libraspberrypi`, `raspberrypi-eeprom`
+- **Debugging**: `usbutils`, `pciutils`, `lshw`, `htop`
+- **Development**: `vim`, `git`, `curl`, `screen`, `tmux`
 
-1. **Boot Fails**: Check kernel parameters in `kernel.nix`
-2. **No Display**: Verify device tree overlays in `dt-*.nix` files
-3. **Hardware Not Detected**: Check udev rules in `hardware.nix`
-4. **Performance Issues**: Adjust CMA allocation and swappiness settings
+**User Setup:**
+- Default user: `uconsole` with hardware access groups
 
-### Debug Resources
+## Current Development Focus
 
-- **Serial Console**: Connect to GPIO 14/15 at 115200 baud
-- **SSH Access**: Default IP via NetworkManager
-- **Logs**: `journalctl -f` for real-time system logs
-- **Hardware Info**: `lshw`, `lsusb`, `i2cdetect` for hardware detection
+### 1. Device Tree Overlay Loading
+- **Issue**: Ensuring `clockworkpi-uconsole.dtbo` is built and loaded
+- **Status**: ✅ Overlay is being built successfully (6206 bytes)
+- **Next**: Verify it loads at boot and enables hardware
 
-## References
+### 2. Firmware Population
+- **Issue**: Manual control over firmware copying vs nixos-hardware conflicts  
+- **Status**: ✅ Manual copying working, permission issues resolved
+- **Approach**: Step-by-step verification with detailed logging
 
-- [nixos-uconsole](https://github.com/voidcontext/nixos-uconsole) - Primary configuration source
-- [ClockworkPi uConsole](https://github.com/clockworkpi/uConsole) - Official hardware documentation and schematics
-- [NixOS Hardware](https://github.com/NixOS/nixos-hardware) - Raspberry Pi configurations
-- [Raspberry Pi Documentation](https://www.raspberrypi.org/documentation/) - Hardware reference
-- [uConsole Wiki](https://github.com/clockworkpi/uConsole/wiki) - Community documentation and guides
+### 3. Hardware Functionality
+- **Target**: USB, audio, display, power management working
+- **Blocker**: Device tree overlay must load properly
+- **Testing**: Boot on hardware and verify peripheral detection
+
+## Building the SD Image
+
+```bash
+cd /home/gideon/nix
+nix build .#nixosConfigurations.uconsole-rex.config.system.build.sdImage
+```
+
+The build process will show detailed step-by-step output for each firmware population phase.
+
+## Debugging Output
+
+The manual build process includes extensive debugging output:
+- ✅ Firmware file copying verification  
+- ✅ U-Boot installation confirmation
+- ✅ Device tree overlay presence checking
+- ✅ Config.txt content validation
+- ✅ Final directory structure listing
+
+## Next Steps
+
+1. **Test Hardware Boot**: Flash SD image and boot on actual uConsole hardware
+2. **Verify Overlays**: Confirm device tree overlays load and hardware is detected  
+3. **Enable Features**: Gradually re-enable display, audio, and other features
+4. **Re-enable nixos-hardware**: Once working, optionally switch back to nixos-hardware approach
+
+## Sources and References
+
+- **Kernel**: [Raspberry Pi Linux](https://github.com/raspberrypi/linux) official kernel
+- **uConsole Patches**: Based on ClockworkPi and community kernel modifications  
+- **Manual SD Approach**: Inspired by [robertjakub/oom-hardware](https://github.com/robertjakub/oom-hardware/tree/main/uconsole)
+- **Previous Work**: [voidcontext/nixos-uconsole](https://github.com/voidcontext/nixos-uconsole) for hardware understanding
 
 ## Contributing
 
 When modifying this configuration:
 
-1. Test changes incrementally
-2. Document the source of any new settings
-3. Update this README with significant changes
-4. Consider backward compatibility for existing installations
+1. Test changes incrementally on actual hardware
+2. Document any new kernel patches or hardware findings
+3. Update this README with configuration changes
+4. Use the manual SD image approach for debugging new features
 
 ## License
 

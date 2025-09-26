@@ -7,11 +7,16 @@
   ];
 
   # Boot configuration for Raspberry Pi CM4 with U-Boot
-  boot.loader = {
-    # Use generic extlinux - U-Boot will read extlinux.conf
-    generic-extlinux-compatible.enable = true;
-    grub.enable = false;
-    timeout = 5;
+  boot = {
+    loader = {
+      # Use generic extlinux - U-Boot will read extlinux.conf
+      generic-extlinux-compatible.enable = true;
+      grub.enable = false;
+      timeout = 5;
+    };
+
+    # Critical: Disable systemd in initrd to match nixos-hardware approach
+    initrd.systemd.tpm2.enable = false;
   };
 
   # File systems configuration for SD card
