@@ -136,6 +136,19 @@
         images.uconsole =
           self.nixosConfigurations.uconsole.config.system.build.sdImage;
 
+        # Minimal VM for testing configurations
+        sisyphus = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
+            ./configs/hosts/sisyphus/configuration.nix
+          ];
+        };
+        # Convenience attribute to build the VM image
+        images.sisyphus =
+          self.nixosConfigurations.sisyphus.config.system.build.vm;
+
         # Thinkpad T490
         poseidon = lib.nixosSystem {
           inherit system;
