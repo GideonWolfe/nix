@@ -1,25 +1,11 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  # Import the simple role orchestration system
+  # Import roles directly - much cleaner!
   imports = [
-    ../../modules/roles.nix
+    ../../modules/roles/desktop.nix
     ../../modules/world.nix
   ];
-
-  # Define this host's roles
-  roles = {
-    # Enable server role for basic functionality
-    server = true;
-    # Enable development role for testing development tools
-    development = true;
-    # Enable monitoring role to test the monitoring stack
-    monitoring = true;
-    # Disable desktop role for this test (it's a VM)
-    desktop = false;
-    # Disable gaming role
-    gaming = false;
-  };
 
   # Basic system settings
   networking.hostName = "sisyphus";
