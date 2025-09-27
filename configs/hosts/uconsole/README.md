@@ -88,12 +88,20 @@ The boot configuration is in **diagnostic mode** to identify which firmware and 
 ### `hardware.nix` - Hardware Configuration
 
 **Current State:**
-- **Essential Pi 4 Support**: Critical hardware functionality restored
-  - Device tree filtering: `bcm2711-rpi-*.dtb` (ensures correct Pi 4/CM4 device tree)
-  - Redistributable firmware: WiFi/Bluetooth firmware support
-  - I2C and Bluetooth enabled for uConsole peripherals
-- **nixos-hardware raspberry-pi."4" section disabled** to avoid SD image conflicts
-- Power management with upower and battery monitoring
+- **enableRedistributableFirmware = true**: WiFi/Bluetooth firmware support
+- **Device Tree**: `enable = true`, `filter = "bcm2711-rpi-*.dtb"` (Pi 4/CM4 filtering)
+- **I2C**: `enable = true` for uConsole peripherals
+- **Bluetooth**: `enable = true`, `powerOnBoot = true`
+- **nixos-hardware raspberry-pi."4" section commented out** for manual control
+
+**Services Configured:**
+- **upower**: Battery monitoring with thresholds (10%, 5%, 3%)
+- **tlp**: Power management with AC/battery governor settings
+- **udev rules**: GPIO, I2C, SPI access permissions for regular users
+
+**Disabled Components:**
+- X server configuration (commented out for initial boot testing)
+- Audio configuration (commented out for initial testing)
 
 ### `kernels/rex/kernel.nix` - Custom Kernel with uConsole Support
 
@@ -101,35 +109,58 @@ The boot configuration is in **diagnostic mode** to identify which firmware and 
 - **Source**: `raspberrypi/linux` commit `99972b2fa5395542e7c24e4d894be5ede383055f`  
 - **Key Patch**: `clockworkpi-kernel-renamed-overlay.patch` - Adds device tree overlay support
 
-**Critical Pi 4 Boot Support:**
-```nix
-initrd.availableKernelModules = [
-  "usbhid"             # USB input devices  
-  "usb_storage"        # USB storage
-  "vc4"                # VideoCore GPU driver
-  "pcie_brcmstb"       # PCIe bus (essential for peripherals)
-  "reset-raspberrypi"  # VL805 firmware loading
-];
-```
+**Hardware Drivers (extraStructuredConfig):**
+- `DRM_PANEL_CWU50 = module` - Display panel driver
+- `BACKLIGHT_OCP8178 = module` - Backlight controller
+- AXP20X power management: `INPUT_AXP20X_PEK`, `CHARGER_AXP20X`, `BATTERY_AXP20X`, `AXP20X_POWER`, `MFD_AXP20X`, `MFD_AXP20X_I2C`, `REGULATOR_AXP20X`, `AXP20X_ADC`
+- Additional: `TI_ADC081C`, `REGMAP_I2C`, `CRYPTO_LIB_ARC4`, `CRC_CCITT`
 
-**Hardware Drivers Enabled:**
-- `DRM_PANEL_CWU50` - Display panel driver
-- `BACKLIGHT_OCP8178` - Backlight controller  
-- Power management (AXP20x PMU, regulators, ADC)
-- I2C and sensor support
-
-**Boot Modules:**
+**Kernel Configuration:**
 ```nix
 kernelModules = [
-  "i2c-dev"      # I2C device access
-  "spi-dev"      # SPI device access  
-  "gpio-dev"     # GPIO access
+  "i2c-dev"
+  "spi-bcm2835" 
+  "i2c-bcm2835"
+  "bcm2835_dma"
+  # Display and framebuffer modules
+  "vc4"
+  "v3d"
+  "bcm2835_fb"
+  "fb_sys_fops"
+];
+
+kernelParams = [
+  "console=tty1" # Use the main display console
+  "console=serial0,115200" # Also enable serial for debugging
+  "8250.nr_uarts=1" # UART configuration
+  "cma=128M" # Contiguous Memory Allocator for GPU
+  "elevator=deadline" # I/O scheduler optimized for flash storage
+  "fsck.repair=yes" # Auto-repair filesystem issues
+  "net.ifnames=0" # Predictable network interface names
+  "loglevel=4" # Reduced from 7 for normal operation
+];
+
+initrd.availableKernelModules = [
+  "usbhid" "usb_storage" "vc4" "pcie_brcmstb" "reset-raspberrypi"
 ];
 
 initrd.kernelModules = [
-  "vc4"          # VideoCore GPU
-  "bcm2835_dma"  # DMA controller
+  "ocp8178_bl" # Backlight driver
+  "panel-cwu50" # Display panel driver
+  "axp20x_ac_power" # PMU driver
+  "axp20x_battery" # Battery driver
 ];
+
+# Kernel sysctl settings
+kernel.sysctl = {
+  "vm.swappiness" = 10; # Prefer RAM over swap
+  "vm.dirty_background_ratio" = 5; # Background writeback threshold
+  "vm.dirty_ratio" = 10; # Foreground writeback threshold
+};
+
+# Other settings
+plymouth.enable = false; # Disabled for cleaner boot
+systemd.services."serial-getty@ttyS0".enable = false;
 ```
 
 ### `kernels/rex/boot.nix` - Diagnostic Mode SD Image Generation
@@ -187,50 +218,45 @@ dtparam=audio=on
 dtparam=ant2=on
 ```
 
-### `hardware.nix` - Hardware Configuration
-
-**Current State:**
-- Basic hardware support (device tree, I2C, Bluetooth)
-- **raspberry-pi."4" configuration temporarily disabled** for manual control
-- Power management with upower and battery monitoring
-
-### `hardware.nix` - Hardware Configuration
-
-**Current State:**
-- **Essential Pi 4 Support**: Critical hardware functionality restored
-  - Device tree filtering: `bcm2711-rpi-*.dtb` (ensures correct Pi 4/CM4 device tree)
-  - Redistributable firmware: WiFi/Bluetooth firmware support
-  - I2C and Bluetooth enabled for uConsole peripherals
-- **nixos-hardware raspberry-pi."4" section disabled** to avoid SD image conflicts
-- Power management with upower and battery monitoring
-
-**Active Configuration:**
-```nix
-hardware = {
-  enableRedistributableFirmware = true;  # WiFi/Bluetooth firmware
-  deviceTree = {
-    enable = true;
-    filter = "bcm2711-rpi-*.dtb";        # Pi 4/CM4 device tree selection
-  };
-  i2c.enable = true;                     # uConsole I2C peripherals
-  bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-};
-```
-
 ### `system.nix` - System Configuration  
 
-**Essential uConsole Packages:**
-- **Hardware Tools**: `i2c-tools`, `libraspberrypi`, `raspberrypi-eeprom`
-- **Debugging**: `usbutils`, `pciutils`, `lshw`, `htop`
-- **Development**: `vim`, `git`, `curl`, `screen`, `tmux`
+**Basic Configuration:**
+- `networking.hostName = "uconsole"`
+- `networking.networkmanager.enable = true`
 
-**User Setup:**
-- Default hostname: `uconsole`
-- NetworkManager enabled for easier network management
-- Console tools: `fbset`, `kmscon` for framebuffer support
+**Essential Packages:**
+- **Basic tools**: `vim`, `git`, `htop`, `neofetch`
+- **Hardware tools**: `i2c-tools`, `libraspberrypi`, `raspberrypi-eeprom`
+- **USB/PCI debugging**: `usbutils`, `pciutils`, `lshw`
+- **Development**: `file`, `lsof`, `tree`, `wget`, `curl`, `screen`, `tmux`
+- **Display**: `fbset` (framebuffer tools)
+- **Disk tools**: `rpi-imager`, `gptfdisk`
+- **U-Boot**: `ubootRaspberryPi3_64bit`, `ubootRaspberryPi4_64bit`
+
+**Console Configuration:**
+- `console.enable = true`, font: "Lat2-Terminus16"
+- `services.kmscon.enable = true` with hardware rendering
+
+**User Configuration:**
+- User: `uconsole` with initial password "uconsole"
+- Groups: `["wheel", "networkmanager", "video", "audio", "i2c", "gpio", "spi"]`
+- SSH enabled with root login and password auth (for setup)
+
+**Services:**
+- `systemd.services."getty@tty1".enable = true`
+- `systemd.services."getty@tty2".enable = true`
+- Cachix substituters for faster ARM builds
+
+**System State:** `system.stateVersion = "25.05"`
+
+### `hardware-configuration.nix` - Auto-generated Hardware Config
+
+**File Systems:**
+- Root: `/dev/disk/by-label/NIXOS_SD` (ext4, noatime)
+- Firmware: `/dev/disk/by-label/FIRMWARE` (vfat, nofail, noauto)
+
+**Swap:**
+- `/swapfile` (1024 MB)
 
 ## Hardware Support Status
 
