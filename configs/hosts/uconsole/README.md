@@ -49,98 +49,31 @@ We're using a **hybrid approach** that combines:
 4. **Overlay Verification**: Explicit checking for `clockworkpi-uconsole.dtbo`  
 5. **No nixos-hardware Conflicts**: Manual firmware population avoids config.txt conflicts
 
-## Build Strategy: crossSystem vs QEMU
+## Build Strategy: QEMU Emulation
 
-For ARM development on x86_64 systems, NixOS provides multiple build approaches with different trade-offs:
+This configuration uses **QEMU emulation via binfmt** for ARM64 builds on x86_64 systems.
 
-### 1. crossSystem (Cross-Compilation) - **Currently Used**
-```nix
-nixpkgs.crossSystem = {
-  system = "aarch64-linux";
-};
-```
-
-**Advantages:**
-- **Fast**: True cross-compilation using x86_64 host toolchain
-- **Efficient**: No emulation overhead
-- **Resource-friendly**: Lower CPU and memory requirements
-- **CI/CD friendly**: Suitable for automated builds and testing
-
-**Trade-offs:**
-- **Limited Package Support**: Some packages may not cross-compile correctly
-- **Complex Dependencies**: Host/target architecture differences can cause build issues
-- **Less Testing**: Cross-compiled packages may receive less upstream testing
-
-### 2. QEMU Emulation (binfmt) - **Fallback Available**
+### Current Setup:
 ```nix
 # On build host (hades):
 boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-# Remove crossSystem and build normally
+nix.settings.extra-platforms = [ "aarch64-linux" ];
 ```
 
-**Advantages:**
-- **Native Compatibility**: All packages build as if on native ARM hardware
-- **Full Package Support**: No cross-compilation limitations
-- **Upstream Testing**: Packages tested in same environment as target
+### Why QEMU Emulation:
+- **Full Compatibility**: All packages build correctly without cross-compilation issues
+- **Kernel Support**: Complex kernel builds with custom patches work reliably  
+- **No Package Limitations**: Avoids cross-compilation failures for complex dependencies
+- **Upstream Testing**: Packages are tested in the same ARM environment as target
+- **Diagnostic Mode**: Currently running diagnostics to identify missing files
 
-**Trade-offs:**
-- **Slow**: 2-10x slower than cross-compilation due to emulation overhead
-- **Resource Intensive**: Higher CPU and memory requirements
-- **Build Time**: Kernel compilation can take hours instead of minutes
+### Build Performance:
+- **Kernel builds**: ~15-30 minutes (acceptable for development)
+- **System rebuilds**: Slower but reliable
+- **Trade-off**: Prioritizes reliability over speed for complex custom kernel work
 
-### 3. Distributed Building (Remote ARM Builders)
-```nix
-# Use community or self-hosted ARM builders
-nix.distributedBuilds = true;
-nix.buildMachines = [
-  { hostName = "aarch64-builder"; systems = ["aarch64-linux"]; }
-];
-```
-
-**Advantages:**
-- **Native Speed**: True ARM hardware performance
-- **Full Compatibility**: All packages work correctly
-- **Scalable**: Can use multiple remote builders
-
-**Trade-offs:**
-- **Infrastructure**: Requires access to ARM hardware or cloud instances
-- **Network**: Build artifacts must transfer over network
-- **Complexity**: More complex setup and maintenance
-
-### Current Choice: crossSystem
-
-We now use **cross-compilation** for this uConsole configuration because:
-
-1. **Build Speed**: 2-5x faster than QEMU emulation (kernel builds ~5-10 minutes vs ~15-30 minutes)
-2. **Resource Efficiency**: Lower CPU and memory usage during builds
-3. **Kernel Focus**: Custom kernel compilation works well with cross-compilation
-4. **Development Velocity**: Faster iteration cycles during debugging
-5. **Fallback Available**: Can switch back to QEMU emulation if packages fail to cross-compile
-
-**Build Performance:**
-- Kernel builds: ~5-10 minutes (vs ~15-30 minutes with emulation)
-- System rebuilds: Much faster, lower resource usage
-- Excellent for development iteration cycles
-
-### When to Fall Back to QEMU
-
-Switch back to QEMU emulation if you encounter:
-- Package compilation failures specific to cross-compilation
-- Need for packages with complex native dependencies
-- Runtime debugging requiring identical host/target environments
-
-### Migration Path
-
-To switch back to QEMU emulation if needed:
-```nix
-# In uConsole configuration.nix, remove or comment:
-# nixpkgs.crossSystem = {
-#   system = "aarch64-linux";
-# };
-
-# Your build host (hades) already has binfmt enabled:
-# boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-```
+### Current Focus:
+The boot configuration is in **diagnostic mode** to identify which firmware and overlay files are available vs missing, allowing us to create a targeted firmware population strategy.
 
 ## Configuration Modules
 
@@ -150,7 +83,7 @@ To switch back to QEMU emulation if needed:
 - Imports Rex kernel configuration (`./kernels/rex/`)
 - nixos-hardware Raspberry Pi module **temporarily disabled** for manual SD image control
 - Essential Pi 4 hardware support manually configured in individual modules
-- Includes overlay fix for missing firmware issues
+- Includes overlay fix for missing firmware issues (`makeModulesClosure` hack)
 
 ### `hardware.nix` - Hardware Configuration
 
@@ -199,16 +132,18 @@ initrd.kernelModules = [
 ];
 ```
 
-### `kernels/rex/boot.nix` - Manual SD Image Generation
+### `kernels/rex/boot.nix` - Diagnostic Mode SD Image Generation
 
-**Manual Firmware Population Process:**
-1. **Create firmware directory** with proper permissions
-2. **Copy Raspberry Pi firmware** (bootcode.bin, start*.elf, fixup*.dat)
-3. **Copy U-Boot** (`u-boot-rpi4.bin`)  
-4. **Copy device tree overlays** (including `clockworkpi-uconsole.dtbo`)
-5. **Install custom config.txt** with uConsole hardware settings
-6. **Install bootloader configuration** (extlinux.conf)
-7. **Verify all components** with detailed logging
+**Current Mode: DIAGNOSTIC**
+The boot configuration is currently in **diagnostic mode** to identify missing files rather than attempting to copy them. This provides:
+
+**Diagnostic Process:**
+1. **Check Raspberry Pi firmware availability** (start*.elf, fixup*.dat files)
+2. **Verify U-Boot binary location** (`u-boot-rpi4.bin`)
+3. **Scan standard device tree overlays** from raspberrypifw package
+4. **Search custom kernel overlays** (including `clockworkpi-uconsole.dtbo`)
+5. **Report missing vs available files** with detailed logging
+6. **Generate file availability report** for targeted fixes
 
 **Critical Pi 4 Boot Configuration:**
 ```nix
@@ -218,6 +153,12 @@ boot = {
   initrd.systemd.tpm2.enable = false;
 };
 ```
+
+**Diagnostic Benefits:**
+- **No permission errors** - no file copying attempted
+- **Complete visibility** - shows exactly what files exist where
+- **Targeted fixes** - identifies specific missing components
+- **Build success** - diagnostic builds complete without file operation failures
 
 **Key config.txt Settings:**
 ```ini
@@ -287,18 +228,21 @@ hardware = {
 - **Development**: `vim`, `git`, `curl`, `screen`, `tmux`
 
 **User Setup:**
-- Default user: `uconsole` with hardware access groups
+- Default hostname: `uconsole`
+- NetworkManager enabled for easier network management
+- Console tools: `fbset`, `kmscon` for framebuffer support
 
 ## Hardware Support Status
 
 - ✅ **Custom Kernel**: 6.12.48 Raspberry Pi kernel with uConsole patches applied
+- ✅ **QEMU Emulation**: Reliable builds via binfmt with full package compatibility
 - ✅ **Critical Pi 4 Support**: USB, GPU, PCIe, device tree, firmware all configured
-- ✅ **Device Tree Overlay**: `clockworkpi-uconsole.dtbo` builds successfully (6206 bytes)
-- ✅ **Manual SD Image**: Step-by-step firmware population with full control
 - ✅ **Boot Configuration**: TPM2 disabled, extlinux configured for Pi 4
 - ✅ **Serial Console**: UART debugging available
 - ✅ **Networking**: WiFi via NetworkManager with proper firmware support
 - ✅ **Hardware Drivers**: Display, backlight, PMU drivers compiled and available
+- 🔍 **Diagnostic Mode**: Currently identifying available vs missing firmware files
+- 🚧 **Device Tree Overlay**: Verifying `clockworkpi-uconsole.dtbo` availability and loading
 - 🚧 **Hardware Detection**: Testing overlay loading and peripheral detection
 - 🚧 **USB Functionality**: Verifying USB host mode and device detection  
 - ⏳ **Display Output**: Pending successful boot and hardware initialization
@@ -307,45 +251,55 @@ hardware = {
 
 ## Current Development Focus
 
-### 1. Device Tree Overlay Loading
-- **Issue**: Ensuring `clockworkpi-uconsole.dtbo` is built and loaded
-- **Status**: ✅ Overlay is being built successfully (6206 bytes)
-- **Next**: Verify it loads at boot and enables hardware
+### 1. Diagnostic Phase - File Availability Assessment
+- **Current Task**: Running comprehensive diagnostics to identify missing firmware files
+- **Status**: 🔍 Boot configuration in diagnostic mode
+- **Goal**: Generate complete report of available vs missing files
+- **Next**: Use diagnostic results to create targeted file copying strategy
 
-### 2. Firmware Population
-- **Issue**: Manual control over firmware copying vs nixos-hardware conflicts  
-- **Status**: ✅ Manual copying working, permission issues resolved
-- **Approach**: Step-by-step verification with detailed logging
+### 2. Device Tree Overlay Verification  
+- **Issue**: Confirming `clockworkpi-uconsole.dtbo` is built and accessible
+- **Status**: 🚧 Checking kernel overlay build output and location
+- **Dependencies**: Kernel patch must generate ARM64 overlay successfully
+- **Testing**: Diagnostic mode will show exact overlay availability
 
-### 3. Hardware Functionality
-- **Target**: USB, audio, display, power management working
-- **Blocker**: Device tree overlay must load properly
-- **Testing**: Boot on hardware and verify peripheral detection
+### 3. Firmware Population Strategy
+- **Current Approach**: Diagnostic-first to avoid permission and missing file issues
+- **Benefits**: No build failures, complete visibility into available components  
+- **Next Phase**: Convert successful diagnostic results into targeted copying
+- **Goal**: Transition from diagnostic mode to working firmware population
 
-## Building the SD Image
+## Building the SD Image (Diagnostic Mode)
 
 ```bash
 cd /home/gideon/nix
 nix build .#nixosConfigurations.uconsole-rex.config.system.build.sdImage
 ```
 
-The build process will show detailed step-by-step output for each firmware population phase.
+**Current Behavior:**
+- Build completes successfully (no file copying errors)
+- Generates comprehensive firmware availability report  
+- Shows exact file locations and missing components
+- Creates minimal diagnostic config.txt
 
-## Debugging Output
+## Diagnostic Output
 
-The manual build process includes extensive debugging output:
-- ✅ Firmware file copying verification  
-- ✅ U-Boot installation confirmation
-- ✅ Device tree overlay presence checking
-- ✅ Config.txt content validation
-- ✅ Final directory structure listing
+The diagnostic build process provides comprehensive analysis:
+- ✅ **Firmware availability check**: Lists all .elf, .dat, .bin files from raspberrypifw
+- ✅ **U-Boot verification**: Confirms U-Boot binary location and accessibility
+- ✅ **Standard overlays scan**: Counts and lists all standard Pi device tree overlays  
+- ✅ **Custom kernel overlays**: Searches for uConsole-specific overlays in kernel build
+- ✅ **Critical files status**: Reports on essential boot components (start4.elf, etc.)
+- ✅ **Package version info**: Shows firmware, U-Boot, and kernel versions
+- ✅ **Missing file identification**: Clearly identifies what's not found
 
 ## Next Steps
 
-1. **Test Hardware Boot**: Flash SD image and boot on actual uConsole hardware
-2. **Verify Overlays**: Confirm device tree overlays load and hardware is detected  
-3. **Enable Features**: Gradually re-enable display, audio, and other features
-4. **Re-enable nixos-hardware**: Once working, optionally switch back to nixos-hardware approach
+1. **Run Diagnostic Build**: Execute build and analyze firmware availability report
+2. **Identify Missing Files**: Review diagnostic output for missing critical components
+3. **Create Targeted Fixes**: Based on diagnostic results, implement specific file copying
+4. **Test Hardware Boot**: Once firmware population works, test on actual uConsole hardware
+5. **Verify Overlays**: Confirm device tree overlays load and hardware is detected
 
 ## Sources and References
 

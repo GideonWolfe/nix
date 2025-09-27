@@ -94,91 +94,141 @@
         dtparam=ant2
       '';
     in ''
-      echo "=== MANUAL SD IMAGE GENERATION - FULL CONTROL ==="
+      echo "=== DIAGNOSTIC MODE - FILE AVAILABILITY CHECK ==="
       
-      # Step 1: Create firmware directory with proper permissions
-      echo "Step 1: Setting up firmware directory..."
-      mkdir -p ./firmware
-      chmod 755 ./firmware
-      echo "✓ Firmware directory ready"
-      
-      # Step 2: Copy Raspberry Pi firmware files manually FIRST
-      echo "Step 2: Copying Raspberry Pi firmware files..."
-      firmware_src="${pkgs.raspberrypifw}/share/raspberrypi/boot"
-      if [ -d "$firmware_src" ]; then
-        cp -v "$firmware_src"/*.elf ./firmware/ 2>/dev/null || echo "No .elf files found"
-        cp -v "$firmware_src"/*.dat ./firmware/ 2>/dev/null || echo "No .dat files found"
-        cp -v "$firmware_src"/*.bin ./firmware/ 2>/dev/null || echo "No .bin files found"
-        echo "✓ Firmware files copied from $firmware_src"
-      else
-        echo "⚠ WARNING: Firmware source not found at $firmware_src"
-      fi
-      
-      # Step 3: Copy U-Boot files manually
-      echo "Step 3: Copying U-Boot files..."
-      uboot_rpi4="${pkgs.ubootRaspberryPi4_64bit}/u-boot.bin"
-      if [ -f "$uboot_rpi4" ]; then
-        cp -v "$uboot_rpi4" ./firmware/u-boot-rpi4.bin
-        chmod 644 ./firmware/u-boot-rpi4.bin
-        echo "✓ U-Boot copied: $uboot_rpi4"
-      else
-        echo "⚠ WARNING: U-Boot not found at $uboot_rpi4"
-      fi
-      
-      # Step 4: Create overlays directory and copy device tree overlays
-      echo "Step 4: Setting up device tree overlays..."
+      # Step 1: Create firmware directory structure
+      echo "Step 1: Setting up directory structure for diagnostics..."
       mkdir -p ./firmware/overlays
+      chmod 755 ./firmware ./firmware/overlays
+      echo "✓ Directory structure ready"
       
-      # Copy standard overlays from raspberrypifw
-      if [ -d "$firmware_src/../overlays" ]; then
-        cp -v "$firmware_src"/../overlays/*.dtbo ./firmware/overlays/ 2>/dev/null || echo "No standard overlays found"
-        echo "✓ Standard overlays copied"
-      fi
+      # Step 2: Check Raspberry Pi firmware availability
+      echo "Step 2: Checking Raspberry Pi firmware files..."
+      firmware_src="${pkgs.raspberrypifw}/share/raspberrypi/boot"
+      echo "Firmware source path: $firmware_src"
       
-      # Copy custom overlays from our kernel build
-      kernel_overlays="${config.boot.kernelPackages.kernel}/dtbs/overlays"
-      if [ -d "$kernel_overlays" ]; then
-        echo "Copying custom kernel overlays from: $kernel_overlays"
-        cp -v "$kernel_overlays"/*.dtbo ./firmware/overlays/ 2>/dev/null || echo "No custom overlays found"
-        echo "✓ Custom kernel overlays copied"
+      if [ -d "$firmware_src" ]; then
+        echo "✓ Firmware directory exists"
+        echo "Available .elf files:"
+        find "$firmware_src" -name "*.elf" -exec basename {} \; 2>/dev/null | sort || echo "  None found"
+        echo ""
+        echo "Available .dat files:"
+        find "$firmware_src" -name "*.dat" -exec basename {} \; 2>/dev/null | sort || echo "  None found"
+        echo ""
+        echo "Available .bin files:"
+        find "$firmware_src" -name "*.bin" -exec basename {} \; 2>/dev/null | sort || echo "  None found"
+        echo ""
+        echo "Complete firmware directory contents:"
+        ls -la "$firmware_src"
       else
-        echo "⚠ WARNING: No custom overlays directory at $kernel_overlays"
-        echo "Available kernel dtbs structure:"
-        find ${config.boot.kernelPackages.kernel}/dtbs -type d 2>/dev/null || echo "No dtbs directory found"
+        echo "❌ Firmware directory NOT FOUND at $firmware_src"
       fi
       
-      # Step 5: Verify our critical overlay is present
-      echo "Step 5: Verifying critical overlays..."
-      if [ -f "./firmware/overlays/clockworkpi-uconsole.dtbo" ]; then
-        echo "✓ SUCCESS: clockworkpi-uconsole.dtbo found!"
-        ls -la ./firmware/overlays/clockworkpi-uconsole.dtbo
-      else
-        echo "❌ ERROR: clockworkpi-uconsole.dtbo NOT FOUND"
-        echo "Available overlays containing 'clockworkpi' or 'uconsole':"
-        ls -la ./firmware/overlays/ | grep -i -E "(clockworkpi|uconsole)" || echo "None found"
-      fi
-      
-      # Step 6: Install our custom config.txt
-      echo "Step 6: Installing custom config.txt..."
-      cp -v ${configTxt} ./firmware/config.txt
-      chmod 644 ./firmware/config.txt
-      echo "✓ Custom config.txt installed"
-      
-      # Step 7: Install bootloader configuration (LAST to avoid permission issues)
-      echo "Step 7: Installing bootloader configuration..."
-      ${config.system.build.installBootLoader} ${config.system.build.toplevel} -d ./firmware
-      echo "✓ Bootloader configuration installed"
-      
-      # Step 8: Final verification
-      echo "Step 8: Final verification..."
-      echo "Firmware directory contents:"
-      ls -la ./firmware/
+      # Step 3: Check U-Boot availability
       echo ""
-      echo "Overlay count: $(ls ./firmware/overlays/ | wc -l)"
-      echo "Config.txt preview:"
-      head -20 ./firmware/config.txt
+      echo "Step 3: Checking U-Boot files..."
+      uboot_rpi4="${pkgs.ubootRaspberryPi4_64bit}/u-boot.bin"
+      echo "U-Boot path: $uboot_rpi4"
+      if [ -f "$uboot_rpi4" ]; then
+        echo "✓ U-Boot found"
+        ls -la "$uboot_rpi4"
+      else
+        echo "❌ U-Boot NOT FOUND"
+        echo "Checking U-Boot package contents:"
+        find "${pkgs.ubootRaspberryPi4_64bit}" -name "*.bin" 2>/dev/null | head -10 || echo "  No .bin files found"
+      fi
       
-      echo "=== MANUAL SD IMAGE GENERATION COMPLETE ==="
+      # Step 4: Check standard overlay availability  
+      echo ""
+      echo "Step 4: Checking standard device tree overlays..."
+      overlays_src="$firmware_src/../overlays"
+      echo "Standard overlays path: $overlays_src"
+      if [ -d "$overlays_src" ]; then
+        echo "✓ Standard overlays directory exists"
+        overlay_count=$(find "$overlays_src" -name "*.dtbo" | wc -l)
+        echo "Total standard overlays: $overlay_count"
+        echo ""
+        echo "Standard overlays containing 'clockworkpi' or 'uconsole':"
+        find "$overlays_src" -name "*.dtbo" -exec basename {} \; | grep -i -E "(clockworkpi|uconsole)" || echo "  None found"
+        echo ""
+        echo "First 20 standard overlays:"
+        find "$overlays_src" -name "*.dtbo" -exec basename {} \; | sort | head -20
+      else
+        echo "❌ Standard overlays directory NOT FOUND"
+      fi
+      
+      # Step 5: Check custom kernel overlays
+      echo ""
+      echo "Step 5: Checking custom kernel overlays..."
+      kernel_overlays="${config.boot.kernelPackages.kernel}/dtbs/overlays"
+      echo "Kernel overlays path: $kernel_overlays"
+      if [ -d "$kernel_overlays" ]; then
+        echo "✓ Kernel overlays directory exists"
+        custom_overlay_count=$(find "$kernel_overlays" -name "*.dtbo" | wc -l)
+        echo "Total custom overlays: $custom_overlay_count"
+        echo ""
+        echo "Custom overlays:"
+        find "$kernel_overlays" -name "*.dtbo" -exec basename {} \; | sort || echo "  None found"
+        echo ""
+        echo "Custom overlays containing 'clockworkpi' or 'uconsole':"
+        find "$kernel_overlays" -name "*.dtbo" -exec basename {} \; | grep -i -E "(clockworkpi|uconsole)" || echo "  None found"
+      else
+        echo "❌ Kernel overlays directory NOT FOUND"
+        echo "Available kernel dtbs structure:"
+        find "${config.boot.kernelPackages.kernel}/dtbs" -type d 2>/dev/null || echo "  No dtbs directory found"
+        echo ""
+        echo "Looking for overlays anywhere in kernel package:"
+        find "${config.boot.kernelPackages.kernel}" -name "*.dtbo" 2>/dev/null | head -10 || echo "  No .dtbo files found anywhere"
+      fi
+      
+      # Step 6: Check for armstub files
+      echo ""
+      echo "Step 6: Checking for armstub files..."
+      echo "Looking for armstub8-gic.bin in firmware:"
+      find "$firmware_src" -name "armstub*" 2>/dev/null || echo "  No armstub files found"
+      
+      # Step 7: Package version information
+      echo ""
+      echo "Step 7: Package version information..."
+      echo "Raspberry Pi firmware version: ${pkgs.raspberrypifw.version or "unknown"}"
+      echo "U-Boot version: ${pkgs.ubootRaspberryPi4_64bit.version or "unknown"}"
+      echo "Kernel version: ${config.boot.kernelPackages.kernel.version or "unknown"}"
+      
+      # Step 8: Critical files summary
+      echo ""
+      echo "Step 8: Critical files availability summary..."
+      echo "=== REQUIRED FILES STATUS ==="
+      
+      critical_files=(
+        "$firmware_src/start4.elf:Raspberry Pi GPU firmware"
+        "$firmware_src/fixup4.dat:GPU memory split config"  
+        "$uboot_rpi4:U-Boot bootloader"
+        "$overlays_src/vc4-kms-v3d.dtbo:Standard GPU overlay"
+        "$kernel_overlays/clockworkpi-uconsole.dtbo:Custom uConsole overlay"
+      )
+      
+      for file_info in "''${critical_files[@]}"; do
+        file_path="''${file_info%%:*}"
+        description="''${file_info#*:}"
+        if [ -f "$file_path" ]; then
+          echo "✓ FOUND: $description"
+          ls -la "$file_path"
+        else
+          echo "❌ MISSING: $description"
+          echo "   Expected at: $file_path"
+        fi
+      done
+      
+      # Step 9: Create minimal config.txt for now
+      echo ""
+      echo "Step 9: Creating minimal diagnostic config.txt..."
+      echo "# Diagnostic config.txt - files checked but not copied" > ./firmware/config.txt
+      echo "# This build was run in diagnostic mode" >> ./firmware/config.txt
+      echo "✓ Diagnostic config.txt created"
+      
+      echo ""
+      echo "=== DIAGNOSTIC MODE COMPLETE ==="
+      echo "Review the output above to identify missing files"
     '';
 
     # Root partition configuration
