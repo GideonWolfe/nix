@@ -1,0 +1,83 @@
+{ config, lib, pkgs, inputs, ... }:
+
+let 
+  cfg = config.desktop;
+  userModulesDir = ../../../configs/modules/configs/user;
+in {
+  options.desktop = {
+    enable = lib.mkEnableOption "Essential desktop configuration with UI components";
+
+    # Desktop Environment Selection
+    desktopEnvironment = lib.mkOption {
+      type = lib.types.enum [ "hyprland" "sway" "none" ];
+      default = "none";
+      description = "Which desktop environment to enable";
+    };
+
+    # Optional UI Components
+    gestures = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable touchpad gestures (fusuma)";
+    };
+
+    # Users to configure with desktop
+    users = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      description = "List of users to configure with desktop Home Manager modules";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
+    # NixOS system-level configuration
+    services.dbus.enable = true;
+    xdg.portal = {
+      enable = true;
+      wlr.enable = lib.mkIf (cfg.desktopEnvironment == "sway") true;
+      extraPortals = lib.optionals (cfg.desktopEnvironment == "hyprland") [
+        pkgs.xdg-desktop-portal-hyprland
+      ];
+    };
+
+    # Audio support for desktop
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
+    # Configure specified users with desktop Home Manager modules
+    home-manager.users = lib.genAttrs cfg.users (user: {
+      # Set required Home Manager state version
+      home.stateVersion = "25.05";
+      
+      imports = [
+        # Essential desktop modules only - no common.nix
+        "${userModulesDir}/cursor/cursor.nix"
+        "${userModulesDir}/gtk/gtk.nix"
+        "${userModulesDir}/qt/qt.nix"
+        "${userModulesDir}/wofi/wofi.nix"
+        "${userModulesDir}/swappy/swappy.nix"
+        "${userModulesDir}/kando/kando.nix"
+        "${userModulesDir}/clipse/clipse.nix"
+      ] ++ lib.optionals cfg.gestures [
+        "${userModulesDir}/fusuma/fusuma.nix"
+      # Desktop Environment specific modules
+      ] ++ lib.optionals (cfg.desktopEnvironment == "hyprland") [
+        "${userModulesDir}/hypr/hyprland.nix"
+        "${userModulesDir}/hypr/hyprpaper.nix"
+        "${userModulesDir}/hypr/hypridle.nix"
+        "${userModulesDir}/hypr/hyprlock.nix"
+        #"${userModulesDir}/hypr/hyprpanel.nix"
+      ] ++ lib.optionals (cfg.desktopEnvironment == "sway") [
+        "${userModulesDir}/sway/sway.nix"
+        "${userModulesDir}/sway/swaylock.nix"
+        "${userModulesDir}/sway/swayidle.nix"
+        "${userModulesDir}/waybar/waybar.nix"
+      ];
+    });
+  };
+}
