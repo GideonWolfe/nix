@@ -10,11 +10,10 @@
 
   # Import v2modules
   imports = [
-    ../../v2modules/roles/default.nix
-    ../../v2modules/roles/desktop.nix
-    ../../v2modules/roles/theming.nix
-    ../../v2modules/roles/secrets.nix
-    ../../v2modules/roles/ai.nix
+    # Import the global test user definition
+    ../../v2modules/users/test.nix
+    
+    # Roles are now auto-imported from the flake!
   ];
 
   # Enable default system configuration
@@ -29,17 +28,16 @@
 
   # Enable secrets (basic example)
   secrets = {
-    enable = true;
+    enable = false;
     # Example: if you had a secrets file at ../../secrets/sisyphus.yaml
     # defaultSopsFile = ../../secrets/sisyphus.yaml;
   };
 
-  # Enable desktop role with Hyprland
+  # Enable desktop role with Hyprland (user will be auto-detected)
   desktop = {
     enable = true;
     desktopEnvironment = "hyprland";
-    gestures = true;
-    users = [ "test" ];
+    gestures = false;
   };
 
   # VM-specific settings
@@ -65,13 +63,6 @@
       PermitRootLogin = "yes";
       PasswordAuthentication = true;
     };
-  };
-
-  # Create a test user
-  users.users.test = {
-    isNormalUser = true;
-    initialPassword = "test";
-    extraGroups = [ "wheel" ];
   };
 
   # Enable sudo without password for convenience during testing
