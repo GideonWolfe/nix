@@ -1,9 +1,8 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, pathConfig, ... }:
 
 let 
   cfg = config.desktop;
-  userModulesDir = ../../../configs/modules/configs/user;
-  systemModulesDir = ../../../configs/modules/configs/system;
+  inherit (pathConfig) userModulesDir systemModulesDir;
 in {
   options.desktop = {
     enable = lib.mkEnableOption "Essential desktop configuration with UI components";
@@ -63,6 +62,9 @@ in {
 
     # Audio support for desktop
     security.rtkit.enable = true;
+
+
+    services.flatpak.enable = true;
 
     # Configure specified users with desktop Home Manager modules
     home-manager.users = lib.genAttrs cfg.users (user: {

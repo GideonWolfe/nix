@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, pathConfig ? {}, ... }:
 
 let 
     cfg = config.stylixTheming;
@@ -91,13 +91,27 @@ in {
     stylix.fonts = cfg.fonts // { sizes = cfg.fontSizes; };
     stylix.targets.plymouth.enable = false;
 
-    # Include theming packages for all Home Manager users
-    home-manager.sharedModules = [
-      {
-        imports = [
-          ../../../configs/modules/packages/user/theming.nix
+    # Configure ALL normal users with theming packages
+    home-manager.users = lib.genAttrs 
+      (lib.attrNames (lib.filterAttrs (name: user: user.isNormalUser) config.users.users))
+      (user: {
+        home.packages = with pkgs; [
+          spicetify-cli
+          # QT utils
+          libsForQt5.qt5ct
+          qt6ct
+          libsForQt5.qtcurve
+          libsForQt5.qtstyleplugins
+
+          base16-schemes
+
+          papirus-icon-theme
+          papirus-folders
+          adwaita-icon-theme
+          material-icons
+          libsForQt5.breeze-icons # icon set for system icons
+
         ];
-      }
-    ];
+      });
   };
 }

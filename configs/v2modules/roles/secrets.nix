@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, pathConfig ? {}, ... }:
 
 let 
   cfg = config.secrets;
@@ -37,6 +37,12 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+
+    # Ensure sops is available as a user command
+    environment.systemPackages = with pkgs; [
+      sops
+    ];
+
     # SOPS configuration
     sops = {
       # Set default SOPS file if provided

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, pathConfig ? {}, ... }:
 
 let 
   cfg = config.defaultRole;

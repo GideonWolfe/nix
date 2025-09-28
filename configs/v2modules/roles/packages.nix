@@ -1,18 +1,13 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, pathConfig, ... }:
 
 let 
   cfg = config.packages;
-  userPackagesDir = ../../../configs/modules/packages/user;
+  inherit (pathConfig) userPackagesDir;
+  # Get all normal users on the system
+  normalUsers = lib.attrNames (lib.filterAttrs (name: user: user.isNormalUser) config.users.users);
 in {
   options.packages = {
     enable = lib.mkEnableOption "Application packages configuration";
-
-    # Users to configure with packages
-    users = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [];
-      description = "List of users to configure with package modules";
-    };
 
     # Science applications - hierarchical structure
     science = {
@@ -109,8 +104,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    # Configure specified users with package modules
-    home-manager.users = lib.genAttrs cfg.users (user: {
+    # Configure ALL normal users with package modules
+    home-manager.users = lib.genAttrs normalUsers (user: {
       imports = [
         # Conditionally import package modules based on enabled options
       ] ++ lib.optionals cfg.development [
@@ -123,27 +118,26 @@ in {
         "${userPackagesDir}/fun.nix"
       # Science packages - conditional on both science.enable and individual options
       ] ++ lib.optionals (cfg.science.enable && cfg.science.astronomy) [
-        "${userPackagesDir}/science/astronomy.nix"
+        "${userPackagesDir}/science/astronomy/astronomy.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.biology) [
-        "${userPackagesDir}/science/biology.nix"
-        "${userPackagesDir}/science/plascad.nix"
-        "${userPackagesDir}/science/ugene.nix"
+        "${userPackagesDir}/science/biology/biology.nix"
+        "${userPackagesDir}/science/biology/plascad.nix"
+        "${userPackagesDir}/science/biology/ugene.nix"
+        "${userPackagesDir}/science/biology/asciiMol.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.chemistry) [
-        "${userPackagesDir}/science/chemistry.nix"
-        "${userPackagesDir}/science/asciiMol.nix"
+        "${userPackagesDir}/science/chemistry/chemistry.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.medicine) [
-        "${userPackagesDir}/science/medecine.nix"
+        "${userPackagesDir}/science/medecine/medecine.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.engineering) [
-        "${userPackagesDir}/science/engineering.nix"
+        "${userPackagesDir}/science/engineering/cad.nix"
+        "${userPackagesDir}/science/engineering/electronics.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.geography) [
-        "${userPackagesDir}/science/geography.nix"
+        "${userPackagesDir}/science/geography/geography.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.data) [
-        "${userPackagesDir}/science/data.nix"
-        "${userPackagesDir}/science/euporie.nix"
+        "${userPackagesDir}/science/data/data.nix"
+        "${userPackagesDir}/science/data/euporie.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.math) [
-        "${userPackagesDir}/science/math.nix"
-      ] ++ lib.optionals (cfg.science.enable && cfg.science.education) [
-        "${userPackagesDir}/science/education.nix"
+        "${userPackagesDir}/science/math/math.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.utilities) [
         "${userPackagesDir}/science/utilities.nix"
       ];
