@@ -68,6 +68,23 @@
 
       # Import world configuration data for use in flake
       worldData = import ./configs/modules/world-data.nix;
+
+      # Auto-import function for v2modules configs (supports nested directories)
+      importV2Configs = configsPath: 
+        lib.filter 
+          (path: lib.hasSuffix "/default.nix" (toString path))
+          (lib.filesystem.listFilesRecursive configsPath);
+
+      # Auto-import function for roles (imports .nix files directly)
+      importV2Roles = rolesPath:
+        lib.filter
+          (path: lib.hasSuffix ".nix" (toString path))
+          (lib.filesystem.listFilesRecursive rolesPath);
+
+      # Auto-import both system and user v2modules configs, plus roles
+      systemV2Configs = importV2Configs ./configs/v2modules/system;
+      userV2Configs = importV2Configs ./configs/v2modules/user;
+      roleConfigs = importV2Roles ./configs/v2modules/roles;
     in {
 
       # Definitions for individual hosts
@@ -140,16 +157,16 @@
           modules = [
             "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
             ./configs/hosts/sisyphus/configuration.nix
-          ];
-        };
-
-        # Role-based configuration test for sisyphus
-        sisyphus-roles = lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
-            ./configs/hosts/sisyphus/configuration-roles.nix
+            
+            # Auto-import v2modules system configs (for testing new pattern)
+          ] ++ systemV2Configs ++ roleConfigs ++ [
+            
+            # Auto-import v2modules user configs via home-manager
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.sharedModules = userV2Configs;
+            }
           ];
         };
 
