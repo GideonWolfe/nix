@@ -8,7 +8,7 @@ in {
   ];
 
   options.defaultRole = {
-    enable = lib.mkEnableOption "Default system configuration with Home Manager bootstrap";
+    enable = lib.mkEnableOption "Default system configuration with Home Manager bootstrap and common system modules";
   };
 
   config = lib.mkIf cfg.enable {
@@ -35,5 +35,8 @@ in {
     
     # Allow unfree packages by default
     nixpkgs.config.allowUnfree = true;
+    
+    # Set default console keymap
+    console.keyMap = "us";
   };
 }

@@ -3,6 +3,7 @@
 let 
   cfg = config.desktop;
   userModulesDir = ../../../configs/modules/configs/user;
+  systemModulesDir = ../../../configs/modules/configs/system;
 in {
   options.desktop = {
     enable = lib.mkEnableOption "Essential desktop configuration with UI components";
@@ -30,7 +31,27 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    # Display manager/greeter configuration
+    services.greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time  --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --xsessions ${config.services.displayManager.sessionData.desktops}/share/xsessions --remember --remember-user-session";
+          user = "greeter";
+        };
+      };
+    };
+
     # NixOS system-level configuration
+    # Enable desktop environment programs at system level
+    programs.hyprland = lib.mkIf (cfg.desktopEnvironment == "hyprland") {
+      enable = true;
+      withUWSM = true;
+    };
+    programs.sway = lib.mkIf (cfg.desktopEnvironment == "sway") {
+      enable = true;
+    };
+
     services.dbus.enable = true;
     xdg.portal = {
       enable = true;

@@ -6,17 +6,15 @@
   # Basic system settings
   networking.hostName = "sisyphus";
   
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+
 
   # Import v2modules
   imports = [
     ../../v2modules/roles/default.nix
     ../../v2modules/roles/desktop.nix
     ../../v2modules/roles/theming.nix
+    ../../v2modules/roles/secrets.nix
+    ../../v2modules/roles/ai.nix
   ];
 
   # Enable default system configuration
@@ -27,6 +25,13 @@
   # Enable theming
   stylixTheming = {
     enable = true;
+  };
+
+  # Enable secrets (basic example)
+  secrets = {
+    enable = true;
+    # Example: if you had a secrets file at ../../secrets/sisyphus.yaml
+    # defaultSopsFile = ../../secrets/sisyphus.yaml;
   };
 
   # Enable desktop role with Hyprland
@@ -48,14 +53,8 @@
     diskSize = 16384; # 16GB for desktop apps
   };
 
-  # Basic system packages for testing
+  # Host-specific VM packages for testing
   environment.systemPackages = with pkgs; [
-    vim
-    git
-    curl
-    wget
-    htop
-    tree
     neovim
   ];
 
@@ -78,8 +77,7 @@
   # Enable sudo without password for convenience during testing
   security.sudo.wheelNeedsPassword = false;
 
-  # Set console keymap
-  console.keyMap = "us";
+
 
   # System state version
   system.stateVersion = "25.05";

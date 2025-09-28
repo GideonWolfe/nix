@@ -90,5 +90,14 @@ in {
     stylix.cursor = cfg.cursor;
     stylix.fonts = cfg.fonts // { sizes = cfg.fontSizes; };
     stylix.targets.plymouth.enable = false;
+
+    # Include theming packages for all Home Manager users
+    home-manager.sharedModules = [
+      {
+        imports = [
+          ../../../configs/modules/packages/user/theming.nix
+        ];
+      }
+    ];
   };
 }
