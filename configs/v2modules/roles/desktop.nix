@@ -63,12 +63,6 @@ in {
 
     # Audio support for desktop
     security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
 
     # Configure specified users with desktop Home Manager modules
     home-manager.users = lib.genAttrs cfg.users (user: {

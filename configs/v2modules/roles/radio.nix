@@ -21,8 +21,11 @@ in {
   };
 
   config = lib.mkIf config.radio.enable {
-    # Import HamClock configuration if enabled
-    imports = lib.optionals config.radio.hamclock [
+    # Import radio-specific hardware and services
+    imports = [
+      ../modules/configs/system/services/hardware/rtl-sdr.nix
+      ../modules/configs/system/services/hardware/hackrf.nix
+    ] ++ lib.optionals config.radio.hamclock [
       ../modules/hamclock.nix
     ];
 
