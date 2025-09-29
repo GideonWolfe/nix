@@ -10,6 +10,12 @@ in {
   options.stylixTheming = {
     enable = lib.mkEnableOption "Stylix theming support";
 
+    users = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      description = "List of users to configure with theming packages";
+    };
+
     image = lib.mkOption {
       type = lib.types.path;
       default = "${inputs.self}/wallpapers/topo.jpg";
@@ -91,27 +97,25 @@ in {
     stylix.fonts = cfg.fonts // { sizes = cfg.fontSizes; };
     stylix.targets.plymouth.enable = false;
 
-    # Configure ALL normal users with theming packages
-    home-manager.users = lib.genAttrs 
-      (lib.attrNames (lib.filterAttrs (name: user: user.isNormalUser) config.users.users))
-      (user: {
-        home.packages = with pkgs; [
-          spicetify-cli
-          # QT utils
-          libsForQt5.qt5ct
-          qt6ct
-          libsForQt5.qtcurve
-          libsForQt5.qtstyleplugins
+    # Configure specified users with theming packages
+    home-manager.users = lib.genAttrs cfg.users (user: {
+      home.packages = with pkgs; [
+        spicetify-cli
+        # QT utils
+        libsForQt5.qt5ct
+        qt6ct
+        libsForQt5.qtcurve
+        libsForQt5.qtstyleplugins
 
-          base16-schemes
+        base16-schemes
 
-          papirus-icon-theme
-          papirus-folders
-          adwaita-icon-theme
-          material-icons
-          libsForQt5.breeze-icons # icon set for system icons
+        papirus-icon-theme
+        papirus-folders
+        adwaita-icon-theme
+        material-icons
+        libsForQt5.breeze-icons # icon set for system icons
 
-        ];
-      });
+      ];
+    });
   };
 }

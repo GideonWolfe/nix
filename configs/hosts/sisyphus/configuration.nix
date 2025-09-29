@@ -1,12 +1,13 @@
 { config, lib, pkgs, inputs, ... }:
 
-{
+let
+  # Define users for this host once
+  hostUsers = [ "test" ];
+in {
   # VM configuration for testing desktop roles
   
   # Basic system settings
   networking.hostName = "sisyphus";
-  
-
 
   # Import v2modules
   imports = [
@@ -16,14 +17,15 @@
     # Roles are now auto-imported from the flake!
   ];
 
-  # Enable default system configuration
-  defaultRole = {
+  # Enable base system configuration
+  system = {
     enable = true;
   };
 
   # Enable theming
   stylixTheming = {
     enable = true;
+    users = hostUsers;
   };
 
   # Enable secrets (basic example)
@@ -38,7 +40,26 @@
     enable = true;
     desktopEnvironment = "hyprland";
     gestures = false;
+    users = hostUsers;
   };
+
+  # Enable package categories for testing
+  packages = {
+    enable = true;
+    users = hostUsers;
+    development = false;
+    productivity = false;
+    fun = true;
+    science = {
+      enable = false;
+    };
+  };
+
+  # Enable audio support
+  audio.enable = true;
+
+  # Enable bluetooth for complete desktop testing
+  bluetooth.enable = false;
 
   # VM-specific settings
   virtualisation = {

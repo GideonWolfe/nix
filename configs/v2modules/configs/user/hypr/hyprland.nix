@@ -1,0 +1,383 @@
+{ pkgs, lib, inputs, config, ... }:
+
+with config.lib.stylix.colors;
+
+{
+
+  wayland.windowManager.hyprland = {
+    # allow home manager to configure hyprland	
+    enable = true;
+
+    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+
+    systemd.enable = true;
+
+    settings = {
+
+      # Set Windows key as mod key
+      "$mod" = "SUPER";
+
+      # reference var for launching our menu
+      "$menu" = "pkill wofi || wofi --show run";
+
+      # Commands that will get executed on login
+      exec-once = [
+        # Start HyprPanel
+        #"hyprpanel"
+        #INFO: enabled through hyprpanel.enable
+
+        # Or start waybar
+        #"pkill waybar & sleep 0.5 && waybar"
+
+        # Start Kando
+        "kando"
+
+        # Set the correct cursor
+        "hyprctl setcursor ${config.home.pointerCursor.name} ${
+          builtins.toString (config.home.pointerCursor.size + 8)
+        }"
+
+        # Start clipboard history daemon
+        "clipse -listen"
+
+        # Music workspace
+        "spotify"
+        "sleep 2; kitty --class 'kitty-cava' cava &"
+        "sleep 2; kitty --class 'kitty-scope-tui' scope-tui --no-ui --scale 0.15 --channels 3 pulse pipewire.monitor &"
+        "sleep 2; NickvisionCavalier.GNOME"
+        # Monitor workspace
+        "kitty --class 'kitty-btop' btop &"
+        # Obsidian Workspace
+        "obsidian"
+        # Discord
+        "vesktop"
+      ];
+
+      # Mouse bindings
+      bindm = [
+        # mod+left click to move window
+        "$mod, mouse:272, movewindow"
+        # mod+right click to resize window
+        "$mod, mouse:273, resizewindow"
+      ];
+
+      # e means it can get "held"
+      # l means it works on the lockscreen
+      bindel = [
+        # Raise volume key or volume wheel
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+        # Lower volume key or volume wheel
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+        # Brightness buttons
+        ",XF86MonBrightnessDown, exec, sudo /run/current-system/sw/bin/light -U 10"
+        ",XF86MonBrightnessUp, exec, sudo /run/current-system/sw/bin/light -A 10"
+      ];
+
+      # l means it works on the lockscreen
+      bindl = [
+        # Mute key toggle
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        # Mute Mic key toggle
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        # Play/Pause button
+        #", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPlay, exec, playerctl --player playerctld play-pause"
+        # Previous button
+        #", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioPrev, exec, playerctl --player playerctld previous"
+        # Next button
+        #", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioNext, exec, playerctl --player playerctld next"
+
+        # Hyprlock when the lid is closed
+        ",switch:on:Lid Switch, exec, hyprctl dispatch exec hyprlock && systemctl suspend"
+      ];
+
+      # Key bindings
+      bind = let
+        #TODO: taken from https://github.com/xendak/nixos-config/blob/da5046a434225c9dc7217d230b1226e015e1f6b7/home/common/wayland/hyprland/plugins/hyprbars.nix
+        # Maybe separate cleanly into hyprbars.nix like that
+        # barsEnabled = "hyprctl -j getoption plugin:hyprbars:bar_height | ${
+        #     lib.getExe pkgs.jq
+        #   } -re '.int != 0'";
+        # setBarHeight = height:
+        #   "hyprctl keyword plugin:hyprbars:bar_height ${toString height}";
+        # toggleOn = setBarHeight
+        #   config.wayland.windowManager.hyprland.settings.plugin.hyprbars.bar_height;
+        # toggleOff = setBarHeight 0;
+
+        # Nore elegant. Can possibly switch to disabling instead of unloading when this gets updated in
+        # https://github.com/hyprwm/hyprland-plugins/issues/372
+        # hyprctl -q keyword plugin:hyprbars:enabled true
+        # hyprctl -q keyword plugin:hyprbars:enabled false
+        barsEnabled = "hyprctl -j plugins list | grep 'hyprbars'";
+        toggleOn =
+          "hyprctl plugins load ${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
+        toggleOff =
+          "hyprctl plugins unload ${pkgs.hyprlandPlugins.hyprbars}/lib/libhyprbars.so";
+      in [
+
+        # Open terminal
+        "$mod, RETURN, exec, kitty"
+        # Close active window
+        "$mod SHIFT, Q, killactive"
+        # Toggle fullscreen on active window
+        "$mod SHIFT, F, fullscreen, 2"
+        # Toggle floating on active window
+        "$mod, V, togglefloating,"
+        # Toggle bars on all windows
+        "$mod, B, exec,${barsEnabled} && ${toggleOff} || ${toggleOn}"
+
+        # Toggle group for the window
+        "$mod SHIFT, G, togglegroup,"
+        # Cycle windows within a group
+        "$mod, G, changegroupactive,"
+
+        # Move focus with arrow keys
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        # Move focus with vim keybinds
+        "$mod, h, movefocus, l"
+        "$mod, l, movefocus, r"
+        "$mod, k, movefocus, u"
+        "$mod, j, movefocus, d"
+
+        # mod+shift+direction moves windows
+        "$mod SHIFT, Left, movewindoworgroup, l"
+        "$mod SHIFT, Right, movewindoworgroup, r"
+        "$mod SHIFT, Up, movewindoworgroup, u"
+        "$mod SHIFT, Down, movewindoworgroup, d"
+        "$mod SHIFT, h, movewindoworgroup, l"
+        "$mod SHIFT, l, movewindoworgroup, r"
+        "$mod SHIFT, k, movewindoworgroup, u"
+        "$mod SHIFT, j, movewindoworgroup, d"
+
+        # Switch workspaces with mod+<number>
+        "$mod, 1, workspace, 1"
+        "$mod, 2, workspace, 2"
+        "$mod, 3, workspace, 3"
+        "$mod, 4, workspace, 4"
+        "$mod, 5, workspace, 5"
+        "$mod, 6, workspace, 6"
+        "$mod, 7, workspace, 7"
+        "$mod, 8, workspace, 8"
+        "$mod, 9, workspace, 9"
+        "$mod, 0, workspace, 10"
+
+        # Move active window to a workspace with mod + SHIFT + [0-9]
+        "$mod SHIFT, 1, movetoworkspacesilent, 1"
+        "$mod SHIFT, 2, movetoworkspacesilent, 2"
+        "$mod SHIFT, 3, movetoworkspacesilent, 3"
+        "$mod SHIFT, 4, movetoworkspacesilent, 4"
+        "$mod SHIFT, 5, movetoworkspacesilent, 5"
+        "$mod SHIFT, 6, movetoworkspacesilent, 6"
+        "$mod SHIFT, 7, movetoworkspacesilent, 7"
+        "$mod SHIFT, 8, movetoworkspacesilent, 8"
+        "$mod SHIFT, 9, movetoworkspacesilent, 9"
+        "$mod SHIFT, 0, movetoworkspacesilent, 10"
+
+        # Menus
+        # Kando desktop menu
+        "CTRL, Space, global, kando:desktop-menu"
+        # Execute wofi menu
+        "$mod, D, exec, $menu"
+        # Execute hyprland window switching script
+        "$mod SHIFT, P, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/modules/scripts/user/desktop/navigation/hyprland-window-switcher.sh"
+        # Execute wofi web search script
+        "$mod SHIFT, S, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/modules/scripts/user/desktop/search/wofi-web-search.sh"
+        # Wofi-emoji
+        "$mod SHIFT, E, exec, ${lib.getExe pkgs.wofi-emoji}"
+
+        # Screenshots - piped to swappy for editing after capture
+        # Take screenshot of output with printscreen key
+        ", PRINT, exec, hyprshot -m output --raw | swappy -f -"
+        # Take screenshot of window with mod+printscreen key
+        "$mod, PRINT, exec, hyprshot -m window --raw | swappy -f -"
+        # Take screenshot of region with mod+shift+printscreen key
+        "$mod SHIFT, PRINT, exec, hyprshot -m region --raw | swappy -f -"
+
+        # Toggle calculator scratchpad
+        "$mod, M, exec, hyprctl clients | grep 'kitty-calculator' && hyprctl dispatch togglespecialworkspace calculator || kitty --class 'kitty-calculator' qalc &"
+
+        # Toggle Clipboard scratchpad
+        "$mod, C, exec, hyprctl clients | grep 'kitty-clipboard' && hyprctl dispatch togglespecialworkspace clipboard || kitty --class 'kitty-clipboard' clipse &"
+
+        # Toggle translator scratchpad
+        "$mod, T, exec, hyprctl clients | grep 'kitty-translator' && hyprctl dispatch togglespecialworkspace translator || kitty --class 'kitty-translator' trans -theme random -I &"
+
+        # Toggle AI scratchpad
+        #"$mod, A, exec, hyprctl clients | grep 'kitty-ai' && hyprctl dispatch togglespecialworkspace ai || kitty --class 'kitty-ai' tenere &"
+        "$mod, A, exec, hyprctl clients | grep 'kitty-ai' && hyprctl dispatch togglespecialworkspace ai || kitty --class 'kitty-ai' tgpt -m &"
+
+        # Toggle weather scratchpad
+        "$mod, W, exec, hyprctl clients | grep 'org.gnome.Weather' && hyprctl dispatch togglespecialworkspace weather || gnome-weather &"
+
+        # toggle for workspace overview
+        #"SUPER, grave, hyprexpo:expo, toggle" # can be: toggle, off/disable or on/enable
+        #"SUPER, grave, overview:toggle"
+      ];
+
+      group = {
+        "col.border_active" = lib.mkForce "rgb(${base0D})";
+        "col.border_inactive" = lib.mkForce "rgb(${base00})";
+        groupbar = {
+          font_size = config.stylix.fonts.sizes.desktop;
+          text_color = "rgb(${base05})";
+          gradients = true;
+          #"col.active" = lib.mkForce "rgb(${base0D})";
+          #"col.active" = lib.mkForce "rgb(${base0D}) rgb(${base0E}) 45deg";
+          #"col.active" = lib.mkForce "rgb(${base0E}) rgb(${base0E}) 45deg";
+          "col.inactive" = lib.mkForce "rgb(${base01})";
+          "col.active" = lib.mkForce "rgb(${base00})";
+          #col.locked_active = "rgb(${base0D})";
+          #col.locked_inactive = "rgb(${base00})";
+        };
+      };
+
+      misc = {
+        focus_on_activate =
+          true; # focus window when activated (ie by notification)
+        # wake monitor if mouse/keys are touched
+        mouse_move_enables_dpms = true;
+        key_press_enables_dpms = true;
+        enable_swallow = true;
+        enable_anr_dialog = false;
+      };
+
+      # This is where the actual plugin config happens
+      # Plugin packages are added at the bottom 
+      plugin = {
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "rgb(${base01})";
+          workspace_method = "first 1";
+          #"center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+          enable_gesture = true; # laptop touchpad
+          gesture_fingers = 3; # 3 or 4
+          gesture_distance = 150; # how far is the "max"
+          gesture_positive = true; # positive = swipe down. Negative = swipe up.
+        };
+        hyprbars = {
+          enabled = true;
+          bar_height = 20;
+          bar_color = "rgba(${base01}ff)";
+          "col.text" = "rgb(${base05})";
+          bar_text_size = 12;
+          bar_precedence_over_border = false;
+          bar_part_of_window = false;
+          buttons = {
+            hyprbars-button = lib.mkForce [
+              # close
+              "rgb(${base01}), 18, 󰅖, hyprctl dispatch killactive, rgb(${base08})"
+              # maximize
+              "rgb(${base01}), 15, , hyprctl dispatch fullscreen 1, rgb(${base0E})"
+              # toggle floating
+              "rgb(${base01}), 15, , hyprctl dispatch togglefloating, rgb(${base0B})"
+            ];
+          };
+        };
+      };
+
+      # Window rules for scratchpads and other programs
+      #windowrulev2 = [ ];
+
+      # legacy windowrule to make Kando work
+      # TODO look into updating to windowrulev2
+      windowrule = [
+        "noblur, class:kando"
+        "opaque, class:kando"
+        "size 100% 100%, class:kando"
+        "noborder, class:kando"
+        "noanim, class:kando"
+        "float, class:kando"
+        "pin, class:kando"
+
+        # Calculator Scratchpad
+        "float,class:(kitty-calculator)"
+        "size 500 500,class:(kitty-calculator)"
+        "workspace special:calculator,class:(kitty-calculator)"
+
+        # Clipboard Scratchpad
+        "float,class:(kitty-clipboard)"
+        "size 800 900,class:(kitty-clipboard)"
+        "workspace special:clipboard,class:(kitty-clipboard)"
+
+        # Translator Scratchpad
+        "float,class:(kitty-translator)"
+        "size 800 800,class:(kitty-translator)"
+        "workspace special:translator,class:(kitty-translator)"
+
+        # AI Scratchpad
+        "float,class:(kitty-ai)"
+        "size 800 800,class:(kitty-ai)"
+        "workspace special:ai,class:(kitty-ai)"
+
+        # Weather Scratchpad
+        "float,class:(org.gnome.Weather)"
+        "size 800 800,class:(org.gnome.Weather)"
+        "workspace special:weather,class:(org.gnome.Weather)"
+
+        # To make KDE connect message reply window not be tiny
+        "minsize 400 400, title:(Messages — KDE Connect Daemon)"
+
+        # To make KDE connect message reply window not be tiny
+        "float,class:(org.kde.kruler)"
+        "size 1000 150,class:(org.kde.kruler)"
+
+        # Bind programs to specific worskspaces for autostart purposes
+        # Music Workspace
+        "workspace 1 silent, class:^(spotify)$"
+        "workspace 1 silent,class:(kitty-cava)"
+        "workspace 1 silent,class:(kitty-scope-tui)"
+        "workspace 1 silent,class:(org.nickvision.cavalier)"
+        # Monitor workspace
+        "workspace 8 silent,class:(kitty-btop)"
+        # Obsidian
+        "workspace 6 silent,class:(obsidian)"
+        # Comms Workspace
+        "workspace 9 silent,class:(vesktop)"
+      ];
+
+      # Needed to fix scaling bug
+      xwayland = { force_zero_scaling = true; };
+
+    };
+    extraConfig = ''
+      # generalized monitor rule for hotplugging displays
+      # set here so per-host configs don't conflict
+      monitor=,preferred,auto,1
+
+
+      # Due to limitations of nix syntax, 
+      # this has to be configured thru extraConfig
+      # i3 like resize submap
+      # uses binde to allow holding
+      bind = $mod, R,submap,resize
+      submap=resize
+      binde = , right, resizeactive, 10 0
+      binde = , left, resizeactive, -10 0
+      binde = , up, resizeactive, 0 -10
+      binde = , down, resizeactive, 0 10
+      binde = , l, resizeactive, 10 0
+      binde = , h, resizeactive, -10 0
+      binde = , k, resizeactive, 0 -10
+      binde = , j, resizeactive, 0 10
+      binde = , Return,submap,reset
+      submap=reset
+    '';
+
+    # This adds specific packages as plugins, not configuring them
+    plugins = [
+      # only one should be enabled at a time
+      # they both have binds to activate with three fingers on trackpad
+      # can be disabled but might as well keep only one around
+      pkgs.hyprlandPlugins.hyprexpo
+      #pkgs.hyprlandPlugins.hyprspace
+      pkgs.hyprlandPlugins.hyprbars
+    ];
+
+  };
+}

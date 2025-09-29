@@ -2,42 +2,36 @@
 
 {
   imports = [
-    # Always import basic radio hardware modules
+    # Always import radio hardware and service modules
     "${pathConfig.systemModulesDir}/services/hardware/rtl-sdr.nix"
     "${pathConfig.systemModulesDir}/services/hardware/hackrf.nix"
-  ] ++ lib.optionals (config.radio.hamclock or false) [
-    # Conditionally import hamclock
     "${pathConfig.systemModulesDir}/services/hamclock.nix"
   ];
 
   options.radio = {
     enable = lib.mkEnableOption "Amateur radio tools and services";
     
-    hamclock = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable HamClock application";
+    users = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      description = "List of users to configure with radio tools";
     };
   };
 
   config = lib.mkIf config.radio.enable {
-    # Add radio-specific groups to ALL normal users (SYSTEM LEVEL)
-    users.users = lib.genAttrs 
-      (lib.attrNames (lib.filterAttrs (name: user: user.isNormalUser) config.users.users))
-      (user: {
-        extraGroups = [
-          "dialout"  # Access USB ports for radio devices (like chirp)
-          "plugdev"  # Needed for RTL-SDR and other radio hardware
-        ];
-      });
+    # Add radio-specific groups to specified users (SYSTEM LEVEL)
+    users.users = lib.genAttrs config.radio.users (user: {
+      extraGroups = [
+        "dialout"  # Access USB ports for radio devices (like chirp)
+        "plugdev"  # Needed for RTL-SDR and other radio hardware
+      ];
+    });
 
-    # Configure ALL normal users with radio packages & themes (HOME-MANAGER LEVEL)
-    home-manager.users = lib.genAttrs 
-      (lib.attrNames (lib.filterAttrs (name: user: user.isNormalUser) config.users.users))
-      (user: {
+    # Configure specified users with radio packages & themes (HOME-MANAGER LEVEL)
+    home-manager.users = lib.genAttrs config.radio.users (user: {
         imports = [
-          "${pathConfig.userPackagesDir}/science/radio/radio.nix"
-          "${pathConfig.userPackagesDir}/science/radio/adsb_deku.nix"
+          "${pathConfig.packagesDir}/science/radio/radio.nix"
+          "${pathConfig.packagesDir}/science/radio/adsb_deku.nix"
         ];
         
         # Radio-specific theming/user configs would go here

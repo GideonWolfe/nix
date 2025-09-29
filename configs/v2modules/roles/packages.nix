@@ -2,12 +2,16 @@
 
 let 
   cfg = config.packages;
-  inherit (pathConfig) userPackagesDir;
-  # Get all normal users on the system
-  normalUsers = lib.attrNames (lib.filterAttrs (name: user: user.isNormalUser) config.users.users);
+  inherit (pathConfig) packagesDir;
 in {
   options.packages = {
     enable = lib.mkEnableOption "Application packages configuration";
+
+    users = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      description = "List of users to configure with packages";
+    };
 
     # Science applications - hierarchical structure
     science = {
@@ -104,42 +108,57 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    # Configure ALL normal users with package modules
-    home-manager.users = lib.genAttrs normalUsers (user: {
+    # Configure specified users with package modules
+    home-manager.users = lib.genAttrs cfg.users (user: {
       imports = [
         # Conditionally import package modules based on enabled options
       ] ++ lib.optionals cfg.development [
-        "${userPackagesDir}/development"
+        "${packagesDir}/development/dedoc.nix"
+        "${packagesDir}/development/js.nix"
+        "${packagesDir}/development/python.nix"
+        "${packagesDir}/development/rust.nix"
+        "${packagesDir}/development/security.nix"
+        "${packagesDir}/development/utils.nix"
       ] ++ lib.optionals cfg.gaming [
-        "${userPackagesDir}/gaming.nix"
+        "${packagesDir}/gaming/gaming.nix"
       ] ++ lib.optionals cfg.productivity [
-        "${userPackagesDir}/productivity"
+        "${packagesDir}/productivity/productivity.nix"
+        "${packagesDir}/productivity/audio.nix"
+        "${packagesDir}/productivity/basalt-tui.nix"
+        "${packagesDir}/productivity/video.nix"
+        "${packagesDir}/productivity/web.nix"
+        "${packagesDir}/productivity/comms/comms.nix"
+        "${packagesDir}/productivity/comms/signal.nix"
+        "${packagesDir}/productivity/comms/matrix.nix"
+        "${packagesDir}/productivity/comms/irc.nix"
+        "${packagesDir}/productivity/news/news.nix"
+        "${packagesDir}/productivity/news/hackernews-tui.nix"
       ] ++ lib.optionals cfg.fun [
-        "${userPackagesDir}/fun.nix"
+        "${packagesDir}/utilities/fun.nix"
       # Science packages - conditional on both science.enable and individual options
       ] ++ lib.optionals (cfg.science.enable && cfg.science.astronomy) [
-        "${userPackagesDir}/science/astronomy/astronomy.nix"
+        "${packagesDir}/science/astronomy/astronomy.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.biology) [
-        "${userPackagesDir}/science/biology/biology.nix"
-        "${userPackagesDir}/science/biology/plascad.nix"
-        "${userPackagesDir}/science/biology/ugene.nix"
-        "${userPackagesDir}/science/biology/asciiMol.nix"
+        "${packagesDir}/science/biology/biology.nix"
+        "${packagesDir}/science/biology/plascad.nix"
+        "${packagesDir}/science/biology/ugene.nix"
+        "${packagesDir}/science/biology/asciiMol.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.chemistry) [
-        "${userPackagesDir}/science/chemistry/chemistry.nix"
+        "${packagesDir}/science/chemistry/chemistry.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.medicine) [
-        "${userPackagesDir}/science/medecine/medecine.nix"
+        "${packagesDir}/science/medecine/medecine.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.engineering) [
-        "${userPackagesDir}/science/engineering/cad.nix"
-        "${userPackagesDir}/science/engineering/electronics.nix"
+        "${packagesDir}/science/engineering/cad.nix"
+        "${packagesDir}/science/engineering/electronics.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.geography) [
-        "${userPackagesDir}/science/geography/geography.nix"
+        "${packagesDir}/science/geography/geography.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.data) [
-        "${userPackagesDir}/science/data/data.nix"
-        "${userPackagesDir}/science/data/euporie.nix"
+        "${packagesDir}/science/data/data.nix"
+        "${packagesDir}/science/data/euporie.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.math) [
-        "${userPackagesDir}/science/math/math.nix"
+        "${packagesDir}/science/math/math.nix"
       ] ++ lib.optionals (cfg.science.enable && cfg.science.utilities) [
-        "${userPackagesDir}/science/utilities.nix"
+        "${packagesDir}/science/utilities.nix"
       ];
     });
   };

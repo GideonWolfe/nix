@@ -28,7 +28,7 @@
       (lib.attrNames (lib.filterAttrs (name: user: user.isNormalUser) config.users.users))
       (user: {
         imports = [
-          "${pathConfig.userPackagesDir}/gaming.nix"
+          "${pathConfig.packagesDir}/gaming/gaming.nix"
         ];
       });
   };

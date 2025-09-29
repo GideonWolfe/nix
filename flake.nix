@@ -69,6 +69,13 @@
       # Import world configuration data for use in flake
       worldData = import ./configs/modules/world-data.nix;
 
+      # Centralized path definitions - single source of truth
+      pathConfig = {
+        packagesDir = ./configs/v2modules/packages;
+        userModulesDir = ./configs/v2modules/configs/user;
+        systemModulesDir = ./configs/modules/configs/system;
+      };
+
       # Auto-import function for v2modules configs (supports nested directories)
       importV2Configs = configsPath: 
         lib.filter 
@@ -153,7 +160,7 @@
         # Minimal VM for testing configurations
         sisyphus = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs pathConfig; };
           modules = [
             "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
             ./configs/hosts/sisyphus/configuration.nix

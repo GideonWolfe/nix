@@ -1,14 +1,14 @@
 { config, lib, pkgs, inputs, pathConfig ? {}, ... }:
 
 let 
-  cfg = config.defaultRole;
+  cfg = config.system;
 in {
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  options.defaultRole = {
-    enable = lib.mkEnableOption "Default system configuration with Home Manager bootstrap and common system modules";
+  options.system = {
+    enable = lib.mkEnableOption "Base system configuration with Home Manager bootstrap and common system modules";
   };
 
   config = lib.mkIf cfg.enable {

@@ -80,6 +80,7 @@ in {
         "${userModulesDir}/swappy/swappy.nix"
         "${userModulesDir}/kando/kando.nix"
         "${userModulesDir}/clipse/clipse.nix"
+        "${userModulesDir}/shell/fish.nix"
       ] ++ lib.optionals cfg.gestures [
         "${userModulesDir}/fusuma/fusuma.nix"
       # Desktop Environment specific modules
