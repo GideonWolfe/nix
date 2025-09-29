@@ -42,6 +42,9 @@ in {
     };
 
     # NixOS system-level configuration
+    # Enable fish shell at system level (needed for user shells)
+    programs.fish.enable = true;
+    
     # Enable desktop environment programs at system level
     programs.hyprland = lib.mkIf (cfg.desktopEnvironment == "hyprland") {
       enable = true;

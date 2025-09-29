@@ -89,8 +89,8 @@
           (lib.filesystem.listFilesRecursive rolesPath);
 
       # Auto-import both system and user v2modules configs, plus roles
-      systemV2Configs = importV2Configs ./configs/v2modules/system;
-      userV2Configs = importV2Configs ./configs/v2modules/user;
+      systemV2Configs = importV2Configs ./configs/v2modules/configs/system;
+      userV2Configs = importV2Configs ./configs/v2modules/configs/user;
       roleConfigs = importV2Roles ./configs/v2modules/roles;
     in {
 
