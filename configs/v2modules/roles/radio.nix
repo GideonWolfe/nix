@@ -5,7 +5,7 @@
     # Always import radio hardware and service modules
     "${pathConfig.systemModulesDir}/services/hardware/rtl-sdr.nix"
     "${pathConfig.systemModulesDir}/services/hardware/hackrf.nix"
-    "${pathConfig.systemModulesDir}/services/hamclock.nix"
+    #"${pathConfig.systemModulesDir}/services/hamclock.nix"
   ];
 
   options.radio = {

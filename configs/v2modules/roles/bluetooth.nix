@@ -17,13 +17,5 @@
       bluez        # Bluetooth protocol stack
       blueman      # Bluetooth manager GUI
     ];
-
-    # Configure ALL normal users with bluetooth packages (if any user-specific ones are needed)
-    home-manager.users = lib.genAttrs 
-      (lib.attrNames (lib.filterAttrs (name: user: user.isNormalUser) config.users.users))
-      (user: {
-        # User-specific bluetooth packages could go here
-        # For now, the system packages should be sufficient
-      });
   };
 }
