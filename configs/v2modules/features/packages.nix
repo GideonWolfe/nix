@@ -7,12 +7,6 @@ in {
   options.custom.features.packages = {
     enable = lib.mkEnableOption "Application packages configuration";
 
-    users = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [];
-      description = "List of users to configure with packages";
-    };
-
     # Science applications - hierarchical structure
     science = {
       enable = lib.mkEnableOption "Science applications";
@@ -108,8 +102,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    # Configure specified users with package modules
-    home-manager.users = lib.genAttrs cfg.users (user: {
+    # Configure the system user with package modules
+    home-manager.users.${config.custom.user.name} = {
       imports = [
         # Conditionally import package modules based on enabled options
       ] ++ lib.optionals cfg.development [
@@ -160,6 +154,6 @@ in {
       ] ++ lib.optionals (cfg.science.enable && cfg.science.utilities) [
         "${packagesDir}/science/utilities.nix"
       ];
-    });
+    };
   };
 }

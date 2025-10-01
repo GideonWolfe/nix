@@ -10,32 +10,24 @@
 
   options.custom.features.radio = {
     enable = lib.mkEnableOption "Amateur radio tools and services";
-    
-    users = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [];
-      description = "List of users to configure with radio tools";
-    };
   };
 
   config = lib.mkIf config.custom.features.radio.enable {
-    # Add radio-specific groups to specified users (SYSTEM LEVEL)
-    users.users = lib.genAttrs config.custom.features.radio.users (user: {
-      extraGroups = [
-        "dialout"  # Access USB ports for radio devices (like chirp)
-        "plugdev"  # Needed for RTL-SDR and other radio hardware
-      ];
-    });
+    # Add radio-specific groups to the system user (SYSTEM LEVEL)
+    users.users.${config.custom.user.name}.extraGroups = [
+      "dialout"  # Access USB ports for radio devices (like chirp)
+      "plugdev"  # Needed for RTL-SDR and other radio hardware
+    ];
 
-    # Configure specified users with radio packages & themes (HOME-MANAGER LEVEL)
-    home-manager.users = lib.genAttrs config.custom.features.radio.users (user: {
-        imports = [
-          "${pathConfig.packagesDir}/science/radio/radio.nix"
-          "${pathConfig.packagesDir}/science/radio/adsb_deku.nix"
-        ];
-        
-        # Radio-specific theming/user configs would go here
-        # Example: programs.chirp.theme = "dark";
-      });
+    # Configure the system user with radio packages & themes (HOME-MANAGER LEVEL)
+    home-manager.users.${config.custom.user.name} = {
+      imports = [
+        "${pathConfig.packagesDir}/science/radio/radio.nix"
+        "${pathConfig.packagesDir}/science/radio/adsb_deku.nix"
+      ];
+      
+      # Radio-specific theming/user configs would go here
+      # Example: programs.chirp.theme = "dark";
+    };
   };
 }

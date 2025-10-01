@@ -88,10 +88,17 @@
           (path: lib.hasSuffix ".nix" (toString path))
           (lib.filesystem.listFilesRecursive featuresPath);
 
-      # Auto-import both system and user v2modules configs, plus features
+      # Auto-import function for lib files (imports .nix files directly)
+      importV2Lib = libPath:
+        lib.filter
+          (path: lib.hasSuffix ".nix" (toString path))
+          (lib.filesystem.listFilesRecursive libPath);
+
+      # Auto-import both system and user v2modules configs, plus features and lib
       systemV2Configs = importV2Configs ./configs/v2modules/configs/system;
       userV2Configs = importV2Configs ./configs/v2modules/configs/user;
       featureConfigs = importV2Features ./configs/v2modules/features;
+      libConfigs = importV2Lib ./configs/v2modules/lib;
     in {
 
       # Definitions for individual hosts
@@ -169,7 +176,7 @@
             ./configs/hosts/sisyphus/configuration.nix
             
             # Auto-import v2modules system configs (for testing new pattern)
-          ] ++ systemV2Configs ++ featureConfigs ++ [
+          ] ++ systemV2Configs ++ featureConfigs ++ libConfigs ++ [
             
             # Auto-import v2modules user configs via home-manager
             home-manager.nixosModules.home-manager

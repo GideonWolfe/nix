@@ -1,51 +1,40 @@
 { config, lib, pkgs, inputs, ... }:
 
-let
-  # Define users for this host once
-  hostUsers = [ "test" ];
-in {
-  # VM configuration for testing desktop roles
+{
+  # VM configuration for testing desktop features
   
   # Basic system settings
   networking.hostName = "sisyphus";
 
-  # Import v2modules
-  imports = [
-    # Import the global test user definition
-    ../../v2modules/users/test.nix
-  ];
-
-  # Testing this pattern here for now
-  home-manager.users.test.imports = [
-    ../../v2modules/configs/user/common.nix
-  ];
 
   # Feature set for this system
-  custom.features = {
-    system.enable = true;
-    theming.enable = true;
-    audio.enable = true;
-    bluetooth.enable = false;
-    # WIP
-    secrets.enable = false;
+  custom = {
+    # Configure the primary user for this system using a preset
+    user = config.custom.userPresets.gideon;
 
-    desktop = {
-      enable = true;
-      gestures = false;
-      desktopEnvironment = "hyprland";
-    };
-  };
+    features = {
+      system.enable = true;
+      theming.enable = true;
+      audio.enable = true;
+      bluetooth.enable = false;
+      # WIP
+      secrets.enable = false;
 
+      desktop = {
+        enable = true;
+        gestures = false;
+        desktopEnvironment = "hyprland";
+      };
 
-  # Enable package categories for testing
-  custom.features.packages = {
-    enable = true;
-    users = hostUsers;
-    development = false;
-    productivity = false;
-    fun = true;
-    science = {
-      enable = false;
+      packages = {
+        enable = true;
+        development = false;
+        productivity = false;
+        fun = true;
+        science = {
+          enable = false;
+        };
+      };
     };
   };
 

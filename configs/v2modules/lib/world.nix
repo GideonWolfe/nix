@@ -1,0 +1,144 @@
+{ config, lib, ... }:
+
+{
+  options.custom.world = {
+    hosts = {
+      monitor = {
+        ip = lib.mkOption {
+          type = lib.types.str;
+          default = "165.227.70.3";
+          description = "The IP of the monitoring server used for remote installation and updates";
+        };
+
+        grafana = {
+          domain = lib.mkOption {
+            type = lib.types.str;
+            default = "cromulus.gideonwolfe.xyz";
+            description = "The domain that Grafana will run at";
+          };
+
+          protocol = lib.mkOption {
+            type = lib.types.enum [ "http" "https" ];
+            default = "http";
+            description = "Protocol for Grafana service";
+          };
+
+          port = lib.mkOption {
+            type = lib.types.port;
+            default = 3000;
+            description = "Port for Grafana service";
+          };
+
+          dataDir = lib.mkOption {
+            type = lib.types.str;
+            default = "/var/lib/grafana";
+            description = "Data directory for Grafana";
+          };
+        };
+
+        prometheus = {
+          protocol = lib.mkOption {
+            type = lib.types.enum [ "http" "https" ];
+            default = "http";
+            description = "Protocol for Prometheus service";
+          };
+
+          domain = lib.mkOption {
+            type = lib.types.str;
+            default = "prom.gideonwolfe.xyz";
+            description = "Domain for Prometheus service";
+          };
+
+          port = lib.mkOption {
+            type = lib.types.port;
+            default = 9090;
+            description = "Port for Prometheus service";
+          };
+        };
+
+        loki = {
+          protocol = lib.mkOption {
+            type = lib.types.enum [ "http" "https" ];
+            default = "http";
+            description = "Protocol for Loki service";
+          };
+
+          domain = lib.mkOption {
+            type = lib.types.str;
+            default = "loki.gideonwolfe.xyz";
+            description = "Domain for Loki service";
+          };
+
+          port = lib.mkOption {
+            type = lib.types.port;
+            default = 3100;
+            description = "Port for Loki service";
+          };
+        };
+
+        tempo = {
+          protocol = lib.mkOption {
+            type = lib.types.enum [ "http" "https" ];
+            default = "http";
+            description = "Protocol for Tempo service";
+          };
+
+          domain = lib.mkOption {
+            type = lib.types.str;
+            default = "tempo.gideonwolfe.xyz";
+            description = "Domain for Tempo service";
+          };
+
+          port = lib.mkOption {
+            type = lib.types.port;
+            default = 3200;
+            description = "Port for Tempo service";
+          };
+        };
+      };
+    };
+
+    locations = {
+      nyc = {
+        lat = lib.mkOption {
+          type = lib.types.float;
+          default = 40.7128;
+          description = "NYC Latitude";
+        };
+        long = lib.mkOption {
+          type = lib.types.float;
+          default = -74.0060;
+          description = "NYC Longitude";
+        };
+      };
+    };
+
+    email = {
+      gmail = {
+        address = lib.mkOption {
+          type = lib.types.str;
+          default = "someaddress";
+          description = "Gmail address";
+        };
+      };
+
+      gideonwolfe_xyz = {
+        address = lib.mkOption {
+          type = lib.types.str;
+          default = "gideon@gideonwolfe.xyz";
+          description = "Primary gideonwolfe.xyz email address";
+        };
+      };
+
+      infra_email = {
+        address = lib.mkOption {
+          type = lib.types.str;
+          default = "gideon@gideonwolfe.xyz";
+          description = "The email currently assigned as infrastructure email";
+        };
+      };
+    };
+  };
+
+  # No config section needed - this is purely for defining options/configuration schema
+}
