@@ -76,6 +76,7 @@
       home.stateVersion = "25.05";
       # fix conflict with stylix default
       stylix.targets.spicetify.enable = false;
+      stylix.targets.firefox.profileNames = [ "default" ];
       # Enable unfree packages for homemanager
       nixpkgs.config.allowUnfree = true;
     } // config.custom.user.homeManagerConfig;
