@@ -60,6 +60,56 @@ Features provide high-level functionality that can be enabled per-host. All feat
 - **gaming** - Steam and gaming peripherals
 - **radio** - Amateur radio tools and hardware support
 
+### SSH Feature
+
+The SSH feature provides secure remote access with automatic user key integration.
+
+#### Basic Configuration
+
+```nix
+# Enable SSH server with defaults
+custom.features.ssh.enable = true;
+```
+
+#### Advanced Configuration
+
+```nix
+custom.features.ssh = {
+  enable = true;
+  ports = [ 2736 22 ];                    # Custom SSH ports
+  openFirewall = true;                    # Open firewall automatically
+  permitRootLogin = "no";                 # Disable root login
+  passwordAuthentication = false;         # Disable password auth (keys only)
+  importUserKeys = true;                  # Auto-import user's SSH keys (default)
+  extraAuthorizedKeys = [                 # Additional authorized keys
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... admin@server"
+  ];
+};
+```
+
+#### Key Management Integration
+
+The SSH feature automatically imports the system user's SSH public keys as authorized keys:
+
+```nix
+# User configuration with SSH keys
+custom.user = config.custom.userPresets.gideon // {
+  openssh.authorizedKeys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... laptop"
+    "ssh-ed25519 BBBB3NzaC1lZDI1NTE5AAAAI... phone"
+  ];
+};
+
+# SSH feature automatically includes these keys
+custom.features.ssh.enable = true;
+```
+
+**Security Benefits:**
+- Centralized key management through user configuration
+- Automatic key deployment to SSH server
+- Support for multiple keys per user
+- Optional additional keys for admin access
+
 ### WireGuard Feature Workflow
 
 The WireGuard feature provides automated VPN client configuration with centralized key management.
@@ -189,13 +239,33 @@ custom.features.wireguard = {
 ## Library Modules
 
 ### User Management (`lib/users.nix`)
-Provides single-user-per-system configuration with predefined presets.
+Provides single-user-per-system configuration with the following options:
 
-### World Configuration (`lib/world.nix`)
-Centralized infrastructure and service endpoint definitions.
+- `name` - System username
+- `home` - Home directory path  
+- `shell` - Default shell (defaults to fish)
+- `extraGroups` - Additional user groups
+- `packages` - User-specific packages
+- `openssh.authorizedKeys` - SSH public keys for remote access (automatically imported by SSH feature)
+- `initialPassword` - Initial password (testing only)
+- `homeManagerConfig` - Home Manager configuration
+
+**SSH Integration:** When the SSH feature is enabled, user SSH keys are automatically imported as authorized keys for the SSH server, providing seamless remote access configuration.
 
 ### User Presets (`lib/predefined-users.nix`)
-Common user configurations that can be applied to any host.
+Common user configurations that can be applied to any host:
+
+- `gideon` - Full-featured user with development tools, desktop environment, and admin privileges
+- `test` - Minimal user for testing with basic shell and docker access
+
+Each preset includes example SSH public keys that should be replaced with actual keys.
+
+### World Configuration (`lib/world.nix`)
+Centralized infrastructure and service endpoint definitions for:
+
+- Monitoring endpoints (Prometheus, Grafana)
+- WireGuard VPN server and client configurations
+- Network topology and service discovery
 
 ## Development Workflow
 

@@ -29,6 +29,18 @@ in {
       description = "Whether to allow password authentication";
     };
 
+    importUserKeys = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Whether to automatically import the system user's SSH keys as authorized keys";
+    };
+
+    extraAuthorizedKeys = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      description = "Additional SSH public keys to authorize (beyond the system user's keys)";
+    };
+
     # startAgent = lib.mkOption {
     #   type = lib.types.bool;
     #   default = false;
@@ -37,6 +49,11 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    # Combine user SSH keys with additional keys
+    users.users.${config.custom.user.name}.openssh.authorizedKeys.keys = 
+      (lib.optionals cfg.importUserKeys config.custom.user.openssh.authorizedKeys) 
+      ++ cfg.extraAuthorizedKeys;
+
     services.openssh = {
       enable = true;
       ports = cfg.ports;

@@ -30,6 +30,14 @@
       description = "Packages to install for this user";
     };
 
+    openssh = {
+      authorizedKeys = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [];
+        description = "SSH public keys for this user";
+      };
+    };
+
     initialPassword = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
@@ -51,6 +59,7 @@
       shell = config.custom.user.shell;
       extraGroups = config.custom.user.extraGroups;
       packages = config.custom.user.packages;
+      openssh.authorizedKeys.keys = config.custom.user.openssh.authorizedKeys;
     } // lib.optionalAttrs (config.custom.user.initialPassword != null) {
       initialPassword = config.custom.user.initialPassword;
     };

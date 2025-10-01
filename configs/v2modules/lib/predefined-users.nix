@@ -21,6 +21,10 @@
           "storage"   # needed for udisks/udiskie
         ];
         packages = with pkgs; [ firefox tree ];
+        openssh.authorizedKeys = [
+          # Example SSH public key - replace with actual key
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... gideon@example.com"
+        ];
         homeManagerConfig = {
           imports = [
             ../configs/user/common.nix
@@ -43,6 +47,10 @@
           "docker"  # For development/ai features
         ];
         initialPassword = "test"; # For testing only
+        openssh.authorizedKeys = [
+          # Example SSH public key for test user - replace with actual key
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... test@example.com"
+        ];
         homeManagerConfig = {
           imports = [
             ../../configs/user/common.nix
