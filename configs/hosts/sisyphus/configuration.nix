@@ -13,11 +13,21 @@
     user = config.custom.userPresets.gideon;
 
     features = {
+      # Basic System Features
       system.enable = true;
       theming.enable = true;
       audio.enable = true;
       bluetooth.enable = false;
+
+      # Remote access and SOPS keygen capabilities
       ssh.enable = true;
+
+      # Connect to my VPN
+      wireguard = {
+        enable = false;
+        clientIp = "10.100.0.4/24";
+      };
+
       # WIP
       secrets.enable = true;
 

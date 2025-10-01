@@ -96,6 +96,39 @@
           };
         };
       };
+
+      # WireGuard VPN server configuration
+      wireguard = {
+        serverIp = lib.mkOption {
+          type = lib.types.str;
+          default = "66.108.176.86";
+          description = "WireGuard server public IP address";
+        };
+
+        publicKey = lib.mkOption {
+          type = lib.types.str;
+          default = "Rv8R1GmrerXlqqc7nTvzLTimStbSjoBj/SYGzvIdzQs=";
+          description = "WireGuard server public key";
+        };
+
+        vpnServerIp = lib.mkOption {
+          type = lib.types.str;
+          default = "10.100.0.1";
+          description = "WireGuard server IP address in the VPN network";
+        };
+
+        network = lib.mkOption {
+          type = lib.types.str;
+          default = "10.100.0.0/24";
+          description = "WireGuard VPN network CIDR";
+        };
+
+        port = lib.mkOption {
+          type = lib.types.port;
+          default = 123;
+          description = "WireGuard listen port";
+        };
+      };
     };
 
     locations = {
