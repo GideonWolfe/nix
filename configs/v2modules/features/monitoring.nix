@@ -4,22 +4,16 @@ let cfg = config.custom.features.monitoring;
 in {
   options.custom.features.monitoring = {
     enable = lib.mkEnableOption "Monitoring Support";
-
-    metrics = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Whether to enable metrics monitoring";
-    };
-
-    logs = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Whether to enable logs monitoring";
-    };
-
   };
 
+  imports = lib.optionals cfg.enable [
+    # Only import monitoring components when feature is enabled
+    ../configs/system/monitoring/prometheus.nix
+    ../configs/system/monitoring/alloy.nix
+  ];
+
   config = lib.mkIf cfg.enable {
-    #imports = [];
+    # Additional monitoring configuration can go here
+    # The actual services are configured in the imported modules
   };
 }
