@@ -11,11 +11,6 @@ in {
       description = "Name of the WireGuard interface";
     };
 
-    clientIp = lib.mkOption {
-      type = lib.types.str;
-      description = "Client IP address in the VPN network (e.g., 10.100.0.4/24)";
-    };
-
     persistentKeepalive = lib.mkOption {
       type = lib.types.int;
       default = 25;
@@ -43,14 +38,15 @@ in {
 
     # Configure WireGuard interface
     networking.wireguard.interfaces.${cfg.interfaceName} = {
-      # Client IP and subnet
-      ips = [ cfg.clientIp ];
+      # Client IP and subnet (auto-derived from world config)
+      ips = [ "${config.custom.world.hosts.wireguard.clients.${config.networking.hostName}.vpnIp}/24" ];
       
       # Listen on the same port as configured in world
       listenPort = config.custom.world.hosts.wireguard.port;
 
       # Always generate private key automatically
       generatePrivateKeyFile = true;
+      privateKeyFile = "/root/wireguard/${config.networking.hostName}-${cfg.interfaceName}-private.key";
 
       # Server peer configuration
       peers = [{
@@ -68,6 +64,30 @@ in {
         # Keepalive settings
         persistentKeepalive = cfg.persistentKeepalive;
       }];
+    };
+
+    # Helper service to display public key for server configuration
+    systemd.services.wireguard-pubkey-display = {
+      description = "Display WireGuard public key for server configuration";
+      after = [ "wireguard-${cfg.interfaceName}.service" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+      };
+      script = ''
+        echo "============================================="
+        echo "WireGuard Public Key for ${config.networking.hostName}"
+        echo "============================================="
+        echo "Public Key: $(${pkgs.wireguard-tools}/bin/wg show ${cfg.interfaceName} public-key)"
+        echo "VPN IP: ${config.custom.world.hosts.wireguard.clients.${config.networking.hostName}.vpnIp}/24"
+        echo ""
+        echo "Update world.nix:"
+        echo "============================================="
+        echo ""
+        echo "custom.world.hosts.wireguard.clients.${config.networking.hostName}.publicKey = \"$(${pkgs.wireguard-tools}/bin/wg show ${cfg.interfaceName} public-key)\";"
+        echo "============================================="
+      '';
     };
   };
 }

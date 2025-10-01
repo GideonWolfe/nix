@@ -23,10 +23,7 @@
       ssh.enable = true;
 
       # Connect to my VPN
-      wireguard = {
-        enable = false;
-        clientIp = "10.100.0.4/24";
-      };
+      wireguard.enable = true;
 
       # WIP
       secrets.enable = true;

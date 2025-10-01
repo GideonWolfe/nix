@@ -128,6 +128,38 @@
           default = 123;
           description = "WireGuard listen port";
         };
+
+        clients = lib.mkOption {
+          type = lib.types.attrsOf (lib.types.submodule {
+            options = {
+              publicKey = lib.mkOption {
+                type = lib.types.str;
+                default = "PENDING_KEY_GENERATION";
+                description = "Client public key (update after deployment)";
+              };
+              vpnIp = lib.mkOption {
+                type = lib.types.str;
+                description = "Client VPN IP address (without CIDR)";
+              };
+            };
+          });
+          default = {
+            # Example client configurations
+            sisyphus = {
+              publicKey = "PENDING_KEY_GENERATION";
+              vpnIp = "10.100.0.4";
+            };
+            hades = {
+              publicKey = "PENDING_KEY_GENERATION";
+              vpnIp = "10.100.0.5";
+            };
+            poseidon = {
+              publicKey = "PENDING_KEY_GENERATION";
+              vpnIp = "10.100.0.6";
+            };
+          };
+          description = "WireGuard client configurations";
+        };
       };
     };
 
