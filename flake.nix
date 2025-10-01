@@ -162,7 +162,10 @@
           inherit system;
           specialArgs = { inherit inputs pathConfig; };
           modules = [
+            # Needed for VM capabilities
             "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
+
+            # Main host specific configuration
             ./configs/hosts/sisyphus/configuration.nix
             
             # Auto-import v2modules system configs (for testing new pattern)

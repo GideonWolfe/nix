@@ -69,36 +69,36 @@ in {
 
     services.flatpak.enable = true;
 
-    # Configure specified users with desktop Home Manager modules
-    home-manager.users = lib.genAttrs cfg.users (user: {
-      # Set required Home Manager state version
-      home.stateVersion = "25.05";
+    # # Configure specified users with desktop Home Manager modules
+    # home-manager.users = lib.genAttrs cfg.users (user: {
+    #   # Set required Home Manager state version
+    #   home.stateVersion = "25.05";
       
-      imports = [
-        # Essential desktop modules only - no common.nix
-        "${userModulesDir}/cursor/cursor.nix"
-        "${userModulesDir}/gtk/gtk.nix"
-        "${userModulesDir}/qt/qt.nix"
-        "${userModulesDir}/wofi/wofi.nix"
-        "${userModulesDir}/swappy/swappy.nix"
-        "${userModulesDir}/kando/kando.nix"
-        "${userModulesDir}/clipse/clipse.nix"
-        "${userModulesDir}/shell/fish.nix"
-      ] ++ lib.optionals cfg.gestures [
-        "${userModulesDir}/fusuma/fusuma.nix"
-      # Desktop Environment specific modules
-      ] ++ lib.optionals (cfg.desktopEnvironment == "hyprland") [
-        "${userModulesDir}/hypr/hyprland.nix"
-        "${userModulesDir}/hypr/hyprpaper.nix"
-        "${userModulesDir}/hypr/hypridle.nix"
-        "${userModulesDir}/hypr/hyprlock.nix"
-        #"${userModulesDir}/hypr/hyprpanel.nix"
-      ] ++ lib.optionals (cfg.desktopEnvironment == "sway") [
-        "${userModulesDir}/sway/sway.nix"
-        "${userModulesDir}/sway/swaylock.nix"
-        "${userModulesDir}/sway/swayidle.nix"
-        "${userModulesDir}/waybar/waybar.nix"
-      ];
-    });
+    #   imports = [
+    #     # Essential desktop modules only - no common.nix
+    #     "${userModulesDir}/cursor/cursor.nix"
+    #     "${userModulesDir}/gtk/gtk.nix"
+    #     "${userModulesDir}/qt/qt.nix"
+    #     "${userModulesDir}/wofi/wofi.nix"
+    #     "${userModulesDir}/swappy/swappy.nix"
+    #     "${userModulesDir}/kando/kando.nix"
+    #     "${userModulesDir}/clipse/clipse.nix"
+    #     "${userModulesDir}/shell/fish.nix"
+    #   ] ++ lib.optionals cfg.gestures [
+    #     "${userModulesDir}/fusuma/fusuma.nix"
+    #   # Desktop Environment specific modules
+    #   ] ++ lib.optionals (cfg.desktopEnvironment == "hyprland") [
+    #     "${userModulesDir}/hypr/hyprland.nix"
+    #     "${userModulesDir}/hypr/hyprpaper.nix"
+    #     "${userModulesDir}/hypr/hypridle.nix"
+    #     "${userModulesDir}/hypr/hyprlock.nix"
+    #     #"${userModulesDir}/hypr/hyprpanel.nix"
+    #   ] ++ lib.optionals (cfg.desktopEnvironment == "sway") [
+    #     "${userModulesDir}/sway/sway.nix"
+    #     "${userModulesDir}/sway/swaylock.nix"
+    #     "${userModulesDir}/sway/swayidle.nix"
+    #     "${userModulesDir}/waybar/waybar.nix"
+    #   ];
+    # });
   };
 }

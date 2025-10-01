@@ -89,7 +89,10 @@ in {
   # Enable sudo without password for convenience during testing
   security.sudo.wheelNeedsPassword = false;
 
-
+  # Testing this pattern here for now
+  home-manager.users.test.imports = [
+    ../../v2modules/configs/user/common.nix
+  ];
 
   # System state version
   system.stateVersion = "25.05";

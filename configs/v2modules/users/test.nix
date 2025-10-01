@@ -15,7 +15,10 @@
   # Home-manager configuration for this user
   home-manager.users.test = {
     home.stateVersion = "25.05";
-    
+    # fix conflict with stylix default
+    stylix.targets.spicetify.enable = false;
+    # Enable unfree packages for homemanager
+    nixpkgs.config.allowUnfree = true;
     # User-specific home manager settings can go here
     # The roles will automatically enable relevant modules
   };
