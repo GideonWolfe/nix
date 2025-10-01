@@ -82,16 +82,16 @@
           (path: lib.hasSuffix "/default.nix" (toString path))
           (lib.filesystem.listFilesRecursive configsPath);
 
-      # Auto-import function for roles (imports .nix files directly)
-      importV2Roles = rolesPath:
+      # Auto-import function for features (imports .nix files directly)
+      importV2Features = featuresPath:
         lib.filter
           (path: lib.hasSuffix ".nix" (toString path))
-          (lib.filesystem.listFilesRecursive rolesPath);
+          (lib.filesystem.listFilesRecursive featuresPath);
 
-      # Auto-import both system and user v2modules configs, plus roles
+      # Auto-import both system and user v2modules configs, plus features
       systemV2Configs = importV2Configs ./configs/v2modules/configs/system;
       userV2Configs = importV2Configs ./configs/v2modules/configs/user;
-      roleConfigs = importV2Roles ./configs/v2modules/roles;
+      featureConfigs = importV2Features ./configs/v2modules/features;
     in {
 
       # Definitions for individual hosts
@@ -169,7 +169,7 @@
             ./configs/hosts/sisyphus/configuration.nix
             
             # Auto-import v2modules system configs (for testing new pattern)
-          ] ++ systemV2Configs ++ roleConfigs ++ [
+          ] ++ systemV2Configs ++ featureConfigs ++ [
             
             # Auto-import v2modules user configs via home-manager
             home-manager.nixosModules.home-manager

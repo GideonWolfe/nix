@@ -1,10 +1,10 @@
 { config, lib, pkgs, inputs, pathConfig, ... }:
 
 let 
-  cfg = config.packages;
+  cfg = config.custom.features.packages;
   inherit (pathConfig) packagesDir;
 in {
-  options.packages = {
+  options.custom.features.packages = {
     enable = lib.mkEnableOption "Application packages configuration";
 
     users = lib.mkOption {

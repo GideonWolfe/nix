@@ -1,7 +1,7 @@
 { config, lib, pkgs, pathConfig ? {}, ... }:
 
 {
-  options.ai.localai = {
+  options.custom.features.ai.localai = {
     enable = lib.mkEnableOption "LocalAI service";
     
     port = lib.mkOption {
@@ -41,18 +41,18 @@
     };
   };
 
-  config = lib.mkIf config.ai.localai.enable {
+  config = lib.mkIf config.custom.features.ai.localai.enable {
     virtualisation.oci-containers.containers.localai = {
-      image = config.ai.localai.image;
-      ports = [ "${toString config.ai.localai.port}:8080" ];
-      autoStart = config.ai.localai.autoStart;
+      image = config.custom.features.ai.localai.image;
+      ports = [ "${toString config.custom.features.ai.localai.port}:8080" ];
+      autoStart = config.custom.features.ai.localai.autoStart;
       environment = {
-        DEBUG = toString config.ai.localai.debug;
-        LOCALAI_CONTEXT_SIZE = toString config.ai.localai.contextSize;
+        DEBUG = toString config.custom.features.ai.localai.debug;
+        LOCALAI_CONTEXT_SIZE = toString config.custom.features.ai.localai.contextSize;
       };
       volumes = [
         # model cache
-        "${config.ai.localai.modelsPath}:/models:cached"
+        "${config.custom.features.ai.localai.modelsPath}:/models:cached"
       ];
     };
   };

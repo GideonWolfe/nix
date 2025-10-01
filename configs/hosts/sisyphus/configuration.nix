@@ -13,38 +13,32 @@ in {
   imports = [
     # Import the global test user definition
     ../../v2modules/users/test.nix
-    
-    # Roles are now auto-imported from the flake!
   ];
 
-  # Enable base system configuration
-  system = {
-    enable = true;
+  # Testing this pattern here for now
+  home-manager.users.test.imports = [
+    ../../v2modules/configs/user/common.nix
+  ];
+
+  # Feature set for this system
+  custom.features = {
+    system.enable = true;
+    theming.enable = true;
+    audio.enable = true;
+    bluetooth.enable = false;
+    # WIP
+    secrets.enable = false;
+
+    desktop = {
+      enable = true;
+      gestures = false;
+      desktopEnvironment = "hyprland";
+    };
   };
 
-  # Enable theming
-  stylixTheming = {
-    enable = true;
-    users = hostUsers;
-  };
-
-  # Enable secrets (basic example)
-  secrets = {
-    enable = false;
-    # Example: if you had a secrets file at ../../secrets/sisyphus.yaml
-    # defaultSopsFile = ../../secrets/sisyphus.yaml;
-  };
-
-  # Enable desktop role with Hyprland (user will be auto-detected)
-  desktop = {
-    enable = true;
-    desktopEnvironment = "hyprland";
-    gestures = false;
-    users = hostUsers;
-  };
 
   # Enable package categories for testing
-  packages = {
+  custom.features.packages = {
     enable = true;
     users = hostUsers;
     development = false;
@@ -55,11 +49,6 @@ in {
     };
   };
 
-  # Enable audio support
-  audio.enable = true;
-
-  # Enable bluetooth for complete desktop testing
-  bluetooth.enable = false;
 
   # VM-specific settings
   virtualisation = {
@@ -72,27 +61,10 @@ in {
     diskSize = 16384; # 16GB for desktop apps
   };
 
-  # Host-specific VM packages for testing
-  environment.systemPackages = with pkgs; [
-    neovim
-  ];
-
-  # Enable SSH for remote access during testing
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "yes";
-      PasswordAuthentication = true;
-    };
-  };
 
   # Enable sudo without password for convenience during testing
   security.sudo.wheelNeedsPassword = false;
 
-  # Testing this pattern here for now
-  home-manager.users.test.imports = [
-    ../../v2modules/configs/user/common.nix
-  ];
 
   # System state version
   system.stateVersion = "25.05";

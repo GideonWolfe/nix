@@ -8,7 +8,7 @@
     #"${pathConfig.systemModulesDir}/services/hamclock.nix"
   ];
 
-  options.radio = {
+  options.custom.features.radio = {
     enable = lib.mkEnableOption "Amateur radio tools and services";
     
     users = lib.mkOption {
@@ -18,9 +18,9 @@
     };
   };
 
-  config = lib.mkIf config.radio.enable {
+  config = lib.mkIf config.custom.features.radio.enable {
     # Add radio-specific groups to specified users (SYSTEM LEVEL)
-    users.users = lib.genAttrs config.radio.users (user: {
+    users.users = lib.genAttrs config.custom.features.radio.users (user: {
       extraGroups = [
         "dialout"  # Access USB ports for radio devices (like chirp)
         "plugdev"  # Needed for RTL-SDR and other radio hardware
@@ -28,7 +28,7 @@
     });
 
     # Configure specified users with radio packages & themes (HOME-MANAGER LEVEL)
-    home-manager.users = lib.genAttrs config.radio.users (user: {
+    home-manager.users = lib.genAttrs config.custom.features.radio.users (user: {
         imports = [
           "${pathConfig.packagesDir}/science/radio/radio.nix"
           "${pathConfig.packagesDir}/science/radio/adsb_deku.nix"

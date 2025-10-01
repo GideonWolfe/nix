@@ -1,8 +1,8 @@
 { config, lib, pkgs, inputs, pathConfig ? {}, ... }:
 
-let cfg = config.monitoring;
+let cfg = config.custom.features.monitoring;
 in {
-  options.monitoring = {
+  options.custom.features.monitoring = {
     enable = lib.mkEnableOption "Monitoring Support";
 
     metrics = lib.mkOption {

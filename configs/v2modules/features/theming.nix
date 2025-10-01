@@ -1,13 +1,13 @@
 { config, lib, pkgs, inputs, pathConfig ? {}, ... }:
 
 let 
-    cfg = config.stylixTheming;
+    cfg = config.custom.features.theming;
 in {
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
 
-  options.stylixTheming = {
+  options.custom.features.theming = {
     enable = lib.mkEnableOption "Stylix theming support";
 
     users = lib.mkOption {

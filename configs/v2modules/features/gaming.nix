@@ -1,12 +1,12 @@
 { config, lib, pkgs, pathConfig, ... }:
 
 {
-  # Always import gaming modules when this role is loaded
+  # Always import gaming modules when this feature is loaded
   imports = [
     "${pathConfig.systemModulesDir}/services/gaming/steam.nix"
   ];
 
-  options.gaming = {
+  options.custom.features.gaming = {
     enable = lib.mkEnableOption "Gaming support and services";
     
     steam = lib.mkOption {
@@ -16,9 +16,9 @@
     };
   };
 
-  config = lib.mkIf config.gaming.enable {
+  config = lib.mkIf config.custom.features.gaming.enable {
     # Enable Steam if requested (the module is already imported)
-    programs.steam.enable = lib.mkIf config.gaming.steam true;
+    programs.steam.enable = lib.mkIf config.custom.features.gaming.steam true;
 
     # Enable ratbagd for gaming mice support
     services.ratbagd.enable = true;

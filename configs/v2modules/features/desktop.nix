@@ -1,10 +1,10 @@
 { config, lib, pkgs, inputs, pathConfig, ... }:
 
 let 
-  cfg = config.desktop;
+  cfg = config.custom.features.desktop;
   inherit (pathConfig) userModulesDir systemModulesDir;
 in {
-  options.desktop = {
+  options.custom.features.desktop = {
     enable = lib.mkEnableOption "Essential desktop configuration with UI components";
 
     # Desktop Environment Selection
@@ -21,12 +21,6 @@ in {
       description = "Enable touchpad gestures (fusuma)";
     };
 
-    # Users to configure with desktop
-    users = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [];
-      description = "List of users to configure with desktop Home Manager modules";
-    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -55,11 +49,13 @@ in {
     };
 
     services.dbus.enable = true;
-    xdg.portal = {
+    xdg.portal = lib.mkIf (cfg.desktopEnvironment != "none") {
       enable = true;
       wlr.enable = lib.mkIf (cfg.desktopEnvironment == "sway") true;
       extraPortals = lib.optionals (cfg.desktopEnvironment == "hyprland") [
         pkgs.xdg-desktop-portal-hyprland
+      ] ++ lib.optionals (cfg.desktopEnvironment == "sway") [
+        pkgs.xdg-desktop-portal-wlr
       ];
     };
 

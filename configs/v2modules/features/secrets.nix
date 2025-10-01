@@ -1,13 +1,13 @@
 { config, lib, pkgs, inputs, pathConfig ? {}, ... }:
 
 let 
-  cfg = config.secrets;
+  cfg = config.custom.features.secrets;
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
 
-  options.secrets = {
+  options.custom.features.secrets = {
     enable = lib.mkEnableOption "SOPS secrets management infrastructure";
 
     defaultSopsFile = lib.mkOption {

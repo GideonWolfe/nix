@@ -1,8 +1,8 @@
 { config, lib, pkgs, inputs, pathConfig ? {}, ... }:
 
-let cfg = config.audio;
+let cfg = config.custom.features.audio;
 in {
-  options.audio = { enable = lib.mkEnableOption "Audio support"; };
+  options.custom.features.audio = { enable = lib.mkEnableOption "Audio support"; };
 
   config = lib.mkIf cfg.enable {
 

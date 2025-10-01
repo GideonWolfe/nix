@@ -1,13 +1,13 @@
 { config, lib, pkgs, inputs, pathConfig ? {}, ... }:
 
 let 
-  cfg = config.system;
+  cfg = config.custom.features.system;
 in {
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  options.system = {
+  options.custom.features.system = {
     enable = lib.mkEnableOption "Base system configuration with Home Manager bootstrap and common system modules";
   };
 
