@@ -72,7 +72,7 @@
     ./hypr/hyprpaper.nix
     ./hypr/hypridle.nix
     ./hypr/hyprlock.nix
-    #./hypr/hyprpanel.nix
+    ./hypr/hyprpanel.nix
 
     ########
     # Sway #
