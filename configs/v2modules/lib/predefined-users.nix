@@ -22,8 +22,8 @@
         ];
         packages = with pkgs; [ firefox tree ];
         openssh.authorizedKeys = [
-          # Example SSH public key - replace with actual key
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... gideon@example.com"
+          # Yubikey Public Key
+          "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIKZGmiV6gXdzztdYoqrZDbFqAHpM+5rMgmQZ+6gpR98xAAAACnNzaDpnaWRlb24="
         ];
         secretsFile = ../../../../secrets/gideon_secrets.yaml;
         homeManagerConfig = {
