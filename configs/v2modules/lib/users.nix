@@ -38,6 +38,13 @@
       };
     };
 
+    secretsFile = lib.mkOption {
+      type = lib.types.nullOr lib.types.path;
+      default = null;
+      description = "Path to the user's SOPS secrets file";
+      example = "../../../../secrets/gideon_secrets.yaml";
+    };
+
     initialPassword = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;

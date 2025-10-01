@@ -56,7 +56,7 @@ Features provide high-level functionality that can be enabled per-host. All feat
 - **ssh** - SSH server with configurable options
 - **wireguard** - WireGuard VPN client (see detailed workflow below)
 - **monitoring** - Prometheus + Alloy monitoring stack
-- **secrets** - SOPS secrets management
+- **secrets** - SOPS infrastructure with AGE key management
 - **gaming** - Steam and gaming peripherals
 - **radio** - Amateur radio tools and hardware support
 
@@ -109,6 +109,82 @@ custom.features.ssh.enable = true;
 - Automatic key deployment to SSH server
 - Support for multiple keys per user
 - Optional additional keys for admin access
+
+### Secrets Feature
+
+The secrets feature provides SOPS infrastructure with automatic AGE key generation and management.
+
+#### Basic Configuration
+
+```nix
+# Enable secrets management
+custom.features.secrets.enable = true;
+```
+
+#### Advanced Configuration
+
+```nix
+custom.features.secrets = {
+  enable = true;
+  defaultSopsFile = ../../../../secrets/gideon_secrets.yaml;  # Optional default
+  ageKeyFile = "/var/lib/sops-nix/key.txt";                  # AGE private key location
+  generateKey = true;                                        # Auto-generate AGE key
+  hostKeyPath = "/etc/ssh/ssh_host_ed25519_key";            # SSH key for AGE derivation
+};
+```
+
+#### AGE Key Workflow
+
+**Step 1: Enable Secrets Feature**
+```nix
+custom.features.secrets.enable = true;
+```
+
+**Step 2: Deploy and Generate AGE Key**
+```bash
+# Deploy the configuration
+nixos-rebuild switch
+
+# The system automatically:
+# - Generates AGE private key at /var/lib/sops-nix/key.txt
+# - Displays the AGE public key for configuration
+```
+
+**Step 3: Extract AGE Public Key**
+```bash
+# View the generated public key
+journalctl -u sops-age-key-display
+
+# Output example:
+# =============================================
+# SOPS AGE Public Key for sisyphus
+# =============================================
+# Public Key: age1abc123...xyz789
+#
+# Add this to your .sops.yaml:
+# =============================================
+# keys:
+#   - &hosts:
+#       - &sisyphus age1abc123...xyz789
+# =============================================
+```
+
+**Step 4: Update .sops.yaml**
+Add the new host to your `.sops.yaml` creation rules as needed.
+
+#### Using Secrets
+
+Individual features can define their own secrets:
+
+```nix
+# In any feature that needs secrets
+sops.secrets."some-secret" = {
+  sopsFile = ../../../../secrets/gideon_secrets.yaml;
+  owner = config.custom.user.name;
+};
+```
+
+The secrets infrastructure handles the AGE key management automatically.
 
 ### WireGuard Feature Workflow
 

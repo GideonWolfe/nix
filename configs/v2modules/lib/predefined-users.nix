@@ -25,6 +25,7 @@
           # Example SSH public key - replace with actual key
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... gideon@example.com"
         ];
+        secretsFile = ../../../../secrets/gideon_secrets.yaml;
         homeManagerConfig = {
           imports = [
             ../configs/user/common.nix
@@ -51,6 +52,7 @@
           # Example SSH public key for test user - replace with actual key
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... test@example.com"
         ];
+        secretsFile = null; # Test user has no secrets by default
         homeManagerConfig = {
           imports = [
             ../../configs/user/common.nix
