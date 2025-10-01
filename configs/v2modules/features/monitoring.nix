@@ -2,15 +2,15 @@
 
 let cfg = config.custom.features.monitoring;
 in {
-  options.custom.features.monitoring = {
-    enable = lib.mkEnableOption "Monitoring Support";
-  };
-
-  imports = lib.optionals cfg.enable [
-    # Only import monitoring components when feature is enabled
+  imports = [
+    # Always import monitoring components - they'll conditionally enable themselves
     ../configs/system/monitoring/prometheus.nix
     ../configs/system/monitoring/alloy.nix
   ];
+
+  options.custom.features.monitoring = {
+    enable = lib.mkEnableOption "Monitoring Support";
+  };
 
   config = lib.mkIf cfg.enable {
     # Additional monitoring configuration can go here

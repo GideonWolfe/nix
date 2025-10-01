@@ -2,10 +2,10 @@
 
 {
     services.prometheus = {
-        enable = true;
+        enable = config.custom.features.monitoring.enable;
         exporters = {
           node = {
-            enable = true;
+            enable = config.custom.features.monitoring.enable;
             port = 9100;
             enabledCollectors = [
               "systemd"

@@ -1,7 +1,9 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  services.alloy = { enable = true; };
+  services.alloy = { 
+    enable = config.custom.features.monitoring.enable; 
+  };
 
   # TODO possibly break these out into individual files?
   # make the alloy config file, there is no module support yet
