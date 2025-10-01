@@ -46,6 +46,7 @@
     ##############
     # UI/Desktop #
     ##############
+    ./stylix/stylix.nix
     ./cursor/cursor.nix
     ./gtk/gtk.nix
     ./qt/qt.nix
