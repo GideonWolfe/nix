@@ -64,6 +64,18 @@
     ./darkreader/darkreader.nix
     ./startpage/service.nix
 
+    ####################
+    # Scripts & Tools  #
+    ####################
+    ../../scripts/wofi-web-search
+    ../../scripts/git
+    ../../scripts/portapack
+    ../../scripts/hyprland-window-switcher
+    ../../scripts/sway-window-switcher
+    ../../scripts/power-scripts
+    ../../scripts/mako-toggle
+    ../../scripts/screen-recorder
+
     ############
     # Hyprland #
     ############
