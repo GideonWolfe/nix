@@ -24,12 +24,14 @@
         # Yubikey Public Key
         "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIKZGmiV6gXdzztdYoqrZDbFqAHpM+5rMgmQZ+6gpR98xAAAACnNzaDpnaWRlb24="
       ];
+      profilePicture = ./profile.png;
       secretsFile = ../../../secrets/gideon_secrets.yaml;
       homeManagerConfig = {
         imports = [
           ../../configs/user/common.nix
         ];
         # Additional home-manager config specific to gideon can go here
+        home.stateVersion = "23.11";
       };
     };
     description = "Gideon user preset configuration";

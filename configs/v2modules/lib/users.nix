@@ -51,6 +51,12 @@
       description = "Initial password for the user (for testing only)";
     };
 
+    profilePicture = lib.mkOption {
+      type = lib.types.nullOr lib.types.path;
+      default = null;
+      description = "Path to the user's profile picture";
+    };
+
     homeManagerConfig = lib.mkOption {
       type = lib.types.attrs;
       default = {};
@@ -72,13 +78,23 @@
     };
 
     # Create home-manager configuration for the user
-    home-manager.users.${config.custom.user.name} = {
-      home.stateVersion = "25.05";
-      # fix conflict with stylix default
-      stylix.targets.spicetify.enable = false;
-      stylix.targets.firefox.profileNames = [ "default" ];
-      # Enable unfree packages for homemanager
-      nixpkgs.config.allowUnfree = true;
-    } // config.custom.user.homeManagerConfig;
+    home-manager.users.${config.custom.user.name} = lib.mkMerge [
+      {
+        #home.stateVersion = "25.05";
+        # fix conflict with stylix default
+        stylix.targets.spicetify.enable = false;
+        stylix.targets.firefox.profileNames = [ "default" ];
+        # Enable unfree packages for homemanager
+        nixpkgs.config.allowUnfree = true;
+      }
+      
+      # Add profile picture if specified
+      (lib.mkIf (config.custom.user.profilePicture != null) {
+        home.file."profile.png".source = config.custom.user.profilePicture;
+      })
+      
+      # Add user's home manager config
+      config.custom.user.homeManagerConfig
+    ];
   };
 }

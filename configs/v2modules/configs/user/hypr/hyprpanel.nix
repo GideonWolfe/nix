@@ -1092,8 +1092,7 @@ with config.lib.stylix.colors.withHashtag;
         # Settings for dashboard menu
         dashboard = {
 
-          powermenu.avatar.image =
-            "${config.home.homeDirectory}/nix/configs/users/${config.home.username}/configs/profile.png";
+          powermenu.avatar.image = "${config.home.homeDirectory}/profile.png";
 
           # Directory shortcuts
           directories = {
