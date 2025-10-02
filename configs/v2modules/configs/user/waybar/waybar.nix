@@ -289,14 +289,10 @@ with config.lib.stylix.colors.withHashtag;
           tooltip = true;
           interval = 1;
           format = "<span color='${base0D}'>{} </span>";
-          exec =
-            "$HOME/nix/configs/modules/scripts/user/desktop/screen-capture/screen-recorder.sh status";
-          on-click-middle =
-            "$HOME/nix/configs/modules/scripts/user/desktop/screen-capture/screen-recorder.sh toggle display";
-          on-click-left =
-            "$HOME/nix/configs/modules/scripts/user/desktop/screen-capture/screen-recorder.sh toggle region";
-          on-click-right =
-            "$HOME/nix/configs/user/gideon/scripts/system/screen-capture/screen-recorder.sh toggle fullscreen";
+          exec = "screen-recorder status";
+          on-click-middle = "screen-recorder toggle display";
+          on-click-left = "screen-recorder toggle region";
+          on-click-right = "screen-recorder toggle fullscreen";
           return-type = "json";
         };
 
@@ -304,12 +300,9 @@ with config.lib.stylix.colors.withHashtag;
           tooltip = true;
           interval = 1;
           format = "<span color='${base0D}'>{} </span>";
-          exec =
-            "$HOME/nix/configs/modules/scripts/user/desktop/notifications/mako-toggle-waybar.sh status";
-          on-click-left =
-            "$HOME/nix/configs/modules/scripts/user/desktop/notifications/mako-toggle-waybar.sh toggle";
-          on-click-right =
-            "$HOME/nix/configs/modules/scripts/user/desktop/notifications/mako-toggle-waybar.sh toggle";
+          exec = "mako-toggle-waybar status";
+          on-click-left = "mako-toggle-waybar toggle";
+          on-click-right = "mako-toggle-waybar toggle";
           return-type = "json";
           signal = 8;
         };

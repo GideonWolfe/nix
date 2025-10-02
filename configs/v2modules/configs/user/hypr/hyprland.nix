@@ -184,9 +184,9 @@ with config.lib.stylix.colors;
         # Execute wofi menu
         "$mod, D, exec, $menu"
         # Execute hyprland window switching script
-        "$mod SHIFT, P, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/modules/scripts/user/desktop/navigation/hyprland-window-switcher.sh"
+        "$mod SHIFT, P, exec, hyprland-window-switcher"
         # Execute wofi web search script
-        "$mod SHIFT, S, exec, ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/nix/configs/modules/scripts/user/desktop/search/wofi-web-search.sh"
+        "$mod SHIFT, S, exec, wofi-web-search"
         # Wofi-emoji
         "$mod SHIFT, E, exec, ${lib.getExe pkgs.wofi-emoji}"
 

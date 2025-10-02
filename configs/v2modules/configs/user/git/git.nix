@@ -35,8 +35,8 @@
       #post-commit = $HOME/nix/user/scripts/git/post-commit-hook.sh
       #post-commit = home/gideon/nix/user/scripts/git/post-commit-hook.sh;
       #post-commit = ./post-commit-hook.sh;
-      post-commit =
-        "${config.home.homeDirectory}/nix/configs/modules/scripts/user/git/post-commit-hook.sh";
+      #post-commit = "post-commit-hook";
+      post-commit = "${lib.getExe (pkgs.writeShellScriptBin "post-commit-hook" (builtins.readFile ../../../scripts/git/post-commit-hook.sh))}";
 
     };
   };
