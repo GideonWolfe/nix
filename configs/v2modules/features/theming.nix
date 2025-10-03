@@ -91,11 +91,6 @@ in {
     stylix.fonts = cfg.fonts // { sizes = cfg.fontSizes; };
     stylix.targets = {
       plymouth.enable = false;
-      firefox = { profileNames = [ "default" ]; };
-      # It doesn't really use enough colors! I set them manually
-      spicetify.enable = false;
-      # off by default
-      qt.enable = true;
     };
 
     # Install theming packages globally at system level
@@ -115,5 +110,16 @@ in {
       material-icons
       libsForQt5.breeze-icons # icon set for system icons
     ];
+
+    # Configure home-manager specific stylix targets
+    home-manager.users.${config.custom.user.name} = {
+      stylix.targets = {
+        firefox = { profileNames = [ "default" ]; };
+        # It doesn't really use enough colors! I set them manually
+        spicetify.enable = false;
+        # off by default
+        qt.enable = true;
+      };
+    };
   };
 }

@@ -30,6 +30,7 @@
     ./xdg-user-dirs/xdg-user-dirs.nix # default directories
     ./mimetypes/mimetypes.nix # default programs
     ./udiskie/udiskie.nix # automount USB drives
+    ./gpg/gpg.nix # enable GPG to run
 
     ############
     # Networks #
