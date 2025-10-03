@@ -186,6 +186,9 @@
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules = userV2Configs;
+              home-manager.users.gideon.imports = [
+                ./configs/v2modules/users/gideon/home.nix
+              ];
             }
           ];
         };

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Gideon user definition - directly configure the user
+  # Gideon user definition - ONLY system-level configuration
   config = {
     custom.user = {
       name = "gideon";
@@ -24,19 +24,6 @@
       ];
       profilePicture = ./profile.png;
       secretsFile = ../../../secrets/gideon_secrets.yaml;
-    };
-
-    # Configure home-manager for gideon user directly
-    home-manager.users.gideon = {
-      imports = [
-        # General user settings
-        ../../configs/user/common.nix
-        # User Specific SSH Settings
-        ./configs/ssh.nix
-      ];
-      home.stateVersion = "23.11";
-      # Always import my PGP public key into user config
-      programs.gpg.publicKeys = [{ source = ./keys/gideon_pub.asc; }];
     };
   };
 }
