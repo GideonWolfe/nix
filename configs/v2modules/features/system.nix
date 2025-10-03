@@ -33,6 +33,21 @@ in {
       gnome-font-viewer
     ];
 
+
+    # Enable SmartD
+    services.smartd.enable = true;
+    # Enable udisks to automount disks
+    services.udisks2.enable = true;
+
+    # Enable docker daemon
+    virtualisation.docker.enable = true;
+    # Choose docker as the backend for OCI containers configured via nix
+    virtualisation.oci-containers.backend = "docker";
+    programs.virt-manager.enable = true;
+    users.groups.libvirtd.members = [ "${config.custom.user.name}" ];
+    virtualisation.libvirtd.enable = true;
+    virtualisation.spiceUSBRedirection.enable = true;
+
     # Essential fonts for all systems
     fonts.packages = with pkgs; [
       # collection of patched fonts

@@ -43,6 +43,16 @@ in {
 	  networking.networkmanager.enable = true;
     # Enable tray applet
     programs.nm-applet.enable = true;
+
+
+    # Enable the Yubikey Agent, which replaces ssh-agent
+    # Handles forwarding SSH auth requests to the Yubikey
+    services.yubikey-agent.enable = true;
+    # Notifies user when Yubikey awaiting touch
+    programs.yubikey-touch-detector.enable = true;
+    # Enable smartcard detection
+    services.pcscd.enable = true;
+
     
     # Enable desktop environment programs at system level
     programs.hyprland = lib.mkIf (cfg.desktopEnvironment == "hyprland") {
@@ -66,6 +76,7 @@ in {
 
     security.rtkit.enable = true;
 
+    services.printing.enable = true;
 
     # Flatpak and appimages
     services.flatpak.enable = true;
