@@ -89,7 +89,14 @@ in {
     stylix.opacity = cfg.opacity;
     stylix.cursor = cfg.cursor;
     stylix.fonts = cfg.fonts // { sizes = cfg.fontSizes; };
-    stylix.targets.plymouth.enable = false;
+    stylix.targets = {
+      plymouth.enable = false;
+      firefox = { profileNames = [ "default" ]; };
+      # It doesn't really use enough colors! I set them manually
+      spicetify.enable = false;
+      # off by default
+      qt.enable = true;
+    };
 
     # Install theming packages globally at system level
     environment.systemPackages = with pkgs; [

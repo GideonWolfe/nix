@@ -33,6 +33,12 @@ in {
       gnome-font-viewer
     ];
 
+    services.gnome.gnome-keyring.enable = true;
+
+    # GPG
+    programs.gnupg.agent.enable = true;
+    # Enable hardware support for GPG smartcards
+    hardware.gpgSmartcards.enable = true;
 
     # Enable SmartD
     services.smartd.enable = true;
