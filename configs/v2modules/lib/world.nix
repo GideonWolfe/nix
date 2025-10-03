@@ -161,6 +161,15 @@
           description = "WireGuard client configurations";
         };
       };
+
+      homeserver = {
+        ip = lib.mkOption {
+          type = lib.types.str;
+          default = "66.108.176.86";
+          description = "The IP of my homeserver";
+        };
+      };
+
     };
 
     locations = {

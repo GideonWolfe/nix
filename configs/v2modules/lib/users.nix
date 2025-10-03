@@ -51,6 +51,12 @@
       description = "Initial password for the user (for testing only)";
     };
 
+    initialHashedPassword = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = "Initial hashed password for the user";
+    };
+
     profilePicture = lib.mkOption {
       type = lib.types.nullOr lib.types.path;
       default = null;
@@ -75,6 +81,8 @@
       openssh.authorizedKeys.keys = config.custom.user.openssh.authorizedKeys;
     } // lib.optionalAttrs (config.custom.user.initialPassword != null) {
       initialPassword = config.custom.user.initialPassword;
+    } // lib.optionalAttrs (config.custom.user.initialHashedPassword != null) {
+      initialHashedPassword = config.custom.user.initialHashedPassword;
     };
 
     # Create home-manager configuration for the user
