@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     # Greeter daemon for login sessions
     #greetd.greetd
     # actual greeter

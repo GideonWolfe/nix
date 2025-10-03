@@ -99,12 +99,32 @@ in {
       default = false;
       description = "Enable fun applications";
     };
+
+    art = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable art applications (painting, music production)";
+    };
+
+    pentesting = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable pentesting applications";
+    };
   };
 
   config = lib.mkIf cfg.enable {
     # Configure the system user with package modules
     home-manager.users.${config.custom.user.name} = {
       imports = [
+        # Always import utilities
+        "${packagesDir}/utilities/system.nix"
+        #"${packagesDir}/utilities/fonts.nix"
+        "${packagesDir}/utilities/hardware.nix"
+        "${packagesDir}/utilities/cli.nix"
+        "${packagesDir}/utilities/monitors.nix"
+        "${packagesDir}/utilities/networking.nix"
+        "${packagesDir}/utilities/files.nix"
         # Conditionally import package modules based on enabled options
       ] ++ lib.optionals cfg.development [
         "${packagesDir}/development/dedoc.nix"
@@ -129,6 +149,16 @@ in {
         "${packagesDir}/productivity/news/hackernews-tui.nix"
       ] ++ lib.optionals cfg.fun [
         "${packagesDir}/utilities/fun.nix"
+      ] ++ lib.optionals cfg.art [
+        "${packagesDir}/art/art.nix"
+        "${packagesDir}/art/painting.nix"
+        "${packagesDir}/art/music_production.nix"
+      ] ++ lib.optionals cfg.pentesting [
+        "${packagesDir}/pentesting/reverse_engineering.nix"
+        "${packagesDir}/pentesting/wifi.nix"
+        "${packagesDir}/pentesting/systems.nix"
+        "${packagesDir}/pentesting/cracking.nix"
+        "${packagesDir}/pentesting/osint.nix"
       # Science packages - conditional on both science.enable and individual options
       ] ++ lib.optionals (cfg.science.enable && cfg.science.astronomy) [
         "${packagesDir}/science/astronomy/astronomy.nix"

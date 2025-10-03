@@ -28,6 +28,20 @@ in {
       wget
       htop
       tree
+      # Font utilities
+      gucharmap
+      gnome-font-viewer
+    ];
+
+    # Essential fonts for all systems
+    fonts.packages = with pkgs; [
+      # collection of patched fonts
+      nerd-fonts.hack
+      # symbols and emoji (outlined)
+      noto-fonts-monochrome-emoji
+      # Font Awesome
+      font-awesome
+      font-awesome_5
     ];
 
     # Enable flakes by default

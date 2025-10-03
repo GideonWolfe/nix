@@ -38,6 +38,11 @@ in {
     # NixOS system-level configuration
     # Enable fish shell at system level (needed for user shells)
     programs.fish.enable = true;
+
+    # Enable Network Manager
+	  networking.networkmanager.enable = true;
+    # Enable tray applet
+    programs.nm-applet.enable = true;
     
     # Enable desktop environment programs at system level
     programs.hyprland = lib.mkIf (cfg.desktopEnvironment == "hyprland") {
@@ -59,42 +64,33 @@ in {
       ];
     };
 
-    # Audio support for desktop
     security.rtkit.enable = true;
 
 
+    # Flatpak and appimages
     services.flatpak.enable = true;
+    programs.appimage = {
+         enable = true;
+         binfmt = true;
+    };
 
-    # # Configure specified users with desktop Home Manager modules
-    # home-manager.users = lib.genAttrs cfg.users (user: {
-    #   # Set required Home Manager state version
-    #   home.stateVersion = "25.05";
-      
-    #   imports = [
-    #     # Essential desktop modules only - no common.nix
-    #     "${userModulesDir}/cursor/cursor.nix"
-    #     "${userModulesDir}/gtk/gtk.nix"
-    #     "${userModulesDir}/qt/qt.nix"
-    #     "${userModulesDir}/wofi/wofi.nix"
-    #     "${userModulesDir}/swappy/swappy.nix"
-    #     "${userModulesDir}/kando/kando.nix"
-    #     "${userModulesDir}/clipse/clipse.nix"
-    #     "${userModulesDir}/shell/fish.nix"
-    #   ] ++ lib.optionals cfg.gestures [
-    #     "${userModulesDir}/fusuma/fusuma.nix"
-    #   # Desktop Environment specific modules
-    #   ] ++ lib.optionals (cfg.desktopEnvironment == "hyprland") [
-    #     "${userModulesDir}/hypr/hyprland.nix"
-    #     "${userModulesDir}/hypr/hyprpaper.nix"
-    #     "${userModulesDir}/hypr/hypridle.nix"
-    #     "${userModulesDir}/hypr/hyprlock.nix"
-    #     #"${userModulesDir}/hypr/hyprpanel.nix"
-    #   ] ++ lib.optionals (cfg.desktopEnvironment == "sway") [
-    #     "${userModulesDir}/sway/sway.nix"
-    #     "${userModulesDir}/sway/swaylock.nix"
-    #     "${userModulesDir}/sway/swayidle.nix"
-    #     "${userModulesDir}/waybar/waybar.nix"
-    #   ];
-    # });
+    # KDE Connect
+    programs.kdeconnect.enable = true;
+    networking.firewall = rec {
+      allowedTCPPortRanges = [{
+        from = 1714;
+        to = 1764;
+      }];
+      allowedUDPPortRanges = allowedTCPPortRanges;
+    };
+   
+
+	  programs.localsend = {
+        enable = true;
+        openFirewall = true;
+    };
+
+
+
   };
 }

@@ -24,7 +24,7 @@
 
     modelsPath = lib.mkOption {
       type = lib.types.str;
-      default = "/home/gideon/.local/share/localai/models";
+      default = "/home/${config.custom.user.name}/.local/share/localai/models";
       description = "Host path for LocalAI models cache";
     };
 
