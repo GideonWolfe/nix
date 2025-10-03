@@ -9,8 +9,8 @@
 
   # Feature set for this system
   custom = {
-    # Configure the primary user for this system using a preset
-    user = config.custom.userPresets.gideon;
+    # The user configuration is now directly set by importing gideon.nix
+    # No need to manually set custom.user anymore
 
     features = {
       # Basic System Features

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 {
   programs.ssh = {
@@ -51,7 +51,7 @@
   # handle symlinking my public key to the SSH folder
   home.file.gideon_ssh_sk_pub = {
     enable = true;
-    source = ./gideon_ssh_sk.pub;
+    source = ../keys/gideon_ssh_sk.pub;
     target = "${config.home.homeDirectory}/.ssh/gideon_ssh_sk.pub";
   };
 }

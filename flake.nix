@@ -99,7 +99,6 @@
       userV2Configs = importV2Configs ./configs/v2modules/configs/user;
       featureConfigs = importV2Features ./configs/v2modules/features;
       libConfigs = importV2Lib ./configs/v2modules/lib;
-      userConfigs = importV2Lib ./configs/v2modules/users;
     in {
 
       # Definitions for individual hosts
@@ -176,8 +175,11 @@
             # Main host specific configuration
             ./configs/hosts/sisyphus/configuration.nix
             
+            # Import the specific user for this system
+            ./configs/v2modules/users/gideon
+            
             # Auto-import v2modules system configs (for testing new pattern)
-          ] ++ systemV2Configs ++ featureConfigs ++ libConfigs ++ userConfigs ++ [
+          ] ++ systemV2Configs ++ featureConfigs ++ libConfigs ++ [
             
             # Auto-import v2modules user configs via home-manager
             home-manager.nixosModules.home-manager

@@ -62,12 +62,6 @@
       default = null;
       description = "Path to the user's profile picture";
     };
-
-    homeManagerConfig = lib.mkOption {
-      type = lib.types.attrs;
-      default = {};
-      description = "Home Manager configuration for this user";
-    };
   };
 
   config = {
@@ -96,9 +90,6 @@
       (lib.mkIf (config.custom.user.profilePicture != null) {
         home.file."profile.png".source = config.custom.user.profilePicture;
       })
-      
-      # Add user's home manager config
-      config.custom.user.homeManagerConfig
     ];
   };
 }
