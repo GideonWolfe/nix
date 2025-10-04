@@ -43,12 +43,22 @@
 
   # Greeter
   services.greetd = {
-    enable = true;
+    enable = false;
     settings = {
       default_session = {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time  --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --xsessions ${config.services.displayManager.sessionData.desktops}/share/xsessions --remember --remember-user-session";
         user = "greeter";
       };
+    };
+  };
+
+  services.openssh = {
+    enable = true;
+    ports = [ 2736 ];
+    openFirewall = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = true;
     };
   };
 
@@ -154,7 +164,7 @@
 
   # Hyprland
   programs.hyprland = {
-    enable = true;
+    enable = false;
     withUWSM = true;
   };
 

@@ -4,10 +4,21 @@
   imports = [
     # Import the gideon user configuration
     ../../v3modules/users/gideon/gideon.nix
+
+    # Set up stylix for system level theming
+    ../../v3modules/system/stylix.nix
+
+    # Import wireguard configuration  #TODO should be imported by default since it only activates if enabled
+    ../../v3modules/system/wireguard.nix
+    ../../v3modules/system/sops.nix
   ];
   
   # Basic system settings
   networking.hostName = "sisyphus";
+
+  # Enable WireGuard feature
+  custom.features.wireguard.enable = true;
+  custom.features.secrets.enable = true;
 
   # VM-specific settings
   virtualisation = {

@@ -1,11 +1,15 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    # Import gideon's secrets when this user is enabled
+    ../../../secrets/gideon_secrets.nix
+  ];
+
   # Configuration for the Gideon user on a SYSTEM level
   users.users.gideon = {
     home = "/home/gideon";
     isNormalUser = true;
-    group = "gideon";
     shell = pkgs.fish;
     initialHashedPassword = "$6$vfx95FxcFJ8bw1vC$vYI9YPln6V/rm3hV9XT/FiK1tsP64O78KsSFgF9Auk7xbGmdaXDY5A49nXZ77wIArh19RuPQ1SdzP2Nd/lzhi.";
     extraGroups = [
@@ -27,6 +31,6 @@
     ];
   };
 
-  # Create the gideon group
-  users.groups.gideon = {};
+  # Test: Associate the secrets file with this user module
+  sops.defaultSopsFile = ../../../secrets/gideon_secrets.yaml;
 }

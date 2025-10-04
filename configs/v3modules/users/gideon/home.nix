@@ -8,10 +8,11 @@
     ./configs/ssh.nix
   ];
   
-  home.stateVersion = "23.11";
   
   # Always import my PGP public key into user config
   programs.gpg.publicKeys = [{ 
     source = ./keys/gideon_pub.asc;
   }];
+
+  home.stateVersion = "23.11";
 }
