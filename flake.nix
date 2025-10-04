@@ -200,14 +200,18 @@
             # Needed for VM capabilities
             "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
 
-            # Main host specific configuration
-            ./configs/hosts/sisyphus/v3configuration.nix
-
             # Temporarily import this here
             ./configs/v3modules/lib/world.nix
+
+            # Import the abstracted home-manager configuration
+            ./configs/v3modules/system/home-manager.nix
+
+            # Base Level system configuration
+            ./configs/v3modules/system/system.nix
+
+            # Main host specific configuration
+            ./configs/hosts/sisyphus/v3configuration.nix
             
-            # Auto-import v2modules user configs via home-manager
-            home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [

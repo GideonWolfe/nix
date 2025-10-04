@@ -2,8 +2,8 @@
 
 {
   imports = [
-    # General user settings
-    ../../configs/user/common.nix
+    ## General user settings
+    #../../configs/user/common.nix
     # User Specific SSH Settings  
     ./configs/ssh.nix
   ];

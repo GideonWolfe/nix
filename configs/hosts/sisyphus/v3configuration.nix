@@ -1,6 +1,10 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
+  imports = [
+    # Import the gideon user configuration
+    ../../v3modules/users/gideon/gideon.nix
+  ];
   
   # Basic system settings
   networking.hostName = "sisyphus";
