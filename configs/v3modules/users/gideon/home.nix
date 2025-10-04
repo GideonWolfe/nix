@@ -6,6 +6,9 @@
     #../../configs/user/common.nix
     # User Specific SSH Settings  
     ./configs/ssh.nix
+
+    #test to see if it works
+    ../../../v2modules/configs/user/gpg/gpg.nix
   ];
   
   

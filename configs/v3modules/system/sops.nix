@@ -4,9 +4,15 @@ let
   cfg = config.custom.features.secrets;
 in {
   imports = [
+    # The import here makes the module available systemwide.
+    # Even if the feature is disabled, we want the module to be available
+    # so that modules won't break when referencing it
     inputs.sops-nix.nixosModules.sops
   ];
 
+  # Enable the System Wide SOPS module
+  # Doesn't do anything unless actual secrets are defined
+  # By default, users import their own secrets in their user modules
   options.custom.features.secrets = {
     enable = lib.mkEnableOption "SOPS secrets management infrastructure";
   };
