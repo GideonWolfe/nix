@@ -1,0 +1,163 @@
+{ config, lib, pkgs, ... }:
+
+# This is configuration that pretty much every system will need
+
+{
+
+  # Enable Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # disable docs to speed builds
+  documentation.nixos.enable = false;
+
+  # Basic systemd boot configuration
+  boot = {
+    # Use systemd-boot as the bootloader
+    loader = {
+      systemd-boot = {
+        enable = true;
+        # Allow editing boot entries
+        editor = false;
+        # Keep only the latest 10 generations in boot menu
+        configurationLimit = 10;
+      };
+
+      # Enable EFI support
+      efi.canTouchEfiVariables = true;
+    };
+  };
+
+  boot.plymouth = {
+    # Enable plymouth on the system
+    enable = true;
+    # Pass in the package of themes we also downloaded
+    themePackages = [ pkgs.adi1090x-plymouth-themes ];
+    # Choose the theme
+    # default is "stylix" but idk how to change it from stylix config
+    # https://github.com/adi1090x/plymouth-themes
+    theme = "motion";
+  };
+
+  # Greeter
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time  --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --xsessions ${config.services.displayManager.sessionData.desktops}/share/xsessions --remember --remember-user-session";
+        user = "greeter";
+      };
+    };
+  };
+
+  # Enable the Yubikey Agent, which replaces ssh-agent
+  # Handles forwarding SSH auth requests to the Yubikey
+  services.yubikey-agent.enable = true;
+  # Notifies user when Yubikey awaiting touch
+  programs.yubikey-touch-detector.enable = true;
+  # Enable smartcard detection
+  services.pcscd.enable = true;
+
+  # Enable gnome-keyring
+  services.gnome.gnome-keyring.enable = true;
+  # Give seahorse access to GNOME Keyring
+  programs.seahorse.enable = true;
+
+  # Enable GPG Agent
+  programs.gnupg.agent.enable = true;
+  # Enable hardware support for GPG smartcards
+  hardware.gpgSmartcards.enable = true;
+
+  # required for sway according to docs
+  security.polkit.enable = true;
+  # Required for swaylock to work
+  security.pam.services.swaylock = { text = "	auth include login\n"; };
+
+  # Enable Sound
+  services.pipewire = {
+    # Enable Pipewire
+    enable = true;
+    # Use Pipewire as primary server
+    audio.enable = true;
+    # Enable wireplummber session manager
+    wireplumber.enable = true;
+    # Handle other audio servers too
+    jack.enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+
+  # Enable D-Bus
+  services.dbus.enable = true;
+
+  # Enable Network Manager
+  networking.networkmanager.enable = true;
+  # Enable tray applet
+  programs.nm-applet.enable = true;
+  
+  # Set Timezone Automatically
+  services.automatic-timezoned.enable = true;
+
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
+  # Enable GTK based manager
+  services.blueman.enable = true;
+
+  # allows to control power based on user defined profiles (required for hyprpanel battery modules )
+  services.power-profiles-daemon.enable = true;
+  # power control support for applications (required for hyprpanel battery modules )
+  services.upower.enable = true;
+  
+  # Printing Support
+  services.printing.enable = true;
+
+  # Smartd for HDDs
+  services.smartd.enable = true;
+  # Enable udisks to automount disks
+  services.udisks2.enable = true;
+
+
+  # Enable Virtualization
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ "gideon" ]; #TODO remove hardcode
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  # Enable docker daemon
+  virtualisation.docker.enable = true;
+  # Choose docker as the backend for OCI containers configured via nix
+  virtualisation.oci-containers.backend = "docker";
+
+  
+  # Make XDG Portals available
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    config.common.default = "hyprland";
+  };
+
+  # FlatPak Support
+  services.flatpak.enable = true;
+  # Enable AppImage Support
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
+  # enable fish systemwide
+  programs.fish.enable = true;
+
+  # Hyprland
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+
+
+
+}
