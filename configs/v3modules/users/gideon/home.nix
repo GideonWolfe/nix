@@ -3,14 +3,17 @@
 {
   imports = [
     ## General user settings
-    #../../configs/user/common.nix
+    ../../user/common.nix
+
     # User Specific SSH Settings  
     ./configs/ssh.nix
 
-    #test to see if it works
-    ../../../v2modules/configs/user/gpg/gpg.nix
+    # Package imports
+    ./packages.nix
   ];
   
+  # Put my profile image in the usual spot
+  home.file."profile.png".source = ./profile.png;
   
   # Always import my PGP public key into user config
   programs.gpg.publicKeys = [{ 

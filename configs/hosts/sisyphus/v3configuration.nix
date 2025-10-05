@@ -6,11 +6,11 @@
     ../../v3modules/users/gideon/gideon.nix
 
     # Set up stylix for system level theming
-    ../../v3modules/system/stylix.nix
+    ../../v3modules/system/core/stylix.nix
 
     # Import wireguard configuration  #TODO should be imported by default since it only activates if enabled
-    ../../v3modules/system/wireguard.nix
-    ../../v3modules/system/sops.nix
+    ../../v3modules/system/core/wireguard.nix
+    ../../v3modules/system/core/sops.nix
   ];
   
   # Basic system settings

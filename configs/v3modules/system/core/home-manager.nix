@@ -6,7 +6,7 @@
         inputs.home-manager.nixosModules.home-manager
     ];
 
-    home-manager.useGlobalPkgs = false;
+    home-manager.useGlobalPkgs = true;  # Use system-level pkgs (includes allowUnfree)
     home-manager.useUserPackages = true;
     home-manager.backupFileExtension = "hm-backup";
 }

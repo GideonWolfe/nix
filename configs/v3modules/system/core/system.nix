@@ -43,7 +43,7 @@
 
   # Greeter
   services.greetd = {
-    enable = false;
+    enable = true;
     settings = {
       default_session = {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time  --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --xsessions ${config.services.displayManager.sessionData.desktops}/share/xsessions --remember --remember-user-session";
@@ -164,10 +164,25 @@
 
   # Hyprland
   programs.hyprland = {
-    enable = false;
+    enable = true;
     withUWSM = true;
   };
 
+  fonts.packages = with pkgs; [
+    # collection of patched fonts
+    nerd-fonts.hack
+    #noto-fonts
+    # symbols and emoji (outlined)
+    #symbola
+    noto-fonts-monochrome-emoji
+    # chinese, japanese, korean
+    #noto-fonts-cjk
+    #noto-fonts-cjk-sans
+    #noto-fonts-cjk-serif
+    # Font Awesome
+    font-awesome
+    font-awesome_5
+  ];
 
 
 }

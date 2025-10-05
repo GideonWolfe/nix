@@ -204,10 +204,10 @@
             ./configs/v3modules/lib/world.nix
 
             # Import the abstracted home-manager configuration
-            ./configs/v3modules/system/home-manager.nix
+            ./configs/v3modules/system/core/home-manager.nix
 
             # Base Level system configuration
-            ./configs/v3modules/system/system.nix
+            ./configs/v3modules/system/core/system.nix
 
             # Main host specific configuration
             ./configs/hosts/sisyphus/v3configuration.nix
