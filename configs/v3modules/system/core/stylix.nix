@@ -7,6 +7,7 @@
 
   # Simple stylix configuration with sensible defaults
   stylix = {
+    # Enable stylix at the SYSTEM level
     enable = true;
     
     # Theme configuration
@@ -54,6 +55,8 @@
     # System-level targets only
     targets = {
       plymouth.enable = false;
+      # Enable GTK theming at system level
+      gtk.enable = true;
     };
   };
 

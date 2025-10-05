@@ -129,7 +129,7 @@ in {
     ./godot/godot-theme.nix
     ./astrolog/astrolog.nix
     ./shortwave/shortwave.nix
-    ./sdrpp/sdrpp.nix
+    ./sdrpp/sdrpp.nix #TODO BROKEN
     ./hackernews-tui/hackernews-tui.nix
     ./television/television.nix
     ./sourcegit/sourcegit.nix

@@ -109,11 +109,11 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
+            stylix.nixosModules.stylix
+            disko.nixosModules.disko
             ./configs/hosts/rack/alpha/configuration.nix
             ./configs/hosts/rack/alpha/disko.nix
 
-            stylix.nixosModules.stylix
-            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = false;

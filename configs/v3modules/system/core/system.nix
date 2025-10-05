@@ -144,12 +144,17 @@
   # Make XDG Portals available
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-gtk
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.lxqt.xdg-desktop-portal-lxqt
     ];
-    config.common.default = "hyprland";
   };
+  xdg.portal.wlr.enable = true;
+  xdg.portal.lxqt.enable = true;
 
   # FlatPak Support
   services.flatpak.enable = true;
