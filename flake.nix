@@ -67,38 +67,10 @@
       pkgs = nixpkgs.legacyPackages.${system};
 
       # Import world configuration data for use in flake
+      # NOT used in new module system, deprecate soon
       worldData = import ./configs/modules/world-data.nix;
 
-      # Centralized path definitions - single source of truth
-      # pathConfig = {
-      #   packagesDir = ./configs/v2modules/packages;
-      #   userModulesDir = ./configs/v2modules/configs/user;
-      #   systemModulesDir = ./configs/modules/configs/system;
-      # };
-
-      # Auto-import function for v2modules configs (supports nested directories)
-      # importV2Configs = configsPath: 
-      #   lib.filter 
-      #     (path: lib.hasSuffix "/default.nix" (toString path))
-      #     (lib.filesystem.listFilesRecursive configsPath);
-
-      # Auto-import function for features (imports .nix files directly)
-      # importV2Features = featuresPath:
-      #   lib.filter
-      #     (path: lib.hasSuffix ".nix" (toString path))
-      #     (lib.filesystem.listFilesRecursive featuresPath);
-
-      # Auto-import function for lib files (imports .nix files directly)
-      # importV2Lib = libPath:
-      #   lib.filter
-      #     (path: lib.hasSuffix ".nix" (toString path))
-      #     (lib.filesystem.listFilesRecursive libPath);
-
-      # Auto-import both system and user v2modules configs, plus features and lib
-      #systemV2Configs = importV2Configs ./configs/v2modules/configs/system;
-      #userV2Configs = importV2Configs ./configs/v2modules/configs/user;
-      #featureConfigs = importV2Features ./configs/v2modules/features;
-      #libConfigs = importV2Lib ./configs/v2modules/lib;
+  
     in {
 
       # Definitions for individual hosts
@@ -110,7 +82,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             # Main host specific configuration
-            ./configs/hosts/rack/alpha/v3configuration.nix
+            ./configs/hosts/rack/alpha/configuration.nix
             # Home manager
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
