@@ -276,9 +276,10 @@
       deploy.nodes.alpha = {
         hostname = "192.168.0.163";
         fastConnection = true;
+        interactiveSudo = true;
         profiles.system = {
           sshUser = "gideon";
-          sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" "-p" "2736" ];
+          sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" "-p" "2736"];
           path = deploy-rs.lib.x86_64-linux.activate.nixos
             self.nixosConfigurations.alpha;
           user = "root";

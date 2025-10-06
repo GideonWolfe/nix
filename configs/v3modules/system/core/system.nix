@@ -4,8 +4,23 @@
 
 {
   imports = [
+    # Global Variables    
+    ../../lib/world.nix
+
+    # Always enable stylix
+    ./stylix.nix
+
+    # Global Home Manager options
+    ./home-manager.nix
+
     # Provide the option to enable monitoring
     ../services/monitoring/monitoring.nix
+
+    # Provide the option to enable VPN
+    ./wireguard.nix
+
+    # Provide the option to enable Secretst
+    ./sops.nix
   ];
 
   # Enable Flakes
