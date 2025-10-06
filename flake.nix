@@ -245,18 +245,24 @@
         };
       };
 
-      deploy.nodes.alpha = {
-        hostname = "192.168.0.163";
+      deploy = {
+        # Define these at a top level, they can be overridden in nodes
+        sshUser = "gideon";
+        sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" "-p" "2736"];
+        user = "root";
         fastConnection = true;
         interactiveSudo = true;
-        profiles.system = {
-          sshUser = "gideon";
-          sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" "-p" "2736"];
-          path = deploy-rs.lib.x86_64-linux.activate.nixos
-            self.nixosConfigurations.alpha;
-          user = "root";
+        # Nodes available for deployment
+        nodes = {
+
+          alpha = {
+            hostname = "192.168.0.163";
+            profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.alpha;
+          };
+
         };
       };
+
 
       # This is highly advised, and will prevent many possible mistakes
       checks = builtins.mapAttrs
