@@ -1,8 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 # This is configuration that pretty much every system will need
 
 {
+  # imports = [
+  #     # For disk partitioning
+  #     inputs.disko.nixosModules.disko
+  # ];
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -12,6 +16,8 @@
 
   # disable docs to speed builds
   documentation.nixos.enable = false;
+
+  nix.settings.trusted-users = [ "root" "gideon" ];
 
   # Basic systemd boot configuration
   boot = {

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, pathConfig ? {}, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let 
   cfg = config.custom.features.secrets;

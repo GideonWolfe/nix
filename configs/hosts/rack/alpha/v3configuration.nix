@@ -2,44 +2,36 @@
 
 {
   imports = [
+    
+    # Disk Partitioning Settings
+    ./disko.nix
+
     # Temporarily import this here
-    ../../v3modules/lib/world.nix
+    ../../../v3modules/lib/world.nix
 
     # Base Level system configuration
-    ../../v3modules/system/core/system.nix
+    ../../../v3modules/system/core/system.nix
 
     # Import the gideon user configuration
-    ../../v3modules/users/gideon/gideon.nix
+    ../../../v3modules/users/gideon/gideon.nix
 
     # Import the abstracted home-manager configuration
-    ../../v3modules/system/core/home-manager.nix
+    ../../../v3modules/system/core/home-manager.nix
 
     # Set up stylix for system level theming
-    ../../v3modules/system/core/stylix.nix
+    ../../../v3modules/system/core/stylix.nix
 
     # Import wireguard configuration  #TODO should be imported by default since it only activates if enabled
-    ../../v3modules/system/core/wireguard.nix
-    ../../v3modules/system/core/sops.nix
+    ../../../v3modules/system/core/wireguard.nix
+    ../../../v3modules/system/core/sops.nix
   ];
   
   # Basic system settings
-  networking.hostName = "sisyphus";
+  networking.hostName = "alpha";
 
   # Enable WireGuard feature
   custom.features.wireguard.enable = true;
   custom.features.secrets.enable = true;
-
-  # VM-specific settings
-  virtualisation = {
-    # Allocate reasonable resources for testing
-    memorySize = 4096; # 4GB RAM for desktop environment
-    cores = 4;
-    # Enable graphics for GUI testing
-    graphics = true;
-    # Disk size for the VM
-    diskSize = 16384; # 16GB for desktop apps
-  };
-
 
   # Enable sudo without password for convenience during testing
   security.sudo.wheelNeedsPassword = false;

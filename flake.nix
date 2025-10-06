@@ -105,29 +105,45 @@
       nixosConfigurations = {
 
 
+        # alpha = lib.nixosSystem {
+        #   system = "x86_64-linux";
+        #   specialArgs = { inherit inputs; };
+        #   modules = [
+        #     stylix.nixosModules.stylix
+        #     disko.nixosModules.disko
+        #     ./configs/hosts/rack/alpha/configuration.nix
+        #     ./configs/hosts/rack/alpha/disko.nix
+
+        #     home-manager.nixosModules.home-manager
+        #     {
+        #       home-manager.useGlobalPkgs = false;
+        #       home-manager.useUserPackages = true;
+        #       home-manager.backupFileExtension = "hm-backup";
+        #       home-manager.extraSpecialArgs = { inherit inputs; };
+        #       home-manager.users.gideon.imports = [
+        #         ./configs/users/gideon/light-home.nix
+        #         ./configs/modules/configs/user/laptop-hyprpanel-layout/laptop-hyprpanel-layout.nix
+        #       ];
+        #     }
+        #   ];
+        # };
+
         alpha = lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            stylix.nixosModules.stylix
-            disko.nixosModules.disko
-            ./configs/hosts/rack/alpha/configuration.nix
-            ./configs/hosts/rack/alpha/disko.nix
+            # For disk partitioning
+            #disko.nixosModules.disko
 
-            home-manager.nixosModules.home-manager
+            # Main host specific configuration
+            ./configs/hosts/rack/alpha/v3configuration.nix
+            
             {
-              home-manager.useGlobalPkgs = false;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "hm-backup";
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.gideon.imports = [
-                ./configs/users/gideon/light-home.nix
-                ./configs/modules/configs/user/laptop-hyprpanel-layout/laptop-hyprpanel-layout.nix
-              ];
+              home-manager.users.gideon.imports = [ ./configs/v3modules/users/gideon/home.nix ];
             }
           ];
         };
-
 
 
 
@@ -199,15 +215,6 @@
           modules = [
             # Needed for VM capabilities
             "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
-
-            # Temporarily import this here
-            ./configs/v3modules/lib/world.nix
-
-            # Import the abstracted home-manager configuration
-            ./configs/v3modules/system/core/home-manager.nix
-
-            # Base Level system configuration
-            ./configs/v3modules/system/core/system.nix
 
             # Main host specific configuration
             ./configs/hosts/sisyphus/v3configuration.nix
@@ -294,8 +301,6 @@
       packages.x86_64-linux = {
         # buld with nix build .#sisyphus-vm, run with nix run .#sisyphus-vm
         sisyphus-vm = self.nixosConfigurations.sisyphus.config.system.build.vm;
-        # Role-based sisyphus VM for testing
-        sisyphus-roles-vm = self.nixosConfigurations.sisyphus-roles.config.system.build.vm;
         # buld with nix build .#uconsole-image
         uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
       };

@@ -157,6 +157,10 @@
               publicKey = "PENDING_KEY_GENERATION";
               vpnIp = "10.100.0.6";
             };
+            alpha = {
+              publicKey = "PENDING_KEY_GENERATION";
+              vpnIp = "10.100.0.7";
+            };
           };
           description = "WireGuard client configurations";
         };

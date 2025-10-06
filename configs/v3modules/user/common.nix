@@ -108,16 +108,16 @@ in {
     ./imv/imv.nix # imv theme
     ./zathura/zathura.nix # zathura theme
     ./foliate/foliate.nix # foliate theme
-    #./irc/halloy.nix # halloy settings/theme # HAS SECRET
+    ./irc/halloy.nix # halloy settings/theme # HAS SECRET
     ./btop/btop.nix # btop theme
     ./gnuplot/gnuplot.nix # gnuplot theme
     ./cava/cava.nix # cava settings/theme
     ./cavalier/cavalier.nix # cavalier settings/theme
-    #./newsboat/newsboat.nix
-    #./spicetify/spicetify.nix # spicetify theme
+    ./newsboat/newsboat.nix
+    ./spicetify/spicetify.nix # spicetify theme
     ./fastfetch/fastfetch.nix
-    #./vscode/vscode.nix # VScode settings
-    #./blender/blender-theme.nix # blender theme
+    ./vscode/vscode.nix # VScode settings
+    ./blender/blender-theme.nix # blender theme
     #./obsidian/obsidian-stylix-css.nix # obsidian theme # GIDEON MENTIONED
     ./element/element.nix # element settings/theme
     ./ghidra/ghidra.nix # Ghidra theme

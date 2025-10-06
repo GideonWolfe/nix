@@ -1,4 +1,11 @@
-{ lib, ... }: {
+{ lib, inputs, ... }: 
+
+{
+  imports = [
+      # For disk partitioning
+      inputs.disko.nixosModules.disko
+  ];
+
   disko.devices = {
     disk.disk1 = {
       device = lib.mkDefault "/dev/nvme0n1";
