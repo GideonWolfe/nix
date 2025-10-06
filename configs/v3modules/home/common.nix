@@ -80,6 +80,11 @@ in {
     # ../../v2modules/scripts/mako-toggle
     # ../../v2modules/scripts/screen-recorder
 
+    ####################
+    # Kubernetes Stuff #
+    ./kube/kube.nix
+    ./k9s/k9s.nix
+
     ############
     # Hyprland #
     ############
@@ -136,6 +141,5 @@ in {
     ./xyosc/xyosc.nix
     ./vesktop/vesktop.nix
     ./freetube/freetube.nix
-    ./k9s/k9s.nix
   ];
 }
