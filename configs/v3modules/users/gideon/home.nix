@@ -3,7 +3,7 @@
 {
   imports = [
     ## General user settings
-    ../../user/common.nix
+    ../../home/common.nix
 
     # User Specific SSH Settings  
     ./configs/ssh.nix
