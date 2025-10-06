@@ -12,5 +12,23 @@
     targetNamespace = "default";
     #createNamespace = true; # might be useful once we have custom NS
 
+    values = {
+      ingress = {
+        enabled = true;
+        className = "traefik";
+        hosts = [
+          {
+            host = "helm-dashboard.local";
+            paths = [
+              {
+                path = "/";
+                pathType = "Prefix";
+              }
+            ];
+          }
+        ];
+      };
+    };
+
   };
 }

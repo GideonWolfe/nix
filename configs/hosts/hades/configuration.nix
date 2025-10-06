@@ -76,8 +76,9 @@
     enable = true;
     settings = {
       address = [
-        "/k3s.lan/192.168.0.163" # good
-        "/k3s.lan/192.168.0.199" # bad
+        #"/k3s.lan/192.168.0.163" # good
+        #"/k3s.lan/192.168.0.199" # bad
+        "/helm-dashboard.local/192.168.0.50" # ← keepalived floating IP
       ];
     };
   };
