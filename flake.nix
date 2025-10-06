@@ -135,16 +135,6 @@
           ];
         };
 
-        # Original testing VM
-        # hermes = lib.nixosSystem {
-        #   inherit system;
-        #   specialArgs = { inherit inputs; };
-        #   modules = [
-        #     stylix.nixosModules.stylix
-        #     ./configs/hosts/hermes/configuration.nix
-        #   ];
-        # };
-
         uconsole = lib.nixosSystem {
           system = "aarch64-linux";
           specialArgs = { inherit inputs; };
@@ -154,38 +144,9 @@
           ];
         };
 
-        # Minimal VM for testing configurations
-        # sisyphus = lib.nixosSystem {
-        #   inherit system;
-        #   specialArgs = { inherit inputs pathConfig; };
-        #   modules = [
-        #     # Needed for VM capabilities
-        #     "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
-
-        #     # Main host specific configuration
-        #     ./configs/hosts/sisyphus/configuration.nix
-            
-        #     # Import the specific user for this system
-        #     ./configs/v2modules/users/gideon
-            
-        #     # Auto-import v2modules system configs (for testing new pattern)
-        #   ] ++ systemV2Configs ++ featureConfigs ++ libConfigs ++ [
-            
-        #     # Auto-import v2modules user configs via home-manager
-        #     home-manager.nixosModules.home-manager
-        #     {
-        #       home-manager.extraSpecialArgs = { inherit inputs; };
-        #       home-manager.sharedModules = userV2Configs;
-        #       home-manager.users.gideon.imports = [
-        #         ./configs/v2modules/users/gideon/home.nix
-        #       ];
-        #     }
-        #   ];
-        # };
-
         sisyphus = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs pathConfig; };
+          specialArgs = { inherit inputs; };
           modules = [
             # Needed for VM capabilities
             "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"

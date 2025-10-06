@@ -151,7 +151,7 @@
             };
             hades = {
               publicKey = "PENDING_KEY_GENERATION";
-              vpnIp = "10.100.0.5";
+              vpnIp = "10.100.0.8";
             };
             poseidon = {
               publicKey = "PENDING_KEY_GENERATION";
@@ -159,7 +159,7 @@
             };
             alpha = {
               publicKey = "PENDING_KEY_GENERATION";
-              vpnIp = "10.100.0.7";
+              vpnIp = "10.100.0.5";
             };
           };
           description = "WireGuard client configurations";
