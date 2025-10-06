@@ -56,6 +56,10 @@
           publicKey = "qgtU/gzNYCHI9bnn2RqMZHcyOe3AFmGUU69wgrcNfzA=";
           allowedIPs = [ "10.100.0.3/32" ];
         }
+        { # Alpha
+          publicKey = "XE1DxmOJstc2uHl0geYTcZCQjgueJdUjx9TljbWQxQo=";
+          allowedIPs = [ "10.100.0.5/32" ];
+        }
       ];
     };
   };

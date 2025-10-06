@@ -70,74 +70,48 @@
       worldData = import ./configs/modules/world-data.nix;
 
       # Centralized path definitions - single source of truth
-      pathConfig = {
-        packagesDir = ./configs/v2modules/packages;
-        userModulesDir = ./configs/v2modules/configs/user;
-        systemModulesDir = ./configs/modules/configs/system;
-      };
+      # pathConfig = {
+      #   packagesDir = ./configs/v2modules/packages;
+      #   userModulesDir = ./configs/v2modules/configs/user;
+      #   systemModulesDir = ./configs/modules/configs/system;
+      # };
 
       # Auto-import function for v2modules configs (supports nested directories)
-      importV2Configs = configsPath: 
-        lib.filter 
-          (path: lib.hasSuffix "/default.nix" (toString path))
-          (lib.filesystem.listFilesRecursive configsPath);
+      # importV2Configs = configsPath: 
+      #   lib.filter 
+      #     (path: lib.hasSuffix "/default.nix" (toString path))
+      #     (lib.filesystem.listFilesRecursive configsPath);
 
       # Auto-import function for features (imports .nix files directly)
-      importV2Features = featuresPath:
-        lib.filter
-          (path: lib.hasSuffix ".nix" (toString path))
-          (lib.filesystem.listFilesRecursive featuresPath);
+      # importV2Features = featuresPath:
+      #   lib.filter
+      #     (path: lib.hasSuffix ".nix" (toString path))
+      #     (lib.filesystem.listFilesRecursive featuresPath);
 
       # Auto-import function for lib files (imports .nix files directly)
-      importV2Lib = libPath:
-        lib.filter
-          (path: lib.hasSuffix ".nix" (toString path))
-          (lib.filesystem.listFilesRecursive libPath);
+      # importV2Lib = libPath:
+      #   lib.filter
+      #     (path: lib.hasSuffix ".nix" (toString path))
+      #     (lib.filesystem.listFilesRecursive libPath);
 
       # Auto-import both system and user v2modules configs, plus features and lib
-      systemV2Configs = importV2Configs ./configs/v2modules/configs/system;
-      userV2Configs = importV2Configs ./configs/v2modules/configs/user;
-      featureConfigs = importV2Features ./configs/v2modules/features;
-      libConfigs = importV2Lib ./configs/v2modules/lib;
+      #systemV2Configs = importV2Configs ./configs/v2modules/configs/system;
+      #userV2Configs = importV2Configs ./configs/v2modules/configs/user;
+      #featureConfigs = importV2Features ./configs/v2modules/features;
+      #libConfigs = importV2Lib ./configs/v2modules/lib;
     in {
 
       # Definitions for individual hosts
       nixosConfigurations = {
 
 
-        # alpha = lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   specialArgs = { inherit inputs; };
-        #   modules = [
-        #     stylix.nixosModules.stylix
-        #     disko.nixosModules.disko
-        #     ./configs/hosts/rack/alpha/configuration.nix
-        #     ./configs/hosts/rack/alpha/disko.nix
-
-        #     home-manager.nixosModules.home-manager
-        #     {
-        #       home-manager.useGlobalPkgs = false;
-        #       home-manager.useUserPackages = true;
-        #       home-manager.backupFileExtension = "hm-backup";
-        #       home-manager.extraSpecialArgs = { inherit inputs; };
-        #       home-manager.users.gideon.imports = [
-        #         ./configs/users/gideon/light-home.nix
-        #         ./configs/modules/configs/user/laptop-hyprpanel-layout/laptop-hyprpanel-layout.nix
-        #       ];
-        #     }
-        #   ];
-        # };
-
         alpha = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            # For disk partitioning
-            #disko.nixosModules.disko
-
             # Main host specific configuration
             ./configs/hosts/rack/alpha/v3configuration.nix
-            
+            # Home manager
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [ ./configs/v3modules/users/gideon/home.nix ];
@@ -283,6 +257,7 @@
           modules = [
             stylix.nixosModules.stylix
             sops-nix.nixosModules.sops
+            ./configs/modules/world.nix
             ./configs/hosts/athena/configuration.nix
 
             home-manager.nixosModules.home-manager
