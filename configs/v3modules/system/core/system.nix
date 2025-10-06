@@ -3,10 +3,10 @@
 # This is configuration that pretty much every system will need
 
 {
-  # imports = [
-  #     # For disk partitioning
-  #     inputs.disko.nixosModules.disko
-  # ];
+  imports = [
+    # Provide the option to enable monitoring
+    ../services/monitoring/monitoring.nix
+  ];
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

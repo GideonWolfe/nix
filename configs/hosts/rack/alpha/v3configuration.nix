@@ -32,6 +32,7 @@
   # Enable WireGuard feature
   custom.features.wireguard.enable = true;
   custom.features.secrets.enable = true;
+  custom.features.monitoring.enable = true;
 
   # Enable sudo without password for convenience during testing
   security.sudo.wheelNeedsPassword = false;
