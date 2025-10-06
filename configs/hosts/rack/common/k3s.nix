@@ -19,6 +19,11 @@ services.k3s = {
 systemd.services.k3s.after = [ "keepalived.service" ]; 
 systemd.services.k3s.wants = [ "keepalived.service" ];
 
+# Make the kubeconfig available to my user
+systemd.tmpfiles.rules = [
+  "d /home/gideon/.kube 0700 gideon users - -"
+  "C /home/gideon/.kube/config 0600 gideon users - /etc/rancher/k3s/k3s.yaml"
+];
 # environment.systemPackages = with pkgs; [ 
 #   k9s 
 # ];
