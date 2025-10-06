@@ -1,51 +1,20 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  # VM configuration for testing desktop features
+  imports = [
+    # Base Level system configuration
+    ../../v3modules/system/core/system.nix
+
+    # Import the gideon user configuration
+    ../../v3modules/users/gideon/gideon.nix
+  ];
   
   # Basic system settings
   networking.hostName = "sisyphus";
 
-
-  # Feature set for this system
-  custom = {
-    # The user configuration is now directly set by importing gideon.nix
-    # No need to manually set custom.user anymore
-
-    features = {
-      # Basic System Features
-      system.enable = true;
-      theming.enable = true;
-      audio.enable = true;
-      bluetooth.enable = false;
-
-      # Remote access and SOPS keygen capabilities
-      ssh.enable = true;
-
-      # Connect to my VPN
-      wireguard.enable = true;
-
-      # WIP
-      secrets.enable = true;
-
-      desktop = {
-        enable = true;
-        gestures = false;
-        desktopEnvironment = "hyprland";
-      };
-
-      packages = {
-        enable = true;
-        development = false;
-        productivity = false;
-        fun = true;
-        science = {
-          enable = false;
-        };
-      };
-    };
-  };
-
+  # Enable WireGuard feature
+  custom.features.wireguard.enable = true;
+  custom.features.secrets.enable = true;
 
   # VM-specific settings
   virtualisation = {
@@ -61,29 +30,6 @@
 
   # Enable sudo without password for convenience during testing
   security.sudo.wheelNeedsPassword = false;
-
-  # HOST-SPECIFIC TESTING SECTIONS
-  # Use these sections to test configurations before generalizing them
-
-  # System-level testing configuration
-  # Add system-wide imports, services, packages, etc. here for testing
-  # Example:
-  # imports = [
-  #   ../../modules/configs/system/services/some-test-service.nix
-  # ];
-  # services.someTestService.enable = true;
-  # environment.systemPackages = with pkgs; [ some-test-package ];
-
-  # Home Manager testing configuration for the configured user
-  home-manager.users.${config.custom.user.name} = {
-    # Add user-specific imports, programs, services, etc. here for testing
-    # Example:
-    # imports = [
-    #   ../../v2modules/configs/user/some-test-config.nix
-    # ];
-    # programs.someTestProgram.enable = true;
-    # home.packages = with pkgs; [ some-test-package ];
-  };
 
   # System state version
   system.stateVersion = "25.05";

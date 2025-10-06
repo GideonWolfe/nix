@@ -124,7 +124,7 @@
             "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
 
             # Main host specific configuration
-            ./configs/hosts/sisyphus/v3configuration.nix
+            ./configs/hosts/sisyphus/configuration.nix
             
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
