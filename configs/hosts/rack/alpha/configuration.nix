@@ -11,6 +11,12 @@
 
     # Import the gideon system user configuration
     ../../../v3modules/users/gideon/gideon.nix
+
+
+    # TESTING
+    ../common/keepalived.nix
+    ../common/k3s.nix
+
   ];
   
   # Basic system settings

@@ -70,6 +70,18 @@
 
   ];
 
+
+  # TEST to see if I can access k3s from DNS
+  services.dnsmasq = {
+    enable = true;
+    settings = {
+      address = [
+        "/k3s.lan/192.168.0.163" # good
+        "/k3s.lan/192.168.0.199" # bad
+      ];
+    };
+  };
+
   # TEST to allow cross compilation for ARM
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"

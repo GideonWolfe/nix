@@ -136,5 +136,6 @@ in {
     ./xyosc/xyosc.nix
     ./vesktop/vesktop.nix
     ./freetube/freetube.nix
+    ./k9s/k9s.nix
   ];
 }
