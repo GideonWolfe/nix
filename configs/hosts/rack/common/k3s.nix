@@ -12,12 +12,15 @@ services.k3s = {
   extraFlags = [ 
     "--tls-san=192.168.0.50" # the shared keepalived virtual IP 
     #"--advertise-address=${config.networking.hostName}" # optional clarity 
+    #"--write-kubeconfig-mode=0640"
+    #"--write-kubeconfig-group=kube" # so my user can read it
   ];
 };
 
 # ensures the keepalived VIP exists before k3s starts 
 systemd.services.k3s.after = [ "keepalived.service" ]; 
 systemd.services.k3s.wants = [ "keepalived.service" ];
+
 
 # Make the kubeconfig available to my user
 systemd.tmpfiles.rules = [
