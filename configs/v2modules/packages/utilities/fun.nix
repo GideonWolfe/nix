@@ -21,5 +21,6 @@
         # games
         sgt-puzzles
         astrolog # astrology software
+		owofetch
 	];
 }
