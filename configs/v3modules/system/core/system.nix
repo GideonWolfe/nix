@@ -78,8 +78,9 @@
     ports = [ 2736 ];
     openFirewall = true;
     settings = {
+      # Only allow logins from me with my yubikey
       PermitRootLogin = "no";
-      PasswordAuthentication = true;
+      PasswordAuthentication = false;
     };
   };
 
