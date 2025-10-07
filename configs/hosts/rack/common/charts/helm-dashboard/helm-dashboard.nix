@@ -12,6 +12,7 @@
     targetNamespace = "default";
     #createNamespace = true; # might be useful once we have custom NS
 
+    #https://github.com/komodorio/helm-charts/blob/master/charts/helm-dashboard/values.yaml
     values = {
       ingress = {
         enabled = true;

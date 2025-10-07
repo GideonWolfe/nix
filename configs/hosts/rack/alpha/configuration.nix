@@ -18,6 +18,8 @@
     ../common/k3s.nix
 
     ../common/charts/helm-dashboard/helm-dashboard.nix
+    ../common/charts/kubeshark/kubeshark.nix
+    ../common/charts/goldpinger/goldpinger.nix
 
   ];
   
