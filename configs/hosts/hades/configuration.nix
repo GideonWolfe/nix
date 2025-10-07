@@ -79,6 +79,7 @@
         "/helm-dashboard.local/192.168.0.50" # ← keepalived floating IP
         "/kubeshark.local/192.168.0.50" # ← keepalived floating IP
         "/goldpinger.local/192.168.0.50" # ← keepalived floating IP
+        "/kube-dashboard.local/192.168.0.50" # ← keepalived floating IP
       ];
     };
   };

@@ -20,6 +20,7 @@
     ../common/charts/helm-dashboard/helm-dashboard.nix
     ../common/charts/kubeshark/kubeshark.nix
     ../common/charts/goldpinger/goldpinger.nix
+    ../common/charts/kubernetes-dashboard/kubernetes-dashboard.nix
 
   ];
   
