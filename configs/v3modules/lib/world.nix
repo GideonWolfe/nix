@@ -161,6 +161,10 @@
               publicKey = "PENDING_KEY_GENERATION";
               vpnIp = "10.100.0.5";
             };
+            beta = {
+              publicKey = "Vf/9UVNxgtkOwpUFRf0Qpm4UCa2WXPRQw0deBaXEdDI="; # athena doesn't reference it yet
+              vpnIp = "10.100.0.9";
+            };
           };
           description = "WireGuard client configurations";
         };

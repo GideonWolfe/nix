@@ -90,6 +90,19 @@
             }
           ];
         };
+        beta = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            # Main host specific configuration
+            ./configs/hosts/rack/beta/configuration.nix
+            # Home manager
+            {
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.gideon.imports = [ ./configs/v3modules/users/gideon/home.nix ];
+            }
+          ];
+        };
 
 
 
@@ -258,6 +271,10 @@
           alpha = {
             hostname = "192.168.0.163";
             profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.alpha;
+          };
+          beta = {
+            hostname = "192.168.0.116";
+            profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.beta;
           };
 
         };
