@@ -31,3 +31,10 @@ creation_rules:
           - *do-vps-test
         pgp:
           - *gideon
+  - path_regex: .*kubeconfig\.yaml$
+    key_groups:
+      - age:
+          - *alpha
+          - *beta
+        pgp:
+          - *gideon

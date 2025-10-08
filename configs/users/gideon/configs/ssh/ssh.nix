@@ -28,6 +28,18 @@
         identityFile = [ "${config.home.homeDirectory}/.ssh/gideon_ssh_sk" ];
         user = "overseer";
       };
+      alpha = {
+        hostname = "192.168.0.163";
+        port = 2736;
+        identityFile = [ "${config.home.homeDirectory}/.ssh/gideon_ssh_sk" ];
+        user = "gideon";
+      };
+      beta = {
+        hostname = "192.168.0.116";
+        port = 2736;
+        identityFile = [ "${config.home.homeDirectory}/.ssh/gideon_ssh_sk" ];
+        user = "gideon";
+      };
       laptoptest = {
         hostname = "192.168.0.77";
         #port = 2736;

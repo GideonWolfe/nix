@@ -13,14 +13,8 @@
     ../../../v3modules/users/gideon/gideon.nix
 
 
-    # TESTING
-    ../common/keepalived.nix
-    ../common/k3s.nix
-
-    ../common/charts/helm-dashboard/helm-dashboard.nix
-    ../common/charts/kubeshark/kubeshark.nix
-    ../common/charts/goldpinger/goldpinger.nix
-    ../common/charts/kubernetes-dashboard/kubernetes-dashboard.nix
+    # Common Cluster Configs
+    ../common/common.nix
 
   ];
   
@@ -31,6 +25,8 @@
   custom.features.wireguard.enable = true;
   custom.features.secrets.enable = true;
   custom.features.monitoring.enable = true;
+
+  services.keepalived.vrrpInstances.k3s.priority = lib.mkForce 75;
 
   # Enable sudo without password for convenience during testing
 #  security.sudo.wheelNeedsPassword = false;
