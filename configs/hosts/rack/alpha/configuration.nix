@@ -12,6 +12,8 @@
     # Import the gideon system user configuration
     ../../../v3modules/users/gideon/gideon.nix
 
+    # node custom MOTD
+    ./motd.nix
 
     # Common Cluster Configs
     ../common/common.nix
@@ -28,6 +30,10 @@
 
   # TEST override keepalive priority
   services.keepalived.vrrpInstances.k3s.priority = lib.mkForce 230;
+  
+  # Bootstrap the cluster without trying to join
+  services.k3s = { serverAddr = lib.mkForce ""; }; # Empty string to disable joining 
+
 
   # Enable sudo without password for convenience during testing
 #  security.sudo.wheelNeedsPassword = false;

@@ -59,7 +59,8 @@ with config.lib.stylix.colors.withHashtag;
           "##astronomy",
           "##re",
           "#godotengine",
-          "#mechboards"
+          "#mechboards",
+          "#kubernetes"
       ]
 
 

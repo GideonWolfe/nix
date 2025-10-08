@@ -3,6 +3,9 @@
 {
 
   imports = [
+    # Common Nod3 Message of the Day
+    #./motd.nix    
+
     ./keepalived.nix
     ./k3s.nix
 
