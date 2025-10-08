@@ -26,6 +26,9 @@
   custom.features.secrets.enable = true;
   custom.features.monitoring.enable = true;
 
+  # Testing: Hardcode to not init
+  services.k3s.clusterInit = lib.mkForce false;
+
   services.keepalived.vrrpInstances.k3s.priority = lib.mkForce 75;
 
   # Enable sudo without password for convenience during testing
