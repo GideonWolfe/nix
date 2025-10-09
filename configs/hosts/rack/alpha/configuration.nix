@@ -32,7 +32,10 @@
   services.keepalived.vrrpInstances.k3s.priority = lib.mkForce 230;
   
   # Bootstrap the cluster without trying to join
-  services.k3s = { serverAddr = lib.mkForce ""; }; # Empty string to disable joining 
+  services.k3s = { 
+    clusterInit = lib.mkForce true;  # Initialize the cluster
+    serverAddr = lib.mkForce "";     # Don't try to join - this IS the master
+  }; 
 
 
   # Enable sudo without password for convenience during testing

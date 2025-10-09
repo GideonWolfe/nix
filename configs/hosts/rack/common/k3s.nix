@@ -5,17 +5,37 @@
 services.k3s = { 
   enable = true; 
   role = "server"; # all nodes are both server + agent 
-  clusterInit = true; # safe to repeat everywhere per https://docs.k3s.io/datastore/ha-embedded 
-  # Only try to join if cluster exists, otherwise bootstrap
-  # Use https for the Kubernetes API (k3s handles TLS internally)
-  serverAddr = lib.mkDefault "https://192.168.0.50:6443";
-  # TODO used for testing, eventually switch to tokenFile and SOPS secret
+  # Default to NOT initializing cluster - hosts can override
+  clusterInit = lib.mkDefault false;
+  # Default serverAddr - hosts can override or disable
+  serverAddr = lib.mkDefault "https://192.168.0.163:6443"; # alpha's direct IP
+  # Shared token for all nodes
   token = "supersecret-token"; # must match on all nodes 
   
   extraFlags = [ 
     "--tls-san=192.168.0.50" # the shared keepalived virtual IP 
-    "--cluster-cidr=10.42.0.0/16" # force IPv4 cluster CIDR
-    "--service-cidr=10.43.0.0/16" # force IPv4 service CIDR
+    "--tls-san=192.168.0.163" # alpha's direct IP
+    "--tls-san=192.168.0.116" # beta's direct IP 
+  ];
+};
+
+# Open firewall ports for k3s cluster communication
+networking.firewall = {
+  allowedTCPPorts = [
+    6443  # k3s API server
+    2379  # etcd clients
+    2380  # etcd peers
+    10250 # kubelet API
+    10251 # kube-scheduler
+    10252 # kube-controller-manager
+    10256 # kube-proxy health check
+  ];
+  allowedUDPPorts = [
+    8472  # flannel VXLAN
+  ];
+  # Allow k3s traffic from cluster subnet
+  allowedTCPPortRanges = [
+    { from = 30000; to = 32767; } # NodePort services
   ];
 };
 
