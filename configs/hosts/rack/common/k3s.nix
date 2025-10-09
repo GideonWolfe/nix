@@ -1,4 +1,4 @@
-{ lib, inputs, config, ... }: 
+{ lib, inputs, config, pkgs, ... }: 
 
 {
 
@@ -75,8 +75,11 @@ systemd.timers.sync-kubeconfig = {
   wantedBy = [ "timers.target" ];
 };
 
-# environment.systemPackages = with pkgs; [ 
-#   k9s 
-# ];
+environment.systemPackages = with pkgs; [ 
+  kdash
+  ktop
+  kubetui
+  seabird
+];
 
 }
