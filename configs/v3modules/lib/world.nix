@@ -178,6 +178,31 @@
         };
       };
 
+      # K3s cluster configuration
+      cluster = {
+        ip = lib.mkOption {
+          type = lib.types.str;
+          default = "192.168.0.50";
+          description = "The virtual IP (VIP) of the k3s cluster";
+        };
+
+        alpha = {
+          ip = lib.mkOption {
+            type = lib.types.str;
+            default = "192.168.0.163";
+            description = "The IP address of the alpha node";
+          };
+        };
+
+        beta = {
+          ip = lib.mkOption {
+            type = lib.types.str;
+            default = "192.168.0.116";
+            description = "The IP address of the beta node";
+          };
+        };
+      };
+
     };
 
     locations = {

@@ -8,14 +8,14 @@ services.k3s = {
   # Default to NOT initializing cluster - hosts can override
   clusterInit = lib.mkDefault false;
   # Default serverAddr - hosts can override or disable
-  serverAddr = lib.mkDefault "https://192.168.0.163:6443"; # alpha's direct IP
+  serverAddr = lib.mkDefault "https://${config.custom.world.hosts.cluster.alpha.ip}:6443";
   # Shared token for all nodes
   token = "supersecret-token"; # must match on all nodes 
   
   extraFlags = [ 
-    "--tls-san=192.168.0.50" # the shared keepalived virtual IP 
-    "--tls-san=192.168.0.163" # alpha's direct IP
-    "--tls-san=192.168.0.116" # beta's direct IP 
+    "--tls-san=${config.custom.world.hosts.cluster.ip}"       # cluster VIP
+    "--tls-san=${config.custom.world.hosts.cluster.alpha.ip}" # alpha's direct IP
+    "--tls-san=${config.custom.world.hosts.cluster.beta.ip}"  # beta's direct IP
   ];
 };
 
@@ -58,19 +58,19 @@ systemd.services.sync-kubeconfig = {
   wants = [ "k3s.service" ];
   serviceConfig = {
     Type = "oneshot";
-    RemainAfterExit = true;
+    # Remove RemainAfterExit for timer compatibility
     ExecStart = "/bin/sh -c 'if [ -f /etc/rancher/k3s/k3s.yaml ]; then cp /etc/rancher/k3s/k3s.yaml /home/gideon/.kube/config && chown gideon:users /home/gideon/.kube/config && chmod 600 /home/gideon/.kube/config; fi'";
   };
-  wantedBy = [ "multi-user.target" ];
+  # Don't start automatically - let timer handle it
 };
 
 # Timer to periodically sync kubeconfig (in case it gets updated)
 systemd.timers.sync-kubeconfig = {
   description = "Periodically sync k3s kubeconfig";
   timerConfig = {
-    OnBootSec = "1m";
-    OnUnitActiveSec = "5m";
-    Unit = "sync-kubeconfig.service";
+    OnBootSec = "2m";           # Wait a bit longer after boot
+    OnUnitActiveSec = "5m";     # Run every 5 minutes after last success
+    Persistent = true;          # Run missed timers on boot
   };
   wantedBy = [ "timers.target" ];
 };

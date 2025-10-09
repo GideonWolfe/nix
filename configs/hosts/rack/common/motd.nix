@@ -7,7 +7,7 @@
     ╰─────────────────────────────────────────────────────────────────╯
     
     ┌─ Cluster Information ────────────────────────────────────────────┐
-    │ 🌐 Floating IP: 192.168.0.50                                    │
+    │ 🌐 Floating IP: ${config.custom.world.hosts.cluster.ip}         │
     │ 🔗 Node: ${config.networking.hostName}                          │
     │ 📅 Last Boot: $(systemctl show -p ActiveEnterTimestamp multi-user.target | cut -d= -f2 | cut -d' ' -f1-2)
     │ ⏰ Uptime: $(uptime -p)                                          │
@@ -15,7 +15,7 @@
     
     ┌─ Service Status ─────────────────────────────────────────────────┐
     │ 🔄 Keepalived: $(systemctl is-active keepalived 2>/dev/null || echo "inactive")                           │
-    │    ├─ VIP Status: $(ip addr show | grep -q "192.168.0.50" && echo "🟢 MASTER" || echo "🔵 BACKUP")     │
+    │    ├─ VIP Status: $(ip addr show | grep -q "${config.custom.world.hosts.cluster.ip}" && echo "🟢 MASTER" || echo "🔵 BACKUP")     │
     │                                                                  │
     │ ⚙️  K3s: $(systemctl is-active k3s 2>/dev/null || echo "inactive")                                        │
     │    ├─ Role: $(ps aux | grep -q 'k3s server' && echo "server" || echo "agent")                           │

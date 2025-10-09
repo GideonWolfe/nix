@@ -1,4 +1,4 @@
-{ lib, inputs, ... }: 
+{ lib, inputs, config, ... }: 
 
 {
   services.keepalived = {
@@ -9,7 +9,7 @@
     vrrpInstances.k3s = {
       interface = "eno1";                # replace with your real NIC
       virtualRouterId = 51;              # arbitrary number, must be same on all nodes
-      virtualIps = [ {addr = "192.168.0.50/24";} ]; # the shared floating IP
+      virtualIps = [ {addr = "${config.custom.world.hosts.cluster.ip}/24";} ]; # the shared floating IP
 
       # Priority decides who is preferred MASTER
       # higher number = more preferred

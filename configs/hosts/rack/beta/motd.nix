@@ -49,7 +49,7 @@
       
       # Show keepalived status
       if systemctl is-active --quiet keepalived
-        if ip addr show | grep -q "192.168.0.50"
+        if ip addr show | grep -q "${config.custom.world.hosts.cluster.ip}"
           set_color green
           echo "  🔄 Keepalived: ● Master (VIP Active)"
         else
