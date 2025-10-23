@@ -2,7 +2,7 @@
 
 {
   virtualisation.oci-containers.containers.romm = {
-    image = "rommapp/romm:3.10.0";
+    image = "rommapp/romm:4.3.2";
     ports = [ "4240:8080" ];
     autoStart = true;
     environment = {
