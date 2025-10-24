@@ -54,7 +54,8 @@
 
 
     # TEST adding backrest
-    ./system/backrest.nix
+    # System hanging and refusing to build
+    #./system/backrest.nix
 
     ############
     # PACKAGES #
