@@ -52,6 +52,10 @@
     ./prometheus.nix
     ./alloy.nix
 
+
+    # TEST adding backrest
+    ./system/backrest.nix
+
     ############
     # PACKAGES #
     ############
