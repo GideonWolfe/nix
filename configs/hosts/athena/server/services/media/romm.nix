@@ -13,7 +13,7 @@
       "/pool/data/media/games/roms/romm/romm_resources:/romm/resources"
       "/pool/data/media/games/roms/romm/romm_redis_data:/redis-data"
       #"/pool/data/media/games/roms/romm/library:/romm/library"
-      "/pool/data/media/games/emulation/frontend_libraries/romm_library:/romm/library"
+      "/pool/data/media/games/emulation/frontend_libraries/romm_library:/romm/library/roms"
       "/pool/data/media/games/roms/romm/assets:/romm/assets"
       "/pool/data/media/games/roms/romm/config:/romm/config"
     ];
