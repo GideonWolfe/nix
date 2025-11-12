@@ -1,0 +1,98 @@
+From 9421df5655028bf79ea6dfbcfe78eca36a6968ec Mon Sep 17 00:00:00 2001
+From: Potato <nikko@faint.day>
+Date: Tue, 24 Oct 2023 19:08:18 +0800
+Subject: [PATCH 5/6] drivers: power: axp20x: customize PMU
+
+This patch set some default states, add new sysfs interfaces.
+Mostly harmless.
+---
+ drivers/power/supply/axp20x_ac_power.c |  3 ++
+ drivers/power/supply/axp20x_battery.c  | 44 ++++++++++++++++++++++++++
+ 2 files changed, 47 insertions(+)
+
+diff --git a/drivers/power/supply/axp20x_ac_power.c b/drivers/power/supply/axp20x_ac_power.c
+index 5f6ea416fa30..20a39d27e025 100644
+--- a/drivers/power/supply/axp20x_ac_power.c
++++ b/drivers/power/supply/axp20x_ac_power.c
+@@ -52,6 +52,9 @@ static irqreturn_t axp20x_ac_power_irq(int irq, void *devid)
+ {
+ 	struct axp20x_ac_power *power = devid;
+ 
++	/* do not limit IPSOUT current */
++	regmap_update_bits(power->regmap, AXP20X_VBUS_IPSOUT_MGMT, 0x03, 0x03);
++
+ 	power_supply_changed(power->supply);
+ 
+ 	return IRQ_HANDLED;
+diff --git a/drivers/power/supply/axp20x_battery.c b/drivers/power/supply/axp20x_battery.c
+index 50ca8e110085..18124fea79bd 100644
+--- a/drivers/power/supply/axp20x_battery.c
++++ b/drivers/power/supply/axp20x_battery.c
+@@ -418,6 +418,42 @@ static int axp20x_battery_get_prop(struct power_supply *psy,
+ 
+ 		break;
+ 
++	case POWER_SUPPLY_PROP_ENERGY_FULL:
++	case POWER_SUPPLY_PROP_ENERGY_NOW:
++		/* When no battery is present, return 0 */
++		ret = regmap_read(axp20x_batt->regmap, AXP20X_PWR_OP_MODE,
++				  &reg);
++		if (ret)
++			return ret;
++
++		if (!(reg & AXP20X_PWR_OP_BATT_PRESENT)) {
++			val->intval = 0;
++			return 0;
++		}
++
++		if(psp == POWER_SUPPLY_PROP_ENERGY_FULL) {
++			val->intval = 8000000;
++			return 0;
++		}
++
++		ret = regmap_read(axp20x_batt->regmap, AXP20X_FG_RES, &reg);
++		if (ret)
++			return ret;
++
++		if (axp20x_batt->data->has_fg_valid && !(reg & AXP22X_FG_VALID))
++			return -EINVAL;
++
++		val1 = reg & AXP209_FG_PERCENT;
++		if (val1 > 90)
++			val1= 80;
++		else if (val1 < 10)
++			val1 = 0;
++		else
++			val1 -= 10;
++
++		val->intval = val1 * 100000;
++		break;
++
+ 	default:
+ 		return -EINVAL;
+ 	}
+@@ -850,6 +886,8 @@ static enum power_supply_property axp20x_battery_props[] = {
+ 	POWER_SUPPLY_PROP_VOLTAGE_MAX,
+ 	POWER_SUPPLY_PROP_VOLTAGE_MIN,
+ 	POWER_SUPPLY_PROP_CAPACITY,
++	POWER_SUPPLY_PROP_ENERGY_FULL,
++	POWER_SUPPLY_PROP_ENERGY_NOW,
+ };
+ 
+ static enum power_supply_property axp717_battery_props[] = {
+@@ -1139,6 +1177,12 @@ static int axp20x_power_probe(struct platform_device *pdev)
+ 	 */
+ 	axp20x_get_constant_charge_current(axp20x_batt, &axp20x_batt->max_ccc);
+ 
++	regmap_update_bits(axp20x_batt->regmap, AXP20X_VBUS_IPSOUT_MGMT, 0x03, 0x03); /* do not limit IPSOUT current */
++	regmap_update_bits(axp20x_batt->regmap, AXP20X_OFF_CTRL, 0x08, 0x08); /* set charge led controlled by charge module */
++	regmap_update_bits(axp20x_batt->regmap, AXP20X_CHRG_CTRL2, 0x30, 0x20); /* full charge output, charge led function type */
++	// regmap_update_bits(axp20x_batt->regmap, AXP20X_PEK_KEY, 0x0f, 0x0b); /* configure power key, this is handled by PEK driver */
++	regmap_update_bits(axp20x_batt->regmap, AXP20X_GPIO0_CTRL, 0x07, 0x00); /* configure charging LED */
++
+ 	return 0;
+ }
+ 
+-- 
+2.51.0
+
