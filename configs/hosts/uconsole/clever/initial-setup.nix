@@ -50,11 +50,19 @@ in {
         dtoverlay=uconsole,cm4,hwi2c
       '';
     in ''
+      mkdir -pv firmware/overlays
+      echo TEST TEST TEST TEST
+      pwd
+      ls -lh
       cp -v ${fw}/{bootcode.bin,fixup.dat,start.elf,fixup4.dat,start4.elf,fixup4cd.dat,fixup_cd.dat,start4cd.elf,start_cd.elf,bcm2710*dtb,bcm2711*dtb,bcm2712*dtb} firmware/
       cat ${config.boot.kernelPackages.kernel}/${config.system.boot.loader.kernelFile} | gzip -9v > firmware/kernel8.img
       cp -v ${config.system.build.initialRamdisk}/${config.system.boot.loader.initrdFile} firmware/initrd
       cp -v ${cmdline} firmware/cmdline.txt
       cp -v ${config_txt} firmware/config.txt
+      cp -v ${config.boot.kernelPackages.kernel}/dtbs/overlays/* firmware/overlays/
+      echo TEST TEST TEST TEST
+      ls firmware
+      exit 1
     '';
     populateRootCommands = ''
     '';
