@@ -28,6 +28,11 @@
         identityFile = [ "${config.home.homeDirectory}/.ssh/gideon_ssh_sk" ];
         user = "overseer";
       };
+      desktop = {
+        hostname = "192.168.0.170";
+        port = 2736;
+        proxyJump = "homeserver";
+      };
       alpha = {
         hostname = "192.168.0.163";
         port = 2736;

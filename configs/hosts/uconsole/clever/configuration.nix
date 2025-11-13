@@ -40,6 +40,19 @@ in {
       powerPatch
       dsiErrorPatch
     ];
+    # TODO enable when migrating to new system
+    # loader.rpi.config_txt = ''
+        # initramfs initrd followkernel
+        # gpu_mem=16
+
+        # # CM4 specific settings
+        # [cm4]
+        # arm_boost=1
+        # max_framebuffers=2
+        # dtoverlay=vc4-kms-v3d-pi4
+        # dtoverlay=uconsole,cm4,hwi2c
+        # dtoverlay=dwc2,dr_mode=host
+    # '';
   };
   documentation.enable = false;
   networking.firewall.enable = false;

@@ -120,12 +120,14 @@
           ];
         };
 
-        uconsole = lib.nixosSystem {
+        uconsole = let
           system = "aarch64-linux";
+        in lib.nixosSystem {
+          inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            nixos-hardware.nixosModules.raspberry-pi-4
-            ./configs/hosts/uconsole/configuration.nix
+            ./configs/hosts/uconsole/clever/configuration.nix
+            ./configs/hosts/uconsole/clever/initial-setup.nix
           ];
         };
 
@@ -223,6 +225,14 @@
         # buld with nix build .#sisyphus-vm, run with nix run .#sisyphus-vm
         sisyphus-vm = self.nixosConfigurations.sisyphus.config.system.build.vm;
         # buld with nix build .#uconsole-image
+        uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
+        uconsole-nixos = self.nixosConfigurations.uconsole.config.system.build.toplevel;
+      };
+
+      # ARM packages (for cross-compilation)
+      packages.aarch64-linux = {
+        # nix build .#packages.aarch64-linux.nixos will generate a system closure
+        uconsole-nixos = self.nixosConfigurations.uconsole.config.system.build.toplevel;
         uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
       };
 
