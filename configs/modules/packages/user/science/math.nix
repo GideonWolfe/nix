@@ -6,7 +6,7 @@
     ########
     # MATH #
     ########
-    pkgs.cantor # frontend to octave
+    #pkgs.cantor # frontend to octave #BUG: build error
     pkgs.octave # scientific programming lang
     pkgs.geogebra # graphing calculator
     pkgs.gnuplot # graphing software
@@ -15,7 +15,7 @@
     #pkgs.qalculate-qt # frontend for qalculate
     pkgs.qalculate-gtk # frontend for qalculate
     pkgs.gnome-graphs # GNOME app for quick plotting
-        #pkgs.kdePackages.kig # Interactive geometry #BUG broken
+    #pkgs.kdePackages.kig # Interactive geometry #BUG broken
 
   ];
 }

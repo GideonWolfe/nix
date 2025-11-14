@@ -137,7 +137,7 @@ in {
 
     # Workspaces and Knowledge Bases
     pkgs.trilium-desktop
-    pkgs.affine
+        #pkgs.affine # BROKEN ELECTRON
     pkgs.obsidian
 
     #LLM
@@ -157,7 +157,7 @@ in {
     pkgs.wtfutil
     pkgs.sampler
 
-    hackernews-tui
+        #hackernews-tui #BUG: build failing
     basalt-tui
 
   ];

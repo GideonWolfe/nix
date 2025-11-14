@@ -55,6 +55,8 @@
 
   ];
 
+  # HACK to be able to build, need to find responsible package
+  # nixpkgs.config.permittedInsecurePackages = [ "electron-35.7.5" ];
 
   # TEST to allow cross compilation for ARM
   boot.binfmt.emulatedSystems = [
