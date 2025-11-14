@@ -1195,6 +1195,20 @@ with config.lib.stylix.colors.withHashtag;
           						display: none !important;
           					}
 
+          					/* main tab background */
+          					.tabbrowser-tab {
+          						background: ${base00} !important;
+          					}
+
+          					/* background of hovered tabs */
+          					.tabbrowser-tab:hover {
+          						color: ${base01} !important;
+          					}
+          					/* text of hovered tabs */
+          					.tabbrowser-tab:hover .tab-label {
+          						color: ${base07} !important;
+          					}
+
           					/* Colors text and background of tab label */
           					.tabbrowser-tab .tab-label {
           						color: ${base05} !important;
