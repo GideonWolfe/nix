@@ -1,11 +1,11 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, pkgs-unstable, config, lib, ... }:
 
 {
   imports = [
     ./bootloader.nix
   ];
   boot = {
-    kernelPackages = pkgs.linuxPackages_rpi4;
+    kernelPackages = pkgs-unstable.linuxPackages_rpi4;
     loader = {
       grub.enable = false;
     };

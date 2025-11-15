@@ -29,10 +29,10 @@ diff --git a/drivers/staging/Makefile b/drivers/staging/Makefile
 index e681e403509c..022d292ac91d 100644
 --- a/drivers/staging/Makefile
 +++ b/drivers/staging/Makefile
-@@ -28,3 +28,4 @@
+@@ -21,3 +21,4 @@
+ obj-$(CONFIG_BCM2835_VCHIQ)   += vc04_services/
  obj-$(CONFIG_XIL_AXIS_FIFO)	+= axis-fifo/
  obj-$(CONFIG_FIELDBUS_DEV)     += fieldbus/
- obj-$(CONFIG_QLGE)		+= qlge/
 +obj-y				+= uconsole/
 diff --git a/drivers/staging/uconsole/Kconfig b/drivers/staging/uconsole/Kconfig
 new file mode 100644
