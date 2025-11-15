@@ -1,11 +1,12 @@
-{ pkgs, pkgs-unstable, config, lib, ... }:
+{ pkgs, pkgs-unstable, config, inputs, lib, ... }:
 
 {
   imports = [
     ./bootloader.nix
   ];
   boot = {
-    kernelPackages = pkgs-unstable.linuxPackages_rpi4;
+    # TODO eventually lock this to a stable kernel version
+    kernelPackages = inputs.nixpkgs-unstable.legacyPackages.aarch64-linux.linuxPackages_rpi4;
     loader = {
       grub.enable = false;
     };
