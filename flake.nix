@@ -5,6 +5,8 @@
 
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-25.05"; };
 
+    nixpkgs-unstable = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs = { nixpkgs.follows = "nixpkgs"; };
@@ -58,13 +60,14 @@
 
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, stylix, spicetify-nix
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, stylix, spicetify-nix
     , nixvim, sops-nix, deploy-rs, xyosc, dsd-fme, nix-ai-tools, disko, ...
     }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
 
       # Import world configuration data for use in flake
       # NOT used in new module system, deprecate soon
@@ -227,6 +230,7 @@
         # buld with nix build .#uconsole-image
         uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
         uconsole-nixos = self.nixosConfigurations.uconsole.config.system.build.toplevel;
+        inherit eval;
       };
 
       # ARM packages (for cross-compilation)

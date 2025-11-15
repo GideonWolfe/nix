@@ -1038,6 +1038,13 @@ with config.lib.stylix.colors.withHashtag;
 
                 --background-color-box: ${base00} !important;
 
+                --toolbox-bgcolor: ${base00} !important;
+                --toolbox-textcolor: ${base0E} !important;
+                --toolbox-bgcolor-inactive: ${base00} !important;
+                --toolbox-textcolor-inactive: ${base06} !important;
+
+                --panel-background: ${base01} !important; 
+
             }
 
                             /* get rid of blinding white loading screen for tabs */
@@ -1244,6 +1251,11 @@ with config.lib.stylix.colors.withHashtag;
           					#urlbar:not(.searchButton) > #urlbar-input-container > #identity-box[pageproxystate="invalid"] {
           						color: ${base0E} !important;
           					}
+
+                            #urlbar,
+                            .urlbar-background {
+                                background-color: ${base01} !important;
+                            }
 
           					/* Style for close tab buttons */
           					.tabbrowser-tab:not([pinned]) .tab-close-button {

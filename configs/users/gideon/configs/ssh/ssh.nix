@@ -29,7 +29,7 @@
         user = "overseer";
       };
       desktop = {
-        hostname = "192.168.0.170";
+        hostname = "192.168.0.103";
         port = 2736;
         proxyJump = "homeserver";
       };
