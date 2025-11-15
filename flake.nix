@@ -230,7 +230,6 @@
         # buld with nix build .#uconsole-image
         uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
         uconsole-nixos = self.nixosConfigurations.uconsole.config.system.build.toplevel;
-        inherit eval;
       };
 
       # ARM packages (for cross-compilation)
