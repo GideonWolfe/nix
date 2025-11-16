@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 let
   backlightPatch = {
@@ -26,7 +26,17 @@ let
     patch = ./patches/0006-drm-panel-cwu50-expose-dsi-error-status-to-userspace.patch;
   };
 in {
-  imports = [ ./hardware-configuration.nix ];
+
+  imports = [
+    ./hardware-configuration.nix
+
+    # Core system configuration
+    ../../../v3modules/system/core/system.nix
+
+    # Setup for my user
+    ../../../v3modules/users/gideon/gideon.nix
+
+  ];
 
   # fix for missing modules in rpi kernel
   nixpkgs.overlays = [
@@ -67,9 +77,22 @@ in {
   documentation.enable = false;
   networking.firewall.enable = false;
   services.openssh.enable = true;
-  users.users.pi = {
-    extraGroups = [ "wheel" ];
-    initialPassword = "hunter2";
-    isNormalUser = true;
-  };
+  # users.users.pi = {
+  #   extraGroups = [ "wheel" ];
+  #   initialPassword = "hunter2";
+  #   isNormalUser = true;
+  # };
+
+  ##### PERSONAL STUFF #####
+
+  # override the systemd boot in our default system config
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+
+  # Basic system settings
+  networking.hostName = "aether";
+
+  custom.features.wireguard.enable = false;
+  custom.features.secrets.enable = false;
+  custom.features.monitoring.enable = false;
+
 }
