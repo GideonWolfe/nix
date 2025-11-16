@@ -1043,7 +1043,6 @@ with config.lib.stylix.colors.withHashtag;
                 --toolbox-bgcolor-inactive: ${base00} !important;
                 --toolbox-textcolor-inactive: ${base06} !important;
 
-                --panel-background: ${base01} !important; 
 
             }
 
