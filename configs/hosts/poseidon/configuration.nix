@@ -60,6 +60,12 @@
     "aarch64-linux"
     # ....
   ];
+  # allow copying closures as gideon
+  # TODO move to more common location
+  nix.settings.trusted-users = [
+    "root"
+    "gideon"
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
