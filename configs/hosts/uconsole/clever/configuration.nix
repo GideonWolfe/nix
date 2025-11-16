@@ -29,17 +29,18 @@ in {
   imports = [ ./hardware-configuration.nix ];
 
   # fix for missing modules in rpi kernel
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
-  #   })
-  # ];
+  nixpkgs.overlays = [
+    (self: super: {
+      makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
+    })
+  ];
 
   boot = {
     initrd = {
       availableKernelModules = [ "vc4" "v3d" ];
       # should make above overlay unnecessary
-      includeDefaultModules = false;
+      # not quite, still complains about missing vc4, v3d, ext2, ext4
+      #includeDefaultModules = false;
     };
     kernelPatches = [
       backlightPatch
