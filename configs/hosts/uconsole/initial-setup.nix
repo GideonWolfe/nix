@@ -31,7 +31,7 @@ in {
     '';
   };
   sdImage = {
-    firmwareSize = 64;
+    firmwareSize = 512;
     populateFirmwareCommands = let
       fw = "${pkgs.raspberrypifw}/share/raspberrypi/boot";
       cmdline = pkgs.writeText "cmdline.txt" ''

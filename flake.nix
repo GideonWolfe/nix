@@ -129,8 +129,8 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./configs/hosts/uconsole/clever/configuration.nix
-            ./configs/hosts/uconsole/clever/initial-setup.nix
+            ./configs/hosts/uconsole/configuration.nix
+            ./configs/hosts/uconsole/initial-setup.nix
           ];
         };
 
