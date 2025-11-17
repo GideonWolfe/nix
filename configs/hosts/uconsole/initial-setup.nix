@@ -33,8 +33,7 @@ in {
   sdImage = {
     firmwareSize = 512;
     populateFirmwareCommands = ''
-      DEST=./
-      ${config.system.build.installBootLoader} ${config.system.build.toplevel}
+      DEST=./ ${config.system.build.installBootLoader} ${config.system.build.toplevel}
     '';
     populateRootCommands = ''
     '';
