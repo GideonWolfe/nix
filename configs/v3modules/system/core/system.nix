@@ -8,7 +8,7 @@
     ../../lib/world.nix
 
     # Always enable stylix
-    ./stylix.nix
+    #./stylix.nix
 
     # Global Home Manager options
     ./home-manager.nix

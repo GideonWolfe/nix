@@ -57,6 +57,8 @@
       plymouth.enable = false;
       # Enable GTK theming at system level
       gtk.enable = true;
+      # BUG: The option `services.xserver.desktopManager.plasma5' can no longer be used since it's been removed build error
+      qt.enable = false;
     };
   };
 

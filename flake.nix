@@ -125,7 +125,9 @@
 
         uconsole = let
           system = "aarch64-linux";
-        in lib.nixosSystem {
+        #in lib.nixosSystem {
+        # Overriding to build the whole system with unstable
+        in nixpkgs-unstable.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [

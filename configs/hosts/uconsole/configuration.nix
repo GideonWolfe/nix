@@ -42,11 +42,11 @@ in {
   ];
 
   # fix for missing modules in rpi kernel
-  nixpkgs.overlays = [
-    (self: super: {
-      makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
+  #   })
+  # ];
 
   boot = {
     initrd = {
@@ -56,15 +56,16 @@ in {
       #includeDefaultModules = false;
     };
 
+    #TEST: not including patches
     # Include the necessary kernel patches for uConsole support
-    kernelPatches = [
-      backlightPatch
-      panelPatch
-      amplifierPatch
-      overlayPatch
-      powerPatch
-      dsiErrorPatch
-    ];
+    # kernelPatches = [
+    #   backlightPatch
+    #   panelPatch
+    #   amplifierPatch
+    #   overlayPatch
+    #   powerPatch
+    #   dsiErrorPatch
+    # ];
   };
 
   nix.settings = {

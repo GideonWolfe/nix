@@ -5,7 +5,8 @@
     ./bootloader.nix
   ];
   boot = {
-    kernelPackages = inputs.nixpkgs-unstable.legacyPackages.aarch64-linux.linuxPackages_rpi4;
+    #kernelPackages = inputs.nixpkgs-unstable.legacyPackages.aarch64-linux.linuxPackages_rpi4;
+    kernelPackages = pkgs.linuxPackages_rpi4;
 
     # TODO eventually lock this to a stable kernel version
     # kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_rpi4.override {
