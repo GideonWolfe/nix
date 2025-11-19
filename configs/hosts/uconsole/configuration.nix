@@ -58,14 +58,14 @@ in {
 
     #TEST: not including patches
     # Include the necessary kernel patches for uConsole support
-    # kernelPatches = [
-    #   backlightPatch
-    #   panelPatch
-    #   amplifierPatch
-    #   overlayPatch
-    #   powerPatch
-    #   dsiErrorPatch
-    # ];
+    kernelPatches = [
+      backlightPatch
+      panelPatch
+      amplifierPatch
+      overlayPatch
+      powerPatch
+      dsiErrorPatch
+    ];
   };
 
   nix.settings = {
