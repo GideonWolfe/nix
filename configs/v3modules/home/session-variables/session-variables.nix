@@ -24,8 +24,5 @@
     # Optional, hint Electron apps to use Wayland:
     NIXOS_OZONE_WL = "1";
 
-    # Tell astrolog where to find config files
-    ASTROLOG="${config.home.homeDirectory}/.config/astrolog/";
-
   };
 }

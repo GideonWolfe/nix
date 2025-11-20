@@ -27,4 +27,6 @@ with config.lib.stylix.colors.withHashtag;
     '';
   };
 
+    # Tell astrolog where to find config files
+    home.sessionVariables.ASTROLOG="${config.home.homeDirectory}/.config/astrolog/";
 }

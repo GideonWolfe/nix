@@ -9,7 +9,7 @@ with config.lib.stylix.colors.withHashtag;
     target = "swappy/config";
     text = ''
       [Default]
-      save_dir=$HOME/pictures/screenshots/
+      save_dir=${config.xdg.userDirs.pictures}/screenshots/
       save_filename_format=screenshot-%Y%m%d-%H%M%S.png
       show_panel=true
       line_size=5

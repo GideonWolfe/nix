@@ -56,7 +56,6 @@ in {
       #includeDefaultModules = false;
     };
 
-    #TEST: not including patches
     # Include the necessary kernel patches for uConsole support
     kernelPatches = [
       backlightPatch

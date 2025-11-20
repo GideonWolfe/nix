@@ -8,19 +8,33 @@
     ../../lib/world.nix
 
     # Always enable stylix
-    #./stylix.nix
+    # Default theme is catppuccin, but can be overriden per system
+    ./stylix.nix
 
     # Global Home Manager options
     ./home-manager.nix
 
-    # Provide the option to enable monitoring
-    ../services/monitoring/monitoring.nix
-
     # Provide the option to enable VPN
     ./wireguard.nix
 
-    # Provide the option to enable Secretst
+    # Provide the option to enable Secrets
     ./sops.nix
+
+
+    ##################################### #
+    # Import options for our custom roles #
+    ##################################### #
+    # Provide the option to enable monitoring
+    ../roles/monitoring/monitoring.nix
+    # Provide the option to enable gaming
+    ../roles/gaming/gaming.nix
+    # Provide the option to enable music production
+    ../roles/music_production/music_production.nix
+    # Provide the option to enable hardware support.
+    # Should be used if system isn't a VPS. Enabled by default
+    ../roles/hardware/hardware.nix
+
+
   ];
 
   # Enable Flakes
@@ -132,19 +146,7 @@
   # Set Timezone Automatically
   services.automatic-timezoned.enable = true;
 
-  # Enable Bluetooth
-  hardware.bluetooth.enable = true;
-  # Enable GTK based manager
-  services.blueman.enable = true;
-
-  # allows to control power based on user defined profiles (required for hyprpanel battery modules )
-  services.power-profiles-daemon.enable = true;
-  # power control support for applications (required for hyprpanel battery modules )
-  services.upower.enable = true;
   
-  # Printing Support
-  services.printing.enable = true;
-
   # Smartd for HDDs
   services.smartd.enable = true;
   # Enable udisks to automount disks
