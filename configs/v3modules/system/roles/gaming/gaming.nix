@@ -25,7 +25,6 @@ in {
     hardware.steam-hardware.enable = true;
     # Enable Xbox controller driver
     hardware.xone.enable = true;
-    };
 
 
     # Install additional gaming packages
@@ -44,4 +43,5 @@ in {
       pkgs.cartridges # GTK game launcher that can detect other launchers
       pkgs.protonplus # GTK app to manage proton/wine installations
     ];
+  };
 }
