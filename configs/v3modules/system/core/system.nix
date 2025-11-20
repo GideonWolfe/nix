@@ -9,7 +9,7 @@
 
     # Always enable stylix
     # Default theme is catppuccin, but can be overriden per system
-    ./stylix.nix
+    #./stylix.nix
 
     # Global Home Manager options
     ./home-manager.nix
@@ -25,14 +25,14 @@
     # Import options for our custom roles #
     ##################################### #
     # Provide the option to enable monitoring
-    ../roles/monitoring/monitoring.nix
+    #../roles/monitoring/monitoring.nix
     # Provide the option to enable gaming
-    ../roles/gaming/gaming.nix
+    #../roles/gaming/gaming.nix
     # Provide the option to enable music production
-    ../roles/music_production/music_production.nix
+    #../roles/music_production/music_production.nix
     # Provide the option to enable hardware support.
     # Should be used if system isn't a VPS. Enabled by default
-    ../roles/hardware/hardware.nix
+    #../roles/hardware/hardware.nix
 
 
   ];

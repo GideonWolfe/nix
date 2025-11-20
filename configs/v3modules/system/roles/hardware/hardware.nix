@@ -28,4 +28,5 @@ in {
 
     # environment.systemPackages = [
     # ];
+  };
 }

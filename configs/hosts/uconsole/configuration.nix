@@ -88,8 +88,8 @@ in {
 
   networking.hostName = "aether";
 
-  custom.features.wireguard.enable = false;
-  custom.features.secrets.enable = false;
-  custom.features.monitoring.enable = false;
+  # custom.features.wireguard.enable = false;
+  # custom.features.secrets.enable = false;
+  # custom.features.monitoring.enable = false;
 
 }
