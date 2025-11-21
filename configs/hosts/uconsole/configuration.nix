@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 let
   backlightPatch = {
@@ -32,7 +32,7 @@ in {
     ./hardware-configuration.nix
 
     # specific hardware configurations for uConsole
-    ./uconsole-hardware.nix
+    #./uconsole-hardware.nix
 
     # Core system configuration
     ../../v3modules/system/core/system.nix
@@ -65,6 +65,9 @@ in {
       powerPatch
       dsiErrorPatch
     ];
+
+    # for UART debugging
+    #kernelParams = [ "console=serial0,115200" ];
   };
 
   nix.settings = {
@@ -91,5 +94,12 @@ in {
   # custom.features.wireguard.enable = false;
   # custom.features.secrets.enable = false;
   # custom.features.monitoring.enable = false;
+
+  # quick hack
+  environment.systemPackages = with pkgs; [
+    kitty
+    alacritty
+    neovim
+  ];
 
 }

@@ -11,17 +11,18 @@ in {
       };
       config_txt = lib.mkOption {
         type = lib.types.str;
+        # default = ''
+        #   initramfs initrd followkernel
+        #   gpu_mem=16
+        #   arm_boost=1
+        #   max_framebuffers=2
+        #   dtoverlay=vc4-kms-v3d-pi4
+        #   dtoverlay=uconsole,cm4,hwi2c
+        #   dtoverlay=dwc2,dr_mode=host
+        # '';
         default = ''
           initramfs initrd followkernel
           gpu_mem=16
-
-          # CM4 specific settings
-          [cm4]
-          arm_boost=1
-          max_framebuffers=2
-          dtoverlay=vc4-kms-v3d-pi4
-          dtoverlay=uconsole,cm4,hwi2c
-          dtoverlay=dwc2,dr_mode=host
         '';
       };
     };
