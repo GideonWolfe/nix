@@ -23,6 +23,7 @@ in {
         default = ''
           initramfs initrd followkernel
           gpu_mem=16
+          dtoverlay=vc4-kms-v3d-pi4
         '';
       };
     };

@@ -133,6 +133,14 @@
           modules = [
             ./configs/hosts/uconsole/configuration.nix
             ./configs/hosts/uconsole/initial-setup.nix
+            # Home Manager Stuff
+            # {
+            #   home-manager.extraSpecialArgs = { inherit inputs; };
+            #   home-manager.users.gideon.imports = [
+            #     ./configs/v3modules/users/gideon/home.nix
+            #     ./configs/hosts/uconsole/aether-hyprland-monitors.nix
+            #   ];
+            # }
           ];
         };
 
