@@ -20,6 +20,7 @@ in {
         #   dtoverlay=uconsole,cm4,hwi2c
         #   dtoverlay=dwc2,dr_mode=host
         # '';
+        # This is confirmed booting after editing
         default = ''
           initramfs initrd followkernel
           gpu_mem=16
