@@ -24,6 +24,7 @@ in {
         default = ''
           initramfs initrd followkernel
           gpu_mem=16
+          enable_uart=1
         '';
       };
     };

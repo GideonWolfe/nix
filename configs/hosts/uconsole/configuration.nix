@@ -67,7 +67,7 @@ in {
     ];
 
     # for UART debugging
-    #kernelParams = [ "console=serial0,115200" ];
+    kernelParams = [ "console=serial0,115200" ];
   };
 
   nix.settings = {
