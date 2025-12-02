@@ -25,6 +25,7 @@ in {
           initramfs initrd followkernel
           gpu_mem=16
           enable_uart=1
+          dtoverlay=disable-bt
         '';
       };
     };
