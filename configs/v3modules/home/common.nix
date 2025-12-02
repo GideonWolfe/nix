@@ -25,6 +25,7 @@ in {
   ./apps/eza/eza.nix # better ls
   ./apps/bat/bat.nix # better cat
   ./apps/atuin/atuin.nix # TUI shell history
+  ./apps/kdeconnect/kdeconnect.nix
 
     ###############
     # Environment #
@@ -33,13 +34,8 @@ in {
   ./sessions/global/xdg-user-dirs.nix # default directories
   ./sessions/global/mimetypes.nix # default programs
   ./sessions/global/udiskie.nix # automount USB drives
-  ./apps/gpg/gpg.nix # enable GPG to run
-
-    ############
-    # Networks #
-    ############
   ./sessions/global/blueman-applet.nix # enables BT applet
-  ./apps/kdeconnect/kdeconnect.nix
+  ./apps/gpg/gpg.nix # enable GPG to run
 
     #######
     # Git #
@@ -50,7 +46,7 @@ in {
     ##############
     # UI/Desktop #
     ##############
-  ./apps/stylix/stylix.nix
+  ./sessions/global/ui/stylix.nix
   ./sessions/global/ui/cursor.nix
   ./sessions/global/ui/gtk.nix
   ./sessions/global/ui/qt.nix
