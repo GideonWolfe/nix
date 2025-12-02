@@ -15,58 +15,58 @@ in {
     ###############
     # Shell Stuff #
     ###############
-    ./shell/fish.nix # Primary shell
-    ./shell/bash.nix # backup shell
-    ./shell/starship.nix # gives a good prompt to bash and nix shells
-    ./kitty/kitty.nix # preferred terminal
-    ./zellij/zellij.nix # better screen/tmux
-    ./nh/nh.nix # wrapper for nix builds
-    ./zoxide/zoxide.nix # better cd
-    ./eza/eza.nix # better ls
-    ./bat/bat.nix # better cat
-    ./atuin/atuin.nix # TUI shell history
+  ./apps/shell/fish.nix # Primary shell
+  ./apps/shell/bash.nix # backup shell
+  ./apps/shell/starship.nix # gives a good prompt to bash and nix shells
+  ./apps/kitty/kitty.nix # preferred terminal
+  ./apps/zellij/zellij.nix # better screen/tmux
+  ./apps/nh/nh.nix # wrapper for nix builds
+  ./apps/zoxide/zoxide.nix # better cd
+  ./apps/eza/eza.nix # better ls
+  ./apps/bat/bat.nix # better cat
+  ./apps/atuin/atuin.nix # TUI shell history
 
     ###############
     # Environment #
     ###############
-    ./session-variables/session-variables.nix # environment vars
-    ./xdg-user-dirs/xdg-user-dirs.nix # default directories
-    ./mimetypes/mimetypes.nix # default programs
-    ./udiskie/udiskie.nix # automount USB drives
-    ./gpg/gpg.nix # enable GPG to run
+  ./sessions/global/session-variables.nix # environment vars
+  ./sessions/global/xdg-user-dirs.nix # default directories
+  ./sessions/global/mimetypes.nix # default programs
+  ./sessions/global/udiskie.nix # automount USB drives
+  ./apps/gpg/gpg.nix # enable GPG to run
 
     ############
     # Networks #
     ############
-    ./bluetooth/bluetooth.nix # enables BT applet
-    ./kdeconnect/kdeconnect.nix
+  ./sessions/global/blueman-applet.nix # enables BT applet
+  ./apps/kdeconnect/kdeconnect.nix
 
     #######
     # Git #
     #######
-    ./git/git.nix
-    ./gh/gh.nix
+  ./apps/git/git.nix
+  ./apps/gh/gh.nix
 
     ##############
     # UI/Desktop #
     ##############
-    ./stylix/stylix.nix
-    ./cursor/cursor.nix
-    ./gtk/gtk.nix
-    ./qt/qt.nix
-    ./wofi/wofi.nix # app launcher
-    ./swappy/swappy.nix # Screenshot editor
-    ./fusuma/fusuma.nix # touchpad gestures
-    ./kando/kando.nix # circle app launcher
-    ./clipse/clipse.nix # clipboard manager TUI
+  ./apps/stylix/stylix.nix
+  ./sessions/global/ui/cursor.nix
+  ./sessions/global/ui/gtk.nix
+  ./sessions/global/ui/qt.nix
+  ./apps/wofi/wofi.nix # app launcher
+  ./apps/swappy/swappy.nix # Screenshot editor
+  ./apps/fusuma/fusuma.nix # touchpad gestures
+  ./apps/kando/kando.nix # circle app launcher
+  ./apps/clipse/clipse.nix # clipboard manager TUI
 
     #################
     # Browser Stuff #
     #################
-    ./chromium/chromium.nix
-    ./firefox/firefox.nix
-    ./darkreader/darkreader.nix
-    ./startpage/service.nix
+  ./apps/chromium/chromium.nix
+  ./apps/firefox/firefox.nix
+  ./apps/darkreader/darkreader.nix
+  ./apps/startpage/service.nix
 
     ####################
     # Scripts & Tools  #
@@ -82,64 +82,63 @@ in {
 
     ####################
     # Kubernetes Stuff #
-    ./kube/kube.nix
-    ./k9s/k9s.nix
+  ./apps/kube/kube.nix
 
     ############
     # Hyprland #
     ############
-    ./hypr/hyprland.nix
-    ./hypr/hyprpaper.nix
-    ./hypr/hypridle.nix
-    ./hypr/hyprlock.nix
-    ./hypr/hyprpanel.nix
+  ./sessions/hypr/hyprland.nix
+  ./sessions/hypr/hyprpaper.nix
+  ./sessions/hypr/hypridle.nix
+  ./sessions/hypr/hyprlock.nix
+  ./sessions/hypr/hyprpanel.nix
 
     ########
     # Sway #
     ########
-    #./sway/sway.nix
-    #./sway/swaylock.nix # this was causing a build bug
-    #./sway/swayidle.nix
-    #./waybar/waybar.nix
+  #./sessions/sway/sway.nix
+  #./sessions/sway/swaylock.nix # this was causing a build bug
+  #./sessions/sway/swayidle.nix
+  #./sessions/global/ui/waybar/waybar.nix
 
     #############################
     # Essential Program Configs #
     #############################
-    ./nixvim/nixvim.nix
+  ./apps/nixvim/nixvim.nix
 
     ################################
     # NonEssential Program Configs #
     ################################
-    ./imv/imv.nix # imv theme
-    ./zathura/zathura.nix # zathura theme
-    ./foliate/foliate.nix # foliate theme
-    ./irc/halloy.nix # halloy settings/theme # HAS SECRET
-    ./btop/btop.nix # btop theme
-    ./gnuplot/gnuplot.nix # gnuplot theme
-    ./cava/cava.nix # cava settings/theme
-    ./cavalier/cavalier.nix # cavalier settings/theme
-    ./newsboat/newsboat.nix
-    ./spicetify/spicetify.nix # spicetify theme
-    ./fastfetch/fastfetch.nix
-    ./vscode/vscode.nix # VScode settings
-    ./blender/blender-theme.nix # blender theme
-    #./obsidian/obsidian-stylix-css.nix # obsidian theme # GIDEON MENTIONED
-    ./element/element.nix # element settings/theme
-    ./ghidra/ghidra.nix # Ghidra theme
-    ./kicad/kicad.nix # Kicad theme
-    ./mpv/mpv.nix # mpv theme
-    ./libreoffice/libreoffice.nix # libreoffice theme
-    ./blockbench/blockbench.nix # blockbench theme
-    ./minimeters/minimeters.nix
-    ./godot/godot-theme.nix
-    ./astrolog/astrolog.nix
-    ./shortwave/shortwave.nix
-    ./sdrpp/sdrpp.nix #TODO BROKEN
-    ./hackernews-tui/hackernews-tui.nix
-    ./television/television.nix
-    ./sourcegit/sourcegit.nix
-    ./xyosc/xyosc.nix
-    ./vesktop/vesktop.nix
-    ./freetube/freetube.nix
+  ./apps/imv/imv.nix # imv theme
+  ./apps/zathura/zathura.nix # zathura theme
+  ./apps/foliate/foliate.nix # foliate theme
+  ./apps/halloy/halloy.nix # halloy settings/theme # HAS SECRET
+  ./apps/btop/btop.nix # btop theme
+  ./apps/gnuplot/gnuplot.nix # gnuplot theme
+  ./apps/cava/cava.nix # cava settings/theme
+  ./apps/cavalier/cavalier.nix # cavalier settings/theme
+  ./apps/newsboat/newsboat.nix
+  ./apps/spicetify/spicetify.nix # spicetify theme
+  ./apps/fastfetch/fastfetch.nix
+  ./apps/vscode/vscode.nix # VScode settings
+  ./apps/blender/blender-theme.nix # blender theme
+  #./apps/obsidian/obsidian-stylix-css.nix # obsidian theme # GIDEON MENTIONED
+  ./apps/element/element.nix # element settings/theme
+  ./apps/ghidra/ghidra.nix # Ghidra theme
+  ./apps/kicad/kicad.nix # Kicad theme
+  ./apps/mpv/mpv.nix # mpv theme
+  ./apps/libreoffice/libreoffice.nix # libreoffice theme
+  ./apps/blockbench/blockbench.nix # blockbench theme
+  ./apps/minimeters/minimeters.nix
+  ./apps/godot/godot-theme.nix
+  ./apps/astrolog/astrolog.nix
+  ./apps/shortwave/shortwave.nix
+  ./apps/sdrpp/sdrpp.nix #TODO BROKEN
+  ./apps/hackernews-tui/hackernews-tui.nix
+  ./apps/television/television.nix
+  ./apps/sourcegit/sourcegit.nix
+  ./apps/xyosc/xyosc.nix
+  ./apps/vesktop/vesktop.nix
+  ./apps/freetube/freetube.nix
   ];
 }
