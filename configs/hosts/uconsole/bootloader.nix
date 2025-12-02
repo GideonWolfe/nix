@@ -23,8 +23,8 @@ in {
         # This is confirmed booting after editing
         default = ''
           initramfs initrd followkernel
-          gpu_mem=16
           enable_uart=1
+          uart_2ndstage=1
           dtoverlay=disable-bt
         '';
       };
