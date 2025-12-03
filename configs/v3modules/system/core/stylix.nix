@@ -76,7 +76,8 @@
     
     # Qt theming tools
     libsForQt5.qt5ct
-    qt6ct
+    #qt6ct
+    qt6Packages.qt6ct
     libsForQt5.qtcurve
     libsForQt5.qtstyleplugins
     

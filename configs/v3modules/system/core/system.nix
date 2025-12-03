@@ -9,7 +9,7 @@
 
     # Always enable stylix
     # Default theme is catppuccin, but can be overriden per system
-    #./stylix.nix
+    ./stylix.nix
 
     # Global Home Manager options
     ./home-manager.nix
@@ -42,6 +42,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Allow packages not supported on system
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   # disable docs to speed builds
   documentation.nixos.enable = false;

@@ -4,6 +4,14 @@ with config.lib.stylix.colors;
 
 {
 
+  # Import helper programs
+  imports = [
+    ./hypridle.nix # Idle daemon
+    ./hyprpanel.nix # Desktop shell
+    ./hyprlock.nix # Lock screen
+    ./hyprpaper.nix # wallpaper daemon
+  ];
+
   wayland.windowManager.hyprland = {
     # allow home manager to configure hyprland	
     enable = true;

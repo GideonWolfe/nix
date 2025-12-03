@@ -23,6 +23,9 @@ in {
         # This is confirmed booting after editing
         default = ''
           initramfs initrd followkernel
+          dtoverlay=vc4-kms-v3d-pi4
+          dtoverlay=uconsole,cm4,hwi2c
+          dtoverlay=dwc2,dr_mode=host           
           enable_uart=1
           uart_2ndstage=1
           dtoverlay=disable-bt

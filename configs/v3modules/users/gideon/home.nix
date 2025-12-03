@@ -11,7 +11,7 @@
     ./configs/git.nix
 
     # Package imports
-    ./packages.nix
+    #./packages.nix
   ];
   
   # Put my profile image in the usual spot

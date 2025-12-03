@@ -137,10 +137,11 @@
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [
-                # My main user home config
-                ./configs/v3modules/users/gideon/home.nix
                 # Specific Hyprland config for uconsole screen
                 ./configs/hosts/uconsole/aether-hyprland-monitors.nix
+                # My main user home config
+                ./configs/v3modules/users/gideon/home.nix
+                # Packages
               ];
             }
           ];

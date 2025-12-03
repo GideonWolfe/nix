@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, stylix, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
