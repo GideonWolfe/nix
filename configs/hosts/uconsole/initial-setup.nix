@@ -7,7 +7,7 @@ let
   dummy = pkgs.runCommand "dummy" {} ''
     mkdir $out
     cd $out
-    touch {1..6000}
+    touch {1..10000}
   '';
 in {
   imports = [
