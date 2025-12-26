@@ -1,9 +1,6 @@
 { pkgs, lib, config, inputs, ... }:
 
-let
-  # Define the scripts directory - currently pointing to v2modules
-  scriptsDir = ../../v2modules/scripts;
-in {
+{
   imports = [
 
     ###########
@@ -112,21 +109,5 @@ in {
     ./apps/firefox/firefox.nix
     ./apps/darkreader/darkreader.nix
     ./apps/startpage/service.nix
-
-    ####################
-    # Scripts & Tools  #
-    ####################
-    # ../../v2modules/scripts/wofi-web-search
-    # ../../v2modules/scripts/git
-    # ../../v2modules/scripts/portapack
-    # ../../v2modules/scripts/hyprland-window-switcher
-    # ../../v2modules/scripts/sway-window-switcher
-    # ../../v2modules/scripts/power-scripts
-    # ../../v2modules/scripts/mako-toggle
-    # ../../v2modules/scripts/screen-recorder
-
-
-
-
   ];
 }

@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 let
-  asciiMol = pkgs.python312Packages.callPackage ./asciiMol.nix { };
-  plascad = pkgs.callPackage ./plascad.nix { };
-  #ugene = pkgs.callPackage ./ugene.nix { }; # BUG: failing build
+  asciiMol = pkgs.python312Packages.callPackage ../custom/asciiMol.nix { };
+  plascad = pkgs.callPackage ../custom/plascad.nix { };
+  #ugene = pkgs.callPackage ../custom/ugene.nix { }; # BUG: failing build
 in {
   home.packages = [
 

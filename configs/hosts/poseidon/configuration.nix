@@ -12,6 +12,9 @@
     # Common system configs
     ../../modules/configs/system/common.nix
 
+    # Import the gideon system user configuration
+    ../../v3modules/users/gideon/gideon.nix
+
     # Secrets
     #./system/sops.nix
 

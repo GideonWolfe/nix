@@ -198,13 +198,9 @@
             # TESTING HM MODULE
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = false;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "hm-backup";
-              home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [
-                ./configs/users/gideon/home.nix
-                ./configs/modules/configs/user/laptop-hyprpanel-layout/laptop-hyprpanel-layout.nix
+                ./configs/v3modules/users/gideon/home.nix
+                ./configs/v3modules/home/sessions/hypr/hyprpanel-laptop-layout.nix
               ];
             }
           ];
