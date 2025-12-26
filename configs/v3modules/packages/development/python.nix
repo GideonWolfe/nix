@@ -17,8 +17,6 @@
 			pythonPkgs.geopandas
 			pythonPkgs.beautifulsoup4
 		]);
-	)
-	pkgs.python3	
-	];
+	)];
 
 }

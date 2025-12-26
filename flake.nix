@@ -167,6 +167,27 @@
         };
 
         # Thinkpad T490
+        # poseidon = lib.nixosSystem {
+        #   inherit system;
+        #   specialArgs = { inherit inputs; };
+        #   modules = [
+        #     stylix.nixosModules.stylix
+        #     ./configs/hosts/poseidon/configuration.nix
+
+        #     # TESTING HM MODULE
+        #     home-manager.nixosModules.home-manager
+        #     {
+        #       home-manager.useGlobalPkgs = false;
+        #       home-manager.useUserPackages = true;
+        #       home-manager.backupFileExtension = "hm-backup";
+        #       home-manager.extraSpecialArgs = { inherit inputs; };
+        #       home-manager.users.gideon.imports = [
+        #         ./configs/users/gideon/home.nix
+        #         ./configs/modules/configs/user/laptop-hyprpanel-layout/laptop-hyprpanel-layout.nix
+        #       ];
+        #     }
+        #   ];
+        # };
         poseidon = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };

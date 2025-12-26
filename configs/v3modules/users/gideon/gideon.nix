@@ -33,4 +33,7 @@
 
   # Test: Associate the secrets file with this user module
   sops.defaultSopsFile = ../../../secrets/gideon_secrets.yaml;
+
+  # Allow gideon to copy closures (trusted user for nix operations)
+  nix.settings.trusted-users = [ "gideon" ];
 }

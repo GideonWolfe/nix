@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 let
-  basalt-tui = pkgs.callPackage ./basalt-tui.nix { };
+  basalt-tui = pkgs.callPackage ../custom/basalt-tui.nix { };
+  hackernews-tui = pkgs.callPackage ../custom/hackernews-tui.nix { };
 in {
   home.packages = [
 
@@ -182,6 +183,15 @@ in {
     pkgs.gnucash # basic accounting software
     pkgs.wealthfolio # local finance/portfolio tracker
 
+    ########
+    # News #
+    ########
+    pkgs.newsboat # TUI RSS reader
+    #pkgs.akregator #Qt RSS reader
+    pkgs.newsflash # GTK RSS reader
+    pkgs.rssguard # KDE RSS reader
+    hackernews-tui
+
     #########
     # Wikis #
     #########
@@ -190,6 +200,17 @@ in {
     pkgs.obsidian
     basalt-tui
 
+
+
+    #######
+    # Web #
+    #######
+    chromium
+    w3m
+    qutebrowser
+    miniserve # serve startpage and other apps easily
+    amfora # TUI gemini browser
+    tor-browser
 
 
     # Dashboards
