@@ -47,7 +47,8 @@ in
     ################
     # Social Media #
     ################
-    pkgs.tuba # GTK fediverse/mastadon client
+    # BUG tuba compiling from scratch, takes forever
+    #pkgs.tuba # GTK fediverse/mastadon client
     hackernews-tui
     pkgs.castero # TUI podcast player
   ];
