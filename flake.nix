@@ -194,8 +194,8 @@
           modules = [
             ./configs/hosts/poseidon/configuration.nix
 
-            home-manager.nixosModules.home-manager
             {
+              home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [
                 ./configs/v3modules/users/gideon/home.nix
                 ./configs/v3modules/home/sessions/hypr/hyprpanel-laptop-layout.nix
