@@ -9,8 +9,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    # Common system configs
-    ../../modules/configs/system/common.nix
+    # Base Level system configuration
+    ../../v3modules/system/core/system.nix
 
     # Import the gideon system user configuration
     ../../v3modules/users/gideon/gideon.nix
