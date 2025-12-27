@@ -161,6 +161,7 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [
                 ./configs/v3modules/users/gideon/home.nix
+                ./configs/v3modules/packages/light.nix
               ];
             }
           ];
