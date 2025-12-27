@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  hackernews-tui = pkgs.callPackage ./hackernews-tui.nix { };
+  hackernews-tui = pkgs.callPackage ../custom/hackernews-tui.nix { };
 in
 {
   home.packages = [

@@ -1,7 +1,6 @@
 { config, lib, pkgs, inputs, ... }:
 let
   basalt-tui = pkgs.callPackage ../custom/basalt-tui.nix { };
-  hackernews-tui = pkgs.callPackage ../custom/hackernews-tui.nix { };
 in {
   home.packages = [
 
@@ -190,7 +189,6 @@ in {
     #pkgs.akregator #Qt RSS reader
     pkgs.newsflash # GTK RSS reader
     pkgs.rssguard # KDE RSS reader
-    hackernews-tui
 
     #########
     # Wikis #
