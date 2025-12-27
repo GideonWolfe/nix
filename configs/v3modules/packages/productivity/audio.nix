@@ -3,7 +3,7 @@
 {
   home.packages = [
     pkgs.blanket # ambient noise player
-    pkgs.piper-tts # Advanced text to speech
+    #pkgs.piper-tts # Advanced text to speech
     pkgs.audio-sharing # Automatically share the current audio playback in the form of an RTSP stream
 
     ##################

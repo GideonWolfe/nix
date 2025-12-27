@@ -26,6 +26,11 @@ in {
     # Printing Support
     services.printing.enable = true;
 
+    # RTL-SDR Support
+    hardware.rtl-sdr = {
+      enable = true;
+    };
+
     # environment.systemPackages = [
     # ];
   };
