@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
 
     # Hardware 
+    light # utility for changing backlight brightness
     piper # GTK frontend to configure mice
     solaar # GUI for Logitech Unifying Reciever config
     antimicrox # GUI for mapping buttons on input devices
@@ -23,6 +24,7 @@
     gnome-firmware # GUI for installing device firmware
     gnome-tecla # GUI for viewing keyboard layout
     usbutils # adds utilities like lsusb
+    s-tui # TUI stress tester
     # Yubikey stuff
     yubioath-flutter # Yubikey authenticator/manager
     yubikey-manager # CLI manager

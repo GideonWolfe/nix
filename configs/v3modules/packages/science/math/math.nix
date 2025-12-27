@@ -6,6 +6,7 @@
     ########
     # MATH #
     ########
+    pkgs.bc
     pkgs.cantor # frontend to octave
     pkgs.octave # scientific programming lang
     pkgs.geogebra # graphing calculator

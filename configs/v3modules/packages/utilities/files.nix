@@ -42,5 +42,8 @@
     # List open files
     lsof
 
+    # backup CLI
+    restic
+
   ];
 }

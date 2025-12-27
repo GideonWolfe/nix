@@ -34,6 +34,8 @@
 
     pstree # process tree
 
+    espeak
+
     fishPlugins.done
 
 
