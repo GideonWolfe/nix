@@ -147,7 +147,7 @@
             # Example client configurations
             sisyphus = {
               publicKey = "PENDING_KEY_GENERATION";
-              vpnIp = "10.100.0.4";
+              vpnIp = "10.100.0.7";
             };
             hades = {
               publicKey = "PENDING_KEY_GENERATION";
@@ -155,7 +155,7 @@
             };
             poseidon = {
               publicKey = "PENDING_KEY_GENERATION";
-              vpnIp = "10.100.0.6";
+              vpnIp = "10.100.0.4";
             };
             alpha = {
               publicKey = "PENDING_KEY_GENERATION";

@@ -192,10 +192,8 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            stylix.nixosModules.stylix
             ./configs/hosts/poseidon/configuration.nix
 
-            # TESTING HM MODULE
             home-manager.nixosModules.home-manager
             {
               home-manager.users.gideon.imports = [

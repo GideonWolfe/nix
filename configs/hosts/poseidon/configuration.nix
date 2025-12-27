@@ -51,13 +51,13 @@
     #../../modules/packages/system/development.nix
 
     # Networking
-    ../../modules/packages/system/networking.nix
+    #../../modules/packages/system/networking.nix
 
     # Graphics
     #../../modules/packages/system/ui.nix
 
     # System
-    ../../modules/packages/system/system.nix
+    #../../modules/packages/system/system.nix
 
   ];
 
