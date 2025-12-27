@@ -9,14 +9,14 @@
 	#	pkgs.python311Packages.beautifulsoup4
 	#];
 
-	home.packages = [(
-		pkgs.python3.withPackages (pythonPkgs: [
+	home.packages = [
+		(pkgs.python3.withPackages (pythonPkgs: [
 			pythonPkgs.pyyaml
 			pythonPkgs.pandas
 			pythonPkgs.biopandas
 			pythonPkgs.geopandas
 			pythonPkgs.beautifulsoup4
-		]);
-	)];
+		]))
+	];
 
 }
