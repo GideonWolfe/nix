@@ -9,6 +9,11 @@
     ./configs/ssh.nix
     ./configs/gpg.nix
     ./configs/git.nix
+    # Email stuff
+    ./configs/email/neomutt/neomutt.nix
+    ./configs/email/thunderbird/thunderbird.nix # uses lots of storage
+    ./configs/email/email.nix
+    ./configs/email/mbsync.nix
 
     # Package imports
     #./packages.nix
