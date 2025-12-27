@@ -161,7 +161,6 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [
                 ./configs/v3modules/users/gideon/home.nix
-                ./configs/v3modules/packages/light.nix
               ];
             }
           ];
@@ -199,6 +198,7 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [
                 ./configs/v3modules/users/gideon/home.nix
+                ./configs/v3modules/packages/light.nix
                 ./configs/v3modules/home/sessions/hypr/hyprpanel-laptop-layout.nix
               ];
             }
