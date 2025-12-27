@@ -18,9 +18,9 @@ in
     ##########
     # Signal #
     ##########
-    signal-desktop
-    gurk-rs # signal TUI
-    flare-signal # GNOME Signal GUI
+    pkgs.signal-desktop
+    pkgs.gurk-rs # signal TUI
+    pkgs.flare-signal # GNOME Signal GUI
 
     ###########
     # Discord #
@@ -31,8 +31,8 @@ in
     ##########
     # Matrix #
     ##########
-    element-desktop # "official" Matrix GUI
-    fractal # GNOME Matrix GUI
+    pkgs.element-desktop # "official" Matrix GUI
+    pkgs.fractal # GNOME Matrix GUI
     #gomuks # Matrix TUI #BUG: has a CSV
 
     #######
