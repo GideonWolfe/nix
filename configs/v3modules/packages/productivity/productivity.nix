@@ -205,12 +205,12 @@ in {
     #######
     # Web #
     #######
-    chromium
-    w3m
-    qutebrowser
-    miniserve # serve startpage and other apps easily
-    amfora # TUI gemini browser
-    tor-browser
+    pkgs.chromium
+    pkgs.w3m
+    pkgs.qutebrowser
+    pkgs.miniserve # serve startpage and other apps easily
+    pkgs.amfora # TUI gemini browser
+    pkgs.tor-browser
 
 
     # Dashboards
