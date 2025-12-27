@@ -6,7 +6,6 @@ with config.lib.stylix.colors.withHashtag;
   xdg.configFile.plantuml = {
 
     enable = true;
-    #onChange = manually tell darkreader to refresh somehow?
     target = "plantuml/puml-theme-stylix.puml";
     text = ''
       !$THEME = "stylix"

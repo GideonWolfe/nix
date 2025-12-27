@@ -66,6 +66,7 @@
   custom.features.secrets.enable = true;
   custom.features.monitoring.enable = false;
   custom.features.gaming.enable = true;
+  custom.features.hardware.enable = true;
 
   # TEST to allow cross compilation for ARM
   boot.binfmt.emulatedSystems = [

@@ -109,5 +109,17 @@
     ./apps/firefox/firefox.nix
     ./apps/darkreader/darkreader.nix
     ./apps/startpage/service.nix
+    ./apps/thunderbird/thunderbird.nix
+    ./apps/gpredict/gpredict.nix
+    ./apps/obs-studio/obs-theme.nix
+    ./apps/plantuml/plantuml.nix
+    ./apps/aichat/aichat.nix
+    ./apps/mods/mods.nix
+    ./apps/f3d/f3d.nix
+    ./apps/flameshot/flameshot.nix
+    ./apps/fzf/fzf.nix
+    ./apps/glava/rc.nix
+    ./apps/glava/shaders.nix
+    ./apps/vdirsyncer/vdirsyncer.nix
   ];
 }
