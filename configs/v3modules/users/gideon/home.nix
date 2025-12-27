@@ -14,9 +14,13 @@
     ./configs/email/thunderbird/thunderbird.nix # uses lots of storage
     ./configs/email/email.nix
     ./configs/email/mbsync.nix
-
-    # Package imports
-    #./packages.nix
+    # calendar settings and sync
+    ./configs/calendar/calendar.nix
+    ./configs/calendar/khal.nix
+    ./configs/calendar/calcure.nix
+    # contacts settings and sync
+    ./configs/contacts/contacts.nix
+    ./configs/contacts/khard.nix
   ];
   
   # Put my profile image in the usual spot
