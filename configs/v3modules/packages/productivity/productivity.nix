@@ -194,7 +194,7 @@ in {
     # Wikis #
     #########
     pkgs.trilium-desktop
-    pkgs.affine
+    #pkgs.affine BUG: uses an insecure version of electron
     pkgs.obsidian
     basalt-tui
 
