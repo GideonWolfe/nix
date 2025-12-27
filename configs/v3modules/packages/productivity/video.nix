@@ -15,7 +15,7 @@
     ###########
     # Players #
     ###########
-    mpv
+    #mpv
     mpvScripts.mpris # make mpv use mpris
     vlc
     jftui # Jellyfin TUI
