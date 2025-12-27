@@ -61,6 +61,11 @@
 
   ];
 
+  # Enable custom features
+  custom.features.wireguard.enable = true;
+  custom.features.secrets.enable = true;
+  custom.features.monitoring.enable = false;
+
   # TEST to allow cross compilation for ARM
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
