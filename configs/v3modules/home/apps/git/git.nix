@@ -2,6 +2,13 @@
 
 {
 
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    # https://dandavison.github.io/delta/choosing-colors-styles.html
+    options = { theme = "base16-stylix"; };
+  };
+
   programs.git = {
 
     # Allow HM to configure git
@@ -10,13 +17,19 @@
     # userName = "Gideon Wolfe";
     # userEmail = "wolfegideon@gmail.com";
 
+    settings = {
+      user = {
+        name = "Gideon Wolfe";
+        email = "wolfegideon@gmail.com";
+      };
+      alias = {
+        lg =
+          "log --graph --abbrev-commit --decorate --format=format:'%C(bold cyan)%h%C(reset) ->%C(bold yellow)%d%C(reset) %C(white)%s%C(reset) %C(green)(%ar)%C(reset) %C(dim white)- %an%C(reset)'";
+      };
+    };
+
     # https://github.com/github/gitignore
     #ignores = {}
-    delta = {
-      enable = true;
-      # https://dandavison.github.io/delta/choosing-colors-styles.html
-      options = { theme = "base16-stylix"; };
-    };
 
     extraConfig = {
       push = { autoSetupRemote = true; };
@@ -25,10 +38,6 @@
       "mergetool \"nvim\"" = { cmd = "nvim -f -c 'DiffviewOpen'"; };
     };
 
-    aliases = {
-      lg =
-        "log --graph --abbrev-commit --decorate --format=format:'%C(bold cyan)%h%C(reset) ->%C(bold yellow)%d%C(reset) %C(white)%s%C(reset) %C(green)(%ar)%C(reset) %C(dim white)- %an%C(reset)'";
-    };
 
     hooks = {
       #TODO this should point to another dir
