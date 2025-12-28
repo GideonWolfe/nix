@@ -134,7 +134,7 @@ in {
     # Encoding / Decoding #
     #######################
     pkgs.qrtool # encode/decode QR images
-    pkgs.zint # powerful barcode creator
+    pkgs.zint-qt # powerful barcode creator
     #pkgs.barcode # barcode generator
     #pkgs.zbar # barcode scanner
 
