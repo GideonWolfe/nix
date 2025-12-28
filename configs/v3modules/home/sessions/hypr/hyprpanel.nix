@@ -9,7 +9,7 @@ with config.lib.stylix.colors.withHashtag;
 
     settings = {
 
-      theme = {
+      theme = lib.mkForce {
         bar = {
           scaling = 75;
           dropdownGap = "2.1em";
