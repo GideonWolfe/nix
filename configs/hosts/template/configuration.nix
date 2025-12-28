@@ -24,7 +24,8 @@
   # My roles that can be enabled/disabled per system
   custom.features.wireguard.enable = true;
   custom.features.secrets.enable = true;
-  custom.features.monitoring.enable = true;
+  custom.features.monitoring.enable = false;
+  custom.features.gaming.enable = false;
 
   # System state version
   system.stateVersion = "25.05";
