@@ -85,7 +85,7 @@
     pkgs.glava
     #pkgs.cava # TUI music visualizer
     pkgs.catnip # more visualizers
-    pkgs.cli-visualizer # another visualizer
+    #pkgs.cli-visualizer # another visualizer
     pkgs.projectm-sdl-cpp # more visualizers
     pkgs.cavalier # cava based visualizers
     pkgs.scope-tui # TUI oscilloscope/vectorscope.spectroscope also a music visualizer
