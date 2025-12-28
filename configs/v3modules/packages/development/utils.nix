@@ -97,7 +97,7 @@ in {
     # Docs #
     ########
     pkgs.zeal # offline docs browser
-    pkgs.devdocs-desktop # offline docs browser
+    #pkgs.devdocs-desktop # offline docs browser # unmaintained :(
     dedoc
 
     # Godot
