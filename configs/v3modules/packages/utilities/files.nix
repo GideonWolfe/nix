@@ -34,7 +34,7 @@
     xfce.thunar-volman # allow thunar to manage removable drives
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin # we have easytag for this but it doesn't hurt
-    libsForQt5.ark # advanced archive manager, haven't figured out KDE theming yet
+    kdePackages.ark # advanced archive manager, haven't figured out KDE theming yet
     nautilus
     sushi # quick preview for nautilus
     tuifimanager # GUI like fm in the TUI
