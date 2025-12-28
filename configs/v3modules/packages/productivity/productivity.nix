@@ -13,7 +13,7 @@ in {
     ##########
     pkgs.libreoffice
     pkgs.xournalpp # paint.net clone #TODO: theme paper color, etc (need to generate XML)
-    pkgs.calligra # suite of productivity apps
+    pkgs.kdePackages.calligra # suite of productivity apps
     
 
     ################
