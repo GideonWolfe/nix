@@ -8,7 +8,9 @@
     piper # GTK frontend to configure mice
     solaar # GUI for Logitech Unifying Reciever config
     antimicrox # GUI for mapping buttons on input devices
-    steamcontroller # drivers for the steam controller
+    # Apparently not maintained? Possibly included with steam?
+    #steamcontroller # drivers for the steam controller
+    sc-controller # User-mode driver and GUI for Steam Controller and other controllers
     openrgb-with-all-plugins # OpenRGB
     #lact # GUI for AMD GPU control
     #nvitop # Interactive TUI for Nvidia GPU control # this may need additional plugins to detect other GPUs, check package list
