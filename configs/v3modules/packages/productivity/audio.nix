@@ -69,7 +69,7 @@
     # Downloaders #
     ###############
     pkgs.spotdl # Download spotify playlists/metadata
-    pkgs.onthespot # download spotify music
+    #pkgs.onthespot # download spotify music # unmaintained
 
     ##################
     # Song ID/Lyrics #
