@@ -112,7 +112,7 @@
     ./apps/thunderbird/thunderbird.nix
     ./apps/gpredict/gpredict.nix
     ./apps/obs-studio/obs-theme.nix
-    ./apps/plantuml/plantuml.nix
+    #./apps/plantuml/plantuml.nix
     ./apps/aichat/aichat.nix
     ./apps/mods/mods.nix
     ./apps/f3d/f3d.nix
