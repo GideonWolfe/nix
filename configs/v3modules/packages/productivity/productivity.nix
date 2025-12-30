@@ -54,8 +54,8 @@ in {
     #########
     # LaTeX #
     #########
-    pkgs.texliveFull # full latex environment
-    pkgs.texstudio # LaTeX Editor
+    #pkgs.texliveFull # full latex environment
+    #pkgs.texstudio # LaTeX Editor
 
     ##########
     # ebooks #
