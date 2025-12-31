@@ -62,7 +62,7 @@
 
       # Haskell
       hls = {
-        enable = true;
+        enable = false; #This is huge...
         installGhc = true;
       };
 
