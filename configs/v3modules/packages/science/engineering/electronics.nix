@@ -15,6 +15,7 @@
     picoscope # oscilloscope GUI
     simulide # Simple real time electronic circuit simulator
     kicad-small # PCB designer
+    coulomb # GUI circuit simulator
 
   ];
 }

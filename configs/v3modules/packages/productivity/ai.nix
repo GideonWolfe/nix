@@ -11,6 +11,7 @@
     #pkgs.open-webui # NOTE: this is a big one, maybe enable conditionally
     pkgs.aichat
     pkgs.shell-gpt # CLI for ChatGPT
+    pkgs.newelle
     # Also big (3gb)
     #pkgs.alpaca # GTK LLM GUI
     #(pkgs.alpaca.override { ollama = pkgs.ollama-rocm; })

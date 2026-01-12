@@ -32,6 +32,7 @@
     ###############
     yt-dlp # better youtube-dl
     vdhcoapp # companion for video downloader firefox plugin
+    multiplex # watch torrents with your friends
 
     # Take photos through webcam
     cheese

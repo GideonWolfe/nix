@@ -1,4 +1,10 @@
-{ pkgs, lib, config, inputs, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -65,7 +71,6 @@
     #./sessions/sway/swayidle.nix
     #./sessions/global/ui/waybar/waybar.nix
 
-
     ########################################
     # Themes and other application configs #
     ########################################
@@ -83,7 +88,7 @@
     ./apps/fastfetch/fastfetch.nix
     ./apps/vscode/vscode.nix # VScode settings
     ./apps/blender/blender-theme.nix # blender theme
-    #./apps/obsidian/obsidian-stylix-css.nix # obsidian theme # GIDEON MENTIONED
+    ./apps/obsidian/obsidian-stylix-css.nix # obsidian theme # GIDEON MENTIONED
     ./apps/element/element.nix # element settings/theme
     ./apps/ghidra/ghidra.nix # Ghidra theme
     ./apps/git/git.nix
@@ -96,9 +101,9 @@
     ./apps/godot/godot-theme.nix
     ./apps/astrolog/astrolog.nix
     ./apps/shortwave/shortwave.nix
-    ./apps/sdrpp/sdrpp.nix #TODO BROKEN
+    ./apps/sdrpp/sdrpp.nix # TODO BROKEN
     ./apps/hackernews-tui/hackernews-tui.nix
-    ./apps/television/television.nix
+    #./apps/television/television.nix #BUG: module is bugged
     ./apps/sourcegit/sourcegit.nix
     ./apps/xyosc/xyosc.nix
     ./apps/vesktop/vesktop.nix

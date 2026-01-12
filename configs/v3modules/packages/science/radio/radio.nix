@@ -17,6 +17,7 @@ in {
     pkgs.cubicsdr # sdr app
     pkgs.sdrangel
     pkgs.gnuradio
+    pkgs.satdump # downlink from satellites
     pkgs.inspectrum
     pkgs.rtl-sdr
     pkgs.gqrx
@@ -36,5 +37,6 @@ in {
     pkgs.telegraph # morse code GUI
     pkgs.aldo # learn morse code
     pkgs.gpredict-unstable
+    pkgs.contact # Meshtastic TUI
   ];
 }
