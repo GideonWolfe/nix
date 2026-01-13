@@ -29,7 +29,7 @@
 
   # My roles that can be enabled/disabled per system
   custom.features.wireguard.enable = false;
-  custom.features.secrets.enable = true;
+  custom.features.secrets.enable = false;
   custom.features.monitoring.enable = false;
   custom.features.gaming.enable = false;
   custom.features.proxmox-guest.enable = true;
