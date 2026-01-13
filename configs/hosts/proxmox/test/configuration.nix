@@ -15,19 +15,19 @@
     ../../../v3modules/users/gideon/gideon.nix
 
     # node custom MOTD for fun SSHing
-    ./motd.nix
+    #./motd.nix
   ];
   
   # Basic system settings
-  networking.hostName = "alpha";
+  networking.hostName = "proxmox-test";
 
   # My roles that can be enabled/disabled per system
-  custom.features.wireguard.enable = true;
-  custom.features.secrets.enable = true;
+  custom.features.wireguard.enable = false;
+  custom.features.secrets.enable = false;
   custom.features.monitoring.enable = false;
   custom.features.gaming.enable = false;
-  custom.features.proxmox-guest.enable = false;
+  custom.features.proxmox-guest.enable = true;
 
   # System state version
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

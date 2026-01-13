@@ -37,7 +37,9 @@
     ../roles/music_production/music_production.nix
     # Provide the option to enable desktop/hardware support.
     # Should be used if system isn't a VPS. Enabled by default
-    ../roles/hardware/desktop.nix
+    ../roles/desktop/desktop.nix
+    # Provide the option to enable proxmox-guest virtualization support
+    ../roles/proxmox-guest/proxmox-guest.nix
 
   ];
 

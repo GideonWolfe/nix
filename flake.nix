@@ -50,6 +50,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Image generator for various formats
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # cool visualizer
     xyosc = { url = "github:make-42/xyosc"; };
 
@@ -61,7 +67,7 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, stylix, spicetify-nix
-    , nixvim, sops-nix, deploy-rs, xyosc, dsd-fme, nix-ai-tools, disko, ...
+    , nixvim, sops-nix, deploy-rs, nixos-generators, xyosc, dsd-fme, nix-ai-tools, disko, ...
     }@inputs:
     let
       lib = nixpkgs.lib;
@@ -108,6 +114,26 @@
         };
 
 
+        proxmox-test = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            # Main host specific configuration
+            ./configs/hosts/rack/proxmox-test/configuration.nix
+            # Home manager
+            {
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.gideon.imports = [ 
+                # home.nix will import the base.nix with minimal HM configs
+                ./configs/v3modules/users/gideon/home.nix
+                # add the minimal packages needed for proxmox guest
+                ./configs/v3modules/packages/proxmox-guest.nix
+                ];
+            }
+          ];
+        };
+
+
 
         do-vps-test = lib.nixosSystem {
           #inherit system;
@@ -125,9 +151,9 @@
 
         uconsole = let
           system = "aarch64-linux";
-        #in lib.nixosSystem {
+        in lib.nixosSystem {
         # Overriding to build the whole system with unstable
-        in nixpkgs-unstable.lib.nixosSystem {
+        #in nixpkgs-unstable.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
@@ -139,8 +165,10 @@
               home-manager.users.gideon.imports = [
                 # Specific Hyprland config for uconsole screen
                 ./configs/hosts/uconsole/aether-hyprland-monitors.nix
-                # My main user home config
+                # My main user home config with minimal package config
                 ./configs/v3modules/users/gideon/home.nix
+                # all other home manager configs
+                ./configs/v3modules/home/full.nix
                 # Packages
               ];
             }
@@ -161,33 +189,13 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.gideon.imports = [
                 ./configs/v3modules/users/gideon/home.nix
+                ./configs/v3modules/home/full.nix
               ];
             }
           ];
         };
 
         # Thinkpad T490
-        # poseidon = lib.nixosSystem {
-        #   inherit system;
-        #   specialArgs = { inherit inputs; };
-        #   modules = [
-        #     stylix.nixosModules.stylix
-        #     ./configs/hosts/poseidon/configuration.nix
-
-        #     # TESTING HM MODULE
-        #     home-manager.nixosModules.home-manager
-        #     {
-        #       home-manager.useGlobalPkgs = false;
-        #       home-manager.useUserPackages = true;
-        #       home-manager.backupFileExtension = "hm-backup";
-        #       home-manager.extraSpecialArgs = { inherit inputs; };
-        #       home-manager.users.gideon.imports = [
-        #         ./configs/users/gideon/home.nix
-        #         ./configs/modules/configs/user/laptop-hyprpanel-layout/laptop-hyprpanel-layout.nix
-        #       ];
-        #     }
-        #   ];
-        # };
         poseidon = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
@@ -259,6 +267,29 @@
         # buld with nix build .#uconsole-image
         uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
         uconsole-nixos = self.nixosConfigurations.uconsole.config.system.build.toplevel;
+        # Proxmox test VM
+        proxmox-test-vm = self.nixosConfigurations.proxmox-test.config.system.build.vm;
+        # Proxmox VMA image - build with: nix build .#proxmox-test-image
+        # Uses nixos-generators with the same modules as the nixosConfiguration
+        proxmox-test-image = nixos-generators.nixosGenerate {
+          system = "x86_64-linux";
+          modules = [
+            # You can reference the same configuration as proxmox-test
+            ./configs/hosts/proxmox/test/configuration.nix
+            {
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.gideon.imports = [ 
+                # home.nix will import the base.nix with minimal HM configs
+                ./configs/v3modules/users/gideon/home.nix
+                # add the minimal packages needed for proxmox guest
+                ./configs/v3modules/packages/proxmox-guest.nix
+                ];
+            }
+          ];
+          format = "proxmox";
+          # Optional: set disk size (in MB)
+          # specialArgs = { };
+        };
       };
 
       # ARM packages (for cross-compilation)
