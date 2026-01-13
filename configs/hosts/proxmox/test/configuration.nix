@@ -21,31 +21,15 @@
   #test
   environment.systemPackages = with pkgs; [
     unimatrix
+    toilet
   ];
   
   # Basic system settings
   networking.hostName = "proxmox-test";
 
-  # Static IP configuration - matches first Ethernet interface regardless of name
-  systemd.network = {
-    enable = true;
-    networks."10-lan" = {
-      matchConfig.Type = "ether";  # Match any Ethernet interface
-      networkConfig = {
-        Address = "192.168.0.10/24";
-        Gateway = "192.168.0.1";
-        DNS = [ "192.168.0.1" "1.1.1.1" ];
-      };
-    };
-  };
-
-  # Disable the default networking so systemd.network takes over
-  networking.useDHCP = false;
-  networking.useNetworkd = true;
-
   # My roles that can be enabled/disabled per system
   custom.features.wireguard.enable = false;
-  custom.features.secrets.enable = false;
+  custom.features.secrets.enable = true;
   custom.features.monitoring.enable = false;
   custom.features.gaming.enable = false;
   custom.features.proxmox-guest.enable = true;

@@ -362,7 +362,7 @@
       };
       # Remote update target
       deploy.nodes.proxmox-test-vm = {
-        hostname = "192.168.0.11";
+        hostname = "192.168.0.252";
         fastConnection = false;
         profiles.system = {
           # Connect over SSH as gideon
@@ -382,6 +382,9 @@
         modules = [
           ./configs/hosts/proxmox/test/configuration.nix
           {
+            # Increase disk size to 20GB (default is too small)
+            #virtualisation.diskSize = 20 * 1024;  # 20GB in MB
+            
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.gideon.imports = [ 
               # home.nix will import the base.nix with minimal HM configs
@@ -392,7 +395,8 @@
           }
         ];
         #format = "proxmox";
-        format = "qcow";
+        #format = "qcow";
+        format = "qcow-efi";
       };
 
       # This is highly advised, and will prevent many possible mistakes
