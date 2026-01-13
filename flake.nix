@@ -114,24 +114,24 @@
         };
 
 
-        proxmox-test = lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            # Main host specific configuration
-            ./configs/hosts/rack/proxmox-test/configuration.nix
-            # Home manager
-            {
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.gideon.imports = [ 
-                # home.nix will import the base.nix with minimal HM configs
-                ./configs/v3modules/users/gideon/home.nix
-                # add the minimal packages needed for proxmox guest
-                ./configs/v3modules/packages/proxmox-guest.nix
-                ];
-            }
-          ];
-        };
+        # proxmox-test = lib.nixosSystem {
+        #   inherit system;
+        #   specialArgs = { inherit inputs; };
+        #   modules = [
+        #     # Main host specific configuration
+        #     ./configs/hosts/rack/proxmox-test/configuration.nix
+        #     # Home manager
+        #     {
+        #       home-manager.extraSpecialArgs = { inherit inputs; };
+        #       home-manager.users.gideon.imports = [ 
+        #         # home.nix will import the base.nix with minimal HM configs
+        #         ./configs/v3modules/users/gideon/home.nix
+        #         # add the minimal packages needed for proxmox guest
+        #         ./configs/v3modules/packages/proxmox-guest.nix
+        #         ];
+        #     }
+        #   ];
+        # };
 
 
 
@@ -267,14 +267,11 @@
         # buld with nix build .#uconsole-image
         uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
         uconsole-nixos = self.nixosConfigurations.uconsole.config.system.build.toplevel;
-        # Proxmox test VM
-        proxmox-test-vm = self.nixosConfigurations.proxmox-test.config.system.build.vm;
         # Proxmox VMA image - build with: nix build .#proxmox-test-image
-        # Uses nixos-generators with the same modules as the nixosConfiguration
         proxmox-test-image = nixos-generators.nixosGenerate {
           system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [
-            # You can reference the same configuration as proxmox-test
             ./configs/hosts/proxmox/test/configuration.nix
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
@@ -283,12 +280,10 @@
                 ./configs/v3modules/users/gideon/home.nix
                 # add the minimal packages needed for proxmox guest
                 ./configs/v3modules/packages/proxmox-guest.nix
-                ];
+              ];
             }
           ];
           format = "proxmox";
-          # Optional: set disk size (in MB)
-          # specialArgs = { };
         };
       };
 
@@ -300,23 +295,23 @@
       };
 
       # Definitions for individual users
-      homeConfigurations = {
-        gideon = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit spicetify-nix;
-            inherit inputs;
-          };
-          modules = [
-            stylix.homeManagerModules.stylix
-            #agenix.homeManagerModules.age
-            nixvim.homeManagerModules.nixvim
-            spicetify-nix.homeManagerModules.default
-            #hyprpanel.homeManagerModules.hyprpanel
-            ./configs/users/gideon/home.nix
-          ];
-        };
-      };
+      # homeConfigurations = {
+      #   gideon = home-manager.lib.homeManagerConfiguration {
+      #     inherit pkgs;
+      #     extraSpecialArgs = {
+      #       inherit spicetify-nix;
+      #       inherit inputs;
+      #     };
+      #     modules = [
+      #       stylix.homeManagerModules.stylix
+      #       #agenix.homeManagerModules.age
+      #       nixvim.homeManagerModules.nixvim
+      #       spicetify-nix.homeManagerModules.default
+      #       #hyprpanel.homeManagerModules.hyprpanel
+      #       ./configs/users/gideon/home.nix
+      #     ];
+      #   };
+      # };
 
       # Deploy-rs configuration
       deploy.nodes.do-vps-test = {

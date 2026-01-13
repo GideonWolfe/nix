@@ -5,7 +5,7 @@
     
     # Disk Partitioning Settings
     # NOTE: not needed if using manual partitioning during installation
-    ./disko.nix
+    #./disko.nix
 
     # Base Level system configuration
     # Imports world data, stylix, home-manager, wireguard, sops, etc

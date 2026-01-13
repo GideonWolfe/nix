@@ -86,6 +86,14 @@ in
     xdg.portal.wlr.enable = true;
     xdg.portal.lxqt.enable = true;
 
+    # FlatPak Support
+    services.flatpak.enable = true;
+    # Enable AppImage Support
+    programs.appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     # Hyprland
     programs.hyprland = {
       enable = true;

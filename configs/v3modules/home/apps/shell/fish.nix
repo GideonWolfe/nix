@@ -199,6 +199,8 @@ with config.lib.stylix.colors.withHashtag;
             		unrar x -ad "$i"
             	    case '*.7z'
             		7za x "$i"
+            	    case '*.zst'
+            		unzstd "$i"
             	    case '*'
             		echo "extract: '$i' cannot be extracted" >&2
             		set success 1

@@ -28,11 +28,11 @@ in
     };
 
     boot = {
-      loader = mkDefault {
-        systemd-boot.enable = false; 
+      loader = {
+        systemd-boot.enable = lib.mkForce false; 
         # Using GRUB so we don't have to worry about another EFI disk
         grub = {
-          enable = true;
+          enable = lib.mkForce true;
           #devices = [ "/dev/vda" ];
           devices = [ "nodev" ];
         };

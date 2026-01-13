@@ -128,13 +128,6 @@
     oci-containers.backend = "docker";
   };
 
-  # FlatPak Support
-  services.flatpak.enable = true;
-  # Enable AppImage Support
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
 
   # enable fish systemwide
   programs.fish.enable = true;
