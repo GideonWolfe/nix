@@ -283,7 +283,8 @@
               ];
             }
           ];
-          format = "proxmox";
+          #format = "proxmox";
+          format = "qcow";
         };
       };
 
