@@ -33,17 +33,27 @@ in
 
     boot = {
       loader = {
-        systemd-boot.enable = lib.mkForce false; 
-        # Using GRUB so we don't have to worry about another EFI disk
-        grub = {
-          enable = lib.mkForce true;
-          #devices = [ "/dev/vda" ];
-          devices = [ "nodev" ];
-        };
+        # Use systemd-boot for EFI systems
+        systemd-boot.enable = true;
+        systemd-boot.configurationLimit = lib.mkForce 5; # to save space
+        efi.canTouchEfiVariables = true;
+        grub.enable = lib.mkForce false;
       };
 
       # automatically grows the boot partition to match the size of the disk.
       growPartition = true; 
+    };
+
+    # Define root FS, this is the disk we already generated
+    fileSystems."/" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "ext4";
+    };
+
+    # Mount the EFI System Partition
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-label/ESP";
+      fsType = "vfat";
     };
 
     # Automatically format and mount the data disk
@@ -52,14 +62,6 @@ in
       fsType = "ext4";
       autoFormat = true;  # Automatically format if not formatted
       options = [ "defaults" ];
-    };
-
-    # Define root FS, this is the disk we already generated
-    fileSystems."/" = {
-      #device = "/dev/sda";
-      # This is the label created by the qcow2 generator
-      device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
     };
 
   };
