@@ -18,6 +18,11 @@
     #./motd.nix
   ];
   
+  #test
+  environment.systemPackages = with pkgs; [
+    unimatrix
+  ];
+  
   # Basic system settings
   networking.hostName = "proxmox-test";
 

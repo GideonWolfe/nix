@@ -268,25 +268,8 @@
         uconsole-image = self.nixosConfigurations.uconsole.config.system.build.sdImage;
         uconsole-nixos = self.nixosConfigurations.uconsole.config.system.build.toplevel;
         # Proxmox VMA image - build with: nix build .#proxmox-test-image
-        proxmox-test-image = nixos-generators.nixosGenerate {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./configs/hosts/proxmox/test/configuration.nix
-            {
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.gideon.imports = [ 
-                # home.nix will import the base.nix with minimal HM configs
-                ./configs/v3modules/users/gideon/home.nix
-                # add the minimal packages needed for proxmox guest
-                ./configs/v3modules/packages/proxmox-guest.nix
-              ];
-            }
-          ];
-          #format = "proxmox";
-          format = "qcow";
-        };
       };
+
 
       # ARM packages (for cross-compilation)
       packages.aarch64-linux = {
@@ -349,6 +332,68 @@
         };
       };
 
+
+      #  $$$$$$\   $$$$$$\   $$$$$$\  $$\   $$\ $$$$$$\$$$$\   $$$$$$\  $$\   $$\ 
+      # $$  __$$\ $$  __$$\ $$  __$$\ \$$\ $$  |$$  _$$  _$$\ $$  __$$\ \$$\ $$  |
+      # $$ /  $$ |$$ |  \__|$$ /  $$ | \$$$$  / $$ / $$ / $$ |$$ /  $$ | \$$$$  / 
+      # $$ |  $$ |$$ |      $$ |  $$ | $$  $$<  $$ | $$ | $$ |$$ |  $$ | $$  $$<  
+      # $$$$$$$  |$$ |      \$$$$$$  |$$  /\$$\ $$ | $$ | $$ |\$$$$$$  |$$  /\$$\ 
+      # $$  ____/ \__|       \______/ \__/  \__|\__| \__| \__| \______/ \__/  \__|
+      # $$ |                                                                      
+      # $$ |                                                                      
+      # \__|                                                                      
+
+      nixosConfigurations.proxmox-test-vm = lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./configs/hosts/proxmox/test/configuration.nix
+
+          {
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.gideon.imports = [
+              # home.nix will import the base.nix with minimal HM configs
+              ./configs/v3modules/users/gideon/home.nix
+              # add the minimal packages needed for proxmox guest
+              ./configs/v3modules/packages/proxmox-guest.nix
+            ];
+          }
+        ];
+      };
+      # Remote update target
+      deploy.nodes.proxmox-test-vm = {
+        hostname = "192.168.0.11";
+        fastConnection = false;
+        profiles.system = {
+          # Connect over SSH as gideon
+          sshUser = "gideon";
+          sshOpts = [ "-i" "/home/gideon/.ssh/gideon_ssh_sk" "-p" "2736"];
+          path = deploy-rs.lib.x86_64-linux.activate.nixos
+            self.nixosConfigurations.proxmox-test-vm;
+          # become root for activation
+          user = "root";
+        };
+      };
+      # Will generate .qcow2 disk image of VM
+      # nix build .#proxmox-test-image
+      packages.x86_64-linux.proxmox-test-image = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./configs/hosts/proxmox/test/configuration.nix
+          {
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.gideon.imports = [ 
+              # home.nix will import the base.nix with minimal HM configs
+              ./configs/v3modules/users/gideon/home.nix
+              # add the minimal packages needed for proxmox guest
+              ./configs/v3modules/packages/proxmox-guest.nix
+            ];
+          }
+        ];
+        #format = "proxmox";
+        format = "qcow";
+      };
 
       # This is highly advised, and will prevent many possible mistakes
       checks = builtins.mapAttrs

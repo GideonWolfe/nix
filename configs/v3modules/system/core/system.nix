@@ -111,8 +111,6 @@
   # Set Timezone Automatically
   services.automatic-timezoned.enable = true;
 
-  # Smartd for HDDs
-  services.smartd.enable = true;
   # Enable udisks to automount disks
   services.udisks2.enable = true;
 

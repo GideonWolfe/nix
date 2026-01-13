@@ -23,9 +23,13 @@ in
 
   config = lib.mkIf cfg.enable {
 
+    # Enable QEMU Guest Agent for better Proxmox integration
     services.qemuGuest = {
       enable = true;
     };
+
+    # why is this enabled on my VMs?
+    services.smartd.enable = lib.mkForce false;
 
     boot = {
       loader = {
@@ -42,6 +46,21 @@ in
       growPartition = true; 
     };
 
+    # Automatically format and mount the data disk
+    fileSystems."/data" = {
+      device = "/dev/sdb";
+      fsType = "ext4";
+      autoFormat = true;  # Automatically format if not formatted
+      options = [ "defaults" ];
+    };
+
+    # Define root FS, this is the disk we already generated
+    fileSystems."/" = {
+      #device = "/dev/sda";
+      # This is the label created by the qcow2 generator
+      device = "/dev/disk/by-label/nixos";
+      fsType = "ext4";
+    };
 
   };
 }
